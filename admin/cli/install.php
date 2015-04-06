@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This script creates config.php file and prepares database.
@@ -25,7 +11,7 @@
  *
  * @package    core
  * @subpackage cli
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -43,7 +29,7 @@ if (function_exists('opcache_reset')) {
 }
 
 $help =
-"Command line Moodle installer, creates config.php and initializes database.
+"Command line Lion installer, creates config.php and initializes database.
 Please note you must execute this script with the same uid as apache
 or use chmod/chown after installation.
 
@@ -54,25 +40,25 @@ Options:
                       Default is 2777. You may want to change it to 2770
                       or 2750 or 750. See chmod man page for details.
 --lang=CODE           Installation and default site language.
---wwwroot=URL         Web address for the Moodle site,
+--wwwroot=URL         Web address for the Lion site,
                       required in non-interactive mode.
---dataroot=DIR        Location of the moodle data folder,
-                      must not be web accessible. Default is moodledata
+--dataroot=DIR        Location of the Lion data folder,
+                      must not be web accessible. Default is liondata
                       in the parent directory.
 --dbtype=TYPE         Database type. Default is mysqli
 --dbhost=HOST         Database host. Default is localhost
---dbname=NAME         Database name. Default is moodle
+--dbname=NAME         Database name. Default is lion
 --dbuser=USERNAME     Database user. Default is root
 --dbpass=PASSWORD     Database password. Default is blank
 --dbport=NUMBER       Use database port.
 --dbsocket=PATH       Use database socket, 1 means default. Available for some databases only.
---prefix=STRING       Table prefix for above database tables. Default is mdl_
+--prefix=STRING       Table prefix for above database tables. Default is lio_
 --fullname=STRING     The fullname of the site
 --shortname=STRING    The shortname of the site
---adminuser=USERNAME  Username for the moodle admin account. Default is admin
---adminpass=PASSWORD  Password for the moodle admin account,
+--adminuser=USERNAME  Username for the Lion admin account. Default is admin
+--adminpass=PASSWORD  Password for the Lion admin account,
                       required in non-interactive mode.
---adminemail=STRING   Email address for the moodle admin account.
+--adminemail=STRING   Email address for the Lion admin account.
 --non-interactive     No interactive questions, installation fails if any
                       problem encountered.
 --agree-license       Indicates agreement with software license,
@@ -82,8 +68,7 @@ Options:
 -h, --help            Print out this help
 
 Example:
-\$sudo -u www-data /usr/bin/php admin/cli/install.php --lang=cs
-"; //TODO: localize, mark as needed in install - to be translated later when everything is finished
+\$sudo -u www-data /usr/bin/php admin/cli/install.php --lang=fa";
 
 
 // distro specific customisation
@@ -121,7 +106,7 @@ $olddir = getcwd();
 chdir(dirname($_SERVER['argv'][0]));
 
 // Servers should define a default timezone in php.ini, but if they don't then make sure something is defined.
-// This is a quick hack.  Ideally we should ask the admin for a value.  See MDL-22625 for more on this.
+
 if (function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get')) {
     @date_default_timezone_set(@date_default_timezone_get());
 }
@@ -132,7 +117,7 @@ if (function_exists('date_default_timezone_set') and function_exists('date_defau
 // we need a lot of memory
 @ini_set('memory_limit', '128M');
 
-/** Used by library scripts to check they are being called by Moodle */
+/** Used by library scripts to check they are being called by Lion */
 define('MOODLE_INTERNAL', true);
 
 // Disables all caching.
@@ -146,8 +131,7 @@ define('IGNORE_COMPONENT_CACHE', true);
 if (version_compare(phpversion(), "5.4.4") < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN NOT move it after installib
-    fwrite(STDERR, "Moodle 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).\n");
-    fwrite(STDERR, "Please upgrade your server software or install older Moodle version.\n");
+    fwrite(STDERR, "Lion requires at least PHP 5.4.4 (currently using version $phpversion).\n");
     exit(1);
 }
 
@@ -159,7 +143,7 @@ $CFG->dirroot              = dirname(dirname(dirname(__FILE__)));
 $CFG->libdir               = "$CFG->dirroot/lib";
 $CFG->wwwroot              = "http://localhost";
 $CFG->httpswwwroot         = $CFG->wwwroot;
-$CFG->docroot              = 'http://docs.moodle.org';
+$CFG->docroot              = 'localhost';
 $CFG->running_installer    = true;
 $CFG->early_install_lang   = true;
 $CFG->ostype               = (stristr(PHP_OS, 'win') && !stristr(PHP_OS, 'darwin')) ? 'WINDOWS' : 'UNIX';
@@ -171,7 +155,7 @@ $CFG->debugdeveloper       = true;
 $parts = explode('/', str_replace('\\', '/', dirname(dirname(__FILE__))));
 $CFG->admin                = array_pop($parts);
 
-//point pear include path to moodles lib/pear so that includes and requires will search there for files before anywhere else
+//point pear include path to lib/pear so that includes and requires will search there for files before anywhere else
 //the problem is that we need specific version of quickforms and hacked excel files :-(
 ini_set('include_path', $CFG->libdir.'/pear' . PATH_SEPARATOR . ini_get('include_path'));
 
@@ -240,15 +224,15 @@ list($options, $unrecognized) = cli_get_params(
         'chmod'             => isset($distro->directorypermissions) ? sprintf('%04o',$distro->directorypermissions) : '2777', // let distros set dir permissions
         'lang'              => $CFG->lang,
         'wwwroot'           => '',
-        'dataroot'          => empty($distro->dataroot) ? str_replace('\\', '/', dirname(dirname(dirname(dirname(__FILE__)))).'/moodledata'): $distro->dataroot, // initialised later after including libs or by distro
+        'dataroot'          => empty($distro->dataroot) ? str_replace('\\', '/', dirname(dirname(dirname(dirname(__FILE__)))).'/liondata'): $distro->dataroot, // initialised later after including libs or by distro
         'dbtype'            => empty($distro->dbtype) ? $defaultdb : $distro->dbtype, // let distro skip dbtype selection
         'dbhost'            => empty($distro->dbhost) ? 'localhost' : $distro->dbhost, // let distros set dbhost
-        'dbname'            => 'moodle',
-        'dbuser'            => empty($distro->dbuser) ? 'root' : $distro->dbuser, // let distros set dbuser
+        'dbname'            => 'lion',
+        'dbuser'            => empty($distro->dbuser) ? 'lionuser' : $distro->dbuser, // let distros set dbuser
         'dbpass'            => '',
         'dbport'            => '',
         'dbsocket'          => '',
-        'prefix'            => 'mdl_',
+        'prefix'            => 'lio_',
         'fullname'          => '',
         'shortname'         => '',
         'adminuser'         => 'admin',
@@ -377,7 +361,7 @@ $CFG->wwwroot       = $wwwroot;
 $CFG->httpswwwroot  = $CFG->wwwroot;
 
 
-//We need dataroot before lang download
+//We need dataroot
 $CFG->dataroot = $options['dataroot'];
 if ($interactive) {
     cli_separator();
@@ -389,7 +373,7 @@ if ($interactive) {
             $CFG->dataroot = ''; //can not find secure location for dataroot
             break;
         }
-        $CFG->dataroot = dirname($parrent).'/moodledata';
+        $CFG->dataroot = dirname($parrent).'/liondata';
     }
     cli_heading(get_string('dataroot', 'install'));
     $error = '';
@@ -431,18 +415,21 @@ $CFG->cachedir      = $CFG->dataroot.'/cache';
 $CFG->localcachedir = $CFG->dataroot.'/localcache';
 
 // download required lang packs
-if ($CFG->lang !== 'en') {
-    $installer = new lang_installer($CFG->lang);
-    $results = $installer->run();
-    foreach ($results as $langcode => $langstatus) {
-        if ($langstatus === lang_installer::RESULT_DOWNLOADERROR) {
-            $a       = new stdClass();
-            $a->url  = $installer->lang_pack_url($langcode);
-            $a->dest = $CFG->dataroot.'/lang';
-            cli_problem(get_string('remotedownloaderror', 'error', $a));
-        }
-    }
-}
+// COMMENTOUT (Pooya)
+// We deploy language pack with the package
+// Currently we only deploy fa
+//if ($CFG->lang !== 'en') {
+//    $installer = new lang_installer($CFG->lang);
+//    $results = $installer->run();
+//    foreach ($results as $langcode => $langstatus) {
+//        if ($langstatus === lang_installer::RESULT_DOWNLOADERROR) {
+//            $a       = new stdClass();
+//            $a->url  = $installer->lang_pack_url($langcode);
+//            $a->dest = $CFG->dataroot.'/lang';
+//            cli_problem(get_string('remotedownloaderror', 'error', $a));
+//        }
+//    }
+//}
 
 // switch the string_manager instance to stop using install/lang/
 $CFG->early_install_lang = false;
@@ -451,27 +438,29 @@ $CFG->langlocalroot      = $CFG->dataroot.'/lang';
 get_string_manager(true);
 
 // make sure we are installing stable release or require a confirmation
-if (isset($maturity)) {
-    if (($maturity < MATURITY_STABLE) and !$options['allow-unstable']) {
-        $maturitylevel = get_string('maturity'.$maturity, 'admin');
+// COMMENTOUT (Pooya)
+// Not necessary
+//if (isset($maturity)) {
+//     if (($maturity < MATURITY_STABLE) and !$options['allow-unstable']) {
+//         $maturitylevel = get_string('maturity'.$maturity, 'admin');
 
-        if ($interactive) {
-            cli_separator();
-            cli_heading(get_string('notice'));
-            echo get_string('maturitycorewarning', 'admin', $maturitylevel) . PHP_EOL;
-            echo get_string('morehelp') . ': ' . get_docs_url('admin/versions') . PHP_EOL;
-            echo get_string('continue') . PHP_EOL;
-            $prompt = get_string('cliyesnoprompt', 'admin');
-            $input = cli_input($prompt, '', array(get_string('clianswerno', 'admin'), get_string('cliansweryes', 'admin')));
-            if ($input == get_string('clianswerno', 'admin')) {
-                exit(1);
-            }
-        } else {
-            cli_problem(get_string('maturitycorewarning', 'admin', $maturitylevel));
-            cli_error(get_string('maturityallowunstable', 'admin'));
-        }
-    }
-}
+//         if ($interactive) {
+//             cli_separator();
+//             cli_heading(get_string('notice'));
+//             echo get_string('maturitycorewarning', 'admin', $maturitylevel) . PHP_EOL;
+//             echo get_string('morehelp') . ': ' . get_docs_url('admin/versions') . PHP_EOL;
+//             echo get_string('continue') . PHP_EOL;
+//             $prompt = get_string('cliyesnoprompt', 'admin');
+//             $input = cli_input($prompt, '', array(get_string('clianswerno', 'admin'), get_string('cliansweryes', 'admin')));
+//             if ($input == get_string('clianswerno', 'admin')) {
+//                 exit(1);
+//             }
+//         } else {
+//             cli_problem(get_string('maturitycorewarning', 'admin', $maturitylevel));
+//             cli_error(get_string('maturityallowunstable', 'admin'));
+//         }
+//     }
+// }
 
 // ask for db type - show only drivers available
 if ($interactive) {

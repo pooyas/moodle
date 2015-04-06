@@ -1479,7 +1479,7 @@ function upgrade_language_pack($lang = null) {
 }
 
 /**
- * Install core moodle tables and initialize
+ * Install core lion tables and initialize
  * @param float $version target version
  * @param bool $verbose
  * @return void, may throw exception

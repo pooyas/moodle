@@ -410,7 +410,7 @@ function install_print_footer($config, $reload=false) {
 }
 
 /**
- * Install Moodle DB,
+ * Install Lion DB,
  * config.php must exist, there must not be any tables in db yet.
  *
  * @param array $options adminpass is mandatory
