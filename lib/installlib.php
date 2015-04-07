@@ -412,6 +412,12 @@ function install_print_footer($config, $reload=false) {
 /**
  * Install Lion DB,
  * config.php must exist, there must not be any tables in db yet.
+ * 
+ * Note:
+ * Installs DB and populates the data. 
+ * Contains two parts:
+ * install_core: install the core system modules
+ * upgrade_noncore: installs/upgrades other non-core modules
  *
  * @param array $options adminpass is mandatory
  * @param bool $interactive

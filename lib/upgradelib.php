@@ -568,6 +568,9 @@ function upgrade_plugins($type, $startcallback, $endcallback, $verbose) {
 
 /**
  * Find and check all modules and load them up or upgrade them if necessary
+ * 
+ * Note:
+ * This only works for modules in /mod directory
  *
  * @global object
  * @global object
@@ -594,7 +597,6 @@ function upgrade_plugins_modules($startcallback, $endcallback, $verbose) {
             throw new plugin_defective_exception($component, 'Missing version.php');
         }
 
-        // TODO: Support for $module will end with Moodle 2.10 by MDL-43896. Was deprecated for Moodle 2.7 by MDL-43040.
         $plugin = new stdClass();
         $plugin->version = null;
         $module = $plugin;
@@ -621,7 +623,7 @@ function upgrade_plugins_modules($startcallback, $endcallback, $verbose) {
             if ($plugin->requires > $CFG->version) {
                 throw new upgrade_requires_exception($component, $plugin->version, $CFG->version, $plugin->requires);
             } else if ($plugin->requires < 2010000000) {
-                throw new plugin_defective_exception($component, 'Plugin is not compatible with Moodle 2.x or later.');
+                throw new plugin_defective_exception($component, 'Plugin is not compatible with Lion.');
             }
         }
 
@@ -738,6 +740,9 @@ function upgrade_plugins_modules($startcallback, $endcallback, $verbose) {
 /**
  * This function finds all available blocks and install them
  * into blocks table or do all the upgrade process if newer.
+ * 
+ * Note:
+ * Installs or upgrades just the block plugins
  *
  * @global object
  * @global object
@@ -820,6 +825,8 @@ function upgrade_plugins_blocks($startcallback, $endcallback, $verbose) {
         $blocktitle  = $blockobj->get_title();
 
         // OK, it's as we all hoped. For further tests, the object will do them itself.
+        // Note:
+        // _self_test is a private method in block_base class
         if (!$blockobj->_self_test()) {
             throw new plugin_defective_exception($component, 'Self test failed.');
         }
@@ -1480,6 +1487,13 @@ function upgrade_language_pack($lang = null) {
 
 /**
  * Install core lion tables and initialize
+ * 
+ * Note:
+ * Contains two main parts:
+ * install_from_xmldb_file: uses /lib/db/install.xml to create DB tables
+ * xmldb_main_install: installs other features not included in install.xml
+ * like creating default course,categories,...
+ * 
  * @param float $version target version
  * @param bool $verbose
  * @return void, may throw exception
@@ -1607,6 +1621,10 @@ function upgrade_core($version, $verbose) {
 
 /**
  * Upgrade/install other parts of moodle
+ * 
+ * Note:
+ * Basically everthing besides core is installed here
+ * Main functon is upgrade_plugins
  * @param bool $verbose
  * @return void, may throw exception
  */

@@ -2663,6 +2663,12 @@ function reset_role_capabilities($roleid) {
  * Note that the absence of the db/access.php capabilities definition file
  * will cause any stored capabilities for the component to be removed from
  * the database.
+ * 
+ * Note:
+ * Reads the access.php under /db first to extract capabilities
+ * Checks if there is any update to previous capabilities
+ * Inserts new capabilities
+ * Deletes the removed capabilities from DB
  *
  * @access private
  * @param string $component examples: 'moodle', 'mod/forum', 'block/quiz_results'

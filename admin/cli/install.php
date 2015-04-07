@@ -8,6 +8,13 @@
  * Potential problems:
  * - su to apache account or sudo before execution
  * - not compatible with Windows platform
+ * 
+ * Notes:
+ * Contains the main install procedure
+ * modified to ignore the language download and stability check
+ * the important function is install_cli_database at the end which
+ * resides in /lib/installlib.php which initialize the table and populate
+ * the data inside
  *
  * @package    core
  * @subpackage cli

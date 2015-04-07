@@ -1,37 +1,25 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file is executed right after the install.xml
  *
- * For more information, take a look to the documentation available:
- *     - Upgrade API: {@link http://docs.moodle.org/dev/Upgrade_API}
+ * Note:
+ * Installs other features not covered in install.xml like default course,...
+ * There is a mnet section in the middle which refers to moodle (mahara) network
+ *
  *
  * @package   core_install
  * @category  upgrade
- * @copyright 2009 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Main post-install tasks to be executed after the BD schema is available
+ * Main post-install tasks to be executed after the DB schema is available
  *
- * This function is automatically executed after Moodle core DB has been
+ * This function is automatically executed after Lion core DB has been
  * created at initial install. It's in charge of perform the initial tasks
  * not covered by the {@link install.xml} file, like create initial users,
  * roles, templates, moving stuff from other plugins...
@@ -40,9 +28,8 @@ defined('MOODLE_INTERNAL') || die();
  * are needed in the future, they will need to be added both here (for new sites)
  * and in the corresponding {@link upgrade.php} file (for existing sites).
  *
- * All plugins within Moodle (modules, blocks, reports...) support the existence of
- * their own install.php file, using the "Frankenstyle" component name as
- * defined at {@link http://docs.moodle.org/dev/Frankenstyle}, for example:
+ * All plugins within Lion (modules, blocks, reports...) support the existence of
+ * their own install.php file, using the "Frankenstyle" component name, for example:
  *     - {@link xmldb_page_install()}. (modules don't require the plugintype ("mod_") to be used.
  *     - {@link xmldb_enrol_meta_install()}.
  *     - {@link xmldb_workshopform_accumulative_install()}.
@@ -161,21 +148,30 @@ function xmldb_main_install() {
     set_config('mnet_localhost_id', $mnetid);
 
     // Initial insert of mnet applications info
+    // Note:
+    // This is used for moodle network (MNET)
+    // I should try to tweak it later
+    // Found that it is used in the application section of peers under networking
     $mnet_app = new stdClass();
-    $mnet_app->name              = 'moodle';
-    $mnet_app->display_name      = 'Moodle';
+    $mnet_app->name              = 'lion';
+    $mnet_app->display_name      = 'Lion';
     $mnet_app->xmlrpc_server_url = '/mnet/xmlrpc/server.php';
     $mnet_app->sso_land_url      = '/auth/mnet/land.php';
     $mnet_app->sso_jump_url      = '/auth/mnet/jump.php';
     $moodleapplicationid = $DB->insert_record('mnet_application', $mnet_app);
 
-    $mnet_app = new stdClass();
-    $mnet_app->name              = 'mahara';
-    $mnet_app->display_name      = 'Mahara';
-    $mnet_app->xmlrpc_server_url = '/api/xmlrpc/server.php';
-    $mnet_app->sso_land_url      = '/auth/xmlrpc/land.php';
-    $mnet_app->sso_jump_url      = '/auth/xmlrpc/jump.php';
-    $DB->insert_record('mnet_application', $mnet_app);
+    // Note:
+    // No idea what it does
+    // Thinking of removing it?
+    // COMMENTOUT (Pooya)
+    // Not necessary
+//     $mnet_app = new stdClass();
+//     $mnet_app->name              = 'mahara';
+//     $mnet_app->display_name      = 'Mahara';
+//     $mnet_app->xmlrpc_server_url = '/api/xmlrpc/server.php';
+//     $mnet_app->sso_land_url      = '/auth/xmlrpc/land.php';
+//     $mnet_app->sso_jump_url      = '/auth/xmlrpc/jump.php';
+//     $DB->insert_record('mnet_application', $mnet_app);
 
     // Set up the probably-to-be-removed-soon 'All hosts' record
     $mnetallhosts                     = new stdClass();
@@ -247,6 +243,8 @@ function xmldb_main_install() {
 
 
     // Install the roles system.
+    // Note:
+    // Maybe possible to add roles here before installation ends?
     $managerrole        = create_role('', 'manager', '', 'manager');
     $coursecreatorrole  = create_role('', 'coursecreator', '', 'coursecreator');
     $editteacherrole    = create_role('', 'editingteacher', '', 'editingteacher');
@@ -261,6 +259,8 @@ function xmldb_main_install() {
 
 
     // Default allow role matrices.
+    // Note:
+    // Should dig in later
     foreach ($DB->get_records('role') as $role) {
         foreach (array('assign', 'override', 'switch') as $type) {
             $function = 'allow_'.$type;
@@ -288,6 +288,8 @@ function xmldb_main_install() {
     set_config('gdversion', 2);
 
     // Install licenses
+    // Note:
+    // Should configure later
     require_once($CFG->libdir . '/licenselib.php');
     license_manager::install_licenses();
 
