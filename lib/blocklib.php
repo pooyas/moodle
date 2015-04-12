@@ -2155,6 +2155,10 @@ function blocks_parse_default_blocks_list($blocksstr) {
 
 /**
  * @return array the blocks that should be added to the site course by default.
+ * 
+ * Note:
+ * IF I want to remove the blocks from the installation I should tweak this function
+ * to prevent the blocks to be added as default (because they don't exists :D)
  */
 function blocks_get_default_site_course_blocks() {
     global $CFG;
@@ -2204,6 +2208,10 @@ function blocks_add_default_course_blocks($course) {
 
 /**
  * Add the default system-context blocks. E.g. the admin tree.
+ * 
+ * Note:
+ * IF I want to remove the blocks from the installation I should tweak this function
+ * to prevent the blocks to be added as default (because they don't exists :D)
  */
 function blocks_add_default_system_blocks() {
     global $DB;

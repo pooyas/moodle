@@ -19,6 +19,14 @@
  *
 * Please note that is file is always loaded last - it means that you can inject entries into other categories too.
 *
+* Note:
+* This what I found about the structure of this file:
+* First it creates a category for each plugins like ativity modules or blocks
+* then it calls a function to creates manage page for the category like admin_page_manageblocks()
+* then iteratively calls load_setting for each available plugins to construct the
+* setting page for the plugin. this load_setting is resides in /lib/classes/plugininfo/mod.php|block.php...
+* basically it loads the settings inside each plugin directory called settings.php
+* the plugin itself may override the load_setting function as well for additional features
 * @package    core
 * @copyright  2007 Petr Skoda {@link http://skodak.org}
 * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

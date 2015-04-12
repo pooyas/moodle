@@ -4,6 +4,11 @@
 // We use it to create the categories in correct order,
 // since they need to exist *before* settingpages and externalpages
 // are added to them.
+// 
+// Note:
+// This basically adds categories to what admin can do
+// Partly visible in the site administration menu (?)
+// Some the settings are hidden (check the admin_externalpage function definition)	
 
 $systemcontext = context_system::instance();
 $hassiteconfig = has_capability('moodle/site:config', $systemcontext);

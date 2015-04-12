@@ -454,6 +454,9 @@ abstract class format_base {
     /**
      * Returns the list of blocks to be automatically added for the newly created course
      *
+     * Note:
+     * IF I want to remove the blocks from the installation I should tweak this function
+     * to prevent the blocks to be added as default (because they don't exists :D)
      * @see blocks_add_default_course_blocks()
      *
      * @return array of default blocks, must contain two keys BLOCK_POS_LEFT and BLOCK_POS_RIGHT

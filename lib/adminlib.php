@@ -6695,6 +6695,10 @@ function admin_externalpage_setup($section, $extrabutton = '', array $extraurlpa
 
 /**
  * Returns the reference to admin tree root
+ * 
+ * Note:
+ * This initialize and build the admin tree (probably what appears under site administration
+ * menu)
  *
  * @return object admin_root object
  */
@@ -6739,6 +6743,7 @@ function admin_get_root($reload=false, $requirefulltree=true) {
 
 /**
  * This function applies default settings.
+ * 
  *
  * @param object $node, NULL means complete tree, null by default
  * @param bool $unconditional if true overrides all values with defaults, null buy default
