@@ -25,6 +25,8 @@
 define('CLI_SCRIPT', true);
 
 // extra execution prevention - we can not just require config.php here
+// Note:
+// Should be locally installed (I guess!)
 if (isset($_SERVER['REMOTE_ADDR'])) {
     exit(1);
 }
@@ -35,6 +37,9 @@ if (function_exists('opcache_reset')) {
     opcache_reset();
 }
 
+// Note:
+// Help file for installation format
+// @todo: should look in to local/defaults.php to see how it works
 $help =
 "Command line Lion installer, creates config.php and initializes database.
 Please note you must execute this script with the same uid as apache
@@ -79,6 +84,7 @@ Example:
 
 
 // distro specific customisation
+// @todo: should look into how the install/distrolib.php works may be needed for distribution
 $distrolibfile = dirname(dirname(dirname(__FILE__))).'/install/distrolib.php';
 $distro = null;
 if (file_exists($distrolibfile)) {
@@ -119,6 +125,8 @@ if (function_exists('date_default_timezone_set') and function_exists('date_defau
 }
 
 // make sure PHP errors are displayed - helps with diagnosing of problems
+// Note:
+// Can tweak this for error displays
 @error_reporting(E_ALL);
 @ini_set('display_errors', '1');
 // we need a lot of memory
@@ -143,6 +151,8 @@ if (version_compare(phpversion(), "5.4.4") < 0) {
 }
 
 // set up configuration
+// Note:
+// Can push some defaults here
 global $CFG;
 $CFG = new stdClass();
 $CFG->lang                 = 'en';
@@ -184,12 +194,15 @@ require_once($CFG->dirroot.'/cache/lib.php');
 
 // Register our classloader, in theory somebody might want to replace it to load other hacked core classes.
 // Required because the database checks below lead to session interaction which is going to lead us to requiring autoloaded classes.
+// @todo: dig into classloader to see what it does
 if (defined('COMPONENT_CLASSLOADER')) {
     spl_autoload_register(COMPONENT_CLASSLOADER);
 } else {
     spl_autoload_register('core_component::classloader');
 }
 
+//Note:
+//Should look into version.php
 require($CFG->dirroot.'/version.php');
 $CFG->target_release = $release;
 
@@ -226,6 +239,8 @@ if (empty($databases)) {
 }
 
 // now get cli options
+// Note:
+// geting client parametrs and also giving default value to it
 list($options, $unrecognized) = cli_get_params(
     array(
         'chmod'             => isset($distro->directorypermissions) ? sprintf('%04o',$distro->directorypermissions) : '2777', // let distros set dir permissions
@@ -258,6 +273,8 @@ list($options, $unrecognized) = cli_get_params(
 $interactive = empty($options['non-interactive']);
 
 // set up language
+// Note:
+// It checks the /install/lang location for available languages
 $lang = clean_param($options['lang'], PARAM_SAFEDIR);
 if (file_exists($CFG->dirroot.'/install/lang/'.$lang)) {
     $CFG->lang = $lang;
@@ -277,8 +294,13 @@ if ($options['help']) {
 echo get_string('cliinstallheader', 'install', $CFG->target_release)."\n";
 
 //Fist select language
+//Note:
+//Let's assume the interactive never happens thanks to my shell install script
+//@todo: commenting interactive section
 if ($interactive) {
     cli_separator();
+    // Note:
+    // This is the list of languages in install/lang
     $languages = get_string_manager()->get_list_of_translations();
     // Do not put the langs into columns because it is not compatible with RTL.
     $langlist = implode("\n", $languages);
@@ -305,6 +327,9 @@ if ($interactive) {
 
 // Set directorypermissions first
 $chmod = octdec(clean_param($options['chmod'], PARAM_INT));
+
+// Note:
+// Another interactive part to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('datarootpermission', 'install'));
@@ -335,6 +360,9 @@ $CFG->umaskpermissions     = (($CFG->directorypermissions & 0777) ^ 0777);
 //We need wwwroot before we test dataroot
 $wwwroot = clean_param($options['wwwroot'], PARAM_URL);
 $wwwroot = trim($wwwroot, '/');
+
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('wwwroot', 'install'));
@@ -370,6 +398,9 @@ $CFG->httpswwwroot  = $CFG->wwwroot;
 
 //We need dataroot
 $CFG->dataroot = $options['dataroot'];
+
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     $i=0;
@@ -409,9 +440,14 @@ if ($interactive) {
     } while ($error !== '');
 
 } else {
+	// Note:
+	// Nice function to test that the dataroot is not accessible from web
     if (is_dataroot_insecure()) {
         cli_error(get_string('pathsunsecuredataroot', 'install'));
     }
+    // Note:
+    // Installs dataroot and lang folder
+    // @todo: maybe it is possible to simply the install script
     if (!install_init_dataroot($CFG->dataroot, $CFG->directorypermissions)) {
         $a = (object)array('dataroot' => $CFG->dataroot);
         cli_error(get_string('pathserrcreatedataroot', 'install', $a));
@@ -470,6 +506,8 @@ get_string_manager(true);
 // }
 
 // ask for db type - show only drivers available
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     $options['dbtype'] = strtolower($options['dbtype']);
     cli_separator();
@@ -495,6 +533,8 @@ $database = $databases[$CFG->dbtype];
 
 
 // ask for db host
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databasehost', 'install'));
@@ -510,6 +550,8 @@ if ($interactive) {
 }
 
 // ask for db name
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databasename', 'install'));
@@ -525,6 +567,8 @@ if ($interactive) {
 }
 
 // ask for db prefix
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('dbprefix', 'install'));
@@ -541,6 +585,8 @@ if ($interactive) {
 }
 
 // ask for db port
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databaseport', 'install'));
@@ -555,6 +601,8 @@ if ($CFG->dboptions['dbport'] <= 0) {
 }
 
 // ask for db socket
+// Note:
+// another interactive section to ignore
 if ($CFG->ostype === 'WINDOWS') {
     $CFG->dboptions['dbsocket'] = '';
 
@@ -569,6 +617,8 @@ if ($CFG->ostype === 'WINDOWS') {
 }
 
 // ask for db user
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databaseuser', 'install'));
@@ -584,6 +634,8 @@ if ($interactive) {
 }
 
 // ask for db password
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databasepass', 'install'));
@@ -610,6 +662,8 @@ if ($interactive) {
 }
 
 // ask for fullname
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('fullsitename', 'moodle'));
@@ -631,6 +685,8 @@ if ($interactive) {
 }
 
 // ask for shortname
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('shortsitename', 'moodle'));
@@ -652,6 +708,8 @@ if ($interactive) {
 }
 
 // ask for admin user name
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('cliadminusername', 'install'));
@@ -671,6 +729,8 @@ if ($interactive) {
 }
 
 // ask for admin user password
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('cliadminpassword', 'install'));
@@ -686,6 +746,8 @@ if ($interactive) {
 }
 
 // Ask for the admin email address.
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('cliadminemail', 'install'));
@@ -699,6 +761,9 @@ if (!empty($options['adminemail']) && !validate_email($options['adminemail'])) {
     cli_error(get_string('cliincorrectvalueerror', 'admin', $a));
 }
 
+// Licence agreement 
+// Note:
+// another interactive section to ignore
 if ($interactive) {
     if (!$options['agree-license']) {
         cli_separator();
@@ -744,6 +809,9 @@ $SESSION->lang = $CFG->lang;
 require("$CFG->dirroot/version.php");
 
 // Test environment first.
+// Note
+// The main file that is used for enviroment checking is admin/environment.xml
+// @todo: tweak admin/environment.xml
 require_once($CFG->libdir . '/environmentlib.php');
 list($envstatus, $environment_results) = check_moodle_environment(normalize_version($release), ENV_SELECT_RELEASE);
 if (!$envstatus) {
@@ -757,12 +825,16 @@ if (!$envstatus) {
 }
 
 // Test plugin dependencies.
+// Note:
+// all_plugins_ok checks the dependecy for plugins for Lion version and other components
 $failed = array();
 if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
     cli_problem(get_string('pluginscheckfailed', 'admin', array('pluginslist' => implode(', ', array_unique($failed)))));
     cli_error(get_string('pluginschecktodo', 'admin'));
 }
 
+// Note:
+// This is the main install function
 install_cli_database($options, $interactive);
 
 echo get_string('cliinstallfinished', 'install')."\n";

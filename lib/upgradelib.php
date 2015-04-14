@@ -1374,6 +1374,10 @@ function print_upgrade_separator() {
 
 /**
  * Default start upgrade callback
+ * 
+ * Note:
+ * This is where the texts output generates in the installation/upgrading
+ * 
  * @param string $plugin
  * @param bool $installation true if installation, false means upgrade
  */

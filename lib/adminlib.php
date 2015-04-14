@@ -6699,6 +6699,8 @@ function admin_externalpage_setup($section, $extrabutton = '', array $extraurlpa
  * Note:
  * This initialize and build the admin tree (probably what appears under site administration
  * menu)
+ * 
+ * @todo: the site administration menu can be customized from here
  *
  * @return object admin_root object
  */
@@ -6744,7 +6746,8 @@ function admin_get_root($reload=false, $requirefulltree=true) {
 /**
  * This function applies default settings.
  * 
- *
+ * @todo: I should dig further to determine where it gets its defaults
+ * 
  * @param object $node, NULL means complete tree, null by default
  * @param bool $unconditional if true overrides all values with defaults, null buy default
  */
@@ -6753,6 +6756,8 @@ function admin_apply_default_settings($node=NULL, $unconditional=true) {
 
     if (is_null($node)) {
         core_plugin_manager::reset_caches();
+        // Note:
+        // it gets all of the available site administration tree
         $node = admin_get_root(true, true);
     }
 
