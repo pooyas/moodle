@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Renderer for core_admin subsystem
  *
  * @package    core
  * @subpackage admin
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+// Note:
+// Renaming required
 
+defined('MOODLE_INTERNAL') || die();
 
 /**
  * Standard HTML output renderer for core_admin subsystem
@@ -35,6 +22,9 @@ class core_admin_renderer extends plugin_renderer_base {
      * Display the 'Do you acknowledge the terms of the GPL' page. The first page
      * during install.
      * @return string HTML to output.
+     * 
+     * Note:
+     * Called from index.php
      */
     public function install_licence_page() {
         global $CFG;
@@ -46,11 +36,11 @@ class core_admin_renderer extends plugin_renderer_base {
         $continue = new single_button(new moodle_url('/admin/index.php', array('lang'=>$CFG->lang, 'agreelicense'=>1)), get_string('continue'), 'get');
 
         $output .= $this->header();
-        $output .= $this->heading('<a href="http://moodle.org">Moodle</a> - Modular Object-Oriented Dynamic Learning Environment');
+        $output .= $this->heading('<a href="./#">Lion</a> - Learning Is ONline');
         $output .= $this->heading(get_string('copyrightnotice'));
         $output .= $this->box($copyrightnotice, 'copyrightnotice');
         $output .= html_writer::empty_tag('br');
-        $output .= $this->confirm(get_string('doyouagree'), $continue, "http://docs.moodle.org/dev/License");
+        $output .= $this->confirm(get_string('doyouagree'), $continue, "./#");
         $output .= $this->footer();
 
         return $output;
@@ -81,7 +71,7 @@ class core_admin_renderer extends plugin_renderer_base {
      * @param int $maturity
      * @param boolean $envstatus final result of the check (true/false)
      * @param array $environment_results array of results gathered
-     * @param string $release moodle release
+     * @param string $release lion release
      * @return string HTML to output.
      */
     public function install_environment_page($maturity, $envstatus, $environment_results, $release) {
@@ -90,7 +80,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
         $output .= $this->header();
         $output .= $this->maturity_warning($maturity);
-        $output .= $this->heading("Moodle $release");
+        $output .= $this->heading("Lion $release");
         $output .= $this->release_notes_link();
 
         $output .= $this->environment_check_table($envstatus, $environment_results);
@@ -109,7 +99,7 @@ class core_admin_renderer extends plugin_renderer_base {
     /**
      * Displays the list of plugins with unsatisfied dependencies
      *
-     * @param double|string|int $version Moodle on-disk version
+     * @param double|string|int $version Lion on-disk version
      * @param array $failed list of plugins with unsatisfied dependecies
      * @param moodle_url $reloadurl URL of the page to recheck the dependencies
      * @return string HTML
@@ -130,7 +120,7 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Display the 'You are about to upgrade Moodle' page. The first page
+     * Display the 'You are about to upgrade Lion' page. The first page
      * during upgrade.
      * @param string $strnewversion
      * @param int $maturity
@@ -165,7 +155,7 @@ class core_admin_renderer extends plugin_renderer_base {
         $output = '';
 
         $output .= $this->header();
-        $output .= $this->heading("Moodle $release");
+        $output .= $this->heading("Lion $release");
         $output .= $this->release_notes_link();
         $output .= $this->environment_check_table($envstatus, $environment_results);
 
@@ -191,7 +181,7 @@ class core_admin_renderer extends plugin_renderer_base {
      * Display the upgrade page that lists all the plugins that require attention.
      * @param core_plugin_manager $pluginman provides information about the plugins.
      * @param \core\update\checker $checker provides information about available updates.
-     * @param int $version the version of the Moodle code from version.php.
+     * @param int $version the version of the Lion code from version.php.
      * @param bool $showallplugins
      * @param moodle_url $reloadurl
      * @param moodle_url $continueurl
@@ -314,7 +304,12 @@ class core_admin_renderer extends plugin_renderer_base {
         $output = '';
 
         $output .= $this->header();
-        $output .= $this->maturity_info($maturity);
+        
+        /// COMMENTOUT (Pooya)
+        /// No maturity problem report
+        //$output .= $this->maturity_info($maturity);
+        // Note:
+        // Update notifiction can be canceled by CFG->disableupdatenotifications
         $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) : '';
         $output .= $this->insecure_dataroot_warning($insecuredataroot);
         $output .= $this->display_errors_warning($errorsdisplayed);
@@ -323,12 +318,9 @@ class core_admin_renderer extends plugin_renderer_base {
         $output .= $this->db_problems($dbproblems);
         $output .= $this->maintenance_mode_warning($maintenancemode);
         $output .= $this->cache_warnings($cachewarnings);
-        $output .= $this->registration_warning($registered);
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////
-        ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
-        $output .= $this->moodle_copyright();
-        //////////////////////////////////////////////////////////////////////////////////////////////////
+        /// COMMENTOUT (Pooya)
+        /// No registration information display
+        //$output .= $this->registration_warning($registered);
 
         $output .= $this->footer();
 
@@ -668,11 +660,9 @@ class core_admin_renderer extends plugin_renderer_base {
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
         ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
-        $copyrighttext = '<a href="http://moodle.org/">Moodle</a> '.
-                         '<a href="http://docs.moodle.org/dev/Releases" title="'.$CFG->version.'">'.$CFG->release.'</a><br />'.
-                         'Copyright &copy; 1999 onwards, Martin Dougiamas<br />'.
-                         'and <a href="http://moodle.org/dev">many other contributors</a>.<br />'.
-                         '<a href="http://docs.moodle.org/dev/License">GNU Public License</a>';
+///Note:
+///No license showing
+		   $copyrighttext= '';
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
         return $this->box($copyrighttext, 'copyright');
@@ -701,7 +691,7 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Displays the info about available Moodle core and plugin updates
+     * Displays the info about available Lion core and plugin updates
      *
      * The structure of the $updates param has changed since 2.4. It contains not only updates
      * for the core itself, but also for all other installed plugins.
@@ -753,9 +743,9 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Display a warning about not being registered on Moodle.org if necesary.
+     * Display a warning about not being registered on Lion (.org) if necesary.
      *
-     * @param boolean $registered true if the site is registered on Moodle.org
+     * @param boolean $registered true if the site is registered on Lion (.org)
      * @return string HTML to output.
      */
     protected function registration_warning($registered) {
@@ -774,9 +764,9 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Helper method to render the information about the available Moodle update
+     * Helper method to render the information about the available Lion update
      *
-     * @param \core\update\info $updateinfo information about the available Moodle core update
+     * @param \core\update\info $updateinfo information about the available Lion core update
      */
     protected function moodle_available_update_info(\core\update\info $updateinfo) {
 
@@ -820,7 +810,7 @@ class core_admin_renderer extends plugin_renderer_base {
      * @return string HTML to output.
      */
     protected function release_notes_link() {
-        $releasenoteslink = get_string('releasenoteslink', 'admin', 'http://docs.moodle.org/dev/Releases');
+        $releasenoteslink = get_string('releasenoteslink', 'admin', './#');
         $releasenoteslink = str_replace('target="_blank"', 'onclick="this.target=\'_blank\'"', $releasenoteslink); // extremely ugly validation hack
         return $this->box($releasenoteslink, 'generalbox releasenoteslink');
     }
@@ -846,7 +836,7 @@ class core_admin_renderer extends plugin_renderer_base {
      *     (bool)xdep = false: display the plugins with unsatisified dependecies only
      *
      * @param core_plugin_manager $pluginman provides information about the plugins.
-     * @param int $version the version of the Moodle code from version.php.
+     * @param int $version the version of the Lion code from version.php.
      * @param array $options rendering options
      * @return string HTML code
      */
@@ -1045,7 +1035,7 @@ class core_admin_renderer extends plugin_renderer_base {
             if (is_null($otherplugin)) {
                 // The required plugin is not installed.
                 $class = 'requires-failed requires-missing';
-                $installurl = new moodle_url('https://moodle.org/plugins/view.php', array('plugin' => $component));
+                $installurl = new moodle_url('./#', array('plugin' => $component));
                 $uploadurl = new moodle_url('/admin/tool/installaddon/');
                 $actions[] = html_writer::link($installurl, get_string('dependencyinstall', 'core_plugin'));
                 $actions[] = html_writer::link($uploadurl, get_string('dependencyupload', 'core_plugin'));
@@ -1391,7 +1381,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
     /**
      * This function will render one beautiful table with all the environmental
-     * configuration and how it suits Moodle needs.
+     * configuration and how it suits Lion needs.
      *
      * @param boolean $result final result of the check (true/false)
      * @param environment_results[] $environment_results array of results gathered

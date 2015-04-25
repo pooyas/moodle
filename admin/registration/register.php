@@ -1,38 +1,20 @@
 <?php
 
-///////////////////////////////////////////////////////////////////////////
-//                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
-// it under the terms of the GNU General Public License as published by  //
-// the Free Software Foundation, either version 3 of the License, or     //
-// (at your option) any later version.                                   //
-//                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
-// but WITHOUT ANY WARRANTY; without even the implied warranty of        //
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
-// GNU General Public License for more details.                          //
-//                                                                       //
-// You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
-//                                                                       //
-///////////////////////////////////////////////////////////////////////////
-
-/*
- * @package    moodle
+/**
+ * @package    core
  * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  *
- * This page displays the site registration form for Moodle.org/MOOCH or for a different hub.
+ * This page displays the site registration form for a hub.
  * It handles redirection to the hub to continue the registration workflow process.
  * It also handles update operation by web service.
  */
 
+// Note:
+// Renaming required
+// Not necessary, dies at the first step (just keeping the file structure)
 
+die("Under development");
 require_once('../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
 require_once($CFG->dirroot . '/' . $CFG->admin . '/registration/forms.php');
@@ -42,7 +24,7 @@ require_once($CFG->dirroot . '/' . $CFG->admin . '/registration/lib.php');
 $huburl = required_param('huburl', PARAM_URL);
 $huburl = rtrim($huburl, "/");
 
-if ($huburl == HUB_MOODLEORGHUBURL) { // register to Moodle.org
+if ($huburl == HUB_MOODLEORGHUBURL) { // register
     admin_externalpage_setup('registrationmoodleorg');
 } else { //register to a hub
     admin_externalpage_setup('registrationhub');
@@ -176,7 +158,7 @@ if (!empty($error)) {
     echo $error;
 }
 
-// Some Moodle.org registration explanation.
+// Some registration explanation.
 if ($huburl == HUB_MOODLEORGHUBURL) {
     if (!empty($registeredhub->token)) {
         if ($registeredhub->timemodified == 0) {

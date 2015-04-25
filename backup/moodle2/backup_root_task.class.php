@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Defines backup_root_task class
  *
- * @package     core_backup
- * @subpackage  moodle2
- * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -39,7 +25,7 @@ class backup_root_task extends backup_task {
      */
     public function build() {
 
-        // Add all the steps needed to prepare any moodle2 backup to work
+        // Add all the steps needed to prepare any lion backup to work
         $this->add_step(new create_and_clean_temp_stuff('create_and_clean_temp_stuff'));
 
         $this->built = true;
@@ -71,13 +57,18 @@ class backup_root_task extends backup_task {
         $this->add_setting($filename);
 
         // Present converter settings only in type course and mode general backup operations.
-        $converters = array();
+         $converters = array();
+              
         if ($this->plan->get_type() == backup::TYPE_1COURSE and $this->plan->get_mode() == backup::MODE_GENERAL) {
             $converters = convert_helper::available_converters(false);
             foreach ($converters as $cnv) {
                 $formatcnv = new backup_users_setting($cnv, base_setting::IS_BOOLEAN, false);
                 $formatcnv->set_ui(new backup_setting_ui_checkbox($formatcnv, get_string('backupformat'.$cnv, 'backup')));
-                $this->add_setting($formatcnv);
+/// COMMENTOUT (Pooya)
+/// If the following is uncommented, it shows IMS Common Cartridge 1.1 checkbox in the initial stage of the backup
+/// Currently I don't want it to be shown. I will deal with it later.
+                
+//                $this->add_setting($formatcnv);
             }
         }
 

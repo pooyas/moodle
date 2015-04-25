@@ -3,9 +3,12 @@
 /**
  * Allows admin to edit all auth plugin settings.
  *
- * JH: copied and Hax0rd from admin/enrol.php and admin/filters.php
- *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 require_once('../config.php');
 require_once($CFG->libdir.'/adminlib.php');

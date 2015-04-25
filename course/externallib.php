@@ -1,28 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 
 /**
  * External course API
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @category   external
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -31,11 +19,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Course external functions
  *
- * @package    core_course
- * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
  */
 class core_course_external extends external_api {
 
@@ -43,8 +26,8 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.9 Options available
-     * @since Moodle 2.2
+     * @since 2.9 Options available
+     * 
      */
     public static function get_course_contents_parameters() {
         return new external_function_parameters(
@@ -64,7 +47,7 @@ class core_course_external extends external_api {
                                     'value' => new external_value(PARAM_RAW, 'the value of the option,
                                                                     this param is personaly validated in the external function.')
                               )
-                      ), 'Options, used since Moodle 2.9', VALUE_DEFAULT, array())
+                      ), 'Options', VALUE_DEFAULT, array())
                 )
         );
     }
@@ -75,8 +58,7 @@ class core_course_external extends external_api {
      * @param int $courseid course id
      * @param array $options Options for filtering the results, used since Moodle 2.9
      * @return array
-     * @since Moodle 2.9 Options available
-     * @since Moodle 2.2
+     * @since 2.9 Options available
      */
     public static function get_course_contents($courseid, $options = array()) {
         global $CFG, $DB;
@@ -314,7 +296,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function get_course_contents_returns() {
         return new external_multiple_structure(
@@ -354,7 +335,7 @@ class core_course_external extends external_api {
                                                   'sortorder' => new external_value(PARAM_INT, 'Content sort order'),
 
                                                   // copyright related info
-                                                  'userid' => new external_value(PARAM_INT, 'User who added this content to moodle'),
+                                                  'userid' => new external_value(PARAM_INT, 'User who added this content to lion'),
                                                   'author' => new external_value(PARAM_TEXT, 'Content owner'),
                                                   'license' => new external_value(PARAM_TEXT, 'Content license'),
                                               )
@@ -372,7 +353,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function get_courses_parameters() {
         return new external_function_parameters(
@@ -392,7 +372,6 @@ class core_course_external extends external_api {
      *
      * @param array $options It contains an array (list of ids)
      * @return array
-     * @since Moodle 2.2
      */
     public static function get_courses($options = array()) {
         global $CFG, $DB;
@@ -486,7 +465,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function get_courses_returns() {
         return new external_multiple_structure(
@@ -558,7 +536,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
      */
     public static function create_courses_parameters() {
         $courseconfig = get_config('moodlecourse'); //needed for many default values
@@ -632,7 +609,6 @@ class core_course_external extends external_api {
      *
      * @param array $courses
      * @return array courses (id and shortname only)
-     * @since Moodle 2.2
      */
     public static function create_courses($courses) {
         global $CFG, $DB;
@@ -719,7 +695,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function create_courses_returns() {
         return new external_multiple_structure(
@@ -736,7 +711,6 @@ class core_course_external extends external_api {
      * Update courses
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function update_courses_parameters() {
         return new external_function_parameters(
@@ -796,7 +770,6 @@ class core_course_external extends external_api {
      * Update courses
      *
      * @param array $courses
-     * @since Moodle 2.5
      */
     public static function update_courses($courses) {
         global $CFG, $DB;
@@ -916,7 +889,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function update_courses_returns() {
         return new external_single_structure(
@@ -930,7 +902,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
      */
     public static function delete_courses_parameters() {
         return new external_function_parameters(
@@ -944,7 +915,6 @@ class core_course_external extends external_api {
      * Delete courses
      *
      * @param array $courseids A list of course ids
-     * @since Moodle 2.2
      */
     public static function delete_courses($courseids) {
         global $CFG, $DB;
@@ -1003,7 +973,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function delete_courses_returns() {
         return new external_single_structure(
@@ -1017,7 +986,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function duplicate_course_parameters() {
         return new external_function_parameters(
@@ -1060,8 +1028,7 @@ class core_course_external extends external_api {
      * @param int $visible Duplicated course availability
      * @param array $options List of backup options
      * @return array New course info
-     * @since Moodle 2.3
-     */
+      */
     public static function duplicate_course($courseid, $fullname, $shortname, $categoryid, $visible = 1, $options = array()) {
         global $CFG, $USER, $DB;
         require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
@@ -1234,7 +1201,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
      */
     public static function duplicate_course_returns() {
         return new external_single_structure(
@@ -1249,7 +1215,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters for import_course
      *
      * @return external_function_parameters
-     * @since Moodle 2.4
      */
     public static function import_course_parameters() {
         return new external_function_parameters(
@@ -1282,7 +1247,6 @@ class core_course_external extends external_api {
      * @param bool $deletecontent Whether to delete the course we are importing to content
      * @param array $options List of backup options
      * @return null
-     * @since Moodle 2.4
      */
     public static function import_course($importfrom, $importto, $deletecontent = 0, $options = array()) {
         global $CFG, $USER, $DB;
@@ -1422,7 +1386,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.4
      */
     public static function import_course_returns() {
         return null;
@@ -1432,7 +1395,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function get_categories_parameters() {
         return new external_function_parameters(
@@ -1468,7 +1430,6 @@ class core_course_external extends external_api {
      * @param array $criteria Criteria to match the results
      * @param booln $addsubcategories obtain only the category (false) or its subcategories (true - default)
      * @return array list of categories
-     * @since Moodle 2.3
      */
     public static function get_categories($criteria = array(), $addsubcategories = true) {
         global $CFG, $DB;
@@ -1682,7 +1643,6 @@ class core_course_external extends external_api {
      * @param array $category1
      * @param array $category2
      * @return int result of strcmp
-     * @since Moodle 2.3
      */
     private static function compare_categories_by_path($category1, $category2) {
         return strcmp($category1->path, $category2->path);
@@ -1695,7 +1655,6 @@ class core_course_external extends external_api {
      * @param array $category1
      * @param array $category2
      * @return int result of strcmp
-     * @since Moodle 2.3
      */
     private static function compare_categories_by_sortorder($category1, $category2) {
         return strcmp($category1['sortorder'], $category2['sortorder']);
@@ -1705,7 +1664,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
      */
     public static function get_categories_returns() {
         return new external_multiple_structure(
@@ -1734,7 +1692,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function create_categories_parameters() {
         return new external_function_parameters(
@@ -1753,7 +1710,7 @@ class core_course_external extends external_api {
                                         'the new category description', VALUE_OPTIONAL),
                                 'descriptionformat' => new external_format_value('description', VALUE_DEFAULT),
                                 'theme' => new external_value(PARAM_THEME,
-                                        'the new category theme. This option must be enabled on moodle',
+                                        'the new category theme. This option must be enabled on lion',
                                         VALUE_OPTIONAL),
                         )
                     )
@@ -1767,7 +1724,6 @@ class core_course_external extends external_api {
      *
      * @param array $categories - see create_categories_parameters() for the array structure
      * @return array - see create_categories_returns() for the array structure
-     * @since Moodle 2.3
      */
     public static function create_categories($categories) {
         global $CFG, $DB;
@@ -1808,7 +1764,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function create_categories_returns() {
         return new external_multiple_structure(
@@ -1825,7 +1780,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function update_categories_parameters() {
         return new external_function_parameters(
@@ -1840,7 +1794,7 @@ class core_course_external extends external_api {
                             'description' => new external_value(PARAM_RAW, 'category description', VALUE_OPTIONAL),
                             'descriptionformat' => new external_format_value('description', VALUE_DEFAULT),
                             'theme' => new external_value(PARAM_THEME,
-                                    'the category theme. This option must be enabled on moodle', VALUE_OPTIONAL),
+                                    'the category theme. This option must be enabled on lion', VALUE_OPTIONAL),
                         )
                     )
                 )
@@ -1853,7 +1807,6 @@ class core_course_external extends external_api {
      *
      * @param array $categories The list of categories to update
      * @return null
-     * @since Moodle 2.3
      */
     public static function update_categories($categories) {
         global $CFG, $DB;
@@ -1884,7 +1837,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
      */
     public static function update_categories_returns() {
         return null;
@@ -1894,7 +1846,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function delete_categories_parameters() {
         return new external_function_parameters(
@@ -1919,7 +1870,6 @@ class core_course_external extends external_api {
      *
      * @param array $categories A list of category ids
      * @return array
-     * @since Moodle 2.3
      */
     public static function delete_categories($categories) {
         global $CFG, $DB;
@@ -1976,7 +1926,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function delete_categories_returns() {
         return null;
@@ -1986,7 +1935,6 @@ class core_course_external extends external_api {
      * Describes the parameters for delete_modules.
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.5
      */
     public static function delete_modules_parameters() {
         return new external_function_parameters (
@@ -2001,7 +1949,6 @@ class core_course_external extends external_api {
      * Deletes a list of provided module instances.
      *
      * @param array $cmids the course module ids
-     * @since Moodle 2.5
      */
     public static function delete_modules($cmids) {
         global $CFG, $DB;
@@ -2041,7 +1988,6 @@ class core_course_external extends external_api {
      * Describes the delete_modules return value.
      *
      * @return external_single_structure
-     * @since Moodle 2.5
      */
     public static function delete_modules_returns() {
         return null;
@@ -2051,11 +1997,6 @@ class core_course_external extends external_api {
 /**
  * Deprecated course external functions
  *
- * @package    core_course
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_course_external
  */
 class moodle_course_external extends external_api {
@@ -2064,8 +2005,6 @@ class moodle_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::get_courses_parameters()
      */
     public static function get_courses_parameters() {
@@ -2077,8 +2016,6 @@ class moodle_course_external extends external_api {
      *
      * @param array $options
      * @return array
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::get_courses()
      */
     public static function get_courses($options) {
@@ -2089,8 +2026,6 @@ class moodle_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::get_courses_returns()
      */
     public static function get_courses_returns() {
@@ -2110,8 +2045,6 @@ class moodle_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::create_courses_parameters()
      */
     public static function create_courses_parameters() {
@@ -2123,8 +2056,6 @@ class moodle_course_external extends external_api {
      *
      * @param array $courses
      * @return array courses (id and shortname only)
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::create_courses()
      */
     public static function create_courses($courses) {
@@ -2135,8 +2066,6 @@ class moodle_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::create_courses_returns()
      */
     public static function create_courses_returns() {

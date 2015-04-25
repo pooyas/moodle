@@ -1,32 +1,22 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/*
- * @package    moodle
+/**
+ * @package    core
  * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  *
- * On this page the administrator selects which hub he wants to register (except for moodle.net)
- * Admins can register with moodle.net via the site admin menu "Registration" link.
- * On this page the administrator can also unregister from any hubs including moodle.net.
+ * On this page the administrator selects which hub he wants to register
+ * Admins can register via the site admin menu "Registration" link.
+ * On this page the administrator can also unregister from any hubs.
  */
 
+// Note:
+// Renaming required
+// Not necessary, dies at the first step (just keeping the file structure)
+// It is used in admin/settings/server.php|top.php to build administration menu.
+// @todo: remove the line from the server.php|top.php to eliminate redirection
+
+die("Under development");
 require('../../config.php');
 
 require_once($CFG->libdir . '/adminlib.php');
@@ -180,7 +170,7 @@ if (empty($cancel) and $unregistration and !$confirm) {
 
     echo $OUTPUT->header();
 
-    //check if the site is registered on Moodle.org and display a message about registering on MOOCH
+
     $registered = $DB->count_records('registration_hubs', array('huburl' => HUB_MOODLEORGHUBURL, 'confirmed' => 1));
     if (empty($registered)) {
         $warningmsg = get_string('registermoochtips', 'hub');

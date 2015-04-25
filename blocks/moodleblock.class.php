@@ -1,25 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the parent class for moodle blocks, block_base.
+ * This file contains the parent class for lion blocks, block_base.
  *
- * @package    core_block
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    core
+ * @subpackage block
+ * @copyright  2010 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 /// Constants
 
@@ -38,10 +28,8 @@ define('BLOCK_TYPE_TEXT',    2);
 define('BLOCK_TYPE_TREE',    3);
 
 /**
- * Class for describing a moodle block, all Moodle blocks derive from this class
+ * Class for describing a lion block, all Lion blocks derive from this class
  *
- * @author Jon Papaioannou
- * @package core_block
  */
 class block_base {
 
@@ -83,7 +71,7 @@ class block_base {
 
     /**
      * The page that this block is appearing on.
-     * @var moodle_page
+     * @var lion_page
      */
     public $page       = NULL;
 
@@ -216,7 +204,6 @@ class block_base {
      * {@link hide_header()}, {@link (get_edit_controls)}, etc.
      *
      * @return block_contents a representation of the block, for rendering.
-     * @since Moodle 2.0.
      */
     public function get_content_for_output($output) {
         global $CFG;
@@ -282,7 +269,6 @@ class block_base {
      *
      * @param $output The core_renderer to use when generating the output.
      * @return string the HTML that should appearn in the body of the block.
-     * @since Moodle 2.0.
      */
     protected function formatted_contents($output) {
         $this->get_content();
@@ -522,7 +508,7 @@ class block_base {
             return true;
         }
 
-        // The blocks in My Moodle are a special case.  We want them to inherit from the user context.
+        // The blocks in My Lion are a special case.  We want them to inherit from the user context.
         if (!empty($USER->id)
             && $this->instance->parentcontextid == $this->page->context->id   // Block belongs to this page
             && $this->page->context->contextlevel == CONTEXT_USER             // Page belongs to a user
@@ -539,17 +525,17 @@ class block_base {
      * but if the framework does allow it, the block can still decide to refuse.
      * This function has access to the complete page object, the creation related to which is being determined.
      *
-     * @param moodle_page $page
+     * @param Lion_page $page
      * @return boolean
      */
     function user_can_addto($page) {
         global $USER;
 
-        // The blocks in My Moodle are a special case and use a different capability.
+        // The blocks in My Lion are a special case and use a different capability.
         if (!empty($USER->id)
             && $page->context->contextlevel == CONTEXT_USER // Page belongs to a user
             && $page->context->instanceid == $USER->id // Page belongs to this user
-            && $page->pagetype == 'my-index') { // Ensure we are on the My Moodle page
+            && $page->pagetype == 'my-index') { // Ensure we are on the My Lion page
 
             // If the block cannot be displayed on /my it is ok if the myaddinstance capability is not defined.
             $formats = $this->applicable_formats();
@@ -579,7 +565,7 @@ class block_base {
     /**
      * Returns true if the user can add a block to a page.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param string $capability the capability to check
      * @return boolean true if user can add a block, false otherwise.
      */

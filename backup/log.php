@@ -1,4 +1,8 @@
 <?php
+
+// Note:
+// Renaming required
+       
        // log.php - old scheduled backups report. Now redirecting
        // to the new admin one
 

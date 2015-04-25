@@ -1,14 +1,22 @@
 <?php
 
+/**
+ * The form for handling editing a course.
+ *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
+
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/completionlib.php');
 require_once($CFG->libdir. '/coursecatlib.php');
 
-/**
- * The form for handling editing a course.
- */
 class course_edit_form extends moodleform {
     protected $course;
     protected $context;

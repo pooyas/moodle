@@ -1,26 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the class that handles testing the calendar type system.
  *
- * @package core_calendar
- * @copyright 2013 Mark Nelson <markn@moodle.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package core
+ * @subpackage calendar
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -44,10 +33,6 @@ require_once($CFG->dirroot . '/user/profile/index_field_form.php');
 /**
  * Unit tests for the calendar type system.
  *
- * @package core_calendar
- * @copyright 2013 Mark Nelson <markn@moodle.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.6
  */
 class core_calendar_type_testcase extends advanced_testcase {
 
@@ -82,7 +67,7 @@ class core_calendar_type_testcase extends advanced_testcase {
     }
 
     /**
-     * Test that calling core Moodle functions responsible for displaying the date
+     * Test that calling core Lion functions responsible for displaying the date
      * have the same results as directly calling the same function in the calendar type.
      */
     public function test_calendar_type_core_functions() {

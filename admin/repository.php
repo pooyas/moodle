@@ -1,18 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Provides an overview of installed repository plugins
+ *
+ *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once($CFG->dirroot . '/repository/lib.php');
@@ -308,7 +305,7 @@ if (($action == 'edit') || ($action == 'new')) {
             $instanceoptionnames = repository::static_function($typename, 'get_instance_option_names');
 
             if (!empty($typeoptionnames) || !empty($instanceoptionnames)) {
-                // Calculate number of instances in order to display them for the Moodle administrator
+                // Calculate number of instances in order to display them for the Lion administrator
                 if (!empty($instanceoptionnames)) {
                     $params = array();
                     $params['context'] = array(context_system::instance());

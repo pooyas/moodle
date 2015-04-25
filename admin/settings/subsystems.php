@@ -1,4 +1,14 @@
 <?php
+/**
+ * This file defines settingpage under "Advanced Features"
+ *
+ * @package core
+ * @subpackage subsystems
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 

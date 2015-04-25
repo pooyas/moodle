@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * @package    moodlecore
- * @subpackage backup-helper
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -59,7 +46,7 @@ abstract class backup_general_helper extends backup_helper {
     }
 
     /**
-     * Load all the blocks information needed for a given path within moodle2 backup
+     * Load all the blocks information needed for a given path within lion backup
      *
      * This function, given one full path (course, activities/xxxx) will look for all the
      * blocks existing in the backup file, returning one array used to build the
@@ -155,7 +142,7 @@ abstract class backup_general_helper extends backup_helper {
         } else {
             $info->include_file_references_to_external_content = 0;
         }
-        // Introduced in Moodle 2.9.
+        // Introduced in 2.9
         $info->original_course_format = '';
         if (!empty($infoarr['original_course_format'])) {
             $info->original_course_format = $infoarr['original_course_format'];
@@ -241,7 +228,6 @@ abstract class backup_general_helper extends backup_helper {
      * @param string $filepath absolute path to the MBZ file.
      * @param file_progress $progress Progress updates
      * @return stdClass containing information.
-     * @since Moodle 2.4
      */
     public static function get_backup_information_from_mbz($filepath, file_progress $progress = null) {
         global $CFG;

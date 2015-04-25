@@ -1,7 +1,14 @@
 <?php
+
 /**
  * Edit configuration for an individual auth plugin
+ * 
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 require_once '../config.php';
 require_once $CFG->libdir.'/adminlib.php';

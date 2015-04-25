@@ -1,6 +1,14 @@
 <?php
+/**
+ * This file defines settingpages and externalpages under the "appearance" category
+ *
+ * @package    core
+ * @subpackage appearance
+ * @copyright  2015 Pooya Saeedi
+ */
 
-// This file defines settingpages and externalpages under the "appearance" category
+// Note:
+// Renaming required
 
 $capabilities = array(
     'moodle/my:configsyspages',
@@ -215,6 +223,7 @@ mybadges,badges|/badges/mybadges.php|award',
 
 
     // "documentation" settingpage
+    // @todo: Change the documentation page to point to Lions documentation page
     $temp = new admin_settingpage('documentation', new lang_string('moodledocs'));
     $temp->add(new admin_setting_configtext('docroot', new lang_string('docroot', 'admin'), new lang_string('configdocroot', 'admin'), 'http://docs.moodle.org', PARAM_URL));
     $ltemp = array('' => get_string('forceno'));

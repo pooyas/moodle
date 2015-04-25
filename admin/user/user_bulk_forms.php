@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * 
+ *
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
+
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/datalib.php');
 

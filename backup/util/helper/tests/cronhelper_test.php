@@ -1,27 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for backups cron helper.
  *
- * @package   core_backup
+ * @package   core
+ * @subpackage backup
  * @category  phpunit
- * @copyright 2012 Frédéric Massart <fred@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -296,7 +285,7 @@ class backup_cron_helper_testcase extends advanced_testcase {
         // Let's have a Belgian beer! (UTC+1 / UTC+2 DST).
         // Warning: Some of these tests will fail if executed "around"
         // 'Europe/Brussels' DST changes (last Sunday in March and
-        // last Sunday in October right now - 2012). Once Moodle
+        // last Sunday in October right now - 2012). Once Lion
         // moves to PHP TZ support this could be fixed properly.
         date_default_timezone_set('Europe/Brussels');
         $now = strtotime('18:00:00');
@@ -340,7 +329,7 @@ class backup_cron_helper_testcase extends advanced_testcase {
         // The big apple! (UTC-5 / UTC-4 DST).
         // Warning: Some of these tests will fail if executed "around"
         // 'America/New_York' DST changes (2nd Sunday in March and
-        // 1st Sunday in November right now - 2012). Once Moodle
+        // 1st Sunday in November right now - 2012). Once Lion
         // moves to PHP TZ support this could be fixed properly.
         date_default_timezone_set('America/New_York');
         $now = strtotime('18:00:00');

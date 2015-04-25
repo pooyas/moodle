@@ -5,6 +5,9 @@
  * capability name does not contain that text.
  */
 
+// Note:
+// Renaming required
+
 /**
  * Role namespace
  */

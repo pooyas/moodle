@@ -2,7 +2,14 @@
 
 /**
  * Allows admin to configure editors.
+ * 
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
+// Where is it called from? Maybe adminlib?
 
 require_once('../config.php');
 require_once($CFG->libdir.'/adminlib.php');

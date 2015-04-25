@@ -1,22 +1,6 @@
 <?php
-
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * This installs Moodle into empty database, config.php must already exist.
+ * This installs Lion into empty database, config.php must already exist.
  *
  * This script is intended for advanced usage such as in Debian packages.
  * - sudo to www-data (apache account) before
@@ -27,6 +11,9 @@
  * @copyright  2010 Petr Skoda (http://skodak.org)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+// Note"
+// Renaming required
 
 define('CLI_SCRIPT', true);
 define('CACHE_DISABLE_ALL', true);
@@ -43,16 +30,16 @@ if (function_exists('opcache_reset')) {
 }
 
 $help =
-"Advanced command line Moodle database installer.
+"Advanced command line Lion database installer.
 Please note you must execute this script with the same uid as apache.
 
 Site defaults may be changed via local/defaults.php.
 
 Options:
 --lang=CODE           Installation and default site language. Default is en.
---adminuser=USERNAME  Username for the moodle admin account. Default is admin.
---adminpass=PASSWORD  Password for the moodle admin account.
---adminemail=STRING   Email address for the moodle admin account.
+--adminuser=USERNAME  Username for the Lion admin account. Default is admin.
+--adminpass=PASSWORD  Password for the Lion admin account.
+--adminemail=STRING   Email address for the Lion admin account.
 --agree-license       Indicates agreement with software license.
 --fullname=STRING     Name of the site
 --shortname=STRING    Name of the site
@@ -66,8 +53,8 @@ Example:
 if (version_compare(phpversion(), "5.4.4") < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN NOT move it after installib
-    fwrite(STDERR, "Moodle 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).\n");
-    fwrite(STDERR, "Please upgrade your server software or install older Moodle version.\n");
+    fwrite(STDERR, "Lion requires at least PHP 5.4.4 (currently using version $phpversion).\n");
+    fwrite(STDERR, "Please upgrade your server software.\n");
     exit(1);
 }
 

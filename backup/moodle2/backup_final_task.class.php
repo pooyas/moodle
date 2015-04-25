@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Defines backup_final_task class
  *
- * @package     core_backup
- * @subpackage  moodle2
- * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -111,11 +97,11 @@ class backup_final_task extends backup_task {
         $this->add_step(new move_inforef_annotations_to_final('migrate_inforef'));
 
         // Generate the files.xml file with all the (final) annotated files. At the same
-        // time copy all the files from moodle storage to backup storage (uses custom
+        // time copy all the files from lion storage to backup storage (uses custom
         // backup_nested_element for that)
         $this->add_step(new backup_final_files_structure_step('fileslist', 'files.xml'));
 
-        // Write the main moodle_backup.xml file, with all the information related
+        // Write the main lion_backup.xml file, with all the information related
         // to the backup, settings, license, versions and other useful information
         $this->add_step(new backup_main_structure_step('mainfile', 'moodle_backup.xml'));
 

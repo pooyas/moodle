@@ -1,30 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cache API interfaces
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -68,13 +56,6 @@ interface cache_loader {
     /**
      * Sends a key => value pair to the cache.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set('main', 'http://moodle.org');
-     * $cache->set('docs', 'http://docs.moodle.org');
-     * $cache->set('tracker', 'http://tracker.moodle.org');
-     * $cache->set('qa', 'http://qa.moodle.net');
-     * </code>
      *
      * @param string|int $key The key for the data being requested.
      * @param mixed $data The data to set against the key.
@@ -91,15 +72,6 @@ interface cache_loader {
      * This should not deter you from using this function as there is a performance benefit in situations where the cache store
      * does support it, but you should be aware of this fact.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set_many(array(
-     *     'main' => 'http://moodle.org',
-     *     'docs' => 'http://docs.moodle.org',
-     *     'tracker' => 'http://tracker.moodle.org',
-     *     'qa' => ''http://qa.moodle.net'
-     * ));
-     * </code>
      *
      * @param array $keyvaluearray An array of key => value pairs to send to the cache.
      * @return int The number of items successfully set. It is up to the developer to check this matches the number of items.
@@ -344,7 +316,7 @@ interface cache_is_key_aware {
  * Cache stores can choose to implement this interface.
  * In order for a store to be usable as a session cache it must implement this interface.
  *
- * @since Moodle 2.4.4
+ * @since 2.4.4
  */
 interface cache_is_searchable {
     /**
@@ -385,7 +357,7 @@ interface cache_is_configurable {
     /**
      * Allows the cache store to set its data against the edit form before it is shown to the user.
      *
-     * @param moodleform $editform
+     * @param form $editform
      * @param array $config
      */
     public static function config_set_edit_form_data(moodleform $editform, array $config);
@@ -394,7 +366,7 @@ interface cache_is_configurable {
 /**
  * Cache Data Source.
  *
- * The cache data source interface can be implemented by any class within Moodle.
+ * The cache data source interface can be implemented by any class within Lion.
  * If implemented then the class can be reference in a cache definition and will be used to load information that cannot be
  * retrieved from the cache. As part of its retrieval that information will also be loaded into the cache.
  *

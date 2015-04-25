@@ -1,6 +1,14 @@
 <?php
+/**
+* This file defines settingpages and externalpages under the "development" category
+*
+* @package core
+* @subpackage development
+* @copyright 2015 Pooya Saeedi
+*/
 
-// * Miscellaneous settings
+// Note:
+// Renaming required
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 

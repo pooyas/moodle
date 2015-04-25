@@ -1,6 +1,12 @@
 <?php
 
-// searches for admin settings
+/**
+ * Searches for admin settings
+ *
+ *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
+ */
 
 require_once('../config.php');
 require_once($CFG->libdir.'/adminlib.php');

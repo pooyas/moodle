@@ -1,30 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * restore user interface stages
  *
  * This file contains the classes required to manage the stages that make up the
  * restore user interface.
- * These will be primarily operated a {@link restore_ui} instance.
+ * These will be primarily operated a restore_ui instance.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 /**
  * Abstract stage class
@@ -34,9 +23,6 @@
  *  - process : To process the stage
  *  - initialise_stage_form : To get a restore_moodleform instance for the stage
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class restore_ui_stage extends base_ui_stage {
     /**
@@ -95,9 +81,6 @@ abstract class restore_ui_stage extends base_ui_stage {
  * An independent stage is a judged to be so because it doesn't require, and has
  * no use for the restore controller.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class restore_ui_independent_stage {
     /**
@@ -218,9 +201,6 @@ abstract class restore_ui_independent_stage {
  *
  * This is the first stage, it is independent.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_ui_stage_confirm extends restore_ui_independent_stage implements file_progress {
 
@@ -407,9 +387,6 @@ class restore_ui_stage_confirm extends restore_ui_independent_stage implements f
  *
  * This stage is the second stage and is also independent
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_ui_stage_destination extends restore_ui_independent_stage {
 
@@ -505,7 +482,7 @@ class restore_ui_stage_destination extends restore_ui_independent_stage {
         $format = backup_general_helper::detect_backup_format($this->filepath);
 
         if ($format === backup::FORMAT_MOODLE) {
-            // Standard Moodle 2 format, let use get the type of the backup.
+            // Standard Lion format, let use get the type of the backup.
             $details = backup_general_helper::get_backup_information($this->filepath);
             if ($details->type === backup::TYPE_1COURSE) {
                 $wholecourse = true;
@@ -584,9 +561,6 @@ class restore_ui_stage_destination extends restore_ui_independent_stage {
  * This stage is the third stage, it is dependent on a restore controller and
  * is the first stage as such.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_ui_stage_settings extends restore_ui_stage {
     /**
@@ -691,9 +665,6 @@ class restore_ui_stage_settings extends restore_ui_stage {
  * During the schema stage the user is required to set the settings that relate
  * to the area that they are backing up as well as its children.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_ui_stage_schema extends restore_ui_stage {
     /**
@@ -843,9 +814,6 @@ class restore_ui_stage_schema extends restore_ui_stage {
  * On this stage the user reviews the setting for the backup and can change the filename
  * of the file that will be generated.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_ui_stage_review extends restore_ui_stage {
 
@@ -934,9 +902,6 @@ class restore_ui_stage_review extends restore_ui_stage {
  * This highlights that we neither need a form nor a display method for this stage
  * we simply need to process.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_ui_stage_process extends restore_ui_stage {
 
@@ -1085,9 +1050,6 @@ class restore_ui_stage_process extends restore_ui_stage {
  *
  * Once this is displayed there is nothing more to do.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_ui_stage_complete extends restore_ui_stage_process {
 

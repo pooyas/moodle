@@ -1,6 +1,15 @@
 <?php
+/**
+* Allows the admin to control user logins from remote lion sites.
+* 
+* @package    core
+* @subpackage mnet
+* @copyright  2015 Pooya Saeedi
+*/
 
-// Allows the admin to control user logins from remote moodles.
+
+// Note:
+// Renaming required
 
 require_once dirname(dirname(dirname(__FILE__))) . '/config.php';
 require_once($CFG->libdir.'/adminlib.php');

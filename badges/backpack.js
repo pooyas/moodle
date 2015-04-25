@@ -1,6 +1,10 @@
 /**
  * Push badges to backpack.
  */
+
+// Note:
+// Renaming required
+
 function addtobackpack(event, args) {
     var badgetable = Y.one('#issued-badge-table');
     var errordiv = Y.one('#addtobackpack-error');

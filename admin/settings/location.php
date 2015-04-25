@@ -1,4 +1,11 @@
 <?php
+/**
+ * This file defines settingpages and externalpages under the "location" category
+ *
+ * @package core
+ * @subpackage location
+ * @copyright 2015 Pooya Saeedi
+ */
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 

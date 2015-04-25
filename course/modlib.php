@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions specific to course/modedit.php and course API functions.
@@ -20,10 +6,13 @@
  * This file has been created has an alternative solution to a full refactor of course/modedit.php
  * in order to create the course API functions.
  *
- * @copyright 2013 Jerome Mouneyrac
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core_course
+ * @package core
+ * @subpackage course
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -173,7 +162,7 @@ function add_moduleinfo($moduleinfo, $course, $mform = null) {
 /**
  * Common create/update module module actions that need to be processed as soon as a module is created/updaded.
  * For example:create grade parent category, add outcomes, rebuild caches, regrade, save plagiarism settings...
- * Please note this api does not trigger events as of MOODLE 2.6. Please trigger events before calling this api.
+ * Please note this api does not trigger events as of 2.6. Please trigger events before calling this api.
  *
  * @param object $moduleinfo the module info
  * @param object $course the course of the module

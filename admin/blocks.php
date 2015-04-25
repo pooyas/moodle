@@ -1,6 +1,11 @@
 <?php
 
-    // Allows the admin to configure blocks (hide/show, uninstall and configure)
+/**
+ * Allows the admin to configure blocks (hide/show, uninstall and configure)
+ *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
+ */
 
     require_once('../config.php');
     require_once($CFG->libdir.'/adminlib.php');
@@ -159,7 +164,7 @@
             }
         }
 
-        // MDL-11167, blocks can be placed on mymoodle, or the blogs page
+        // MDL-11167, blocks can be placed on mylion, or the blogs page
         // and it should not show up on course search page
 
         $totalcount = $DB->count_records('block_instances', array('blockname'=>$blockname));

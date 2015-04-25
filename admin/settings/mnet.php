@@ -1,6 +1,14 @@
 <?php
+/**
+ * This file defines settingpages and externalpages under the "mnet" category
+ *
+ * @package core
+ * @subpackage mnet
+ * @copyright 2015 Pooya Saeedi
+ */
 
-// This file defines settingpages and externalpages under the "mnet" category
+// Note:
+// Renaming required
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 

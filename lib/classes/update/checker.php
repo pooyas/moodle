@@ -409,7 +409,8 @@ class checker {
         if (!empty($CFG->config_php_settings['alternativeupdateproviderurl'])) {
             return $CFG->config_php_settings['alternativeupdateproviderurl'];
         } else {
-            return 'https://download.moodle.org/api/1.2/updates.php';
+            // @todo: change the update URL to connect to Lion update site
+        	return 'https://download.moodle.org/api/1.2/updates.php';
         }
     }
 

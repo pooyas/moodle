@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Defines various backup steps that will be used by common tasks in backup
  *
- * @package     core_backup
- * @subpackage  moodle2
- * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -1584,7 +1570,7 @@ class move_inforef_annotations_to_final extends backup_execution_step {
 /**
  * structure in charge of constructing the files.xml file with all the
  * annotated (final) files along the process. At, the same time, and
- * using one specialised nested_element, will copy them form moodle storage
+ * using one specialised nested_element, will copy them form lion storage
  * to backup storage
  */
 class backup_final_files_structure_step extends backup_structure_step {

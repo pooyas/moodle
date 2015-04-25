@@ -1,5 +1,17 @@
 <?php
-      // Display all the interfaces for importing data into a specific course
+
+/**
+ * Display all the interfaces for importing data into a specific course
+ *
+ * This renderer should contain methods useful to courses, and categories.
+ *
+ * @package   core
+ * @subpackage course
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
 
     require_once('../config.php');
 

@@ -3843,7 +3843,10 @@ class settings_navigation extends navigation_node {
         // Publish course on a hub
         if (has_capability('moodle/course:publish', $coursecontext)) {
             $url = new moodle_url('/course/publish/index.php', array('id'=>$course->id));
-            $coursenode->add(get_string('publish'), $url, self::TYPE_SETTING, null, 'publish', new pix_icon('i/publish', ''));
+/// COMMENTOUT (Pooya)
+/// Eliminating 'publish' menu in the course context menu.
+/// It is not going to be used so is removed to prevent complications
+//            $coursenode->add(get_string('publish'), $url, self::TYPE_SETTING, null, 'publish', new pix_icon('i/publish', ''));
         }
 
         // Reset this course

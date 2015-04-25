@@ -1,26 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of useful functions
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core_course
+ * @package core
+ * @subpackage course
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -1333,7 +1322,7 @@ function get_module_metadata($course, $modnames, $sectionreturn = null) {
             $sm = get_string_manager();
             if ($sm->string_exists('modulename_help', $modname)) {
                 $module->help = get_string('modulename_help', $modname);
-                if ($sm->string_exists('modulename_link', $modname)) {  // Link to further info in Moodle docs
+                if ($sm->string_exists('modulename_link', $modname)) {  // Link to further info in Lion docs
                     $link = get_string('modulename_link', $modname);
                     $linktext = get_string('morehelp');
                     $module->help .= html_writer::tag('div', $OUTPUT->doc_link($link, $linktext, true), array('class' => 'helpdoclink'));
@@ -1639,7 +1628,6 @@ function set_coursemodule_visible($id, $visible) {
  * event to the DB.
  *
  * @param int $cmid the course module id
- * @since Moodle 2.5
  */
 function course_delete_module($cmid) {
     global $CFG, $DB;
@@ -2397,7 +2385,7 @@ function course_format_uses_sections($format) {
  * Returns the information about the ajax support in the given source format
  *
  * The returned object's property (boolean)capable indicates that
- * the course format supports Moodle course ajax features.
+ * the course format supports Lion course ajax features.
  *
  * @param string $format
  * @return stdClass
@@ -2822,9 +2810,6 @@ function average_number_of_courses_modules() {
  * Please note we do not allow embedded images here because there is no context
  * to store them with proper access control.
  *
- * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
  *
  * @property-read int $id
  * @property-read string $fullname
@@ -3502,7 +3487,6 @@ function mod_duplicate_activity($course, $cm, $sr = null) {
  *
  * @param object $course course object.
  * @param object $cm course module object to be duplicated.
- * @since Moodle 2.8
  *
  * @throws Exception
  * @throws coding_exception

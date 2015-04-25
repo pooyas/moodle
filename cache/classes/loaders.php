@@ -1,30 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cache loaders
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are required in order to use caching.
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -484,13 +472,6 @@ class cache implements cache_loader {
     /**
      * Sends a key => value pair to the cache.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set('main', 'http://moodle.org');
-     * $cache->set('docs', 'http://docs.moodle.org');
-     * $cache->set('tracker', 'http://tracker.moodle.org');
-     * $cache->set('qa', 'http://qa.moodle.net');
-     * </code>
      *
      * @param string|int $key The key for the data being requested.
      *      It can be any structure although using a scalar string or int is recommended in the interests of performance.
@@ -603,15 +584,6 @@ class cache implements cache_loader {
      * This should not deter you from using this function as there is a performance benefit in situations where the cache store
      * does support it, but you should be aware of this fact.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set_many(array(
-     *     'main' => 'http://moodle.org',
-     *     'docs' => 'http://docs.moodle.org',
-     *     'tracker' => 'http://tracker.moodle.org',
-     *     'qa' => ''http://qa.moodle.net'
-     * ));
-     * </code>
      *
      * @param array $keyvaluearray An array of key => value pairs to send to the cache.
      * @return int The number of items successfully set. It is up to the developer to check this matches the number of items.
@@ -892,7 +864,7 @@ class cache implements cache_loader {
     /**
      * Returns the loader associated with this instance.
      *
-     * @since Moodle 2.4.4
+     * @since  2.4.4
      * @return cache|false
      */
     protected function get_loader() {
@@ -902,7 +874,7 @@ class cache implements cache_loader {
     /**
      * Returns the data source associated with this cache.
      *
-     * @since Moodle 2.4.4
+     * @since 2.4.4
      * @return cache_data_source|false
      */
     protected function get_datasource() {
@@ -1370,13 +1342,6 @@ class cache_application extends cache implements cache_loader_with_locking {
     /**
      * Sends a key => value pair to the cache.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set('main', 'http://moodle.org');
-     * $cache->set('docs', 'http://docs.moodle.org');
-     * $cache->set('tracker', 'http://tracker.moodle.org');
-     * $cache->set('qa', 'http://qa.moodle.net');
-     * </code>
      *
      * @param string|int $key The key for the data being requested.
      * @param mixed $data The data to set against the key.
@@ -1402,15 +1367,6 @@ class cache_application extends cache implements cache_loader_with_locking {
      * This should not deter you from using this function as there is a performance benefit in situations where the cache store
      * does support it, but you should be aware of this fact.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set_many(array(
-     *     'main' => 'http://moodle.org',
-     *     'docs' => 'http://docs.moodle.org',
-     *     'tracker' => 'http://tracker.moodle.org',
-     *     'qa' => ''http://qa.moodle.net'
-     * ));
-     * </code>
      *
      * @param array $keyvaluearray An array of key => value pairs to send to the cache.
      * @return int The number of items successfully set. It is up to the developer to check this matches the number of items.
@@ -1815,13 +1771,6 @@ class cache_session extends cache {
     /**
      * Sends a key => value pair to the cache.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set('main', 'http://moodle.org');
-     * $cache->set('docs', 'http://docs.moodle.org');
-     * $cache->set('tracker', 'http://tracker.moodle.org');
-     * $cache->set('qa', 'http://qa.moodle.net');
-     * </code>
      *
      * @param string|int $key The key for the data being requested.
      *      It can be any structure although using a scalar string or int is recommended in the interests of performance.
@@ -1995,15 +1944,6 @@ class cache_session extends cache {
      * This should not deter you from using this function as there is a performance benefit in situations where the cache store
      * does support it, but you should be aware of this fact.
      *
-     * <code>
-     * // This code will add four entries to the cache, one for each url.
-     * $cache->set_many(array(
-     *     'main' => 'http://moodle.org',
-     *     'docs' => 'http://docs.moodle.org',
-     *     'tracker' => 'http://tracker.moodle.org',
-     *     'qa' => ''http://qa.moodle.net'
-     * ));
-     * </code>
      *
      * @param array $keyvaluearray An array of key => value pairs to send to the cache.
      * @return int The number of items successfully set. It is up to the developer to check this matches the number of items.

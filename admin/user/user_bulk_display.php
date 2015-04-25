@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * 
+ *
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+ */
+
 require_once('../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 

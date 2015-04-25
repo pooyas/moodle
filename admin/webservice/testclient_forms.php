@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Web services forms for Test Client
+ *
+ * @package   webservice
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
+
 require_once($CFG->libdir.'/formslib.php');
 
 

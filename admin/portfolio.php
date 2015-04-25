@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * Provides an overview of installed portfolio plugins
+ *
+ *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
+
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once($CFG->libdir . '/portfoliolib.php');
 require_once($CFG->libdir . '/portfolio/forms.php');

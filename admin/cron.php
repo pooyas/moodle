@@ -1,20 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Web cron
  *
@@ -25,17 +10,18 @@
  * This file is best run from cron on the host system (ie outside PHP).
  * It is strongly recommended to add password protection via admin settings.
  *
- * eg   wget -q -O /dev/null 'http: *moodle.somewhere.edu/admin/cron.php?password=SeCreT666'
+ * eg   wget -q -O /dev/null 'http: *lion.somewhere.edu/admin/cron.php?password=SeCreT666'
  *
  * It is also possible to use CLI script admin/cli/cron.php instead,
  * you can not call this script from command line any more.
  *
  * @package    core
  * @subpackage admin
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
+// Note:
+// Should dig in about this script and decide CLI cron vs Web cron
 
 if (defined('STDIN')) {
     fwrite(STDERR, "ERROR: This script no longer supports CLI, please use admin/cli/cron.php instead\n");

@@ -1,9 +1,18 @@
 #!/usr/bin/php -f
 <?php
+// Note:
+// This is used to handle emails (How?)
+// Renaming required
 
 //error_reporting(0);
 //ini_set('display_errors',0);
 require_once(dirname(dirname(__FILE__)).'/config.php');
+
+// Note:
+// Added following line: No execution from web
+if (isset($_SERVER['REMOTE_ADDR'])) {
+	exit(1);
+}
 $tmp = explode('@',$_ENV['RECIPIENT']);
 $address = $tmp[0];
 

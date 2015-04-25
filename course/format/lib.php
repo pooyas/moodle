@@ -1,26 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Base class for course format plugins
  *
- * @package    core_course
- * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -52,13 +41,13 @@ function course_get_format($courseorid) {
  * Also course formats may extend class section_info and overwrite
  * format_base::build_section_cache() to return more information about sections.
  *
- * If you are upgrading from Moodle 2.3 start with copying the class format_legacy and renaming
+ * If you are upgrading from 2.3 start with copying the class format_legacy and renaming
  * it to format_FORMATNAME, then move the code from your callback functions into
  * appropriate functions of the class.
  *
- * @package    core_course
- * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class format_base {
     /** @var int Id of the course in this instance (maybe 0) */
@@ -274,7 +263,6 @@ abstract class format_base {
      * So if 'Return to course' does not make sense in your format your should probably return false.
      *
      * @return boolean
-     * @since Moodle 2.6
      */
     public function has_view_page() {
         return true;
@@ -357,7 +345,7 @@ abstract class format_base {
      * Returns the information about the ajax support in the given source format
      *
      * The returned object's property (boolean)capable indicates that
-     * the course format supports Moodle course ajax features.
+     * the course format supports Lion course ajax features.
      *
      * @return stdClass
      */
@@ -892,7 +880,7 @@ abstract class format_base {
     /**
      * Returns instance of page renderer used by this plugin
      *
-     * @param moodle_page $page
+     * @param Lion_page $page
      * @return renderer_base
      */
     public function get_renderer(moodle_page $page) {
@@ -1051,7 +1039,7 @@ class format_site extends format_base {
     }
 
     /**
-     * Returns the list of blocks to be automatically added on the site frontpage when moodle is installed
+     * Returns the list of blocks to be automatically added on the site frontpage when lion is installed
      *
      * @return array of default blocks, must contain two keys BLOCK_POS_LEFT and BLOCK_POS_RIGHT
      *     each of values is an array of block names (for left and right side columns)

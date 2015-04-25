@@ -1,27 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Main administration script.
  *
  * @package    core
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
+// Very important script
 
 // Check that config.php exists, if not then call the install script
 if (!file_exists('../config.php')) {
@@ -33,22 +21,22 @@ if (!file_exists('../config.php')) {
 if (version_compare(phpversion(), '5.4.4') < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN NOT move it to later place
-    echo "Moodle 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).<br />";
-    echo "Please upgrade your server software or install older Moodle version.";
+    echo "Lion requires at least PHP 5.4.4 (currently using version $phpversion).<br />";
+    echo "Please upgrade your server software.";
     die();
 }
 
 // make sure iconv is available and actually works
 if (!function_exists('iconv')) {
     // this should not happen, this must be very borked install
-    echo 'Moodle requires the iconv PHP extension. Please install or enable the iconv extension.';
+    echo 'Lion requires the iconv PHP extension. Please install or enable the iconv extension.';
     die();
 }
 
 // Make sure php5-json is available.
 if (!function_exists('json_encode') || !function_exists('json_decode')) {
     // This also shouldn't happen.
-    echo 'Moodle requires the json PHP extension. Please install or enable the json extension.';
+    echo 'Lion requires the json PHP extension. Please install or enable the json extension.';
     die();
 }
 
@@ -102,23 +90,27 @@ $url->param('cache', $cache);
 $PAGE->set_url($url);
 unset($url);
 
-// Are we returning from an add-on installation request at moodle.org/plugins?
-if ($newaddonreq and !$cache and empty($CFG->disableonclickaddoninstall)) {
-    $target = new moodle_url('/admin/tool/installaddon/index.php', array(
-        'installaddonrequest' => $newaddonreq,
-        'confirm' => 0));
-    if (!isloggedin() or isguestuser()) {
-        // Login and go the the add-on tool page.
-        $SESSION->wantsurl = $target->out();
-        redirect(get_login_url());
-    }
-    redirect($target);
-}
+// Are we returning from an add-on installation request at lion(.org)/plugins?
+/// COMMENTOUT (Pooya)
+/// Don't need the following code
+// if ($newaddonreq and !$cache and empty($CFG->disableonclickaddoninstall)) {
+//     $target = new moodle_url('/admin/tool/installaddon/index.php', array(
+//         'installaddonrequest' => $newaddonreq,
+//         'confirm' => 0));
+//     if (!isloggedin() or isguestuser()) {
+//         // Login and go the the add-on tool page.
+//         $SESSION->wantsurl = $target->out();
+//         redirect(get_login_url());
+//     }
+//     redirect($target);
+// }
 
 $PAGE->set_pagelayout('admin'); // Set a default pagelayout
 
-$documentationlink = '<a href="http://docs.moodle.org/en/Installation">Installation docs</a>';
-
+// Note:
+// Should change to refer to lion docs
+//$documentationlink = '<a href="http://docs.moodle.org/en/Installation">Installation docs</a>';
+$documentationlink = '<a href="./#">';
 // Check some PHP server settings
 
 if (ini_get_bool('session.auto_start')) {
@@ -153,87 +145,97 @@ $CFG->target_release = $release;            // used during installation and upgr
 if (!$version or !$release) {
     print_error('withoutversion', 'debug'); // without version, stop
 }
+// Note:
+// Should comment the following if because the installation should not begin from here
+// Actually I prefer the following code (may uncomment later?)
+ if (!core_tables_exist())
+ 		die("Please run the install script first");
+ 
+ /// COMMENTOUT (Pooya)
+ /// I put the above code instead.
+ /// I think it is ugly to do the installation from here
+// if (!core_tables_exist()) {
+//     $PAGE->set_pagelayout('maintenance');
+//     $PAGE->set_popup_notification_allowed(false);
 
-if (!core_tables_exist()) {
-    $PAGE->set_pagelayout('maintenance');
-    $PAGE->set_popup_notification_allowed(false);
+//     // fake some settings
+//     // Note:
+//     // Should point to lion documentations
+//     $CFG->docroot = './#';
 
-    // fake some settings
-    $CFG->docroot = 'http://docs.moodle.org';
+//     $strinstallation = get_string('installation', 'install');
 
-    $strinstallation = get_string('installation', 'install');
+//     // remove current session content completely
+//     \core\session\manager::terminate_current();
 
-    // remove current session content completely
-    \core\session\manager::terminate_current();
+//     if (empty($agreelicense)) {
+//         $strlicense = get_string('license');
 
-    if (empty($agreelicense)) {
-        $strlicense = get_string('license');
+//         $PAGE->navbar->add($strlicense);
+//         $PAGE->set_title($strinstallation.' - Lion '.$CFG->target_release);
+//         $PAGE->set_heading($strinstallation);
+//         $PAGE->set_cacheable(false);
 
-        $PAGE->navbar->add($strlicense);
-        $PAGE->set_title($strinstallation.' - Moodle '.$CFG->target_release);
-        $PAGE->set_heading($strinstallation);
-        $PAGE->set_cacheable(false);
+//         /** @var core_admin_renderer $output */
+//         $output = $PAGE->get_renderer('core', 'admin');
+//         echo $output->install_licence_page();
+//         die();
+//     }
+//     if (empty($confirmrelease)) {
+//         require_once($CFG->libdir.'/environmentlib.php');
+//         list($envstatus, $environment_results) = check_moodle_environment(normalize_version($release), ENV_SELECT_RELEASE);
+//         $strcurrentrelease = get_string('currentrelease');
 
-        /** @var core_admin_renderer $output */
-        $output = $PAGE->get_renderer('core', 'admin');
-        echo $output->install_licence_page();
-        die();
-    }
-    if (empty($confirmrelease)) {
-        require_once($CFG->libdir.'/environmentlib.php');
-        list($envstatus, $environment_results) = check_moodle_environment(normalize_version($release), ENV_SELECT_RELEASE);
-        $strcurrentrelease = get_string('currentrelease');
+//         $PAGE->navbar->add($strcurrentrelease);
+//         $PAGE->set_title($strinstallation);
+//         $PAGE->set_heading($strinstallation . ' - Lion ' . $CFG->target_release);
+//         $PAGE->set_cacheable(false);
 
-        $PAGE->navbar->add($strcurrentrelease);
-        $PAGE->set_title($strinstallation);
-        $PAGE->set_heading($strinstallation . ' - Moodle ' . $CFG->target_release);
-        $PAGE->set_cacheable(false);
+//         /** @var core_admin_renderer $output */
+//         $output = $PAGE->get_renderer('core', 'admin');
+//         echo $output->install_environment_page($maturity, $envstatus, $environment_results, $release);
+//         die();
+//     }
 
-        /** @var core_admin_renderer $output */
-        $output = $PAGE->get_renderer('core', 'admin');
-        echo $output->install_environment_page($maturity, $envstatus, $environment_results, $release);
-        die();
-    }
+//     // check plugin dependencies
+//     $failed = array();
+//     if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
+//         $PAGE->navbar->add(get_string('pluginscheck', 'admin'));
+//         $PAGE->set_title($strinstallation);
+//         $PAGE->set_heading($strinstallation . ' - Lion ' . $CFG->target_release);
 
-    // check plugin dependencies
-    $failed = array();
-    if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
-        $PAGE->navbar->add(get_string('pluginscheck', 'admin'));
-        $PAGE->set_title($strinstallation);
-        $PAGE->set_heading($strinstallation . ' - Moodle ' . $CFG->target_release);
+//         $output = $PAGE->get_renderer('core', 'admin');
+//         $url = new moodle_url('/admin/index.php', array('agreelicense' => 1, 'confirmrelease' => 1, 'lang' => $CFG->lang));
+//         echo $output->unsatisfied_dependencies_page($version, $failed, $url);
+//         die();
+//     }
+//     unset($failed);
 
-        $output = $PAGE->get_renderer('core', 'admin');
-        $url = new moodle_url('/admin/index.php', array('agreelicense' => 1, 'confirmrelease' => 1, 'lang' => $CFG->lang));
-        echo $output->unsatisfied_dependencies_page($version, $failed, $url);
-        die();
-    }
-    unset($failed);
+//     //TODO: add a page with list of non-standard plugins here
 
-    //TODO: add a page with list of non-standard plugins here
+//     $strdatabasesetup = get_string('databasesetup');
+//     upgrade_init_javascript();
 
-    $strdatabasesetup = get_string('databasesetup');
-    upgrade_init_javascript();
+//     $PAGE->navbar->add($strdatabasesetup);
+//     $PAGE->set_title($strinstallation.' - Lion '.$CFG->target_release);
+//     $PAGE->set_heading($strinstallation);
+//     $PAGE->set_cacheable(false);
 
-    $PAGE->navbar->add($strdatabasesetup);
-    $PAGE->set_title($strinstallation.' - Moodle '.$CFG->target_release);
-    $PAGE->set_heading($strinstallation);
-    $PAGE->set_cacheable(false);
+//     $output = $PAGE->get_renderer('core', 'admin');
+//     echo $output->header();
 
-    $output = $PAGE->get_renderer('core', 'admin');
-    echo $output->header();
+//     if (!$DB->setup_is_unicodedb()) {
+//         if (!$DB->change_db_encoding()) {
+//             // If could not convert successfully, throw error, and prevent installation
+//             print_error('unicoderequired', 'admin');
+//         }
+//     }
 
-    if (!$DB->setup_is_unicodedb()) {
-        if (!$DB->change_db_encoding()) {
-            // If could not convert successfully, throw error, and prevent installation
-            print_error('unicoderequired', 'admin');
-        }
-    }
-
-    install_core($version, true);
-}
+//     install_core($version, true);
+// }
 
 
-// Check version of Moodle code on disk compared with database
+// Check version of Lion code on disk compared with database
 // and upgrade if possible.
 
 if (!$cache) {
@@ -284,6 +286,8 @@ if (!$cache and $version > $CFG->version) {  // upgrade
         die();
     }
 
+    // Note:
+    // Check the steps for upgrading core system
     if (empty($confirmupgrade)) {
         $a = new stdClass();
         $a->oldversion = "$CFG->release (".sprintf('%.2f', $CFG->version).")";
@@ -323,6 +327,10 @@ if (!$cache and $version > $CFG->version) {  // upgrade
         if ($fetchupdates) {
             // No sesskey support guaranteed here, because sessions might not work yet.
             $updateschecker = \core\update\checker::instance();
+            // Note:
+            // This will connect to the remote update server to get the latest updates
+            // I can use CFG->alternativeupdateproviderurl to point to Lion update sites
+            // Or can be disabled with CFG->disableupdateautodeploy
             if ($updateschecker->enabled()) {
                 $updateschecker->fetch();
             }
@@ -330,6 +338,7 @@ if (!$cache and $version > $CFG->version) {  // upgrade
         }
 
         $deployer = \core\update\deployer::instance();
+        // Can be disabled with CFG->disableupdateautodeploy
         if ($deployer->enabled()) {
             $deployer->initialize($reloadurl, $reloadurl);
 
@@ -555,7 +564,7 @@ $cronoverdue = ($lastcron < time() - 3600 * 24);
 $dbproblems = $DB->diagnose();
 $maintenancemode = !empty($CFG->maintenance_enabled);
 
-// Available updates for Moodle core
+// Available updates for Lion core
 $updateschecker = \core\update\checker::instance();
 $availableupdates = array();
 $availableupdates['core'] = $updateschecker->get_update_info('core',
@@ -582,7 +591,7 @@ foreach ($pluginman->get_plugins() as $plugintype => $plugintypeinstances) {
 $availableupdatesfetch = $updateschecker->get_last_timefetched();
 
 $buggyiconvnomb = (!function_exists('mb_convert_encoding') and @iconv('UTF-8', 'UTF-8//IGNORE', '100'.chr(130).'€') !== '100€');
-//check if the site is registered on Moodle.org
+//check if the site is registered on Lion (.org)
 $registered = $DB->count_records('registration_hubs', array('huburl' => HUB_MOODLEORGHUBURL, 'confirmed' => 1));
 // Check if there are any cache warnings.
 $cachewarnings = cache_helper::warnings();

@@ -1,4 +1,9 @@
 <?php
+/**
+ * @package   core
+ * @subpackage backup
+ * @copyright 2015 Pooya Saeedi
+ */
 
 require_once($CFG->dirroot . '/backup/converter/convertlib.php');
 

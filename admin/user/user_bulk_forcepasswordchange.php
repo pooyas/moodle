@@ -1,6 +1,10 @@
 <?php
 /**
 * script for bulk user force password change
+* 
+* @package    core
+* @subpackage user
+* @copyright  2015 Pooya Saeedi
 */
 
 require_once('../../config.php');

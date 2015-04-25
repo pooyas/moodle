@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Calendar section Lion
+ *
+ * @package core
+ * @subpackage calendar
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
+
 require_once('../config.php');
 //require_once($CFG->dirroot.'/course/lib.php');
 require_once($CFG->dirroot.'/calendar/lib.php');

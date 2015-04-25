@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * @package    moodlecore
- * @subpackage backup-helper
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 /**
  * Non instantiable helper class providing support for restore prechecks
@@ -95,7 +82,7 @@ abstract class restore_prechecks_helper {
             $errors[] = get_string('errorminbackup20version', 'backup', $message);
         }
 
-        // Compare Moodle's versions
+        // Compare Lion's versions
         if ($CFG->version < $controller->get_info()->moodle_version) {
             $message = new stdclass();
             $message->serverversion = $CFG->version;
@@ -105,7 +92,7 @@ abstract class restore_prechecks_helper {
             $warnings[] = get_string('noticenewerbackup','',$message);
         }
 
-        // The original_course_format var was introduced in Moodle 2.9.
+        // The original_course_format var was introduced in 2.9
         $originalcourseformat = null;
         if (!empty($controller->get_info()->original_course_format)) {
             $originalcourseformat = $controller->get_info()->original_course_format;

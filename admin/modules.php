@@ -1,5 +1,11 @@
 <?php
-      // Allows the admin to manage activity modules
+/**
+ * Allows the admin to manage activity modules
+ *
+ * @package    message
+ * @copyright  2015 Pooya Saeedi
+ */
+
 
     require_once('../config.php');
     require_once('../course/lib.php');

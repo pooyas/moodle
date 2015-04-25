@@ -1,17 +1,18 @@
 <?php
 /**
- * A service browser for remote Moodles
+ * A service browser for remote Lions
  *
- * This script 'remotely' executes the reflection methods on a remote Moodle,
+ * This script 'remotely' executes the reflection methods on a remote Lion,
  * and publishes the details of the available services
  *
  * @package    core
  * @subpackage mnet
- * @author  Donal McMullan  donal@catalyst.net.nz
- * @version 0.0.1
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mnet
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
+
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 require_once $CFG->dirroot.'/mnet/xmlrpc/client.php';
 require_once($CFG->libdir.'/adminlib.php');
@@ -40,7 +41,7 @@ $servicename = optional_param('servicename', '', PARAM_SAFEDIR);
 $methodid = optional_param('method', 0, PARAM_INT);
 
 $hosts = $DB->get_records('mnet_host');
-$moodleapplicationid = $DB->get_field('mnet_application', 'id', array('name' => 'moodle'));
+$applicationid = $DB->get_field('mnet_application', 'id', array('name' => 'moodle'));
 
 $url = new moodle_url('/admin/mnet/testclient.php');
 $PAGE->set_url($url);
@@ -56,7 +57,7 @@ foreach ($hosts as $id => $host) {
 
 if (!empty($hostid) && array_key_exists($hostid, $hosts)) {
     $host = $hosts[$hostid];
-    if ($host->applicationid != $moodleapplicationid) {
+    if ($host->applicationid != $applicationid) {
         echo $OUTPUT->notification(get_string('notmoodleapplication', 'mnet'));
     }
     $mnet_peer = new mnet_peer();

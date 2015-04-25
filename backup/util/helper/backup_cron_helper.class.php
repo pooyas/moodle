@@ -1,28 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Utility helper for automated backups run through cron.
  *
- * @package    core
+ * @package     core
  * @subpackage backup
- * @copyright  2010 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -64,7 +51,7 @@ abstract class backup_cron_automated_helper {
     /**
      * Runs the automated backups if required
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      */
     public static function run_automated_backup($rundirective = self::RUN_ON_SCHEDULE) {
         global $CFG, $DB;
@@ -285,7 +272,7 @@ abstract class backup_cron_automated_helper {
      * Gets the results from the last automated backup that was run based upon
      * the statuses of the courses that were looked at.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return array
      */
     public static function get_backup_status_array() {
@@ -398,7 +385,7 @@ abstract class backup_cron_automated_helper {
             $file = $results['backup_destination']; // May be empty if file already moved to target location.
 
             // If we need to copy the backup file to an external dir and it is not writable, change status to error.
-            // This is a feature to prevent moodledata to be filled up and break a site when the admin misconfigured
+            // This is a feature to prevent liondata to be filled up and break a site when the admin misconfigured
             // the automated backups storage type and destination directory.
             if ($storage !== 0 && (empty($dir) || !file_exists($dir) || !is_dir($dir) || !is_writable($dir))) {
                 $bc->log('Specified backup directory is not writable - ', backup::LOG_ERROR, $dir);
@@ -479,7 +466,7 @@ abstract class backup_cron_automated_helper {
      * Removes deleted courses fromn the backup_courses table so that we don't
      * waste time backing them up.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return int
      */
     public static function remove_deleted_courses_from_schedule() {
@@ -499,7 +486,7 @@ abstract class backup_cron_automated_helper {
     /**
      * Gets the state of the automated backup system.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return int One of self::STATE_*
      */
     public static function get_automated_backup_state($rundirective = self::RUN_ON_SCHEDULE) {

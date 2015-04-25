@@ -1,35 +1,21 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Functions and classes for comments management
  *
  * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage comment
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
  * comment_manager is helper class to manage moodle comments in admin page (Reports->Comments)
  *
- * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class comment_manager {
 
@@ -47,7 +33,7 @@ class comment_manager {
     /**
      * Return comments by pages
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param int $page
      * @return array An array of comments
      */
@@ -90,8 +76,8 @@ class comment_manager {
     /**
      * Records the course object
      *
-     * @global moodle_page $PAGE
-     * @global moodle_database $DB
+     * @global lion_page $PAGE
+     * @global lion_database $DB
      * @param int $courseid
      */
     private function setup_course($courseid) {
@@ -110,7 +96,7 @@ class comment_manager {
     /**
      * Sets up the module or block information for a comment
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param stdClass $comment
      * @return bool
      */

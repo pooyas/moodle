@@ -1,7 +1,16 @@
 <?php
 
-// detects settings that were added during an upgrade, displays a screen for the admin to
-// modify them, and then processes modifications
+/**
+ * Detects settings that were added during an upgrade, displays a screen for the admin to
+ * modify them, and then processes modifications
+ *
+ *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
 
 require_once('../config.php');
 require_once($CFG->libdir.'/adminlib.php');

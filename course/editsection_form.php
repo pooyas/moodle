@@ -1,7 +1,18 @@
 <?php
 
+/**
+ * Default form for editing course section
+ *
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
+
 if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+    die('Direct access to this script is forbidden.'); 
 }
 
 require_once($CFG->libdir.'/formslib.php');

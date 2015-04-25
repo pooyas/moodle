@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * Time zone setting of the server
+ *
+ *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
+ * 
+ * Note:
+ * Why hidden?
+ */
+
+// Note:
+// Renaming required
+
     require_once('../config.php');
 
     $zone = optional_param('zone', '', PARAM_RAW);

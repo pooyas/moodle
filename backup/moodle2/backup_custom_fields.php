@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Defines various element classes used in specific areas
  *
- * @package     core_backup
- * @subpackage  moodle2
- * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -83,7 +69,7 @@ class mnethosturl_final_element extends backup_final_element {
  *
  * This class overwrites the standard fill_values() method, so it gets intercepted
  * for each file record being set to xml, in order to copy, at the same file, the
- * physical file from moodle file storage to backup file storage
+ * physical file from lion file storage to backup file storage
  *
  * TODO: Finish phpdocs
  */
@@ -102,7 +88,7 @@ class file_nested_element extends backup_nested_element {
     public function fill_values($values) {
         // Fill values
         parent::fill_values($values);
-        // Do our own tasks (copy file from moodle to backup)
+        // Do our own tasks (copy file from lion to backup)
         try {
             backup_file_manager::copy_file_moodle2backup($this->backupid, $values);
         } catch (file_exception $e) {

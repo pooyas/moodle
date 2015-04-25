@@ -1,25 +1,10 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package moodlecore
- * @subpackage backup-controller
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package core
+ * @subpackage backup
+ * @copyright 2015 Pooya Saeedi
  */
 
 /**
@@ -37,8 +22,7 @@
  *
  * In other words, a mammoth class, but don't worry, practically everything is delegated/
  * aggregated!)
- *
- * TODO: Finish phpdocs
+ * 
  */
 class backup_controller extends base_controller {
 
@@ -47,7 +31,7 @@ class backup_controller extends base_controller {
     protected $type;   // Type of backup (activity, section, course)
     protected $id;     // Course/section/course_module id to backup
     protected $courseid; // courseid where the id belongs to
-    protected $format; // Format of backup (moodle, imscc)
+    protected $format; // Format of backup (lion, imscc)
     protected $interactive; // yes/no
     protected $mode;   // Purpose of the backup (default settings)
     protected $userid; // user id executing the backup
@@ -61,7 +45,7 @@ class backup_controller extends base_controller {
     protected $execution;     // inmediate/delayed
     protected $executiontime; // epoch time when we want the backup to be executed (requires cron to run)
 
-    protected $destination; // Destination chain object (fs_moodle, fs_os, db, email...)
+    protected $destination; // Destination chain object (fs_lion, fs_os, db, email...)
 
     protected $checksum; // Cache @checksumable results for lighter @is_checksum_correct() uses
 
@@ -70,7 +54,7 @@ class backup_controller extends base_controller {
      *
      * @param int $type Type of the backup; One of backup::TYPE_1COURSE, TYPE_1SECTION, TYPE_1ACTIVITY
      * @param int $id The ID of the item to backup; e.g the course id
-     * @param int $format The backup format to use; Most likely backup::FORMAT_MOODLE
+     * @param int $format The backup format to use; Most likely backup::FORMAT_LION
      * @param bool $interactive Whether this backup will require user interaction; backup::INTERACTIVE_YES or INTERACTIVE_NO
      * @param int $mode One of backup::MODE_GENERAL, MODE_IMPORT, MODE_SAMESITE, MODE_HUB, MODE_AUTOMATED
      * @param int $userid The id of the user making the backup

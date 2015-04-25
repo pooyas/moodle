@@ -1,4 +1,14 @@
 <?php
+/**
+ * This file defines settingpages and externalpages under the "security" category
+ *
+ * @package core
+ * @subpackage security
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 

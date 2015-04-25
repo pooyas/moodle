@@ -1,6 +1,14 @@
 <?php
+/**
+ * This file defines settingpages and externalpages under the "users" category
+ *
+ * @package core
+ * @subpackage users
+ * @copyright 2015 Pooya Saeedi
+ */
 
-// This file defines settingpages and externalpages under the "users" category
+// Note:
+// Renaming required
 
 $ADMIN->add('users', new admin_category('accounts', new lang_string('accounts', 'admin')));
 $ADMIN->add('users', new admin_category('roles', new lang_string('permissions', 'role')));

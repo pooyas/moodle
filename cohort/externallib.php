@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External cohort API
  *
- * @package    core_cohort
+ * @package    core
+ * @subpackage cohort
  * @category   external
- * @copyright  MediaTouch 2000 srl
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("$CFG->libdir/externallib.php");
@@ -31,7 +17,6 @@ class core_cohort_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function create_cohorts_parameters() {
         return new external_function_parameters(
@@ -64,7 +49,6 @@ class core_cohort_external extends external_api {
      *
      * @param array $cohorts An array of cohorts to create.
      * @return array An array of arrays
-     * @since Moodle 2.5
      */
     public static function create_cohorts($cohorts) {
         global $CFG, $DB;
@@ -123,7 +107,6 @@ class core_cohort_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function create_cohorts_returns() {
         return new external_multiple_structure(
@@ -144,7 +127,6 @@ class core_cohort_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function delete_cohorts_parameters() {
         return new external_function_parameters(
@@ -159,7 +141,6 @@ class core_cohort_external extends external_api {
      *
      * @param array $cohortids
      * @return null
-     * @since Moodle 2.5
      */
     public static function delete_cohorts($cohortids) {
         global $CFG, $DB;
@@ -192,7 +173,6 @@ class core_cohort_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.5
      */
     public static function delete_cohorts_returns() {
         return null;
@@ -202,7 +182,6 @@ class core_cohort_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function get_cohorts_parameters() {
         return new external_function_parameters(
@@ -218,7 +197,6 @@ class core_cohort_external extends external_api {
      *
      * @param array $cohortids array of cohort ids
      * @return array of cohort objects (id, courseid, name)
-     * @since Moodle 2.5
      */
     public static function get_cohorts($cohortids) {
         global $DB;
@@ -254,7 +232,6 @@ class core_cohort_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function get_cohorts_returns() {
         return new external_multiple_structure(
@@ -275,7 +252,6 @@ class core_cohort_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function update_cohorts_parameters() {
         return new external_function_parameters(
@@ -309,7 +285,6 @@ class core_cohort_external extends external_api {
      *
      * @param array $cohorts
      * @return null
-     * @since Moodle 2.5
      */
     public static function update_cohorts($cohorts) {
         global $CFG, $DB;
@@ -371,7 +346,6 @@ class core_cohort_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.5
      */
     public static function update_cohorts_returns() {
         return null;
@@ -381,7 +355,6 @@ class core_cohort_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function add_cohort_members_parameters() {
         return new external_function_parameters (
@@ -414,7 +387,6 @@ class core_cohort_external extends external_api {
      * Add cohort members
      *
      * @param array $members of arrays with keys userid, cohortid
-     * @since Moodle 2.5
      */
     public static function add_cohort_members($members) {
         global $CFG, $DB;
@@ -500,7 +472,6 @@ class core_cohort_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.5
      */
     public static function add_cohort_members_returns() {
         return new external_single_structure(
@@ -514,7 +485,6 @@ class core_cohort_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function delete_cohort_members_parameters() {
         return new external_function_parameters(
@@ -535,7 +505,6 @@ class core_cohort_external extends external_api {
      * Delete cohort members
      *
      * @param array $members of arrays with keys userid, cohortid
-     * @since Moodle 2.5
      */
     public static function delete_cohort_members($members) {
         global $CFG, $DB;
@@ -573,7 +542,6 @@ class core_cohort_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.5
      */
     public static function delete_cohort_members_returns() {
         return null;
@@ -583,7 +551,6 @@ class core_cohort_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function get_cohort_members_parameters() {
         return new external_function_parameters(
@@ -598,7 +565,6 @@ class core_cohort_external extends external_api {
      *
      * @param array $cohortids array of cohort ids
      * @return array with cohort id keys containing arrays of user ids
-     * @since Moodle 2.5
      */
     public static function get_cohort_members($cohortids) {
         global $DB;
@@ -631,7 +597,6 @@ class core_cohort_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function get_cohort_members_returns() {
         return new external_multiple_structure(

@@ -1,30 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Support library for the cache PHPUnit tests.
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -36,9 +24,6 @@ require_once($CFG->dirroot.'/cache/locallib.php');
  * This class was originally named cache_config_phpunittest but was renamed in 2.9
  * because it is used for both unit tests and acceptance tests.
  *
- * @since 2.9
- * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_config_testing extends cache_config_writer {
 
@@ -156,7 +141,7 @@ class cache_config_testing extends cache_config_writer {
                 if ($directory !== $CFG->dataroot && !file_exists($directory)) {
                     $result = make_writable_directory($directory, false);
                     if (!$result) {
-                        throw new cache_exception('ex_configcannotsave', 'cache', '', null, 'Cannot create config directory. Check the permissions on your moodledata directory.');
+                        throw new cache_exception('ex_configcannotsave', 'cache', '', null, 'Cannot create config directory. Check the permissions on your liondata directory.');
                     }
                 }
                 // We don't care that this fails but we should let the developer know.
@@ -293,12 +278,9 @@ class cache_config_testing extends cache_config_writer {
 /**
  * This is a deprecated class. It has been renamed to cache_config_testing.
  *
- * This was deprecated in Moodle 2.9 but will be removed at the next major release
+ * This was deprecated in 2.9 but will be removed at the next major release
  * as it is only used during testing and its highly unlikely anyone has used this.
  *
- * @deprecated since 2.9
- * @copyright  2014 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_config_phpunittest extends cache_config_testing {
     // We can't do anything here to warn the user.
@@ -308,8 +290,6 @@ class cache_config_phpunittest extends cache_config_testing {
 /**
  * Dummy object for testing cacheable object interface and interaction
  *
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_phpunit_dummy_object extends stdClass implements cacheable_object {
     /**
@@ -351,8 +331,6 @@ class cache_phpunit_dummy_object extends stdClass implements cacheable_object {
 /**
  * Dummy data source object for testing data source interface and implementation
  *
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_phpunit_dummy_datasource implements cache_data_source {
     /**

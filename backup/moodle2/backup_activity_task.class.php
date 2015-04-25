@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Defines backup_activity_task class
  *
- * @package     core_backup
- * @subpackage  moodle2
- * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -55,7 +41,7 @@ abstract class backup_activity_task extends backup_task {
         if (!$coursemodule = get_coursemodule_from_id(false, $moduleid)) {
             throw new backup_task_exception('activity_task_coursemodule_not_found', $moduleid);
         }
-        // Check activity supports this moodle2 backup format
+        // Check activity supports this lion backup format
         if (!plugin_supports('mod', $coursemodule->modname, FEATURE_BACKUP_MOODLE2)) {
             throw new backup_task_exception('activity_task_activity_lacks_moodle2_backup_support', $coursemodule->modname);
         }
@@ -335,7 +321,7 @@ abstract class backup_activity_task extends backup_task {
      * Encodes URLs to the activity instance's scripts into a site-independent form
      *
      * The current instance of the activity may be referenced from other places in
-     * the course by URLs like http://my.moodle.site/mod/workshop/view.php?id=42
+     * the course by URLs like http://my.lion.site/mod/workshop/view.php?id=42
      * Obvisouly, such URLs are not valid any more once the course is restored elsewhere.
      * For this reason the backup file does not store the original URLs but encodes them
      * into a transportable form. During the restore, the reverse process is applied and

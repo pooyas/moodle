@@ -10,12 +10,16 @@
 // Partly visible in the site administration menu (?)
 // Some the settings are hidden (check the admin_externalpage function definition)	
 
+// Note:
+// Renaming required
 $systemcontext = context_system::instance();
 $hassiteconfig = has_capability('moodle/site:config', $systemcontext);
 
 $ADMIN->add('root', new admin_externalpage('adminnotifications', new lang_string('notifications'), "$CFG->wwwroot/$CFG->admin/index.php"));
 
-$ADMIN->add('root', new admin_externalpage('registrationmoodleorg', new lang_string('registration', 'admin'),
+/// COMMENTOUT (Pooya)
+/// The admin/registration is not needed any more so eliminating access to it
+/*$ADMIN->add('root', new admin_externalpage('registrationmoodleorg', new lang_string('registration', 'admin'),
         "$CFG->wwwroot/$CFG->admin/registration/register.php?huburl=" . HUB_MOODLEORGHUBURL . "&hubname=Moodle.org"));
 $ADMIN->add('root', new admin_externalpage('registrationhub', new lang_string('registerwith', 'hub'),
         "$CFG->wwwroot/$CFG->admin/registration/register.php", 'moodle/site:config', true));
@@ -24,6 +28,7 @@ $ADMIN->add('root', new admin_externalpage('registrationhubs', new lang_string('
 $ADMIN->add('root', new admin_externalpage('siteregistrationconfirmed',
         new lang_string('registrationconfirmed', 'hub'),
         $CFG->wwwroot."/".$CFG->admin."/registration/confirmregistration.php", 'moodle/site:config', true));
+*/
  // hidden upgrade script
 $ADMIN->add('root', new admin_externalpage('upgradesettings', new lang_string('upgradesettings', 'admin'), "$CFG->wwwroot/$CFG->admin/upgradesettings.php", 'moodle/site:config', true));
 

@@ -1,37 +1,24 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Allows the user to manage calendar subscriptions.
  *
- * @copyright 2012 Jonathan Harker
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package calendar
+ * @package core
+ * @subpackage calendar
+ * @copyright 2015 Pooya Saeedi
  */
 
+// Note:
+// Renaming required
+
 if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+    die('Direct access to this script is forbidden.');
 }
 
 require_once($CFG->libdir.'/formslib.php');
 
 /**
- * Form for adding a subscription to a Moodle course calendar.
- * @copyright 2012 Jonathan Harker
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Form for adding a subscription to a Lion course calendar.
  */
 class calendar_addsubscription_form extends moodleform {
 

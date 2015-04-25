@@ -1,6 +1,15 @@
 <?php
 
-//  Display the course home page.
+/**
+ * Display the course home page.
+ *
+ * @package core
+ * @subpackage course
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
 
     require_once('../config.php');
     require_once('lib.php');

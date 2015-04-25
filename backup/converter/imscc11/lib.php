@@ -4,10 +4,12 @@
  * Provides Common Cartridge v1.1 converter class
  *
  * @package    core
- * @subpackage backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@moodlerooms.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage backup
+ * @copyright  2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 require_once($CFG->dirroot.'/backup/converter/convertlib.php');
 require_once($CFG->dirroot.'/backup/cc/includes/constants.php');

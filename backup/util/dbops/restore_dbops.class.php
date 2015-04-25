@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * @package    moodlecore
- * @subpackage backup-dbops
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 /**
  * Base abstract class for all the helper classes providing DB operations
@@ -931,7 +918,7 @@ abstract class restore_dbops {
             }
         }
 
-        $fs = get_file_storage();         // Get moodle file storage
+        $fs = get_file_storage();         // Get lion file storage
         $basepath = $basepath . '/files/';// Get backup file pool base
         // Report progress before query.
         if ($progress) {
@@ -1011,7 +998,7 @@ abstract class restore_dbops {
                         $fs->create_file_from_pathname($file_record, $backuppath);
                     }
                 } else {
-                    // This backup does not include the files - they should be available in moodle filestorage already.
+                    // This backup does not include the files - they should be available in lion filestorage already.
 
                     // Create the file in the filepool if it does not exist yet.
                     if (!$fs->file_exists($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $file->filename)) {
@@ -1166,7 +1153,7 @@ abstract class restore_dbops {
                 if (!empty($userauth->preventpassindb)) {
                     $user->password = AUTH_PASSWORD_NOT_CACHED;
 
-                // If Moodle is responsible for storing/validating pwd and reset functionality is available, mark
+                // If Lion is responsible for storing/validating pwd and reset functionality is available, mark
                 } else if ($userauth->isinternal and $userauth->canresetpwd) {
                     $user->password = 'restored';
                 }
@@ -1708,7 +1695,7 @@ abstract class restore_dbops {
      * Creates a skeleton record within the database using the passed parameters
      * and returns the new course id.
      *
-     * @global moodle_database $DB
+     * @global Lion_database $DB
      * @param string $fullname
      * @param string $shortname
      * @param int $categoryid

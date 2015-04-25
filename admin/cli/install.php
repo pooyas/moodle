@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * This script creates config.php file and prepares database.
  *
@@ -15,12 +13,16 @@
  * the important function is install_cli_database at the end which
  * resides in /lib/installlib.php which initialize the table and populate
  * the data inside
+ * If the config.php file exists it is possible to call install_database.php instead
+ * Really takes less time
  *
  * @package    core
  * @subpackage cli
  * @copyright  2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+// Notes
+// Renaming required
 
 define('CLI_SCRIPT', true);
 
@@ -768,7 +770,7 @@ if ($interactive) {
     if (!$options['agree-license']) {
         cli_separator();
         cli_heading(get_string('copyrightnotice'));
-        echo "Moodle  - Modular Object-Oriented Dynamic Learning Environment\n";
+        echo "Lion  - Learning Instrument ONline\n";
         echo get_string('gpl3')."\n\n";
         echo get_string('doyouagree')."\n";
         $prompt = get_string('cliyesnoprompt', 'admin');

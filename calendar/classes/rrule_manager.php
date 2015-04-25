@@ -1,26 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Defines calendar class to manage recurrence rule (rrule) during ical imports.
  *
- * @package core_calendar
- * @copyright 2014 onwards Ankit Agarwal
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package core
+ * @subpackage calendar
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 namespace core_calendar;
 defined('MOODLE_INTERNAL') || die();
@@ -410,7 +399,7 @@ class rrule_manager {
             // No count specified, use datetime constraints.
             $until = $this->until;
             if (empty($until)) {
-                // Forever event. We don't have any such concept in Moodle, hence we repeat it for a constant time.
+                // Forever event. We don't have any such concept in Lion, hence we repeat it for a constant time.
                 $until = time() + (YEARSECS * self::TIME_UNLIMITED_YEARS);
             }
             for (; $event->timestart < $until; $event->timestart += $timediff) {
@@ -464,7 +453,7 @@ class rrule_manager {
             // No count specified, use datetime constraints.
             $until = $this->until;
             if (empty($until)) {
-                // Forever event. We don't have any such concept in Moodle, hence we repeat it for a constant time.
+                // Forever event. We don't have any such concept in Lion, hence we repeat it for a constant time.
                 $until = time() + (YEARSECS * self::TIME_UNLIMITED_YEARS );
             }
             for (; $event->timestart < $until;) {
@@ -529,7 +518,7 @@ class rrule_manager {
             // No count specified, use datetime constraints.
             $until = $this->until;
             if (empty($until)) {
-                // Forever event. We don't have any such concept in Moodle, hence we repeat it for a constant time.
+                // Forever event. We don't have any such concept in Lion, hence we repeat it for a constant time.
                 $until = time() + (YEARSECS * self::TIME_UNLIMITED_YEARS );
             }
             for (; $event->timestart < $until;) {

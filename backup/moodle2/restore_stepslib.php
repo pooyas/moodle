@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Defines various restore steps that will be used by common tasks in restore
  *
- * @package     core_backup
- * @subpackage  moodle2
- * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -1400,7 +1386,7 @@ class restore_section_structure_step extends restore_structure_step {
         }
 
         // Commented out. We never modify course->numsections as far as that is used
-        // by a lot of people to "hide" sections on purpose (so this remains as used to be in Moodle 1.x)
+        // by a lot of people to "hide" sections on purpose (so this remains as used to be in Lion 1.x)
         // Note: We keep the code here, to know about and because of the possibility of making this
         // optional based on some setting/attribute in the future
         // If needed, adjust course->numsections
@@ -1413,7 +1399,7 @@ class restore_section_structure_step extends restore_structure_step {
 
     /**
      * Process the legacy availability table record. This table does not exist
-     * in Moodle 2.7+ but we still support restore.
+     * in Lion but we still support restore.
      *
      * @param stdClass $data Record data
      */
@@ -1429,7 +1415,7 @@ class restore_section_structure_step extends restore_structure_step {
 
     /**
      * Process the legacy availability fields table record. This table does not
-     * exist in Moodle 2.7+ but we still support restore.
+     * exist in Lion but we still support restore.
      *
      * @param stdClass $data Record data
      */
@@ -1552,7 +1538,7 @@ class restore_course_structure_step extends restore_structure_step {
     /**
      * Processing functions go here
      *
-     * @global moodledatabase $DB
+     * @global Liondatabase $DB
      * @param stdClass $data
      */
     public function process_course($data) {
@@ -2523,7 +2509,7 @@ class restore_course_completion_structure_step extends restore_structure_step {
     /**
      * Process course completion criteria
      *
-     * @global moodle_database $DB
+     * @global Lion_database $DB
      * @param stdClass $data
      */
     public function process_course_completion_criteria($data) {
@@ -2611,7 +2597,7 @@ class restore_course_completion_structure_step extends restore_structure_step {
     /**
      * Processes course compltion criteria complete records
      *
-     * @global moodle_database $DB
+     * @global Lion_database $DB
      * @param stdClass $data
      */
     public function process_course_completion_crit_compl($data) {
@@ -2645,7 +2631,7 @@ class restore_course_completion_structure_step extends restore_structure_step {
     /**
      * Process course completions
      *
-     * @global moodle_database $DB
+     * @global Lion_database $DB
      * @param stdClass $data
      */
     public function process_course_completions($data) {
@@ -2686,7 +2672,7 @@ class restore_course_completion_structure_step extends restore_structure_step {
     /**
      * Process course completion aggregate methods
      *
-     * @global moodle_database $DB
+     * @global Lion_database $DB
      * @param stdClass $data
      */
     public function process_course_completion_aggr_methd($data) {
@@ -3488,7 +3474,7 @@ class restore_module_structure_step extends restore_structure_step {
 
     /**
      * Process the legacy availability table record. This table does not exist
-     * in Moodle 2.7+ but we still support restore.
+     * in Lion but we still support restore.
      *
      * @param stdClass $data Record data
      */
@@ -3503,7 +3489,7 @@ class restore_module_structure_step extends restore_structure_step {
 
     /**
      * Process the legacy availability fields table record. This table does not
-     * exist in Moodle 2.7+ but we still support restore.
+     * exist in Lion but we still support restore.
      *
      * @param stdClass $data Record data
      */
@@ -4117,8 +4103,6 @@ class restore_create_question_files extends restore_execution_step {
  * and user Private files here at the moment. This could be eventually replaced with a set of
  * callbacks in the future if needed.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_process_file_aliases_queue extends restore_execution_step {
 
@@ -4203,7 +4187,7 @@ class restore_process_file_aliases_queue extends restore_execution_step {
                     continue;
 
                 } else {
-                    // This is a reference to some moodle file that was not contained in the backup
+                    // This is a reference to some lion file that was not contained in the backup
                     // file. If we are restoring to the same site, keep the reference untouched
                     // and restore the alias as is if the referenced file exists.
                     if ($this->task->is_samesite()) {
@@ -4682,7 +4666,7 @@ abstract class restore_questions_activity_structure_step extends restore_activit
 
     /**
      * Attach below $element (usually attempts) the needed restore_path_elements
-     * to restore question attempt data from Moodle 2.0.
+     * to restore question attempt data from Lion
      *
      * When using this method, the parent element ($element) must be defined with
      * $grouped = true. Then, in that elements process method, you must call

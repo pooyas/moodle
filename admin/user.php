@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * Show users page and allow admins to add/delete/update/enable/disable them
+ *
+ *
+ * @package   admin
+ * @copyright 2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
+
     require_once('../config.php');
     require_once($CFG->libdir.'/adminlib.php');
     require_once($CFG->libdir.'/authlib.php');

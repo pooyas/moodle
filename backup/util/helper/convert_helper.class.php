@@ -1,28 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * Provides {@link convert_helper} and {@link convert_helper_exception} classes
+ * Provides convert_helperconvert_helper_exception classes
  *
- * @package    core
- * @subpackage backup-convert
- * @copyright  2011 Mark Nielsen <mark@moodlerooms.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -125,10 +112,10 @@ abstract class convert_helper {
     }
 
     /**
-     * Detects if the given folder contains an unpacked moodle2 backup
+     * Detects if the given folder contains an unpacked lion backup
      *
      * @param string $tempdir the name of the backup directory
-     * @return boolean true if moodle2 format detected, false otherwise
+     * @return boolean true if lion format detected, false otherwise
      */
     public static function detect_moodle2_format($tempdir) {
         global $CFG;
@@ -158,7 +145,7 @@ abstract class convert_helper {
     }
 
     /**
-     * Converts the given directory with the backup into moodle2 format
+     * Converts the given directory with the backup into lion format
      *
      * @param string $tempdir The directory to convert
      * @param string $format The current format, if already detected
@@ -209,7 +196,7 @@ abstract class convert_helper {
             $converter->convert();
         }
 
-        // make sure we ended with moodle2 format
+        // make sure we ended with lion format
         if (!self::detect_moodle2_format($tempdir)) {
             throw new convert_helper_exception('conversion_failed');
         }
@@ -234,14 +221,12 @@ abstract class convert_helper {
      *
      * Given the source format and the list of available converters and their properties,
      * this methods picks the most effective way how to convert the source format into
-     * the target moodle2 format. The method returns a list of converters that should be
+     * the target lion format. The method returns a list of converters that should be
      * called, in order.
      *
      * This implementation uses Dijkstra's algorithm to find the shortest way through
      * the oriented graph.
      *
-     * @see http://en.wikipedia.org/wiki/Dijkstra's_algorithm
-     * @author David Mudrak <david@moodle.com>
      * @param string $format the source backup format, one of backup::FORMAT_xxx
      * @param array $descriptions list of {@link base_converter::description()} indexed by the converter name
      * @return array ordered list of converter names to call (may be empty if not reachable)
@@ -371,7 +356,6 @@ abstract class convert_helper {
 /**
  * General convert_helper related exception
  *
- * @author David Mudrak <david@moodle.com>
  */
 class convert_helper_exception extends moodle_exception {
 

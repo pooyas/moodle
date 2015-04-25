@@ -1,6 +1,14 @@
 <?php
+/**
+ * This file defines settingpages and externalpages under the "server" category
+ *
+ * @package core
+ * @subpackage server
+ * @copyright 2015 Pooya Saeedi
+ */
 
-// This file defines settingpages and externalpages under the "server" category
+// Note:
+// Renaming required
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
@@ -206,10 +214,11 @@ $temp->add(new admin_setting_configtext('curltimeoutkbitrate', new lang_string('
 
 $ADMIN->add('server', $temp);
 
-
-$ADMIN->add('server', new admin_externalpage('adminregistration', new lang_string('hubs', 'admin'),
+/// COMMENTOUT (Pooya)
+/// The admin/registration is not needed any more so eliminating access to it
+/*$ADMIN->add('server', new admin_externalpage('adminregistration', new lang_string('hubs', 'admin'),
     "$CFG->wwwroot/$CFG->admin/registration/index.php"));
-
+*/
 // "update notifications" settingpage
 if (empty($CFG->disableupdatenotifications)) {
     $temp = new admin_settingpage('updatenotifications', new lang_string('updatenotifications', 'core_admin'));

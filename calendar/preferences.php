@@ -1,6 +1,12 @@
 <?php
 
-// preferences.php - user prefs for calendar
+/**
+ * user prefs for calendar
+ *
+ * @package core
+ * @subpackage calendar
+ * @copyright 2015 Pooya Saeedi
+ */
 
 require_once('../config.php');
 require_once($CFG->dirroot.'/calendar/lib.php');

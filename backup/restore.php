@@ -1,5 +1,14 @@
 <?php
-    //This script is used to configure and execute the restore proccess.
+
+/**
+ * This script is used to configure and execute the restore proccess.
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
+ */
+
+// Note:
+// Renaming required
 
 require_once('../config.php');
 require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');

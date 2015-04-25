@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Calendar extension
  *
- * @package    core_calendar
- * @copyright  2004 Greek School Network (http://www.sch.gr), Jon Papaioannou,
- *             Avgoustos Tsinakos
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package core
+ * @subpackage calendar
+ * @copyright 2015 Pooya Saeedi
  */
 
+// Note:
+// Renaming required
+
 if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+    die('Direct access to this script is forbidden.');
 }
 
 /**
@@ -133,7 +120,6 @@ function calendar_get_days() {
 /**
  * Get the subscription from a given id
  *
- * @since Moodle 2.5
  * @param int $id id of the subscription
  * @return stdClass Subscription record from DB
  * @throws moodle_exception for an invalid id
@@ -766,7 +752,6 @@ function calendar_get_events($tstart, $tend, $users, $groups, $courses, $withdur
 
 /** Get calendar events by id
  *
- * @since Moodle 2.5
  * @param array $eventids list of event ids
  * @return array Array of event entries, empty array if nothing found
  */
@@ -1751,7 +1736,7 @@ function calendar_show_event_type($type, $user = null) {
  *
  * @param CALENDAR_EVENT_GLOBAL|CALENDAR_EVENT_COURSE|CALENDAR_EVENT_GROUP|CALENDAR_EVENT_USER $type object of CALENDAR_EVENT_XXX
  * @param bool $display option to display event type
- * @param stdClass|int $user moodle user object or id, null means current user
+ * @param stdClass|int $user lion user object or id, null means current user
  */
 function calendar_set_event_type_display($type, $display = null, $user = null) {
     $persist = get_user_preferences('calendar_persistflt', 0, $user);
@@ -1945,7 +1930,7 @@ function calendar_normalize_tz($tz) {
  * Manage calendar events
  *
  * This class provides the required functionality in order to manage calendar events.
- * It was introduced as part of Moodle 2.0 and was created in order to provide a
+ * It was introduced as part of 2.0 and was created in order to provide a
  * better framework for dealing with calendar events in particular regard to file
  * handling through the new file API
  *
@@ -2206,7 +2191,7 @@ class calendar_event {
      * @see update_event()
      *
      * @param stdClass $data object of event
-     * @param bool $checkcapability if moodle should check calendar managing capability or not
+     * @param bool $checkcapability if lion should check calendar managing capability or not
      * @return bool event updated
      */
     public function update($data, $checkcapability=true) {
@@ -2503,7 +2488,7 @@ class calendar_event {
      * This function returns all of the events properties as an object and optionally
      * can prepare an editor for the description field at the same time. This is
      * designed to work when the properties are going to be used to set the default
-     * values of a moodle forms form.
+     * values of a lion forms form.
      *
      * @param bool $prepareeditor If set to true a editor is prepared for use with
      *              the mforms editor element. (for description)
@@ -2927,7 +2912,7 @@ function calendar_add_subscription($sub) {
 }
 
 /**
- * Add an iCalendar event to the Moodle calendar.
+ * Add an iCalendar event to the Lion calendar.
  *
  * @param stdClass $event The RFC-2445 iCalendar event
  * @param int $courseid The course ID
@@ -3190,7 +3175,6 @@ function calendar_update_subscription_events($subscriptionid) {
  *
  * @param stdClass|array $subscription Subscription record.
  * @throws coding_exception If something goes wrong
- * @since Moodle 2.5
  */
 function calendar_update_subscription($subscription) {
     global $DB;

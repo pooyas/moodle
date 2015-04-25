@@ -4,11 +4,9 @@
  * Implementation of Common Cartridge library based on
  * {@link http://www.imsglobal.org/cc/ IMS Common Cartridge Standard v1.2}
  *
- * @author Darko Miletic
- * @author Daniel Muhlrad (daniel.muhlrad@uvcms.com)
- * @version 1.0
- * @copyright 2009 {@link http://www.uvcms.com UVCMS e-learning}
- * @package cc_library
+ * @package backup
+ * @subpackage lib
+ * @copyright 2015 Pooya Saeedi
  *
  */
 

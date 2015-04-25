@@ -1,6 +1,14 @@
 <?php
+/**
+ * This file defines settingpages and externalpages under the "grades" section
+ *
+ * @package core
+ * @subpackage grades
+ * @copyright 2015 Pooya Saeedi
+ */
 
-// This file defines settingpages and externalpages under the "grades" section
+// Note:
+// Renaming required
 
 if (has_capability('moodle/grade:manage', $systemcontext)
  or has_capability('moodle/grade:manageletters', $systemcontext)) { // speedup for non-admins, add all caps used on this page

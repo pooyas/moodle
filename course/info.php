@@ -1,6 +1,14 @@
 <?php
+/**
+ * Displays external information about a course
+ *
+ * @package   core
+ * @subpackage course
+ * @copyright 2015 Pooya Saeedi
+ */
 
-/// Displays external information about a course
+// Note:
+// Renaming required
 
     require_once("../config.php");
     require_once("lib.php");

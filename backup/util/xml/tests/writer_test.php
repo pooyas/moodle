@@ -1,25 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   core_backup
+ * @package   core
+ * @subpackage backup
  * @category  phpunit
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -150,7 +140,7 @@ class xml_writer_testcase extends basic_testcase {
         $xo = new memory_xml_output();
         $xw = new mock_xml_writer($xo);
         $xw->set_prologue('CLEARLY WRONG PROLOGUE');
-        $xw->set_nonamespace_schema('http://moodle.org/littleschema');
+        $xw->set_nonamespace_schema('http://mooodle.org/littleschema');
         $xw->start();
         $xw->full_tag('TEST', 'Hello World!', array('id' => 1));
         $xw->stop();

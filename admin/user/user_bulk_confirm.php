@@ -1,7 +1,14 @@
 <?php
 /**
 * script for bulk user delete operations
+* 
+* @package    core
+* @subpackage user
+* @copyright  2015 Pooya Saeedi
 */
+
+// Note:
+// Renaming required
 
 require_once('../../config.php');
 require_once($CFG->libdir.'/adminlib.php');

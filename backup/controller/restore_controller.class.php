@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * @package moodlecore
- * @subpackage backup-controller
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package core
+ * @subpackage backup
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 /**
  * Class implementing the controller of any restore process
@@ -28,7 +15,6 @@
  * This final class is in charge of controlling all the restore architecture, for any
  * type of backup.
  *
- * TODO: Finish phpdocs
  */
 class restore_controller extends base_controller {
 
@@ -38,7 +24,7 @@ class restore_controller extends base_controller {
     protected $courseid; // courseid where restore is going to happen
 
     protected $type;   // Type of backup (activity, section, course)
-    protected $format; // Format of backup (moodle, imscc)
+    protected $format; // Format of backup (lion, imscc)
     protected $interactive; // yes/no
     protected $mode;   // Purpose of the backup (default settings)
     protected $userid; // user id executing the restore
@@ -132,11 +118,11 @@ class restore_controller extends base_controller {
         // Calculate original restore format
         $this->format = backup_general_helper::detect_backup_format($tempdir);
 
-        // If format is not moodle2, set to conversion needed
+        // If format is not lion, set to conversion needed
         if ($this->format !== backup::FORMAT_MOODLE) {
             $this->set_status(backup::STATUS_REQUIRE_CONV);
 
-        // Else, format is moodle2, load plan, apply security and set status based on interactivity
+        // Else, format is lion, load plan, apply security and set status based on interactivity
         } else {
             // Load plan
             $this->load_plan();
@@ -435,7 +421,7 @@ class restore_controller extends base_controller {
     }
 
     /**
-     * Converts from current format to backup::MOODLE format
+     * Converts from current format to backup::lion format
      */
     public function convert() {
         global $CFG;

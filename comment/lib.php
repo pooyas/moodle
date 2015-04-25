@@ -1,36 +1,26 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Functions and classes for commenting
  *
  * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage comment
+ * @copyright 2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Comment is helper class to add/delete comments anywhere in moodle
+ * Comment is helper class to add/delete comments anywhere in lion
  *
  * @package   core
- * @category  comment
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage comment
+ * @copyright 2015 Pooya Saeedi
  */
+
 class comment {
     /** @var int there may be several comment box in one page so we need a client_id to recognize them */
     private $cid;
@@ -237,7 +227,7 @@ class comment {
     /**
      * Receive nonjs comment parameters
      *
-     * @param moodle_page $page The page object to initialise comments within
+     * @param lion_page $page The page object to initialise comments within
      *                          If not provided the global $PAGE is used
      */
     public static function init(moodle_page $page = null) {
@@ -320,8 +310,8 @@ class comment {
     /**
      * Gets a link for this page that will work with JS disabled.
      *
-     * @global moodle_page $PAGE
-     * @param moodle_page $page
+     * @global lion_page $PAGE
+     * @param lion_page $page
      * @return moodle_url
      */
     public function get_nojslink(moodle_page $page = null) {
@@ -392,7 +382,7 @@ class comment {
     /**
      * Initialises the JavaScript that enchances the comment API.
      *
-     * @param moodle_page $page The moodle page object that the JavaScript should be
+     * @param lion_page $page The lion page object that the JavaScript should be
      *                          initialised for.
      */
     public function initialise_javascript(moodle_page $page) {
@@ -585,7 +575,7 @@ class comment {
         $rs->close();
 
         if (!empty($this->plugintype)) {
-            // moodle module will filter comments
+            // lion module will filter comments
             $comments = plugin_callback($this->plugintype, $this->pluginname, 'comment', 'display', array($comments, $this->comment_param), $comments);
         }
 
@@ -614,7 +604,7 @@ class comment {
     /**
      * Returns the number of comments associated with the details of this object
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return int
      */
     public function count() {
@@ -675,7 +665,7 @@ class comment {
     /**
      * Add a new comment
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param string $content
      * @param int $format
      * @return stdClass

@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Defines backup_plan_builder class
  *
- * @package     core_backup
- * @subpackage  moodle2
- * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     core
+ * @subpackage backup
+ * @copyright   2015 Pooya Saeedi
  */
+
+// Note:
+// Renaming required
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -50,7 +36,7 @@ require_once($CFG->dirroot . '/backup/moodle2/backup_settingslib.php');
 require_once($CFG->dirroot . '/backup/moodle2/backup_stepslib.php');
 require_once($CFG->dirroot . '/backup/moodle2/backup_custom_fields.php');
 
-// Load all the activity tasks for moodle2 format
+// Load all the activity tasks for lion format
 $mods = core_component::get_plugin_list('mod');
 foreach ($mods as $mod => $moddir) {
     $taskpath = $moddir . '/backup/moodle2/backup_' . $mod . '_activity_task.class.php';
@@ -61,7 +47,7 @@ foreach ($mods as $mod => $moddir) {
     }
 }
 
-// Load all the block tasks for moodle2 format
+// Load all the block tasks for lion format
 $blocks = core_component::get_plugin_list('block');
 foreach ($blocks as $block => $blockdir) {
     $taskpath = $blockdir . '/backup/moodle2/backup_' . $block . '_block_task.class.php';
@@ -104,7 +90,7 @@ abstract class backup_plan_builder {
         // Add the final task, responsible for outputting
         // all the global xml files (groups, users,
         // gradebook, questions, roles, files...) and
-        // the main moodle_backup.xml file
+        // the main lion_backup.xml file
         // and perform other various final actions.
         $plan->add_task(new backup_final_task('final_task'));
     }
