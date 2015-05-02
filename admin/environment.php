@@ -29,7 +29,9 @@ if ($version) {
 admin_externalpage_setup('environment', '', $extraurlparams);
 
 // Handle the 'updatecomponent' action
-if ($action == 'updatecomponent' && confirm_sesskey()) {
+// COMMENTOUT (Pooya)
+// We don't want it to connect anywhere for now
+/*if ($action == 'updatecomponent' && confirm_sesskey()) {
     // Create component installer and execute it
     if ($cd = new component_installer('https://download.lion.org',
                                       'environment',
@@ -58,7 +60,7 @@ if ($action == 'updatecomponent' && confirm_sesskey()) {
                 die;
         }
     }
-}
+}*/
 
 // Get current Lion version
 $current_version = $CFG->release;

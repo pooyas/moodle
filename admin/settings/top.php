@@ -15,7 +15,10 @@ $hassiteconfig = has_capability('lion/site:config', $systemcontext);
 
 $ADMIN->add('root', new admin_externalpage('adminnotifications', new lang_string('notifications'), "$CFG->wwwroot/$CFG->admin/index.php"));
 
-$ADMIN->add('root', new admin_externalpage('registrationlionorg', new lang_string('registration', 'admin'),
+
+/// COMMENTOUT (Pooya)
+/// The admin/registration is not needed any more so eliminating access to it
+/*$ADMIN->add('root', new admin_externalpage('registrationlionorg', new lang_string('registration', 'admin'),
         "$CFG->wwwroot/$CFG->admin/registration/register.php?huburl=" . HUB_LIONORGHUBURL . "&hubname=Lion.org"));
 $ADMIN->add('root', new admin_externalpage('registrationhub', new lang_string('registerwith', 'hub'),
         "$CFG->wwwroot/$CFG->admin/registration/register.php", 'lion/site:config', true));
@@ -24,6 +27,7 @@ $ADMIN->add('root', new admin_externalpage('registrationhubs', new lang_string('
 $ADMIN->add('root', new admin_externalpage('siteregistrationconfirmed',
         new lang_string('registrationconfirmed', 'hub'),
         $CFG->wwwroot."/".$CFG->admin."/registration/confirmregistration.php", 'lion/site:config', true));
+*/
  // hidden upgrade script
 $ADMIN->add('root', new admin_externalpage('upgradesettings', new lang_string('upgradesettings', 'admin'), "$CFG->wwwroot/$CFG->admin/upgradesettings.php", 'lion/site:config', true));
 

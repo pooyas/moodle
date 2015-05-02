@@ -89,7 +89,9 @@ $PAGE->set_url($url);
 unset($url);
 
 // Are we returning from an add-on installation request at lion.org/plugins?
-if ($newaddonreq and !$cache and empty($CFG->disableonclickaddoninstall)) {
+/// COMMENTOUT (Pooya)
+/// Don't need the following code
+/*if ($newaddonreq and !$cache and empty($CFG->disableonclickaddoninstall)) {
     $target = new lion_url('/admin/tool/installaddon/index.php', array(
         'installaddonrequest' => $newaddonreq,
         'confirm' => 0));
@@ -99,7 +101,7 @@ if ($newaddonreq and !$cache and empty($CFG->disableonclickaddoninstall)) {
         redirect(get_login_url());
     }
     redirect($target);
-}
+}*/
 
 $PAGE->set_pagelayout('admin'); // Set a default pagelayout
 
