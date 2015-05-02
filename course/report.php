@@ -10,11 +10,11 @@
     require_login($course);
 
     $context = context_course::instance($course->id);
-    require_capability('moodle/site:viewreports', $context); // basic capability for listing of reports
+    require_capability('lion/site:viewreports', $context); // basic capability for listing of reports
 
     $strreports = get_string('reports');
 
-    $PAGE->set_url(new moodle_url('/course/report.php', array('id'=>$id)));
+    $PAGE->set_url(new lion_url('/course/report.php', array('id'=>$id)));
     $PAGE->set_title($course->fullname.': '.$strreports);
     $PAGE->set_heading($course->fullname.': '.$strreports);
     echo $OUTPUT->header();

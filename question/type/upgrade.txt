@@ -69,7 +69,7 @@ This files describes API changes for question type plugins.
 
   + A good example of a question type being upgraded to take account of all these
     changes is
-    https://github.com/moodleou/moodle-qtype_pmatch/commit/9d8e1beb9f780246416a0f3a7622f700b8fa90c8
+    https://github.com/lionou/lion-qtype_pmatch/commit/9d8e1beb9f780246416a0f3a7622f700b8fa90c8
 
 
 === 2.3.5 / 2.4.2 / 2.5 ===
@@ -84,7 +84,7 @@ This files describes API changes for question type plugins.
 === 2.3 ===
 
 * Support for backwards-compatible string names dropped. MDL-30120. (See under 2.2 below.)
-* If you are overriding export_to_xml and import_from_xml to provide Moodle XML format
+* If you are overriding export_to_xml and import_from_xml to provide Lion XML format
   import and export, then you will probably get PHP strict syntax notices in developer
   debug mode until you change the method signature to include qformat_xml $format.
   That is, you need to specify the argument type.
@@ -130,7 +130,7 @@ $string['pluginnameadding'] = 'Adding a Description';
 $string['pluginnameediting'] = 'Editing a Description';
 $string['pluginnamesummary'] = 'This is not actually a question. Instead it is a way to add some instructions, rubric or other content to the activity. This is similar to the way that labels can be used to add content to the course page.';
 
-The old strings will continue to work, but only until Moodle 2.3 is released.
+The old strings will continue to work, but only until Lion 2.3 is released.
 
 * If you are using the facilities provided by overriding the extra_answer_fields
   or questionid_column_name methods, then you must change these to be public
@@ -141,12 +141,12 @@ The old strings will continue to work, but only until Moodle 2.3 is released.
 === 2.1 ===
 
 * Lots of API changes due to the new question engine. See
-http://docs.moodle.org/dev/Developing_a_Question_Type#Converting_a_Moodle_2.0_question_type
+http://docs.lion.org/dev/Developing_a_Question_Type#Converting_a_Lion_2.0_question_type
 
 
 === 2.0 ===
 
-* Lots of changes due to all the API changes in Moodle 2.0.
+* Lots of changes due to all the API changes in Lion 2.0.
 
 * This plugin type now supports cron in the standard way. If required, Create a
   lib.php file containing

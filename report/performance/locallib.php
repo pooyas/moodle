@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains classes for report_performance
  *
  * @package   report_performance
  * @copyright 2013 Rajesh Taneja
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Class defining issue result.
  *
  * @package   report_performance
  * @copyright 2013 Rajesh Taneja
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class report_performance_issue {
     /** @var string issue identifier */
@@ -53,7 +39,7 @@ class report_performance_issue {
  *
  * @package   report_performance
  * @copyright 2013 Rajesh Taneja
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class report_performance {
     /**
@@ -126,7 +112,7 @@ class report_performance {
         if ($detailed) {
             $row[0] = $this->doc_link($issueresult->issue, $issueresult->name);
         } else {
-            $url = new moodle_url('/report/performance/index.php', array('issue' => $issueresult->issue));
+            $url = new lion_url('/report/performance/index.php', array('issue' => $issueresult->issue));
             $row[0] = html_writer::link($url, $issueresult->name);
         }
         $row[1] = html_writer::tag('span', $issueresult->statusstr, array('class' => $statusarr[$issueresult->status]));
@@ -164,7 +150,7 @@ class report_performance {
         }
 
         $issueresult->details = get_string('check_themedesignermode_details', 'report_performance');
-        $issueresult->configlink = new moodle_url('/admin/search.php', array('query' => 'themedesignermode'));
+        $issueresult->configlink = new lion_url('/admin/search.php', array('query' => 'themedesignermode'));
         return $issueresult;
     }
 
@@ -190,7 +176,7 @@ class report_performance {
         }
 
         $issueresult->details = get_string('check_cachejs_details', 'report_performance');
-        $issueresult->configlink = new moodle_url('/admin/search.php', array('query' => 'cachejs'));
+        $issueresult->configlink = new lion_url('/admin/search.php', array('query' => 'cachejs'));
         return $issueresult;
     }
 
@@ -221,7 +207,7 @@ class report_performance {
 
         $issueresult->details = get_string('check_debugmsg_details', 'report_performance');
 
-        $issueresult->configlink = new moodle_url('/admin/settings.php', array('section' => 'debugging'));
+        $issueresult->configlink = new lion_url('/admin/settings.php', array('section' => 'debugging'));
         return $issueresult;
     }
 
@@ -254,7 +240,7 @@ class report_performance {
         }
 
         $issueresult->details = get_string('check_backup_details', 'report_performance');
-        $issueresult->configlink = new moodle_url('/admin/search.php', array('query' => 'backup_auto_active'));
+        $issueresult->configlink = new lion_url('/admin/search.php', array('query' => 'backup_auto_active'));
         return $issueresult;
     }
 
@@ -278,7 +264,7 @@ class report_performance {
         }
 
         $issueresult->details = get_string('check_enablestats_details', 'report_performance');
-        $issueresult->configlink = new moodle_url('/admin/search.php', array('query' => 'enablestats'));
+        $issueresult->configlink = new lion_url('/admin/search.php', array('query' => 'enablestats'));
         return $issueresult;
     }
 }

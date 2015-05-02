@@ -1,5 +1,5 @@
 {
-  "moodle-course-categoryexpander": {
+  "lion-course-categoryexpander": {
     "requires": [
         "node",
         "event-key"

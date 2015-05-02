@@ -1,19 +1,19 @@
 /**
  * A collection of utility classes for use with course sections.
  *
- * @module moodle-course-util
- * @submodule moodle-course-util-section
+ * @module lion-course-util
+ * @submodule lion-course-util-section
  */
 
-Y.namespace('Moodle.core_course.util.section');
+Y.namespace('Lion.core_course.util.section');
 
 /**
  * A collection of utility classes for use with course sections.
  *
- * @class Moodle.core_course.util.section
+ * @class Lion.core_course.util.section
  * @static
  */
-Y.Moodle.core_course.util.section = {
+Y.Lion.core_course.util.section = {
     CONSTANTS: {
         SECTIONIDPREFIX : 'section-'
     },

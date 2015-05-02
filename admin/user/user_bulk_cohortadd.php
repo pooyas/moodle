@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * script for bulk user multi cohort add
@@ -20,7 +6,7 @@
  * @package    core
  * @subpackage user
  * @copyright  2011 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../../config.php');
@@ -32,7 +18,7 @@ $sort = optional_param('sort', 'fullname', PARAM_ALPHA);
 $dir  = optional_param('dir', 'asc', PARAM_ALPHA);
 
 admin_externalpage_setup('userbulk');
-require_capability('moodle/cohort:assign', context_system::instance());
+require_capability('lion/cohort:assign', context_system::instance());
 
 $users = $SESSION->bulk_users;
 
@@ -47,7 +33,7 @@ foreach ($allcohorts as $c) {
         continue;
     }
     $context = context::instance_by_id($c->contextid);
-    if (!has_capability('moodle/cohort:assign', $context)) {
+    if (!has_capability('lion/cohort:assign', $context)) {
         continue;
     }
 
@@ -63,7 +49,7 @@ if (count($cohorts) < 2) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('bulkadd', 'core_cohort'));
     echo $OUTPUT->notification(get_string('bulknocohort', 'core_cohort'));
-    echo $OUTPUT->continue_button(new moodle_url('/admin/user/user_bulk.php'));
+    echo $OUTPUT->continue_button(new lion_url('/admin/user/user_bulk.php'));
     echo $OUTPUT->footer();
     die;
 }
@@ -84,7 +70,7 @@ unset($countries);
 $mform = new user_bulk_cohortadd_form(null, $cohorts);
 
 if (empty($users) or $mform->is_cancelled()) {
-    redirect(new moodle_url('/admin/user/user_bulk.php'));
+    redirect(new lion_url('/admin/user/user_bulk.php'));
 
 } else if ($data = $mform->get_data()) {
     // process request
@@ -93,7 +79,7 @@ if (empty($users) or $mform->is_cancelled()) {
             cohort_add_member($data->cohort, $user->id);
         }
     }
-    redirect(new moodle_url('/admin/user/user_bulk.php'));
+    redirect(new lion_url('/admin/user/user_bulk.php'));
 }
 
 // Need to sort by date

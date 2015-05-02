@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * print the single entries
@@ -32,7 +18,7 @@ require_once($CFG->libdir.'/tablelib.php');
 $id = required_param('id', PARAM_INT);
 $subject = optional_param('subject', '', PARAM_CLEANHTML);
 $message = optional_param('message', '', PARAM_CLEANHTML);
-$format = optional_param('format', FORMAT_MOODLE, PARAM_INT);
+$format = optional_param('format', FORMAT_LION, PARAM_INT);
 $messageuser = optional_param_array('messageuser', false, PARAM_INT);
 $action = optional_param('action', '', PARAM_ALPHA);
 $perpage = optional_param('perpage', FEEDBACK_DEFAULT_PAGE_COUNT, PARAM_INT);  // how many per page
@@ -55,7 +41,7 @@ if ($feedback->anonymous != FEEDBACK_ANONYMOUS_NO OR $feedback->course == SITEID
     print_error('error');
 }
 
-$url = new moodle_url('/mod/feedback/show_nonrespondents.php', array('id'=>$cm->id));
+$url = new lion_url('/mod/feedback/show_nonrespondents.php', array('id'=>$cm->id));
 
 $PAGE->set_url($url);
 
@@ -72,7 +58,7 @@ if (($formdata = data_submitted()) AND !confirm_sesskey()) {
 
 require_capability('mod/feedback:viewreports', $context);
 
-if ($action == 'sendmessage' AND has_capability('moodle/course:bulkmessaging', $coursecontext)) {
+if ($action == 'sendmessage' AND has_capability('lion/course:bulkmessaging', $coursecontext)) {
     $shortname = format_string($course->shortname,
                             true,
                             array('context' => $coursecontext));
@@ -150,13 +136,13 @@ $groupselect = groups_print_activity_menu($cm, $url->out(), true);
 $mygroupid = groups_get_activity_group($cm);
 
 // preparing the table for output
-$baseurl = new moodle_url('/mod/feedback/show_nonrespondents.php');
+$baseurl = new lion_url('/mod/feedback/show_nonrespondents.php');
 $baseurl->params(array('id'=>$id, 'showall'=>$showall));
 
 $tablecolumns = array('userpic', 'fullname', 'status');
 $tableheaders = array(get_string('userpic'), get_string('fullnameuser'), get_string('status'));
 
-if (has_capability('moodle/course:bulkmessaging', $coursecontext)) {
+if (has_capability('lion/course:bulkmessaging', $coursecontext)) {
     $tablecolumns[] = 'select';
     $tableheaders[] = get_string('select');
 }
@@ -226,7 +212,7 @@ if (!$students) {
     echo print_string('non_respondents_students', 'feedback');
     echo ' ('.$matchcount.')<hr />';
 
-    if (has_capability('moodle/course:bulkmessaging', $coursecontext)) {
+    if (has_capability('lion/course:bulkmessaging', $coursecontext)) {
         echo '<form class="mform" action="show_nonrespondents.php" method="post" id="feedback_sendmessageform">';
     }
     foreach ($students as $student) {
@@ -243,14 +229,14 @@ if (!$students) {
         }
 
         //selections to bulk messaging
-        if (has_capability('moodle/course:bulkmessaging', $coursecontext)) {
+        if (has_capability('lion/course:bulkmessaging', $coursecontext)) {
             $data[] = '<input type="checkbox" class="usercheckbox" name="messageuser[]" value="'.$user->id.'" />';
         }
         $table->add_data($data);
     }
     $table->print_html();
 
-    $allurl = new moodle_url($baseurl);
+    $allurl = new lion_url($baseurl);
 
     if ($showall) {
         $allurl->param('showall', 0);
@@ -261,7 +247,7 @@ if (!$students) {
         $allurl->param('showall', 1);
         echo $OUTPUT->container(html_writer::link($allurl, get_string('showall', '', $matchcount)), array(), 'showall');
     }
-    if (has_capability('moodle/course:bulkmessaging', $coursecontext)) {
+    if (has_capability('lion/course:bulkmessaging', $coursecontext)) {
         echo '<div class="buttons"><br />';
         echo '<input type="button" id="checkall" value="'.get_string('selectall').'" /> ';
         echo '<input type="button" id="checknone" value="'.get_string('deselectall').'" /> ';

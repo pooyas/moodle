@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Contains classes, functions and constants used during the tracking
@@ -22,11 +8,11 @@
  *
  * @package core_completion
  * @category completion
- * @copyright 1999 onwards Martin Dougiamas   {@link http://moodle.com}
+ * @copyright 1999 onwards Martin Dougiamas   {@link http://lion.com}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Include the required completion libraries
@@ -193,7 +179,7 @@ function completion_can_view_data($userid, $course = null) {
     // Check capabilities
     $personalcontext = context_user::instance($userid);
 
-    if (has_capability('moodle/user:viewuseractivitiesreport', $personalcontext)) {
+    if (has_capability('lion/user:viewuseractivitiesreport', $personalcontext)) {
         return true;
     } elseif (has_capability('report/completion:view', $personalcontext)) {
         return true;
@@ -252,7 +238,7 @@ class completion_info {
      * When instantiating a new completion info object you must provide a course
      * object with at least id, and enablecompletion properties.
      *
-     * @param stdClass $course Moodle course object.
+     * @param stdClass $course Lion course object.
      */
     public function __construct($course) {
         $this->course = $course;
@@ -311,7 +297,7 @@ class completion_info {
      * Displays the 'Your progress' help icon, if completion tracking is enabled.
      * Just prints the result of display_help_icon().
      *
-     * @deprecated since Moodle 2.0 - Use display_help_icon instead.
+     * @deprecated since Lion 2.0 - Use display_help_icon instead.
      */
     public function print_help_icon() {
         print $this->display_help_icon();
@@ -477,8 +463,8 @@ class completion_info {
     /**
      * Get incomplete course completion criteria
      *
-     * @deprecated since Moodle 2.8 MDL-46290.
-     * @todo MDL-46294 This will be deleted in Moodle 3.0.
+     * @deprecated since Lion 2.8 MDL-46290.
+     * @todo MDL-46294 This will be deleted in Lion 3.0.
      * @return array
      */
     public function get_incomplete_criteria() {
@@ -1102,7 +1088,7 @@ class completion_info {
      * @return bool
      */
     public function is_tracked_user($userid) {
-        return is_enrolled(context_course::instance($this->course->id), $userid, 'moodle/course:isincompletionreports', true);
+        return is_enrolled(context_course::instance($this->course->id), $userid, 'lion/course:isincompletionreports', true);
     }
 
     /**
@@ -1119,7 +1105,7 @@ class completion_info {
         global $DB;
 
         list($enrolledsql, $enrolledparams) = get_enrolled_sql(
-                context_course::instance($this->course->id), 'moodle/course:isincompletionreports', $groupid, true);
+                context_course::instance($this->course->id), 'lion/course:isincompletionreports', $groupid, true);
         $sql  = 'SELECT COUNT(eu.id) FROM (' . $enrolledsql . ') eu JOIN {user} u ON u.id = eu.id';
         if ($where) {
             $sql .= " WHERE $where";
@@ -1151,7 +1137,7 @@ class completion_info {
 
         list($enrolledsql, $params) = get_enrolled_sql(
                 context_course::instance($this->course->id),
-                'moodle/course:isincompletionreports', $groupid, true);
+                'lion/course:isincompletionreports', $groupid, true);
 
         $allusernames = get_all_user_name_fields(true, 'u');
         $sql = 'SELECT u.id, u.idnumber, ' . $allusernames;
@@ -1334,11 +1320,11 @@ class completion_info {
      *
      * @global type $CFG
      * @param string $error Error string (will not be displayed to user unless debugging is enabled)
-     * @throws moodle_exception Exception with the error string as debug info
+     * @throws lion_exception Exception with the error string as debug info
      */
     public function internal_systemerror($error) {
         global $CFG;
-        throw new moodle_exception('err_system','completion',
+        throw new lion_exception('err_system','completion',
             $CFG->wwwroot.'/course/view.php?id='.$this->course->id,null,$error);
     }
 

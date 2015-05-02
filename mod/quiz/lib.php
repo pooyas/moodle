@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions for the quiz module.
@@ -21,12 +7,12 @@
  * Functions that are only called by the quiz module itself are in {@link locallib.php}
  *
  * @package    mod_quiz
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/eventslib.php');
 require_once($CFG->dirroot . '/calendar/lib.php');
@@ -550,7 +536,7 @@ function quiz_get_user_attempts($quizid, $userid, $status = 'finished', $include
     global $DB, $CFG;
     // TODO MDL-33071 it is very annoying to have to included all of locallib.php
     // just to get the quiz_attempt::FINISHED constants, but I will try to sort
-    // that out properly for Moodle 2.4. For now, I will just do a quick fix for
+    // that out properly for Lion 2.4. For now, I will just do a quick fix for
     // MDL-33048.
     require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 
@@ -890,8 +876,8 @@ function quiz_get_recent_mod_activity(&$activities, &$index, $timestart,
     }
 
     $context         = context_module::instance($cm->id);
-    $accessallgroups = has_capability('moodle/site:accessallgroups', $context);
-    $viewfullnames   = has_capability('moodle/site:viewfullnames', $context);
+    $accessallgroups = has_capability('lion/site:accessallgroups', $context);
+    $viewfullnames   = has_capability('lion/site:viewfullnames', $context);
     $grader          = has_capability('mod/quiz:viewreports', $context);
     $groupmode       = groups_get_activity_groupmode($cm, $course);
 
@@ -1420,7 +1406,7 @@ function quiz_reset_userdata($data) {
 }
 
 /**
- * Prints quiz summaries on MyMoodle Page
+ * Prints quiz summaries on MyLion Page
  * @param arry $courses
  * @param array $htmlarray
  */
@@ -1555,7 +1541,7 @@ function quiz_attempt_summary_link_to_reports($quiz, $cm, $context, $returnzero 
     }
 
     require_once($CFG->dirroot . '/mod/quiz/report/reportlib.php');
-    $url = new moodle_url('/mod/quiz/report.php', array(
+    $url = new lion_url('/mod/quiz/report.php', array(
             'id' => $cm->id, 'mode' => quiz_report_default_report($context)));
     return html_writer::link($url, $summary);
 }
@@ -1573,7 +1559,7 @@ function quiz_supports($feature) {
         case FEATURE_COMPLETION_HAS_RULES:      return true;
         case FEATURE_GRADE_HAS_GRADE:           return true;
         case FEATURE_GRADE_OUTCOMES:            return true;
-        case FEATURE_BACKUP_MOODLE2:            return true;
+        case FEATURE_BACKUP_LION2:            return true;
         case FEATURE_SHOW_DESCRIPTION:          return true;
         case FEATURE_CONTROLS_GRADE_VISIBILITY: return true;
         case FEATURE_USES_QUESTIONS:            return true;
@@ -1589,7 +1575,7 @@ function quiz_get_extra_capabilities() {
     global $CFG;
     require_once($CFG->libdir . '/questionlib.php');
     $caps = question_get_all_capabilities();
-    $caps[] = 'moodle/site:accessallgroups';
+    $caps[] = 'lion/site:accessallgroups';
     return $caps;
 }
 
@@ -1622,28 +1608,28 @@ function quiz_extend_settings_navigation($settings, $quiznode) {
     }
 
     if (has_capability('mod/quiz:manageoverrides', $PAGE->cm->context)) {
-        $url = new moodle_url('/mod/quiz/overrides.php', array('cmid'=>$PAGE->cm->id));
+        $url = new lion_url('/mod/quiz/overrides.php', array('cmid'=>$PAGE->cm->id));
         $node = navigation_node::create(get_string('groupoverrides', 'quiz'),
-                new moodle_url($url, array('mode'=>'group')),
+                new lion_url($url, array('mode'=>'group')),
                 navigation_node::TYPE_SETTING, null, 'mod_quiz_groupoverrides');
         $quiznode->add_node($node, $beforekey);
 
         $node = navigation_node::create(get_string('useroverrides', 'quiz'),
-                new moodle_url($url, array('mode'=>'user')),
+                new lion_url($url, array('mode'=>'user')),
                 navigation_node::TYPE_SETTING, null, 'mod_quiz_useroverrides');
         $quiznode->add_node($node, $beforekey);
     }
 
     if (has_capability('mod/quiz:manage', $PAGE->cm->context)) {
         $node = navigation_node::create(get_string('editquiz', 'quiz'),
-                new moodle_url('/mod/quiz/edit.php', array('cmid'=>$PAGE->cm->id)),
+                new lion_url('/mod/quiz/edit.php', array('cmid'=>$PAGE->cm->id)),
                 navigation_node::TYPE_SETTING, null, 'mod_quiz_edit',
                 new pix_icon('t/edit', ''));
         $quiznode->add_node($node, $beforekey);
     }
 
     if (has_capability('mod/quiz:preview', $PAGE->cm->context)) {
-        $url = new moodle_url('/mod/quiz/startattempt.php',
+        $url = new lion_url('/mod/quiz/startattempt.php',
                 array('cmid'=>$PAGE->cm->id, 'sesskey'=>sesskey()));
         $node = navigation_node::create(get_string('preview', 'quiz'), $url,
                 navigation_node::TYPE_SETTING, null, 'mod_quiz_preview',
@@ -1655,14 +1641,14 @@ function quiz_extend_settings_navigation($settings, $quiznode) {
         require_once($CFG->dirroot . '/mod/quiz/report/reportlib.php');
         $reportlist = quiz_report_list($PAGE->cm->context);
 
-        $url = new moodle_url('/mod/quiz/report.php',
+        $url = new lion_url('/mod/quiz/report.php',
                 array('id' => $PAGE->cm->id, 'mode' => reset($reportlist)));
         $reportnode = $quiznode->add_node(navigation_node::create(get_string('results', 'quiz'), $url,
                 navigation_node::TYPE_SETTING,
                 null, null, new pix_icon('i/report', '')), $beforekey);
 
         foreach ($reportlist as $report) {
-            $url = new moodle_url('/mod/quiz/report.php',
+            $url = new lion_url('/mod/quiz/report.php',
                     array('id' => $PAGE->cm->id, 'mode' => $report));
             $reportnode->add_node(navigation_node::create(get_string($report, 'quiz_'.$report), $url,
                     navigation_node::TYPE_SETTING,

@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * File containing the helper class.
  *
  * @package    tool_uploadcourse
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->libdir . '/coursecatlib.php');
 require_once($CFG->dirroot . '/cache/lib.php');
 require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
@@ -33,7 +19,7 @@ require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');
  *
  * @package    tool_uploadcourse
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class tool_uploadcourse_helper {
 
@@ -234,7 +220,7 @@ class tool_uploadcourse_helper {
 
             if (!empty($backupfile)) {
                 // Extracting the backup file.
-                $packer = get_file_packer('application/vnd.moodle.backup');
+                $packer = get_file_packer('application/vnd.lion.backup');
                 $backupid = restore_controller::get_tempdir_name(SITEID, $USER->id);
                 $path = "$CFG->tempdir/backup/$backupid/";
                 $result = $packer->extract_to_pathname($backupfile, $path);
@@ -245,7 +231,7 @@ class tool_uploadcourse_helper {
                 // Creating restore from an existing course.
                 $courseid = $DB->get_field('course', 'id', array('shortname' => $shortname), IGNORE_MISSING);
                 if (!empty($courseid)) {
-                    $bc = new backup_controller(backup::TYPE_1COURSE, $courseid, backup::FORMAT_MOODLE,
+                    $bc = new backup_controller(backup::TYPE_1COURSE, $courseid, backup::FORMAT_LION,
                         backup::INTERACTIVE_NO, backup::MODE_IMPORT, $USER->id);
                     $bc->execute_plan();
                     $backupid = $bc->get_backupid();

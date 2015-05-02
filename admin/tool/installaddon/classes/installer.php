@@ -1,36 +1,22 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides tool_installaddon_installer related classes
  *
  * @package     tool_installaddon
  * @subpackage  classes
- * @copyright   2013 David Mudrak <david@moodle.com>
+ * @copyright   2013 David Mudrak <david@lion.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Implements main plugin features.
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2013 David Mudrak <david@lion.com>
+ * 
  */
 class tool_installaddon_installer {
 
@@ -50,16 +36,16 @@ class tool_installaddon_installer {
      * Returns the URL to the main page of this admin tool
      *
      * @param array optional parameters
-     * @return moodle_url
+     * @return lion_url
      */
     public function index_url(array $params = null) {
-        return new moodle_url('/admin/tool/installaddon/index.php', $params);
+        return new lion_url('/admin/tool/installaddon/index.php', $params);
     }
 
     /**
      * Returns URL to the repository that addons can be searched in and installed from
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_addons_repository_url() {
         global $CFG;
@@ -67,11 +53,11 @@ class tool_installaddon_installer {
         if (!empty($CFG->config_php_settings['alternativeaddonsrepositoryurl'])) {
             $url = $CFG->config_php_settings['alternativeaddonsrepositoryurl'];
         } else {
-            $url = 'https://moodle.org/plugins/get.php';
+            $url = 'https://lion.org/plugins/get.php';
         }
 
         if (!$this->should_send_site_info()) {
-            return new moodle_url($url);
+            return new lion_url($url);
         }
 
         // Append the basic information about our site.
@@ -83,7 +69,7 @@ class tool_installaddon_installer {
 
         $site = $this->encode_site_information($site);
 
-        return new moodle_url($url, array('site' => $site));
+        return new lion_url($url, array('site' => $site));
     }
 
     /**
@@ -241,7 +227,7 @@ class tool_installaddon_installer {
      * Hook method to handle the remote request to install an add-on
      *
      * This is used as a callback when the admin picks a plugin version in the
-     * Moodle Plugins directory and is redirected back to their site to install
+     * Lion Plugins directory and is redirected back to their site to install
      * it.
      *
      * This hook is called early from admin/tool/installaddon/index.php page so that
@@ -341,7 +327,7 @@ class tool_installaddon_installer {
         }
 
         // Redirect to the validation page.
-        $nexturl = new moodle_url('/admin/tool/installaddon/validate.php', array(
+        $nexturl = new lion_url('/admin/tool/installaddon/validate.php', array(
             'sesskey' => sesskey(),
             'jobid' => $jobid,
             'zip' => $zipfilename,
@@ -353,7 +339,7 @@ class tool_installaddon_installer {
      * Download the given file into the given destination.
      *
      * This is basically a simplified version of {@link download_file_content()} from
-     * Moodle itself, tuned for fetching files from moodle.org servers. Same code is used
+     * Lion itself, tuned for fetching files from lion.org servers. Same code is used
      * in mdeploy.php for fetching available updates.
      *
      * @param string $source file url starting with http(s)://
@@ -510,7 +496,7 @@ class tool_installaddon_installer {
      * @return string major version like 2.5, 2.6 etc.
      */
     protected function get_site_major_version() {
-        return moodle_major_version();
+        return lion_major_version();
     }
 
     /**
@@ -592,7 +578,7 @@ class tool_installaddon_installer {
     }
 
     /**
-     * Decode the request from the Moodle Plugins directory
+     * Decode the request from the Lion Plugins directory
      *
      * @param string $request submitted via 'installaddonrequest' HTTP parameter
      * @return stdClass|bool false on error, object otherwise
@@ -640,7 +626,7 @@ class tool_installaddon_installer {
             return false;
         }
 
-        // Keep this regex in sync with the one used by the download.moodle.org/api/x.y/pluginfo.php
+        // Keep this regex in sync with the one used by the download.lion.org/api/x.y/pluginfo.php
         if (!preg_match('/^[0-9]+$/', $data->version)) {
             return false;
         }
@@ -733,10 +719,10 @@ class tool_installaddon_installer {
 /**
  * General exception thrown by {@link tool_installaddon_installer} class
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2013 David Mudrak <david@lion.com>
+ * 
  */
-class tool_installaddon_installer_exception extends moodle_exception {
+class tool_installaddon_installer_exception extends lion_exception {
 
     /**
      * @param string $errorcode exception description identifier

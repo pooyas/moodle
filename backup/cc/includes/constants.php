@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * @package   moodlecore
+ * @package   lioncore
  * @subpackage backup-imscc
  * @copyright 2009 Mauro Rondinelli (mauro.rondinelli [AT] uvcms.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') or die('Direct access to this script is forbidden.');
+defined('LION_INTERNAL') or die('Direct access to this script is forbidden.');
 
 // GENERAL PARAMETERS ************************************************************************************************* //
 define('ROOT_DEEP', 2);
@@ -68,14 +54,14 @@ define('CC_TYPE_WEBCONTENT', 'webcontent');
 define('CC_TYPE_ASSOCIATED_CONTENT', 'associatedcontent/imscc_xmlv1p0/learning-application-resource');
 define('CC_TYPE_EMPTY', '');
 
-// MOODLE RESOURCES TYPE ********************************************************************************************** //
-define('MOODLE_TYPE_FORUM', 'forum');
-define('MOODLE_TYPE_QUIZ', 'quiz');
-define('MOODLE_TYPE_QUESTION_BANK', 'question_bank');
-define('MOODLE_TYPE_RESOURCE', 'resource');
-define('MOODLE_TYPE_LABEL', 'label');
-define('MOODLE_TYPE_BASICLTI', 'basiclti');
-define('MOODLE_TYPE_LTI', 'lti');
+// LION RESOURCES TYPE ********************************************************************************************** //
+define('LION_TYPE_FORUM', 'forum');
+define('LION_TYPE_QUIZ', 'quiz');
+define('LION_TYPE_QUESTION_BANK', 'question_bank');
+define('LION_TYPE_RESOURCE', 'resource');
+define('LION_TYPE_LABEL', 'label');
+define('LION_TYPE_BASICLTI', 'basiclti');
+define('LION_TYPE_LTI', 'lti');
 
 // UNKNOWN TYPE ******************************************************************************************************* //
 define('TYPE_UNKNOWN', '[UNKNOWN]');
@@ -88,11 +74,11 @@ define('CC_QUIZ_MULTIPLE_RESPONSE', 'cc.multiple_response.v0p1');
 define('CC_QUIZ_PATTERN_MACHT', 'cc.pattern_match.v0p1');
 define('CC_QUIZ_ESSAY', 'cc.essay.v0p1');
 
-//MOODLE QUESTIONS TYPES ********************************************************************************************** //
-define('MOODLE_QUIZ_MULTIPLE_CHOICE', 'multichoice');
-define('MOODLE_QUIZ_TRUE_FALSE', 'truefalse');
-define('MOODLE_QUIZ_MULTIANSWER', 'multianswer');
-define('MOODLE_QUIZ_MULTIPLE_RESPONSE', 'multichoice');
-define('MOODLE_QUIZ_MACHT', 'match');
-define('MOODLE_QUIZ_ESSAY', 'essay');
-define('MOODLE_QUIZ_SHORTANSWER', 'shortanswer');
+//LION QUESTIONS TYPES ********************************************************************************************** //
+define('LION_QUIZ_MULTIPLE_CHOICE', 'multichoice');
+define('LION_QUIZ_TRUE_FALSE', 'truefalse');
+define('LION_QUIZ_MULTIANSWER', 'multianswer');
+define('LION_QUIZ_MULTIPLE_RESPONSE', 'multichoice');
+define('LION_QUIZ_MACHT', 'match');
+define('LION_QUIZ_ESSAY', 'essay');
+define('LION_QUIZ_SHORTANSWER', 'shortanswer');

@@ -2,54 +2,54 @@
 
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /**
  * Registration renderer.
- * @package   moodle
+ * @package   lion
  * @subpackage registration
- * @copyright 2010 Moodle Pty Ltd (http://moodle.com)
+ * @copyright 2010 Lion Pty Ltd (http://lion.com)
  * @author    Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_register_renderer extends plugin_renderer_base {
 
     /**
-     * Display Moodle.org registration message about benefit to register on Moodle.org
+     * Display Lion.org registration message about benefit to register on Lion.org
      *
      * @return string
      */
-    public function moodleorg_registration_message() {
+    public function lionorg_registration_message() {
 
-        $moodleorgstatslink = html_writer::link('http://moodle.net/stats',
-                                               get_string('statsmoodleorg', 'admin'),
+        $lionorgstatslink = html_writer::link('http://lion.net/stats',
+                                               get_string('statslionorg', 'admin'),
                                                array('target' => '_blank'));
 
-        $hublink = html_writer::link('https://moodle.net/mod/page/view.php?id=1',
-                                      get_string('moodleorghubname', 'admin'),
+        $hublink = html_writer::link('https://lion.net/mod/page/view.php?id=1',
+                                      get_string('lionorghubname', 'admin'),
                                       array('target' => '_blank'));
 
-        $moodleorgregmsg = get_string('registermoodleorg', 'admin', $hublink);
-        $items = array(get_string('registermoodleorgli1', 'admin'),
-                       get_string('registermoodleorgli2', 'admin', $moodleorgstatslink));
-        $moodleorgregmsg .= html_writer::alist($items);
-        return $moodleorgregmsg;
+        $lionorgregmsg = get_string('registerlionorg', 'admin', $hublink);
+        $items = array(get_string('registerlionorgli1', 'admin'),
+                       get_string('registerlionorgli2', 'admin', $lionorgstatslink));
+        $lionorgregmsg .= html_writer::alist($items);
+        return $lionorgregmsg;
     }
 
     /**
@@ -59,7 +59,7 @@ class core_register_renderer extends plugin_renderer_base {
      */
     public function registration_confirmation($confirmationmessage) {
         $linktositelist = html_writer::tag('a', get_string('sitelist', 'hub'),
-                        array('href' => new moodle_url('/local/hub/index.php')));
+                        array('href' => new lion_url('/local/hub/index.php')));
         $message = $confirmationmessage . html_writer::empty_tag('br') . $linktositelist;
         return $this->output->box($message);
     }
@@ -74,13 +74,13 @@ class core_register_renderer extends plugin_renderer_base {
         $table->size = array('80%', '20%');
 
         foreach ($hubs as $hub) {
-            if ($hub->huburl == HUB_MOODLEORGHUBURL) {
-                $hub->hubname = get_string('registeredmoodleorg', 'hub', $hub->hubname);
+            if ($hub->huburl == HUB_LIONORGHUBURL) {
+                $hub->hubname = get_string('registeredlionorg', 'hub', $hub->hubname);
             }
             $hublink = html_writer::tag('a', $hub->hubname, array('href' => $hub->huburl));
             $hublinkcell = html_writer::tag('div', $hublink, array('class' => 'registeredhubrow'));
 
-            $unregisterhuburl = new moodle_url("/" . $CFG->admin . "/registration/index.php",
+            $unregisterhuburl = new lion_url("/" . $CFG->admin . "/registration/index.php",
                             array('sesskey' => sesskey(), 'huburl' => $hub->huburl,
                                 'unregistration' => 1));
             $unregisterbutton = new single_button($unregisterhuburl,

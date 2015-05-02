@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for forms lib.
@@ -22,26 +8,26 @@
  * @package    core_form
  * @category   phpunit
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/form/duration.php');
 
 /**
- * Unit tests for MoodleQuickForm_duration
+ * Unit tests for LionQuickForm_duration
  *
- * Contains test cases for testing MoodleQuickForm_duration
+ * Contains test cases for testing LionQuickForm_duration
  *
  * @package    core_form
  * @category   phpunit
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_form_duration_testcase extends basic_testcase {
-    /** @var MoodleQuickForm_duration Keeps reference of MoodleQuickForm_duration object */
+    /** @var LionQuickForm_duration Keeps reference of LionQuickForm_duration object */
     private $element;
 
     /**
@@ -49,7 +35,7 @@ class core_form_duration_testcase extends basic_testcase {
      */
     protected function setUp() {
         parent::setUp();
-        $this->element = new MoodleQuickForm_duration();
+        $this->element = new LionQuickForm_duration();
     }
 
     /**
@@ -67,7 +53,7 @@ class core_form_duration_testcase extends basic_testcase {
      */
     public function test_constructor() {
         // Test trying to create with an invalid unit.
-        $this->element = new MoodleQuickForm_duration('testel', null, array('defaultunit' => 123));
+        $this->element = new LionQuickForm_duration('testel', null, array('defaultunit' => 123));
     }
 
     /**
@@ -94,7 +80,7 @@ class core_form_duration_testcase extends basic_testcase {
         $this->assertEquals(array(1, 86400), $this->element->seconds_to_unit(86400));
         $this->assertEquals(array(25, 3600), $this->element->seconds_to_unit(90000));
 
-        $this->element = new MoodleQuickForm_duration('testel', null, array('defaultunit' => 86400));
+        $this->element = new LionQuickForm_duration('testel', null, array('defaultunit' => 86400));
         $this->assertEquals(array(0, 86400), $this->element->seconds_to_unit(0)); // Zero minutes, for a nice default unit.
     }
 
@@ -102,7 +88,7 @@ class core_form_duration_testcase extends basic_testcase {
      * Testcase to check generated timestamp
      */
     public function test_exportValue() {
-        $el = new MoodleQuickForm_duration('testel');
+        $el = new LionQuickForm_duration('testel');
         $el->_createElements();
         $values = array('testel' => array('number' => 10, 'timeunit' => 1));
         $this->assertEquals(array('testel' => 10), $el->exportValue($values));
@@ -117,7 +103,7 @@ class core_form_duration_testcase extends basic_testcase {
         $values = array('testel' => array('number' => 0, 'timeunit' => 3600));
         $this->assertEquals(array('testel' => 0), $el->exportValue($values));
 
-        $el = new MoodleQuickForm_duration('testel', null, array('optional' => true));
+        $el = new LionQuickForm_duration('testel', null, array('optional' => true));
         $el->_createElements();
         $values = array('testel' => array('number' => 10, 'timeunit' => 1));
         $this->assertEquals(array('testel' => 0), $el->exportValue($values));

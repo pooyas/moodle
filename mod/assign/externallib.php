@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External assign API
  *
  * @package    mod_assign
- * @since      Moodle 2.4
+ * @since      Lion 2.4
  * @copyright  2012 Paul Charsley
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
 /**
  * Assign functions
  * @copyright 2012 Paul Charsley
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_assign_external extends external_api {
 
@@ -69,7 +55,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for get_grades
      * @return external_external_function_parameters
-     * @since  Moodle 2.4
+     * @since  Lion 2.4
      */
     public static function get_grades_parameters() {
         return new external_function_parameters(
@@ -90,7 +76,7 @@ class mod_assign_external extends external_api {
      * @param int[] $assignmentids
      * @param int $since only return records with timemodified >= since
      * @return array of grade records for each requested assignment
-     * @since  Moodle 2.4
+     * @since  Lion 2.4
      */
     public static function get_grades($assignmentids, $since = 0) {
         global $DB;
@@ -197,7 +183,7 @@ class mod_assign_external extends external_api {
     /**
      * Creates an assign_grades external_single_structure
      * @return external_single_structure
-     * @since  Moodle 2.4
+     * @since  Lion 2.4
      */
     private static function assign_grades() {
         return new external_single_structure(
@@ -222,7 +208,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the get_grades return value
      * @return external_single_structure
-     * @since  Moodle 2.4
+     * @since  Lion 2.4
      */
     public static function get_grades_returns() {
         return new external_single_structure(
@@ -239,7 +225,7 @@ class mod_assign_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since  Moodle 2.4
+     * @since  Lion 2.4
      */
     public static function get_assignments_parameters() {
         return new external_function_parameters(
@@ -266,7 +252,7 @@ class mod_assign_external extends external_api {
      * will be returned. If the user is not enrolled in a given course a warning will be generated and returned.
      * @param array $capabilities An array of additional capability checks you wish to be made on the course context.
      * @return An array of courses and warnings.
-     * @since  Moodle 2.4
+     * @since  Lion 2.4
      */
     public static function get_assignments($courseids = array(), $capabilities = array()) {
         global $USER, $DB;
@@ -420,7 +406,7 @@ class mod_assign_external extends external_api {
      * Creates an assignment external_single_structure
      *
      * @return external_single_structure
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     private static function get_assignments_assignment_structure() {
         return new external_single_structure(
@@ -458,7 +444,7 @@ class mod_assign_external extends external_api {
      * Creates an assign_plugin_config external_single_structure
      *
      * @return external_single_structure
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     private static function get_assignments_config_structure() {
         return new external_single_structure(
@@ -477,7 +463,7 @@ class mod_assign_external extends external_api {
      * Creates a course external_single_structure
      *
      * @return external_single_structure
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     private static function get_assignments_course_structure() {
         return new external_single_structure(
@@ -495,7 +481,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for get_assignments
      *
      * @return external_single_structure
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     public static function get_assignments_returns() {
         return new external_single_structure(
@@ -512,7 +498,7 @@ class mod_assign_external extends external_api {
      * Describes the parameters for get_submissions
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_submissions_parameters() {
         return new external_function_parameters(
@@ -536,7 +522,7 @@ class mod_assign_external extends external_api {
      * @param int $since only return submissions with timemodified >= since
      * @param int $before only return submissions with timemodified <= before
      * @return array of submissions for each requested assignment
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_submissions($assignmentids, $status = '', $since = 0, $before = 0) {
         global $DB, $CFG;
@@ -692,7 +678,7 @@ class mod_assign_external extends external_api {
      * Creates an assign_submissions external_single_structure
      *
      * @return external_single_structure
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     private static function get_submissions_structure() {
         return new external_single_structure(
@@ -755,7 +741,7 @@ class mod_assign_external extends external_api {
      * Describes the get_submissions return value
      *
      * @return external_single_structure
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_submissions_returns() {
         return new external_single_structure(
@@ -769,7 +755,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for set_user_flags
      * @return external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function set_user_flags_parameters() {
         return new external_function_parameters(
@@ -797,7 +783,7 @@ class mod_assign_external extends external_api {
      * @param int $assignmentid the assignment for which the userflags are created or updated
      * @param array $userflags  An array of userflags to create or update
      * @return array containing success or failure information for each record
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function set_user_flags($assignmentid, $userflags = array()) {
         global $CFG, $DB;
@@ -895,7 +881,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the set_user_flags return value
      * @return external_multiple_structure
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function set_user_flags_returns() {
         return new external_multiple_structure(
@@ -912,7 +898,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for get_user_flags
      * @return external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function get_user_flags_parameters() {
         return new external_function_parameters(
@@ -929,7 +915,7 @@ class mod_assign_external extends external_api {
      * Returns user flag information from assign_user_flags for the requested assignment ids
      * @param int[] $assignmentids
      * @return array of user flag records for each requested assignment
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function get_user_flags($assignmentids) {
         global $DB;
@@ -1025,7 +1011,7 @@ class mod_assign_external extends external_api {
     /**
      * Creates an assign_user_flags external_single_structure
      * @return external_single_structure
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     private static function assign_user_flags() {
         return new external_single_structure(
@@ -1050,7 +1036,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the get_user_flags return value
      * @return external_single_structure
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function get_user_flags_returns() {
         return new external_single_structure(
@@ -1066,7 +1052,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for get_user_mappings
      * @return external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function get_user_mappings_parameters() {
         return new external_function_parameters(
@@ -1083,7 +1069,7 @@ class mod_assign_external extends external_api {
      * Returns user mapping information from assign_user_mapping for the requested assignment ids
      * @param int[] $assignmentids
      * @return array of user mapping records for each requested assignment
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function get_user_mappings($assignmentids) {
         global $DB;
@@ -1173,7 +1159,7 @@ class mod_assign_external extends external_api {
     /**
      * Creates an assign_user_mappings external_single_structure
      * @return external_single_structure
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     private static function assign_user_mappings() {
         return new external_single_structure(
@@ -1193,7 +1179,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the get_user_mappings return value
      * @return external_single_structure
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function get_user_mappings_returns() {
         return new external_single_structure(
@@ -1209,7 +1195,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for lock_submissions
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function lock_submissions_parameters() {
         return new external_function_parameters(
@@ -1229,7 +1215,7 @@ class mod_assign_external extends external_api {
      * @param int $assignmentid The id of the assignment
      * @param array $userids Array of user ids to lock
      * @return array of warnings for each submission that could not be locked.
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function lock_submissions($assignmentid, $userids) {
         global $CFG;
@@ -1262,7 +1248,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for lock_submissions
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function lock_submissions_returns() {
         return new external_multiple_structure(
@@ -1273,7 +1259,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for revert_submissions_to_draft
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function revert_submissions_to_draft_parameters() {
         return new external_function_parameters(
@@ -1293,7 +1279,7 @@ class mod_assign_external extends external_api {
      * @param int $assignmentid The id of the assignment
      * @param array $userids Array of user ids to revert
      * @return array of warnings for each submission that could not be reverted.
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function revert_submissions_to_draft($assignmentid, $userids) {
         global $CFG;
@@ -1326,7 +1312,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for revert_submissions_to_draft
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function revert_submissions_to_draft_returns() {
         return new external_multiple_structure(
@@ -1337,7 +1323,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for unlock_submissions
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function unlock_submissions_parameters() {
         return new external_function_parameters(
@@ -1357,7 +1343,7 @@ class mod_assign_external extends external_api {
      * @param int $assignmentid The id of the assignment
      * @param array $userids Array of user ids to lock
      * @return array of warnings for each submission that could not be locked.
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function unlock_submissions($assignmentid, $userids) {
         global $CFG;
@@ -1390,7 +1376,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for unlock_submissions
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function unlock_submissions_returns() {
         return new external_multiple_structure(
@@ -1401,7 +1387,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for submit_for_grading
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function submit_for_grading_parameters() {
         return new external_function_parameters(
@@ -1417,7 +1403,7 @@ class mod_assign_external extends external_api {
      *
      * @param int $assignmentid The id of the assignment
      * @return array of warnings to indicate any errors.
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function submit_for_grading($assignmentid, $acceptsubmissionstatement) {
         global $CFG, $USER;
@@ -1452,7 +1438,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for submit_for_grading
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function submit_for_grading_returns() {
         return new external_multiple_structure(
@@ -1463,7 +1449,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for save_user_extensions
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function save_user_extensions_parameters() {
         return new external_function_parameters(
@@ -1488,7 +1474,7 @@ class mod_assign_external extends external_api {
      * @param array $userids Array of user ids to grant extensions to
      * @param array $dates Array of extension dates
      * @return array of warnings for each extension date that could not be granted
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function save_user_extensions($assignmentid, $userids, $dates) {
         global $CFG;
@@ -1532,7 +1518,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for save_user_extensions
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function save_user_extensions_returns() {
         return new external_multiple_structure(
@@ -1543,7 +1529,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for reveal_identities
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function reveal_identities_parameters() {
         return new external_function_parameters(
@@ -1558,7 +1544,7 @@ class mod_assign_external extends external_api {
      *
      * @param int $assignmentid The id of the assignment
      * @return array of warnings to indicate any errors.
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function reveal_identities($assignmentid) {
         global $CFG, $USER;
@@ -1588,7 +1574,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for reveal_identities
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function reveal_identities_returns() {
         return new external_multiple_structure(
@@ -1599,7 +1585,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for save_submission
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function save_submission_parameters() {
         global $CFG;
@@ -1630,7 +1616,7 @@ class mod_assign_external extends external_api {
      * @param int $assignmentid The id of the assignment
      * @param array $plugindata - The submitted data for plugins
      * @return array of warnings to indicate any errors
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function save_submission($assignmentid, $plugindata) {
         global $CFG, $USER;
@@ -1666,7 +1652,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for save_submission
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function save_submission_returns() {
         return new external_multiple_structure(
@@ -1677,7 +1663,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for save_grade
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function save_grade_parameters() {
         global $CFG;
@@ -1745,7 +1731,7 @@ class mod_assign_external extends external_api {
      * @param array $plugindata Custom data used by plugins
      * @param array $advancedgradingdata Advanced grading data
      * @return null
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function save_grade($assignmentid,
                                       $userid,
@@ -1808,7 +1794,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for save_grade
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function save_grade_returns() {
         return null;
@@ -1817,7 +1803,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for save_grades
      * @return external_external_function_parameters
-     * @since  Moodle 2.7
+     * @since  Lion 2.7
      */
     public static function save_grades_parameters() {
         global $CFG;
@@ -1897,7 +1883,7 @@ class mod_assign_external extends external_api {
      * @throws invalid_parameter_exception if multiple grades are supplied for
      * a team assignment that has $applytoall set to true
      * @return null
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function save_grades($assignmentid, $applytoall = false, $grades) {
         global $CFG, $USER;
@@ -1959,7 +1945,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for save_grades
      *
      * @return external_single_structure
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function save_grades_returns() {
         return null;
@@ -1968,7 +1954,7 @@ class mod_assign_external extends external_api {
     /**
      * Describes the parameters for copy_previous_attempt
      * @return external_external_function_parameters
-     * @since  Moodle 2.6
+     * @since  Lion 2.6
      */
     public static function copy_previous_attempt_parameters() {
         return new external_function_parameters(
@@ -1983,7 +1969,7 @@ class mod_assign_external extends external_api {
      *
      * @param int $assignmentid
      * @return array of warnings to indicate any errors.
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function copy_previous_attempt($assignmentid) {
         global $CFG, $USER;
@@ -2016,7 +2002,7 @@ class mod_assign_external extends external_api {
      * Describes the return value for save_submission
      *
      * @return external_single_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function copy_previous_attempt_returns() {
         return new external_multiple_structure(

@@ -1,27 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions and constants for module glossary
- * outside of what is required for the core moodle api
+ * outside of what is required for the core lion api
  *
  * @package   mod_glossary
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 require_once($CFG->libdir . '/portfolio/caller.php');
@@ -212,8 +198,8 @@ class glossary_full_portfolio_caller extends portfolio_module_caller_base {
  * class to export a single glossary entry
  *
  * @package   mod_glossary
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 class glossary_entry_portfolio_caller extends portfolio_module_caller_base {
 
@@ -405,7 +391,7 @@ class glossary_entry_portfolio_caller extends portfolio_module_caller_base {
         $output .= '<td class="entry">' . "\n";
 
         $output .= '<div class="concept">';
-        $output .= format_text($OUTPUT->heading($entry->concept, 3), FORMAT_MOODLE, $options);
+        $output .= format_text($OUTPUT->heading($entry->concept, 3), FORMAT_LION, $options);
         $output .= '</div> ' . "\n";
 
         $entry->definition = format_text($entry->definition, $entry->definitionformat, $options);
@@ -459,8 +445,8 @@ class glossary_entry_portfolio_caller extends portfolio_module_caller_base {
  * Class representing the virtual node with all itemids in the file browser
  *
  * @category  files
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class glossary_file_info_container extends file_info {
     /** @var file_browser */

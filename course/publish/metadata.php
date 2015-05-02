@@ -2,21 +2,21 @@
 
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -62,13 +62,13 @@ if (!extension_loaded('xmlrpc')) {
     die();
 }
 
-if (has_capability('moodle/course:publish', context_course::instance($id))) {
+if (has_capability('lion/course:publish', context_course::instance($id))) {
 
     //retrieve hub name and hub url
     $huburl = optional_param('huburl', '', PARAM_URL);
     $hubname = optional_param('hubname', '', PARAM_TEXT);
     if (empty($huburl) or !confirm_sesskey()) {
-        throw new moodle_exception('missingparameter');
+        throw new lion_exception('missingparameter');
     }
 
     //set the publication form
@@ -191,12 +191,12 @@ if (has_capability('moodle/course:publish', context_course::instance($id))) {
         try {
             $courseids = $xmlrpcclient->call($function, $params);
         } catch (Exception $e) {
-            throw new moodle_exception('errorcoursepublish', 'hub',
-                    new moodle_url('/course/view.php', array('id' => $id)), $e->getMessage());
+            throw new lion_exception('errorcoursepublish', 'hub',
+                    new lion_url('/course/view.php', array('id' => $id)), $e->getMessage());
         }
 
         if (count($courseids) != 1) {
-            throw new moodle_exception('errorcoursewronglypublished', 'hub');
+            throw new lion_exception('errorcoursewronglypublished', 'hub');
         }
 
         //save the record into the published course table
@@ -239,11 +239,11 @@ if (has_capability('moodle/course:publish', context_course::instance($id))) {
         if ($share) {
             $params = array('sesskey' => sesskey(), 'id' => $id, 'hubcourseid' => $courseids[0],
                 'huburl' => $huburl, 'hubname' => $hubname);
-            $backupprocessurl = new moodle_url("/course/publish/backup.php", $params);
+            $backupprocessurl = new lion_url("/course/publish/backup.php", $params);
             redirect($backupprocessurl);
         } else {
             //redirect to the index publis page
-            redirect(new moodle_url('/course/publish/index.php',
+            redirect(new lion_url('/course/publish/index.php',
                             array('sesskey' => sesskey(), 'id' => $id, 'published' => true,
                                 'hubname' => $hubname, 'huburl' => $huburl)));
         }

@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains classes used to manage the repository plugins in Moodle
+ * This file contains classes used to manage the repository plugins in Lion
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package   core_repository
  * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->libdir . '/filelib.php');
 require_once($CFG->libdir . '/formslib.php');
 
@@ -50,7 +36,7 @@ define('RENAME_SUFFIX', '_2');
  *
  * @package   core_repository
  * @copyright 2009 Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class repository_type implements cacheable_object {
 
@@ -243,7 +229,7 @@ class repository_type implements cacheable_object {
             if (empty($instanceoptionnames)) {
                 $instanceoptions = array();
                 if (empty($this->_options['pluginname'])) {
-                    // when moodle trying to install some repo plugin automatically
+                    // when lion trying to install some repo plugin automatically
                     // this option will be empty, get it from language string when display
                     $instanceoptions['name'] = '';
                 } else {
@@ -485,29 +471,29 @@ class repository_type implements cacheable_object {
 /**
  * This is the base class of the repository class.
  *
- * To create repository plugin, see: {@link http://docs.moodle.org/dev/Repository_plugins}
+ * To create repository plugin, see: {@link http://docs.lion.org/dev/Repository_plugins}
  * See an example: {@link repository_boxnet}
  *
  * @package   core_repository
  * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class repository implements cacheable_object {
     /**
-     * Timeout in seconds for downloading the external file into moodle
-     * @deprecated since Moodle 2.7, please use $CFG->repositorygetfiletimeout instead
+     * Timeout in seconds for downloading the external file into lion
+     * @deprecated since Lion 2.7, please use $CFG->repositorygetfiletimeout instead
      */
     const GETFILE_TIMEOUT = 30;
 
     /**
      * Timeout in seconds for syncronising the external file size
-     * @deprecated since Moodle 2.7, please use $CFG->repositorysyncfiletimeout instead
+     * @deprecated since Lion 2.7, please use $CFG->repositorysyncfiletimeout instead
      */
     const SYNCFILE_TIMEOUT = 1;
 
     /**
      * Timeout in seconds for downloading an image file from external repository during syncronisation
-     * @deprecated since Moodle 2.7, please use $CFG->repositorysyncimagetimeout instead
+     * @deprecated since Lion 2.7, please use $CFG->repositorysyncimagetimeout instead
      */
     const SYNCIMAGE_TIMEOUT = 3;
 
@@ -630,7 +616,7 @@ abstract class repository implements cacheable_object {
      * Returns the type name of the repository.
      *
      * @return string type name of the repository.
-     * @since  Moodle 2.5
+     * @since  Lion 2.5
      */
     public function get_typename() {
         if (empty($this->typename)) {
@@ -810,13 +796,13 @@ abstract class repository implements cacheable_object {
     }
 
     /**
-     * Parses the moodle file reference and returns an instance of stored_file
+     * Parses the lion file reference and returns an instance of stored_file
      *
-     * @param string $reference reference to the moodle internal file as retruned by
+     * @param string $reference reference to the lion internal file as retruned by
      *        {@link repository::get_file_reference()} or {@link file_storage::pack_reference()}
      * @return stored_file|null
      */
-    public static function get_moodle_file($reference) {
+    public static function get_lion_file($reference) {
         $params = file_storage::unpack_reference($reference, true);
         $fs = get_file_storage();
         return $fs->get_file($params['contextid'], $params['component'], $params['filearea'],
@@ -833,7 +819,7 @@ abstract class repository implements cacheable_object {
      * @return bool whether the file is accessible by current user
      */
     public function file_is_accessible($source) {
-        if ($this->has_moodle_files()) {
+        if ($this->has_lion_files()) {
             $reference = $this->get_file_reference($source);
             try {
                 $params = file_storage::unpack_reference($reference, true);
@@ -850,7 +836,7 @@ abstract class repository implements cacheable_object {
     }
 
     /**
-     * This function is used to copy a moodle file to draft area.
+     * This function is used to copy a lion file to draft area.
      *
      * It DOES NOT check if the user is allowed to access this file because the actual file
      * can be located in the area where user does not have access to but there is an alias
@@ -870,8 +856,8 @@ abstract class repository implements cacheable_object {
         global $USER;
         $fs = get_file_storage();
 
-        if ($this->has_moodle_files() == false) {
-            throw new coding_exception('Only repository used to browse moodle files can use repository::copy_to_area()');
+        if ($this->has_lion_files() == false) {
+            throw new coding_exception('Only repository used to browse lion files can use repository::copy_to_area()');
         }
 
         $user_context = context_user::instance($USER->id);
@@ -886,7 +872,7 @@ abstract class repository implements cacheable_object {
         $new_filename = $filerecord['filename'];
 
         // the file needs to copied to draft area
-        $stored_file = self::get_moodle_file($source);
+        $stored_file = self::get_lion_file($source);
         if ($maxbytes != -1 && $stored_file->get_filesize() > $maxbytes) {
             throw new file_exception('maxbytes');
         }
@@ -905,11 +891,11 @@ abstract class repository implements cacheable_object {
             $event['newfile'] = new stdClass;
             $event['newfile']->filepath = $new_filepath;
             $event['newfile']->filename = $unused_filename;
-            $event['newfile']->url = moodle_url::make_draftfile_url($draftitemid, $new_filepath, $unused_filename)->out();
+            $event['newfile']->url = lion_url::make_draftfile_url($draftitemid, $new_filepath, $unused_filename)->out();
             $event['existingfile'] = new stdClass;
             $event['existingfile']->filepath = $new_filepath;
             $event['existingfile']->filename = $new_filename;
-            $event['existingfile']->url = moodle_url::make_draftfile_url($draftitemid, $new_filepath, $new_filename)->out();
+            $event['existingfile']->url = lion_url::make_draftfile_url($draftitemid, $new_filepath, $new_filename)->out();
             return $event;
         } else {
             $fs->create_file_from_storedfile($filerecord, $stored_file);
@@ -918,7 +904,7 @@ abstract class repository implements cacheable_object {
             $info['file'] = $new_filename;
             $info['title'] = $new_filename;
             $info['contextid'] = $user_context->id;
-            $info['url'] = moodle_url::make_draftfile_url($draftitemid, $new_filepath, $new_filename)->out();
+            $info['url'] = lion_url::make_draftfile_url($draftitemid, $new_filepath, $new_filename)->out();
             $info['filesize'] = $stored_file->get_filesize();
             return $info;
         }
@@ -1121,7 +1107,7 @@ abstract class repository implements cacheable_object {
                 $capability = has_capability('repository/'.$record->repositorytype.':view', $current_context);
                 if ($record->repositorytype == 'coursefiles') {
                     // coursefiles plugin needs managefiles permission
-                    $capability = $capability && has_capability('moodle/course:managefiles', $current_context);
+                    $capability = $capability && has_capability('lion/course:managefiles', $current_context);
                 }
                 if ($is_supported && $capability) {
                     $repositories[$repository->id] = $repository;
@@ -1207,7 +1193,7 @@ abstract class repository implements cacheable_object {
         if (!file_exists($CFG->pathtoclam) or !is_executable($CFG->pathtoclam)) {
             // misconfigured clam - use the old notification for now
             require("$CFG->libdir/uploadlib.php");
-            $notice = get_string('clamlost', 'moodle', $CFG->pathtoclam);
+            $notice = get_string('clamlost', 'lion', $CFG->pathtoclam);
             clam_message_admins($notice);
             return;
         }
@@ -1234,19 +1220,19 @@ abstract class repository implements cacheable_object {
             if ($deleteinfected) {
                 unlink($thefile);
             }
-            throw new moodle_exception('virusfounduser', 'moodle', '', array('filename'=>$filename));
+            throw new lion_exception('virusfounduser', 'lion', '', array('filename'=>$filename));
 
         } else {
             //unknown problem
             require("$CFG->libdir/uploadlib.php");
-            $notice = get_string('clamfailed', 'moodle', get_clam_error_code($return));
+            $notice = get_string('clamfailed', 'lion', get_clam_error_code($return));
             $notice .= "\n\n". implode("\n", $output);
             clam_message_admins($notice);
             if ($CFG->clamfailureonupload === 'actlikevirus') {
                 if ($deleteinfected) {
                     unlink($thefile);
                 }
-                throw new moodle_exception('virusfounduser', 'moodle', '', array('filename'=>$filename));
+                throw new lion_exception('virusfounduser', 'lion', '', array('filename'=>$filename));
             } else {
                 return;
             }
@@ -1265,7 +1251,7 @@ abstract class repository implements cacheable_object {
      * @param array $options additional options affecting the file serving
      */
     public function send_file($storedfile, $lifetime=null , $filter=0, $forcedownload=false, array $options = null) {
-        if ($this->has_moodle_files()) {
+        if ($this->has_lion_files()) {
             $fs = get_file_storage();
             $params = file_storage::unpack_reference($storedfile->get_reference(), true);
             $srcfile = null;
@@ -1297,7 +1283,7 @@ abstract class repository implements cacheable_object {
      * @return string
      */
     public function get_reference_details($reference, $filestatus = 0) {
-        if ($this->has_moodle_files()) {
+        if ($this->has_lion_files()) {
             $fileinfo = null;
             $params = file_storage::unpack_reference($reference, true);
             if (is_array($params)) {
@@ -1309,7 +1295,7 @@ abstract class repository implements cacheable_object {
             }
             if (empty($fileinfo)) {
                 if ($filestatus == 666) {
-                    if (is_siteadmin() || ($context && has_capability('moodle/course:managefiles', $context))) {
+                    if (is_siteadmin() || ($context && has_capability('lion/course:managefiles', $context))) {
                         return get_string('lostsource', 'repository',
                                 $params['contextid']. '/'. $params['component']. '/'. $params['filearea']. '/'. $params['itemid']. $params['filepath']. $params['filename']);
                     } else {
@@ -1328,7 +1314,7 @@ abstract class repository implements cacheable_object {
      * Cache file from external repository by reference
      * {@link repository::get_file_reference()}
      * {@link repository::get_file()}
-     * Invoked at MOODLE/repository/repository_ajax.php
+     * Invoked at LION/repository/repository_ajax.php
      *
      * @param string $reference this reference is generated by
      *                          repository::get_file_reference()
@@ -1345,7 +1331,7 @@ abstract class repository implements cacheable_object {
      * location of reference original.
      *
      * This method is called when file is picked for the first time only. When file
-     * (either copy or a reference) is already in moodle and it is being picked
+     * (either copy or a reference) is already in lion and it is being picked
      * again to another file area (also as a copy or as a reference), the value of
      * files.source is copied.
      *
@@ -1353,7 +1339,7 @@ abstract class repository implements cacheable_object {
      * @return string|null
      */
     public function get_file_source_info($source) {
-        if ($this->has_moodle_files()) {
+        if ($this->has_lion_files()) {
             $reference = $this->get_file_reference($source);
             return $this->get_reference_details($reference, 0);
         }
@@ -1393,12 +1379,12 @@ abstract class repository implements cacheable_object {
             $event['newfile'] = new stdClass;
             $event['newfile']->filepath = $record->filepath;
             $event['newfile']->filename = $new_filename;
-            $event['newfile']->url = moodle_url::make_draftfile_url($draftitemid, $record->filepath, $new_filename)->out();
+            $event['newfile']->url = lion_url::make_draftfile_url($draftitemid, $record->filepath, $new_filename)->out();
 
             $event['existingfile'] = new stdClass;
             $event['existingfile']->filepath = $record->filepath;
             $event['existingfile']->filename = $old_filename;
-            $event['existingfile']->url      = moodle_url::make_draftfile_url($draftitemid, $record->filepath, $old_filename)->out();
+            $event['existingfile']->url      = lion_url::make_draftfile_url($draftitemid, $record->filepath, $old_filename)->out();
             return $event;
         }
         if ($file = $fs->create_file_from_pathname($record, $thefile)) {
@@ -1407,7 +1393,7 @@ abstract class repository implements cacheable_object {
                 unset($CFG->repository_no_delete);
             }
             return array(
-                'url'=>moodle_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename())->out(),
+                'url'=>lion_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename())->out(),
                 'id'=>$file->get_itemid(),
                 'file'=>$file->get_filename(),
                 'icon' => $OUTPUT->pix_url(file_extension_icon($thefile, 32))->out(),
@@ -1517,10 +1503,10 @@ abstract class repository implements cacheable_object {
         //if the context is SYSTEM, so we call it from administration page
         $admin = ($context->id == SYSCONTEXTID) ? true : false;
         if ($admin) {
-            $baseurl = new moodle_url('/'.$CFG->admin.'/repositoryinstance.php', array('sesskey'=>sesskey()));
+            $baseurl = new lion_url('/'.$CFG->admin.'/repositoryinstance.php', array('sesskey'=>sesskey()));
             $output .= $OUTPUT->heading(get_string('siteinstances', 'repository'));
         } else {
-            $baseurl = new moodle_url('/repository/manage_instances.php', array('contextid'=>$context->id, 'sesskey'=>sesskey()));
+            $baseurl = new lion_url('/repository/manage_instances.php', array('contextid'=>$context->id, 'sesskey'=>sesskey()));
         }
 
         $namestr = get_string('name');
@@ -1557,12 +1543,12 @@ abstract class repository implements cacheable_object {
             if ($type->get_contextvisibility($context)) {
                 if (!$i->readonly) {
 
-                    $settingurl = new moodle_url($baseurl);
+                    $settingurl = new lion_url($baseurl);
                     $settingurl->param('type', $i->options['type']);
                     $settingurl->param('edit', $i->id);
                     $settings .= html_writer::link($settingurl, $settingsstr);
 
-                    $deleteurl = new moodle_url($baseurl);
+                    $deleteurl = new lion_url($baseurl);
                     $deleteurl->param('delete', $i->id);
                     $deleteurl->param('type', $i->options['type']);
                     $delete .= html_writer::link($deleteurl, $deletestr);
@@ -1640,7 +1626,7 @@ abstract class repository implements cacheable_object {
      * @return string file reference, ready to be stored
      */
     public function get_file_reference($source) {
-        if ($source && $this->has_moodle_files()) {
+        if ($source && $this->has_lion_files()) {
             $params = @json_decode(base64_decode($source), true);
             if (!is_array($params) || empty($params['contextid'])) {
                 throw new repository_exception('invalidparams', 'repository');
@@ -1678,11 +1664,11 @@ abstract class repository implements cacheable_object {
     }
 
     /**
-     * Does this repository used to browse moodle files?
+     * Does this repository used to browse lion files?
      *
      * @return bool
      */
-    public function has_moodle_files() {
+    public function has_lion_files() {
         return false;
     }
 
@@ -1703,7 +1689,7 @@ abstract class repository implements cacheable_object {
      *
      * Function get_file() must be implemented by repositories that support returntypes
      * FILE_INTERNAL or FILE_REFERENCE. It is invoked to pick up the file and copy it
-     * to moodle. This function is not called for moodle repositories, the function
+     * to lion. This function is not called for lion repositories, the function
      * {@link repository::copy_to_area()} is used instead.
      *
      * This function can be overridden by subclass if the files.reference field contains
@@ -1728,13 +1714,13 @@ abstract class repository implements cacheable_object {
 
         $result = $c->download_one($url, null, array('filepath' => $path, 'timeout' => $CFG->repositorygetfiletimeout));
         if ($result !== true) {
-            throw new moodle_exception('errorwhiledownload', 'repository', '', $result);
+            throw new lion_exception('errorwhiledownload', 'repository', '', $result);
         }
         return array('path'=>$path, 'url'=>$url);
     }
 
     /**
-     * Downloads the file from external repository and saves it in moodle filepool.
+     * Downloads the file from external repository and saves it in lion filepool.
      * This function is different from {@link repository::sync_reference()} because it has
      * bigger request timeout and always downloads the content.
      *
@@ -1754,8 +1740,8 @@ abstract class repository implements cacheable_object {
             // error
             debugging('Repository instance id does not match');
             return;
-        } else if ($this->has_moodle_files()) {
-            // files that are references to local files are already in moodle filepool
+        } else if ($this->has_lion_files()) {
+            // files that are references to local files are already in lion filepool
             // just validate the size
             if ($maxbytes > 0 && $file->get_filesize() > $maxbytes) {
                 throw new file_exception('maxbytes');
@@ -1774,7 +1760,7 @@ abstract class repository implements cacheable_object {
                 $contentexists = false;
             }
             if (!$file->get_status() && $contentexists) {
-                // we already have the content in moodle filepool and it was synchronised recently.
+                // we already have the content in lion filepool and it was synchronised recently.
                 // Repositories may overwrite it if they want to force synchronisation anyway!
                 return;
             } else {
@@ -1786,7 +1772,7 @@ abstract class repository implements cacheable_object {
                         // set this file and other similar aliases synchronised
                         $file->set_synchronized($contenthash, $filesize);
                     } else {
-                        throw new moodle_exception('errorwhiledownload', 'repository', '', '');
+                        throw new lion_exception('errorwhiledownload', 'repository', '', '');
                     }
                 } catch (Exception $e) {
                     if ($contentexists) {
@@ -1854,7 +1840,7 @@ abstract class repository implements cacheable_object {
      * can be edited.
      *
      * @return bool true if the user can edit the instance.
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public final function can_be_edited_by_user() {
         global $USER;
@@ -1870,10 +1856,10 @@ abstract class repository implements cacheable_object {
         if ($repocontext->contextlevel == CONTEXT_USER && $repocontext->instanceid != $USER->id) {
             // If the context of this instance is a user context, we need to be this user.
             return false;
-        } else if ($repocontext->contextlevel == CONTEXT_MODULE && !has_capability('moodle/course:update', $repocontext)) {
+        } else if ($repocontext->contextlevel == CONTEXT_MODULE && !has_capability('lion/course:update', $repocontext)) {
             // We need to have permissions on the course to edit the instance.
             return false;
-        } else if ($repocontext->contextlevel == CONTEXT_SYSTEM && !has_capability('moodle/site:config', $repocontext)) {
+        } else if ($repocontext->contextlevel == CONTEXT_SYSTEM && !has_capability('lion/site:config', $repocontext)) {
             // Do not meet the requirements for the context system.
             return false;
         }
@@ -1902,16 +1888,16 @@ abstract class repository implements cacheable_object {
      * which authenticate the user and then store the auth token.
      *
      * Of course, many repositories store 'private data', but we only want to set
-     * contains_private_data() to repositories which are external to Moodle and shouldn't be accessed
+     * contains_private_data() to repositories which are external to Lion and shouldn't be accessed
      * to by the users having the capability to 'login as' someone else. For instance, the repository
-     * 'Private files' is not considered as private because it's part of Moodle.
+     * 'Private files' is not considered as private because it's part of Lion.
      *
      * You should not set contains_private_data() to true on repositories which allow different types
      * of instances as the levels other than 'user' are, by definition, not private. Also
      * the user instances will be protected when they need to.
      *
      * @return boolean True when the repository accesses private external data.
-     * @since  Moodle 2.5
+     * @since  Lion 2.5
      */
     public function contains_private_data() {
         return true;
@@ -2177,7 +2163,7 @@ abstract class repository implements cacheable_object {
     /**
      * Given a path, and perhaps a search, get a list of files.
      *
-     * See details on {@link http://docs.moodle.org/dev/Repository_plugins}
+     * See details on {@link http://docs.lion.org/dev/Repository_plugins}
      *
      * @param string $path this parameter can a folder name, or a identification of folder
      * @param string $page the page number of file list
@@ -2205,7 +2191,7 @@ abstract class repository implements cacheable_object {
      *
      * @param array $breadcrumb contains each element of the breadcrumb.
      * @return array of breadcrumb elements.
-     * @since Moodle 2.3.3
+     * @since Lion 2.3.3
      */
     protected static function prepare_breadcrumb($breadcrumb) {
         global $OUTPUT;
@@ -2226,7 +2212,7 @@ abstract class repository implements cacheable_object {
      *
      * @param array $list of files and folders.
      * @return array of files and folders.
-     * @since Moodle 2.3.3
+     * @since Lion 2.3.3
      */
     protected static function prepare_list($list) {
         global $OUTPUT;
@@ -2389,7 +2375,7 @@ abstract class repository implements cacheable_object {
     }
 
     /**
-     * For oauth like external authentication, when external repository direct user back to moodle,
+     * For oauth like external authentication, when external repository direct user back to lion,
      * this function will be called to set up token and token_secret
      */
     public function callback() {
@@ -2414,7 +2400,7 @@ abstract class repository implements cacheable_object {
     }
 
     /**
-     * function which is run when the type is created (moodle administrator add the plugin)
+     * function which is run when the type is created (lion administrator add the plugin)
      *
      * @return bool success or fail?
      */
@@ -2423,9 +2409,9 @@ abstract class repository implements cacheable_object {
     }
 
     /**
-     * Edit/Create Admin Settings Moodle form
+     * Edit/Create Admin Settings Lion form
      *
-     * @param moodleform $mform Moodle form (passed by reference)
+     * @param lionform $mform Lion form (passed by reference)
      * @param string $classname repository class name
      */
     public static function type_config_form($mform, $classname = 'repository') {
@@ -2433,7 +2419,7 @@ abstract class repository implements cacheable_object {
         if (empty($instnaceoptions)) {
             // this plugin has only one instance
             // so we need to give it a name
-            // it can be empty, then moodle will look for instance name from language string
+            // it can be empty, then lion will look for instance name from language string
             $mform->addElement('text', 'pluginname', get_string('pluginname', 'repository'), array('size' => '40'));
             $mform->addElement('static', 'pluginnamehelp', '', get_string('pluginnamehelp', 'repository'));
             $mform->setType('pluginname', PARAM_TEXT);
@@ -2441,10 +2427,10 @@ abstract class repository implements cacheable_object {
     }
 
     /**
-     * Validate Admin Settings Moodle form
+     * Validate Admin Settings Lion form
      *
      * @static
-     * @param moodleform $mform Moodle form (passed by reference)
+     * @param lionform $mform Lion form (passed by reference)
      * @param array $data array of ("fieldname"=>value) of submitted data
      * @param array $errors array of ("fieldname"=>errormessage) of errors
      * @return array array of errors
@@ -2455,9 +2441,9 @@ abstract class repository implements cacheable_object {
 
 
     /**
-     * Edit/Create Instance Settings Moodle form
+     * Edit/Create Instance Settings Lion form
      *
-     * @param moodleform $mform Moodle form (passed by reference)
+     * @param lionform $mform Lion form (passed by reference)
      */
     public static function instance_config_form($mform) {
     }
@@ -2485,7 +2471,7 @@ abstract class repository implements cacheable_object {
     /**
      * Validate repository plugin instance form
      *
-     * @param moodleform $mform moodle form
+     * @param lionform $mform lion form
      * @param array $data form data
      * @param array $errors errors
      * @return array errors
@@ -2569,7 +2555,7 @@ abstract class repository implements cacheable_object {
      * @param string $filepath path to the directory containing the file, or full path in case of directory
      * @param string $filename name of the file, or '.' in case of directory
      * @param array $updatedata array of fields to change (only filename, filepath, license and/or author can be updated)
-     * @throws moodle_exception if for any reason file can not be updated (file does not exist, target already exists, etc.)
+     * @throws lion_exception if for any reason file can not be updated (file does not exist, target already exists, etc.)
      */
     public static function update_draftfile($draftid, $filepath, $filename, $updatedata) {
         global $USER;
@@ -2580,9 +2566,9 @@ abstract class repository implements cacheable_object {
         $filemodified = false;
         if (!$file = $fs->get_file($usercontext->id, 'user', 'draft', $draftid, $filepath, $filename)) {
             if ($filename === '.') {
-                throw new moodle_exception('foldernotfound', 'repository');
+                throw new lion_exception('foldernotfound', 'repository');
             } else {
-                throw new moodle_exception('filenotfound', 'error');
+                throw new lion_exception('filenotfound', 'error');
             }
         }
         if (!$file->is_directory()) {
@@ -2590,7 +2576,7 @@ abstract class repository implements cacheable_object {
             if ($updatedata['filepath'] !== $filepath || $updatedata['filename'] !== $filename) {
                 // Rename/move file: check that target file name does not exist.
                 if ($fs->file_exists($usercontext->id, 'user', 'draft', $draftid, $updatedata['filepath'], $updatedata['filename'])) {
-                    throw new moodle_exception('fileexists', 'repository');
+                    throw new lion_exception('fileexists', 'repository');
                 }
                 if (($filesource = @unserialize($file->get_source())) && isset($filesource->original)) {
                     unset($filesource->original);
@@ -2622,12 +2608,12 @@ abstract class repository implements cacheable_object {
             }
             if ($fs->file_exists($usercontext->id, 'user', 'draft', $draftid, $updatedata['filepath'], '.')) {
                 // bad luck, we can not rename if something already exists there
-                throw new moodle_exception('folderexists', 'repository');
+                throw new lion_exception('folderexists', 'repository');
             }
             $xfilepath = preg_quote($filepath, '|');
             if (preg_match("|^$xfilepath|", $updatedata['filepath'])) {
                 // we can not move folder to it's own subfolder
-                throw new moodle_exception('folderrecurse', 'repository');
+                throw new lion_exception('folderrecurse', 'repository');
             }
 
             // If directory changed the name, update timemodified.
@@ -2685,7 +2671,7 @@ abstract class repository implements cacheable_object {
 
     /**
      * Function repository::reset_caches() is deprecated, cache is handled by MUC now.
-     * @deprecated since Moodle 2.6 MDL-42016 - please do not use this function any more.
+     * @deprecated since Lion 2.6 MDL-42016 - please do not use this function any more.
      */
     public static function reset_caches() {
         throw new coding_exception('Function repository::reset_caches() can not be used any more, cache is handled by MUC now.');
@@ -2694,7 +2680,7 @@ abstract class repository implements cacheable_object {
     /**
      * Function repository::sync_external_file() is deprecated. Use repository::sync_reference instead
      *
-     * @deprecated since Moodle 2.6 MDL-42016 - please do not use this function any more.
+     * @deprecated since Lion 2.6 MDL-42016 - please do not use this function any more.
      * @see repository::sync_reference()
      */
     public static function sync_external_file($file, $resetsynchistory = false) {
@@ -2708,10 +2694,10 @@ abstract class repository implements cacheable_object {
      * This function must be implemented for external repositories supporting
      * FILE_REFERENCE, it is called for existing aliases when their filesize,
      * contenthash or timemodified are requested. It is not called for internal
-     * repositories (see {@link repository::has_moodle_files()}), references to
+     * repositories (see {@link repository::has_lion_files()}), references to
      * internal files are updated immediately when source is modified.
      *
-     * Referenced files may optionally keep their content in Moodle filepool (for
+     * Referenced files may optionally keep their content in Lion filepool (for
      * thumbnail generation or to be able to serve cached copy). In this
      * case both contenthash and filesize need to be synchronized. Otherwise repositories
      * should use contenthash of empty file and correct filesize in bytes.
@@ -2739,7 +2725,7 @@ abstract class repository implements cacheable_object {
             return false;
         }
 
-        if ($this->has_moodle_files()) {
+        if ($this->has_lion_files()) {
             // References to local files need to be synchronised only once.
             // Later they will be synchronised automatically when the source is changed.
             if ($file->get_referencelastsync()) {
@@ -2833,30 +2819,30 @@ abstract class repository implements cacheable_object {
 /**
  * Exception class for repository api
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package   core_repository
  * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class repository_exception extends moodle_exception {
+class repository_exception extends lion_exception {
 }
 
 /**
  * This is a class used to define a repository instance form
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package   core_repository
  * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-final class repository_instance_form extends moodleform {
+final class repository_instance_form extends lionform {
     /** @var stdClass repository instance */
     protected $instance;
     /** @var string repository plugin type */
     protected $plugin;
 
     /**
-     * Added defaults to moodle form
+     * Added defaults to lion form
      */
     protected function add_defaults() {
         $mform =& $this->_form;
@@ -2879,7 +2865,7 @@ final class repository_instance_form extends moodleform {
     }
 
     /**
-     * Define moodle form elements
+     * Define lion form elements
      */
     public function definition() {
         global $CFG;
@@ -2925,7 +2911,7 @@ final class repository_instance_form extends moodleform {
     }
 
     /**
-     * Validate moodle form data
+     * Validate lion form data
      *
      * @param array $data form data
      * @param array $files files in form
@@ -2964,12 +2950,12 @@ final class repository_instance_form extends moodleform {
 /**
  * This is a class used to define a repository type setting form
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package   core_repository
  * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-final class repository_type_form extends moodleform {
+final class repository_type_form extends lionform {
     /** @var stdClass repository instance */
     protected $instance;
     /** @var string repository plugin name */
@@ -2978,7 +2964,7 @@ final class repository_type_form extends moodleform {
     protected $action;
 
     /**
-     * Definition of the moodleform
+     * Definition of the lionform
      */
     public function definition() {
         global $CFG;
@@ -3051,9 +3037,9 @@ final class repository_type_form extends moodleform {
     }
 
     /**
-     * Validate moodle form data
+     * Validate lion form data
      *
-     * @param array $data moodle form data
+     * @param array $data lion form data
      * @param array $files
      * @return array errors
      */

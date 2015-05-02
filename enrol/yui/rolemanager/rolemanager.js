@@ -1,8 +1,8 @@
-YUI.add('moodle-enrol-rolemanager', function(Y) {
+YUI.add('lion-enrol-rolemanager', function(Y) {
 
-    var MOD_NAME                    = 'Moodle role manager',
-        MOD_USER                    = 'Moodle role user',
-        MOD_PANEL                   = 'Moodle role assignment panel',
+    var MOD_NAME                    = 'Lion role manager',
+        MOD_USER                    = 'Lion role user',
+        MOD_PANEL                   = 'Lion role assignment panel',
         USERIDS                     = 'userIds',
         COURSEID                    = 'courseId',
         USERID                      = 'userId',
@@ -292,7 +292,7 @@ YUI.add('moodle-enrol-rolemanager', function(Y) {
         addRoleToDisplay : function(roleId, roleTitle) {
             var m = this.get(MANIPULATOR);
             var container = this.get(CONTAINER);
-            var role = Y.Node.create('<div class="role role_'+roleId+'">'+roleTitle+'<a class="unassignrolelink"><img src="'+M.util.image_url('t/delete', 'moodle')+'" alt="" /></a></div>');
+            var role = Y.Node.create('<div class="role role_'+roleId+'">'+roleTitle+'<a class="unassignrolelink"><img src="'+M.util.image_url('t/delete', 'lion')+'" alt="" /></a></div>');
             var link = role.one('.unassignrolelink');
             link.roleId = roleId;
             link.on('click', m.removeRole, m, this, link.roleId);
@@ -421,4 +421,4 @@ YUI.add('moodle-enrol-rolemanager', function(Y) {
         }
     }
 
-}, '@VERSION@', {requires:['base','node','io-base','json-parse','test','moodle-core-notification']});
+}, '@VERSION@', {requires:['base','node','io-base','json-parse','test','lion-core-notification']});

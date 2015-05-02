@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once($CFG->dirroot . '/repository/lib.php');
@@ -47,7 +33,7 @@ if ($action == 'newon') {
     $visible = false;
 }
 
-require_capability('moodle/site:config', context_system::instance());
+require_capability('lion/site:config', context_system::instance());
 admin_externalpage_setup($pagename);
 
 $sesskeyurl = $CFG->wwwroot.'/'.$CFG->admin.'/repository.php?sesskey=' . sesskey();
@@ -62,12 +48,12 @@ if (!empty($action)) {
 }
 
 /**
- * Helper function that generates a moodle_url object
+ * Helper function that generates a lion_url object
  * relevant to the repository
  */
 function repository_action_url($repository) {
     global $baseurl;
-    return new moodle_url($baseurl, array('sesskey'=>sesskey(), 'repos'=>$repository));
+    return new lion_url($baseurl, array('sesskey'=>sesskey(), 'repos'=>$repository));
 }
 
 if (($action == 'edit') || ($action == 'new')) {
@@ -225,14 +211,14 @@ if (($action == 'edit') || ($action == 'new')) {
         $output = $OUTPUT->box_start('generalbox', 'notice');
         $output .= html_writer::tag('p', $message);
 
-        $removeurl = new moodle_url($sesskeyurl);
+        $removeurl = new lion_url($sesskeyurl);
         $removeurl->params(array(
             'action' =>'delete',
             'repos' => $repository,
             'sure' => 'yes',
         ));
 
-        $removeanddownloadurl = new moodle_url($sesskeyurl);
+        $removeanddownloadurl = new lion_url($sesskeyurl);
         $removeanddownloadurl->params(array(
             'action' =>'delete',
             'repos'=> $repository,
@@ -308,7 +294,7 @@ if (($action == 'edit') || ($action == 'new')) {
             $instanceoptionnames = repository::static_function($typename, 'get_instance_option_names');
 
             if (!empty($typeoptionnames) || !empty($instanceoptionnames)) {
-                // Calculate number of instances in order to display them for the Moodle administrator
+                // Calculate number of instances in order to display them for the Lion administrator
                 if (!empty($instanceoptionnames)) {
                     $params = array();
                     $params['context'] = array(context_system::instance());

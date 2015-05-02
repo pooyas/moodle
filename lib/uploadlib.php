@@ -1,39 +1,25 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * uploadlib.php - This class handles all aspects of fileuploading
  *
  * @package    core
  * @subpackage file
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * This class handles all aspects of fileuploading
  *
  * @deprecated since 2.7 - use new file pickers instead
  *
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   lioncore
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 class upload_manager {
 
@@ -65,11 +51,11 @@ function clam_message_admins($notice) {
 
     $site = get_site();
 
-    $subject = get_string('clamemailsubject', 'moodle', format_string($site->fullname));
+    $subject = get_string('clamemailsubject', 'lion', format_string($site->fullname));
     $admins = get_admins();
     foreach ($admins as $admin) {
         $eventdata = new stdClass();
-        $eventdata->component         = 'moodle';
+        $eventdata->component         = 'lion';
         $eventdata->name              = 'errors';
         $eventdata->userfrom          = get_admin();
         $eventdata->userto            = $admin;

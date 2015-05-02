@@ -1,26 +1,12 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains a custom renderer class used by the forum module.
  *
  * @package   mod_forum
  * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -29,7 +15,7 @@
  *
  * @package   mod_forum
  * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  **/
 class mod_forum_renderer extends plugin_renderer_base {
 
@@ -46,14 +32,14 @@ class mod_forum_renderer extends plugin_renderer_base {
             $html .= html_writer::start_tag('div', array('class' => 'discussion-nav clearfix'));
             $html .= html_writer::start_tag('ul');
             if ($prev) {
-                $url = new moodle_url('/mod/forum/discuss.php', array('d' => $prev->id));
+                $url = new lion_url('/mod/forum/discuss.php', array('d' => $prev->id));
                 $html .= html_writer::start_tag('li', array('class' => 'prev-discussion'));
                 $html .= html_writer::link($url, $prev->name,
                     array('aria-label' => get_string('prevdiscussiona', 'mod_forum', $prev->name)));
                 $html .= html_writer::end_tag('li');
             }
             if ($next) {
-                $url = new moodle_url('/mod/forum/discuss.php', array('d' => $next->id));
+                $url = new lion_url('/mod/forum/discuss.php', array('d' => $next->id));
                 $html .= html_writer::start_tag('li', array('class' => 'next-discussion'));
                 $html .= html_writer::link($url, $next->name,
                     array('aria-label' => get_string('nextdiscussiona', 'mod_forum', $next->name)));

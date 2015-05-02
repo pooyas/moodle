@@ -1,7 +1,7 @@
 {
-    "moodle-atto_unorderedlist-button": {
+    "lion-atto_unorderedlist-button": {
         "requires": [
-            "moodle-editor_atto-plugin"
+            "lion-editor_atto-plugin"
         ]
     }
 }

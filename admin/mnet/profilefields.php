@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Allows the admin to configure a list of profile fields that are sent/recieved
@@ -21,7 +7,7 @@
  * @package    core
  * @subpackage mnet
  * @copyright  2010 onwards Penny Leach <penny@liip.ch>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -36,7 +22,7 @@ $mnet_peer->set_id($hostid);
 
 $context = context_system::instance();
 
-require_capability('moodle/site:config', $context, $USER->id, true, 'nopermissions');
+require_capability('lion/site:config', $context, $USER->id, true, 'nopermissions');
 admin_externalpage_setup('mnetpeers');
 $form = new mnet_profile_form(null, array('hostid' => $hostid));
 
@@ -58,9 +44,9 @@ if ($data = $form->get_data()) {
     set_config('host' . $hostid . 'exportdefault', $data->exportdefault, 'mnet');
     set_config('host' . $hostid . 'exportfields', implode(',', $data->exportfields), 'mnet');
 
-    redirect(new moodle_url('/admin/mnet/peers.php'), get_string('changessaved'));
+    redirect(new lion_url('/admin/mnet/peers.php'), get_string('changessaved'));
 } elseif ($form->is_cancelled()) {
-    redirect(new moodle_url('/admin/mnet/peers.php', array('hostid' => $hostid)));
+    redirect(new lion_url('/admin/mnet/peers.php', array('hostid' => $hostid)));
 }
 
 echo $OUTPUT->header();

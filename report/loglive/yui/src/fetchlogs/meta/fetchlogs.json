@@ -1,5 +1,5 @@
 {
-  "moodle-report_loglive-fetchlogs": {
+  "lion-report_loglive-fetchlogs": {
     "requires": [
         "base",
         "event",

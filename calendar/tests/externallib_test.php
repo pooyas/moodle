@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External calendar functions unit tests
@@ -20,10 +6,10 @@
  * @package    core_calendar
  * @category   external
  * @copyright  2012 Ankit Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -35,8 +21,8 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  * @package    core_calendar
  * @category   external
  * @copyright  2012 Ankit Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.5
+ * 
+ * @since Lion 2.5
  */
 class core_calendar_externallib_testcase extends externallib_advanced_testcase {
 
@@ -58,7 +44,7 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
      * @param int    $timestart   Time stamp of the event start
      * @param mixed  $prop        List of event properties as array or object
      * @return mixed              Event object or false;
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
 
     public static function create_calendar_event($name, $userid = 0, $type = 'user', $repeats = 0, $timestart  = null, $prop = null) {
@@ -190,13 +176,13 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
         $this->getDataGenerator()->enrol_user($user->id, $course->id, $role->id);
 
         // Remove all caps.
-        $this->unassignUserCapability('moodle/calendar:manageentries', $sitecontext->id, $role->id);
-        $this->unassignUserCapability('moodle/calendar:manageentries', $coursecontext->id, $role->id);
-        $this->unassignUserCapability('moodle/calendar:managegroupentries', $coursecontext->id, $role->id);
-        $this->unassignUserCapability('moodle/calendar:manageownentries', $usercontext->id, $role->id);
+        $this->unassignUserCapability('lion/calendar:manageentries', $sitecontext->id, $role->id);
+        $this->unassignUserCapability('lion/calendar:manageentries', $coursecontext->id, $role->id);
+        $this->unassignUserCapability('lion/calendar:managegroupentries', $coursecontext->id, $role->id);
+        $this->unassignUserCapability('lion/calendar:manageownentries', $usercontext->id, $role->id);
 
         // Assign proper caps and attempt delete.
-         $this->assignUserCapability('moodle/calendar:manageentries', $sitecontext->id, $role->id);
+         $this->assignUserCapability('lion/calendar:manageentries', $sitecontext->id, $role->id);
          $events = array(
                 array('eventid' => $siteevent->id, 'repeat' => 0),
                 );
@@ -205,7 +191,7 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
         $count = $notdeletedcount+5;
         $this->assertEquals($count, $deletedcount);
 
-         $this->assignUserCapability('moodle/calendar:manageentries', $sitecontext->id, $role->id);
+         $this->assignUserCapability('lion/calendar:manageentries', $sitecontext->id, $role->id);
          $events = array(
                 array('eventid' => $courseevent->id, 'repeat' => 0),
                 );
@@ -214,7 +200,7 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
         $count = $notdeletedcount+4;
         $this->assertEquals($count, $deletedcount);
 
-         $this->assignUserCapability('moodle/calendar:manageownentries', $usercontext->id, $role->id);
+         $this->assignUserCapability('lion/calendar:manageownentries', $usercontext->id, $role->id);
          $events = array(
                 array('eventid' => $userevent->id, 'repeat' => 0),
                 );
@@ -223,7 +209,7 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
         $count = $notdeletedcount+3;
         $this->assertEquals($count, $deletedcount);
 
-         $this->assignUserCapability('moodle/calendar:managegroupentries', $coursecontext->id, $role->id);
+         $this->assignUserCapability('lion/calendar:managegroupentries', $coursecontext->id, $role->id);
          $events = array(
                 array('eventid' => $groupevent->id, 'repeat' => 0),
                 );
@@ -247,7 +233,7 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
         $groupevent = $this->create_calendar_event('group', $USER->id, 'group', 0, time(), $record);
 
         $this->setGuestUser();
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $events = array(
             array('eventid' => $siteevent->id, 'repeat' => 0),
             array('eventid' => $courseevent->id, 'repeat' => 0),
@@ -410,8 +396,8 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
         $role = $DB->get_record('role', array('shortname' => 'student'));
         $this->getDataGenerator()->enrol_user($user->id, $course->id, $role->id);
         groups_add_member($group, $user);
-        $this->assignUserCapability('moodle/calendar:manageentries', $coursecontext->id, $role->id);
-        $this->assignUserCapability('moodle/calendar:managegroupentries', $coursecontext->id, $role->id);
+        $this->assignUserCapability('lion/calendar:manageentries', $coursecontext->id, $role->id);
+        $this->assignUserCapability('lion/calendar:managegroupentries', $coursecontext->id, $role->id);
         $eventsret = core_calendar_external::create_calendar_events($events);
         $eventsret = external_api::clean_returnvalue(core_calendar_external::create_calendar_events_returns(), $eventsret);
         // Check to see if things were created properly.
@@ -431,8 +417,8 @@ class core_calendar_externallib_testcase extends externallib_advanced_testcase {
         $this->assertEquals(3, count($eventsret['warnings']));
 
         $this->setUser($user);
-        $this->unassignUserCapability('moodle/calendar:manageentries', $coursecontext->id, $role->id);
-        $this->unassignUserCapability('moodle/calendar:managegroupentries', $coursecontext->id, $role->id);
+        $this->unassignUserCapability('lion/calendar:manageentries', $coursecontext->id, $role->id);
+        $this->unassignUserCapability('lion/calendar:managegroupentries', $coursecontext->id, $role->id);
         $prevcount = $DB->count_records('event');
         $eventsret = core_calendar_external::create_calendar_events($events);
         $eventsret = external_api::clean_returnvalue(core_calendar_external::create_calendar_events_returns(), $eventsret);

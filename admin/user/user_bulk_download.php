@@ -10,7 +10,7 @@ $format = optional_param('format', '', PARAM_ALPHA);
 
 require_login();
 admin_externalpage_setup('userbulk');
-require_capability('moodle/user:update', context_system::instance());
+require_capability('lion/user:update', context_system::instance());
 
 $return = $CFG->wwwroot.'/'.$CFG->admin.'/user/user_bulk.php';
 
@@ -76,7 +76,7 @@ function user_download_ods($fields) {
 
     $filename = clean_filename(get_string('users').'.ods');
 
-    $workbook = new MoodleODSWorkbook('-');
+    $workbook = new LionODSWorkbook('-');
     $workbook->send($filename);
 
     $worksheet = array();
@@ -114,7 +114,7 @@ function user_download_xls($fields) {
 
     $filename = clean_filename(get_string('users').'.xls');
 
-    $workbook = new MoodleExcelWorkbook('-');
+    $workbook = new LionExcelWorkbook('-');
     $workbook->send($filename);
 
     $worksheet = array();

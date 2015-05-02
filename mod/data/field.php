@@ -1,22 +1,8 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file is part of the Database module for Moodle
+ * This file is part of the Database module for Lion
  *
  * @copyright 2005 Martin Dougiamas  http://dougiamas.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -39,7 +25,7 @@ if ($cancel) {
     $mode = 'list';
 }
 
-$url = new moodle_url('/mod/data/field.php');
+$url = new lion_url('/mod/data/field.php');
 if ($fid !== 0) {
     $url->param('fid', $fid);
 }
@@ -280,17 +266,17 @@ if (($mode == 'new') && (!empty($newtype)) && confirm_sesskey()) {          /// 
 
                 $field = data_get_field($ff, $data);
 
-                $baseurl = new moodle_url('/mod/data/field.php', array(
+                $baseurl = new lion_url('/mod/data/field.php', array(
                     'd'         => $data->id,
                     'fid'       => $field->field->id,
                     'sesskey'   => sesskey(),
                 ));
 
-                $displayurl = new moodle_url($baseurl, array(
+                $displayurl = new lion_url($baseurl, array(
                     'mode'      => 'display',
                 ));
 
-                $deleteurl = new moodle_url($baseurl, array(
+                $deleteurl = new lion_url($baseurl, array(
                     'mode'      => 'delete',
                 ));
 
@@ -312,7 +298,7 @@ if (($mode == 'new') && (!empty($newtype)) && confirm_sesskey()) {          /// 
     echo '<div class="fieldadd">';
     echo '<label for="fieldform_jump">'.get_string('newfield','data').$OUTPUT->help_icon('newfield', 'data').'</label>';
     $popupurl = $CFG->wwwroot.'/mod/data/field.php?d='.$data->id.'&mode=new&sesskey='.  sesskey();
-    echo $OUTPUT->single_select(new moodle_url($popupurl), 'newtype', $menufield, null, array(''=>'choosedots'), 'fieldform');
+    echo $OUTPUT->single_select(new lion_url($popupurl), 'newtype', $menufield, null, array(''=>'choosedots'), 'fieldform');
     echo '</div>';
 
     echo '<div class="sortdefault">';

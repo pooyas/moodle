@@ -1,5 +1,5 @@
 {
-    "moodle-core-dragdrop": {
+    "lion-core-dragdrop": {
         "requires": [
             "base",
             "node",
@@ -8,7 +8,7 @@
             "dd",
             "event-key",
             "event-focus",
-            "moodle-core-notification"
+            "lion-core-notification"
         ]
     }
 }

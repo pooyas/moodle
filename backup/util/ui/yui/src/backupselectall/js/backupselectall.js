@@ -1,7 +1,7 @@
 /**
  * Adds select all/none links to the top of the backup/restore/import schema page.
  *
- * @module moodle-backup-backupselectall
+ * @module lion-backup-backupselectall
  */
 
 // Namespace for the backup
@@ -50,8 +50,8 @@ M.core_backup.backupselectall = function(modnames) {
                     '<div class="fitem fitem_fcheckbox backup_selector">' +
                         '<div class="fitemtitle">' + heading + '</div>' +
                         '<div class="felement">' +
-                            '<a id="backup-all-' + idtype + '" href="#">' + M.util.get_string('all', 'moodle') + '</a> / ' +
-                            '<a id="backup-none-' + idtype + '" href="#">' + M.util.get_string('none', 'moodle') + '</a>' +
+                            '<a id="backup-all-' + idtype + '" href="#">' + M.util.get_string('all', 'lion') + '</a> / ' +
+                            '<a id="backup-none-' + idtype + '" href="#">' + M.util.get_string('none', 'lion') + '</a>' +
                             extra +
                         '</div>' +
                     '</div>' +
@@ -81,10 +81,10 @@ M.core_backup.backupselectall = function(modnames) {
     });
 
     // Add global select all/none options.
-    var html = html_generator('include_setting section_level', 'included', M.util.get_string('select', 'moodle'),
+    var html = html_generator('include_setting section_level', 'included', M.util.get_string('select', 'lion'),
             ' (<a id="backup-bytype" href="#">' + M.util.get_string('showtypes', 'backup') + '</a>)');
     if (withuserdata) {
-        html += html_generator('normal_setting', 'userdata', M.util.get_string('select', 'moodle'));
+        html += html_generator('normal_setting', 'userdata', M.util.get_string('select', 'lion'));
     }
     var links = Y.Node.create('<div class="grouped_settings section_level">' + html + '</div>');
     firstsection.insert(links, 'before');

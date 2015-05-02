@@ -1,24 +1,10 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provide interface for blocks AJAX actions
  *
  * @copyright  2011 Lancaster University Network Services Limited
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 
@@ -60,15 +46,15 @@ $PAGE->blocks->add_custom_regions_for_pagetype($pagetype);
 $pagetype = explode('-', $pagetype);
 switch ($pagetype[0]) {
     case 'my':
-        $PAGE->set_blocks_editing_capability('moodle/my:manageblocks');
+        $PAGE->set_blocks_editing_capability('lion/my:manageblocks');
         break;
     case 'user':
         if ($pagelayout == 'mydashboard') {
             // If it's not the current user's profile, we need a different capability.
             if ($PAGE->context->contextlevel == CONTEXT_USER && $PAGE->context->instanceid != $USER->id) {
-                $PAGE->set_blocks_editing_capability('moodle/user:manageblocks');
+                $PAGE->set_blocks_editing_capability('lion/user:manageblocks');
             } else {
-                $PAGE->set_blocks_editing_capability('moodle/user:manageownblocks');
+                $PAGE->set_blocks_editing_capability('lion/user:manageownblocks');
             }
         }
         break;

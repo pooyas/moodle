@@ -1,18 +1,18 @@
 {
-  "name": "moodle-mod_quiz-util",
+  "name": "lion-mod_quiz-util",
   "builds": {
-    "moodle-mod_quiz-util-base": {
+    "lion-mod_quiz-util-base": {
       "jsfiles": [
         "base.js"
       ]
     },
-    "moodle-mod_quiz-util-slot": {
+    "lion-mod_quiz-util-slot": {
       "jsfiles": [
         "slot.js"
       ]
     }
     ,
-    "moodle-mod_quiz-util-page": {
+    "lion-mod_quiz-util-page": {
       "jsfiles": [
         "page.js"
       ]

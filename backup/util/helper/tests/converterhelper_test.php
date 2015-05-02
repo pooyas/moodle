@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package    core_backup
  * @category   phpunit
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include all the needed stuff
 global $CFG;
@@ -48,25 +34,25 @@ class backup_convert_helper_testcase extends basic_testcase {
 
         // no converters available
         $descriptions = array();
-        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_MOODLE1, $descriptions);
+        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_LION1, $descriptions);
         $this->assertEquals($path, array());
 
         // missing source and/or targets
         $descriptions = array(
             // some custom converter
             'exporter' => array(
-                'from'  => backup::FORMAT_MOODLE1,
+                'from'  => backup::FORMAT_LION1,
                 'to'    => 'some_custom_format',
                 'cost'  => 10,
             ),
             // another custom converter
             'converter' => array(
                 'from'  => 'yet_another_crazy_custom_format',
-                'to'    => backup::FORMAT_MOODLE,
+                'to'    => backup::FORMAT_LION,
                 'cost'  => 10,
             ),
         );
-        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_MOODLE1, $descriptions);
+        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_LION1, $descriptions);
         $this->assertEquals($path, array());
 
         $path = testable_convert_helper::choose_conversion_path('some_other_custom_format', $descriptions);
@@ -77,51 +63,51 @@ class backup_convert_helper_testcase extends basic_testcase {
         $this->assertEquals($path, array('converter'));
 
         // no conversion needed - this is supposed to be detected by the caller
-        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_MOODLE, $descriptions);
+        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_LION, $descriptions);
         $this->assertEquals($path, array());
 
         // two alternatives
         $descriptions = array(
-            // standard moodle 1.9 -> 2.x converter
-            'moodle1' => array(
-                'from'  => backup::FORMAT_MOODLE1,
-                'to'    => backup::FORMAT_MOODLE,
+            // standard lion 1.9 -> 2.x converter
+            'lion1' => array(
+                'from'  => backup::FORMAT_LION1,
+                'to'    => backup::FORMAT_LION,
                 'cost'  => 10,
             ),
-            // alternative moodle 1.9 -> 2.x converter
+            // alternative lion 1.9 -> 2.x converter
             'alternative' => array(
-                'from'  => backup::FORMAT_MOODLE1,
-                'to'    => backup::FORMAT_MOODLE,
+                'from'  => backup::FORMAT_LION1,
+                'to'    => backup::FORMAT_LION,
                 'cost'  => 8,
             )
         );
-        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_MOODLE1, $descriptions);
+        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_LION1, $descriptions);
         $this->assertEquals($path, array('alternative'));
 
         // complex case
         $descriptions = array(
-            // standard moodle 1.9 -> 2.x converter
-            'moodle1' => array(
-                'from'  => backup::FORMAT_MOODLE1,
-                'to'    => backup::FORMAT_MOODLE,
+            // standard lion 1.9 -> 2.x converter
+            'lion1' => array(
+                'from'  => backup::FORMAT_LION1,
+                'to'    => backup::FORMAT_LION,
                 'cost'  => 10,
             ),
-            // alternative moodle 1.9 -> 2.x converter
+            // alternative lion 1.9 -> 2.x converter
             'alternative' => array(
-                'from'  => backup::FORMAT_MOODLE1,
-                'to'    => backup::FORMAT_MOODLE,
+                'from'  => backup::FORMAT_LION1,
+                'to'    => backup::FORMAT_LION,
                 'cost'  => 8,
             ),
             // custom converter from 1.9 -> custom 'CFv1' format
             'cc1' => array(
-                'from'  => backup::FORMAT_MOODLE1,
+                'from'  => backup::FORMAT_LION1,
                 'to'    => 'CFv1',
                 'cost'  => 2,
             ),
-            // custom converter from custom 'CFv1' format -> moodle 2.0 format
+            // custom converter from custom 'CFv1' format -> lion 2.0 format
             'cc2' => array(
                 'from'  => 'CFv1',
-                'to'    => backup::FORMAT_MOODLE,
+                'to'    => backup::FORMAT_LION,
                 'cost'  => 5,
             ),
             // custom converter from CFv1 -> CFv2 format
@@ -130,16 +116,16 @@ class backup_convert_helper_testcase extends basic_testcase {
                 'to'    => 'CFv2',
                 'cost'  => 2,
             ),
-            // custom converter from CFv2 -> moodle 2.0 format
+            // custom converter from CFv2 -> lion 2.0 format
             'cc4' => array(
                 'from'  => 'CFv2',
-                'to'    => backup::FORMAT_MOODLE,
+                'to'    => backup::FORMAT_LION,
                 'cost'  => 2,
             ),
         );
 
         // ask the helper to find the most effective way
-        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_MOODLE1, $descriptions);
+        $path = testable_convert_helper::choose_conversion_path(backup::FORMAT_LION1, $descriptions);
         $this->assertEquals($path, array('cc1', 'cc3', 'cc4'));
     }
 }

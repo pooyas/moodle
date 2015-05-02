@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -22,11 +8,11 @@
  *
  * @package   core_form
  * @copyright 2009 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 global $CFG;
@@ -40,9 +26,9 @@ require_once($CFG->libdir.'/form/password.php');
  * @package   core_form
  * @category  form
  * @copyright 2009 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_passwordunmask extends MoodleQuickForm_password {
+class LionQuickForm_passwordunmask extends LionQuickForm_password {
     /**
      * constructor
      *
@@ -51,9 +37,9 @@ class MoodleQuickForm_passwordunmask extends MoodleQuickForm_password {
      * @param mixed $attributes (optional) Either a typical HTML attribute string
      *              or an associative array
      */
-    function MoodleQuickForm_passwordunmask($elementName=null, $elementLabel=null, $attributes=null) {
+    function LionQuickForm_passwordunmask($elementName=null, $elementLabel=null, $attributes=null) {
         global $CFG;
-        // no standard mform in moodle should allow autocomplete of passwords
+        // no standard mform in lion should allow autocomplete of passwords
         if (empty($attributes)) {
             $attributes = array('autocomplete'=>'off');
         } else if (is_array($attributes)) {
@@ -64,7 +50,7 @@ class MoodleQuickForm_passwordunmask extends MoodleQuickForm_password {
             }
         }
 
-        parent::MoodleQuickForm_password($elementName, $elementLabel, $attributes);
+        parent::LionQuickForm_password($elementName, $elementLabel, $attributes);
     }
 
     /**
@@ -83,7 +69,7 @@ class MoodleQuickForm_passwordunmask extends MoodleQuickForm_password {
             $attributes = array('formid' => $this->getAttribute('id'),
                 'checkboxlabel' => $unmask,
                 'checkboxname' => $this->getAttribute('name'));
-            $PAGE->requires->yui_module('moodle-form-passwordunmask', 'M.form.passwordunmask',
+            $PAGE->requires->yui_module('lion-form-passwordunmask', 'M.form.passwordunmask',
                     array($attributes));
             return $this->_getTabs() . '<input' . $this->_getAttrString($this->_attributes) . ' />';
         }

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Box.net client.
@@ -23,10 +9,10 @@
  * @access public
  * @version 1.0
  * @copyright copyright Box.net 2007
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->libdir . '/oauthlib.php');
 
 /**
@@ -34,7 +20,7 @@ require_once($CFG->libdir . '/oauthlib.php');
  *
  * @package    core
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class boxnet_client extends oauth2_client {
 
@@ -135,7 +121,7 @@ class boxnet_client extends oauth2_client {
      */
     protected function make_url($uri, $params = array(), $uploadapi = false) {
         $api = $uploadapi ? self::UPLOAD_API : self::API;
-        $url = new moodle_url($api . '/' . ltrim($uri, '/'), $params);
+        $url = new lion_url($api . '/' . ltrim($uri, '/'), $params);
         return $url->out(false);
     }
 
@@ -206,7 +192,7 @@ class boxnet_client extends oauth2_client {
             $this->head($result->shared_link->download_url);
             $info = $this->get_info();
             if ($info['http_code'] == 403) {
-                throw new moodle_exception('No permission to share the file');
+                throw new lion_exception('No permission to share the file');
             }
         }
 
@@ -269,7 +255,7 @@ class boxnet_client extends oauth2_client {
  * @access public
  * @version 1.0
  * @copyright copyright Box.net 2007
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @deprecated since 2.6, 2.5.3, 2.4.7
  */
 class boxclient {
@@ -323,7 +309,7 @@ class boxclient {
             // set $data here
             xml_parse_into_struct($xml_parser, $xml, $data);
             xml_parser_free($xml_parser);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->setError(0, 'connection time-out or invalid url');
             return false;
         }
@@ -364,7 +350,7 @@ class boxclient {
      * Get a ticket
      * $t = $box->getTicket();
      * $box->getAuthToken($t['ticket'], array(
-     *              'username'=>'dongsheng@moodle.com',
+     *              'username'=>'dongsheng@lion.com',
      *              'password'=>'xxx'));
      * </code>
      *
@@ -385,7 +371,7 @@ class boxclient {
             );
         try {
             $ret = $c->post($this->_box_api_auth_url.'/'.$ticket, $param);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->setError(0, 'connection time-out or invalid url');
             return false;
         }
@@ -604,7 +590,7 @@ class boxclient {
 
     /**
      * Upload a File
-     * @param array $params the file MUST be present in key 'file' and be a moodle stored_file object.
+     * @param array $params the file MUST be present in key 'file' and be a lion stored_file object.
      * @return array|bool Array or false
      */
     function UploadFile ($params = array()) {

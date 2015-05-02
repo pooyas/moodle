@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Classes to enforce the various access rules that can apply to a quiz.
  *
  * @package    block_quiz_results
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/quiz/lib.php');
 
@@ -36,7 +22,7 @@ require_once($CFG->dirroot . '/mod/quiz/lib.php');
  *
  * @package    block_quiz_results
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 define('B_QUIZRESULTS_NAME_FORMAT_FULL', 1);
 define('B_QUIZRESULTS_NAME_FORMAT_ID',   2);
@@ -153,7 +139,7 @@ class block_quiz_results extends block_base {
             }
             $groupmode = groups_get_activity_groupmode($cm);
 
-            if ($groupmode == SEPARATEGROUPS && has_capability('moodle/site:accessallgroups', $context)) {
+            if ($groupmode == SEPARATEGROUPS && has_capability('lion/site:accessallgroups', $context)) {
                 // We 'll make an exception in this case
                 $groupmode = VISIBLEGROUPS;
             }
@@ -236,9 +222,9 @@ class block_quiz_results extends block_base {
             }
 
             if ($nameformat = B_QUIZRESULTS_NAME_FORMAT_FULL) {
-                if (has_capability('moodle/course:managegroups', $context)) {
+                if (has_capability('lion/course:managegroups', $context)) {
                     $grouplink = $CFG->wwwroot.'/group/overview.php?id='.$courseid.'&amp;group=';
-                } else if (has_capability('moodle/course:viewparticipants', $context)) {
+                } else if (has_capability('lion/course:viewparticipants', $context)) {
                     $grouplink = $CFG->wwwroot.'/user/index.php?id='.$courseid.'&amp;group=';
                 } else {
                     $grouplink = '';

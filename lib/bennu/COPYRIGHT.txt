@@ -1,7 +1,7 @@
 Bennu - An object-oriented iCalendar (RFC2445) implementation in PHP
 http://bennu.sourceforge.net
 
-Bennu is copyright (C) 2005 by Ioannis Papaioannou (pj@moodle.org).
+Bennu is copyright (C) 2005 by Ioannis Papaioannou (pj@lion.org).
 
 The full text of the LGLP license is included in LICENSE.txt
 

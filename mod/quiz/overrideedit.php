@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This page handles editing and creation of quiz overrides
  *
  * @package   mod_quiz
  * @copyright 2010 Matt Petro
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
@@ -54,7 +40,7 @@ if ($overrideid) {
 }
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 
-$url = new moodle_url('/mod/quiz/overrideedit.php');
+$url = new lion_url('/mod/quiz/overrideedit.php');
 if ($action) {
     $url->param('action', $action);
 }
@@ -100,7 +86,7 @@ if ($action === 'duplicate') {
 // True if group-based override.
 $groupmode = !empty($data->groupid) || ($action === 'addgroup' && empty($overrideid));
 
-$overridelisturl = new moodle_url('/mod/quiz/overrides.php', array('cmid'=>$cm->id));
+$overridelisturl = new lion_url('/mod/quiz/overrides.php', array('cmid'=>$cm->id));
 if (!$groupmode) {
     $overridelisturl->param('mode', 'user');
 }

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Authentication Plugin: External Database Authentication
@@ -24,7 +10,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/authlib.php');
 
@@ -162,12 +148,12 @@ class auth_plugin_db extends auth_plugin_base {
     }
 
     /**
-     * Returns user attribute mappings between moodle and ldap.
+     * Returns user attribute mappings between lion and ldap.
      *
      * @return array
      */
     function db_attributes() {
-        $moodleattributes = array();
+        $lionattributes = array();
         // If we have custom fields then merge them with user fields.
         $customfields = $this->get_custom_user_profile_fields();
         if (!empty($customfields) && !empty($this->userfields)) {
@@ -178,11 +164,11 @@ class auth_plugin_db extends auth_plugin_base {
 
         foreach ($userfields as $field) {
             if (!empty($this->config->{"field_map_$field"})) {
-                $moodleattributes[$field] = $this->config->{"field_map_$field"};
+                $lionattributes[$field] = $this->config->{"field_map_$field"};
             }
         }
-        $moodleattributes['username'] = $this->config->fielduser;
-        return $moodleattributes;
+        $lionattributes['username'] = $this->config->fielduser;
+        return $lionattributes;
     }
 
     /**
@@ -256,11 +242,11 @@ class auth_plugin_db extends auth_plugin_base {
     }
 
     /**
-     * Synchronizes user from external db to moodle user table.
+     * Synchronizes user from external db to lion user table.
      *
      * Sync should be done by using idnumber attribute, not username.
      * You need to pass firstsync parameter to function to fill in
-     * idnumbers if they don't exists in moodle user table.
+     * idnumbers if they don't exists in lion user table.
      *
      * Syncing users removes (disables) users that don't exists anymore in external db.
      * Creates new users and updates coursecreator status of users.
@@ -426,7 +412,7 @@ class auth_plugin_db extends auth_plugin_base {
                 try {
                     $id = user_create_user($user, false); // It is truly a new user.
                     $trace->output(get_string('auth_dbinsertuser', 'auth_db', array('name'=>$user->username, 'id'=>$id)), 1);
-                } catch (moodle_exception $e) {
+                } catch (lion_exception $e) {
                     $trace->output(get_string('auth_dbinsertusererror', 'auth_db', $user->username), 1);
                     continue;
                 }
@@ -510,11 +496,11 @@ class auth_plugin_db extends auth_plugin_base {
 
     /**
      * will update a local user record from an external source.
-     * is a lighter version of the one in moodlelib -- won't do
+     * is a lighter version of the one in lionlib -- won't do
      * expensive ops such as enrolment.
      *
      * If you don't pass $updatekeys, there is a performance hit and
-     * values removed from DB won't be removed from moodle.
+     * values removed from DB won't be removed from lion.
      *
      * @param string $username username
      * @param bool $updatekeys
@@ -650,7 +636,7 @@ class auth_plugin_db extends auth_plugin_base {
     /**
      * Returns true if this authentication plugin is "internal".
      *
-     * Internal plugins use password hashes from Moodle user table for authentication.
+     * Internal plugins use password hashes from Lion user table for authentication.
      *
      * @return bool
      */
@@ -662,7 +648,7 @@ class auth_plugin_db extends auth_plugin_base {
     }
 
     /**
-     * Indicates if moodle should automatically update internal user
+     * Indicates if lion should automatically update internal user
      * records with data from external sources using the information
      * from auth_plugin_base::get_userinfo().
      *
@@ -686,7 +672,7 @@ class auth_plugin_db extends auth_plugin_base {
      * Returns the URL for changing the user's pw, or empty if the default can
      * be used.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     function change_password_url() {
         if ($this->is_internal() || empty($this->config->changepasswordurl)) {
@@ -694,7 +680,7 @@ class auth_plugin_db extends auth_plugin_base {
             return null;
         } else {
             // Use admin defined custom url.
-            return new moodle_url($this->config->changepasswordurl);
+            return new lion_url($this->config->changepasswordurl);
         }
     }
 

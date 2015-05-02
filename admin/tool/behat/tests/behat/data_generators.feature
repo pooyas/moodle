@@ -117,11 +117,11 @@ Feature: Set up contextual data for tests
       | Custom student         | custom2   |                  |                |
     And the following "users" exist:
       | username | firstname | lastname | email |
-      | user1 | User | 1 | user1@moodlemoodle.com |
-      | user2 | User | 2 | user2@moodlemoodle.com |
-      | user3 | User | 3 | user3@moodlemoodle.com |
-      | user4 | User | 4 | user4@moodlemoodle.com |
-      | user5 | User | 5 | user5@moodlemoodle.com |
+      | user1 | User | 1 | user1@lionlion.com |
+      | user2 | User | 2 | user2@lionlion.com |
+      | user3 | User | 3 | user3@lionlion.com |
+      | user4 | User | 4 | user4@lionlion.com |
+      | user5 | User | 5 | user5@lionlion.com |
     And the following "categories" exist:
       | name | category | idnumber |
       | Cat 1 | 0 | CAT1 |

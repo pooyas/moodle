@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Subscribe to or unsubscribe from a forum discussion.
  *
  * @package    mod_forum
  * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('AJAX_SCRIPT', true);
@@ -45,7 +31,7 @@ $return = new stdClass();
 if (is_guest($context, $USER)) {
     // is_guest should be used here as this also checks whether the user is a guest in the current course.
     // Guests and visitors cannot subscribe - only enrolled users.
-    throw new moodle_exception('noguestsubscribe', 'mod_forum');
+    throw new lion_exception('noguestsubscribe', 'mod_forum');
 }
 
 if (!\mod_forum\subscriptions::is_subscribable($forum)) {

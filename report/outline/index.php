@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Display user activity reports for a course (totals)
@@ -20,7 +6,7 @@
  * @package    report
  * @subpackage outline
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../../config.php');
@@ -44,7 +30,7 @@ $event->trigger();
 $showlastaccess = true;
 $hiddenfields = explode(',', $CFG->hiddenuserfields);
 
-if (array_search('lastaccess', $hiddenfields) !== false and !has_capability('moodle/user:viewhiddendetails', $context)) {
+if (array_search('lastaccess', $hiddenfields) !== false and !has_capability('lion/user:viewhiddendetails', $context)) {
     $showlastaccess = false;
 }
 
@@ -227,7 +213,7 @@ foreach ($modinfo->sections as $sectionnum=>$section) {
             $blogcell = new html_table_cell();
             $blogcell->attributes['class'] = 'blog';
             if ($blogcount = blog_get_associated_count($course->id, $cm->id)) {
-                $blogurl = new moodle_url('/blog/index.php', array('modid' => $cm->id));
+                $blogurl = new lion_url('/blog/index.php', array('modid' => $cm->id));
                 $blogcell->text = html_writer::link($blogurl, $blogcount);
             } else {
                 $blogcell->text = '-';

@@ -1,37 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains classes used to manage the navigation structures in Moodle
- * and was introduced as part of the changes occuring in Moodle 2.0
+ * This file contains classes used to manage the navigation structures in Lion
+ * and was introduced as part of the changes occuring in Lion 2.0
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package block_settings
  * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
  * The settings navigation tree block class
  *
- * Used to produce the settings navigation block new to Moodle 2.0
+ * Used to produce the settings navigation block new to Lion 2.0
  *
  * @package block_settings
  * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class block_settings extends block_base {
 
@@ -61,7 +47,7 @@ class block_settings extends block_base {
 
     /**
      * The settings block cannot be hidden by default as it is integral to
-     * the navigation of Moodle.
+     * the navigation of Lion.
      *
      * @return false
      */
@@ -96,7 +82,7 @@ class block_settings extends block_base {
             'instance' => $this->instance->id,
             'candock' => $this->instance_can_be_docked()
         );
-        $this->page->requires->yui_module('moodle-block_navigation-navigation', 'M.block_navigation.init_add_tree', array($arguments));
+        $this->page->requires->yui_module('lion-block_navigation-navigation', 'M.block_navigation.init_add_tree', array($arguments));
     }
 
     /**
@@ -134,10 +120,10 @@ class block_settings extends block_base {
         $this->content = new stdClass();
         $this->content->text = $renderer->settings_tree($this->page->settingsnav);
 
-        // only do search if you have moodle/site:config
+        // only do search if you have lion/site:config
         if (!empty($this->content->text)) {
-            if (has_capability('moodle/site:config',context_system::instance()) ) {
-                $this->content->footer = $renderer->search_form(new moodle_url("$CFG->wwwroot/$CFG->admin/search.php"), optional_param('query', '', PARAM_RAW));
+            if (has_capability('lion/site:config',context_system::instance()) ) {
+                $this->content->footer = $renderer->search_form(new lion_url("$CFG->wwwroot/$CFG->admin/search.php"), optional_param('query', '', PARAM_RAW));
             } else {
                 $this->content->footer = '';
             }

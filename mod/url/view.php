@@ -1,26 +1,12 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * URL module main user interface
  *
  * @package    mod_url
  * @copyright  2009 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../../config.php');
@@ -69,7 +55,7 @@ if (empty($exturl) or $exturl === 'http://') {
     url_print_header($url, $cm, $course);
     url_print_heading($url, $cm, $course);
     url_print_intro($url, $cm, $course);
-    notice(get_string('invalidstoredurl', 'url'), new moodle_url('/course/view.php', array('id'=>$cm->course)));
+    notice(get_string('invalidstoredurl', 'url'), new lion_url('/course/view.php', array('id'=>$cm->course)));
     die;
 }
 unset($exturl);
@@ -92,11 +78,11 @@ if ($redirect) {
         // If course format does not have a view page, add redirection delay with a link to the edit page.
         // Otherwise teacher is redirected to the external URL without any possibility to edit activity or course settings.
         $editurl = null;
-        if (has_capability('moodle/course:manageactivities', $context)) {
-            $editurl = new moodle_url('/course/modedit.php', array('update' => $cm->id));
+        if (has_capability('lion/course:manageactivities', $context)) {
+            $editurl = new lion_url('/course/modedit.php', array('update' => $cm->id));
             $edittext = get_string('editthisactivity');
-        } else if (has_capability('moodle/course:update', $context->get_course_context())) {
-            $editurl = new moodle_url('/course/edit.php', array('id' => $course->id));
+        } else if (has_capability('lion/course:update', $context->get_course_context())) {
+            $editurl = new lion_url('/course/edit.php', array('id' => $course->id));
             $edittext = get_string('editcoursesettings');
         }
         if ($editurl) {

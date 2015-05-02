@@ -1,34 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Utility code for LTI service handling.
  *
  * @package mod_lti
- * @copyright  Copyright (c) 2011 Moodlerooms Inc. (http://www.moodlerooms.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  Copyright (c) 2011 Lionrooms Inc. (http://www.lionrooms.com)
+ * 
  * @author     Chris Scribner
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once($CFG->dirroot.'/mod/lti/OAuthBody.php');
 
 // TODO: Switch to core oauthlib once implemented - MDL-30149.
-use moodle\mod\lti as lti;
+use lion\mod\lti as lti;
 
 define('LTI_ITEM_TYPE', 'mod');
 define('LTI_ITEM_MODULE', 'lti');
@@ -293,7 +279,7 @@ function lti_extend_lti_services($data) {
             $data->xml = new SimpleXMLElement($data->body);
             $callback = current($plugins);
             call_user_func($callback, $data);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $error = $e->getMessage();
             if (debugging('', DEBUG_DEVELOPER)) {
                 $error .= ' '.format_backtrace(get_exception_info($e)->backtrace);

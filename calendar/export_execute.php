@@ -52,7 +52,7 @@ if (!empty($generateurl)) {
     $params['authtoken'] = $authtoken;
     $params['generateurl'] = true;
 
-    $link = new moodle_url('/calendar/export.php', $params);
+    $link = new lion_url('/calendar/export.php', $params);
     redirect($link->out());
     die;
 }

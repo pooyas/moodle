@@ -11,7 +11,7 @@
 
     $context = context_system::instance();
 
-    require_capability('moodle/site:config', $context, $USER->id, true, "nopermissions");
+    require_capability('lion/site:config', $context, $USER->id, true, "nopermissions");
 
     $site = get_site();
     $mnet = get_mnet_environment();
@@ -46,8 +46,8 @@
             $mnet->get_private_key();
             $SESSION->mnet_confirm_delete_key = md5(sha1($mnet->keypair['keypair_PEM'])).':'.time();
 
-            $formcontinue = new single_button(new moodle_url('index.php', array('confirm' => md5($mnet->public_key))), get_string('yes'));
-            $formcancel = new single_button(new moodle_url('index.php', array()), get_string('no'));
+            $formcontinue = new single_button(new lion_url('index.php', array('confirm' => md5($mnet->public_key))), get_string('yes'));
+            $formcancel = new single_button(new lion_url('index.php', array()), get_string('no'));
             echo $OUTPUT->confirm(get_string("deletekeycheck", "mnet"), $formcontinue, $formcancel);
             exit;
         } else {

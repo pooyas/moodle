@@ -26,7 +26,7 @@ function xmldb_glossary_upgrade($oldversion) {
     $dbman = $DB->get_manager();
 
 
-    // Moodle v2.2.0 release upgrade line
+    // Lion v2.2.0 release upgrade line
     // Put any upgrade step following this
 
     if ($oldversion < 2012022000) {
@@ -44,25 +44,25 @@ function xmldb_glossary_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2012022000, 'glossary');
     }
 
-    // Moodle v2.3.0 release upgrade line
+    // Lion v2.3.0 release upgrade line
     // Put any upgrade step following this
 
 
-    // Moodle v2.4.0 release upgrade line
+    // Lion v2.4.0 release upgrade line
     // Put any upgrade step following this
 
 
-    // Moodle v2.5.0 release upgrade line.
+    // Lion v2.5.0 release upgrade line.
     // Put any upgrade step following this.
 
 
-    // Moodle v2.6.0 release upgrade line.
+    // Lion v2.6.0 release upgrade line.
     // Put any upgrade step following this.
 
-    // Moodle v2.7.0 release upgrade line.
+    // Lion v2.7.0 release upgrade line.
     // Put any upgrade step following this.
 
-    // Moodle v2.8.0 release upgrade line.
+    // Lion v2.8.0 release upgrade line.
     // Put any upgrade step following this.
 
     return true;

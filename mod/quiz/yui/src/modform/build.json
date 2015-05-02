@@ -1,7 +1,7 @@
 {
-    "name": "moodle-mod_quiz-modform",
+    "name": "lion-mod_quiz-modform",
     "builds": {
-        "moodle-mod_quiz-modform": {
+        "lion-mod_quiz-modform": {
             "jsfiles": [
                 "modform.js"
             ]

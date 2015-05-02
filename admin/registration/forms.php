@@ -2,26 +2,26 @@
 
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /*
- * @package    moodle
+ * @package    lion
  * @subpackage registration
  * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
@@ -37,7 +37,7 @@ require_once($CFG->dirroot . '/' . $CFG->admin . '/registration/lib.php');
 /**
  * This form display a unregistration form.
  */
-class site_unregistration_form extends moodleform {
+class site_unregistration_form extends lionform {
 
     public function definition() {
         $mform = & $this->_form;
@@ -71,7 +71,7 @@ class site_unregistration_form extends moodleform {
 /**
  * This form display a clean registration data form.
  */
-class site_clean_registration_data_form extends moodleform {
+class site_clean_registration_data_form extends lionform {
 
     public function definition() {
         $mform = & $this->_form;
@@ -102,10 +102,10 @@ class site_clean_registration_data_form extends moodleform {
 
 /**
  * This form display a hub selector.
- * The hub list is retrieved from Moodle.org hub directory.
+ * The hub list is retrieved from Lion.org hub directory.
  * Also displayed, a text field to enter private hub url + its password
  */
-class hub_selector_form extends moodleform {
+class hub_selector_form extends lionform {
 
     public function definition() {
         global $CFG, $OUTPUT;
@@ -126,9 +126,9 @@ class hub_selector_form extends moodleform {
             $hubs = array();
         }
 
-        //remove moodle.org from the hub list
+        //remove lion.org from the hub list
         foreach ($hubs as $key => $hub) {
-            if ($hub['url'] == HUB_MOODLEORGHUBURL) {
+            if ($hub['url'] == HUB_LIONORGHUBURL) {
                 unset($hubs[$key]);
             }
         }
@@ -187,7 +187,7 @@ class hub_selector_form extends moodleform {
 /**
  * The site registration form. Information will be sent to a given hub.
  */
-class site_registration_form extends moodleform {
+class site_registration_form extends lionform {
 
     public function definition() {
         global $CFG, $DB;
@@ -259,7 +259,7 @@ class site_registration_form extends moodleform {
         $mform->setType('password', PARAM_RAW);
 
         //the input parameters
-        $mform->addElement('header', 'moodle', get_string('registrationinfo', 'hub'));
+        $mform->addElement('header', 'lion', get_string('registrationinfo', 'hub'));
 
         $mform->addElement('text', 'name', get_string('sitename', 'hub'),
                 array('class' => 'registration_textfield'));
@@ -363,13 +363,13 @@ class site_registration_form extends moodleform {
         $mform->addHelpButton('urlstring', 'siteurl', 'hub');
 
         $mform->addElement('static', 'versionstring', get_string('siteversion', 'hub'), $CFG->version);
-        $mform->addElement('hidden', 'moodleversion', $CFG->version);
-        $mform->setType('moodleversion', PARAM_INT);
+        $mform->addElement('hidden', 'lionversion', $CFG->version);
+        $mform->setType('lionversion', PARAM_INT);
         $mform->addHelpButton('versionstring', 'siteversion', 'hub');
 
         $mform->addElement('static', 'releasestring', get_string('siterelease', 'hub'), $CFG->release);
-        $mform->addElement('hidden', 'moodlerelease', $CFG->release);
-        $mform->setType('moodlerelease', PARAM_TEXT);
+        $mform->addElement('hidden', 'lionrelease', $CFG->release);
+        $mform->setType('lionrelease', PARAM_TEXT);
         $mform->addHelpButton('releasestring', 'siterelease', 'hub');
 
         /// Display statistic that are going to be retrieve by the hub
@@ -386,7 +386,7 @@ class site_registration_form extends moodleform {
         $badges = $DB->count_records_select('badge', 'status <> ' . BADGE_STATUS_ARCHIVED);
         $issuedbadges = $DB->count_records('badge_issued');
 
-        if (HUB_MOODLEORGHUBURL != $huburl) {
+        if (HUB_LIONORGHUBURL != $huburl) {
             $mform->addElement('checkbox', 'courses', get_string('sendfollowinginfo', 'hub'),
                     " " . get_string('coursesnumber', 'hub', $coursecount));
             $mform->setDefault('courses', $coursesnumber != -1);

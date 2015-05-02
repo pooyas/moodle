@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Allows the user to manage calendar subscriptions.
@@ -35,11 +21,11 @@ $subscriptionid = optional_param('id', 0, PARAM_INT);
 $pollinterval  = optional_param('pollinterval', 0, PARAM_INT);
 $action = optional_param('action', '', PARAM_INT);
 
-$url = new moodle_url('/calendar/managesubscriptions.php');
+$url = new lion_url('/calendar/managesubscriptions.php');
 if ($courseid != SITEID) {
     $url->param('course', $courseid);
 }
-navigation_node::override_active_url(new moodle_url('/calendar/view.php', array('view' => 'month')));
+navigation_node::override_active_url(new lion_url('/calendar/view.php', array('view' => 'month')));
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('admin');
 $PAGE->navbar->add(get_string('managesubscriptions', 'calendar'));
@@ -77,7 +63,7 @@ if (!empty($formdata)) {
     } else {
         try {
             $importresults = calendar_update_subscription_events($subscriptionid);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             // Delete newly added subscription and show invalid url error.
             calendar_delete_subscription($subscriptionid);
             print_error($e->errorcode, $e->module, $PAGE->url);
@@ -91,7 +77,7 @@ if (!empty($formdata)) {
     if (calendar_can_edit_subscription($subscriptionid)) {
         try {
             $importresults = calendar_process_subscription_row($subscriptionid, $pollinterval, $action);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             // If exception caught, then user should be redirected to page where he/she came from.
             print_error($e->errorcode, $e->module, $PAGE->url);
         }

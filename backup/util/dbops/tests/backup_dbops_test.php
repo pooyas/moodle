@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package    core_backup
  * @category   phpunit
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include all the needed stuff
 global $CFG;
@@ -76,7 +62,7 @@ class backup_dbops_testcase extends advanced_testcase {
         $dbman = $DB->get_manager(); // Going to use some database_manager services for testing
 
         // Instantiate non interactive backup_controller
-        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_MOODLE,
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_GENERAL, $this->userid);
         $this->assertTrue($bc instanceof backup_controller);
         // Calculate checksum
@@ -92,7 +78,7 @@ class backup_dbops_testcase extends advanced_testcase {
         $this->assertEquals($recid, $recid2); // Same record in both save operations
 
         // Try incorrect checksum
-        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_MOODLE,
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_GENERAL, $this->userid);
         $checksum = $bc->calculate_checksum();
         try {
@@ -114,7 +100,7 @@ class backup_dbops_testcase extends advanced_testcase {
         }
 
         // save and load controller (by backupid). Then compare
-        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_MOODLE,
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_GENERAL, $this->userid);
         $checksum = $bc->calculate_checksum(); // Calculate checksum
         $backupid = $bc->get_backupid();
@@ -170,17 +156,17 @@ class backup_dbops_testcase extends advanced_testcase {
         $dbman = $DB->get_manager(); // Going to use some database_manager services for testing
 
         // A MODE_GENERAL controller - this should include files
-        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_MOODLE,
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_GENERAL, $this->userid);
         $this->assertEquals(backup_controller_dbops::backup_includes_files($bc->get_backupid()), 1);
 
         // A MODE_IMPORT controller - should not include files
-        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_MOODLE,
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1ACTIVITY, $this->moduleid, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_IMPORT, $this->userid);
         $this->assertEquals(backup_controller_dbops::backup_includes_files($bc->get_backupid()), 0);
 
         // A MODE_SAMESITE controller - should not include files
-        $bc = new mock_backup_controller4dbops(backup::TYPE_1COURSE, $this->courseid, backup::FORMAT_MOODLE,
+        $bc = new mock_backup_controller4dbops(backup::TYPE_1COURSE, $this->courseid, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_SAMESITE, $this->userid);
         $this->assertEquals(backup_controller_dbops::backup_includes_files($bc->get_backupid()), 0);
     }

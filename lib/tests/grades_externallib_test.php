@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for the grade API at /lib/classes/grades_external.php
@@ -20,11 +6,11 @@
  * @package    core_grades
  * @category   external
  * @copyright  2012 Andrew Davis
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.7
+ * 
+ * @since Lion 2.7
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -71,7 +57,7 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
         $this->setUser($parent);
         $student1context = context_user::instance($student1->id);
         // Creates a new role, gives it the capability and gives $USER that role.
-        $parentroleid = $this->assignUserCapability('moodle/grade:viewall', $student1context->id);
+        $parentroleid = $this->assignUserCapability('lion/grade:viewall', $student1context->id);
         // Enrol the user in the course using the new role.
         $this->getDataGenerator()->enrol_user($parent->id, $course->id, $parentroleid);
 
@@ -198,8 +184,8 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 $assigmentcm->id,
                 array($student2->id)
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
@@ -212,8 +198,8 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 $assigmentcm->id,
                 array($student1->id)
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
@@ -225,8 +211,8 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 $assigmentcm->id,
                 array($student2->id)
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
@@ -238,8 +224,8 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 $assigmentcm->id,
                 array($student1->id, $student2->id)
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
@@ -251,8 +237,8 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 $assigmentcm->id,
                 array()
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
@@ -470,8 +456,8 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 0,
                 array( array('studentid' => $student1->id, 'grade' => $student1grade))
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
@@ -487,8 +473,8 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 0,
                 array( array('studentid' => $student1->id, 'grade' => $student1grade))
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
@@ -504,15 +490,15 @@ class core_grades_external_testcase extends externallib_advanced_testcase {
                 array(),
                 array('hidden' => 1)
             );
-            $this->fail('moodle_exception expected');
-        } catch (moodle_exception $ex) {
+            $this->fail('lion_exception expected');
+        } catch (lion_exception $ex) {
             $this->assertTrue(true);
         }
 
-        // Give the student role 'moodle/grade:hide' and they should now be able to hide the grade item.
+        // Give the student role 'lion/grade:hide' and they should now be able to hide the grade item.
         $studentrole = $DB->get_record('role', array('shortname' => 'student'));
         $coursecontext = context_course::instance($course->id);
-        assign_capability('moodle/grade:hide', CAP_ALLOW, $studentrole->id, $coursecontext->id);
+        assign_capability('lion/grade:hide', CAP_ALLOW, $studentrole->id, $coursecontext->id);
         accesslib_clear_all_caches_for_unit_testing();
 
         // Check the activity isn't already hidden.

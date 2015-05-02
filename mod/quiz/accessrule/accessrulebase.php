@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Base class for rules that restrict the ability to attempt a quiz.
  *
  * @package   mod_quiz
  * @copyright 2011 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 
@@ -38,8 +24,8 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
  * way to implement this.
  *
  * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 abstract class quiz_access_rule_base {
     /** @var stdClass the quiz settings. */
@@ -109,12 +95,12 @@ abstract class quiz_access_rule_base {
      * something here if {@link is_preflight_check_required()} returned true.
      *
      * @param mod_quiz_preflight_check_form $quizform the form being built.
-     * @param MoodleQuickForm $mform The wrapped MoodleQuickForm.
+     * @param LionQuickForm $mform The wrapped LionQuickForm.
      * @param int|null $attemptid the id of the current attempt, if there is one,
      *      otherwise null.
      */
     public function add_preflight_check_form_fields(mod_quiz_preflight_check_form $quizform,
-            MoodleQuickForm $mform, $attemptid) {
+            LionQuickForm $mform, $attemptid) {
         // Do nothing by default.
     }
 
@@ -225,7 +211,7 @@ abstract class quiz_access_rule_base {
      * properties required by this rule. securewindow rule is an example of where
      * this is used.
      *
-     * @param moodle_page $page the page object to initialise.
+     * @param lion_page $page the page object to initialise.
      */
     public function setup_attempt_page($page) {
         // Do nothing by default.
@@ -249,10 +235,10 @@ abstract class quiz_access_rule_base {
      * method is called from {@link mod_quiz_mod_form::definition()}, while the
      * security seciton is being built.
      * @param mod_quiz_mod_form $quizform the quiz settings form that is being built.
-     * @param MoodleQuickForm $mform the wrapped MoodleQuickForm.
+     * @param LionQuickForm $mform the wrapped LionQuickForm.
      */
     public static function add_settings_form_fields(
-            mod_quiz_mod_form $quizform, MoodleQuickForm $mform) {
+            mod_quiz_mod_form $quizform, LionQuickForm $mform) {
         // By default do nothing.
     }
 
@@ -293,7 +279,7 @@ abstract class quiz_access_rule_base {
      * from {@link quiz_delete_instance()} in lib.php.
      * @param object $quiz the data from the database, including $quiz->id
      *      which is the id of the quiz being deleted.
-     * @since Moodle 2.7.1, 2.6.4, 2.5.7
+     * @since Lion 2.7.1, 2.6.4, 2.5.7
      */
     public static function delete_settings($quiz) {
         // By default do nothing.

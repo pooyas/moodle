@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * New messaging class.
  *
  * @package   core_message
- * @since     Moodle 2.9
+ * @since     Lion 2.9
  * @copyright 2015 onwards Ankit Agarwal
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 namespace core\message;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * New messaging class.
@@ -37,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
  *  userto object|int The message recipient
  *  subject string The message subject
  *  fullmessage string The full message in a given format
- *  fullmessageformat int The format if the full message (FORMAT_MOODLE, FORMAT_HTML, ..)
+ *  fullmessageformat int The format if the full message (FORMAT_LION, FORMAT_HTML, ..)
  *  fullmessagehtml string The full version (the message processor will choose with one to use)
  *  smallmessage string The small version of the message
  *
@@ -51,9 +37,9 @@ defined('MOODLE_INTERNAL') || die();
  *  attachname string Name of the attachment.
  *
  * @package   core_message
- * @since     Moodle 2.9
+ * @since     Lion 2.9
  * @copyright 2015 onwards Ankit Agarwal
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class message {
     /** @var string Component name. */

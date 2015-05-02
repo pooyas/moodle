@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  *
  * Hub related strings
  *
  * @package   core_hub
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 $string['addscreenshots'] = 'Add screenshots';
@@ -29,7 +15,7 @@ $string['advertised'] = 'Advertised';
 $string['advertiseon'] = 'Advertise this course on {$a}';
 $string['readvertiseon'] = 'Update advertising information on {$a}';
 $string['advertiseonhub'] = 'Advertise this course on a hub';
-$string['advertiseonmoodleorg'] = 'Advertise this course on moodle.org';
+$string['advertiseonlionorg'] = 'Advertise this course on lion.org';
 $string['advertisepublication_help'] = 'Advertising your course on a community hub server allows people to find this course and come here to enrol.';
 $string['all'] = 'All';
 $string['allowglobalsearch'] = 'Publish this hub and allow global search of all courses';
@@ -38,7 +24,7 @@ $string['audience'] = 'Audience';
 $string['audience_help'] = 'Select the intended audience for the course.';
 $string['audienceeducators'] = 'Educators';
 $string['audiencestudents'] = 'Students';
-$string['audienceadmins'] = 'Moodle administrators';
+$string['audienceadmins'] = 'Lion administrators';
 $string['badurlformat'] = 'Bad URL format';
 $string['badgesnumber'] = 'Number of badges ({$a})';
 $string['community'] = 'Community';
@@ -95,8 +81,8 @@ $string['errorcoursepublish'] = 'An error occurred during the course publication
 $string['errorcoursewronglypublished'] = 'A publication error has been returned by the hub. Please try again later.';
 $string['errorcron'] = 'An error occurred during registration update on "{$a->hubname}" ({$a->errormessage})';
 $string['errorcronnoxmlrpc'] = 'XML-RPC must be enabled in order to update the registration.';
-$string['errorhublisting'] = 'An error occurred when retrieving the hub listing from Moodle.org, please try again later. ({$a})';
-$string['errorlangnotrecognized'] = 'The provided language code is unknown by Moodle. Please contact {$a}';
+$string['errorhublisting'] = 'An error occurred when retrieving the hub listing from Lion.org, please try again later. ({$a})';
+$string['errorlangnotrecognized'] = 'The provided language code is unknown by Lion. Please contact {$a}';
 $string['errorregistration'] = 'An error occurred during registration, please try again later. ({$a})';
 $string['errorunpublishcourses']= 'Due to an unexpected error, the courses could not be deleted on the hub. Try again later (recommended) or contact the hub administrator.';
 $string['existingscreenshotnumber'] = '{$a} existing screenshots. You will be able to see these screenshots on this page, only once the hub administrator enables your course.';
@@ -118,7 +104,7 @@ $string['licence_help'] = 'Select the licence you want to distribute your course
 $string['licence_link'] = 'licenses';
 $string['logourl'] = 'Logo URL';
 $string['modulenumberaverage'] = 'Average number of course modules ({$a})';
-$string['moodleorg'] = 'Moodle.org';
+$string['lionorg'] = 'Lion.org';
 $string['mustselectsubject'] = 'You must select a subject';
 $string['name'] = 'Name';
 $string['name_help'] = 'This name will be showing in the course listing.';
@@ -130,7 +116,7 @@ $string['nohubselected'] = 'No hub selected';
 $string['none'] = 'None';
 $string['nosearch'] = 'Don\'t publish hub or courses';
 $string['notregisteredonhub'] = 'Your administrator needs to register this site with at least one hub before you can publish a course. Contact your site administrator.';
-$string['notregisteredonmoodleorg'] = 'Your administrator needs to register this site with moodle.org.';
+$string['notregisteredonlionorg'] = 'Your administrator needs to register this site with lion.org.';
 $string['operation'] = 'Actions';
 $string['orenterprivatehub'] = 'Alternatively, enter a private hub URL:';
 $string['participantnumberaverage'] = 'Average number of participants ({$a})';
@@ -158,9 +144,9 @@ $string['questionsnumber'] = 'Number of questions ({$a})';
 $string['registeredcourses'] = 'Registered courses';
 $string['registeredsites'] = 'Registered sites';
 $string['registrationinfo'] = 'Registration information';
-$string['registeredmoodleorg'] = 'Moodle.org ({$a})';
+$string['registeredlionorg'] = 'Lion.org ({$a})';
 $string['registeredon'] = 'Where your site is registered';
-$string['registermoochtips'] = 'In order to register with Moodle.net, your site must be registered with Moodle.org.';
+$string['registermoochtips'] = 'In order to register with Lion.net, your site must be registered with Lion.org.';
 $string['registersite'] = 'Register with {$a}';
 $string['registerwith'] = 'Register with a hub';
 $string['registrationconfirmed'] = 'Site registration confirmed';
@@ -176,7 +162,7 @@ $string['screenshots'] = 'Screenshots';
 $string['screenshots_help'] = 'Any screenshots of the course will be displayed in search results.';
 $string['search'] = 'Search';
 $string['selecthub'] = 'Select hub';
-$string['selecthubinfo'] = 'A community hub is a server that lists courses. You can only publish your courses on hubs that this Moodle site is registered with.  If the hub you want is not listed below, please contact your site administrator.';
+$string['selecthubinfo'] = 'A community hub is a server that lists courses. You can only publish your courses on hubs that this Lion site is registered with.  If the hub you want is not listed below, please contact your site administrator.';
 $string['selecthubforadvertise'] = 'Select hub for advertising';
 $string['selecthubforsharing'] = 'Select hub for uploading';
 $string['sendingcourse'] = 'Sending course';
@@ -190,7 +176,7 @@ $string['share'] = 'Share this course for people to download';
 $string['shared'] = 'Shared';
 $string['shareon'] = 'Upload this course to {$a}';
 $string['shareonhub'] = 'Upload this course to a hub';
-$string['sharepublication_help'] = 'Uploading this course to a community hub server will enable people to download it and install it on their own Moodle sites.';
+$string['sharepublication_help'] = 'Uploading this course to a community hub server will enable people to download it and install it on their own Lion sites.';
 $string['siteadmin'] = 'Administrator';
 $string['siteadmin_help'] = 'The full name of the site administrator.';
 $string['sitecountry'] = 'Country';
@@ -218,15 +204,15 @@ $string['siteregistrationcontact_help'] = 'If you allow it, other people may be 
 $string['siteregistrationemail'] = 'Email notifications';
 $string['siteregistrationemail_help'] = 'If you enable this the hub administrator may email you to inform you of important news like security issues.';
 $string['siteregistrationupdated'] = 'Site registration updated';
-$string['siterelease'] = 'Moodle release';
-$string['siterelease_help'] = 'Moodle release number of this site.';
+$string['siterelease'] = 'Lion release';
+$string['siterelease_help'] = 'Lion release number of this site.';
 $string['siteupdatedcron'] = 'Site registration updated on "{$a}"';
 $string['siteupdatesend'] = 'Finished registration update on hubs.';
 $string['siteupdatesstart'] = 'Starting registration update on hubs...';
 $string['siteurl'] = 'Site URL';
 $string['siteurl_help'] = 'The URL is the address of this site.  If privacy settings allow people to see site addresses then this is the URL that will be used.';
-$string['siteversion'] = 'Moodle version';
-$string['siteversion_help'] = 'The Moodle version of this site.';
+$string['siteversion'] = 'Lion version';
+$string['siteversion_help'] = 'The Lion version of this site.';
 $string['subject'] = 'Subject';
 $string['subject_help'] = 'Select the main subject area which the course covers.';
 $string['specifichubregistrationdetail'] = 'You can also register your site with other community hubs.';

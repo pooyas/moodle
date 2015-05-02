@@ -1,12 +1,12 @@
 <?php
 
-if (!defined('MOODLE_INTERNAL')) {
+if (!defined('LION_INTERNAL')) {
     die('Direct access to this script is forbidden!');
 }
 require_once($CFG->libdir . '/formslib.php');
 
 
-class data_existing_preset_form extends moodleform {
+class data_existing_preset_form extends lionform {
     public function definition() {
         $this->_form->addElement('header', 'presets', get_string('usestandard', 'data'));
         $this->_form->addHelpButton('presets', 'usestandard', 'data');
@@ -23,7 +23,7 @@ class data_existing_preset_form extends moodleform {
     }
 }
 
-class data_import_preset_zip_form extends moodleform {
+class data_import_preset_zip_form extends lionform {
     public function definition() {
         $this->_form->addElement('header', 'uploadpreset', get_string('fromfile', 'data'));
         $this->_form->addHelpButton('uploadpreset', 'fromfile', 'data');
@@ -38,7 +38,7 @@ class data_import_preset_zip_form extends moodleform {
     }
 }
 
-class data_export_form extends moodleform {
+class data_export_form extends lionform {
     public function definition() {
         $this->_form->addElement('header', 'exportheading', get_string('exportaszip', 'data'));
         $this->_form->addElement('hidden', 'd');
@@ -49,7 +49,7 @@ class data_export_form extends moodleform {
     }
 }
 
-class data_save_preset_form extends moodleform {
+class data_save_preset_form extends lionform {
     public function definition() {
         $this->_form->addElement('header', 'exportheading', get_string('saveaspreset', 'data'));
         $this->_form->addElement('hidden', 'd');

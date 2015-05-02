@@ -1,31 +1,17 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   lioncore
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 /**
  * olson_to_timezones ($filename)
  *
  * Parses the olson files for Zones and DST rules.
- * It updates the Moodle database with the Zones/DST rules
+ * It updates the Lion database with the Zones/DST rules
  *
  * @param string $filename
  * @return bool true/false
@@ -44,7 +30,7 @@ function olson_to_timezones ($filename) {
 
     /**
      *** To translate the combined Zone & Rule changes
-     *** in the Olson files to the Moodle single ruleset
+     *** in the Olson files to the Lion single ruleset
      *** format, we need to trasverse every year and see
      *** if either the Zone or the relevant Rule has a
      *** change. It's yuck but it yields a rationalized
@@ -101,7 +87,7 @@ function olson_to_timezones ($filename) {
 
         // Prepare to insert the base 1970 zone+rule
         if (!empty($rule) && array_key_exists($zone['rule'], $rules)) {
-            // merge the two arrays into the moodle rule
+            // merge the two arrays into the lion rule
             unset($rule['name']); // warning: $rule must NOT be a reference!
             unset($rule['year']);
             $mdl_tz = array_merge($zone, $rule);
@@ -152,7 +138,7 @@ function olson_to_timezones ($filename) {
             if ($changed) {
                 //print_object("CHANGE YEAR $y Zone $zone[name] Rule $zone[rule]\n");
                 if (!empty($rule)) {
-                    // merge the two arrays into the moodle rule
+                    // merge the two arrays into the lion rule
                     unset($rule['name']);
                     unset($rule['year']);
                     $mdl_tz = array_merge($zone, $rule);
@@ -192,10 +178,10 @@ if(isset($mdl_tz['dst_time']) && !strpos($mdl_tz['dst_time'], ':') || isset($mdl
     }
     */
 
-/// Since Moodle 1.7, rule is tzrule in DB (reserved words problem), so change it here
+/// Since Lion 1.7, rule is tzrule in DB (reserved words problem), so change it here
 /// after everything is calculated to be properly loaded to the timezone table.
-/// Pre 1.7 users won't have the old rule if updating this from moodle.org but it
-/// seems that such field isn't used at all by the rest of Moodle (at least I haven't
+/// Pre 1.7 users won't have the old rule if updating this from lion.org but it
+/// seems that such field isn't used at all by the rest of Lion (at least I haven't
 /// found any use when looking for it).
 
     foreach($mdl_zones as $key=>$mdl_zone) {
@@ -288,8 +274,8 @@ function olson_simple_rule_parser($filename, $maxyear) {
                     'nov' => 11, 'dec' => 12);
 
 
-    // now reformat it a bit to match Moodle's DST table
-    $moodle_rules = array();
+    // now reformat it a bit to match Lion's DST table
+    $lion_rules = array();
     foreach ($rules as $rule => $rulesbyyear) {
         foreach ($rulesbyyear as $year => $rulesthisyear) {
 
@@ -327,7 +313,7 @@ function olson_simple_rule_parser($filename, $maxyear) {
                  $save,
                  $letter) = $rulesthisyear['set'];
 
-            $moodle_rule = array();
+            $lion_rule = array();
 
             // $save is sometimes just minutes
             // and othertimes HH:MM -- only
@@ -344,18 +330,18 @@ function olson_simple_rule_parser($filename, $maxyear) {
                 trigger_error('Unknown month: '.$in);
             }
 
-            $moodle_rule['name']   = $name;
-            $moodle_rule['year']   = $year;
-            $moodle_rule['dstoff'] = $save; // time offset
+            $lion_rule['name']   = $name;
+            $lion_rule['year']   = $year;
+            $lion_rule['dstoff'] = $save; // time offset
 
-            $moodle_rule['dst_month'] = $months[$in]; // the month
-            $moodle_rule['dst_time']  = $at; // the time
+            $lion_rule['dst_month'] = $months[$in]; // the month
+            $lion_rule['dst_time']  = $at; // the time
 
-            // Encode index and day as per Moodle's specs
+            // Encode index and day as per Lion's specs
             $on = olson_parse_on($on);
-            $moodle_rule['dst_startday']  = $on['startday'];
-            $moodle_rule['dst_weekday']   = $on['weekday'];
-            $moodle_rule['dst_skipweeks'] = $on['skipweeks'];
+            $lion_rule['dst_startday']  = $on['startday'];
+            $lion_rule['dst_weekday']   = $on['weekday'];
+            $lion_rule['dst_skipweeks'] = $on['skipweeks'];
 
             // and now the "deactivate" data
             list($discard,
@@ -376,17 +362,17 @@ function olson_simple_rule_parser($filename, $maxyear) {
                 trigger_error('Unknown month: '.$in);
             }
 
-            $moodle_rule['std_month'] = $months[$in]; // the month
-            $moodle_rule['std_time']  = $at; // the time
+            $lion_rule['std_month'] = $months[$in]; // the month
+            $lion_rule['std_time']  = $at; // the time
 
-            // Encode index and day as per Moodle's specs
+            // Encode index and day as per Lion's specs
             $on = olson_parse_on($on);
-            $moodle_rule['std_startday']  = $on['startday'];
-            $moodle_rule['std_weekday']   = $on['weekday'];
-            $moodle_rule['std_skipweeks'] = $on['skipweeks'];
+            $lion_rule['std_startday']  = $on['startday'];
+            $lion_rule['std_weekday']   = $on['weekday'];
+            $lion_rule['std_skipweeks'] = $on['skipweeks'];
 
-            $moodle_rules[$moodle_rule['name']][$moodle_rule['year']] = $moodle_rule;
-            //print_object($moodle_rule);
+            $lion_rules[$lion_rule['name']][$lion_rule['year']] = $lion_rule;
+            //print_object($lion_rule);
 
         } // end foreach year within a rule
 
@@ -397,14 +383,14 @@ function olson_simple_rule_parser($filename, $maxyear) {
         if (!empty($to) && $to !== 'max') {
             // We can handle two cases for TO:
             // a year, or "only"
-            $reset_rule = $moodle_rule;
+            $reset_rule = $lion_rule;
             $reset_rule['dstoff'] = '00';
             if (preg_match('/^\d+$/', $to)){
                 $reset_rule['year'] = $to;
-                $moodle_rules[$reset_rule['name']][$reset_rule['year']] = $reset_rule;
+                $lion_rules[$reset_rule['name']][$reset_rule['year']] = $reset_rule;
             } elseif ($to === 'only') {
                 $reset_rule['year'] = $reset_rule['year'] + 1;
-                $moodle_rules[$reset_rule['name']][$reset_rule['year']] = $reset_rule;
+                $lion_rules[$reset_rule['name']][$reset_rule['year']] = $reset_rule;
             } else {
                 trigger_error("Strange value in TO $to rule field for rule $name");
             }
@@ -413,7 +399,7 @@ function olson_simple_rule_parser($filename, $maxyear) {
 
     } // end foreach rule
 
-    return $moodle_rules;
+    return $lion_rules;
 }
 
 /**
@@ -461,7 +447,7 @@ function olson_simple_zone_parser($filename, $maxyear) {
          *** were we reuse the info from the last one seen.
          ***
          *** We are transforming "until" fields into "from" fields
-         *** which make more sense from the Moodle perspective, so
+         *** which make more sense from the Lion perspective, so
          *** each initial Zone entry is "from" the year 0, and for the
          *** continuation lines, we shift the "until" from the previous field
          *** into this line's "from".
@@ -579,7 +565,7 @@ function olson_parse_offset ($offset) {
  * Sun>=8   first Sunday on or after the eighth
  * Sun<=25  last Sunday on or before the 25th
  *
- * to a moodle friendly format. Returns an array with:
+ * to a lion friendly format. Returns an array with:
  *
  * startday: the day of the month that we start counting from.
  *           if negative, it means we start from that day and
@@ -666,7 +652,7 @@ function olson_parse_on ($on) {
  *  sal time; in the absence of an indicator, wall  clock  time  is
  *  assumed.
  *
- * @return string a moodle friendly $at, in GMT, which is what Moodle wants
+ * @return string a lion friendly $at, in GMT, which is what Lion wants
  *
  *
  */

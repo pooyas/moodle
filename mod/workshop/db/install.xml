@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/workshop/db" VERSION="20130325" COMMENT="XMLDB file for Moodle mod/workshop"
+<XMLDB PATH="mod/workshop/db" VERSION="20130325" COMMENT="XMLDB file for Lion mod/workshop"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
@@ -130,7 +130,7 @@
         <KEY NAME="workshopuser" TYPE="unique" FIELDS="workshopid, userid" COMMENT="The combination of workshopid with userid must be unique in this table"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="workshop_old" COMMENT="Legacy workshop table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_old" COMMENT="Legacy workshop table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -174,7 +174,7 @@
         <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="workshop_elements_old" COMMENT="Legacy workshop_elements table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_elements_old" COMMENT="Legacy workshop_elements table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="workshopid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -193,7 +193,7 @@
         <KEY NAME="workshopid" TYPE="foreign" FIELDS="workshopid" REFTABLE="workshop" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="workshop_rubrics_old" COMMENT="Legacy workshop_rubrics table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_rubrics_old" COMMENT="Legacy workshop_rubrics table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="workshopid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -208,7 +208,7 @@
         <KEY NAME="workshopid" TYPE="foreign" FIELDS="workshopid" REFTABLE="workshop" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="workshop_submissions_old" COMMENT="Legacy workshop_submissions table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_submissions_old" COMMENT="Legacy workshop_submissions table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="workshopid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -233,7 +233,7 @@
         <INDEX NAME="mailed" UNIQUE="false" FIELDS="mailed"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="workshop_assessments_old" COMMENT="Legacy workshop_assessments table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_assessments_old" COMMENT="Legacy workshop_assessments table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="workshopid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -263,7 +263,7 @@
         <INDEX NAME="mailed" UNIQUE="false" FIELDS="mailed"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="workshop_grades_old" COMMENT="Legacy workshop_grades table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_grades_old" COMMENT="Legacy workshop_grades table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="workshopid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -280,7 +280,7 @@
         <KEY NAME="assessmentid" TYPE="foreign" FIELDS="assessmentid" REFTABLE="workshop_assessments" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="workshop_stockcomments_old" COMMENT="Legacy workshop_stockcomments table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_stockcomments_old" COMMENT="Legacy workshop_stockcomments table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="workshopid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -294,7 +294,7 @@
         <KEY NAME="workshopid" TYPE="foreign" FIELDS="workshopid" REFTABLE="workshop" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="workshop_comments_old" COMMENT="Legacy workshop_comments table to be dropped later in Moodle 2.x">
+    <TABLE NAME="workshop_comments_old" COMMENT="Legacy workshop_comments table to be dropped later in Lion 2.x">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="workshopid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>

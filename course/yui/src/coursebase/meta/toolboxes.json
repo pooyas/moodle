@@ -1,5 +1,5 @@
 {
-    "moodle-course-coursebase": {
+    "lion-course-coursebase": {
         "requires": [
             "base",
             "node"

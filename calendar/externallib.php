@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -21,11 +7,11 @@
  * @package    core_calendar
  * @category   external
  * @copyright  2012 Ankit Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.5
+ * 
+ * @since Lion 2.5
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
@@ -35,8 +21,8 @@ require_once("$CFG->libdir/externallib.php");
  * @package    core_calendar
  * @category   external
  * @copyright  2012 Ankit Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.5
+ * 
+ * @since Lion 2.5
  */
 class core_calendar_external extends external_api {
 
@@ -45,7 +31,7 @@ class core_calendar_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function delete_calendar_events_parameters() {
         return new external_function_parameters(
@@ -66,7 +52,7 @@ class core_calendar_external extends external_api {
      *
      * @param array $eventids A list of event ids with repeat flag to delete
      * @return null
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function delete_calendar_events($events) {
         global $CFG, $DB;
@@ -82,7 +68,7 @@ class core_calendar_external extends external_api {
 
             // Let's check if the user is allowed to delete an event.
             if (!calendar_edit_event_allowed($eventobj)) {
-                throw new moodle_exception("nopermissions");
+                throw new lion_exception("nopermissions");
             }
             // Time to do the magic.
             $eventobj->delete($event['repeat']);
@@ -98,7 +84,7 @@ class core_calendar_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function  delete_calendar_events_returns() {
         return null;
@@ -108,7 +94,7 @@ class core_calendar_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_calendar_events_parameters() {
         return new external_function_parameters(
@@ -159,7 +145,7 @@ class core_calendar_external extends external_api {
      * @param array $events A list of events
      * @param array $options various options
      * @return array Array of event details
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_calendar_events($events = array(), $options = array()) {
         global $SITE, $DB, $USER, $CFG;
@@ -168,7 +154,7 @@ class core_calendar_external extends external_api {
         // Parameter validation.
         $params = self::validate_parameters(self::get_calendar_events_parameters(), array('events' => $events, 'options' => $options));
         $funcparam = array('courses' => array(), 'groups' => array());
-        $hassystemcap = has_capability('moodle/calendar:manageentries', context_system::instance());
+        $hassystemcap = has_capability('lion/calendar:manageentries', context_system::instance());
         $warnings = array();
 
         // Let us findout courses that we can return events from.
@@ -270,7 +256,7 @@ class core_calendar_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function  get_calendar_events_returns() {
         return new external_single_structure(array(
@@ -305,7 +291,7 @@ class core_calendar_external extends external_api {
      * Returns description of method parameters.
      *
      * @return external_function_parameters.
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function create_calendar_events_parameters() {
         // Userid is always current user, so no need to get it from client.
@@ -337,8 +323,8 @@ class core_calendar_external extends external_api {
      *
      * @param array $events A list of events to create.
      * @return array array of events created.
-     * @since Moodle 2.5
-     * @throws moodle_exception if user doesnt have the permission to create events.
+     * @since Lion 2.5
+     * @throws lion_exception if user doesnt have the permission to create events.
      */
     public static function create_calendar_events($events) {
         global $CFG, $DB, $USER;
@@ -395,7 +381,7 @@ class core_calendar_external extends external_api {
      * Returns description of method result value.
      *
      * @return external_description.
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function  create_calendar_events_returns() {
             return new external_single_structure(

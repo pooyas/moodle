@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the definition for the library class for file feedback plugin
@@ -20,10 +6,10 @@
  *
  * @package   assignfeedback_offline
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/grade/grading/lib.php');
 
@@ -32,7 +18,7 @@ require_once($CFG->dirroot.'/grade/grading/lib.php');
  *
  * @package   assignfeedback_offline
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_feedback_offline extends assign_feedback_plugin {
 
@@ -51,11 +37,11 @@ class assign_feedback_offline extends assign_feedback_plugin {
      * Get form elements for grading form
      *
      * @param stdClass $grade
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @return bool true if elements were added to the form
      */
-    public function get_form_elements($grade, MoodleQuickForm $mform, stdClass $data) {
+    public function get_form_elements($grade, LionQuickForm $mform, stdClass $data) {
         return false;
     }
 
@@ -86,7 +72,7 @@ class assign_feedback_offline extends assign_feedback_plugin {
         $context = context_user::instance($USER->id);
         $fs = get_file_storage();
         if (!$files = $fs->get_area_files($context->id, 'user', 'draft', $draftid, 'id DESC', false)) {
-            redirect(new moodle_url('view.php',
+            redirect(new lion_url('view.php',
                                 array('id'=>$this->assignment->get_course_module()->id,
                                       'action'=>'grading')));
             return;
@@ -99,7 +85,7 @@ class assign_feedback_offline extends assign_feedback_plugin {
             $gradeimporter->parsecsv($csvdata);
         }
         if (!$gradeimporter->init()) {
-            $thisurl = new moodle_url('/mod/assign/view.php', array('action'=>'viewpluginpage',
+            $thisurl = new lion_url('/mod/assign/view.php', array('action'=>'viewpluginpage',
                                                                      'pluginsubtype'=>'assignfeedback',
                                                                      'plugin'=>'offline',
                                                                      'pluginaction'=>'uploadgrades',
@@ -210,7 +196,7 @@ class assign_feedback_offline extends assign_feedback_plugin {
                                                   $this->assignment->get_course_module()->id,
                                                   get_string('importgrades', 'assignfeedback_offline')));
         $o .= $renderer->box(get_string('updatedgrades', 'assignfeedback_offline', $updatecount));
-        $url = new moodle_url('view.php',
+        $url = new lion_url('view.php',
                               array('id'=>$this->assignment->get_course_module()->id,
                                     'action'=>'grading'));
         $o .= $renderer->continue_button($url);
@@ -242,7 +228,7 @@ class assign_feedback_offline extends assign_feedback_plugin {
         $renderer = $this->assignment->get_renderer();
 
         if ($mform->is_cancelled()) {
-            redirect(new moodle_url('view.php',
+            redirect(new lion_url('view.php',
                                     array('id'=>$this->assignment->get_course_module()->id,
                                           'action'=>'grading')));
             return;
@@ -283,7 +269,7 @@ class assign_feedback_offline extends assign_feedback_plugin {
                                                                        'gradeimporter'=>$gradeimporter,
                                                                        'draftid'=>$draftid));
             if ($mform->is_cancelled()) {
-                redirect(new moodle_url('view.php',
+                redirect(new lion_url('view.php',
                                         array('id'=>$this->assignment->get_course_module()->id,
                                               'action'=>'grading')));
                 return;

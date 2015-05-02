@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Handle the return back to Moodle from the tool provider
+ * Handle the return back to Lion from the tool provider
  *
  * @package mod_lti
- * @copyright  Copyright (c) 2011 Moodlerooms Inc. (http://www.moodlerooms.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  Copyright (c) 2011 Lionrooms Inc. (http://www.lionrooms.com)
+ * 
  * @author     Chris Scribner
  */
 
@@ -50,7 +36,7 @@ require_login($course);
 require_sesskey();
 
 if (!empty($errormsg) || !empty($msg)) {
-    $url = new moodle_url('/mod/lti/return.php', array('course' => $courseid));
+    $url = new lion_url('/mod/lti/return.php', array('course' => $courseid));
     $PAGE->set_url($url);
 
     $pagetitle = strip_tags($course->shortname);
@@ -82,7 +68,7 @@ if (!empty($errormsg)) {
         $links = new stdClass();
 
         if (has_capability('mod/lti:addcoursetool', $contextcourse)) {
-            $coursetooleditor = new moodle_url('/mod/lti/instructor_edit_tool_type.php',
+            $coursetooleditor = new lion_url('/mod/lti/instructor_edit_tool_type.php',
                 array('course' => $courseid, 'action' => 'add', 'sesskey' => sesskey()));
             $links->course_tool_editor = $coursetooleditor->out(false);
 
@@ -90,7 +76,7 @@ if (!empty($errormsg)) {
         }
 
         if (!empty($lti) && has_capability('mod/lti:requesttooladd', $contextcourse)) {
-            $adminrequesturl = new moodle_url('/mod/lti/request_tool.php', array('instanceid' => $lti->id, 'sesskey' => sesskey()));
+            $adminrequesturl = new lion_url('/mod/lti/request_tool.php', array('instanceid' => $lti->id, 'sesskey' => sesskey()));
             $links->admin_request_url = $adminrequesturl->out(false);
 
             echo get_string('lti_launch_error_tool_request', 'lti', $links);
@@ -105,7 +91,7 @@ if (!empty($errormsg)) {
     echo $OUTPUT->footer();
 
 } else {
-    $courseurl = new moodle_url('/course/view.php', array('id' => $courseid));
+    $courseurl = new lion_url('/course/view.php', array('id' => $courseid));
     $url = $courseurl->out();
 
     // Avoid frame-in-frame action.

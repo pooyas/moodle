@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the definition for the class assignment
@@ -21,10 +7,10 @@
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Assignment submission statuses.
 define('ASSIGN_SUBMISSION_STATUS_NEW', 'new');
@@ -82,7 +68,7 @@ require_once($CFG->libdir . '/portfolio/caller.php');
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign {
 
@@ -513,7 +499,7 @@ class assign {
 
         // Now show the right view page.
         if ($action == 'redirect') {
-            $nextpageurl = new moodle_url('/mod/assign/view.php', $nextpageparams);
+            $nextpageurl = new lion_url('/mod/assign/view.php', $nextpageparams);
             redirect($nextpageurl);
             return;
         } else if ($action == 'savegradingresult') {
@@ -1024,12 +1010,12 @@ class assign {
      * Add elements in grading plugin form.
      *
      * @param mixed $grade stdClass|null
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @param int $userid - The userid we are grading
      * @return void
      */
-    protected function add_plugin_grade_elements($grade, MoodleQuickForm $mform, stdClass $data, $userid) {
+    protected function add_plugin_grade_elements($grade, LionQuickForm $mform, stdClass $data, $userid) {
         foreach ($this->feedbackplugins as $plugin) {
             if ($plugin->is_enabled() && $plugin->is_visible()) {
                 $plugin->get_form_elements_for_user($grade, $mform, $data, $userid);
@@ -1043,13 +1029,13 @@ class assign {
      * Add one plugins settings to edit plugin form.
      *
      * @param assign_plugin $plugin The plugin to add the settings from
-     * @param MoodleQuickForm $mform The form to add the configuration settings to.
+     * @param LionQuickForm $mform The form to add the configuration settings to.
      *                               This form is modified directly (not returned).
      * @param array $pluginsenabled A list of form elements to be added to a group.
      *                              The new element is added to this array by this function.
      * @return void
      */
-    protected function add_plugin_settings(assign_plugin $plugin, MoodleQuickForm $mform, & $pluginsenabled) {
+    protected function add_plugin_settings(assign_plugin $plugin, LionQuickForm $mform, & $pluginsenabled) {
         global $CFG;
         if ($plugin->is_visible() && !$plugin->is_configurable() && $plugin->is_enabled()) {
             $name = $plugin->get_subtype() . '_' . $plugin->get_type() . '_enabled';
@@ -1076,11 +1062,11 @@ class assign {
     /**
      * Add settings to edit plugin form.
      *
-     * @param MoodleQuickForm $mform The form to add the configuration settings to.
+     * @param LionQuickForm $mform The form to add the configuration settings to.
      *                               This form is modified directly (not returned).
      * @return void
      */
-    public function add_all_plugin_settings(MoodleQuickForm $mform) {
+    public function add_all_plugin_settings(LionQuickForm $mform) {
         $mform->addElement('header', 'submissiontypes', get_string('submissiontypes', 'assign'));
 
         $submissionpluginsenabled = array();
@@ -1688,7 +1674,7 @@ class assign {
     /**
      * Finds all assignment notifications that have yet to be mailed out, and mails them.
      *
-     * Cron function to be run periodically according to the moodle cron.
+     * Cron function to be run periodically according to the lion cron.
      *
      * @return bool
      */
@@ -1983,7 +1969,7 @@ class assign {
      * Uses url parameters 'userid'
      * or from parameter 'selectedusers'
      *
-     * @param moodleform $mform - Used for validation of the submitted data
+     * @param lionform $mform - Used for validation of the submitted data
      * @return string
      */
     protected function view_grant_extension($mform) {
@@ -2059,7 +2045,7 @@ class assign {
             }
         }
         // Exclude suspended users, if user can't see them.
-        if ($excludesuspended || !has_capability('moodle/course:viewsuspendedusers', $this->context)) {
+        if ($excludesuspended || !has_capability('lion/course:viewsuspendedusers', $this->context)) {
             foreach ($members as $key => $member) {
                 if (!$this->is_active_user($member->id)) {
                     unset($members[$key]);
@@ -2188,8 +2174,8 @@ class assign {
         $strplural = get_string('modulenameplural', 'assign');
 
         if (!$cms = get_coursemodules_in_course('assign', $course->id, 'm.duedate')) {
-            $o .= $this->get_renderer()->notification(get_string('thereareno', 'moodle', $strplural));
-            $o .= $this->get_renderer()->continue_button(new moodle_url('/course/view.php', array('id' => $course->id)));
+            $o .= $this->get_renderer()->notification(get_string('thereareno', 'lion', $strplural));
+            $o .= $this->get_renderer()->continue_button(new lion_url('/course/view.php', array('id' => $course->id)));
             return $o;
         }
 
@@ -2672,7 +2658,7 @@ class assign {
                                         get_string('downloadall', 'assign'));
             $result .= $this->get_renderer()->render($header);
             $result .= $this->get_renderer()->notification(get_string('nosubmission', 'assign'));
-            $url = new moodle_url('/mod/assign/view.php', array('id'=>$this->get_course_module()->id,
+            $url = new lion_url('/mod/assign/view.php', array('id'=>$this->get_course_module()->id,
                                                                     'action'=>'grading'));
             $result .= $this->get_renderer()->continue_button($url);
             $result .= $this->view_footer();
@@ -2689,7 +2675,7 @@ class assign {
      * Util function to add a message to the log.
      *
      * @deprecated since 2.7 - Use new events system instead.
-     *             (see http://docs.moodle.org/dev/Migrating_logging_calls_in_plugins).
+     *             (see http://docs.lion.org/dev/Migrating_logging_calls_in_plugins).
      *
      * @param string $action The current action
      * @param string $info A detailed description of the change. But no more than 255 characters.
@@ -2941,7 +2927,7 @@ class assign {
     /**
      * Print the grading page for a single user submission.
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      * @return string
      */
     protected function view_single_grade_page($mform) {
@@ -2990,7 +2976,7 @@ class assign {
         }
         $user = $DB->get_record('user', array('id' => $userid));
         if ($user) {
-            $viewfullnames = has_capability('moodle/site:viewfullnames', $this->get_course_context());
+            $viewfullnames = has_capability('lion/site:viewfullnames', $this->get_course_context());
             $usersummary = new assign_user_summary($user,
                                                    $this->get_course()->id,
                                                    $viewfullnames,
@@ -3025,7 +3011,7 @@ class assign {
                 $extensionduedate = $flags->extensionduedate;
             }
             $showedit = $this->submissions_open($userid) && ($this->is_any_submission_plugin_enabled());
-            $viewfullnames = has_capability('moodle/site:viewfullnames', $this->get_course_context());
+            $viewfullnames = has_capability('lion/site:viewfullnames', $this->get_course_context());
 
             $submissionstatus = new assign_submission_status($instance->allowsubmissionsfromdate,
                                                              $instance->alwaysshowdescription,
@@ -3142,11 +3128,11 @@ class assign {
         $urlparams = array('id'=>$this->get_course_module()->id,
                            'action'=>'revealidentitiesconfirm',
                            'sesskey'=>sesskey());
-        $confirmurl = new moodle_url('/mod/assign/view.php', $urlparams);
+        $confirmurl = new lion_url('/mod/assign/view.php', $urlparams);
 
         $urlparams = array('id'=>$this->get_course_module()->id,
                            'action'=>'grading');
-        $cancelurl = new moodle_url('/mod/assign/view.php', $urlparams);
+        $cancelurl = new lion_url('/mod/assign/view.php', $urlparams);
 
         $o .= $this->get_renderer()->confirm(get_string('revealidentitiesconfirm', 'assign'),
                                              $confirmurl,
@@ -3173,7 +3159,7 @@ class assign {
         $newparams = array('id' => $this->get_course_module()->id, 'action' => $returnaction);
         $params = array_merge($newparams, $params);
 
-        $url = new moodle_url('/mod/assign/view.php', $params);
+        $url = new lion_url('/mod/assign/view.php', $params);
         return $this->get_renderer()->single_button($url, get_string('back'), 'get');
     }
 
@@ -3194,7 +3180,7 @@ class assign {
 
         $links = array();
         if (has_capability('gradereport/grader:view', $this->get_course_context()) &&
-                has_capability('moodle/grade:viewall', $this->get_course_context())) {
+                has_capability('lion/grade:viewall', $this->get_course_context())) {
             $gradebookurl = '/grade/report/grader/index.php?id=' . $this->get_course()->id;
             $links[$gradebookurl] = get_string('viewgradebook', 'assign');
         }
@@ -3235,7 +3221,7 @@ class assign {
         $controller = $gradingmanager->get_active_controller();
         $showquickgrading = empty($controller) && $this->can_grade();
         $quickgrading = get_user_preferences('assign_quickgrading', false);
-        $showonlyactiveenrolopt = has_capability('moodle/course:viewsuspendedusers', $this->context);
+        $showonlyactiveenrolopt = has_capability('lion/course:viewsuspendedusers', $this->context);
 
         $markingallocation = $this->get_instance()->markingworkflow &&
             $this->get_instance()->markingallocation &&
@@ -3420,7 +3406,7 @@ class assign {
             $o .= $this->get_renderer()->notification($notice);
         }
 
-        $url = new moodle_url('/mod/assign/view.php', array('id'=>$this->get_course_module()->id, 'action'=>'view'));
+        $url = new lion_url('/mod/assign/view.php', array('id'=>$this->get_course_module()->id, 'action'=>'view'));
         $o .= $this->get_renderer()->continue_button($url);
 
         $o .= $this->view_footer();
@@ -3451,7 +3437,7 @@ class assign {
     /**
      * View edit submissions page.
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      * @param array $notices A list of notices to display at the top of the
      *                       edit submission form (e.g. from plugins).
      * @return string The page output.
@@ -3558,7 +3544,7 @@ class assign {
     public function can_view_submission($userid) {
         global $USER;
 
-        if (!$this->is_active_user($userid) && !has_capability('moodle/course:viewsuspendedusers', $this->context)) {
+        if (!$this->is_active_user($userid) && !has_capability('lion/course:viewsuspendedusers', $this->context)) {
             return false;
         }
         if (has_any_capability(array('mod/assign:viewgrades', 'mod/assign:grade'), $this->context)) {
@@ -3576,7 +3562,7 @@ class assign {
     /**
      * Allows the plugin to show a batch grading operation page.
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      * @return none
      */
     protected function view_plugin_grading_batch_operation($mform) {
@@ -3601,7 +3587,7 @@ class assign {
     /**
      * Ask the user to confirm they want to perform this batch operation
      *
-     * @param moodleform $mform Set to a grading batch operations form
+     * @param lionform $mform Set to a grading batch operations form
      * @return string - the page to view after processing these actions
      */
     protected function process_grading_batch_operation(& $mform) {
@@ -3678,7 +3664,7 @@ class assign {
     /**
      * Shows a form that allows the workflow state for selected submissions to be changed.
      *
-     * @param moodleform $mform Set to a grading batch operations form
+     * @param lionform $mform Set to a grading batch operations form
      * @return string - the page to view after processing these actions
      */
     protected function view_batch_set_workflow_state($mform) {
@@ -3708,7 +3694,7 @@ class assign {
 
             $usershtml .= $this->get_renderer()->render(new assign_user_summary($user,
                                                                 $this->get_course()->id,
-                                                                has_capability('moodle/site:viewfullnames',
+                                                                has_capability('lion/site:viewfullnames',
                                                                 $this->get_course_context()),
                                                                 $this->is_blind_marking(),
                                                                 $this->get_uniqueid_for_user($user->id),
@@ -3737,7 +3723,7 @@ class assign {
     /**
      * Shows a form that allows the allocated marker for selected submissions to be changed.
      *
-     * @param moodleform $mform Set to a grading batch operations form
+     * @param lionform $mform Set to a grading batch operations form
      * @return string - the page to view after processing these actions
      */
     public function view_batch_markingallocation($mform) {
@@ -3767,7 +3753,7 @@ class assign {
 
             $usershtml .= $this->get_renderer()->render(new assign_user_summary($user,
                 $this->get_course()->id,
-                has_capability('moodle/site:viewfullnames',
+                has_capability('lion/site:viewfullnames',
                 $this->get_course_context()),
                 $this->is_blind_marking(),
                 $this->get_uniqueid_for_user($user->id),
@@ -3803,7 +3789,7 @@ class assign {
     /**
      * Ask the user to confirm they want to submit their work for grading.
      *
-     * @param moodleform $mform - null unless form validation has failed
+     * @param lionform $mform - null unless form validation has failed
      * @return string
      */
     protected function check_submit_for_grading($mform) {
@@ -3837,7 +3823,7 @@ class assign {
                 'context' => $this->get_context(),
                 'para' => false
             );
-            $submissionstatement = format_text($adminconfig->submissionstatement, FORMAT_MOODLE, $options);
+            $submissionstatement = format_text($adminconfig->submissionstatement, FORMAT_LION, $options);
         }
 
         if ($mform == null) {
@@ -3913,7 +3899,7 @@ class assign {
             if ($flags) {
                 $extensionduedate = $flags->extensionduedate;
             }
-            $viewfullnames = has_capability('moodle/site:viewfullnames', $this->get_course_context());
+            $viewfullnames = has_capability('lion/site:viewfullnames', $this->get_course_context());
 
             $gradingstatus = $this->get_grading_status($user->id);
             $submissionstatus = new assign_submission_status($instance->allowsubmissionsfromdate,
@@ -4214,7 +4200,7 @@ class assign {
             $submitted = ASSIGN_SUBMISSION_STATUS_SUBMITTED;
 
             // Group selector will only be displayed if necessary.
-            $currenturl = new moodle_url('/mod/assign/view.php', array('id' => $this->get_course_module()->id));
+            $currenturl = new lion_url('/mod/assign/view.php', array('id' => $this->get_course_module()->id));
             $o .= groups_print_activity_menu($this->get_course_module(), $currenturl->out(), true);
 
             $activitygroup = groups_get_activity_group($this->get_course_module());
@@ -5073,7 +5059,7 @@ class assign {
     /**
      * Assignment submission is processed before grading.
      *
-     * @param moodleform|null $mform If validation failed when submitting this form - this is the moodleform.
+     * @param lionform|null $mform If validation failed when submitting this form - this is the lionform.
      *               It can be null.
      * @return bool Return false if the validation fails. This affects which page is displayed next.
      */
@@ -5101,7 +5087,7 @@ class assign {
                 'context' => $this->get_context(),
                 'para' => false
             );
-            $submissionstatement = format_text($adminconfig->submissionstatement, FORMAT_MOODLE, $options);
+            $submissionstatement = format_text($adminconfig->submissionstatement, FORMAT_LION, $options);
         }
 
         if ($mform == null) {
@@ -5166,7 +5152,7 @@ class assign {
     /**
      * Save extension date.
      *
-     * @param moodleform $mform The submitted form
+     * @param lionform $mform The submitted form
      * @return boolean
      */
     protected function process_save_extension(& $mform) {
@@ -5511,7 +5497,7 @@ class assign {
         $controller = $gradingmanager->get_active_controller();
         $showquickgrading = empty($controller);
         if (!is_null($this->context)) {
-            $showonlyactiveenrolopt = has_capability('moodle/course:viewsuspendedusers', $this->context);
+            $showonlyactiveenrolopt = has_capability('lion/course:viewsuspendedusers', $this->context);
         } else {
             $showonlyactiveenrolopt = false;
         }
@@ -5845,7 +5831,7 @@ class assign {
     /**
      * Save assignment submission.
      *
-     * @param  moodleform $mform
+     * @param  lionform $mform
      * @param  array $notices Any error messages that should be shown
      *                        to the user at the top of the edit submission form.
      * @return bool
@@ -5958,12 +5944,12 @@ class assign {
     /**
      * Add elements to grade form.
      *
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @param array $params
      * @return void
      */
-    public function add_grade_form_elements(MoodleQuickForm $mform, stdClass $data, $params) {
+    public function add_grade_form_elements(LionQuickForm $mform, stdClass $data, $params) {
         global $USER, $CFG;
         $settings = $this->get_instance();
 
@@ -6072,10 +6058,10 @@ class assign {
             }
         }
 
-        $capabilitylist = array('gradereport/grader:view', 'moodle/grade:viewall');
+        $capabilitylist = array('gradereport/grader:view', 'lion/grade:viewall');
         if (has_all_capabilities($capabilitylist, $this->get_course_context())) {
             $urlparams = array('id'=>$this->get_course()->id);
-            $url = new moodle_url('/grade/report/grader/index.php', $urlparams);
+            $url = new lion_url('/grade/report/grader/index.php', $urlparams);
             $usergrade = '-';
             if (isset($gradinginfo->items[0]->grades[$userid]->str_grade)) {
                 $usergrade = $gradinginfo->items[0]->grades[$userid]->str_grade;
@@ -6223,13 +6209,13 @@ class assign {
      * Add elements in submission plugin form.
      *
      * @param mixed $submission stdClass|null
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @param int $userid The current userid (same as $USER->id)
      * @return void
      */
     protected function add_plugin_submission_elements($submission,
-                                                    MoodleQuickForm $mform,
+                                                    LionQuickForm $mform,
                                                     stdClass $data,
                                                     $userid) {
         foreach ($this->submissionplugins as $plugin) {
@@ -6281,11 +6267,11 @@ class assign {
 
     /**
      * Add elements to submission form.
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @return void
      */
-    public function add_submission_form_elements(MoodleQuickForm $mform, stdClass $data) {
+    public function add_submission_form_elements(LionQuickForm $mform, stdClass $data) {
         global $USER;
 
         $userid = $data->userid;
@@ -6315,7 +6301,7 @@ class assign {
                     'context' => $this->get_context(),
                     'para' => false
                 );
-                $submissionstatement = format_text($adminconfig->submissionstatement, FORMAT_MOODLE, $options);
+                $submissionstatement = format_text($adminconfig->submissionstatement, FORMAT_LION, $options);
             }
             $mform->addElement('checkbox', 'submissionstatement', '', $submissionstatement);
             $mform->addRule('submissionstatement', get_string('required'), 'required', null, 'client');
@@ -6807,7 +6793,7 @@ class assign {
     /**
      * Save grade.
      *
-     * @param  moodleform $mform
+     * @param  lionform $mform
      * @return bool - was the grade saved
      */
     protected function process_save_grade(&$mform) {
@@ -7252,7 +7238,7 @@ class assign {
 
             if (!is_null($this->context)) {
                 $this->showonlyactiveenrol = $this->showonlyactiveenrol ||
-                            !has_capability('moodle/course:viewsuspendedusers', $this->context);
+                            !has_capability('lion/course:viewsuspendedusers', $this->context);
             }
         }
         return $this->showonlyactiveenrol;
@@ -7321,7 +7307,7 @@ class assign {
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_portfolio_caller extends portfolio_module_caller_base {
 

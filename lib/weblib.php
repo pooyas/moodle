@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions for web output
  *
- * Library of all general-purpose Moodle PHP functions and constants
+ * Library of all general-purpose Lion PHP functions and constants
  * that produce HTML output
  *
  * Other main libraries:
  * - datalib.php - functions that access the database.
- * - moodlelib.php - general-purpose Moodle functions.
+ * - lionlib.php - general-purpose Lion functions.
  *
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Constants.
 
@@ -39,7 +25,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Does all sorts of transformations and filtering.
  */
-define('FORMAT_MOODLE',   '0');
+define('FORMAT_LION',   '0');
 
 /**
  * Plain HTML (with some tags stripped).
@@ -65,17 +51,17 @@ define('FORMAT_WIKI',     '3');
 define('FORMAT_MARKDOWN', '4');
 
 /**
- * A moodle_url comparison using this flag will return true if the base URLs match, params are ignored.
+ * A lion_url comparison using this flag will return true if the base URLs match, params are ignored.
  */
 define('URL_MATCH_BASE', 0);
 
 /**
- * A moodle_url comparison using this flag will return true if the base URLs match and the params of url1 are part of url2.
+ * A lion_url comparison using this flag will return true if the base URLs match and the params of url1 are part of url2.
  */
 define('URL_MATCH_PARAMS', 1);
 
 /**
- * A moodle_url comparison using this flag will return true if the two URLs are identical, except for the order of the params.
+ * A lion_url comparison using this flag will return true if the two URLs are identical, except for the order of the params.
  */
 define('URL_MATCH_EXACT', 2);
 
@@ -224,7 +210,7 @@ function qualified_me() {
 }
 
 /**
- * Determines whether or not the Moodle site is being served over HTTPS.
+ * Determines whether or not the Lion site is being served over HTTPS.
  *
  * This is done simply by checking the value of $CFG->httpswwwroot, which seems
  * to be the only reliable method.
@@ -240,11 +226,11 @@ function is_https() {
 /**
  * Class for creating and manipulating urls.
  *
- * It can be used in moodle pages where config.php has been included without any further includes.
+ * It can be used in lion pages where config.php has been included without any further includes.
  *
  * It is useful for manipulating urls with long lists of params.
  * One situation where it will be useful is a page which links to itself to perform various actions
- * and / or to process form data. A moodle_url object :
+ * and / or to process form data. A lion_url object :
  * can be created for a page to refer to itself with all the proper get params being passed from page call to
  * page call and methods can be used to output a url including all the params, optionally adding and overriding
  * params and can also be used to
@@ -252,11 +238,11 @@ function is_https() {
  *     - and output the params as hidden fields to be output within a form
  *
  * @copyright 2007 jamiesensei
- * @link http://docs.moodle.org/dev/lib/weblib.php_moodle_url See short write up here
+ * @link http://docs.lion.org/dev/lib/weblib.php_lion_url See short write up here
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @package core
  */
-class moodle_url {
+class lion_url {
 
     /**
      * Scheme, ex.: http, https
@@ -313,22 +299,22 @@ class moodle_url {
     protected $params = array();
 
     /**
-     * Create new instance of moodle_url.
+     * Create new instance of lion_url.
      *
-     * @param moodle_url|string $url - moodle_url means make a copy of another
-     *      moodle_url and change parameters, string means full url or shortened
+     * @param lion_url|string $url - lion_url means make a copy of another
+     *      lion_url and change parameters, string means full url or shortened
      *      form (ex.: '/course/view.php'). It is strongly encouraged to not include
      *      query string because it may result in double encoded values. Use the
      *      $params instead. For admin URLs, just use /admin/script.php, this
      *      class takes care of the $CFG->admin issue.
      * @param array $params these params override current params or add new
      * @param string $anchor The anchor to use as part of the URL if there is one.
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     public function __construct($url, array $params = null, $anchor = null) {
         global $CFG;
 
-        if ($url instanceof moodle_url) {
+        if ($url instanceof lion_url) {
             $this->scheme = $url->scheme;
             $this->host = $url->host;
             $this->port = $url->port;
@@ -352,7 +338,7 @@ class moodle_url {
             // Normalise shortened form of our url ex.: '/course/view.php'.
             if (strpos($url, '/') === 0) {
                 // We must not use httpswwwroot here, because it might be url of other page,
-                // devs have to use httpswwwroot explicitly when creating new moodle_url.
+                // devs have to use httpswwwroot explicitly when creating new lion_url.
                 $url = $CFG->wwwroot.$url;
             }
 
@@ -366,7 +352,7 @@ class moodle_url {
             // Parse the $url.
             $parts = parse_url($url);
             if ($parts === false) {
-                throw new moodle_exception('invalidurl');
+                throw new lion_exception('invalidurl');
             }
             if (isset($parts['query'])) {
                 // Note: the values may not be correctly decoded, url parameters should be always passed as array.
@@ -593,15 +579,15 @@ class moodle_url {
     }
 
     /**
-     * Compares this moodle_url with another.
+     * Compares this lion_url with another.
      *
      * See documentation of constants for an explanation of the comparison flags.
      *
-     * @param moodle_url $url The moodle_url object to compare
+     * @param lion_url $url The lion_url object to compare
      * @param int $matchtype The type of comparison (URL_MATCH_BASE, URL_MATCH_PARAMS, URL_MATCH_EXACT)
      * @return bool
      */
-    public function compare(moodle_url $url, $matchtype = URL_MATCH_EXACT) {
+    public function compare(lion_url $url, $matchtype = URL_MATCH_EXACT) {
 
         $baseself = $this->out_omit_querystring();
         $baseother = $url->out_omit_querystring();
@@ -704,12 +690,12 @@ class moodle_url {
     // Static factory methods.
 
     /**
-     * General moodle file url.
+     * General lion file url.
      *
      * @param string $urlbase the script serving the file
      * @param string $path
      * @param bool $forcedownload
-     * @return moodle_url
+     * @return lion_url
      */
     public static function make_file_url($urlbase, $path, $forcedownload = false) {
         $params = array();
@@ -717,7 +703,7 @@ class moodle_url {
             $params['forcedownload'] = 1;
         }
 
-        $url = new moodle_url($urlbase, $params);
+        $url = new lion_url($urlbase, $params);
         $url->set_slashargument($path);
         return $url;
     }
@@ -735,7 +721,7 @@ class moodle_url {
      * @param string $pathname
      * @param string $filename
      * @param bool $forcedownload
-     * @return moodle_url
+     * @return lion_url
      */
     public static function make_pluginfile_url($contextid, $component, $area, $itemid, $pathname, $filename,
                                                $forcedownload = false) {
@@ -761,7 +747,7 @@ class moodle_url {
      * @param string $pathname
      * @param string $filename
      * @param bool $forcedownload
-     * @return moodle_url
+     * @return lion_url
      */
     public static function make_webservice_pluginfile_url($contextid, $component, $area, $itemid, $pathname, $filename,
                                                $forcedownload = false) {
@@ -781,7 +767,7 @@ class moodle_url {
      * @param string $pathname
      * @param string $filename
      * @param bool $forcedownload
-     * @return moodle_url
+     * @return lion_url
      */
     public static function make_draftfile_url($draftid, $pathname, $filename, $forcedownload = false) {
         global $CFG, $USER;
@@ -797,7 +783,7 @@ class moodle_url {
      * @param int $courseid
      * @param string $filepath
      * @param bool $forcedownload
-     * @return moodle_url
+     * @return lion_url
      */
     public static function make_legacyfile_url($courseid, $filepath, $forcedownload = false) {
         global $CFG;
@@ -904,7 +890,7 @@ class moodle_url {
 /**
  * Determine if there is data waiting to be processed from a form
  *
- * Used on most forms in Moodle to check for data
+ * Used on most forms in Lion to check for data
  * Returns the data as an object, if it's found.
  * This object can be used in foreach loops without
  * casting because it's cast to (array) automatically
@@ -1017,17 +1003,17 @@ function page_doc_link($text='') {
 /**
  * Returns the path to use when constructing a link to the docs.
  *
- * @since Moodle 2.5.1 2.6
- * @param moodle_page $page
+ * @since Lion 2.5.1 2.6
+ * @param lion_page $page
  * @return string
  */
-function page_get_doc_link_path(moodle_page $page) {
+function page_get_doc_link_path(lion_page $page) {
     global $CFG;
 
     if (empty($CFG->docroot) || during_initial_install()) {
         return '';
     }
-    if (!has_capability('moodle/site:doclinks', $page->context)) {
+    if (!has_capability('lion/site:doclinks', $page->context)) {
         return '';
     }
 
@@ -1106,7 +1092,7 @@ function get_file_argument() {
  * @return array
  */
 function format_text_menu() {
-    return array (FORMAT_MOODLE => get_string('formattext'),
+    return array (FORMAT_LION => get_string('formattext'),
                   FORMAT_HTML => get_string('formathtml'),
                   FORMAT_PLAIN => get_string('formatplain'),
                   FORMAT_MARKDOWN => get_string('formatmarkdown'));
@@ -1136,12 +1122,12 @@ function format_text_menu() {
  * @staticvar array $croncache
  * @param string $text The text to be formatted. This is raw text originally from user input.
  * @param int $format Identifier of the text format to be used
- *            [FORMAT_MOODLE, FORMAT_HTML, FORMAT_PLAIN, FORMAT_MARKDOWN]
+ *            [FORMAT_LION, FORMAT_HTML, FORMAT_PLAIN, FORMAT_MARKDOWN]
  * @param object/array $options text formatting options
  * @param int $courseiddonotuse deprecated course id, use context option instead
  * @return string
  */
-function format_text($text, $format = FORMAT_MOODLE, $options = null, $courseiddonotuse = null) {
+function format_text($text, $format = FORMAT_LION, $options = null, $courseiddonotuse = null) {
     global $CFG, $DB, $PAGE;
 
     if ($text === '' || is_null($text)) {
@@ -1231,9 +1217,9 @@ function format_text($text, $format = FORMAT_MOODLE, $options = null, $courseidd
 
         case FORMAT_WIKI:
             // This format is deprecated.
-            $text = '<p>NOTICE: Wiki-like formatting has been removed from Moodle.  You should not be seeing
+            $text = '<p>NOTICE: Wiki-like formatting has been removed from Lion.  You should not be seeing
                      this message as all texts should have been converted to Markdown format instead.
-                     Please post a bug report to http://moodle.org/bugs with information about where you
+                     Please post a bug report to http://lion.org/bugs with information about where you
                      saw this message.</p>'.s($text);
             break;
 
@@ -1248,7 +1234,7 @@ function format_text($text, $format = FORMAT_MOODLE, $options = null, $courseidd
             ));
             break;
 
-        default:  // FORMAT_MOODLE or anything else.
+        default:  // FORMAT_LION or anything else.
             $text = text_to_html($text, null, $options['para'], $options['newlines']);
             if (!$options['noclean']) {
                 $text = clean_text($text, FORMAT_HTML, $options);
@@ -1326,7 +1312,7 @@ function reset_text_filters_cache($phpunitreset = false) {
  * @staticvar bool $strcache
  * @param string $string The string to be filtered. Should be plain text, expect
  * possibly for multilang tags.
- * @param boolean $striplinks To strip any link in the result text. Moodle 1.8 default changed from false to true! MDL-8713
+ * @param boolean $striplinks To strip any link in the result text. Lion 1.8 default changed from false to true! MDL-8713
  * @param array $options options array/object or courseid
  * @return string
  */
@@ -1440,7 +1426,7 @@ function wikify_links($string) {
  *
  * @param string $text The text to be formatted. This is raw text originally from user input.
  * @param int $format Identifier of the text format to be used
- *            [FORMAT_MOODLE, FORMAT_HTML, FORMAT_PLAIN, FORMAT_WIKI, FORMAT_MARKDOWN]
+ *            [FORMAT_LION, FORMAT_HTML, FORMAT_PLAIN, FORMAT_WIKI, FORMAT_MARKDOWN]
  * @return string
  */
 function format_text_email($text, $format) {
@@ -1461,7 +1447,7 @@ function format_text_email($text, $format) {
             return html_to_text($text);
             break;
 
-        case FORMAT_MOODLE:
+        case FORMAT_LION:
         case FORMAT_MARKDOWN:
         default:
             $text = wikify_links($text);
@@ -1489,10 +1475,10 @@ function format_module_intro($module, $activity, $cmid, $filter=true) {
 }
 
 /**
- * Removes the usage of Moodle files from a text.
+ * Removes the usage of Lion files from a text.
  *
  * In some rare cases we need to re-use a text that already has embedded links
- * to some files hosted within Moodle. But the new area in which we will push
+ * to some files hosted within Lion. But the new area in which we will push
  * this content does not support files... therefore we need to remove those files.
  *
  * @param string $source The text
@@ -1551,7 +1537,7 @@ function trusttext_pre_edit($object, $field, $context) {
  * @return bool true if user trusted
  */
 function trusttext_trusted($context) {
-    return (trusttext_active() and has_capability('moodle/site:trustcontent', $context));
+    return (trusttext_active() and has_capability('lion/site:trustcontent', $context));
 }
 
 /**
@@ -1569,7 +1555,7 @@ function trusttext_active() {
  * Cleans raw text removing nasties.
  *
  * Given raw text (eg typed in by a user) this function cleans it up and removes any nasty tags that could mess up
- * Moodle pages through XSS attacks.
+ * Lion pages through XSS attacks.
  *
  * The result must be used as a HTML text fragment, this function can not cleanup random
  * parts of html tags such as url or src attributes.
@@ -1577,7 +1563,7 @@ function trusttext_active() {
  * NOTE: the format parameter was deprecated because we can safely clean only HTML.
  *
  * @param string $text The text to be cleaned
- * @param int|string $format deprecated parameter, should always contain FORMAT_HTML or FORMAT_MOODLE
+ * @param int|string $format deprecated parameter, should always contain FORMAT_HTML or FORMAT_LION
  * @param array $options Array of options; currently only option supported is 'allowid' (if true,
  *   does not remove id attributes when cleaning)
  * @return string The cleaned up text
@@ -1601,7 +1587,7 @@ function clean_text($text, $format = FORMAT_HTML, $options = array()) {
     // Originally we tried to neutralise some script events here, it was a wrong approach because
     // it was trivial to work around that (for example using style based XSS exploits).
     // We must not give false sense of security here - all developers MUST understand how to use
-    // rawurlencode(), htmlentities(), htmlspecialchars(), p(), s(), moodle_url, html_writer and friends!!!
+    // rawurlencode(), htmlentities(), htmlspecialchars(), p(), s(), lion_url, html_writer and friends!!!
 
     return $text;
 }
@@ -1710,7 +1696,7 @@ function purify_html($text, $options = array()) {
         require_once $CFG->libdir.'/htmlpurifier/locallib.php';
         $config = HTMLPurifier_Config::createDefault();
 
-        $config->set('HTML.DefinitionID', 'moodlehtml');
+        $config->set('HTML.DefinitionID', 'lionhtml');
         $config->set('HTML.DefinitionRev', 2);
         $config->set('Cache.SerializerPath', $cachedir);
         $config->set('Cache.SerializerPermissions', $CFG->directorypermissions);
@@ -1787,7 +1773,7 @@ function purify_html($text, $options = array()) {
  * May contain HTML tags already.
  *
  * Do not abuse this function. It is intended as lower level formatting feature used
- * by {@link format_text()} to convert FORMAT_MOODLE to HTML. You are supposed
+ * by {@link format_text()} to convert FORMAT_LION to HTML. You are supposed
  * to call format_text() in most of cases.
  *
  * @param string $text The string to convert.
@@ -1984,7 +1970,7 @@ function get_html_lang($dir = false) {
 // STANDARD WEB PAGE PARTS.
 
 /**
- * Send the HTTP headers that Moodle requires.
+ * Send the HTTP headers that Lion requires.
  *
  * There is a backwards compatibility hack for legacy code
  * that needs to add custom IE compatibility directive.
@@ -2251,11 +2237,11 @@ function print_group_picture($group, $courseid, $large=false, $return=false, $li
     }
 
     // If picture is hidden, only show to those with course:managegroups.
-    if ($group->hidepicture and !has_capability('moodle/course:managegroups', $context)) {
+    if ($group->hidepicture and !has_capability('lion/course:managegroups', $context)) {
         return '';
     }
 
-    if ($link or has_capability('moodle/site:accessallgroups', $context)) {
+    if ($link or has_capability('lion/site:accessallgroups', $context)) {
         $output = '<a href="'. $CFG->wwwroot .'/user/index.php?id='. $courseid .'&amp;group='. $group->id .'">';
     } else {
         $output = '';
@@ -2266,12 +2252,12 @@ function print_group_picture($group, $courseid, $large=false, $return=false, $li
         $file = 'f2';
     }
 
-    $grouppictureurl = moodle_url::make_pluginfile_url($context->id, 'group', 'icon', $group->id, '/', $file);
+    $grouppictureurl = lion_url::make_pluginfile_url($context->id, 'group', 'icon', $group->id, '/', $file);
     $grouppictureurl->param('rev', $group->picture);
     $output .= '<img class="grouppicture" src="'.$grouppictureurl.'"'.
         ' alt="'.s(get_string('group').' '.$group->name).'" title="'.s($group->name).'"/>';
 
-    if ($link or has_capability('moodle/site:accessallgroups', $context)) {
+    if ($link or has_capability('lion/site:accessallgroups', $context)) {
         $output .= '</a>';
     }
 
@@ -2301,7 +2287,7 @@ function print_recent_activity_note($time, $user, $text, $link, $return=false, $
 
     if (is_null($viewfullnames)) {
         $context = context_system::instance();
-        $viewfullnames = has_capability('moodle/site:viewfullnames', $context);
+        $viewfullnames = has_capability('lion/site:viewfullnames', $context);
     }
 
     if (is_null($strftimerecent)) {
@@ -2369,7 +2355,7 @@ function navmenulist($course, $sections, $modinfo, $strsection, $strjumpto, $wid
 
             if ($thissection->visible or
                     (isset($courseformatoptions['hiddensections']) and !$courseformatoptions['hiddensections']) or
-                    has_capability('moodle/course:viewhiddensections', $coursecontext)) {
+                    has_capability('lion/course:viewhiddensections', $coursecontext)) {
                 $thissection->summary = strip_tags(format_string($thissection->summary, true));
                 if (!$doneheading) {
                     $menu[] = '</ul></li>';
@@ -2451,7 +2437,7 @@ function print_grade_menu($courseid, $name, $current, $includenograde=true, $ret
 
     $helppix = $OUTPUT->pix_url('help');
     $linkobject = '<span class="helplink"><img class="iconhelp" alt="'.$strscales.'" src="'.$helppix.'" /></span>';
-    $link = new moodle_url('/course/scales.php', array('id' => $courseid, 'list' => 1));
+    $link = new lion_url('/course/scales.php', array('id' => $courseid, 'list' => 1));
     $action = new popup_action('click', $link, 'ratingscales', array('height' => 400, 'width' => 500));
     $output .= $OUTPUT->action_link($link, $linkobject, $action, array('title' => $strscales));
 
@@ -2519,27 +2505,27 @@ function notice ($message, $link='', $course=null) {
  * <strong>Good practice:</strong> You should call this method before starting page
  * output by using any of the OUTPUT methods.
  *
- * @param moodle_url|string $url A moodle_url to redirect to. Strings are not to be trusted!
+ * @param lion_url|string $url A lion_url to redirect to. Strings are not to be trusted!
  * @param string $message The message to display to the user
  * @param int $delay The delay before redirecting
- * @throws moodle_exception
+ * @throws lion_exception
  */
 function redirect($url, $message='', $delay=-1) {
     global $OUTPUT, $PAGE, $CFG;
 
     if (CLI_SCRIPT or AJAX_SCRIPT) {
         // This is wrong - developers should not use redirect in these scripts but it should not be very likely.
-        throw new moodle_exception('redirecterrordetected', 'error');
+        throw new lion_exception('redirecterrordetected', 'error');
     }
 
     // Prevent debug errors - make sure context is properly initialised.
     if ($PAGE) {
         $PAGE->set_context(null);
         $PAGE->set_pagelayout('redirect');  // No header and footer needed.
-        $PAGE->set_title(get_string('pageshouldredirect', 'moodle'));
+        $PAGE->set_title(get_string('pageshouldredirect', 'lion'));
     }
 
-    if ($url instanceof moodle_url) {
+    if ($url instanceof lion_url) {
         $url = $url->out(false);
     }
 
@@ -2613,7 +2599,7 @@ function redirect($url, $message='', $delay=-1) {
         }
     }
 
-    // Sanitise url - we can not rely on moodle_url or our URL cleaning
+    // Sanitise url - we can not rely on lion_url or our URL cleaning
     // because they do not support all valid external URLs.
     $url = preg_replace('/[\x00-\x1F\x7F]/', '', $url);
     $url = str_replace('"', '%22', $url);
@@ -2645,7 +2631,7 @@ function redirect($url, $message='', $delay=-1) {
 
     // Include a redirect message, even with a HTTP redirect, because that is recommended practice.
     if ($PAGE) {
-        $CFG->docroot = false; // To prevent the link to moodle docs from being displayed on redirect page.
+        $CFG->docroot = false; // To prevent the link to lion docs from being displayed on redirect page.
         echo $OUTPUT->redirect_message($encodedurl, $message, $delay, $debugdisableredirect);
         exit;
     } else {
@@ -2725,7 +2711,7 @@ function obfuscate_mailto($email, $label='', $dimmed=false, $subject = '', $body
     $label = obfuscate_text($label);
     $email = obfuscate_email($email);
     $mailto = obfuscate_text('mailto');
-    $url = new moodle_url("mailto:$email");
+    $url = new lion_url("mailto:$email");
     $attrs = array();
 
     if (!empty($subject)) {
@@ -2784,7 +2770,7 @@ function print_maintenance_message() {
 /**
  * Returns a string containing a nested list, suitable for formatting into tabs with CSS.
  *
- * It is not recommended to use this function in Moodle 2.5 but it is left for backward
+ * It is not recommended to use this function in Lion 2.5 but it is left for backward
  * compartibility.
  *
  * Example how to print a single line tabs:
@@ -2961,7 +2947,7 @@ function right_to_left() {
 /**
  * Returns swapped left<=> right if in RTL environment.
  *
- * Part of RTL Moodles support.
+ * Part of RTL Lions support.
  *
  * @param string $align align to check
  * @return string
@@ -2985,7 +2971,7 @@ function fix_align_rtl($align) {
  *
  * Gets the information from the URL parameter inpopup.
  *
- * @todo Use a central function to create the popup calls all over Moodle and
+ * @todo Use a central function to create the popup calls all over Lion and
  * In the moment only works with resources and probably questions.
  *
  * @return boolean
@@ -3058,7 +3044,7 @@ class progress_bar {
             return; // Temporary solution for cli scripts.
         }
 
-        $PAGE->requires->string_for_js('secondsleft', 'moodle');
+        $PAGE->requires->string_for_js('secondsleft', 'lion');
 
         $htmlcode = <<<EOT
         <div class="progressbar_container" style="width: {$this->width}px;" id="{$this->html_id}">
@@ -3105,7 +3091,7 @@ EOT;
             return;
         }
         if (is_numeric($estimate)) {
-            $estimate = get_string('secondsleft', 'moodle', round($estimate, 2));
+            $estimate = get_string('secondsleft', 'lion', round($estimate, 2));
         }
 
         $this->percent = round($percent, 2);
@@ -3543,12 +3529,12 @@ function get_formatted_help_string($identifier, $component, $ajax = false, $a = 
         $data->text = format_text(get_string($identifier.'_help', $component, $a), FORMAT_MARKDOWN, $options);
 
         $helplink = $identifier . '_link';
-        if ($sm->string_exists($helplink, $component)) {  // Link to further info in Moodle docs.
+        if ($sm->string_exists($helplink, $component)) {  // Link to further info in Lion docs.
             $link = get_string($helplink, $component);
             $linktext = get_string('morehelp');
 
             $data->doclink = new stdClass();
-            $url = new moodle_url(get_docs_url($link));
+            $url = new lion_url(get_docs_url($link));
             if ($ajax) {
                 $data->doclink->link = $url->out();
                 $data->doclink->linktext = $linktext;

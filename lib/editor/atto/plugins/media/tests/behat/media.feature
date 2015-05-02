@@ -6,7 +6,7 @@ Feature: Add media to Atto
   Scenario: Insert some media
     Given I log in as "admin"
     And I navigate to "My private files" node in "My profile"
-    And I upload "lib/editor/atto/tests/fixtures/moodle-logo.webm" file to "Files" filemanager
+    And I upload "lib/editor/atto/tests/fixtures/lion-logo.webm" file to "Files" filemanager
     And I click on "Save changes" "button"
     When I am on homepage
     And I expand "My profile" node
@@ -18,7 +18,7 @@ Feature: Add media to Atto
     And I click on "Media" "button"
     And I click on "Browse repositories..." "button"
     And I click on "Private files" "link"
-    And I click on "moodle-logo.webm" "link"
+    And I click on "lion-logo.webm" "link"
     And I click on "Select this file" "button"
     And I set the field "Enter name" to "It's the logo"
     And I click on "Insert media" "button"

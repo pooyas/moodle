@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Edit course completion settings - the form definition.
@@ -25,7 +11,7 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/completionlib.php');
@@ -33,7 +19,7 @@ require_once($CFG->libdir.'/completionlib.php');
 /**
  * Defines the course completion settings form.
  */
-class course_completion_form extends moodleform {
+class course_completion_form extends lionform {
 
     /**
      * Defines the form fields.
@@ -41,7 +27,7 @@ class course_completion_form extends moodleform {
     public function definition() {
         global $USER, $CFG, $DB;
 
-        $courseconfig = get_config('moodlecourse');
+        $courseconfig = get_config('lioncourse');
         $mform = $this->_form;
         $course = $this->_customdata['course'];
         $completion = new completion_info($course);
@@ -249,7 +235,7 @@ class course_completion_form extends moodleform {
         if (!empty($current)) {
             $mform->setExpanded('roles');
         }
-        $roles = get_roles_with_capability('moodle/course:markcomplete', CAP_ALLOW, context_course::instance($course->id, IGNORE_MISSING));
+        $roles = get_roles_with_capability('lion/course:markcomplete', CAP_ALLOW, context_course::instance($course->id, IGNORE_MISSING));
 
         if (!empty($roles)) {
             foreach ($roles as $role) {

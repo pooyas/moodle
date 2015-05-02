@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The report layout for the base theme.
  *
  * @package   theme_base
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 $hasheading = ($PAGE->heading);
@@ -114,7 +100,7 @@ echo $OUTPUT->doctype() ?>
     <?php } ?>
     <?php if ($hasfooter) { ?>
     <div id="page-footer" class="clearfix">
-        <p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')) ?></p>
+        <p class="helplink"><?php echo page_doc_link(get_string('liondocslink')) ?></p>
         <?php
         echo $OUTPUT->login_info();
         echo $OUTPUT->home_link();

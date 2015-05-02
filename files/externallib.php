@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -21,7 +7,7 @@
  * @package    core_files
  * @category   external
  * @copyright  2010 Dongsheng Cai
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("$CFG->libdir/externallib.php");
@@ -33,8 +19,8 @@ require_once("$CFG->libdir/filelib.php");
  * @package    core_files
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
 class core_files_external extends external_api {
 
@@ -42,7 +28,7 @@ class core_files_external extends external_api {
      * Returns description of get_files parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_files_parameters() {
         return new external_function_parameters(
@@ -62,7 +48,7 @@ class core_files_external extends external_api {
     }
 
     /**
-     * Return moodle files listing
+     * Return lion files listing
      *
      * @param int $contextid context id
      * @param int $component component
@@ -74,8 +60,8 @@ class core_files_external extends external_api {
      * @param string $contextlevel The context level for the file location.
      * @param int $instanceid The instance id for where the file is located.
      * @return array
-     * @since Moodle 2.9 Returns additional fields (timecreated, filesize, author, license)
-     * @since Moodle 2.2
+     * @since Lion 2.9 Returns additional fields (timecreated, filesize, author, license)
+     * @since Lion 2.2
      */
     public static function get_files($contextid, $component, $filearea, $itemid, $filepath, $filename, $modified = null,
                                      $contextlevel = null, $instanceid = null) {
@@ -191,8 +177,8 @@ class core_files_external extends external_api {
      * Returns description of get_files returns
      *
      * @return external_single_structure
-     * @since Moodle 2.9 Returns additional fields for files (timecreated, filesize, author, license)
-     * @since Moodle 2.2
+     * @since Lion 2.9 Returns additional fields for files (timecreated, filesize, author, license)
+     * @since Lion 2.2
      */
     public static function get_files_returns() {
         return new external_single_structure(
@@ -236,7 +222,7 @@ class core_files_external extends external_api {
      * Returns description of upload parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function upload_parameters() {
         return new external_function_parameters(
@@ -257,7 +243,7 @@ class core_files_external extends external_api {
     }
 
     /**
-     * Uploading a file to moodle
+     * Uploading a file to lion
      *
      * @param int    $contextid    context id
      * @param string $component    component
@@ -269,7 +255,7 @@ class core_files_external extends external_api {
      * @param string $contextlevel Context level (block, course, coursecat, system, user or module)
      * @param int    $instanceid   Instance id of the item associated with the context level
      * @return array
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function upload($contextid, $component, $filearea, $itemid, $filepath, $filename, $filecontent, $contextlevel, $instanceid) {
         global $USER, $CFG;
@@ -280,7 +266,7 @@ class core_files_external extends external_api {
                 'instanceid' => $instanceid));
 
         if (!isset($fileinfo['filecontent'])) {
-            throw new moodle_exception('nofile');
+            throw new lion_exception('nofile');
         }
         // Saving file.
         $dir = make_temp_directory('wsupload');
@@ -343,7 +329,7 @@ class core_files_external extends external_api {
 
         // Check existing file.
         if ($file = $browser->get_file_info($context, $component, $filearea, $itemid, $filepath, $filename)) {
-            throw new moodle_exception('fileexist');
+            throw new lion_exception('fileexist');
         }
 
         // Move file to filepool.
@@ -361,7 +347,7 @@ class core_files_external extends external_api {
                 'url'=>$info->get_url()
                 );
         } else {
-            throw new moodle_exception('nofile');
+            throw new lion_exception('nofile');
         }
     }
 
@@ -369,7 +355,7 @@ class core_files_external extends external_api {
      * Returns description of upload returns
      *
      * @return external_single_structure
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function upload_returns() {
         return new external_single_structure(
@@ -391,19 +377,19 @@ class core_files_external extends external_api {
  *
  * @package    core_files
  * @copyright  2010 Dongsheng Cai
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+ * 
+ * @since Lion 2.0
+ * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_files_external
  */
-class moodle_file_external extends external_api {
+class lion_file_external extends external_api {
 
     /**
      * Returns description of get_files parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_files_external::get_files_parameters()
      */
     public static function get_files_parameters() {
@@ -411,7 +397,7 @@ class moodle_file_external extends external_api {
     }
 
     /**
-     * Return moodle files listing
+     * Return lion files listing
      *
      * @param int $contextid
      * @param int $component
@@ -423,8 +409,8 @@ class moodle_file_external extends external_api {
      * @param string $contextlevel The context level for the file location.
      * @param int $instanceid The instance id for where the file is located.
      * @return array
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_files_external::get_files()
      */
     public static function get_files($contextid, $component, $filearea, $itemid, $filepath, $filename, $modified = null,
@@ -437,8 +423,8 @@ class moodle_file_external extends external_api {
      * Returns description of get_files returns
      *
      * @return external_single_structure
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_files_external::get_files_returns()
      */
     public static function get_files_returns() {
@@ -458,8 +444,8 @@ class moodle_file_external extends external_api {
      * Returns description of upload parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_files_external::upload_parameters()
      */
     public static function upload_parameters() {
@@ -467,7 +453,7 @@ class moodle_file_external extends external_api {
     }
 
     /**
-     * Uploading a file to moodle
+     * Uploading a file to lion
      *
      * @param int $contextid
      * @param string $component
@@ -479,8 +465,8 @@ class moodle_file_external extends external_api {
      * @param string $contextlevel Context level (block, course, coursecat, system, user or module)
      * @param int    $instanceid   Instance id of the item associated with the context level
      * @return array
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_files_external::upload()
      */
     public static function upload($contextid, $component, $filearea, $itemid, $filepath, $filename, $filecontent, $contextlevel, $instanceid) {
@@ -492,8 +478,8 @@ class moodle_file_external extends external_api {
      * Returns description of upload returns
      *
      * @return external_single_structure
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_files_external::upload_returns()
      */
     public static function upload_returns() {

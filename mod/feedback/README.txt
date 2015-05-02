@@ -10,32 +10,32 @@ b) the "sideblock" feedback (optional)
 
 The activity is the main part an can run without the block. Here you can create, fill out or analyse the surveys.
 The sideblock is an optional part. It works as a bridge between different courses and
-an central placed feedback-activity. So you can create one feedback on the main site of moodle and then publish
+an central placed feedback-activity. So you can create one feedback on the main site of lion and then publish
 it in many courses.
 
 Requirements
 ------------
-Moodle 1.9 or later
+Lion 1.9 or later
 
 Installation
 ------------
-   The zip-archive includes the same directory hierarchy as moodle
+   The zip-archive includes the same directory hierarchy as lion
    So you only have to copy the files to the correspondent place.
-   copy the folder feedback.zip/mod/feedback --> moodle/mod/feedback
-   and the folder feedback.zip/blocks/feedback --> moodle/blocks/feedback
+   copy the folder feedback.zip/mod/feedback --> lion/mod/feedback
+   and the folder feedback.zip/blocks/feedback --> lion/blocks/feedback
    The langfiles normaly can be left into the folder mod/feedback/lang.
    The only exception is the feedback-block. The langfile is block_feedback.php and
-   have to be copied into the correspondent lang folder of moodle/moodledata.
+   have to be copied into the correspondent lang folder of lion/liondata.
    All languages should be encoded with utf8.
 
-After it you have to run the admin-page of moodle (http://your-moodle-site/admin)
+After it you have to run the admin-page of lion (http://your-lion-site/admin)
 in your browser. You have to loged in as admin before.
 The installation process will be displayed on the screen.
 That's all.
 
 using the block-feature
 -----------------------
-   1. create one or more new feedback-activitys on the moodle main-site
+   1. create one or more new feedback-activitys on the lion main-site
    2. go into some course and enable the feedback-block. This block now shows the feedbacks from the main-site.
    3. login as student and go into the course where the feedback-block is enabled
    4. fill out the feedback chosen from block
@@ -56,19 +56,19 @@ CHANGELOG
 
 03.04.2008
 - anonymous feedback was send the userid on email-notification
-  (http://tracker.moodle.org/browse/CONTRIB-355)
+  (http://tracker.lion.org/browse/CONTRIB-355)
 - users can not see the own values if there are chars like single-(') or doublequotas (")
 
 08.03.2008
 - admin users now respect capability-setting
-  (http://tracker.moodle.org/browse/CONTRIB-321)
+  (http://tracker.lion.org/browse/CONTRIB-321)
 
 17.12.2007
-- resolved issue http://tracker.moodle.org/browse/CONTRIB-231
+- resolved issue http://tracker.lion.org/browse/CONTRIB-231
 
 03.12.2007
 - changing the table feedback_template, field public -> ispublic, public is reserved in oracle
-- resolved issue http://tracker.moodle.org/browse/CONTRIB-95
+- resolved issue http://tracker.lion.org/browse/CONTRIB-95
 
 16.09.2007
 - changing access.php, removed the lines with coursecreator, added some RISK_xxx
@@ -83,7 +83,7 @@ CHANGELOG
 - Menu on "Add question to activity" should be sorted alphabetically
 - missing "Add Pagebreak" is now at the item-list
 - no hardcoded css
-- use new print_header() (note it only is available on moodle 1.9!!!)
+- use new print_header() (note it only is available on lion 1.9!!!)
 - missing sesskey checks in feedback
 - uninitialised $filename when importing into feedback
 
@@ -95,12 +95,12 @@ CHANGELOG
 - added missing langstring "no_itemname"
 
 25.07.2007
-- now defined in applicable_formats() to hide the block in moodle My-Site
+- now defined in applicable_formats() to hide the block in lion My-Site
 
 07.07.2007
 - all functions in lib.php now are with comments in phpdoc-style
 - removed all depricated function-calls
-- some code-styling changes (http://docs.moodle.org/en/Coding)
+- some code-styling changes (http://docs.lion.org/en/Coding)
 
 06.07.2007
 - Adding some missing lang-strings
@@ -122,7 +122,7 @@ CHANGELOG
 - most of forms use formslib
 - gui now uses tabs
 - new item "captcha"
-Now it only runs on Moodle 1.8 or later
+Now it only runs on Lion 1.8 or later
 
 09.05.2007
 - added two columns (random_response,anonymous_response) to feedback_complete and feedback_complete_tmp
@@ -156,7 +156,7 @@ Thanks to Jun Yamog!
 
 21.04.2006 16:00
 version 2006042102
-adding moving behavior like moodle activities
+adding moving behavior like lion activities
 adding a dropdownlist on create/update item page to adjust the position
 
 21.04.2006 16:00

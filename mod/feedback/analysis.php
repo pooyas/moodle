@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * shows an analysed view of feedback
@@ -30,7 +16,7 @@ $current_tab = 'analysis';
 $id = required_param('id', PARAM_INT);  //the POST dominated the GET
 $courseid = optional_param('courseid', false, PARAM_INT);
 
-$url = new moodle_url('/mod/feedback/analysis.php', array('id'=>$id));
+$url = new lion_url('/mod/feedback/analysis.php', array('id'=>$id));
 if ($courseid !== false) {
     $url->param('courseid', $courseid);
 }
@@ -101,7 +87,7 @@ if ( has_capability('mod/feedback:viewreports', $context) ) {
 
     //button "export to excel"
     echo $OUTPUT->container_start('form-buttons');
-    $aurl = new moodle_url('analysis_to_excel.php', array('sesskey'=>sesskey(), 'id'=>$id));
+    $aurl = new lion_url('analysis_to_excel.php', array('sesskey'=>sesskey(), 'id'=>$id));
     echo $OUTPUT->single_button($aurl, get_string('export_to_excel', 'feedback'));
     echo $OUTPUT->container_end();
 }

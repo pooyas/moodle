@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_rss_client', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'block_rss_client', language 'en', branch 'LION_20_STABLE'
  *
  * @package   block_rss_client
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 $string['addfeed'] = 'Add a news feed URL:';
@@ -43,7 +29,7 @@ $string['editfeeds'] = 'Edit, subscribe or unsubscribe from RSS/Atom news feeds'
 $string['editnewsfeeds'] = 'Edit news feeds';
 $string['editrssblock'] = 'Edit RSS headline block';
 $string['enableautodiscovery'] = 'Enable auto-discovery of feeds?';
-$string['enableautodiscovery_help'] = 'If enabled, feeds on web pages are found automatically. For example, if http://docs.moodle.org is entered, then http://docs.moodle.org/en/index.php?title=Special:RecentChanges&feed=rss would be found.';
+$string['enableautodiscovery_help'] = 'If enabled, feeds on web pages are found automatically. For example, if http://docs.lion.org is entered, then http://docs.lion.org/en/index.php?title=Special:RecentChanges&feed=rss would be found.';
 $string['feed'] = 'Feed';
 $string['feedadded'] = 'News feed added';
 $string['feeddeleted'] = 'News feed deleted';

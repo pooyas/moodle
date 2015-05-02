@@ -9,7 +9,7 @@ $action     = optional_param('action', '', PARAM_ALPHA);
 $attemptids = optional_param_array('attemptid', array(), PARAM_INT); // array of attempt ids for delete action
 $notify     = optional_param('notify', '', PARAM_ALPHA);
 
-$url = new moodle_url('/mod/choice/view.php', array('id'=>$id));
+$url = new lion_url('/mod/choice/view.php', array('id'=>$id));
 if ($action !== '') {
     $url->param('action', $action);
 }
@@ -73,12 +73,12 @@ if (data_submitted() && is_enrolled($context, NULL, 'mod/choice:choose') && conf
 
     if ($answer) {
         choice_user_submit_response($answer, $choice, $USER->id, $course, $cm);
-        redirect(new moodle_url('/mod/choice/view.php',
+        redirect(new lion_url('/mod/choice/view.php',
             array('id' => $cm->id, 'notify' => 'choicesaved', 'sesskey' => sesskey())));
     } else if (empty($answer) and $action === 'makechoice') {
         // We cannot use the 'makechoice' alone because there might be some legacy renderers without it,
         // outdated renderers will not get the 'mustchoose' message - bad luck.
-        redirect(new moodle_url('/mod/choice/view.php',
+        redirect(new lion_url('/mod/choice/view.php',
             array('id' => $cm->id, 'notify' => 'mustchooseone', 'sesskey' => sesskey())));
     }
 }
@@ -170,7 +170,7 @@ if (!$choiceformshown) {
     if (isguestuser()) {
         // Guest account
         echo $OUTPUT->confirm(get_string('noguestchoose', 'choice').'<br /><br />'.get_string('liketologin'),
-                     get_login_url(), new moodle_url('/course/view.php', array('id'=>$course->id)));
+                     get_login_url(), new lion_url('/course/view.php', array('id'=>$course->id)));
     } else if (!is_enrolled($context)) {
         // Only people enrolled can make a choice
         $SESSION->wantsurl = qualified_me();
@@ -182,7 +182,7 @@ if (!$choiceformshown) {
         echo $OUTPUT->box_start('generalbox', 'notice');
         echo '<p align="center">'. get_string('notenrolledchoose', 'choice') .'</p>';
         echo $OUTPUT->container_start('continuebutton');
-        echo $OUTPUT->single_button(new moodle_url('/enrol/index.php?', array('id'=>$course->id)), get_string('enrolme', 'core_enrol', $courseshortname));
+        echo $OUTPUT->single_button(new lion_url('/enrol/index.php?', array('id'=>$course->id)), get_string('enrolme', 'core_enrol', $courseshortname));
         echo $OUTPUT->container_end();
         echo $OUTPUT->box_end();
 

@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Import outcomes from a file
  *
  * @package   core_grades
- * @copyright 2008 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2008 Lion Pty Ltd (http://lion.com)
+ * 
  */
 
 require_once(dirname(__FILE__).'/../../../config.php');
@@ -53,7 +39,7 @@ if ($courseid) {
     $context = context_system::instance();
 }
 
-require_capability('moodle/grade:manageoutcomes', $context);
+require_capability('lion/grade:manageoutcomes', $context);
 
 $navigation = grade_build_nav(__FILE__, get_string('outcomes', 'grades'), $courseid);
 
@@ -80,7 +66,7 @@ if (!$upload_form->save_file('userfile', $imported_file, true)) {
 if (isset($courseid) && ($scope  == 'custom')) {
     // custom scale
     $local_scope = true;
-} elseif (($scope == 'global') && has_capability('moodle/grade:manage', context_system::instance())) {
+} elseif (($scope == 'global') && has_capability('lion/grade:manage', context_system::instance())) {
     // global scale
     $local_scope = false;
 } else {
@@ -126,7 +112,7 @@ if ($handle = fopen($imported_file, 'r')) {
             if ($error) {
                 echo $OUTPUT->box_start('generalbox importoutcomenofile buttons');
                 echo get_string('importoutcomenofile', 'grades', $line);
-                echo $OUTPUT->single_button(new moodle_url('/grade/edit/outcome/import.php', array('courseid'=> $courseid)), get_string('back'), 'get');
+                echo $OUTPUT->single_button(new lion_url('/grade/edit/outcome/import.php', array('courseid'=> $courseid)), get_string('back'), 'get');
                 echo $OUTPUT->box_end();
                 $fatal_error = true;
                 break;
@@ -145,7 +131,7 @@ if ($handle = fopen($imported_file, 'r')) {
         if ( count($csv_data) != count($file_headers) ) {
             echo $OUTPUT->box_start('generalbox importoutcomenofile');
             echo get_string('importoutcomenofile', 'grades', $line);
-            echo $OUTPUT->single_button(new moodle_url('/grade/edit/outcome/import.php', array('courseid'=> $courseid)), get_string('back'), 'get');
+            echo $OUTPUT->single_button(new lion_url('/grade/edit/outcome/import.php', array('courseid'=> $courseid)), get_string('back'), 'get');
             echo $OUTPUT->box_end();
             $fatal_error = true;
             //echo $OUTPUT->box(var_export($csv_data, true) ."<br />". var_export($header, true));
@@ -157,7 +143,7 @@ if ($handle = fopen($imported_file, 'r')) {
             if ($csv_data[$imported_headers[$header]] == '') {
                 echo $OUTPUT->box_start('generalbox importoutcomenofile');
                 echo get_string('importoutcomenofile', 'grades', $line);
-                echo $OUTPUT->single_button(new moodle_url('/grade/edit/outcome/import.php', array('courseid'=> $courseid)), get_string('back'), 'get');
+                echo $OUTPUT->single_button(new lion_url('/grade/edit/outcome/import.php', array('courseid'=> $courseid)), get_string('back'), 'get');
                 echo $OUTPUT->box_end();
                 $fatal_error = true;
                 break;
@@ -195,7 +181,7 @@ if ($handle = fopen($imported_file, 'r')) {
             // already exists in the right scope: use it.
             $scale_id = key($scale);
         } else {
-            if (!has_capability('moodle/course:managescales', $context)) {
+            if (!has_capability('lion/course:managescales', $context)) {
                 echo $OUTPUT->box(get_string('importskippednomanagescale', 'grades', $csv_data[$imported_headers['outcome_shortname']]));
                 continue;
             } else {

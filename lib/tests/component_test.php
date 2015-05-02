@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * core_component related tests.
@@ -20,10 +6,10 @@
  * @package    core
  * @category   phpunit
  * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -69,7 +55,7 @@ class core_component_testcase extends advanced_testcase {
                 continue;
             }
             $file = $item->getFilename();
-            if ($file === 'moodle.php') {
+            if ($file === 'lion.php') {
                 // Do not add new lang strings unless really necessary!!!
                 continue;
             }
@@ -226,15 +212,15 @@ class core_component_testcase extends advanced_testcase {
     }
 
     public function test_normalize_componentname() {
-        // Moodle core.
+        // Lion core.
         $this->assertSame('core', core_component::normalize_componentname('core'));
-        $this->assertSame('core', core_component::normalize_componentname('moodle'));
+        $this->assertSame('core', core_component::normalize_componentname('lion'));
         $this->assertSame('core', core_component::normalize_componentname(''));
 
-        // Moodle core subsystems.
+        // Lion core subsystems.
         $this->assertSame('core_admin', core_component::normalize_componentname('admin'));
         $this->assertSame('core_admin', core_component::normalize_componentname('core_admin'));
-        $this->assertSame('core_admin', core_component::normalize_componentname('moodle_admin'));
+        $this->assertSame('core_admin', core_component::normalize_componentname('lion_admin'));
 
         // Activity modules and their subplugins.
         $this->assertSame('mod_workshop', core_component::normalize_componentname('workshop'));
@@ -264,15 +250,15 @@ class core_component_testcase extends advanced_testcase {
     }
 
     public function test_normalize_component() {
-        // Moodle core.
+        // Lion core.
         $this->assertSame(array('core', null), core_component::normalize_component('core'));
-        $this->assertSame(array('core', null), core_component::normalize_component('moodle'));
+        $this->assertSame(array('core', null), core_component::normalize_component('lion'));
         $this->assertSame(array('core', null), core_component::normalize_component(''));
 
-        // Moodle core subsystems.
+        // Lion core subsystems.
         $this->assertSame(array('core', 'admin'), core_component::normalize_component('admin'));
         $this->assertSame(array('core', 'admin'), core_component::normalize_component('core_admin'));
-        $this->assertSame(array('core', 'admin'), core_component::normalize_component('moodle_admin'));
+        $this->assertSame(array('core', 'admin'), core_component::normalize_component('lion_admin'));
 
         // Activity modules and their subplugins.
         $this->assertSame(array('mod', 'workshop'), core_component::normalize_component('workshop'));
@@ -302,15 +288,15 @@ class core_component_testcase extends advanced_testcase {
     }
 
     public function test_deprecated_normalize_component() {
-        // Moodle core.
+        // Lion core.
         $this->assertSame(array('core', null), normalize_component('core'));
         $this->assertSame(array('core', null), normalize_component(''));
-        $this->assertSame(array('core', null), normalize_component('moodle'));
+        $this->assertSame(array('core', null), normalize_component('lion'));
 
-        // Moodle core subsystems.
+        // Lion core subsystems.
         $this->assertSame(array('core', 'admin'), normalize_component('admin'));
         $this->assertSame(array('core', 'admin'), normalize_component('core_admin'));
-        $this->assertSame(array('core', 'admin'), normalize_component('moodle_admin'));
+        $this->assertSame(array('core', 'admin'), normalize_component('lion_admin'));
 
         // Activity modules and their subplugins.
         $this->assertSame(array('mod', 'workshop'), normalize_component('workshop'));

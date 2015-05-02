@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Helper to initialise behat contexts from moodle code.
+ * Helper to initialise behat contexts from lion code.
  *
  * @package    core
  * @category   test
  * @copyright  2014 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 use Behat\Mink\Session as Session,
     Behat\Mink\Mink as Mink;
@@ -34,7 +20,7 @@ use Behat\Mink\Session as Session,
  * @package    core
  * @category   test
  * @copyright  2014 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_context_helper {
 

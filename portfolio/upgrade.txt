@@ -5,7 +5,7 @@ information provided here is intended especially for developers.
 
 The set_callback_options function's third parameter has been changed from a file path
 to the component name - see MDL-33791. However, if any existing code passes a file path
-Moodle will attempt to obtain the component name from the file path provided. Also, the
+Lion will attempt to obtain the component name from the file path provided. Also, the
 callback class should be located in the module's locallib.php file.
 
 Example of change:

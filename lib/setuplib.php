@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * These functions are required very early in the Moodle
+ * These functions are required very early in the Lion
  * setup process, before any of the main libraries are
  * loaded.
  *
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Debug levels - always keep the values in ascending order!
 /** No warnings and errors at all */
@@ -60,23 +46,23 @@ define('MEMORY_HUGE', -4);
  * @package    core
  * @subpackage lib
  * @copyright  2009 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @deprecated since 2.0
  */
 class object extends stdClass {};
 
 /**
- * Base Moodle Exception class
+ * Base Lion Exception class
  *
- * Although this class is defined here, you cannot throw a moodle_exception until
- * after moodlelib.php has been included (which will happen very soon).
+ * Although this class is defined here, you cannot throw a lion_exception until
+ * after lionlib.php has been included (which will happen very soon).
  *
  * @package    core
  * @subpackage lib
  * @copyright  2008 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class moodle_exception extends Exception {
+class lion_exception extends Exception {
 
     /**
      * @var string The name of the string from error.php to print
@@ -112,7 +98,7 @@ class moodle_exception extends Exception {
      * @param string $debuginfo optional debugging information
      */
     function __construct($errorcode, $module='', $link='', $a=NULL, $debuginfo=null) {
-        if (empty($module) || $module == 'moodle' || $module == 'core') {
+        if (empty($module) || $module == 'lion' || $module == 'core') {
             $module = 'error';
         }
 
@@ -152,9 +138,9 @@ class moodle_exception extends Exception {
  *
  * @package    core_access
  * @copyright  2010 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class require_login_exception extends moodle_exception {
+class require_login_exception extends lion_exception {
     /**
      * Constructor
      * @param string $debuginfo Information to aid the debugging process
@@ -166,11 +152,11 @@ class require_login_exception extends moodle_exception {
 
 /**
  * Web service parameter exception class
- * @deprecated since Moodle 2.2 - use moodle exception instead
+ * @deprecated since Lion 2.2 - use lion exception instead
  * This exception must be thrown to the web service client when a web service parameter is invalid
  * The error string is gotten from webservice.php
  */
-class webservice_parameter_exception extends moodle_exception {
+class webservice_parameter_exception extends lion_exception {
     /**
      * Constructor
      * @param string $errorcode The name of the string from webservice.php to print
@@ -188,9 +174,9 @@ class webservice_parameter_exception extends moodle_exception {
  *
  * @package    core_access
  * @copyright  2009 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class required_capability_exception extends moodle_exception {
+class required_capability_exception extends lion_exception {
     /**
      * Constructor
      * @param context $context The context used for the capability check
@@ -218,9 +204,9 @@ class required_capability_exception extends moodle_exception {
  * @package    core
  * @subpackage lib
  * @copyright  2008 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class coding_exception extends moodle_exception {
+class coding_exception extends lion_exception {
     /**
      * Constructor
      * @param string $hint short description of problem
@@ -240,9 +226,9 @@ class coding_exception extends moodle_exception {
  * @package    core
  * @subpackage lib
  * @copyright  2009 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class invalid_parameter_exception extends moodle_exception {
+class invalid_parameter_exception extends lion_exception {
     /**
      * Constructor
      * @param string $debuginfo some detailed information
@@ -258,7 +244,7 @@ class invalid_parameter_exception extends moodle_exception {
  * user submitted data in forms. It is more suitable
  * for WS and other low level stuff.
  */
-class invalid_response_exception extends moodle_exception {
+class invalid_response_exception extends lion_exception {
     /**
      * Constructor
      * @param string $debuginfo some detailed information
@@ -277,10 +263,10 @@ class invalid_response_exception extends moodle_exception {
  *
  * @package    core
  * @subpackage lib
- * @copyright  2009 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2009 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
-class invalid_state_exception extends moodle_exception {
+class invalid_state_exception extends lion_exception {
     /**
      * Constructor
      * @param string $hint short description of problem
@@ -297,9 +283,9 @@ class invalid_state_exception extends moodle_exception {
  * @package    core
  * @subpackage lib
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class invalid_dataroot_permissions extends moodle_exception {
+class invalid_dataroot_permissions extends lion_exception {
     /**
      * Constructor
      * @param string $debuginfo optional more detailed information
@@ -315,9 +301,9 @@ class invalid_dataroot_permissions extends moodle_exception {
  * @package    core
  * @subpackage lib
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class file_serving_exception extends moodle_exception {
+class file_serving_exception extends lion_exception {
     /**
      * Constructor
      * @param string $debuginfo optional more detailed information
@@ -460,7 +446,7 @@ function is_early_init($backtrace) {
  * @return void, always throws exception!
  */
 function print_error($errorcode, $module = 'error', $link = '', $a = null, $debuginfo = null) {
-    throw new moodle_exception($errorcode, $module, $link, $a, $debuginfo);
+    throw new lion_exception($errorcode, $module, $link, $a, $debuginfo);
 }
 
 /**
@@ -471,7 +457,7 @@ function print_error($errorcode, $module = 'error', $link = '', $a = null, $debu
 function get_exception_info($ex) {
     global $CFG, $DB, $SESSION;
 
-    if ($ex instanceof moodle_exception) {
+    if ($ex instanceof lion_exception) {
         $errorcode = $ex->errorcode;
         $module = $ex->module;
         $a = $ex->a;
@@ -492,8 +478,8 @@ function get_exception_info($ex) {
     $place = array('file'=>$ex->getFile(), 'line'=>$ex->getLine(), 'exception'=>get_class($ex));
     array_unshift($backtrace, $place);
 
-    // Be careful, no guarantee moodlelib.php is loaded.
-    if (empty($module) || $module == 'moodle' || $module == 'core') {
+    // Be careful, no guarantee lionlib.php is loaded.
+    if (empty($module) || $module == 'lion' || $module == 'core') {
         $module = 'error';
     }
     // Search for the $errorcode's associated string
@@ -501,9 +487,9 @@ function get_exception_info($ex) {
     if (function_exists('get_string_manager')) {
         if (get_string_manager()->string_exists($errorcode, $module)) {
             $message = get_string($errorcode, $module, $a);
-        } elseif ($module == 'error' && get_string_manager()->string_exists($errorcode, 'moodle')) {
-            // Search in moodle file if error specified - needed for backwards compatibility
-            $message = get_string($errorcode, 'moodle', $a);
+        } elseif ($module == 'error' && get_string_manager()->string_exists($errorcode, 'lion')) {
+            // Search in lion file if error specified - needed for backwards compatibility
+            $message = get_string($errorcode, 'lion', $a);
         } else {
             $message = $module . '/' . $errorcode;
             $debuginfo .= PHP_EOL.'$a contents: '.print_r($a, true);
@@ -542,7 +528,7 @@ function get_exception_info($ex) {
     }
 
     if ($module === 'error') {
-        $modulelink = 'moodle';
+        $modulelink = 'lion';
     } else {
         $modulelink = $module;
     }
@@ -576,17 +562,17 @@ function get_exception_info($ex) {
 }
 
 /**
- * Returns the Moodle Docs URL in the users language for a given 'More help' link.
+ * Returns the Lion Docs URL in the users language for a given 'More help' link.
  *
  * There are three cases:
  *
  * 1. In the normal case, $path will be a short relative path 'component/thing',
  * like 'mod/folder/view' 'group/import'. This gets turned into an link to
- * MoodleDocs in the user's language, and for the appropriate Moodle version.
- * E.g. 'group/import' may become 'http://docs.moodle.org/2x/en/group/import'.
- * The 'http://docs.moodle.org' bit comes from $CFG->docroot.
+ * LionDocs in the user's language, and for the appropriate Lion version.
+ * E.g. 'group/import' may become 'http://docs.lion.org/2x/en/group/import'.
+ * The 'http://docs.lion.org' bit comes from $CFG->docroot.
  *
- * This is the only option that should be used in standard Moodle code. The other
+ * This is the only option that should be used in standard Lion code. The other
  * two options have been implemented because they are useful for third-party plugins.
  *
  * 2. $path may be an absolute URL, starting http:// or https://. In this case,
@@ -596,7 +582,7 @@ function get_exception_info($ex) {
  * $CFG->wwwroot to make the link.
  *
  * @param string $path the place to link to. See above for details.
- * @return string The MoodleDocs URL in the user's language. for example @link http://docs.moodle.org/2x/en/$path}
+ * @return string The LionDocs URL in the user's language. for example @link http://docs.lion.org/2x/en/$path}
  */
 function get_docs_url($path = null) {
     global $CFG;
@@ -611,7 +597,7 @@ function get_docs_url($path = null) {
         return $CFG->wwwroot . substr($path, 11);
     }
 
-    // Otherwise we do the normal case, and construct a MoodleDocs URL relative to $CFG->docroot.
+    // Otherwise we do the normal case, and construct a LionDocs URL relative to $CFG->docroot.
 
     // Check that $CFG->branch has been set up, during installation it won't be.
     if (empty($CFG->branch)) {
@@ -636,7 +622,7 @@ function get_docs_url($path = null) {
     }
     $end = '/' . $branch . '/' . $lang . '/' . $path;
     if (empty($CFG->docroot)) {
-        return 'http://docs.moodle.org'. $end;
+        return 'http://docs.lion.org'. $end;
     } else {
         return $CFG->docroot . $end ;
     }
@@ -775,8 +761,8 @@ function initialise_fullme() {
                 (strpos($rurl['path'], $wwwroot['path']) !== 0)) {
 
             // Explain the problem and redirect them to the right URL
-            if (!defined('NO_MOODLE_COOKIES')) {
-                define('NO_MOODLE_COOKIES', true);
+            if (!defined('NO_LION_COOKIES')) {
+                define('NO_LION_COOKIES', true);
             }
             // The login/token.php script should call the correct url/port.
             if (defined('REQUIRE_CORRECT_ACCESS') && REQUIRE_CORRECT_ACCESS) {
@@ -789,7 +775,7 @@ function initialise_fullme() {
                 if (!empty($wwwrootport)) {
                     $correcturl .=  ':'. $wwwrootport;
                 }
-                throw new moodle_exception('requirecorrectaccess', 'error', '', null,
+                throw new lion_exception('requirecorrectaccess', 'error', '', null,
                     'You called ' . $calledurl .', you should have called ' . $correcturl);
             }
             redirect($CFG->wwwroot, get_string('wwwrootmismatch', 'error', $CFG->wwwroot), 3);
@@ -806,7 +792,7 @@ function initialise_fullme() {
     }
 
     // $CFG->sslproxy specifies if external SSL appliance is used
-    // (That is, the Moodle server uses http, with an external box translating everything to https).
+    // (That is, the Lion server uses http, with an external box translating everything to https).
     if (empty($CFG->sslproxy)) {
         if ($rurl['scheme'] === 'http' and $wwwroot['scheme'] === 'https') {
             print_error('sslonlyaccess', 'error');
@@ -815,12 +801,12 @@ function initialise_fullme() {
         if ($wwwroot['scheme'] !== 'https') {
             throw new coding_exception('Must use https address in wwwroot when ssl proxy enabled!');
         }
-        $rurl['scheme'] = 'https'; // make moodle believe it runs on https, squid or something else it doing it
+        $rurl['scheme'] = 'https'; // make lion believe it runs on https, squid or something else it doing it
         $_SERVER['HTTPS'] = 'on'; // Override $_SERVER to help external libraries with their HTTPS detection.
         $_SERVER['SERVER_PORT'] = 443; // Assume default ssl port for the proxy.
     }
 
-    // hopefully this will stop all those "clever" admins trying to set up moodle
+    // hopefully this will stop all those "clever" admins trying to set up lion
     // with two different addresses in intranet and Internet
     if (!empty($CFG->reverseproxy) && $rurl['host'] === $wwwroot['host']) {
         print_error('reverseproxyabused', 'error');
@@ -936,7 +922,7 @@ function setup_get_remote_url() {
         $rurl['fullpath'] = $_SERVER['REQUEST_URI'];
 
     } else {
-        throw new moodle_exception('unsupportedwebserver', 'error', '', $_SERVER['SERVER_SOFTWARE']);
+        throw new lion_exception('unsupportedwebserver', 'error', '', $_SERVER['SERVER_SOFTWARE']);
     }
 
     // sanitize the url a bit more, the encoding style may be different in vars above
@@ -980,7 +966,7 @@ function workaround_max_input_vars() {
         // admins may prevent any unexpected regressions caused by this hack.
 
         // Note there is no need to worry about DDoS caused by making this limit very high
-        // because there are very many easier ways to DDoS any Moodle server.
+        // because there are very many easier ways to DDoS any Lion server.
         return;
     }
 
@@ -1047,7 +1033,7 @@ function merge_query_params(array &$target, array $values) {
  * Initializes our performance info early.
  *
  * Pairs up with get_performance_info() which is actually
- * in moodlelib.php. This function is here so that we can
+ * in lionlib.php. This function is here so that we can
  * call it before all the libs are pulled in.
  *
  * @uses $PERF
@@ -1070,11 +1056,11 @@ function init_performance_info() {
 }
 
 /**
- * Indicates whether we are in the middle of the initial Moodle install.
+ * Indicates whether we are in the middle of the initial Lion install.
  *
  * Very occasionally it is necessary avoid running certain bits of code before the
- * Moodle installation has completed. The installed flag is set in admin/index.php
- * after Moodle core and all the plugins have been installed, but just before
+ * Lion installation has completed. The installed flag is set in admin/index.php
+ * after Lion core and all the plugins have been installed, but just before
  * the person doing the initial install is asked to choose the admin password.
  *
  * @return boolean true if the initial install is not complete.
@@ -1292,9 +1278,9 @@ function redirect_if_major_upgrade_required() {
  *
  * To be inserted in the core functions that can not be called by pluigns during upgrade.
  * Core upgrade should not use any API functions at all.
- * See {@link http://docs.moodle.org/dev/Upgrade_API#Upgrade_code_restrictions}
+ * See {@link http://docs.lion.org/dev/Upgrade_API#Upgrade_code_restrictions}
  *
- * @throws moodle_exception if executed from inside of upgrade script and $warningonly is false
+ * @throws lion_exception if executed from inside of upgrade script and $warningonly is false
  * @param bool $warningonly if true displays a warning instead of throwing an exception
  * @return bool true if executed from outside of upgrade process, false if from inside upgrade process and function is used for warning only
  */
@@ -1302,7 +1288,7 @@ function upgrade_ensure_not_running($warningonly = false) {
     global $CFG;
     if (!empty($CFG->upgraderunning)) {
         if (!$warningonly) {
-            throw new moodle_exception('cannotexecduringupgrade');
+            throw new lion_exception('cannotexecduringupgrade');
         } else {
             debugging(get_string('cannotexecduringupgrade', 'error'), DEBUG_DEVELOPER);
             return false;
@@ -1577,7 +1563,7 @@ function is_web_crawler() {
  * It also depends on whether the current page requires HTTPS.</li>
  * </ol>
  *
- * So, it is hard to find a single natural place during Moodle script execution,
+ * So, it is hard to find a single natural place during Lion script execution,
  * which we can guarantee is the right time to initialise $OUTPUT. Instead we
  * adopt the following strategy
  * <ol>
@@ -1597,8 +1583,8 @@ function is_web_crawler() {
  * defined yet, and we must avoid fatal errors.
  *
  * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
+ * 
+ * @since     Lion 2.0
  */
 class bootstrap_renderer {
     /**

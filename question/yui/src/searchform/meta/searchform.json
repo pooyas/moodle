@@ -1,5 +1,5 @@
 {
-  "moodle-question-searchform": {
+  "lion-question-searchform": {
     "requires": [
         "base",
         "node"

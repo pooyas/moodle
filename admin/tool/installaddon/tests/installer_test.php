@@ -1,37 +1,23 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides the unit tests class and some helper classes
  *
  * @package     tool_installaddon
  * @category    test
- * @copyright   2013 David Mudrak <david@moodle.com>
+ * @copyright   2013 David Mudrak <david@lion.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Unit tests for the {@link tool_installaddon_installer} class
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2013 David Mudrak <david@lion.com>
+ * 
  */
 class tool_installaddon_installer_testcase extends advanced_testcase {
 
@@ -102,7 +88,7 @@ class tool_installaddon_installer_testcase extends advanced_testcase {
         $this->assertSame(false, $installer->testable_decode_remote_request($request));
 
         $request = base64_encode(json_encode(array(
-            'name' => 'Moodle 3.0',
+            'name' => 'Lion 3.0',
             'component' => 'core',
             'version' => 2022010100,
         )));
@@ -164,13 +150,13 @@ $plugin->version  = 2014121300;
 /**
  * Testable subclass of the tested class
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2013 David Mudrak <david@lion.com>
+ * 
  */
 class testable_tool_installaddon_installer extends tool_installaddon_installer {
 
     public function get_site_fullname() {
-        return strip_tags('<h1 onmouseover="alert(\'Hello Moodle.org!\');">Nasty site</h1>');
+        return strip_tags('<h1 onmouseover="alert(\'Hello Lion.org!\');">Nasty site</h1>');
     }
 
     public function get_site_url() {

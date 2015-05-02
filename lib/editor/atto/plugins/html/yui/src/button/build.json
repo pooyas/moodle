@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_html-button",
+  "name": "lion-atto_html-button",
   "builds": {
-    "moodle-atto_html-button": {
+    "lion-atto_html-button": {
       "jsfiles": [
         "button.js"
       ]

@@ -133,15 +133,15 @@
     display: inline-block;
 }
 
-.section .activity .moodle-actionmenu .menu > li > *,
-.section .activity .moodle-actionmenu .menubar > li > * {
+.section .activity .lion-actionmenu .menu > li > *,
+.section .activity .lion-actionmenu .menubar > li > * {
     display: inline-block;
     min-height: 16px;
 }
-.section .activity .moodle-actionmenu[data-enhanced] .menu > li > * {
+.section .activity .lion-actionmenu[data-enhanced] .menu > li > * {
     display: block;
 }
-.section .activity .moodle-actionmenu[data-enhanced] .menu {margin-left: -2.8em;}
+.section .activity .lion-actionmenu[data-enhanced] .menu {margin-left: -2.8em;}
 .section img.iconsmall {
     vertical-align: text-bottom;
     width: 16px;
@@ -155,7 +155,7 @@
 }
 
 .section .activity.editor_displayed a.editing_title,
-.section .activity.editor_displayed .moodle-actionmenu {
+.section .activity.editor_displayed .lion-actionmenu {
     display: none;
 }
 
@@ -243,8 +243,8 @@ li.section.hidden span.commands a.editing_show {cursor:default;}
 .coursebox {width: 100%;margin-bottom:15px;}
 .coursebox.collapsed {margin-bottom:0}
 .coursebox.collapsed > .content {display:none;}
-.coursebox > .info > .coursename a {display:block;background-image:url([[pix:moodle|i/course]]);background-repeat: no-repeat;padding-left:21px;background-position: left top;}
-.coursebox.remotehost .coursename a {background-image:url([[pix:moodle|i/mnethost]]);}
+.coursebox > .info > .coursename a {display:block;background-image:url([[pix:lion|i/course]]);background-repeat: no-repeat;padding-left:21px;background-position: left top;}
+.coursebox.remotehost .coursename a {background-image:url([[pix:lion|i/mnethost]]);}
 .coursebox > .info > .coursename,
 .coursebox .content .teachers,
 .coursebox .content .courseimage,
@@ -287,11 +287,11 @@ li.section.hidden span.commands a.editing_show {cursor:default;}
 .course_category_tree .controls div {display:inline;cursor:pointer;}
 .jsenabled .course_category_tree .controls {visibility: visible;}
 
-.course_category_tree .category >.info > .categoryname {background-image:url([[pix:moodle|t/collapsed_empty]]);background-repeat: no-repeat;background-position:center left;margin:0.5em 5px;}
-.dir-rtl .course_category_tree .category >.info > .categoryname {background-image:url([[pix:moodle|t/collapsed_empty_rtl]]);background-position:center right;margin:0.5em 5px;}
-.course_category_tree .category.with_children >.info > .categoryname {background-image:url([[pix:moodle|t/expanded]]);}
-.course_category_tree .category.with_children.collapsed >.info > .categoryname {background-image:url([[pix:moodle|t/collapsed]]);}
-.dir-rtl .course_category_tree .category.with_children.collapsed >.info .categoryname {background-image:url([[pix:moodle|t/collapsed_rtl]]);}
+.course_category_tree .category >.info > .categoryname {background-image:url([[pix:lion|t/collapsed_empty]]);background-repeat: no-repeat;background-position:center left;margin:0.5em 5px;}
+.dir-rtl .course_category_tree .category >.info > .categoryname {background-image:url([[pix:lion|t/collapsed_empty_rtl]]);background-position:center right;margin:0.5em 5px;}
+.course_category_tree .category.with_children >.info > .categoryname {background-image:url([[pix:lion|t/expanded]]);}
+.course_category_tree .category.with_children.collapsed >.info > .categoryname {background-image:url([[pix:lion|t/collapsed]]);}
+.dir-rtl .course_category_tree .category.with_children.collapsed >.info .categoryname {background-image:url([[pix:lion|t/collapsed_rtl]]);}
 .course_category_tree .category.collapsed >.content {display:none;}
 .course_category_tree .category > .info > .categoryname {padding:2px 18px;margin:3px;}
 .course_category_tree .category > .content {padding-left:16px;overflow: hidden;}
@@ -385,14 +385,14 @@ input.titleeditor { vertical-align: text-bottom; }
 #course-category-listings h4 {margin:1em 0 0;padding:0.6em 1em 0.5em;text-align:left;}
 .dir-rtl #course-category-listings h3,
 .dir-rtl #course-category-listings h4 {text-align:right;}
-.coursecat-management-header .moodle-actionmenu,
-#course-category-listings .moodle-actionmenu {white-space:nowrap;}
+.coursecat-management-header .lion-actionmenu,
+#course-category-listings .lion-actionmenu {white-space:nowrap;}
 
 #course-category-listings .listing-actions {text-align:center;padding:0.4em 0.3em 0.3em;}
 #course-category-listings .listing-actions > * {display:inline-block;line-height:2.2em;}
-#course-category-listings .listing-actions > .moodle-actionmenu {display:inline-block;}
-.coursecat-management-header .moodle-actionmenu[data-enhanced].show .menu a,
-#course-category-listings .listing-actions > .moodle-actionmenu .menu a {padding: 4px 1em;}
+#course-category-listings .listing-actions > .lion-actionmenu {display:inline-block;}
+.coursecat-management-header .lion-actionmenu[data-enhanced].show .menu a,
+#course-category-listings .listing-actions > .lion-actionmenu .menu a {padding: 4px 1em;}
 #course-category-listings .listing-actions .iconsmall {margin-left:0.5em;}
 #course-category-listings ul.ml {list-style: none;margin:1em 0;}
 #course-category-listings ul.ml ul.ml {margin:0;}
@@ -414,24 +414,24 @@ input.titleeditor { vertical-align: text-bottom; }
 #course-category-listings li[data-selected='1']:last-of-type > div {border-bottom-color:#e1e1e8;}
 #course-category-listings > div > div > ul.ml > li:first-child > div {border-top:0;}
 
-#course-category-listings .moodle-actionmenu.show .menu li { line-height: 20px; }
+#course-category-listings .lion-actionmenu.show .menu li { line-height: 20px; }
 
-#course-category-listings .listing-actions .moodle-actionmenu:not([data-enhanced]) li {line-height:normal;}
-#course-category-listings .listing-actions .moodle-actionmenu:not([data-enhanced]) > .menubar li,
-#course-category-listings .listing-actions .moodle-actionmenu:not([data-enhanced]) > .menubar a,
-#course-category-listings .listing-actions .moodle-actionmenu:not([data-enhanced]) > .menu .menu-action-text {display:inline-block;}
-#course-category-listings .listing-actions .moodle-actionmenu:not([data-enhanced]) > .menubar a {color:inherit;}
-#course-category-listings .listing-actions .moodle-actionmenu:not([data-enhanced]) > .menubar a > img,
-#course-category-listings .listing-actions .moodle-actionmenu:not([data-enhanced]) > .menubar .caret {display:none;}
+#course-category-listings .listing-actions .lion-actionmenu:not([data-enhanced]) li {line-height:normal;}
+#course-category-listings .listing-actions .lion-actionmenu:not([data-enhanced]) > .menubar li,
+#course-category-listings .listing-actions .lion-actionmenu:not([data-enhanced]) > .menubar a,
+#course-category-listings .listing-actions .lion-actionmenu:not([data-enhanced]) > .menu .menu-action-text {display:inline-block;}
+#course-category-listings .listing-actions .lion-actionmenu:not([data-enhanced]) > .menubar a {color:inherit;}
+#course-category-listings .listing-actions .lion-actionmenu:not([data-enhanced]) > .menubar a > img,
+#course-category-listings .listing-actions .lion-actionmenu:not([data-enhanced]) > .menubar .caret {display:none;}
 
-.jsenabled #course-category-listings .moodle-actionmenu[data-enhance] .toggle-display img {
+.jsenabled #course-category-listings .lion-actionmenu[data-enhance] .toggle-display img {
     width: auto;
 }
 
-.jsenabled #course-category-listings .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
+.jsenabled #course-category-listings .lion-actionmenu[data-enhance] .toggle-display.textmenu {
     padding-right: 4px;
 }
-.jsenabled #course-category-listings .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
+.jsenabled #course-category-listings .lion-actionmenu[data-enhance] .toggle-display.textmenu .caret {
     vertical-align:text-top;
 }
 
@@ -511,7 +511,7 @@ input.titleeditor { vertical-align: text-bottom; }
 #course-category-listings .select-a-category .notifymessage,
 #course-category-listings .select-a-category .alert {margin: 1em;}
 
-.dir-rtl.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tr-br {right: inherit;}
+.dir-rtl.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tr-br {right: inherit;}
 /** Management header styling **/
 .coursecat-management-header {vertical-align:middle;}
 .coursecat-management-header h2 {display:inline-block;text-align:left;}
@@ -519,7 +519,7 @@ input.titleeditor { vertical-align: text-bottom; }
 .coursecat-management-header > div > div {display:inline-block;margin-left:1em;}
 .dir-rtl .coursecat-management-header h2 {text-align:right;}
 .dir-rtl .coursecat-management-header > div {float:left;margin-right:1em;margin-left:0;}
-.coursecat-management-header .view-mode-selector .moodle-actionmenu {display:inline-block;}
+.coursecat-management-header .view-mode-selector .lion-actionmenu {display:inline-block;}
 .coursecat-management-header .view-mode-selector img {margin-left:0.5em;vertical-align: baseline;}
 .coursecat-management-header  select {max-width: 300px;white-space: nowrap;}
 

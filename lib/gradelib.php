@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions for gradebook - both public and internal
  *
  * @package   core_grades
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** Include essential files */
 require_once($CFG->libdir . '/grade/constants.php');
@@ -251,7 +237,7 @@ function grade_update($source, $courseid, $itemtype, $itemmodule, $iteminstance,
 
         $rawgrade       = false;
         $feedback       = false;
-        $feedbackformat = FORMAT_MOODLE;
+        $feedbackformat = FORMAT_LION;
         $usermodified   = $USER->id;
         $datesubmitted  = null;
         $dategraded     = null;
@@ -551,7 +537,7 @@ function grade_get_grades($courseid, $itemtype, $itemmodule, $iteminstance, $use
 
 
 ///////////////////////////////////////////////////////////////////
-///// Internal API: used by gradebook plugins and Moodle core /////
+///// Internal API: used by gradebook plugins and Lion core /////
 ///////////////////////////////////////////////////////////////////
 
 /**
@@ -1466,7 +1452,7 @@ function grade_floats_different($f1, $f2) {
  * Do not use rounding for 10,5 at the database level as the results may be
  * different from php round() function.
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @param float $f1 Float one to compare
  * @param float $f2 Float two to compare
  * @return bool True if the values should be considered as the same grades

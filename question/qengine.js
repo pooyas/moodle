@@ -1,25 +1,11 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * JavaScript required by the question engine.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2008 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
@@ -90,7 +76,7 @@ M.core_scroll_manager.scroll_to_saved_pos = function(Y) {
         Y.on('domready', function() { window.scrollTo(0, matches[1]); });
 
         // And the following horror is necessary to make it work in IE 8.
-        // Note that the class ie8 on body is only there in Moodle 2.0 and OU Moodle.
+        // Note that the class ie8 on body is only there in Lion 2.0 and OU Lion.
         if (Y.one('body').hasClass('ie')) {
             M.core_scroll_manager.force_ie_to_scroll(Y, matches[1])
         }

@@ -1,22 +1,8 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
- * Moodle tag local library - output functions
+ * Lion tag local library - output functions
  *
  * @package    core_tag
  * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
@@ -41,7 +27,7 @@ require_once($CFG->libdir.'/filelib.php');
 function tag_print_cloud($tagset=null, $nr_of_tags=150, $return=false, $sort='') {
     global $CFG, $DB;
 
-    $can_manage_tags = has_capability('moodle/tag:manage', context_system::instance());
+    $can_manage_tags = has_capability('lion/tag:manage', context_system::instance());
 
     if (is_null($tagset)) {
         // No tag set received, so fetch tags from database
@@ -219,14 +205,14 @@ function tag_print_management_box($tag_object, $return=false) {
             $links[] = '<a href="'. $CFG->wwwroot .'/tag/user.php?action=addinterest&amp;sesskey='. sesskey() .'&amp;tag='. rawurlencode($tag_object->name) .'">'. get_string('addtagtomyinterests', 'tag', $tagname) .'</a>';
         }
 
-        // Flag as inappropriate link.  Only people with moodle/tag:flag capability.
-        if (has_capability('moodle/tag:flag', $systemcontext)) {
+        // Flag as inappropriate link.  Only people with lion/tag:flag capability.
+        if (has_capability('lion/tag:flag', $systemcontext)) {
             $links[] = '<a href="'. $CFG->wwwroot .'/tag/user.php?action=flaginappropriate&amp;sesskey='. sesskey() .'&amp;tag='. rawurlencode($tag_object->name) .'">'. get_string('flagasinappropriate', 'tag', rawurlencode($tagname)) .'</a>';
         }
 
-        // Edit tag: Only people with moodle/tag:edit capability who either have it as an interest or can manage tags
-        if (has_capability('moodle/tag:edit', $systemcontext) ||
-            has_capability('moodle/tag:manage', $systemcontext)) {
+        // Edit tag: Only people with lion/tag:edit capability who either have it as an interest or can manage tags
+        if (has_capability('lion/tag:edit', $systemcontext) ||
+            has_capability('lion/tag:manage', $systemcontext)) {
             $links[] = '<a href="'. $CFG->wwwroot .'/tag/edit.php?tag='. rawurlencode($tag_object->name) .'">'. get_string('edittag', 'tag') .'</a>';
         }
 
@@ -382,7 +368,7 @@ function tag_print_user_box($user, $return=false) {
     $usercontext = context_user::instance($user->id);
     $profilelink = '';
 
-    if ($usercontext and (has_capability('moodle/user:viewdetails', $usercontext) || has_coursecontact_role($user->id))) {
+    if ($usercontext and (has_capability('lion/user:viewdetails', $usercontext) || has_coursecontact_role($user->id))) {
         $profilelink = $CFG->wwwroot .'/user/view.php?id='. $user->id;
     }
 

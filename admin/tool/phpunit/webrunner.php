@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * PHPUnit shell execution wrapper
  *
  * @package    tool_phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('NO_OUTPUT_BUFFERING', true);
@@ -31,7 +17,7 @@ $testpath  = optional_param('testpath', '', PARAM_PATH);
 $testclass = optional_param('testclass', '', PARAM_ALPHANUMEXT);
 $execute   = optional_param('execute', 0, PARAM_BOOL);
 
-navigation_node::override_active_url(new moodle_url('/admin/tool/phpunit/index.php'));
+navigation_node::override_active_url(new lion_url('/admin/tool/phpunit/index.php'));
 admin_externalpage_setup('toolphpunitwebrunner');
 
 if (!$CFG->debugdeveloper) {
@@ -83,7 +69,7 @@ if ($execute) {
             tool_phpunit_problem('Can not initialize database');
         }
         set_debugging(DEBUG_NONE, false); // Hack: no redirect warning, we really want to redirect.
-        redirect(new moodle_url($PAGE->url, array('execute'=>1, 'tespath'=>$testpath, 'testclass'=>$testclass, 'sesskey'=>sesskey())), 'Reloading page');
+        redirect(new lion_url($PAGE->url, array('execute'=>1, 'tespath'=>$testpath, 'testclass'=>$testclass, 'sesskey'=>sesskey())), 'Reloading page');
         echo $OUTPUT->footer();
         die();
 
@@ -104,7 +90,7 @@ if ($execute) {
             tool_phpunit_problem('Can not initialize database');
         }
         set_debugging(DEBUG_NONE, false); // Hack: no redirect warning, we really want to redirect.
-        redirect(new moodle_url($PAGE->url, array('execute'=>1, 'tespath'=>$testpath, 'testclass'=>$testclass, 'sesskey'=>sesskey())), 'Reloading page');
+        redirect(new lion_url($PAGE->url, array('execute'=>1, 'tespath'=>$testpath, 'testclass'=>$testclass, 'sesskey'=>sesskey())), 'Reloading page');
         die();
 
     } else {
@@ -188,5 +174,5 @@ function tool_phpunit_problem($message) {
     if (!$PAGE->headerprinted) {
         tool_phpunit_header();
     }
-    notice($message, new moodle_url('/admin/tool/phpunit/'));
+    notice($message, new lion_url('/admin/tool/phpunit/'));
 }

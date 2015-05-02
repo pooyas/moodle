@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains functions for managing user access
@@ -32,7 +18,7 @@
  * - has_any_capability()
  * - has_all_capabilities()
  * - require_capability()
- * - require_login() (from moodlelib)
+ * - require_login() (from lionlib)
  * - is_enrolled()
  * - is_viewing()
  * - is_guest()
@@ -124,10 +110,10 @@
  *
  * @package    core_access
  * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** No capability change */
 define('CAP_INHERIT', 0);
@@ -155,17 +141,17 @@ define('CONTEXT_MODULE', 70);
  */
 define('CONTEXT_BLOCK', 80);
 
-/** Capability allow management of trusts - NOT IMPLEMENTED YET - see {@link http://docs.moodle.org/dev/Hardening_new_Roles_system} */
+/** Capability allow management of trusts - NOT IMPLEMENTED YET - see {@link http://docs.lion.org/dev/Hardening_new_Roles_system} */
 define('RISK_MANAGETRUST', 0x0001);
-/** Capability allows changes in system configuration - see {@link http://docs.moodle.org/dev/Hardening_new_Roles_system} */
+/** Capability allows changes in system configuration - see {@link http://docs.lion.org/dev/Hardening_new_Roles_system} */
 define('RISK_CONFIG',      0x0002);
-/** Capability allows user to add scripted content - see {@link http://docs.moodle.org/dev/Hardening_new_Roles_system} */
+/** Capability allows user to add scripted content - see {@link http://docs.lion.org/dev/Hardening_new_Roles_system} */
 define('RISK_XSS',         0x0004);
-/** Capability allows access to personal user information - see {@link http://docs.moodle.org/dev/Hardening_new_Roles_system} */
+/** Capability allows access to personal user information - see {@link http://docs.lion.org/dev/Hardening_new_Roles_system} */
 define('RISK_PERSONAL',    0x0008);
-/** Capability allows users to add content others may see - see {@link http://docs.moodle.org/dev/Hardening_new_Roles_system} */
+/** Capability allows users to add content others may see - see {@link http://docs.lion.org/dev/Hardening_new_Roles_system} */
 define('RISK_SPAM',        0x0010);
-/** capability allows mass delete of data belonging to other users - see {@link http://docs.moodle.org/dev/Hardening_new_Roles_system} */
+/** capability allows mass delete of data belonging to other users - see {@link http://docs.lion.org/dev/Hardening_new_Roles_system} */
 define('RISK_DATALOSS',    0x0020);
 
 /** rolename displays - the name as defined in the role definition, localised if name empty */
@@ -376,7 +362,7 @@ function has_capability($capability, context $context, $user = null, $doanything
         }
     }
 
-    if (strpos($capability, 'moodle/legacy:') === 0) {
+    if (strpos($capability, 'lion/legacy:') === 0) {
         throw new coding_exception('Legacy capabilities can not be used any more!');
     }
 
@@ -573,7 +559,7 @@ function guess_if_creator_will_have_course_capability($capability, context $cont
         return true;
     }
 
-    if (!has_capability('moodle/course:create', $context, $user)) {
+    if (!has_capability('lion/course:create', $context, $user)) {
         return false;
     }
 
@@ -586,11 +572,11 @@ function guess_if_creator_will_have_course_capability($capability, context $cont
     }
 
     if ($context->contextlevel == CONTEXT_COURSE) {
-        if (is_viewing($context, $user, 'moodle/role:assign') or is_enrolled($context, $user, 'moodle/role:assign')) {
+        if (is_viewing($context, $user, 'lion/role:assign') or is_enrolled($context, $user, 'lion/role:assign')) {
             return false;
         }
     } else {
-        if (has_capability('moodle/course:view', $context, $user) and has_capability('moodle/role:assign', $context, $user)) {
+        if (has_capability('lion/course:view', $context, $user) and has_capability('lion/role:assign', $context, $user)) {
             return false;
         }
     }
@@ -765,7 +751,7 @@ function has_capability_in_accessdata($capability, context $context, array &$acc
  * A convenience function that tests has_capability, and displays an error if
  * the user does not have that capability.
  *
- * NOTE before Moodle 2.0, this function attempted to make an appropriate
+ * NOTE before Lion 2.0, this function attempted to make an appropriate
  * require_login call before checking the capability. This is no longer the case.
  * You must call require_login (or one of its variants) if you want to check the
  * user is logged in, before you call this function.
@@ -1269,7 +1255,7 @@ function reload_all_capabilities() {
  * Useful for the "temporary guest" access we grant to logged-in users.
  * This is useful for enrol plugins only.
  *
- * @since Moodle 2.2
+ * @since Lion 2.2
  * @param context_course $coursecontext
  * @param int $roleid
  * @return void
@@ -1309,7 +1295,7 @@ function load_temp_course_role(context_course $coursecontext, $roleid) {
  * Removes any extra guest roles from current USER->access array.
  * This is useful for enrol plugins only.
  *
- * @since Moodle 2.2
+ * @since Lion 2.2
  * @param context_course $coursecontext
  * @return void
  */
@@ -1467,7 +1453,7 @@ function get_context_info_array($contextid) {
 function create_role($name, $shortname, $description, $archetype = '') {
     global $DB;
 
-    if (strpos($archetype, 'moodle/legacy:') !== false) {
+    if (strpos($archetype, 'lion/legacy:') !== false) {
         throw new coding_exception('Use new role archetype parameter in create_role() instead of old legacy capabilities.');
     }
 
@@ -1988,7 +1974,7 @@ function is_guest(context $context, $user = null) {
         return true;
     }
 
-    if (has_capability('moodle/course:view', $coursecontext, $user)) {
+    if (has_capability('lion/course:view', $coursecontext, $user)) {
         // viewing users appear out of nowhere, they are neither guests nor participants
         return false;
     }
@@ -2002,7 +1988,7 @@ function is_guest(context $context, $user = null) {
 }
 
 /**
- * Returns true if the user has moodle/course:view capability in the course,
+ * Returns true if the user has lion/course:view capability in the course,
  * this is intended for admins, managers (aka small admins), inspectors, etc.
  *
  * @category   access
@@ -2021,7 +2007,7 @@ function is_viewing(context $context, $user = null, $withcapability = '') {
         return false;
     }
 
-    if (!has_capability('moodle/course:view', $coursecontext, $user)) {
+    if (!has_capability('lion/course:view', $coursecontext, $user)) {
         // admins are allowed to inspect courses
         return false;
     }
@@ -2189,7 +2175,7 @@ function can_access_course(stdClass $course, $user = null, $withcapability = '',
         }
     }
 
-    if (!$course->visible and !has_capability('moodle/course:viewhiddencourses', $coursecontext, $userid)) {
+    if (!$course->visible and !has_capability('lion/course:viewhiddencourses', $coursecontext, $userid)) {
         return false;
     }
 
@@ -2480,7 +2466,7 @@ function count_enrolled_users(context $context, $withcapability = '', $groupid =
  * capabilities are defined for the component, we simply return an empty array.
  *
  * @access private
- * @param string $component full plugin name, examples: 'moodle', 'mod_forum'
+ * @param string $component full plugin name, examples: 'lion', 'mod_forum'
  * @return array array of capabilities
  */
 function load_capability_def($component) {
@@ -2504,10 +2490,10 @@ function load_capability_def($component) {
  * Gets the capabilities that have been cached in the database for this component.
  *
  * @access private
- * @param string $component - examples: 'moodle', 'mod_forum'
+ * @param string $component - examples: 'lion', 'mod_forum'
  * @return array array of capabilities
  */
-function get_cached_capabilities($component = 'moodle') {
+function get_cached_capabilities($component = 'lion') {
     global $DB;
     return $DB->get_records('capabilities', array('component'=>$component));
 }
@@ -2657,7 +2643,7 @@ function reset_role_capabilities($roleid) {
 
 /**
  * Updates the capabilities table with the component capability definitions.
- * If no parameters are given, the function updates the core moodle
+ * If no parameters are given, the function updates the core lion
  * capabilities.
  *
  * Note that the absence of the db/access.php capabilities definition file
@@ -2671,10 +2657,10 @@ function reset_role_capabilities($roleid) {
  * Deletes the removed capabilities from DB
  *
  * @access private
- * @param string $component examples: 'moodle', 'mod/forum', 'block/quiz_results'
+ * @param string $component examples: 'lion', 'mod/forum', 'block/quiz_results'
  * @return boolean true if success, exception in case of any problems
  */
-function update_capabilities($component = 'moodle') {
+function update_capabilities($component = 'lion') {
     global $DB, $OUTPUT;
 
     $storedcaps = array();
@@ -2780,7 +2766,7 @@ function update_capabilities($component = 'moodle') {
  * NOTE: this function is called from lib/db/upgrade.php
  *
  * @access private
- * @param string $component examples: 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component examples: 'lion', 'mod_forum', 'block_quiz_results'
  * @param array $newcapdef array of the new capability definitions that will be
  *                     compared with the cached capabilities
  * @return int number of deprecated capabilities that have been removed
@@ -2831,10 +2817,10 @@ function get_all_risks() {
 }
 
 /**
- * Return a link to moodle docs for a given capability name
+ * Return a link to lion docs for a given capability name
  *
  * @param stdClass $capability a capability - a row from the mdl_capabilities table.
- * @return string the human-readable capability name as a link to Moodle Docs.
+ * @return string the human-readable capability name as a link to Lion Docs.
  */
 function get_capability_docs_link($capability) {
     $url = get_docs_url('Capabilities/' . $capability->name);
@@ -2958,7 +2944,7 @@ function get_capability_string($capabilityname) {
     // Typical capability name is 'plugintype/pluginname:capabilityname'
     list($type, $name, $capname) = preg_split('|[/:]|', $capabilityname);
 
-    if ($type === 'moodle') {
+    if ($type === 'lion') {
         $component = 'core_role';
     } else if ($type === 'quizreport') {
         //ugly hack!!
@@ -2992,7 +2978,7 @@ function get_capability_string($capabilityname) {
  */
 function get_component_string($component, $contextlevel) {
 
-    if ($component === 'moodle' or $component === 'core') {
+    if ($component === 'lion' or $component === 'core') {
         switch ($contextlevel) {
             // TODO MDL-46123: this should probably use context level names instead
             case CONTEXT_SYSTEM:    return get_string('coresystem');
@@ -3167,7 +3153,7 @@ function user_can_assign(context $context, $targetroleid) {
 
     // Check if user has override capability.
     // If not return false.
-    if (!has_capability('moodle/role:assign', $context)) {
+    if (!has_capability('lion/role:assign', $context)) {
         return false;
     }
     // pull out all active roles of this user from this context(or above)
@@ -3383,7 +3369,7 @@ function get_assignable_roles(context $context, $rolenamedisplay = ROLENAME_ALIA
         $userid = is_object($user) ? $user->id : $user;
     }
 
-    if (!has_capability('moodle/role:assign', $context, $userid)) {
+    if (!has_capability('lion/role:assign', $context, $userid)) {
         if ($withusercounts) {
             return array(array(), array(), array());
         } else {
@@ -3451,7 +3437,7 @@ function get_assignable_roles(context $context, $rolenamedisplay = ROLENAME_ALIA
  *
  * Gets a list of roles that this user can switch to in a context, for the switchrole menu.
  * This function just process the contents of the role_allow_switch table. You also need to
- * test the moodle/role:switchroles to see if the user is allowed to switch in the first place.
+ * test the lion/role:switchroles to see if the user is allowed to switch in the first place.
  *
  * @param context $context a context.
  * @return array an array $roleid => $rolename.
@@ -3510,7 +3496,7 @@ function get_switchable_roles(context $context) {
 function get_overridable_roles(context $context, $rolenamedisplay = ROLENAME_ALIAS, $withcounts = false) {
     global $USER, $DB;
 
-    if (!has_any_capability(array('moodle/role:safeoverride', 'moodle/role:override'), $context)) {
+    if (!has_any_capability(array('lion/role:safeoverride', 'lion/role:override'), $context)) {
         if ($withcounts) {
             return array(array(), array(), array());
         } else {
@@ -3709,7 +3695,7 @@ function set_role_contextlevels($roleid, array $contextlevels) {
  * @param bool $doanything_ignored not used any more, admin accounts are never returned
  * @param bool $view_ignored - use get_enrolled_sql() instead
  * @param bool $useviewallgroups if $groups is set the return users who
- *               have capability both $capability and moodle/site:accessallgroups
+ *               have capability both $capability and lion/site:accessallgroups
  *               in this context, as well as users who have $capability and who are
  *               in $groups.
  * @return array of user records
@@ -3872,7 +3858,7 @@ function get_users_by_capability(context $context, $capability, $fields = '', $s
         $params = array_merge($params, $grpparams);
 
         if ($useviewallgroups) {
-            $viewallgroupsusers = get_users_by_capability($context, 'moodle/site:accessallgroups', 'u.id, u.id', '', '', '', '', $exceptions);
+            $viewallgroupsusers = get_users_by_capability($context, 'lion/site:accessallgroups', 'u.id, u.id', '', '', '', '', $exceptions);
             if (!empty($viewallgroupsusers)) {
                 $wherecond[] =  "($grouptest OR u.id IN (" . implode(',', array_keys($viewallgroupsusers)) . '))';
             } else {
@@ -4051,7 +4037,7 @@ function sort_by_roleassignment_authority($users, context $context, $roles = arr
 /**
  * Gets all the users assigned this role in this context or higher
  *
- * Note that moodle is based on capabilities and it is usually better
+ * Note that lion is based on capabilities and it is usually better
  * to check permissions than to check role ids as the capabilities
  * system is more flexible. If you really need, you can to use this
  * function but consider has_capability() as a possible substitute.
@@ -4993,10 +4979,10 @@ function role_change_permission($roleid, $context, $capname, $permission) {
 
 
 /**
- * Basic moodle context abstraction class.
+ * Basic lion context abstraction class.
  *
  * Google confirms that no other important framework is using "context" class,
- * we could use something else like mcontext or moodle_context, but we need to type
+ * we could use something else like mcontext or lion_context, but we need to type
  * this very often which would be annoying and it would take too much space...
  *
  * This class is derived from stdClass for backwards compatibility with
@@ -5005,8 +4991,8 @@ function role_change_permission($roleid, $context, $capname, $permission) {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  *
  * @property-read int $id context id
  * @property-read int $contextlevel CONTEXT_SYSTEM, CONTEXT_COURSE, etc.
@@ -5585,7 +5571,7 @@ abstract class context extends stdClass implements IteratorAggregate {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public abstract function get_url();
 
@@ -5816,8 +5802,8 @@ abstract class context extends stdClass implements IteratorAggregate {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class context_helper extends context {
 
@@ -6092,8 +6078,8 @@ class context_helper extends context {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class context_system extends context {
     /**
@@ -6132,10 +6118,10 @@ class context_system extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
-        return new moodle_url('/');
+        return new lion_url('/');
     }
 
     /**
@@ -6333,8 +6319,8 @@ class context_system extends context {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class context_user extends context {
     /**
@@ -6383,15 +6369,15 @@ class context_user extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         global $COURSE;
 
         if ($COURSE->id == SITEID) {
-            $url = new moodle_url('/user/profile.php', array('id'=>$this->_instanceid));
+            $url = new lion_url('/user/profile.php', array('id'=>$this->_instanceid));
         } else {
-            $url = new moodle_url('/user/view.php', array('id'=>$this->_instanceid, 'courseid'=>$COURSE->id));
+            $url = new lion_url('/user/view.php', array('id'=>$this->_instanceid, 'courseid'=>$COURSE->id));
         }
         return $url;
     }
@@ -6406,7 +6392,7 @@ class context_user extends context {
 
         $sort = 'ORDER BY contextlevel,component,name';   // To group them sensibly for display
 
-        $extracaps = array('moodle/grade:viewall');
+        $extracaps = array('lion/grade:viewall');
         list($extra, $params) = $DB->get_in_or_equal($extracaps, SQL_PARAMS_NAMED, 'cap');
         $sql = "SELECT *
                   FROM {capabilities}
@@ -6520,8 +6506,8 @@ class context_user extends context {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class context_coursecat extends context {
     /**
@@ -6570,10 +6556,10 @@ class context_coursecat extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
-        return new moodle_url('/course/index.php', array('categoryid' => $this->_instanceid));
+        return new lion_url('/course/index.php', array('categoryid' => $this->_instanceid));
     }
 
     /**
@@ -6752,8 +6738,8 @@ class context_coursecat extends context {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class context_course extends context {
     /**
@@ -6810,14 +6796,14 @@ class context_course extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         if ($this->_instanceid != SITEID) {
-            return new moodle_url('/course/view.php', array('id'=>$this->_instanceid));
+            return new lion_url('/course/view.php', array('id'=>$this->_instanceid));
         }
 
-        return new moodle_url('/');
+        return new lion_url('/');
     }
 
     /**
@@ -6974,8 +6960,8 @@ class context_course extends context {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class context_module extends context {
     /**
@@ -7030,7 +7016,7 @@ class context_module extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         global $DB;
@@ -7039,10 +7025,10 @@ class context_module extends context {
                                              FROM {course_modules} cm
                                              JOIN {modules} md ON md.id = cm.module
                                             WHERE cm.id = ?", array($this->_instanceid))) {
-            return new moodle_url('/mod/' . $modname . '/view.php', array('id'=>$this->_instanceid));
+            return new lion_url('/mod/' . $modname . '/view.php', array('id'=>$this->_instanceid));
         }
 
-        return new moodle_url('/');
+        return new lion_url('/');
     }
 
     /**
@@ -7092,7 +7078,7 @@ class context_module extends context {
         $sql = "SELECT *
                   FROM {capabilities}
                  WHERE (contextlevel = ".CONTEXT_MODULE."
-                       AND (component = :component OR component = 'moodle'))
+                       AND (component = :component OR component = 'lion'))
                        $extra";
         $params['component'] = "mod_$module->name";
 
@@ -7216,8 +7202,8 @@ class context_module extends context {
  * @package   core_access
  * @category  access
  * @copyright Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class context_block extends context {
     /**
@@ -7256,7 +7242,7 @@ class context_block extends context {
         $name = '';
         if ($blockinstance = $DB->get_record('block_instances', array('id'=>$this->_instanceid))) {
             global $CFG;
-            require_once("$CFG->dirroot/blocks/moodleblock.class.php");
+            require_once("$CFG->dirroot/blocks/lionblock.class.php");
             require_once("$CFG->dirroot/blocks/$blockinstance->blockname/block_$blockinstance->blockname.php");
             $blockname = "block_$blockinstance->blockname";
             if ($blockobject = new $blockname()) {
@@ -7273,7 +7259,7 @@ class context_block extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         $parentcontexts = $this->get_parent_context();

@@ -1,18 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for the wiki parser
@@ -31,7 +31,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 global $CFG;
 require_once($CFG->dirroot . '/mod/wiki/parser/parser.php');
@@ -114,13 +114,13 @@ class mod_wiki_wikiparser_test extends basic_testcase {
         $this->assertNotEquals(false, $section);
 
         // Test section name with a URL.
-        $input = '<h1>Another http://moodle.org test</h1>';
-        $output = '<h1><a name="toc-1"></a>Another <a href="http://moodle.org">http://moodle.org</a> test <a href="edit.php'.
-            '?pageid=&amp;section=Another+http%3A%2F%2Fmoodle.org+test" class="wiki_edit_section">[edit]</a></h1>' . "\n";
+        $input = '<h1>Another http://lion.org test</h1>';
+        $output = '<h1><a name="toc-1"></a>Another <a href="http://lion.org">http://lion.org</a> test <a href="edit.php'.
+            '?pageid=&amp;section=Another+http%3A%2F%2Flion.org+test" class="wiki_edit_section">[edit]</a></h1>' . "\n";
         $toc = '<div class="wiki-toc"><p class="wiki-toc-title">Table of contents</p><p class="wiki-toc-section-1 '.
-            'wiki-toc-section">1. <a href="#toc-1">Another http://moodle.org test <a href="edit.php?pageid=&amp;section='.
-            'Another+http%3A%2F%2Fmoodle.org+test" class="wiki_edit_section">[edit]</a></a></p></div>';
-        $section = wiki_parser_proxy::get_section($input, 'html', 'Another http://moodle.org test');
+            'wiki-toc-section">1. <a href="#toc-1">Another http://lion.org test <a href="edit.php?pageid=&amp;section='.
+            'Another+http%3A%2F%2Flion.org+test" class="wiki_edit_section">[edit]</a></a></p></div>';
+        $section = wiki_parser_proxy::get_section($input, 'html', 'Another http://lion.org test');
         $actual = wiki_parser_proxy::parse($input, 'html', array(
             'link_callback' => '/mod/wiki/locallib.php:wiki_parser_link'
         ));
@@ -158,13 +158,13 @@ class mod_wiki_wikiparser_test extends basic_testcase {
         $this->assertNotEquals(false, $section);
 
         // Test section name with a URL, creole does not support linking links in a heading.
-        $input = '= Another http://moodle.org test =';
-        $output = '<h1><a name="toc-1"></a>Another http://moodle.org test <a href="edit.php'.
-            '?pageid=&amp;section=Another+http%3A%2F%2Fmoodle.org+test" class="wiki_edit_section">[edit]</a></h1>' . "\n";
+        $input = '= Another http://lion.org test =';
+        $output = '<h1><a name="toc-1"></a>Another http://lion.org test <a href="edit.php'.
+            '?pageid=&amp;section=Another+http%3A%2F%2Flion.org+test" class="wiki_edit_section">[edit]</a></h1>' . "\n";
         $toc = '<div class="wiki-toc"><p class="wiki-toc-title">Table of contents</p><p class="wiki-toc-section-1 '.
-            'wiki-toc-section">1. <a href="#toc-1">Another http://moodle.org test <a href="edit.php?pageid=&amp;section='.
-            'Another+http%3A%2F%2Fmoodle.org+test" class="wiki_edit_section">[edit]</a></a></p></div>';
-        $section = wiki_parser_proxy::get_section($input, 'creole', 'Another http://moodle.org test');
+            'wiki-toc-section">1. <a href="#toc-1">Another http://lion.org test <a href="edit.php?pageid=&amp;section='.
+            'Another+http%3A%2F%2Flion.org+test" class="wiki_edit_section">[edit]</a></a></p></div>';
+        $section = wiki_parser_proxy::get_section($input, 'creole', 'Another http://lion.org test');
         $actual = wiki_parser_proxy::parse($input, 'creole');
         $this->assertEquals($output, $actual['parsed_text']);
         $this->assertEquals($toc, $actual['toc']);
@@ -200,13 +200,13 @@ class mod_wiki_wikiparser_test extends basic_testcase {
         $this->assertNotEquals(false, $section);
 
         // Test section name with a URL, nwiki does not support linking links in a heading.
-        $input = '= Another http://moodle.org test =';
-        $output = '<h1><a name="toc-1"></a>Another http://moodle.org test <a href="edit.php'.
-            '?pageid=&amp;section=Another+http%3A%2F%2Fmoodle.org+test" class="wiki_edit_section">[edit]</a></h1>' . "\n";
+        $input = '= Another http://lion.org test =';
+        $output = '<h1><a name="toc-1"></a>Another http://lion.org test <a href="edit.php'.
+            '?pageid=&amp;section=Another+http%3A%2F%2Flion.org+test" class="wiki_edit_section">[edit]</a></h1>' . "\n";
         $toc = '<div class="wiki-toc"><p class="wiki-toc-title">Table of contents</p><p class="wiki-toc-section-1 '.
-            'wiki-toc-section">1. <a href="#toc-1">Another http://moodle.org test <a href="edit.php?pageid=&amp;section='.
-            'Another+http%3A%2F%2Fmoodle.org+test" class="wiki_edit_section">[edit]</a></a></p></div>';
-        $section = wiki_parser_proxy::get_section($input, 'nwiki', 'Another http://moodle.org test');
+            'wiki-toc-section">1. <a href="#toc-1">Another http://lion.org test <a href="edit.php?pageid=&amp;section='.
+            'Another+http%3A%2F%2Flion.org+test" class="wiki_edit_section">[edit]</a></a></p></div>';
+        $section = wiki_parser_proxy::get_section($input, 'nwiki', 'Another http://lion.org test');
         $actual = wiki_parser_proxy::parse($input, 'nwiki');
         $this->assertEquals($output, $actual['parsed_text']);
         $this->assertEquals($toc, $actual['toc']);

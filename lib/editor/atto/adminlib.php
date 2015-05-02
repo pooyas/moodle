@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Atto admin setting stuff.
  *
  * @package   editor_atto
  * @copyright 2014 Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Admin setting for toolbar.
  *
  * @package    editor_atto
  * @copyright  2014 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class editor_atto_toolbar_setting extends admin_setting_configtextarea {
 
@@ -102,7 +88,7 @@ class editor_atto_toolbar_setting extends admin_setting_configtextarea {
  *
  * @package   editor_atto
  * @copyright 2014 Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class editor_atto_subplugins_setting extends admin_setting {
 
@@ -220,7 +206,7 @@ class editor_atto_subplugins_setting extends admin_setting {
                 $icon = $OUTPUT->pix_icon('icon', '', 'atto_' . $name, array('class' => 'icon pluginicon'));
             } else {
                 // No icon found.
-                $icon = $OUTPUT->pix_icon('spacer', '', 'moodle', array('class' => 'icon pluginicon noicon'));
+                $icon = $OUTPUT->pix_icon('spacer', '', 'lion', array('class' => 'icon pluginicon noicon'));
             }
             $displayname = $icon . $displayname;
 

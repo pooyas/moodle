@@ -1,41 +1,27 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The form used at the rubric editor page is defined here
  *
  * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy <marina@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Marina Glancy <marina@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/lib/formslib.php');
 require_once(dirname(__FILE__).'/rubriceditor.php');
-MoodleQuickForm::registerElementType('rubriceditor', $CFG->dirroot.'/grade/grading/form/rubric/rubriceditor.php', 'MoodleQuickForm_rubriceditor');
+LionQuickForm::registerElementType('rubriceditor', $CFG->dirroot.'/grade/grading/form/rubric/rubriceditor.php', 'LionQuickForm_rubriceditor');
 
 /**
  * Defines the rubric edit form
  *
  * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy <marina@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Marina Glancy <marina@lion.com>
+ * 
  */
-class gradingform_rubric_editrubric extends moodleform {
+class gradingform_rubric_editrubric extends lionform {
 
     /**
      * Form element definition

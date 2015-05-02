@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Functions for operating with the skydrive API
@@ -20,11 +6,11 @@
  * @package    repository_skydrive
  * @copyright  2012 Lancaster University Network Services Ltd
  * @author     Dan Poltawski <dan.poltawski@luns.net.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/oauthlib.php');
 
@@ -37,7 +23,7 @@ require_once($CFG->libdir.'/oauthlib.php');
  * @package    repository_skydrive
  * @copyright  2012 Lancaster University Network Services Ltd
  * @author     Dan Poltawski <dan.poltawski@luns.net.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class microsoft_skydrive extends oauth2_client {
     /** @var string OAuth 2.0 scope */
@@ -52,7 +38,7 @@ class microsoft_skydrive extends oauth2_client {
      *
      * @param string $clientid client id for OAuth 2.0 provided by microsoft
      * @param string $clientsecret secret for OAuth 2.0 provided by microsoft
-     * @param moodle_url $returnurl url to return to after succseful auth
+     * @param lion_url $returnurl url to return to after succseful auth
      */
     public function __construct($clientid, $clientsecret, $returnurl) {
         parent::__construct($clientid, $clientsecret, $returnurl, self::SCOPE);

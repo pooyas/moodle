@@ -1,21 +1,7 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file is part of the User section Moodle
+ * This file is part of the User section Lion
  *
  * @copyright 1999 Martin Dougiamas  http://dougiamas.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -45,9 +31,9 @@ $user = $USER;
 $fullname = fullname($user);
 $strportfolios = get_string('portfolios', 'portfolio');
 
-$url = new moodle_url('/user/portfoliologs.php', array('courseid' => $courseid));
+$url = new lion_url('/user/portfoliologs.php', array('courseid' => $courseid));
 
-navigation_node::override_active_url(new moodle_url('/user/portfoliologs.php', array('courseid' => $courseid)));
+navigation_node::override_active_url(new lion_url('/user/portfoliologs.php', array('courseid' => $courseid)));
 
 if ($page !== 0) {
     $url->param('page', $page);
@@ -85,9 +71,9 @@ if (count($queued) > 0) {
         $e = portfolio_exporter::rewaken_object($q->id);
         $e->verify_rewaken(true);
         $queued = $e->get('queued');
-        $baseurl = new moodle_url('/portfolio/add.php', array('id' => $q->id, 'logreturn' => 1, 'sesskey' => sesskey()));
+        $baseurl = new lion_url('/portfolio/add.php', array('id' => $q->id, 'logreturn' => 1, 'sesskey' => sesskey()));
 
-        $iconstr = $OUTPUT->action_icon(new moodle_url($baseurl, array('cancel' => 1)), new pix_icon('t/stop', get_string('cancel')));
+        $iconstr = $OUTPUT->action_icon(new lion_url($baseurl, array('cancel' => 1)), new pix_icon('t/stop', get_string('cancel')));
 
         if (!$e->get('queued') && $e->get('expirytime') > $now) {
             $iconstr .= $OUTPUT->action_icon($baseurl, new pix_icon('t/go', get_string('continue')));

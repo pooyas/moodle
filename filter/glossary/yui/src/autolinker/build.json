@@ -1,7 +1,7 @@
 {
-  "name": "moodle-filter_glossary-autolinker",
+  "name": "lion-filter_glossary-autolinker",
   "builds": {
-    "moodle-filter_glossary-autolinker": {
+    "lion-filter_glossary-autolinker": {
       "jsfiles": [
         "autolinker.js"
       ]

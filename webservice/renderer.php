@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,8 +6,8 @@
  *
  * @package    core_webservice
  * @category   output
- * @copyright  2009 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2009 Jerome Mouneyrac <jerome@lion.com>
+ * 
  */
 class core_webservice_renderer extends plugin_renderer_base {
 
@@ -88,7 +74,7 @@ class core_webservice_renderer extends plugin_renderer_base {
 
         $formcontent = html_writer::tag('div', $formcontent);
 
-        $actionurl = new moodle_url('/' . $CFG->admin . '/webservice/service_users.php',
+        $actionurl = new lion_url('/' . $CFG->admin . '/webservice/service_users.php',
                         array('id' => $options->serviceid));
         $html = html_writer::tag('form', $formcontent,
                         array('id' => 'assignform', 'action' => $actionurl, 'method' => 'post'));
@@ -106,7 +92,7 @@ class core_webservice_renderer extends plugin_renderer_base {
         global $CFG;
         $html = $this->output->box_start('generalbox', 'alloweduserlist');
         foreach ($users as $user) {
-            $modifiedauthoriseduserurl = new moodle_url('/' . $CFG->admin . '/webservice/service_user_settings.php',
+            $modifiedauthoriseduserurl = new lion_url('/' . $CFG->admin . '/webservice/service_user_settings.php',
                             array('userid' => $user->id, 'serviceid' => $serviceid));
             $html .= html_writer::tag('a', $user->firstname . " "
                             . $user->lastname . ", " . $user->email,
@@ -137,9 +123,9 @@ class core_webservice_renderer extends plugin_renderer_base {
         $optionsyes = array('id' => $service->id, 'action' => 'delete',
             'confirm' => 1, 'sesskey' => sesskey(), 'fid' => $function->id);
         $optionsno = array('id' => $service->id);
-        $formcontinue = new single_button(new moodle_url('service_functions.php',
+        $formcontinue = new single_button(new lion_url('service_functions.php',
                                 $optionsyes), get_string('remove'));
-        $formcancel = new single_button(new moodle_url('service_functions.php',
+        $formcancel = new single_button(new lion_url('service_functions.php',
                                 $optionsno), get_string('cancel'), 'get');
         return $this->output->confirm(get_string('removefunctionconfirm', 'webservice',
                         (object) array('service' => $service->name, 'function' => $function->name)),
@@ -157,10 +143,10 @@ class core_webservice_renderer extends plugin_renderer_base {
         $optionsyes = array('id' => $service->id, 'action' => 'delete',
             'confirm' => 1, 'sesskey' => sesskey());
         $optionsno = array('section' => 'externalservices');
-        $formcontinue = new single_button(new moodle_url('service.php', $optionsyes),
+        $formcontinue = new single_button(new lion_url('service.php', $optionsyes),
                         get_string('delete'), 'post');
         $formcancel = new single_button(
-                        new moodle_url($CFG->wwwroot . "/" . $CFG->admin . "/settings.php", $optionsno),
+                        new lion_url($CFG->wwwroot . "/" . $CFG->admin . "/settings.php", $optionsno),
                         get_string('cancel'), 'get');
         return $this->output->confirm(get_string('deleteserviceconfirm', 'webservice', $service->name),
                 $formcontinue, $formcancel);
@@ -178,10 +164,10 @@ class core_webservice_renderer extends plugin_renderer_base {
             'confirm' => 1, 'sesskey' => sesskey());
         $optionsno = array('section' => 'webservicetokens', 'sesskey' => sesskey());
         $formcontinue = new single_button(
-                        new moodle_url('/' . $CFG->admin . '/webservice/tokens.php', $optionsyes),
+                        new lion_url('/' . $CFG->admin . '/webservice/tokens.php', $optionsyes),
                         get_string('delete'));
         $formcancel = new single_button(
-                        new moodle_url('/' . $CFG->admin . '/settings.php', $optionsno),
+                        new lion_url('/' . $CFG->admin . '/settings.php', $optionsno),
                         get_string('cancel'), 'get');
         return $this->output->confirm(get_string('deletetokenconfirm', 'webservice',
                         (object) array('user' => $token->firstname . " "
@@ -229,7 +215,7 @@ class core_webservice_renderer extends plugin_renderer_base {
                                 array('class' => 'functiondesc'));
                 //display remove function operation (except for build-in service)
                 if (empty($service->component)) {
-                    $removeurl = new moodle_url('/' . $CFG->admin . '/webservice/service_functions.php',
+                    $removeurl = new lion_url('/' . $CFG->admin . '/webservice/service_functions.php',
                                     array('sesskey' => sesskey(), 'fid' => $function->id,
                                         'id' => $service->id,
                                         'action' => 'delete'));
@@ -253,7 +239,7 @@ class core_webservice_renderer extends plugin_renderer_base {
             if (!empty($anydeprecated)) {
                 debugging('This service uses deprecated functions, replace them by the proposed ones and update your client/s.', DEBUG_DEVELOPER);
             }
-            $addurl = new moodle_url('/' . $CFG->admin . '/webservice/service_functions.php',
+            $addurl = new lion_url('/' . $CFG->admin . '/webservice/service_functions.php',
                             array('sesskey' => sesskey(), 'id' => $service->id, 'action' => 'add'));
             $html .= html_writer::tag('a', get_string('addfunctions', 'webservice'), array('href' => $addurl));
         }
@@ -273,9 +259,9 @@ class core_webservice_renderer extends plugin_renderer_base {
         $optionsyes = array('tokenid' => $token->id, 'action' => 'resetwstoken', 'confirm' => 1,
             'sesskey' => sesskey());
         $optionsno = array('section' => 'webservicetokens', 'sesskey' => sesskey());
-        $formcontinue = new single_button(new moodle_url($managetokenurl, $optionsyes),
+        $formcontinue = new single_button(new lion_url($managetokenurl, $optionsyes),
                         get_string('reset'));
-        $formcancel = new single_button(new moodle_url($managetokenurl, $optionsno),
+        $formcancel = new single_button(new lion_url($managetokenurl, $optionsno),
                         get_string('cancel'), 'get');
         $html = $this->output->confirm(get_string('resettokenconfirm', 'webservice',
                                 (object) array('user' => $token->firstname . " " .
@@ -334,7 +320,7 @@ class core_webservice_renderer extends plugin_renderer_base {
                     $reset = '';
                 }
 
-                $userprofilurl = new moodle_url('/user/view.php?id=' . $token->creatorid);
+                $userprofilurl = new lion_url('/user/view.php?id=' . $token->creatorid);
                 $creatoratag = html_writer::start_tag('a', array('href' => $userprofilurl));
                 $creatoratag .= $creator;
                 $creatoratag .= html_writer::end_tag('a');
@@ -351,7 +337,7 @@ class core_webservice_renderer extends plugin_renderer_base {
                 $row = array($token->token, $tokenname, $validuntil, $creatoratag, $reset);
 
                 if ($documentation) {
-                    $doclink = new moodle_url('/webservice/wsdoc.php',
+                    $doclink = new lion_url('/webservice/wsdoc.php',
                             array('id' => $token->id, 'sesskey' => sesskey()));
                     $row[] = html_writer::tag('a', get_string('doc', 'webservice'),
                             array('href' => $doclink));
@@ -373,7 +359,7 @@ class core_webservice_renderer extends plugin_renderer_base {
      * ws description object can be 'external_multiple_structure', 'external_single_structure'
      * or 'external_value'
      *
-     * Example of documentation for moodle_group_create_groups function:
+     * Example of documentation for lion_group_create_groups function:
      * list of (
      *     object {
      *         courseid int //id of course
@@ -649,7 +635,7 @@ EOF;
 EOF;
         // Some general information
         $docinfo = new stdClass();
-        $docurl = new moodle_url('http://docs.moodle.org/dev/Creating_a_web_service_client');
+        $docurl = new lion_url('http://docs.lion.org/dev/Creating_a_web_service_client');
         $docinfo->doclink = html_writer::tag('a',
                         get_string('wsclientdoc', 'webservice'), array('href' => $docurl));
         $documentationhtml .= get_string('wsdocumentationintro', 'webservice', $docinfo);
@@ -658,7 +644,7 @@ EOF;
 
         // Print button
         $authparams['print'] = true;
-        $url = new moodle_url($parenturl, $authparams); // Required
+        $url = new lion_url($parenturl, $authparams); // Required
         $documentationhtml .= $this->output->single_button($url, get_string('print', 'webservice'));
         $documentationhtml .= $br;
 

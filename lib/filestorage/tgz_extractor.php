@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Implementation of .tar.gz extractor. Handles extraction of .tar.gz files.
@@ -24,7 +10,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Extracts .tar.gz files (POSIX format).
@@ -119,7 +105,7 @@ class tgz_extractor {
     /**
      * Constructor.
      *
-     * @param stored_file|string $archivefile Moodle file or OS path to archive
+     * @param stored_file|string $archivefile Lion file or OS path to archive
      */
     public function __construct($archivefile) {
         if (is_a($archivefile, 'stored_file')) {
@@ -135,7 +121,7 @@ class tgz_extractor {
      * @param tgz_extractor_handler $handler Will be called for extracted files
      * @param file_progress $progress Optional progress reporting
      * @return array Array from archive path => true of processed files
-     * @throws moodle_exception If there is any error processing the archive
+     * @throws lion_exception If there is any error processing the archive
      */
     public function extract(tgz_extractor_handler $handler, file_progress $progress = null) {
         $this->mode = self::MODE_EXTRACT;
@@ -150,7 +136,7 @@ class tgz_extractor {
      *
      * @param tgz_extractor_handler $handler Optional handler
      * @param file_progress $progress Optional progress reporting
-     * @throws moodle_exception If there is any error processing the archive
+     * @throws lion_exception If there is any error processing the archive
      */
     protected function extract_or_list(tgz_extractor_handler $handler = null, file_progress $progress = null) {
         // Open archive.
@@ -165,7 +151,7 @@ class tgz_extractor {
             $estimatedbuffers = (filesize($this->ospath) * 2 / self::READ_BLOCK_SIZE) + 1;
         }
         if (!$gz) {
-            throw new moodle_exception('errorprocessingarchive', '', '', null,
+            throw new lion_exception('errorprocessingarchive', '', '', null,
                     'Failed to open gzip file');
         }
 
@@ -287,7 +273,7 @@ class tgz_extractor {
         if ($magic !== "ustar\0" && $magic !== "ustar ") {
             // There are two checks above; the first is the correct POSIX format
             // and the second is for GNU tar default format.
-            throw new moodle_exception('errorprocessingarchive', '', '', null,
+            throw new lion_exception('errorprocessingarchive', '', '', null,
                     'Header does not have POSIX ustar magic string');
         }
 
@@ -365,7 +351,7 @@ class tgz_extractor {
             // Except when skipping the file, write it out.
             if ($this->currentfile !== true) {
                 if (!fwrite($this->currentfp, $this->filebuffer)) {
-                    throw new moodle_exception('errorprocessingarchive', '', '', null,
+                    throw new lion_exception('errorprocessingarchive', '', '', null,
                             'Failed to write buffer to output file: ' . $this->currentfile);
                 }
             }
@@ -386,7 +372,7 @@ class tgz_extractor {
      * @param int $filesize Size in bytes
      * @param int $mtime File-modified time
      * @param tgz_extractor_handler $handler Will be called for extracted files
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     protected function start_current_file($archivepath, $filesize, $mtime,
             tgz_extractor_handler $handler = null) {
@@ -430,7 +416,7 @@ class tgz_extractor {
         if ($this->currentfile !== true) {
             $this->currentfp = fopen($this->currentfile, 'wb');
             if (!$this->currentfp) {
-                throw new moodle_exception('errorprocessingarchive', '', '', null,
+                throw new lion_exception('errorprocessingarchive', '', '', null,
                         'Failed to open output file: ' . $this->currentfile);
             }
         } else {
@@ -447,12 +433,12 @@ class tgz_extractor {
      * Closes the current file, calls handler, and sets up data.
      *
      * @param tgz_extractor_handler $handler Will be called for extracted files
-     * @throws moodle_exception If there is an error closing it
+     * @throws lion_exception If there is an error closing it
      */
     protected function close_current_file($handler) {
         if ($this->currentfp !== null) {
             if (!fclose($this->currentfp)) {
-                throw new moodle_exception('errorprocessingarchive', '', '', null,
+                throw new lion_exception('errorprocessingarchive', '', '', null,
                         'Failed to close output file: ' .  $this->currentfile);
             }
 

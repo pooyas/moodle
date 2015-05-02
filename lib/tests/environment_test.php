@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moodle environment test.
+ * Lion environment test.
  *
  * @package    core
  * @category   phpunit
  * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -38,7 +24,7 @@ class core_environment_testcase extends advanced_testcase {
         global $CFG;
 
         require_once($CFG->libdir.'/environmentlib.php');
-        list($envstatus, $environment_results) = check_moodle_environment(normalize_version($CFG->release), ENV_SELECT_RELEASE);
+        list($envstatus, $environment_results) = check_lion_environment(normalize_version($CFG->release), ENV_SELECT_RELEASE);
 
         $this->assertNotEmpty($envstatus);
         foreach ($environment_results as $environment_result) {
@@ -63,26 +49,26 @@ class core_environment_testcase extends advanced_testcase {
         // Build a sample xmlised environment.xml.
         $xml = <<<END
 <COMPATIBILITY_MATRIX>
-    <MOODLE version="1.9">
+    <LION version="1.9">
         <PHP_EXTENSIONS>
             <PHP_EXTENSION name="xsl" level="required" />
         </PHP_EXTENSIONS>
-    </MOODLE>
-    <MOODLE version="2.5">
+    </LION>
+    <LION version="2.5">
         <PHP_EXTENSIONS>
             <PHP_EXTENSION name="xsl" level="required" />
         </PHP_EXTENSIONS>
-    </MOODLE>
-    <MOODLE version="2.6">
+    </LION>
+    <LION version="2.6">
         <PHP_EXTENSIONS>
             <PHP_EXTENSION name="xsl" level="required" />
         </PHP_EXTENSIONS>
-    </MOODLE>
-    <MOODLE version="2.7">
+    </LION>
+    <LION version="2.7">
         <PHP_EXTENSIONS>
             <PHP_EXTENSION name="xsl" level="required" />
         </PHP_EXTENSIONS>
-    </MOODLE>
+    </LION>
     <PLUGIN name="block_test">
         <PHP_EXTENSIONS>
             <PHP_EXTENSION name="xsl" level="required" />

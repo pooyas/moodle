@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Events tests.
  *
  * @package core_message
  * @category test
- * @copyright 2014 Mark Nelson <markn@moodle.com>
+ * @copyright 2014 Mark Nelson <markn@lion.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class core_message_events_testcase extends advanced_testcase {
 
@@ -58,7 +44,7 @@ class core_message_events_testcase extends advanced_testcase {
         $expected = array(SITEID, 'message', 'add contact', 'index.php?user1=' . $user->id .
             '&amp;user2=2', $user->id);
         $this->assertEventLegacyLogData($expected, $event);
-        $url = new moodle_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
+        $url = new lion_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -87,7 +73,7 @@ class core_message_events_testcase extends advanced_testcase {
         $expected = array(SITEID, 'message', 'remove contact', 'index.php?user1=' . $user->id .
             '&amp;user2=2', $user->id);
         $this->assertEventLegacyLogData($expected, $event);
-        $url = new moodle_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
+        $url = new lion_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -116,7 +102,7 @@ class core_message_events_testcase extends advanced_testcase {
         $this->assertEquals(context_user::instance(2), $event->get_context());
         $expected = array(SITEID, 'message', 'block contact', 'index.php?user1=' . $user->id . '&amp;user2=2', $user->id);
         $this->assertEventLegacyLogData($expected, $event);
-        $url = new moodle_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
+        $url = new lion_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
         $this->assertEquals($url, $event->get_url());
 
         // Now blocking a user that is not a contact.
@@ -130,7 +116,7 @@ class core_message_events_testcase extends advanced_testcase {
         $this->assertEquals(context_user::instance(2), $event->get_context());
         $expected = array(SITEID, 'message', 'block contact', 'index.php?user1=' . $user2->id . '&amp;user2=2', $user2->id);
         $this->assertEventLegacyLogData($expected, $event);
-        $url = new moodle_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
+        $url = new lion_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -158,7 +144,7 @@ class core_message_events_testcase extends advanced_testcase {
         $this->assertEquals(context_user::instance(2), $event->get_context());
         $expected = array(SITEID, 'message', 'unblock contact', 'index.php?user1=' . $user->id . '&amp;user2=2', $user->id);
         $this->assertEventLegacyLogData($expected, $event);
-        $url = new moodle_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
+        $url = new lion_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -189,7 +175,7 @@ class core_message_events_testcase extends advanced_testcase {
         $this->assertEquals(context_system::instance(), $event->get_context());
         $expected = array(SITEID, 'message', 'write', 'index.php?user=1&id=2&history=1#m3', 1);
         $this->assertEventLegacyLogData($expected, $event);
-        $url = new moodle_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
+        $url = new lion_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -216,7 +202,7 @@ class core_message_events_testcase extends advanced_testcase {
         // Check that the event data is valid.
         $this->assertInstanceOf('\core\event\message_viewed', $event);
         $this->assertEquals(context_user::instance(2), $event->get_context());
-        $url = new moodle_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
+        $url = new lion_url('/message/index.php', array('user1' => $event->userid, 'user2' => $event->relateduserid));
         $this->assertEquals($url, $event->get_url());
     }
 }

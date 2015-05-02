@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -22,7 +8,7 @@
  *
  * @package   core_form
  * @copyright 2011 Marina Glancy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 global $CFG;
@@ -30,7 +16,7 @@ require_once("HTML/QuickForm/element.php");
 require_once($CFG->dirroot.'/grade/grading/form/lib.php');
 
 if (class_exists('HTML_QuickForm')) {
-    HTML_QuickForm::registerRule('gradingvalidated', 'callback', '_validate', 'MoodleQuickForm_grading');
+    HTML_QuickForm::registerRule('gradingvalidated', 'callback', '_validate', 'LionQuickForm_grading');
 }
 
 /**
@@ -45,9 +31,9 @@ if (class_exists('HTML_QuickForm')) {
  * @package   core_form
  * @category  form
  * @copyright 2011 Marina Glancy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_grading extends HTML_QuickForm_input{
+class LionQuickForm_grading extends HTML_QuickForm_input{
     /** @var string html for help button, if empty then no help */
     var $_helpbutton='';
 
@@ -61,7 +47,7 @@ class MoodleQuickForm_grading extends HTML_QuickForm_input{
      * @param mixed $elementLabel Label(s) for the input field
      * @param mixed $attributes Either a typical HTML attribute string or an associative array
      */
-    public function MoodleQuickForm_grading($elementName=null, $elementLabel=null, $attributes=null) {
+    public function LionQuickForm_grading($elementName=null, $elementLabel=null, $attributes=null) {
         parent::HTML_QuickForm_input($elementName, $elementLabel, $attributes);
         $this->gradingattributes = $attributes;
     }
@@ -117,13 +103,13 @@ class MoodleQuickForm_grading extends HTML_QuickForm_input{
      * @param mixed $arg event arguments
      * @param object $caller calling object
      * @return bool
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     public function onQuickFormEvent($event, $arg, &$caller) {
         if ($event == 'createElement') {
             $attributes = $arg[2];
             if (!is_array($attributes) || !array_key_exists('gradinginstance', $attributes) || !($attributes['gradinginstance'] instanceof gradingform_instance)) {
-                throw new moodle_exception('exc_gradingformelement', 'grading');
+                throw new lion_exception('exc_gradingformelement', 'grading');
             }
         }
 
@@ -140,7 +126,7 @@ class MoodleQuickForm_grading extends HTML_QuickForm_input{
      *
      * @param mixed $elementvalue value of element to be validated
      * @param array $attributes element attributes
-     * @return MoodleQuickForm_grading
+     * @return LionQuickForm_grading
      */
     public static function _validate($elementvalue, $attributes = null) {
         if (!$attributes['gradinginstance']->is_empty_form($elementvalue)) {

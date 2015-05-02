@@ -1,48 +1,34 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the definition for the renderable classes for the assignment
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * This class wraps the submit for grading confirmation page
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_submit_for_grading_page implements renderable {
     /** @var array $notifications is a list of notification messages returned from the plugins */
     public $notifications = array();
     /** @var int $coursemoduleid */
     public $coursemoduleid = 0;
-    /** @var moodleform $confirmform */
+    /** @var lionform $confirmform */
     public $confirmform = null;
 
     /**
      * Constructor
      * @param string $notifications - Any mesages to display
      * @param int $coursemoduleid
-     * @param moodleform $confirmform
+     * @param lionform $confirmform
      */
     public function __construct($notifications, $coursemoduleid, $confirmform) {
         $this->notifications = $notifications;
@@ -56,7 +42,7 @@ class assign_submit_for_grading_page implements renderable {
  * Implements a renderable message notification
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_gradingmessage implements renderable {
     /** @var string $heading is the heading to display to the user */
@@ -90,10 +76,10 @@ class assign_gradingmessage implements renderable {
  * Implements a renderable grading options form
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_form implements renderable {
-    /** @var moodleform $form is the edit submission form */
+    /** @var lionform $form is the edit submission form */
     public $form = null;
     /** @var string $classname is the name of the class to assign to the container */
     public $classname = '';
@@ -103,10 +89,10 @@ class assign_form implements renderable {
     /**
      * Constructor
      * @param string $classname This is the class name for the container div
-     * @param moodleform $form This is the moodleform
+     * @param lionform $form This is the lionform
      * @param string $jsinitfunction This is an optional js function to add to the page requires
      */
-    public function __construct($classname, moodleform $form, $jsinitfunction = '') {
+    public function __construct($classname, lionform $form, $jsinitfunction = '') {
         $this->classname = $classname;
         $this->form = $form;
         $this->jsinitfunction = $jsinitfunction;
@@ -118,7 +104,7 @@ class assign_form implements renderable {
  * Implements a renderable user summary
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_user_summary implements renderable {
     /** @var stdClass $user suitable for rendering with user_picture and fullname(). */
@@ -167,7 +153,7 @@ class assign_user_summary implements renderable {
  * Implements a renderable feedback plugin feedback
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_feedback_plugin_feedback implements renderable {
     /** @var int SUMMARY */
@@ -218,7 +204,7 @@ class assign_feedback_plugin_feedback implements renderable {
  * Implements a renderable submission plugin submission
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_submission_plugin_submission implements renderable {
     /** @var int SUMMARY */
@@ -267,7 +253,7 @@ class assign_submission_plugin_submission implements renderable {
  * Renderable feedback status
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_feedback_status implements renderable {
 
@@ -322,7 +308,7 @@ class assign_feedback_status implements renderable {
  * Renderable submission status
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_submission_status implements renderable {
     /** @var int STUDENT_VIEW */
@@ -484,7 +470,7 @@ class assign_submission_status implements renderable {
  *
  * @package mod_assign
  * @copyright 2012 Davo Smith, Synergy Learning
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_attempt_history implements renderable {
 
@@ -550,7 +536,7 @@ class assign_attempt_history implements renderable {
  * Renderable header
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_header implements renderable {
     /** @var stdClass the assign record  */
@@ -599,7 +585,7 @@ class assign_header implements renderable {
  * Renderable header related to an individual subplugin
  * @package   mod_assign
  * @copyright 2014 Henning Bostelmann
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_plugin_header implements renderable {
     /** @var assign_plugin $plugin */
@@ -619,7 +605,7 @@ class assign_plugin_header implements renderable {
  * Renderable grading summary
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_grading_summary implements renderable {
     /** @var int participantcount - The number of users who can submit to this assignment */
@@ -684,7 +670,7 @@ class assign_grading_summary implements renderable {
  * Renderable course index summary
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_course_index_summary implements renderable {
     /** @var array assignments - A list of course module info and submission counts or statuses */
@@ -734,14 +720,14 @@ class assign_course_index_summary implements renderable {
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_files implements renderable {
     /** @var context $context */
     public $context;
     /** @var string $context */
     public $dir;
-    /** @var MoodleQuickForm $portfolioform */
+    /** @var LionQuickForm $portfolioform */
     public $portfolioform;
     /** @var stdClass $cm course module */
     public $cm;

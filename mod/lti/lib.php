@@ -1,34 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// This file is part of BasicLTI4Lion
 //
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-//
-// This file is part of BasicLTI4Moodle
-//
-// BasicLTI4Moodle is an IMS BasicLTI (Basic Learning Tools for Interoperability)
-// consumer for Moodle 1.9 and Moodle 2.0. BasicLTI is a IMS Standard that allows web
+// BasicLTI4Lion is an IMS BasicLTI (Basic Learning Tools for Interoperability)
+// consumer for Lion 1.9 and Lion 2.0. BasicLTI is a IMS Standard that allows web
 // based learning tools to be easily integrated in LMS as native ones. The IMS BasicLTI
 // specification is part of the IMS standard Common Cartridge 1.1 Sakai and other main LMS
 // are already supporting or going to support BasicLTI. This project Implements the consumer
-// for Moodle. Moodle is a Free Open source Learning Management System by Martin Dougiamas.
-// BasicLTI4Moodle is a project iniciated and leaded by Ludo(Marc Alier) and Jordi Piguillem
+// for Lion. Lion is a Free Open source Learning Management System by Martin Dougiamas.
+// BasicLTI4Lion is a project iniciated and leaded by Ludo(Marc Alier) and Jordi Piguillem
 // at the GESSI research group at UPC.
-// SimpleLTI consumer for Moodle is an implementation of the early specification of LTI
+// SimpleLTI consumer for Lion is an implementation of the early specification of LTI
 // by Charles Severance (Dr Chuck) htp://dr-chuck.com , developed by Jordi Piguillem in a
 // Google Summer of Code 2008 project co-mentored by Charles Severance and Marc Alier.
 //
-// BasicLTI4Moodle is copyright 2009 by Marc Alier Forment, Jordi Piguillem and Nikolas Galanis
+// BasicLTI4Lion is copyright 2009 by Marc Alier Forment, Jordi Piguillem and Nikolas Galanis
 // of the Universitat Politecnica de Catalunya http://www.upc.edu
 // Contact info: Marc Alier Forment granludo @ gmail.com or marc.alier @ upc.edu.
 
@@ -43,10 +29,10 @@
  * @author     Jordi Piguillem
  * @author     Nikolas Galanis
  * @author     Chris Scribner
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Returns all other caps used in module.
@@ -54,7 +40,7 @@ defined('MOODLE_INTERNAL') || die;
  * @return array
  */
 function lti_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -71,7 +57,7 @@ function lti_supports($feature) {
         case FEATURE_COMPLETION_TRACKS_VIEWS:
         case FEATURE_GRADE_HAS_GRADE:
         case FEATURE_GRADE_OUTCOMES:
-        case FEATURE_BACKUP_MOODLE2:
+        case FEATURE_BACKUP_LION2:
         case FEATURE_SHOW_DESCRIPTION:
             return true;
 
@@ -261,9 +247,9 @@ function lti_get_coursemodule_info($coursemodule) {
     // We want to use the right icon based on whether the
     // current page is being requested over http or https.
     if (lti_request_is_using_ssl() && !empty($lti->secureicon)) {
-        $info->iconurl = new moodle_url($lti->secureicon);
+        $info->iconurl = new lion_url($lti->secureicon);
     } else if (!empty($lti->icon)) {
-        $info->iconurl = new moodle_url($lti->icon);
+        $info->iconurl = new lion_url($lti->icon);
     }
 
     if ($coursemodule->showdescription) {
@@ -280,7 +266,7 @@ function lti_get_coursemodule_info($coursemodule) {
     }
     $launchcontainer = lti_get_launch_container($lti, $toolconfig);
     if ($launchcontainer == LTI_LAUNCH_CONTAINER_WINDOW) {
-        $launchurl = new moodle_url('/mod/lti/launch.php', array('id' => $coursemodule->id));
+        $launchurl = new lion_url('/mod/lti/launch.php', array('id' => $coursemodule->id));
         $info->onclick = "window.open('" . $launchurl->out(false) . "', 'lti'); return false;";
     }
 
@@ -297,7 +283,7 @@ function lti_get_coursemodule_info($coursemodule) {
  * $return->info = a short text description
  *
  * @return null
- * @TODO: implement this moodle function (if needed)
+ * @TODO: implement this lion function (if needed)
  **/
 function lti_user_outline($course, $user, $mod, $basiclti) {
     return null;
@@ -308,7 +294,7 @@ function lti_user_outline($course, $user, $mod, $basiclti) {
  * a given particular instance of this module, for user activity reports.
  *
  * @return boolean
- * @TODO: implement this moodle function (if needed)
+ * @TODO: implement this lion function (if needed)
  **/
 function lti_user_complete($course, $user, $mod, $basiclti) {
     return true;
@@ -321,14 +307,14 @@ function lti_user_complete($course, $user, $mod, $basiclti) {
  *
  * @uses $CFG
  * @return boolean
- * @TODO: implement this moodle function
+ * @TODO: implement this lion function
  **/
 function lti_print_recent_activity($course, $isteacher, $timestart) {
     return false;  //  True if anything was printed, otherwise false.
 }
 
 /**
- * Function to be run periodically according to the moodle cron
+ * Function to be run periodically according to the lion cron
  * This function searches for things that need to be done, such
  * as sending out mail, toggling flags etc ...
  *
@@ -352,7 +338,7 @@ function lti_cron () {
  * @param int $basicltiid ID of an instance of this module
  * @return mixed Null or object with an array of grades and with the maximum grade
  *
- * @TODO: implement this moodle function (if needed)
+ * @TODO: implement this lion function (if needed)
  **/
 function lti_grades($basicltiid) {
     return null;
@@ -367,7 +353,7 @@ function lti_grades($basicltiid) {
  * @param int $basicltiid ID of an instance of this module
  * @return mixed
  *
- * @TODO: implement this moodle function (if needed)
+ * @TODO: implement this lion function (if needed)
  **/
 function lti_scale_used ($basicltiid, $scaleid) {
     $return = false;
@@ -487,7 +473,7 @@ function lti_extend_settings_navigation($settings, $parentnode) {
         $keys = $parentnode->get_children_key_list();
 
         $node = navigation_node::create('Submissions',
-            new moodle_url('/mod/lti/grade.php', array('id' => $PAGE->cm->id)),
+            new lion_url('/mod/lti/grade.php', array('id' => $PAGE->cm->id)),
             navigation_node::TYPE_SETTING, null, 'mod_lti_submissions');
 
         $parentnode->add_node($node, $keys[1]);

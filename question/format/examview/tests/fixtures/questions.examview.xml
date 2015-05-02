@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes'?>
 <examview type='test' platform='Windows' app-version='4.0.2'>
     <header>
-        <title>Moodle Example</title>
+        <title>Lion Example</title>
         <version>A</version>
     </header>
     <font-table>
@@ -156,7 +156,7 @@
     </question>
     <question type='es' question-id='4' bank-id='0'>
         <text>This is an essay question.  I am not sure if an answer is needed.</text>
-        <answer>This is the answer in Examview.  I am curious to see how this shows in Moodle.</answer>
+        <answer>This is the answer in Examview.  I am curious to see how this shows in Lion.</answer>
         <info>
             <answer-space>-1</answer-space>
         </info>

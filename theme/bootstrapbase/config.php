@@ -1,40 +1,26 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Configuration for Moodle's bootstrap theme.
+ * Configuration for Lion's bootstrap theme.
  *
  * DO NOT MODIFY THIS THEME!
  * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
  *
- * For full information about creating Moodle themes, see:
- * http://docs.moodle.org/dev/Themes_2.0
+ * For full information about creating Lion themes, see:
+ * http://docs.lion.org/dev/Themes_2.0
  *
  * @package   theme_bootstrapbase
  * @copyright 2013 Bas Brands. www.sonsbeekmedia.nl
  * @author    Bas Brands
  * @author    David Scotson
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 $THEME->doctype = 'html5';
 $THEME->yuicssmodules = array();
 $THEME->name = 'bootstrapbase';
 $THEME->parents = array();
-$THEME->sheets = array('moodle');
+$THEME->sheets = array('lion');
 $THEME->supportscssoptimisation = false;
 $THEME->enable_dock = false;
 $THEME->editor_sheets = array('editor');
@@ -115,7 +101,7 @@ $THEME->layouts = array(
         'regions' => array(),
         'options' => array('nofooter' => true, 'nocoursefooter' => true),
     ),
-    // Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
+    // Embeded pages, like iframe/object embeded in lionform - it needs as much space as possible.
     'embedded' => array(
         'file' => 'embedded.php',
         'regions' => array()
@@ -155,7 +141,7 @@ $THEME->layouts = array(
 $THEME->javascripts = array(
 );
 $THEME->javascripts_footer = array(
-    'moodlebootstrap', 'dock'
+    'lionbootstrap', 'dock'
 );
 
 if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {

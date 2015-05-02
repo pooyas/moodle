@@ -4,19 +4,19 @@
 //                                                                         //
 // NOTICE OF COPYRIGHT                                                     //
 //                                                                         //
-// Moodle - Calendar extension                                             //
+// Lion - Calendar extension                                             //
 //                                                                         //
 // Copyright (C) 2003-2004  Greek School Network            www.sch.gr     //
 //                                                                         //
 // Designed by:                                                            //
 //     Avgoustos Tsinakos (tsinakos@teikav.edu.gr)                         //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // Programming and development:                                            //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // For bugs, suggestions, etc contact:                                     //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // The current module was developed at the University of Macedonia         //
 // (www.uom.gr) under the funding of the Greek School Network (www.sch.gr) //
@@ -39,9 +39,9 @@
 /////////////////////////////////////////////////////////////////////////////
 
 /**
- * This file is part of the Calendar section Moodle
+ * This file is part of the Calendar section Lion
  *
- * @copyright 2003-2004 Jon Papaioannou (pj@moodle.org)
+ * @copyright 2003-2004 Jon Papaioannou (pj@lion.org)
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v2 or later
  * @package calendar
  */
@@ -75,7 +75,7 @@ if (!empty($day) && !empty($month) && !empty($year)) {
     $time = time();
 }
 
-$url = new moodle_url('/calendar/event.php', array('action' => $action));
+$url = new lion_url('/calendar/event.php', array('action' => $action));
 
 if ($eventid != 0) {
     $url->param('id', $eventid);
@@ -100,7 +100,7 @@ if ($courseid != SITEID && !empty($courseid)) {
 require_login($course, false);
 
 if ($action === 'delete' && $eventid > 0) {
-    $deleteurl = new moodle_url('/calendar/delete.php', array('id'=>$eventid));
+    $deleteurl = new lion_url('/calendar/delete.php', array('id'=>$eventid));
     if ($courseid > 0) {
         $deleteurl->param('course', $courseid);
     }
@@ -169,7 +169,7 @@ if ($data) {
         'view' => 'day',
         'time' => $event->timestart,
     );
-    $eventurl = new moodle_url('/calendar/view.php', $params);
+    $eventurl = new lion_url('/calendar/view.php', $params);
     if (!empty($event->courseid) && $event->courseid != SITEID) {
         $eventurl->param('course', $event->courseid);
     }
@@ -177,7 +177,7 @@ if ($data) {
     redirect($eventurl);
 }
 
-$viewcalendarurl = new moodle_url(CALENDAR_URL.'view.php', $PAGE->url->params());
+$viewcalendarurl = new lion_url(CALENDAR_URL.'view.php', $PAGE->url->params());
 $viewcalendarurl->remove_params(array('id', 'action'));
 $viewcalendarurl->param('view', 'upcoming');
 $strcalendar = get_string('calendar', 'calendar');

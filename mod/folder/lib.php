@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Mandatory public API of folder module
  *
  * @package   mod_folder
  * @copyright 2009 Petr Skoda  {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** Display folder contents on a separate page */
 define('FOLDER_DISPLAY_PAGE', 0);
@@ -44,7 +30,7 @@ function folder_supports($feature) {
         case FEATURE_COMPLETION_TRACKS_VIEWS: return true;
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -56,11 +42,11 @@ function folder_supports($feature) {
  * @return array
  */
 function folder_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
- * This function is used by the reset_course_userdata function in moodlelib.
+ * This function is used by the reset_course_userdata function in lionlib.
  * @param $data the data submitted from the reset course.
  * @return array status array
  */
@@ -396,7 +382,7 @@ function folder_get_coursemodule_info($cm) {
         $fdata->showexpanded = $folder->showexpanded;
         if ($cm->showdescription && strlen(trim($folder->intro))) {
             $fdata->intro = $folder->intro;
-            if ($folder->introformat != FORMAT_MOODLE) {
+            if ($folder->introformat != FORMAT_LION) {
                 $fdata->introformat = $folder->introformat;
             }
         }
@@ -447,7 +433,7 @@ function folder_cm_info_view(cm_info $cm) {
             $folder->intro = '';
         }
         if (empty($folder->introformat)) {
-            $folder->introformat = FORMAT_MOODLE;
+            $folder->introformat = FORMAT_LION;
         }
         // display folder
         $renderer = $PAGE->get_renderer('mod_folder');

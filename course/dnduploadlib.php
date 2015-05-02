@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library to handle drag and drop course uploads
@@ -20,10 +6,10 @@
  * @package    core
  * @subpackage lib
  * @copyright  2012 Davo smith
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/repository/lib.php');
 require_once($CFG->dirroot.'/repository/upload/lib.php');
@@ -53,19 +39,19 @@ function dndupload_add_to_course($course, $modnames) {
         'name' => 'coursedndupload',
         'fullpath' => '/course/dndupload.js',
         'strings' => array(
-            array('addfilehere', 'moodle'),
-            array('dndworkingfiletextlink', 'moodle'),
-            array('dndworkingfilelink', 'moodle'),
-            array('dndworkingfiletext', 'moodle'),
-            array('dndworkingfile', 'moodle'),
-            array('dndworkingtextlink', 'moodle'),
-            array('dndworkingtext', 'moodle'),
-            array('dndworkinglink', 'moodle'),
-            array('filetoolarge', 'moodle'),
-            array('actionchoice', 'moodle'),
-            array('servererror', 'moodle'),
-            array('upload', 'moodle'),
-            array('cancel', 'moodle')
+            array('addfilehere', 'lion'),
+            array('dndworkingfiletextlink', 'lion'),
+            array('dndworkingfilelink', 'lion'),
+            array('dndworkingfiletext', 'lion'),
+            array('dndworkingfile', 'lion'),
+            array('dndworkingtextlink', 'lion'),
+            array('dndworkingtext', 'lion'),
+            array('dndworkinglink', 'lion'),
+            array('filetoolarge', 'lion'),
+            array('actionchoice', 'lion'),
+            array('servererror', 'lion'),
+            array('upload', 'lion'),
+            array('cancel', 'lion')
         ),
         'requires' => array('node', 'event', 'json', 'anim')
     );
@@ -85,7 +71,7 @@ function dndupload_add_to_course($course, $modnames) {
  *
  * @package    core
  * @copyright  2012 Davo Smith
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class dndupload_handler {
 
@@ -117,12 +103,12 @@ class dndupload_handler {
         // Add some default types to handle.
         // Note: 'Files' type is hard-coded into the Javascript as this needs to be ...
         // ... treated a little differently.
-        $this->register_type('url', array('url', 'text/uri-list', 'text/x-moz-url'), get_string('addlinkhere', 'moodle'),
-                        get_string('nameforlink', 'moodle'), get_string('whatforlink', 'moodle'), 10);
-        $this->register_type('text/html', array('text/html'), get_string('addpagehere', 'moodle'),
-                        get_string('nameforpage', 'moodle'), get_string('whatforpage', 'moodle'), 20);
-        $this->register_type('text', array('text', 'text/plain'), get_string('addpagehere', 'moodle'),
-                        get_string('nameforpage', 'moodle'), get_string('whatforpage', 'moodle'), 30);
+        $this->register_type('url', array('url', 'text/uri-list', 'text/x-moz-url'), get_string('addlinkhere', 'lion'),
+                        get_string('nameforlink', 'lion'), get_string('whatforlink', 'lion'), 10);
+        $this->register_type('text/html', array('text/html'), get_string('addpagehere', 'lion'),
+                        get_string('nameforpage', 'lion'), get_string('whatforpage', 'lion'), 20);
+        $this->register_type('text', array('text', 'text/plain'), get_string('addpagehere', 'lion'),
+                        get_string('nameforpage', 'lion'), get_string('whatforpage', 'lion'), 30);
 
         $this->context = context_course::instance($course->id);
 
@@ -373,7 +359,7 @@ class dndupload_handler {
  *
  * @package    core
  * @copyright  2012 Davo Smith
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class dndupload_ajax_processor {
 
@@ -453,16 +439,16 @@ class dndupload_ajax_processor {
      * @param string $content optional the content of the upload (for non-file uploads)
      */
     public function process($displayname = null, $content = null) {
-        require_capability('moodle/course:manageactivities', $this->context);
+        require_capability('lion/course:manageactivities', $this->context);
 
         if ($this->is_file_upload()) {
-            require_capability('moodle/course:managefiles', $this->context);
+            require_capability('lion/course:managefiles', $this->context);
             if ($content != null) {
-                throw new moodle_exception('fileuploadwithcontent', 'moodle');
+                throw new lion_exception('fileuploadwithcontent', 'lion');
             }
         } else {
             if (empty($content)) {
-                throw new moodle_exception('dnduploadwithoutcontent', 'moodle');
+                throw new lion_exception('dnduploadwithoutcontent', 'lion');
             }
         }
 
@@ -490,7 +476,7 @@ class dndupload_ajax_processor {
         $types = $this->dnduploadhandler->get_handled_file_types($this->module->name);
         $repo = repository::get_instances(array('type' => 'upload', 'currentcontext' => $this->context));
         if (empty($repo)) {
-            throw new moodle_exception('errornouploadrepo', 'moodle');
+            throw new lion_exception('errornouploadrepo', 'lion');
         }
         $repo = reset($repo); // Get the first (and only) upload repo.
         $details = $repo->process_upload(null, $maxbytes, $types, '/', $draftitemid);
@@ -522,7 +508,7 @@ class dndupload_ajax_processor {
         // Check this plugin is registered to handle this type of upload
         if (!$this->dnduploadhandler->has_type_handler($this->module->name, $this->type)) {
             $info = (object)array('modname' => $this->module->name, 'type' => $this->type);
-            throw new moodle_exception('moddoesnotsupporttype', 'moodle', $info);
+            throw new lion_exception('moddoesnotsupporttype', 'lion', $info);
         }
 
         // Create a course module to hold the new instance.
@@ -628,7 +614,7 @@ class dndupload_ajax_processor {
         if (!$instanceid) {
             // Something has gone wrong - undo everything we can.
             course_delete_module($this->cm->id);
-            throw new moodle_exception('errorcreatingactivity', 'moodle', '', $this->module->name);
+            throw new lion_exception('errorcreatingactivity', 'lion', '', $this->module->name);
         }
 
         // Note the section visibility
@@ -650,7 +636,7 @@ class dndupload_ajax_processor {
         if (!isset($info->cms[$this->cm->id])) {
             // The course module has not been properly created in the course - undo everything.
             course_delete_module($this->cm->id);
-            throw new moodle_exception('errorcreatingactivity', 'moodle', '', $this->module->name);
+            throw new lion_exception('errorcreatingactivity', 'lion', '', $this->module->name);
         }
         $mod = $info->get_cm($this->cm->id);
 

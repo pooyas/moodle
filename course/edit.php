@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Edit course settings
  *
  * @package    core_course
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once('../config.php');
@@ -34,26 +20,26 @@ $returnurl = optional_param('returnurl', '', PARAM_LOCALURL); // A return URL. r
 if ($returnto === 'url' && confirm_sesskey() && $returnurl) {
     // If returnto is 'url' then $returnurl may be used as the destination to return to after saving or cancelling.
     // Sesskey must be specified, and would be set by the form anyway.
-    $returnurl = new moodle_url($returnurl);
+    $returnurl = new lion_url($returnurl);
 } else {
     if (!empty($id)) {
-        $returnurl = new moodle_url($CFG->wwwroot . '/course/view.php', array('id' => $id));
+        $returnurl = new lion_url($CFG->wwwroot . '/course/view.php', array('id' => $id));
     } else {
-        $returnurl = new moodle_url($CFG->wwwroot . '/course/');
+        $returnurl = new lion_url($CFG->wwwroot . '/course/');
     }
     if ($returnto !== 0) {
         switch ($returnto) {
             case 'category':
-                $returnurl = new moodle_url($CFG->wwwroot . '/course/index.php', array('categoryid' => $categoryid));
+                $returnurl = new lion_url($CFG->wwwroot . '/course/index.php', array('categoryid' => $categoryid));
                 break;
             case 'catmanage':
-                $returnurl = new moodle_url($CFG->wwwroot . '/course/management.php', array('categoryid' => $categoryid));
+                $returnurl = new lion_url($CFG->wwwroot . '/course/management.php', array('categoryid' => $categoryid));
                 break;
             case 'topcatmanage':
-                $returnurl = new moodle_url($CFG->wwwroot . '/course/management.php');
+                $returnurl = new lion_url($CFG->wwwroot . '/course/management.php');
                 break;
             case 'topcat':
-                $returnurl = new moodle_url($CFG->wwwroot . '/course/');
+                $returnurl = new lion_url($CFG->wwwroot . '/course/');
                 break;
         }
     }
@@ -88,7 +74,7 @@ if ($id) {
 
     $category = $DB->get_record('course_categories', array('id'=>$course->category), '*', MUST_EXIST);
     $coursecontext = context_course::instance($course->id);
-    require_capability('moodle/course:update', $coursecontext);
+    require_capability('lion/course:update', $coursecontext);
 
 } else if ($categoryid) {
     // Creating new course in this category.
@@ -96,7 +82,7 @@ if ($id) {
     require_login();
     $category = $DB->get_record('course_categories', array('id'=>$categoryid), '*', MUST_EXIST);
     $catcontext = context_coursecat::instance($category->id);
-    require_capability('moodle/course:create', $catcontext);
+    require_capability('lion/course:create', $catcontext);
     $PAGE->set_context($catcontext);
 
 } else {
@@ -153,13 +139,13 @@ if ($editform->is_cancelled()) {
         // Get the context of the newly created course.
         $context = context_course::instance($course->id, MUST_EXIST);
 
-        if (!empty($CFG->creatornewroleid) and !is_viewing($context, NULL, 'moodle/role:assign') and !is_enrolled($context, NULL, 'moodle/role:assign')) {
+        if (!empty($CFG->creatornewroleid) and !is_viewing($context, NULL, 'lion/role:assign') and !is_enrolled($context, NULL, 'lion/role:assign')) {
             // Deal with course creators - enrol them internally with default role.
             enrol_try_internal_enrol($course->id, $USER->id, $CFG->creatornewroleid);
         }
 
         // The URL to take them to if they chose save and display.
-        $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
+        $courseurl = new lion_url('/course/view.php', array('id' => $course->id));
 
         // If they choose to save and display, and they are not enrolled take them to the enrolments page instead.
         if (!is_enrolled($context) && isset($data->saveanddisplay)) {
@@ -169,7 +155,7 @@ if ($editform->is_cancelled()) {
                 if ($plugin = enrol_get_plugin($instance->enrol)) {
                     if ($plugin->get_manual_enrol_link($instance)) {
                         // We know that the ajax enrol UI will have an option to enrol.
-                        $courseurl = new moodle_url('/enrol/users.php', array('id' => $course->id, 'newcourse' => 1));
+                        $courseurl = new lion_url('/enrol/users.php', array('id' => $course->id, 'newcourse' => 1));
                         break;
                     }
                 }
@@ -179,7 +165,7 @@ if ($editform->is_cancelled()) {
         // Save any changes to the files used in the editor.
         update_course($data, $editoroptions);
         // Set the URL to take them too if they choose save and display.
-        $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
+        $courseurl = new lion_url('/course/view.php', array('id' => $course->id));
     }
 
     if (isset($data->saveanddisplay)) {
@@ -210,9 +196,9 @@ if (!empty($course->id)) {
     // The user is adding a course, this page isn't presented in the site navigation/admin.
     // Adding a new course is part of course category management territory.
     // We'd prefer to use the management interface URL without args.
-    $managementurl = new moodle_url('/course/management.php');
+    $managementurl = new lion_url('/course/management.php');
     // These are the caps required in order to see the management interface.
-    $managementcaps = array('moodle/category:manage', 'moodle/course:create');
+    $managementcaps = array('lion/category:manage', 'lion/course:create');
     if ($categoryid && !has_any_capability($managementcaps, context_system::instance())) {
         // If the user doesn't have either manage caps then they can only manage within the given category.
         $managementurl->param('categoryid', $categoryid);

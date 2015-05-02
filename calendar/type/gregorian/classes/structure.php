@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace calendartype_gregorian;
 use core_calendar\type_base;
@@ -46,7 +32,7 @@ class structure extends type_base {
      * than others so this function should return all possible days as
      * we can not predict what month will be chosen (the user
      * may have JS turned off and we need to support this situation in
-     * Moodle).
+     * Lion).
      *
      * @return array the days
      */
@@ -286,7 +272,7 @@ class structure extends type_base {
      * @param int $time the timestamp in UTC, as obtained from the database
      * @param string $format strftime format
      * @param int|float|string $timezone the timezone to use
-     *        {@link http://docs.moodle.org/dev/Time_API#Timezone}
+     *        {@link http://docs.lion.org/dev/Time_API#Timezone}
      * @param bool $fixday if true then the leading zero from %d is removed,
      *        if false then the leading zero is maintained
      * @param bool $fixhour if true then the leading zero from %I is removed,
@@ -362,7 +348,7 @@ class structure extends type_base {
      *
      * @param int $time Timestamp in GMT
      * @param float|int|string $timezone offset's time with timezone, if float and not 99, then no
-     *        dst offset is applied {@link http://docs.moodle.org/dev/Time_API#Timezone}
+     *        dst offset is applied {@link http://docs.lion.org/dev/Time_API#Timezone}
      * @return array an array that represents the date in user time
      */
     public function timestamp_to_date_array($time, $timezone = 99) {

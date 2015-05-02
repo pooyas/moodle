@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Class with front-end (editing form) functionality.
@@ -27,7 +13,7 @@
 
 namespace core_availability;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Class with front-end (editing form) functionality.
@@ -107,8 +93,8 @@ abstract class frontend {
         // make multiple yui_module calls, so we group all the plugin modules
         // into a single call (the main init function will call init for each
         // plugin).
-        $modules = array('moodle-core_availability-form', 'base', 'node',
-                'panel', 'moodle-core-notification-dialogue', 'json');
+        $modules = array('lion-core_availability-form', 'base', 'node',
+                'panel', 'lion-core-notification-dialogue', 'json');
 
         // Work out JS to include for all components.
         $pluginmanager = \core_plugin_manager::instance();
@@ -121,7 +107,7 @@ abstract class frontend {
 
             // Add to array of required YUI modules.
             $component = $frontend->get_component();
-            $modules[] = 'moodle-' . $component . '-form';
+            $modules[] = 'lion-' . $component . '-form';
 
             // Get parameters for this plugin.
             $componentparams->{$plugin} = array($component,
@@ -141,7 +127,7 @@ abstract class frontend {
 
         // Include main strings.
         $PAGE->requires->strings_for_js(array('none', 'cancel', 'delete', 'choosedots'),
-                'moodle');
+                'lion');
         $PAGE->requires->strings_for_js(array('addrestriction', 'invalid',
                 'listheader_sign_before', 'listheader_sign_pos',
                 'listheader_sign_neg', 'listheader_single',

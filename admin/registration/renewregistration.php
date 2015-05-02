@@ -2,26 +2,26 @@
 
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /*
- * @package    moodle
+ * @package    lion
  * @subpackage registration
  * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
@@ -53,14 +53,14 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
     $registrationmanager->delete_registeredhub($url);
 
     //Mooch case, need to recreate the siteidentifier
-    if ($url == HUB_MOODLEORGHUBURL) {
+    if ($url == HUB_LIONORGHUBURL) {
         $CFG->siteidentifier = null;
         get_site_identifier();
     }
 
     $deletedregmsg = get_string('previousregistrationdeleted', 'hub', $hublink);
 
-    $button = new single_button(new moodle_url('/admin/registration/index.php'),
+    $button = new single_button(new lion_url('/admin/registration/index.php'),
                     get_string('restartregistration', 'hub'));
     $button->class = 'restartregbutton';
 
@@ -69,7 +69,7 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
 
     echo $OUTPUT->footer();
 } else {
-    throw new moodle_exception('wrongtoken', 'hub',
+    throw new lion_exception('wrongtoken', 'hub',
             $CFG->wwwroot . '/' . $CFG->admin . '/registration/index.php');
 }
 

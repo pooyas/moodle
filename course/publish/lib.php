@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /// TIME PERIOD ///
 
 define('HUB_LASTMODIFIED_WEEK', 7);
@@ -104,10 +90,10 @@ define('HUB_BACKUP_FILE_TYPE', 'backup');
  * Course publication library
  *
  * @package   course
- * @copyright 2010 Moodle Pty Ltd (http://moodle.com)
+ * @copyright 2010 Lion Pty Ltd (http://lion.com)
  * @author    Jerome Mouneyrac
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 class course_publish_manager {
 

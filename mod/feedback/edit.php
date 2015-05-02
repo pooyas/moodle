@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * prints the form to edit the feedback items such moving, deleting and so on
@@ -43,7 +29,7 @@ $switchitemrequired = optional_param('switchitemrequired', false, PARAM_INT);
 
 $current_tab = $do_show;
 
-$url = new moodle_url('/mod/feedback/edit.php', array('id'=>$id, 'do_show'=>$do_show));
+$url = new lion_url('/mod/feedback/edit.php', array('id'=>$id, 'do_show'=>$do_show));
 
 if (! $cm = get_coursemodule_from_id('feedback', $id)) {
     print_error('invalidcoursemodule');
@@ -166,7 +152,7 @@ if (count($feedbackitems) > 1) {
                'move_item',
                'position',
             ), 'feedback');
-        $PAGE->requires->yui_module('moodle-mod_feedback-dragdrop', 'M.mod_feedback.init_dragdrop',
+        $PAGE->requires->yui_module('lion-mod_feedback-dragdrop', 'M.mod_feedback.init_dragdrop',
                 array(array('cmid' => $cm->id)));
     }
 }
@@ -212,7 +198,7 @@ if ($do_show == 'templates') {
 
     if (has_capability('mod/feedback:createprivatetemplate', $context) OR
                 has_capability('mod/feedback:createpublictemplate', $context)) {
-        $deleteurl = new moodle_url('/mod/feedback/delete_template.php', array('id' => $id));
+        $deleteurl = new lion_url('/mod/feedback/delete_template.php', array('id' => $id));
         $create_template_form->display();
         echo '<p><a href="'.$deleteurl->out().'">'.
              get_string('delete_templates', 'feedback').
@@ -223,8 +209,8 @@ if ($do_show == 'templates') {
 
     if (has_capability('mod/feedback:edititems', $context)) {
         $urlparams = array('action'=>'exportfile', 'id'=>$id);
-        $exporturl = new moodle_url('/mod/feedback/export.php', $urlparams);
-        $importurl = new moodle_url('/mod/feedback/import.php', array('id'=>$id));
+        $exporturl = new lion_url('/mod/feedback/export.php', $urlparams);
+        $importurl = new lion_url('/mod/feedback/import.php', array('id'=>$id));
         echo '<p>
             <a href="'.$exporturl->out().'">'.get_string('export_questions', 'feedback').'</a>/
             <a href="'.$importurl->out().'">'.get_string('import_questions', 'feedback').'</a>
@@ -268,7 +254,7 @@ if ($do_show == 'edit') {
         echo $OUTPUT->box_start('feedback_items');
         if (isset($SESSION->feedback->moving) AND $SESSION->feedback->moving->shouldmoving == 1) {
             $moveposition = 1;
-            $movehereurl = new moodle_url($url, array('movehere'=>$moveposition));
+            $movehereurl = new lion_url($url, array('movehere'=>$moveposition));
             //Only shown if shouldmoving = 1
             echo $OUTPUT->box_start('feedback_item_box_'.$align.' clipboard');
             $buttonlink = $movehereurl->out();
@@ -316,7 +302,7 @@ if ($do_show == 'edit') {
             //Print the moveup-button
             if ($feedbackitem->position > 1) {
                 echo '<span class="feedback_item_command_moveup">';
-                $moveupurl = new moodle_url($url, array('moveupitem'=>$feedbackitem->id));
+                $moveupurl = new lion_url($url, array('moveupitem'=>$feedbackitem->id));
                 $buttonlink = $moveupurl->out();
                 $strbutton = get_string('moveup_item', 'feedback');
                 echo '<a class="icon up" title="'.$strbutton.'" href="'.$buttonlink.'">
@@ -328,7 +314,7 @@ if ($do_show == 'edit') {
             if ($feedbackitem->position < $lastposition - 1) {
                 echo '<span class="feedback_item_command_movedown">';
                 $urlparams = array('movedownitem'=>$feedbackitem->id);
-                $movedownurl = new moodle_url($url, $urlparams);
+                $movedownurl = new lion_url($url, $urlparams);
                 $buttonlink = $movedownurl->out();
                 $strbutton = get_string('movedown_item', 'feedback');
                 echo '<a class="icon down" title="'.$strbutton.'" href="'.$buttonlink.'">
@@ -339,7 +325,7 @@ if ($do_show == 'edit') {
             //Print the move-button
             if (count($feedbackitems) > 1) {
                 echo '<span class="feedback_item_command_move">';
-                $moveurl = new moodle_url($url, array('moveitem'=>$feedbackitem->id));
+                $moveurl = new lion_url($url, array('moveitem'=>$feedbackitem->id));
                 $buttonlink = $moveurl->out();
                 $strbutton = get_string('move_item', 'feedback');
                 echo '<a class="editing_move" title="'.$strbutton.'" href="'.$buttonlink.'">
@@ -350,7 +336,7 @@ if ($do_show == 'edit') {
             //Print the button to edit the item
             if ($feedbackitem->typ != 'pagebreak') {
                 echo '<span class="feedback_item_command_edit">';
-                $editurl = new moodle_url('/mod/feedback/edit_item.php');
+                $editurl = new lion_url('/mod/feedback/edit_item.php');
                 $editurl->params(array('do_show'=>$do_show,
                                          'cmid'=>$id,
                                          'id'=>$feedbackitem->id,
@@ -377,7 +363,7 @@ if ($do_show == 'edit') {
                     $buttonimg = $OUTPUT->pix_url('notrequired', 'feedback');
                 }
                 $urlparams = array('switchitemrequired'=>$feedbackitem->id);
-                $requiredurl = new moodle_url($url, $urlparams);
+                $requiredurl = new lion_url($url, $urlparams);
                 $buttonlink = $requiredurl->out();
                 echo '<a class="icon '.
                         'feedback_switchrequired" '.
@@ -390,7 +376,7 @@ if ($do_show == 'edit') {
 
             //Print the delete-button
             echo '<span class="feedback_item_command_toggle">';
-            $deleteitemurl = new moodle_url('/mod/feedback/delete_item.php');
+            $deleteitemurl = new lion_url('/mod/feedback/delete_item.php');
             $deleteitemurl->params(array('id'=>$id,
                                          'do_show'=>$do_show,
                                          'deleteitem'=>$feedbackitem->id));

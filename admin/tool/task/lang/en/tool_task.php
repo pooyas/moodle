@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Strings for component 'tool_task', language 'en'
  *
  * @package    tool_task
  * @copyright  2014 Damyon Wiese
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 $string['asap'] = 'ASAP';
@@ -38,7 +24,7 @@ $string['pluginname'] = 'Scheduled task configuration';
 $string['resettasktodefaults'] = 'Reset task schedule to defaults';
 $string['resettasktodefaults_help'] = 'This will discard any local changes and revert the schedule for this task back to its original settings.';
 $string['scheduledtasks'] = 'Scheduled tasks';
-$string['scheduledtaskchangesdisabled'] = 'Modifications to the list of scheduled tasks have been prevented in Moodle configuration';
+$string['scheduledtaskchangesdisabled'] = 'Modifications to the list of scheduled tasks have been prevented in Lion configuration';
 $string['taskdisabled'] = 'Task disabled';
 $string['taskscheduleday'] = 'Day';
 $string['taskscheduleday_help'] = 'Day of month field for task schedule. The field uses the same format as unix cron. Some examples are:<br/><ul><li><strong>*</strong> Every day</li><li><strong>*/2</strong> Every 2nd day</li><li><strong>1</strong> The first of every month</li><li><strong>1,15</strong> The first and fifteenth of every month</li></ul>';

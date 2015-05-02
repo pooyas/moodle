@@ -1,33 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * course_overview block rendrer
  *
  * @package    block_course_overview
  * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Course_overview block rendrer
  *
  * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class block_course_overview_renderer extends plugin_renderer_base {
 
@@ -72,7 +58,7 @@ class block_course_overview_renderer extends plugin_renderer_base {
             $html .= get_string('movingcourse', 'block_course_overview', $a);
             $html .= $this->output->box_end();
 
-            $moveurl = new moodle_url('/blocks/course_overview/move.php',
+            $moveurl = new lion_url('/blocks/course_overview/move.php',
                         array('sesskey' => sesskey(), 'moveto' => 0, 'courseid' => $movingcourseid));
             // Create move icon, so it can be used.
             $movetofirsticon = html_writer::empty_tag('img',
@@ -96,7 +82,7 @@ class block_course_overview_renderer extends plugin_renderer_base {
                         array('src' => $this->pix_url('t/move')->out(false),
                             'alt' => get_string('movecourse', 'block_course_overview', $course->fullname),
                             'title' => get_string('move')));
-                $moveurl = new moodle_url($this->page->url, array('sesskey' => sesskey(), 'movecourse' => 1, 'courseid' => $course->id));
+                $moveurl = new lion_url($this->page->url, array('sesskey' => sesskey(), 'movecourse' => 1, 'courseid' => $course->id));
                 $moveurl = html_writer::link($moveurl, $moveicon);
                 $html .= html_writer::tag('div', $moveurl, array('class' => 'move'));
 
@@ -108,13 +94,13 @@ class block_course_overview_renderer extends plugin_renderer_base {
                 if (empty($course->visible)) {
                     $attributes['class'] = 'dimmed';
                 }
-                $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
+                $courseurl = new lion_url('/course/view.php', array('id' => $course->id));
                 $coursefullname = format_string(get_course_display_name_for_list($course), true, $course->id);
                 $link = html_writer::link($courseurl, $coursefullname, $attributes);
                 $html .= $this->output->heading($link, 2, 'title');
             } else {
                 $html .= $this->output->heading(html_writer::link(
-                    new moodle_url('/auth/mnet/jump.php', array('hostid' => $course->hostid, 'wantsurl' => '/course/view.php?id='.$course->remoteid)),
+                    new lion_url('/auth/mnet/jump.php', array('hostid' => $course->hostid, 'wantsurl' => '/course/view.php?id='.$course->remoteid)),
                     format_string($course->shortname, true), $attributes) . ' (' . format_string($course->hostname) . ')', 2, 'title');
             }
             $html .= $this->output->box('', 'flush');
@@ -154,7 +140,7 @@ class block_course_overview_renderer extends plugin_renderer_base {
             $html .= $this->output->box_end();
             $courseordernumber++;
             if ($ismovingcourse) {
-                $moveurl = new moodle_url('/blocks/course_overview/move.php',
+                $moveurl = new lion_url('/blocks/course_overview/move.php',
                             array('sesskey' => sesskey(), 'moveto' => $courseordernumber, 'courseid' => $movingcourseid));
                 $a = new stdClass();
                 $a->movingcoursename = $courses[$movingcourseid]->fullname;
@@ -182,7 +168,7 @@ class block_course_overview_renderer extends plugin_renderer_base {
         $output = html_writer::start_tag('div', array('class' => 'activity_info'));
         foreach (array_keys($overview) as $module) {
             $output .= html_writer::start_tag('div', array('class' => 'activity_overview'));
-            $url = new moodle_url("/mod/$module/index.php", array('id' => $cid));
+            $url = new lion_url("/mod/$module/index.php", array('id' => $cid));
             $modulename = get_string('modulename', $module);
             $icontext = html_writer::link($url, $this->output->pix_icon('icon', $modulename, 'mod_'.$module, array('class'=>'iconlarge')));
             if (get_string_manager()->string_exists("activityoverview", $module)) {
@@ -213,7 +199,7 @@ class block_course_overview_renderer extends plugin_renderer_base {
         for ($i = 1; $i <= $max; $i++) {
             $options[$i] = $i;
         }
-        $url = new moodle_url('/my/index.php');
+        $url = new lion_url('/my/index.php');
         $select = new single_select($url, 'mynumber', $options, block_course_overview_get_max_user_courses(), array());
         $select->set_label(get_string('numtodisplay', 'block_course_overview'));
         $output .= $this->output->render($select);
@@ -241,7 +227,7 @@ class block_course_overview_renderer extends plugin_renderer_base {
         } else {
             $a = new stdClass();
             $a->coursecount = $total;
-            $a->showalllink = html_writer::link(new moodle_url('/my/index.php', array('mynumber' => block_course_overview::SHOW_ALL_COURSES)),
+            $a->showalllink = html_writer::link(new lion_url('/my/index.php', array('mynumber' => block_course_overview::SHOW_ALL_COURSES)),
                     get_string('showallcourses'));
             $output .= get_string('hiddencoursecountwithshowall'.$plural, 'block_course_overview', $a);
         }
@@ -343,7 +329,7 @@ class block_course_overview_renderer extends plugin_renderer_base {
         } else {
             $output .= get_string('youhavenomessages', 'block_course_overview');
         }
-        $output .= html_writer::link(new moodle_url('/message/index.php'), get_string('message'.$plural, 'block_course_overview'));
+        $output .= html_writer::link(new lion_url('/message/index.php'), get_string('message'.$plural, 'block_course_overview'));
         $output .= $this->output->box_end();
         $output .= $this->output->box('', 'flush');
         $output .= $this->output->box_end();

@@ -1,7 +1,7 @@
 {
-    "name": "moodle-tool_monitor-dropdown",
+    "name": "lion-tool_monitor-dropdown",
     "builds": {
-        "moodle-tool_monitor-dropdown": {
+        "lion-tool_monitor-dropdown": {
             "jsfiles": [
                 "dropdown.js"
             ]

@@ -1,5 +1,5 @@
 {
-    "moodle-atto_managefiles-usedfiles": {
+    "lion-atto_managefiles-usedfiles": {
         "requires": [
             "node",
             "escape"

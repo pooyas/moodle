@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Box.net locallib.
  *
  * @package    repository_boxnet
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -146,7 +132,7 @@ function repository_boxnet_migrate_references_from_apiv1() {
                 // all the files using this reference.
                 list($contenthash, $filesize, $unused) = $fs->add_file_to_pool($saveas);
                 $file->set_synchronized($contenthash, $filesize);
-            } catch (moodle_exception $e) {
+            } catch (lion_exception $e) {
                 // Something wrong happened...
                 mtrace('Something went wrong during sync (id: ' . $file->get_referencefileid() . ')');
             }
@@ -173,13 +159,13 @@ function repository_boxnet_migrate_references_from_apiv1() {
             try {
                 // Updating source to remove trace of APIv1 URL.
                 $reffile->set_source('Box APIv1 reference');
-            } catch (moodle_exception $e) {
+            } catch (lion_exception $e) {
                 // Do not fail for this lame reason...
             }
             try {
                 $fs->import_external_file($reffile);
                 mtrace('File using reference converted to local file (id: ' . $reffile->get_id() . ')');
-            } catch (moodle_exception $e) {
+            } catch (lion_exception $e) {
                 // Oh well... we tried what we could!
                 $reffile->delete_reference();
                 mtrace('Failed to convert file from reference to local file, sorry! (id: ' . $reffile->get_id() . ')');

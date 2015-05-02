@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Test classes for \core\message\message.
@@ -23,7 +9,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -48,7 +34,7 @@ class core_message_testcase extends advanced_testcase {
         $user = $this->getDataGenerator()->create_user();
 
         $message = new \core\message\message();
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'instantmessage';
         $message->userfrom = $USER;
         $message->userto = $user;
@@ -139,11 +125,11 @@ class core_message_testcase extends advanced_testcase {
         $this->assertFileExists("$CFG->dirroot/message/output/popup/version.php");
 
         $DB->set_field_select('message_processors', 'enabled', 0, "name <> 'email'");
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'email', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'email', $user2);
 
         // Extra content for all types of messages.
         $message = new \core\message\message();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -174,7 +160,7 @@ class core_message_testcase extends advanced_testcase {
         // Extra content for small message only. Shouldn't show up in emails as we sent fullmessage and fullmessagehtml only in
         // the emails.
         $message = new \core\message\message();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;

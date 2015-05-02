@@ -1,5 +1,5 @@
 {
-    "moodle-gradereport_history-userselector": {
+    "lion-gradereport_history-userselector": {
         "requires": [
             "escape",
             "event-delegate",
@@ -7,7 +7,7 @@
             "handlebars",
             "io-base",
             "json-parse",
-            "moodle-core-notification-dialogue"
+            "lion-core-notification-dialogue"
         ]
     }
 }

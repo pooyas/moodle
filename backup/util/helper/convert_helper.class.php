@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides {@link convert_helper} and {@link convert_helper_exception} classes
  *
  * @package    core
  * @subpackage backup-convert
- * @copyright  2011 Mark Nielsen <mark@moodlerooms.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Mark Nielsen <mark@lionrooms.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/backup/util/includes/convert_includes.php');
 
@@ -125,16 +111,16 @@ abstract class convert_helper {
     }
 
     /**
-     * Detects if the given folder contains an unpacked moodle2 backup
+     * Detects if the given folder contains an unpacked lion2 backup
      *
      * @param string $tempdir the name of the backup directory
-     * @return boolean true if moodle2 format detected, false otherwise
+     * @return boolean true if lion2 format detected, false otherwise
      */
-    public static function detect_moodle2_format($tempdir) {
+    public static function detect_lion2_format($tempdir) {
         global $CFG;
 
         $dirpath    = $CFG->tempdir . '/backup/' . $tempdir;
-        $filepath   = $dirpath . '/moodle_backup.xml';
+        $filepath   = $dirpath . '/lion_backup.xml';
 
         if (!is_dir($dirpath)) {
             throw new convert_helper_exception('tmp_backup_directory_not_found', $dirpath);
@@ -149,7 +135,7 @@ abstract class convert_helper {
         $status     = fclose($handle);
 
         if (strpos($firstchars,'<?xml version="1.0" encoding="UTF-8"?>') !== false and
-            strpos($firstchars,'<moodle_backup>') !== false and
+            strpos($firstchars,'<lion_backup>') !== false and
             strpos($firstchars,'<information>') !== false) {
                 return true;
         }
@@ -158,7 +144,7 @@ abstract class convert_helper {
     }
 
     /**
-     * Converts the given directory with the backup into moodle2 format
+     * Converts the given directory with the backup into lion2 format
      *
      * @param string $tempdir The directory to convert
      * @param string $format The current format, if already detected
@@ -166,7 +152,7 @@ abstract class convert_helper {
      * @throws convert_helper_exception
      * @return bool false if unable to find the conversion path, true otherwise
      */
-    public static function to_moodle2_format($tempdir, $format = null, $logger = null) {
+    public static function to_lion2_format($tempdir, $format = null, $logger = null) {
 
         if (is_null($format)) {
             $format = backup_general_helper::detect_backup_format($tempdir);
@@ -198,7 +184,7 @@ abstract class convert_helper {
 
         if ($logger instanceof base_logger) {
             backup_helper::log('conversion path established', backup::LOG_INFO,
-                implode(' => ', array_merge($path, array('moodle2'))), 0, false, $logger);
+                implode(' => ', array_merge($path, array('lion2'))), 0, false, $logger);
         }
 
         foreach ($path as $name) {
@@ -209,8 +195,8 @@ abstract class convert_helper {
             $converter->convert();
         }
 
-        // make sure we ended with moodle2 format
-        if (!self::detect_moodle2_format($tempdir)) {
+        // make sure we ended with lion2 format
+        if (!self::detect_lion2_format($tempdir)) {
             throw new convert_helper_exception('conversion_failed');
         }
 
@@ -234,14 +220,14 @@ abstract class convert_helper {
      *
      * Given the source format and the list of available converters and their properties,
      * this methods picks the most effective way how to convert the source format into
-     * the target moodle2 format. The method returns a list of converters that should be
+     * the target lion2 format. The method returns a list of converters that should be
      * called, in order.
      *
      * This implementation uses Dijkstra's algorithm to find the shortest way through
      * the oriented graph.
      *
      * @see http://en.wikipedia.org/wiki/Dijkstra's_algorithm
-     * @author David Mudrak <david@moodle.com>
+     * @author David Mudrak <david@lion.com>
      * @param string $format the source backup format, one of backup::FORMAT_xxx
      * @param array $descriptions list of {@link base_converter::description()} indexed by the converter name
      * @return array ordered list of converter names to call (may be empty if not reachable)
@@ -318,7 +304,7 @@ abstract class convert_helper {
                 break;
             }
 
-            if ($closest === backup::FORMAT_MOODLE) {
+            if ($closest === backup::FORMAT_LION) {
                 // bingo we can break now
                 break;
             }
@@ -351,14 +337,14 @@ abstract class convert_helper {
             }
         }
 
-        if (is_null($dist[backup::FORMAT_MOODLE])) {
+        if (is_null($dist[backup::FORMAT_LION])) {
             // unable to find a conversion path, the target format not reachable
             return array();
         }
 
         // reconstruct the optimal path from the source format to the target one
         $conversionpath = array();
-        $target         = backup::FORMAT_MOODLE;
+        $target         = backup::FORMAT_LION;
         while (isset($prev[$target])) {
             array_unshift($conversionpath, $paths[$prev[$target]][$target]);
             $target = $prev[$target];
@@ -371,9 +357,9 @@ abstract class convert_helper {
 /**
  * General convert_helper related exception
  *
- * @author David Mudrak <david@moodle.com>
+ * @author David Mudrak <david@lion.com>
  */
-class convert_helper_exception extends moodle_exception {
+class convert_helper_exception extends lion_exception {
 
     /**
      * Constructor

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * the first page to view the feedback
@@ -126,7 +112,7 @@ echo $OUTPUT->header();
 
 //ishidden check.
 //feedback in courses
-$cap_viewhiddenactivities = has_capability('moodle/course:viewhiddenactivities', $context);
+$cap_viewhiddenactivities = has_capability('lion/course:viewhiddenactivities', $context);
 if ((empty($cm->visible) and !$cap_viewhiddenactivities) AND $course->id != SITEID) {
     notice(get_string("activityiscurrentlyhidden"));
 }
@@ -143,7 +129,7 @@ if ((empty($cm->visible) and !$cap_viewhiddenactivities) AND $courseid == SITEID
 ///////////////////////////////////////////////////////////////////////////
 
 $previewimg = $OUTPUT->pix_icon('t/preview', get_string('preview'));
-$previewlnk = new moodle_url('/mod/feedback/print.php', array('id' => $id));
+$previewlnk = new lion_url('/mod/feedback/print.php', array('id' => $id));
 $preview = html_writer::link($previewlnk, $previewimg);
 
 echo $OUTPUT->heading(format_string($feedback->name) . $preview);
@@ -237,7 +223,7 @@ if ( (intval($feedback->publish_stats) == 1) AND
     $params = array('userid'=>$USER->id, 'feedback'=>$feedback->id);
     if ($multiple_count = $DB->count_records('feedback_tracking', $params)) {
         $url_params = array('id'=>$id, 'courseid'=>$courseid);
-        $analysisurl = new moodle_url('/mod/feedback/analysis.php', $url_params);
+        $analysisurl = new lion_url('/mod/feedback/analysis.php', $url_params);
         echo '<div class="mdl-align"><a href="'.$analysisurl->out().'">';
         echo get_string('completed_feedbacks', 'feedback').'</a>';
         echo '</div>';
@@ -296,7 +282,7 @@ if ($feedback_complete_cap) {
             $guestid = false;
         }
         $url_params = array('id'=>$id, 'courseid'=>$courseid, 'gopage'=>0);
-        $completeurl = new moodle_url('/mod/feedback/'.$completefile, $url_params);
+        $completeurl = new lion_url('/mod/feedback/'.$completefile, $url_params);
 
         $feedbackcompletedtmp = feedback_get_current_completed($feedback->id, true, $courseid, $guestid);
         if ($feedbackcompletedtmp) {

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions and constants for notes
@@ -260,8 +246,8 @@ function note_print($note, $detail = NOTES_SHOW_FULL) {
 
     // Print note options (e.g. delete, edit).
     if ($detail & NOTES_SHOW_FOOT) {
-        if (has_capability('moodle/notes:manage', $systemcontext) && $note->publishstate == NOTES_STATE_SITE ||
-            has_capability('moodle/notes:manage', $context) &&
+        if (has_capability('lion/notes:manage', $systemcontext) && $note->publishstate == NOTES_STATE_SITE ||
+            has_capability('lion/notes:manage', $context) &&
             ($note->publishstate == NOTES_STATE_PUBLIC || $note->usermodified == $USER->id)) {
             echo '<div class="footer"><p>';
             echo '<a href="' . $CFG->wwwroot . '/notes/edit.php?id=' . $note->id. '">' . get_string('edit') . '</a> | ';

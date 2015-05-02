@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Functions and classes for commenting
  *
  * @package   core
  * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Comment is helper class to add/delete comments anywhere in moodle
+ * Comment is helper class to add/delete comments anywhere in lion
  *
  * @package   core
  * @category  comment
  * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class comment {
     /** @var int there may be several comment box in one page so we need a client_id to recognize them */
@@ -237,10 +223,10 @@ class comment {
     /**
      * Receive nonjs comment parameters
      *
-     * @param moodle_page $page The page object to initialise comments within
+     * @param lion_page $page The page object to initialise comments within
      *                          If not provided the global $PAGE is used
      */
-    public static function init(moodle_page $page = null) {
+    public static function init(lion_page $page = null) {
         global $PAGE;
 
         if (empty($page)) {
@@ -261,7 +247,7 @@ class comment {
                 'commentsrequirelogin',
                 'deletecomment',
             ),
-            'moodle'
+            'lion'
         );
     }
 
@@ -308,8 +294,8 @@ class comment {
      * function named $pluginname_check_comment_post must be implemented
      */
     private function check_permissions() {
-        $this->postcap = has_capability('moodle/comment:post', $this->context);
-        $this->viewcap = has_capability('moodle/comment:view', $this->context);
+        $this->postcap = has_capability('lion/comment:post', $this->context);
+        $this->viewcap = has_capability('lion/comment:view', $this->context);
         if (!empty($this->plugintype)) {
             $permissions = plugin_callback($this->plugintype, $this->pluginname, 'comment', 'permissions', array($this->comment_param), array('post'=>false, 'view'=>false));
             $this->postcap = $this->postcap && $permissions['post'];
@@ -320,17 +306,17 @@ class comment {
     /**
      * Gets a link for this page that will work with JS disabled.
      *
-     * @global moodle_page $PAGE
-     * @param moodle_page $page
-     * @return moodle_url
+     * @global lion_page $PAGE
+     * @param lion_page $page
+     * @return lion_url
      */
-    public function get_nojslink(moodle_page $page = null) {
+    public function get_nojslink(lion_page $page = null) {
         if ($page === null) {
             global $PAGE;
             $page = $PAGE;
         }
 
-        $link = new moodle_url($page->url, array(
+        $link = new lion_url($page->url, array(
             'nonjscomment'    => true,
             'comment_itemid'  => $this->itemid,
             'comment_context' => $this->context->id,
@@ -392,10 +378,10 @@ class comment {
     /**
      * Initialises the JavaScript that enchances the comment API.
      *
-     * @param moodle_page $page The moodle page object that the JavaScript should be
+     * @param lion_page $page The lion page object that the JavaScript should be
      *                          initialised for.
      */
-    public function initialise_javascript(moodle_page $page) {
+    public function initialise_javascript(lion_page $page) {
 
         $options = new stdClass;
         $options->client_id   = $this->cid;
@@ -568,7 +554,7 @@ class comment {
             $c->format      = $u->cformat;
             $c->timecreated = $u->ctimecreated;
             $c->strftimeformat = get_string('strftimerecentfull', 'langconfig');
-            $url = new moodle_url('/user/view.php', array('id'=>$u->id, 'course'=>$this->courseid));
+            $url = new lion_url('/user/view.php', array('id'=>$u->id, 'course'=>$this->courseid));
             $c->profileurl = $url->out(false); // URL should not be escaped just yet.
             $c->fullname = fullname($u);
             $c->time = userdate($c->timecreated, $c->strftimeformat);
@@ -585,7 +571,7 @@ class comment {
         $rs->close();
 
         if (!empty($this->plugintype)) {
-            // moodle module will filter comments
+            // lion module will filter comments
             $comments = plugin_callback($this->plugintype, $this->pluginname, 'comment', 'display', array($comments, $this->comment_param), $comments);
         }
 
@@ -614,7 +600,7 @@ class comment {
     /**
      * Returns the number of comments associated with the details of this object
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return int
      */
     public function count() {
@@ -675,12 +661,12 @@ class comment {
     /**
      * Add a new comment
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param string $content
      * @param int $format
      * @return stdClass
      */
-    public function add($content, $format = FORMAT_MOODLE) {
+    public function add($content, $format = FORMAT_LION) {
         global $CFG, $DB, $USER, $OUTPUT;
         if (!$this->can_post()) {
             throw new comment_exception('nopermissiontocomment');
@@ -704,7 +690,7 @@ class comment {
             $newcmt->id = $cmt_id;
             $newcmt->strftimeformat = get_string('strftimerecent', 'langconfig');
             $newcmt->fullname = fullname($USER);
-            $url = new moodle_url('/user/view.php', array('id' => $USER->id, 'course' => $this->courseid));
+            $url = new lion_url('/user/view.php', array('id' => $USER->id, 'course' => $this->courseid));
             $newcmt->profileurl = $url->out();
             $newcmt->content = format_text($newcmt->content, $format, array('overflowdiv'=>true));
             $newcmt->avatar = $OUTPUT->user_picture($USER, array('size'=>16));
@@ -791,7 +777,7 @@ class comment {
      */
     public function delete($commentid) {
         global $DB, $USER;
-        $candelete = has_capability('moodle/comment:delete', $this->context);
+        $candelete = has_capability('lion/comment:delete', $this->context);
         if (!$comment = $DB->get_record('comments', array('id'=>$commentid))) {
             throw new comment_exception('dbupdatefailed');
         }
@@ -859,7 +845,7 @@ class comment {
         }
         if ($nonjs && $this->can_post()) {
             // Form to add comments
-            $html .= html_writer::start_tag('form', array('method' => 'post', 'action' => new moodle_url('/comment/comment_post.php')));
+            $html .= html_writer::start_tag('form', array('method' => 'post', 'action' => new lion_url('/comment/comment_post.php')));
             // Comment parameters
             $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'contextid', 'value' => $this->contextid));
             $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'action',    'value' => 'add'));
@@ -965,7 +951,7 @@ class comment {
      */
     public function can_delete($commentid) {
         $this->validate(array('commentid'=>$commentid));
-        return has_capability('moodle/comment:delete', $this->context);
+        return has_capability('lion/comment:delete', $this->context);
     }
 
     /**
@@ -1046,7 +1032,7 @@ class comment {
  *
  * @package   core
  * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class comment_exception extends moodle_exception {
+class comment_exception extends lion_exception {
 }

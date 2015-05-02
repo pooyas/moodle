@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Public Profile -- a user's public profile page
@@ -29,7 +15,7 @@
  * @copyright  2010 Remote-Learner.net
  * @author     Hubert Chathi <hubert@remote-learner.net>
  * @author     Olav Jordan <olav.jordan@remote-learner.net>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(__FILE__) . '/../config.php');
@@ -78,7 +64,7 @@ $context = $usercontext = context_user::instance($userid, MUST_EXIST);
 
 if (!$currentuser &&
     !empty($CFG->forceloginforprofiles) &&
-    !has_capability('moodle/user:viewdetails', $context) &&
+    !has_capability('lion/user:viewdetails', $context) &&
     !has_coursecontact_role($userid)) {
 
     // Course managers can be browsed at site level. If not forceloginforprofiles, allow access (bug #4366).
@@ -96,7 +82,7 @@ if (!$currentuser &&
 
 // Get the profile page.  Should always return something unless the database is broken.
 if (!$currentpage = my_get_page($userid, MY_PAGE_PUBLIC)) {
-    print_error('mymoodlesetup');
+    print_error('mylionsetup');
 }
 
 if (!$currentpage->userid) {
@@ -108,7 +94,7 @@ $PAGE->set_pagelayout('mypublic');
 $PAGE->set_pagetype('user-profile');
 
 // Load the JS to send a message.
-$cansendmessage = isloggedin() && has_capability('moodle/site:sendmessage', $context)
+$cansendmessage = isloggedin() && has_capability('lion/site:sendmessage', $context)
     && !empty($CFG->messaging) && !isguestuser() && !isguestuser($user) && ($USER->id != $user->id);
 if ($cansendmessage) {
     message_messenger_requirejs();
@@ -117,22 +103,22 @@ if ($cansendmessage) {
 // Set up block editing capabilities.
 if (isguestuser()) {     // Guests can never edit their profile.
     $USER->editing = $edit = 0;  // Just in case.
-    $PAGE->set_blocks_editing_capability('moodle/my:configsyspages');  // unlikely :).
+    $PAGE->set_blocks_editing_capability('lion/my:configsyspages');  // unlikely :).
 } else {
     if ($currentuser) {
-        $PAGE->set_blocks_editing_capability('moodle/user:manageownblocks');
+        $PAGE->set_blocks_editing_capability('lion/user:manageownblocks');
     } else {
-        $PAGE->set_blocks_editing_capability('moodle/user:manageblocks');
+        $PAGE->set_blocks_editing_capability('lion/user:manageblocks');
     }
 }
 
-if (has_capability('moodle/user:viewhiddendetails', $context)) {
+if (has_capability('lion/user:viewhiddendetails', $context)) {
     $hiddenfields = array();
 } else {
     $hiddenfields = array_flip(explode(',', $CFG->hiddenuserfields));
 }
 
-if (has_capability('moodle/site:viewuseridentity', $context)) {
+if (has_capability('lion/site:viewuseridentity', $context)) {
     $identityfields = array_flip(explode(',', $CFG->showuseridentity));
 } else {
     $identityfields = array();
@@ -166,7 +152,7 @@ if ($PAGE->user_allowed_editing()) {
             if (!$currentpage = my_reset_page($userid, MY_PAGE_PUBLIC, 'user-profile')) {
                 print_error('reseterror', 'my');
             }
-            redirect(new moodle_url('/user/profile.php', array('id' => $userid)));
+            redirect(new lion_url('/user/profile.php', array('id' => $userid)));
         }
     } else if ($edit !== null) {             // Editing state was specified.
         $USER->editing = $edit;       // Change editing state.
@@ -175,7 +161,7 @@ if ($PAGE->user_allowed_editing()) {
             // editing on, copy the system pages as new user pages, and get the
             // new page record.
             if (!$currentpage = my_copy_page($userid, MY_PAGE_PUBLIC, 'user-profile')) {
-                print_error('mymoodlesetup');
+                print_error('mylionsetup');
             }
             $PAGE->set_context($usercontext);
             $PAGE->set_subpage($currentpage->id);
@@ -197,21 +183,21 @@ if ($PAGE->user_allowed_editing()) {
 
     $resetbutton = '';
     $resetstring = get_string('resetpage', 'my');
-    $reseturl = new moodle_url("$CFG->wwwroot/user/profile.php", array('edit' => 1, 'reset' => 1, 'id' => $userid));
+    $reseturl = new lion_url("$CFG->wwwroot/user/profile.php", array('edit' => 1, 'reset' => 1, 'id' => $userid));
 
     if (!$currentpage->userid) {
         // Viewing a system page -- let the user customise it.
-        $editstring = get_string('updatemymoodleon');
+        $editstring = get_string('updatemylionon');
         $params['edit'] = 1;
     } else if (empty($edit)) {
-        $editstring = get_string('updatemymoodleon');
+        $editstring = get_string('updatemylionon');
         $resetbutton = $OUTPUT->single_button($reseturl, $resetstring);
     } else {
-        $editstring = get_string('updatemymoodleoff');
+        $editstring = get_string('updatemylionoff');
         $resetbutton = $OUTPUT->single_button($reseturl, $resetstring);
     }
 
-    $url = new moodle_url("$CFG->wwwroot/user/profile.php", $params);
+    $url = new lion_url("$CFG->wwwroot/user/profile.php", $params);
     $button = $OUTPUT->single_button($url, $editstring);
     $PAGE->set_button($resetbutton . $button);
 
@@ -264,7 +250,7 @@ echo '<div class="descriptionbox"><div class="description">';
 if ($user->description && !isset($hiddenfields['description'])) {
     if (!empty($CFG->profilesforenrolledusersonly) && !$currentuser &&
         !$DB->record_exists('role_assignments', array('userid' => $user->id))) {
-        echo get_string('profilenotshown', 'moodle');
+        echo get_string('profilenotshown', 'lion');
     } else {
         $user->description = file_rewrite_pluginfile_urls($user->description, 'pluginfile.php', $usercontext->id, 'user',
                                                           'profile', null);
@@ -319,7 +305,7 @@ if (isset($identityfields['idnumber']) && $user->idnumber) {
 
 if (isset($identityfields['email']) and ($currentuser
   or $user->maildisplay == 1
-  or has_capability('moodle/course:useremail', $context)
+  or has_capability('lion/course:useremail', $context)
   or ($user->maildisplay == 2 and enrol_sharing_course($user, $USER)))) {
     echo html_writer::tag('dt', get_string('email'));
     echo html_writer::tag('dd', obfuscate_mailto($user->email, ''));
@@ -330,14 +316,14 @@ if ($user->url && !isset($hiddenfields['webpage'])) {
     if (strpos($user->url, '://') === false) {
         $url = 'http://'. $url;
     }
-    $webpageurl = new moodle_url($url);
+    $webpageurl = new lion_url($url);
     echo html_writer::tag('dt', get_string('webpage'));
     echo html_writer::tag('dd', html_writer::link($webpageurl, s($user->url)));
 }
 
 if ($user->icq && !isset($hiddenfields['icqnumber'])) {
-    $imurl = new moodle_url('http://web.icq.com/wwp', array('uin' => $user->icq) );
-    $iconurl = new moodle_url('http://web.icq.com/whitepages/online', array('icq' => $user->icq, 'img' => '5'));
+    $imurl = new lion_url('http://web.icq.com/wwp', array('uin' => $user->icq) );
+    $iconurl = new lion_url('http://web.icq.com/whitepages/online', array('icq' => $user->icq, 'img' => '5'));
     $statusicon = html_writer::tag('img', '', array('src' => $iconurl, 'class' => 'icon icon-post', 'alt' => get_string('status')));
     echo html_writer::tag('dt', get_string('icqnumber'));
     echo html_writer::tag('dd', html_writer::link($imurl, s($user->icq) . $statusicon));
@@ -345,7 +331,7 @@ if ($user->icq && !isset($hiddenfields['icqnumber'])) {
 
 if ($user->skype && !isset($hiddenfields['skypeid'])) {
     $imurl = 'skype:'.urlencode($user->skype).'?call';
-    $iconurl = new moodle_url('http://mystatus.skype.com/smallicon/'.urlencode($user->skype));
+    $iconurl = new lion_url('http://mystatus.skype.com/smallicon/'.urlencode($user->skype));
     if (is_https()) {
         // Bad luck, skype devs are lazy to set up SSL on their servers - see MDL-37233.
         $statusicon = '';
@@ -357,8 +343,8 @@ if ($user->skype && !isset($hiddenfields['skypeid'])) {
     echo html_writer::tag('dd', html_writer::link($imurl, s($user->skype) . $statusicon));
 }
 if ($user->yahoo && !isset($hiddenfields['yahooid'])) {
-    $imurl = new moodle_url('http://edit.yahoo.com/config/send_webmesg', array('.target' => $user->yahoo, '.src' => 'pg'));
-    $iconurl = new moodle_url('http://opi.yahoo.com/online', array('u' => $user->yahoo, 'm' => 'g', 't' => '0'));
+    $imurl = new lion_url('http://edit.yahoo.com/config/send_webmesg', array('.target' => $user->yahoo, '.src' => 'pg'));
+    $iconurl = new lion_url('http://opi.yahoo.com/online', array('u' => $user->yahoo, 'm' => 'g', 't' => '0'));
     $statusicon = html_writer::tag('img', '',
         array('src' => $iconurl, 'class' => 'iconsmall icon-post', 'alt' => get_string('status')));
     echo html_writer::tag('dt', get_string('yahooid'));
@@ -388,7 +374,7 @@ if (!isset($hiddenfields['mycourses'])) {
                 $ccontext = context_course::instance($mycourse->id);
                 $linkattributes = null;
                 if ($mycourse->visible == 0) {
-                    if (!has_capability('moodle/course:viewhiddencourses', $ccontext)) {
+                    if (!has_capability('lion/course:viewhiddencourses', $ccontext)) {
                         continue;
                     }
                     $linkattributes['class'] = 'dimmed';
@@ -397,13 +383,13 @@ if (!isset($hiddenfields['mycourses'])) {
                 if ($showallcourses) {
                     $params['showallcourses'] = 1;
                 }
-                $url = new moodle_url('/user/view.php', $params);
+                $url = new lion_url('/user/view.php', $params);
                 $courselisting .= html_writer::link($url, $ccontext->get_context_name(false), $linkattributes);
                 $courselisting .= ', ';
             }
             $shown++;
             if (!$showallcourses && $shown == $CFG->navcourselimit) {
-                $url = new moodle_url('/user/profile.php', array('id' => $user->id, 'showallcourses' => 1));
+                $url = new lion_url('/user/profile.php', array('id' => $user->id, 'showallcourses' => 1));
                 $courselisting .= html_writer::link($url, '...', array('title' => get_string('viewmore')));
                 break;
             }
@@ -431,9 +417,9 @@ if (!isset($hiddenfields['lastaccess'])) {
     echo html_writer::tag('dd', $datestring);
 }
 
-if (has_capability('moodle/user:viewlastip', $usercontext) && !isset($hiddenfields['lastip'])) {
+if (has_capability('lion/user:viewlastip', $usercontext) && !isset($hiddenfields['lastip'])) {
     if ($user->lastip) {
-        $iplookupurl = new moodle_url('/iplookup/index.php', array('ip' => $user->lastip, 'user' => $user->id));
+        $iplookupurl = new lion_url('/iplookup/index.php', array('ip' => $user->lastip, 'user' => $user->id));
         $ipstring = html_writer::link($iplookupurl, $user->lastip);
     } else {
         $ipstring = get_string("none");
@@ -469,7 +455,7 @@ echo $OUTPUT->custom_block_region('content');
 
 // Print messaging link if allowed.
 if ($cansendmessage) {
-    $sendurl = new moodle_url('/message/index.php', array('id' => $user->id));
+    $sendurl = new lion_url('/message/index.php', array('id' => $user->id));
     echo '<div class="messagebox">';
     echo html_writer::link($sendurl, get_string('messageselectadd'), message_messenger_sendmessage_link_params($user));
     echo '</div>';

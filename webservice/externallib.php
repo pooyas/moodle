@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,11 +6,11 @@
  *
  * @package    core_webservice
  * @category   external
- * @copyright  2011 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Jerome Mouneyrac <jerome@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
@@ -33,9 +19,9 @@ require_once("$CFG->libdir/externallib.php");
  *
  * @package    core_webservice
  * @category   external
- * @copyright  2011 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * @copyright  2011 Jerome Mouneyrac <jerome@lion.com>
+ * 
+ * @since Lion 2.2
  */
 class core_webservice_external extends external_api {
 
@@ -43,7 +29,7 @@ class core_webservice_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_site_info_parameters() {
         return new external_function_parameters(
@@ -68,7 +54,7 @@ class core_webservice_external extends external_api {
      * @param array $serviceshortnames - DEPRECATED PARAMETER - values will be ignored -
      * it was an original design error, we keep for backward compatibility.
      * @return array site info
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_site_info($serviceshortnames = array()) {
         global $USER, $SITE, $CFG, $DB;
@@ -76,7 +62,7 @@ class core_webservice_external extends external_api {
         $params = self::validate_parameters(self::get_site_info_parameters(),
                       array('serviceshortnames'=>$serviceshortnames));
 
-        $profileimageurl = moodle_url::make_pluginfile_url(
+        $profileimageurl = lion_url::make_pluginfile_url(
                 context_user::instance($USER->id)->id, 'user', 'icon', null, '/', 'f1');
 
         // Site information.
@@ -132,8 +118,8 @@ class core_webservice_external extends external_api {
         foreach ($functions as $function) {
             $functioninfo = array();
             $functioninfo['name'] = $function->name;
-            if ($function->component == 'moodle' || $function->component == 'core') {
-                $version = $CFG->version; // Moodle version.
+            if ($function->component == 'lion' || $function->component == 'core') {
+                $version = $CFG->version; // Lion version.
             } else {
                 $versionpath = core_component::get_component_directory($function->component).'/version.php';
                 if (is_readable($versionpath)) {
@@ -147,8 +133,8 @@ class core_webservice_external extends external_api {
                     }
                 } else {
                     // Function component should always have a version.php,
-                    // otherwise the function should have been described with component => 'moodle'.
-                    throw new moodle_exception('missingversionfile', 'webservice', '', $function->component);
+                    // otherwise the function should have been described with component => 'lion'.
+                    throw new lion_exception('missingversionfile', 'webservice', '', $function->component);
                 }
             }
             $functioninfo['version'] = $version;
@@ -184,7 +170,7 @@ class core_webservice_external extends external_api {
      * Returns description of method result value
      *
      * @return external_single_structure
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_site_info_returns() {
         return new external_single_structure(
@@ -199,7 +185,7 @@ class core_webservice_external extends external_api {
                 'siteurl'        => new external_value(PARAM_RAW, 'site url'),
                 'userpictureurl' => new external_value(PARAM_URL, 'the user profile picture.
                     Warning: this url is the public URL that only works when forcelogin is set to NO and guestaccess is set to YES.
-                    In order to retrieve user profile pictures independently of the Moodle config, replace "pluginfile.php" by
+                    In order to retrieve user profile pictures independently of the Lion config, replace "pluginfile.php" by
                     "webservice/pluginfile.php?token=WSTOKEN&file="
                     Of course the user can only see profile picture depending
                     on his/her permissions. Moreover it is recommended to use HTTPS too.'),
@@ -215,8 +201,8 @@ class core_webservice_external extends external_api {
                                                        VALUE_OPTIONAL),
                 'uploadfiles'  => new external_value(PARAM_INT, '1 if users are allowed to upload files, 0 if not',
                                                        VALUE_OPTIONAL),
-                'release'  => new external_value(PARAM_TEXT, 'Moodle release number', VALUE_OPTIONAL),
-                'version'  => new external_value(PARAM_TEXT, 'Moodle version number', VALUE_OPTIONAL),
+                'release'  => new external_value(PARAM_TEXT, 'Lion release number', VALUE_OPTIONAL),
+                'version'  => new external_value(PARAM_TEXT, 'Lion version number', VALUE_OPTIONAL),
                 'mobilecssurl'  => new external_value(PARAM_URL, 'Mobile custom CSS theme', VALUE_OPTIONAL),
                 'advancedfeatures' => new external_multiple_structure(
                     new external_single_structure(
@@ -239,21 +225,21 @@ class core_webservice_external extends external_api {
  *
  * @package    core_webservice
  * @category   external
- * @copyright  2011 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated Moodle 2.2 MDL-29106 - please do not use this class any more.
+ * @copyright  2011 Jerome Mouneyrac <jerome@lion.com>
+ * 
+ * @deprecated Lion 2.2 MDL-29106 - please do not use this class any more.
  * @see core_webservice_external
- * @since Moodle 2.1
+ * @since Lion 2.1
  */
-class moodle_webservice_external extends external_api {
+class lion_webservice_external extends external_api {
 
     /**
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @deprecated Moodle 2.2 - please do not use this function any more.
+     * @deprecated Lion 2.2 - please do not use this function any more.
      * @see core_webservice_external::get_site_info_parameters
-     * @since Moodle 2.1
+     * @since Lion 2.1
      */
     public static function get_siteinfo_parameters() {
         return core_webservice_external::get_site_info_parameters();
@@ -266,9 +252,9 @@ class moodle_webservice_external extends external_api {
      *
      * @param array $serviceshortnames of service shortnames - the functions of these services will be returned
      * @return array
-     * @deprecated Moodle 2.2 - please do not use this function any more.
+     * @deprecated Lion 2.2 - please do not use this function any more.
      * @see core_webservice_external::get_site_info
-     * @since Moodle 2.1
+     * @since Lion 2.1
      */
     public function get_siteinfo($serviceshortnames = array()) {
         return core_webservice_external::get_site_info($serviceshortnames);
@@ -278,9 +264,9 @@ class moodle_webservice_external extends external_api {
      * Returns description of method result value
      *
      * @return external_single_structure
-     * @deprecated Moodle 2.2 - please do not use this function any more.
+     * @deprecated Lion 2.2 - please do not use this function any more.
      * @see core_webservice_external::get_site_info_returns
-     * @since Moodle 2.1
+     * @since Lion 2.1
      */
     public static function get_siteinfo_returns() {
         return core_webservice_external::get_site_info_returns();

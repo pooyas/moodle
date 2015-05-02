@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Lang strings
  *
  * @package   report_performance
  * @copyright 2013 Rajesh Taneja
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 $string['check_backup'] = 'Automated backup';
@@ -37,7 +23,7 @@ $string['check_enablestats_comment_enable'] = 'Performance may be affected by st
 $string['check_enablestats_details'] = 'Enabling this will process the logs in cronjob and gather some statistics. Depending on the amount of traffic on your site, this can take awhile.<p>During this process, it will consume more server resources and may affect performance.</p>';
 $string['check_themedesignermode_comment_enable'] = 'If disabled, images and style sheets are cached, resulting in significant performance improvements.';
 $string['check_themedesignermode_comment_disable'] = 'If enabled, images and style sheets will not be cached, resulting in significant performance degradation.';
-$string['check_themedesignermode_details'] = 'This is often the cause of slow Moodle sites. <p>On average it might take at least twice the amount of CPU to run a Moodle site with theme designer mode enabled.</p>';
+$string['check_themedesignermode_details'] = 'This is often the cause of slow Lion sites. <p>On average it might take at least twice the amount of CPU to run a Lion site with theme designer mode enabled.</p>';
 $string['comments'] = 'Comments';
 $string['edit'] = 'Edit';
 $string['enabled'] = 'Enabled';

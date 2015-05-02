@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This page prints a review of a particular quiz attempt
@@ -21,8 +7,8 @@
  * or by a teacher reviewing another's attempt during or afterwards.
  *
  * @package   mod_quiz
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 
@@ -34,7 +20,7 @@ $attemptid = required_param('attempt', PARAM_INT);
 $page      = optional_param('page', 0, PARAM_INT);
 $showall   = optional_param('showall', null, PARAM_BOOL);
 
-$url = new moodle_url('/mod/quiz/review.php', array('attempt'=>$attemptid));
+$url = new lion_url('/mod/quiz/review.php', array('attempt'=>$attemptid));
 if ($page !== 0) {
     $url->param('page', $page);
 } else if ($showall) {
@@ -72,7 +58,7 @@ if ($attemptobj->is_own_attempt()) {
     }
 
 } else if (!$attemptobj->is_review_allowed()) {
-    throw new moodle_quiz_exception($attemptobj->get_quizobj(), 'noreviewattempt');
+    throw new lion_quiz_exception($attemptobj->get_quizobj(), 'noreviewattempt');
 }
 
 // Load the questions and states needed by this page.
@@ -137,7 +123,7 @@ if (!$attemptobj->get_quiz()->showuserpicture && $attemptobj->get_userid() != $U
     $usrepicture->courseid = $attemptobj->get_courseid();
     $summarydata['user'] = array(
         'title'   => $usrepicture,
-        'content' => new action_link(new moodle_url('/user/view.php', array(
+        'content' => new action_link(new lion_url('/user/view.php', array(
                                 'id' => $student->id, 'course' => $attemptobj->get_courseid())),
                           fullname($student, true)),
     );

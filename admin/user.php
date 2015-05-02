@@ -25,7 +25,7 @@
     $sitecontext = context_system::instance();
     $site = get_site();
 
-    if (!has_capability('moodle/user:update', $sitecontext) and !has_capability('moodle/user:delete', $sitecontext)) {
+    if (!has_capability('lion/user:update', $sitecontext) and !has_capability('lion/user:delete', $sitecontext)) {
         print_error('nopermissions', 'error', '', 'edit/delete users');
     }
 
@@ -44,12 +44,12 @@
         $securewwwroot = str_replace('http:','https:',$CFG->wwwroot);
     }
 
-    $returnurl = new moodle_url('/admin/user.php', array('sort' => $sort, 'dir' => $dir, 'perpage' => $perpage, 'page'=>$page));
+    $returnurl = new lion_url('/admin/user.php', array('sort' => $sort, 'dir' => $dir, 'perpage' => $perpage, 'page'=>$page));
 
     // The $user variable is also used outside of these if statements.
     $user = null;
     if ($confirmuser and confirm_sesskey()) {
-        require_capability('moodle/user:update', $sitecontext);
+        require_capability('lion/user:update', $sitecontext);
         if (!$user = $DB->get_record('user', array('id'=>$confirmuser, 'mnethostid'=>$CFG->mnet_localhost_id))) {
             print_error('nousers');
         }
@@ -66,7 +66,7 @@
         }
 
     } else if ($delete and confirm_sesskey()) {              // Delete a selected user, after confirmation
-        require_capability('moodle/user:delete', $sitecontext);
+        require_capability('lion/user:delete', $sitecontext);
 
         $user = $DB->get_record('user', array('id'=>$delete, 'mnethostid'=>$CFG->mnet_localhost_id), '*', MUST_EXIST);
 
@@ -79,7 +79,7 @@
             $fullname = fullname($user, true);
             echo $OUTPUT->heading(get_string('deleteuser', 'admin'));
             $optionsyes = array('delete'=>$delete, 'confirm'=>md5($delete), 'sesskey'=>sesskey());
-            echo $OUTPUT->confirm(get_string('deletecheckfull', '', "'$fullname'"), new moodle_url($returnurl, $optionsyes), $returnurl);
+            echo $OUTPUT->confirm(get_string('deletecheckfull', '', "'$fullname'"), new lion_url($returnurl, $optionsyes), $returnurl);
             echo $OUTPUT->footer();
             die;
         } else if (data_submitted() and !$user->deleted) {
@@ -93,7 +93,7 @@
             }
         }
     } else if ($acl and confirm_sesskey()) {
-        if (!has_capability('moodle/user:update', $sitecontext)) {
+        if (!has_capability('lion/user:update', $sitecontext)) {
             print_error('nopermissions', 'error', '', 'modify the NMET access control list');
         }
         if (!$user = $DB->get_record('user', array('id'=>$acl))) {
@@ -121,7 +121,7 @@
         redirect($returnurl);
 
     } else if ($suspend and confirm_sesskey()) {
-        require_capability('moodle/user:update', $sitecontext);
+        require_capability('lion/user:update', $sitecontext);
 
         if ($user = $DB->get_record('user', array('id'=>$suspend, 'mnethostid'=>$CFG->mnet_localhost_id, 'deleted'=>0))) {
             if (!is_siteadmin($user) and $USER->id != $user->id and $user->suspended != 1) {
@@ -134,7 +134,7 @@
         redirect($returnurl);
 
     } else if ($unsuspend and confirm_sesskey()) {
-        require_capability('moodle/user:update', $sitecontext);
+        require_capability('lion/user:update', $sitecontext);
 
         if ($user = $DB->get_record('user', array('id'=>$unsuspend, 'mnethostid'=>$CFG->mnet_localhost_id, 'deleted'=>0))) {
             if ($user->suspended != 0) {
@@ -145,7 +145,7 @@
         redirect($returnurl);
 
     } else if ($unlock and confirm_sesskey()) {
-        require_capability('moodle/user:update', $sitecontext);
+        require_capability('lion/user:update', $sitecontext);
 
         if ($user = $DB->get_record('user', array('id'=>$unlock, 'mnethostid'=>$CFG->mnet_localhost_id, 'deleted'=>0))) {
             login_unlock_account($user);
@@ -225,7 +225,7 @@
 
     $strall = get_string('all');
 
-    $baseurl = new moodle_url('/admin/user.php', array('sort' => $sort, 'dir' => $dir, 'perpage' => $perpage));
+    $baseurl = new lion_url('/admin/user.php', array('sort' => $sort, 'dir' => $dir, 'perpage' => $perpage));
     echo $OUTPUT->paging_bar($usercount, $page, $perpage, $baseurl);
 
     flush();
@@ -282,16 +282,16 @@
             $lastcolumn = '';
 
             // delete button
-            if (has_capability('moodle/user:delete', $sitecontext)) {
+            if (has_capability('lion/user:delete', $sitecontext)) {
                 if (is_mnet_remote_user($user) or $user->id == $USER->id or is_siteadmin($user)) {
                     // no deleting of self, mnet accounts or admins allowed
                 } else {
-                    $buttons[] = html_writer::link(new moodle_url($returnurl, array('delete'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/delete'), 'alt'=>$strdelete, 'class'=>'iconsmall')), array('title'=>$strdelete));
+                    $buttons[] = html_writer::link(new lion_url($returnurl, array('delete'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/delete'), 'alt'=>$strdelete, 'class'=>'iconsmall')), array('title'=>$strdelete));
                 }
             }
 
             // suspend button
-            if (has_capability('moodle/user:update', $sitecontext)) {
+            if (has_capability('lion/user:update', $sitecontext)) {
                 if (is_mnet_remote_user($user)) {
                     // mnet users have special access control, they can not be deleted the standard way or suspended
                     $accessctrl = 'allow';
@@ -303,26 +303,26 @@
 
                 } else {
                     if ($user->suspended) {
-                        $buttons[] = html_writer::link(new moodle_url($returnurl, array('unsuspend'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/show'), 'alt'=>$strunsuspend, 'class'=>'iconsmall')), array('title'=>$strunsuspend));
+                        $buttons[] = html_writer::link(new lion_url($returnurl, array('unsuspend'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/show'), 'alt'=>$strunsuspend, 'class'=>'iconsmall')), array('title'=>$strunsuspend));
                     } else {
                         if ($user->id == $USER->id or is_siteadmin($user)) {
                             // no suspending of admins or self!
                         } else {
-                            $buttons[] = html_writer::link(new moodle_url($returnurl, array('suspend'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/hide'), 'alt'=>$strsuspend, 'class'=>'iconsmall')), array('title'=>$strsuspend));
+                            $buttons[] = html_writer::link(new lion_url($returnurl, array('suspend'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/hide'), 'alt'=>$strsuspend, 'class'=>'iconsmall')), array('title'=>$strsuspend));
                         }
                     }
 
                     if (login_is_lockedout($user)) {
-                        $buttons[] = html_writer::link(new moodle_url($returnurl, array('unlock'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/unlock'), 'alt'=>$strunlock, 'class'=>'iconsmall')), array('title'=>$strunlock));
+                        $buttons[] = html_writer::link(new lion_url($returnurl, array('unlock'=>$user->id, 'sesskey'=>sesskey())), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/unlock'), 'alt'=>$strunlock, 'class'=>'iconsmall')), array('title'=>$strunlock));
                     }
                 }
             }
 
             // edit button
-            if (has_capability('moodle/user:update', $sitecontext)) {
+            if (has_capability('lion/user:update', $sitecontext)) {
                 // prevent editing of admins by non-admins
                 if (is_siteadmin($USER) or !is_siteadmin($user)) {
-                    $buttons[] = html_writer::link(new moodle_url($securewwwroot.'/user/editadvanced.php', array('id'=>$user->id, 'course'=>$site->id)), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/edit'), 'alt'=>$stredit, 'class'=>'iconsmall')), array('title'=>$stredit));
+                    $buttons[] = html_writer::link(new lion_url($securewwwroot.'/user/editadvanced.php', array('id'=>$user->id, 'course'=>$site->id)), html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/edit'), 'alt'=>$stredit, 'class'=>'iconsmall')), array('title'=>$stredit));
                 }
             }
 
@@ -336,8 +336,8 @@
                 }
 
             } else if ($user->confirmed == 0) {
-                if (has_capability('moodle/user:update', $sitecontext)) {
-                    $lastcolumn = html_writer::link(new moodle_url($returnurl, array('confirmuser'=>$user->id, 'sesskey'=>sesskey())), $strconfirm);
+                if (has_capability('lion/user:update', $sitecontext)) {
+                    $lastcolumn = html_writer::link(new lion_url($returnurl, array('confirmuser'=>$user->id, 'sesskey'=>sesskey())), $strconfirm);
                 } else {
                     $lastcolumn = "<span class=\"dimmed_text\">".get_string('confirm')."</span>";
                 }
@@ -379,8 +379,8 @@
         echo html_writer::end_tag('div');
         echo $OUTPUT->paging_bar($usercount, $page, $perpage, $baseurl);
     }
-    if (has_capability('moodle/user:create', $sitecontext)) {
-        $url = new moodle_url($securewwwroot . '/user/editadvanced.php', array('id' => -1));
+    if (has_capability('lion/user:create', $sitecontext)) {
+        $url = new lion_url($securewwwroot . '/user/editadvanced.php', array('id' => -1));
         echo $OUTPUT->single_button($url, get_string('addnewuser'), 'get');
     }
 

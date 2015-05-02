@@ -4,8 +4,8 @@
 //                                                                       //
 // NOTICE OF COPYRIGHT                                                   //
 //                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.org                                            //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
+//          http://lion.org                                            //
 //                                                                       //
 // Copyright (C) 1999 onwards Martin Dougiamas  http://dougiamas.com     //
 //                                                                       //
@@ -31,8 +31,8 @@
  * @package course
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once($CFG->libdir.'/formslib.php');
@@ -41,7 +41,7 @@ require_once($CFG->libdir.'/coursecatlib.php');
 /**
  * A form for a user to request a course.
  */
-class course_request_form extends moodleform {
+class course_request_form extends lionform {
     function definition() {
         global $CFG, $DB, $USER;
 
@@ -132,7 +132,7 @@ class course_request_form extends moodleform {
 /**
  * A form for an administrator to reject a course request.
  */
-class reject_request_form extends moodleform {
+class reject_request_form extends lionform {
     function definition() {
         $mform =& $this->_form;
 

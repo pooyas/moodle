@@ -1,4 +1,4 @@
-YUI.add('moodle-block_community-imagegallery', function(Y) {
+YUI.add('lion-block_community-imagegallery', function(Y) {
 
     var IMAGEGALLERYNAME = 'blocks_community_imagegallery';
 
@@ -202,5 +202,5 @@ YUI.add('moodle-block_community-imagegallery', function(Y) {
     }
 
 }, '@VERSION@', {
-    requires:['base','node', 'moodle-core-notification']
+    requires:['base','node', 'lion-core-notification']
 });

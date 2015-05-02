@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Definition of classes used by language customization admin tool
  *
  * @package    tool
  * @subpackage customlang
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2010 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Provides various utilities to be used by the plugin
@@ -54,7 +40,7 @@ class tool_customlang_utils {
      */
     public static function list_components() {
 
-        $list['moodle'] = 'core';
+        $list['lion'] = 'core';
 
         $coresubsystems = core_component::get_core_subsystems();
         ksort($coresubsystems); // should be but just in case
@@ -285,29 +271,15 @@ class tool_customlang_utils {
         fwrite($f, <<<EOF
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Local language pack from $CFG->wwwroot
  *
 $packageinfo
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 EOF
@@ -330,7 +302,7 @@ EOF
      * Returns the name of the file where the component's local strings should be exported into
      *
      * @param string $component normalized name of the component, eg 'core' or 'mod_workshop'
-     * @return string|boolean filename eg 'moodle.php' or 'workshop.php', false if not found
+     * @return string|boolean filename eg 'lion.php' or 'workshop.php', false if not found
      */
     protected static function get_component_filename($component) {
         if (is_null(self::$components)) {
@@ -413,7 +385,7 @@ class tool_customlang_menu implements renderable {
     /**
      * Returns the menu items
      *
-     * @return array (string)key => (object)[->(string)title ->(moodle_url)url ->(string)method]
+     * @return array (string)key => (object)[->(string)title ->(lion_url)url ->(string)method]
      */
     public function get_items() {
         return $this->items;
@@ -424,10 +396,10 @@ class tool_customlang_menu implements renderable {
      *
      * @param string $key item identifier
      * @param string $title localized action title
-     * @param moodle_url $url action handler
+     * @param lion_url $url action handler
      * @param string $method form method
      */
-    public function add_item($key, $title, moodle_url $url, $method) {
+    public function add_item($key, $title, lion_url $url, $method) {
         if (isset($this->items[$key])) {
             throw new coding_exception('Menu item already exists');
         }
@@ -453,7 +425,7 @@ class tool_customlang_translator implements renderable {
     /** @var int total number of the rows int the table */
     public $numofrows = 0;
 
-    /** @var moodle_url */
+    /** @var lion_url */
     public $handler;
 
     /** @var string language code */
@@ -468,7 +440,7 @@ class tool_customlang_translator implements renderable {
     /** @var stdclass */
     protected $filter;
 
-    public function __construct(moodle_url $handler, $lang, $filter, $currentpage = 0) {
+    public function __construct(lion_url $handler, $lang, $filter, $currentpage = 0) {
         global $DB;
 
         $this->handler      = $handler;

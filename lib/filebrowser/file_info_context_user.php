@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,17 +6,17 @@
  *
  * @package    core_files
  * @copyright  2008 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Represents a user context in the tree navigated by {@link file_browser}.
  *
  * @package    core_files
  * @copyright  2008 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class file_info_context_user extends file_info {
     /** @var stdClass User object */
@@ -136,8 +122,8 @@ class file_info_context_user extends file_info {
     protected function get_area_user_profile($itemid, $filepath, $filename) {
         global $CFG;
 
-        $readaccess = has_capability('moodle/user:update', $this->context);
-        $writeaccess = has_capability('moodle/user:viewalldetails', $this->context);
+        $readaccess = has_capability('lion/user:update', $this->context);
+        $writeaccess = has_capability('lion/user:viewalldetails', $this->context);
 
         if (!$readaccess and !$writeaccess) {
             // the idea here is that only admins should be able to list/modify files in user profile, the rest has to use profile page

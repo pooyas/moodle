@@ -1,34 +1,20 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * plagiarismlib.php - Contains core Plagiarism related functions.
  *
- * @since Moodle 2.0
- * @package    moodlecore
+ * @since Lion 2.0
+ * @package    lioncore
  * @subpackage plagiarism
  * @copyright  2010 Dan Marsden http://danmarsden.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 ///// GENERIC PLAGIARISM FUNCTIONS ////////////////////////////////////////////////////
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 /**
@@ -58,7 +44,7 @@ function plagiarism_get_links($linkarray) {
  *
  * @param int $cmid
  * @param int $userid
- * @param object $file moodle file object
+ * @param object $file lion file object
  * @return array - sets of details about specified file, one array of details per plagiarism plugin
  *  - each set contains at least 'analyzed', 'score', 'reporturl'
  */
@@ -100,7 +86,7 @@ function plagiarism_save_form_elements($data) {
 /**
  * adds the list of plagiarism settings to a form - called inside modules that have enabled plagiarism
  *
- * @param object $mform - Moodle form object
+ * @param object $mform - Lion form object
  * @param object $context - context object
  * @param string $modulename - Name of the module
  */

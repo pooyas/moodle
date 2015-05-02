@@ -3,12 +3,12 @@
         float: left;
         display: inline-block;
     }
-    .moodleSkin .mceLayout .mceToolbar .mceWrap {
+    .lionSkin .mceLayout .mceToolbar .mceWrap {
         clear: left;
         width: 100%;
         height: 4px;
     }
-    .moodleSkin .mceLayout .mceToolbar .mceNoWrap {
+    .lionSkin .mceLayout .mceToolbar .mceNoWrap {
         clear: none;
         width: 0px;
     }

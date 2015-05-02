@@ -4,7 +4,7 @@ M.block_course_overview.add_handles = function(Y) {
     M.block_course_overview.Y = Y;
     var MOVEICON = {
         pix: "i/move_2d",
-        component: 'moodle'
+        component: 'lion'
     };
 
     YUI().use('dd-constrain', 'dd-proxy', 'dd-drop', 'dd-plugin', function(Y) {

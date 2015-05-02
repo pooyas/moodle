@@ -1,28 +1,14 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Folder module renderer
  *
  * @package   mod_folder
  * @copyright 2009 Petr Skoda  {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class mod_folder_renderer extends plugin_renderer_base {
 
@@ -67,7 +53,7 @@ class mod_folder_renderer extends plugin_renderer_base {
         // Do not append the edit button on the course page.
         if ($folder->display != FOLDER_DISPLAY_INLINE && has_capability('mod/folder:managefiles', $context)) {
             $output .= $this->output->container(
-                    $this->output->single_button(new moodle_url('/mod/folder/edit.php',
+                    $this->output->single_button(new lion_url('/mod/folder/edit.php',
                     array('id' => $cm->id)), get_string('edit')),
                     'mdl-align folder-edit-button');
         }
@@ -101,7 +87,7 @@ class mod_folder_renderer extends plugin_renderer_base {
         }
         $result = '<ul>';
         foreach ($dir['subdirs'] as $subdir) {
-            $image = $this->output->pix_icon(file_folder_icon(24), $subdir['dirname'], 'moodle');
+            $image = $this->output->pix_icon(file_folder_icon(24), $subdir['dirname'], 'lion');
             $filename = html_writer::tag('span', $image, array('class' => 'fp-icon')).
                     html_writer::tag('span', s($subdir['dirname']), array('class' => 'fp-filename'));
             $filename = html_writer::tag('div', $filename, array('class' => 'fp-filename-icon'));
@@ -109,13 +95,13 @@ class mod_folder_renderer extends plugin_renderer_base {
         }
         foreach ($dir['files'] as $file) {
             $filename = $file->get_filename();
-            $url = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(),
+            $url = lion_url::make_pluginfile_url($file->get_contextid(), $file->get_component(),
                     $file->get_filearea(), $file->get_itemid(), $file->get_filepath(), $filename, false);
             if (file_extension_in_typegroup($filename, 'web_image')) {
                 $image = $url->out(false, array('preview' => 'tinyicon', 'oid' => $file->get_timemodified()));
                 $image = html_writer::empty_tag('img', array('src' => $image));
             } else {
-                $image = $this->output->pix_icon(file_file_icon($file, 24), $filename, 'moodle');
+                $image = $this->output->pix_icon(file_file_icon($file, 24), $filename, 'lion');
             }
             $filename = html_writer::tag('span', $image, array('class' => 'fp-icon')).
                     html_writer::tag('span', $filename, array('class' => 'fp-filename'));

@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage backup-dbops
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -474,7 +460,7 @@ abstract class restore_dbops {
      *     always the same. If not, we can be incurring into "fragmentation", leading to random/cloze
      *     problems (qtypes having "child" questions).
      *
-     * Rule2: The 'moodle/question:managecategory' and 'moodle/question:add' capabilities will be
+     * Rule2: The 'lion/question:managecategory' and 'lion/question:add' capabilities will be
      *     checked before creating any category/question respectively and, if the cap is not allowed
      *     into upper contexts (system, coursecat)) but in lower ones (course), the *whole* question bank
      *     will be created there.
@@ -598,8 +584,8 @@ abstract class restore_dbops {
             $categories = self::restore_get_question_categories($restoreid, $contextid);
             // cache permissions if $targetcontext is found
             if ($targetcontext = self::restore_find_best_target_context($categories, $courseid, $contextlevel)) {
-                $canmanagecategory = has_capability('moodle/question:managecategory', $targetcontext, $userid);
-                $canadd            = has_capability('moodle/question:add', $targetcontext, $userid);
+                $canmanagecategory = has_capability('lion/question:managecategory', $targetcontext, $userid);
+                $canadd            = has_capability('lion/question:add', $targetcontext, $userid);
             }
             // 1) Iterate over each qcat in the context, matching by stamp for the found target context
             foreach ($categories as $category) {
@@ -931,7 +917,7 @@ abstract class restore_dbops {
             }
         }
 
-        $fs = get_file_storage();         // Get moodle file storage
+        $fs = get_file_storage();         // Get lion file storage
         $basepath = $basepath . '/files/';// Get backup file pool base
         // Report progress before query.
         if ($progress) {
@@ -1011,7 +997,7 @@ abstract class restore_dbops {
                         $fs->create_file_from_pathname($file_record, $backuppath);
                     }
                 } else {
-                    // This backup does not include the files - they should be available in moodle filestorage already.
+                    // This backup does not include the files - they should be available in lion filestorage already.
 
                     // Create the file in the filepool if it does not exist yet.
                     if (!$fs->file_exists($newcontextid, $component, $filearea, $rec->newitemid, $file->filepath, $file->filename)) {
@@ -1166,7 +1152,7 @@ abstract class restore_dbops {
                 if (!empty($userauth->preventpassindb)) {
                     $user->password = AUTH_PASSWORD_NOT_CACHED;
 
-                // If Moodle is responsible for storing/validating pwd and reset functionality is available, mark
+                // If Lion is responsible for storing/validating pwd and reset functionality is available, mark
                 } else if ($userauth->isinternal and $userauth->canresetpwd) {
                     $user->password = 'restored';
                 }
@@ -1501,11 +1487,11 @@ abstract class restore_dbops {
         $context = context_course::instance($courseid);
 
         // Calculate if we have perms to create users, by checking:
-        // to 'moodle/restore:createuser' and 'moodle/restore:userinfo'
+        // to 'lion/restore:createuser' and 'lion/restore:userinfo'
         // and also observe $CFG->disableusercreationonrestore
         $cancreateuser = false;
-        if (has_capability('moodle/restore:createuser', $context, $userid) and
-            has_capability('moodle/restore:userinfo', $context, $userid) and
+        if (has_capability('lion/restore:createuser', $context, $userid) and
+            has_capability('lion/restore:userinfo', $context, $userid) and
             empty($CFG->disableusercreationonrestore)) { // Can create users
 
             $cancreateuser = true;
@@ -1708,7 +1694,7 @@ abstract class restore_dbops {
      * Creates a skeleton record within the database using the passed parameters
      * and returns the new course id.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param string $fullname
      * @param string $shortname
      * @param int $categoryid

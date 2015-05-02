@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * CAS user sync script.
  *
- * This script is meant to be called from a cronjob to sync moodle with the CAS
+ * This script is meant to be called from a cronjob to sync lion with the CAS
  * backend in those setups where the CAS backend acts as 'master'.
  *
  * Sample cron entry:
  * # 5 minutes past 4am
- * 5 4 * * * $sudo -u www-data /usr/bin/php /var/www/moodle/auth/cas/cli/sync_users.php
+ * 5 4 * * * $sudo -u www-data /usr/bin/php /var/www/lion/auth/cas/cli/sync_users.php
  *
  * Notes:
  *   - it is required to use the web server account when executing PHP CLI scripts
@@ -39,7 +25,7 @@
  *
  * @package    auth_cas
  * @copyright  2007 Jerome Gutierrez - based on code by Martin Langhoff
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('CLI_SCRIPT', true);

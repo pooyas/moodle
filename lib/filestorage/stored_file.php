@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,24 +6,24 @@
  *
  * @package   core_files
  * @copyright 2008 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/lib/filestorage/file_progress.php');
 
 /**
  * Class representing local files stored in a sha1 file pool.
  *
- * Since Moodle 2.0 file contents are stored in sha1 pool and
+ * Since Lion 2.0 file contents are stored in sha1 pool and
  * all other file information is stored in new "files" database table.
  *
  * @package   core_files
  * @category  files
  * @copyright 2008 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
+ * 
+ * @since     Lion 2.0
  */
 class stored_file {
     /** @var file_storage file storage pool instance */
@@ -78,7 +64,7 @@ class stored_file {
             $this->repository = repository::get_repository_by_id($file_record->repositoryid, SYSCONTEXTID);
             if ($this->repository->supported_returntypes() & FILE_REFERENCE != FILE_REFERENCE) {
                 // Repository cannot do file reference.
-                throw new moodle_exception('error');
+                throw new lion_exception('error');
             }
         } else {
             $this->repository = null;
@@ -225,7 +211,7 @@ class stored_file {
     /**
      * Function stored_file::replace_content_with() is deprecated. Please use stored_file::replace_file_with()
      *
-     * @deprecated since Moodle 2.6 MDL-42016 - please do not use this function any more.
+     * @deprecated since Lion 2.6 MDL-42016 - please do not use this function any more.
      * @see stored_file::replace_file_with()
      */
     public function replace_content_with(stored_file $storedfile) {
@@ -251,7 +237,7 @@ class stored_file {
             // The new file is a reference.
             // The current file has other local files referencing to it.
             // Double reference is not allowed.
-            throw new moodle_exception('errordoublereference', 'repository');
+            throw new lion_exception('errordoublereference', 'repository');
         }
 
         $filerecord = new stdClass;
@@ -727,7 +713,7 @@ class stored_file {
      /**
      * Function stored_file::set_filesize() is deprecated. Please use stored_file::replace_file_with
      *
-     * @deprecated since Moodle 2.6 MDL-42016 - please do not use this function any more.
+     * @deprecated since Lion 2.6 MDL-42016 - please do not use this function any more.
      * @see stored_file::replace_file_with()
      */
     public function set_filesize($filesize) {
@@ -927,7 +913,7 @@ class stored_file {
      * life time is no longer stored in DB or returned by repository. Each
      * repository should decide by itself when to synchronise the references.
      *
-     * @deprecated since Moodle 2.6 MDL-42016 - please do not use this function any more.
+     * @deprecated since Lion 2.6 MDL-42016 - please do not use this function any more.
      * @see repository::sync_reference()
      */
     public function get_referencelifetime() {
@@ -1005,9 +991,9 @@ class stored_file {
     }
 
     /**
-     * Imports the contents of an external file into moodle filepool.
+     * Imports the contents of an external file into lion filepool.
      *
-     * @throws moodle_exception if file could not be downloaded or is too big
+     * @throws lion_exception if file could not be downloaded or is too big
      * @param int $maxbytes throw an exception if file size is bigger than $maxbytes (0 means no limit)
      */
     public function import_external_file_contents($maxbytes = 0) {

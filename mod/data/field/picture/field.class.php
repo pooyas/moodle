@@ -3,10 +3,10 @@
 //                                                                       //
 // NOTICE OF COPYRIGHT                                                   //
 //                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.org                                            //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
+//          http://lion.org                                            //
 //                                                                       //
-// Copyright (C) 1999-onwards Moodle Pty Ltd  http://moodle.com          //
+// Copyright (C) 1999-onwards Lion Pty Ltd  http://lion.com          //
 //                                                                       //
 // This program is free software; you can redistribute it and/or modify  //
 // it under the terms of the GNU General Public License as published by  //
@@ -58,8 +58,8 @@ class data_field_picture extends data_field_base {
                         }
                         if (empty($content->content1)) {
                             // Print icon if file already exists
-                            $src = moodle_url::make_draftfile_url($itemid, '/', $file->get_filename());
-                            $displayname = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'moodle', array('class' => 'icon')). '<a href="'.$src.'" >'.s($file->get_filename()).'</a>';
+                            $src = lion_url::make_draftfile_url($itemid, '/', $file->get_filename());
+                            $displayname = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'lion', array('class' => 'icon')). '<a href="'.$src.'" >'.s($file->get_filename()).'</a>';
 
                         } else {
                             $displayname = get_string('nofilesattached', 'repository');
@@ -251,7 +251,7 @@ class data_field_picture extends data_field_base {
 
                             // If the file is not a valid image, redirect back to the upload form.
                             if ($file->get_imageinfo() === false) {
-                                $url = new moodle_url('/mod/data/edit.php', array('d' => $this->field->dataid));
+                                $url = new lion_url('/mod/data/edit.php', array('d' => $this->field->dataid));
                                 redirect($url, get_string('invalidfiletype', 'error', $file->get_filename()));
                             }
 

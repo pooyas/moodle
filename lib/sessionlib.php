@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package    core
  * @subpackage session
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
  * @copyright  2008, 2009 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -87,15 +73,15 @@ function require_sesskey() {
 }
 
 /**
- * Sets a moodle cookie with a weakly encrypted username
+ * Sets a lion cookie with a weakly encrypted username
  *
  * @param string $username to encrypt and place in a cookie, '' means delete current cookie
  * @return void
  */
-function set_moodle_cookie($username) {
+function set_lion_cookie($username) {
     global $CFG;
 
-    if (NO_MOODLE_COOKIES) {
+    if (NO_LION_COOKIES) {
         return;
     }
 
@@ -109,7 +95,7 @@ function set_moodle_cookie($username) {
         return;
     }
 
-    $cookiename = 'MOODLEID1_'.$CFG->sessioncookie;
+    $cookiename = 'LIONID1_'.$CFG->sessioncookie;
 
     // delete old cookie
     setcookie($cookiename, '', time() - HOURSECS, $CFG->sessioncookiepath, $CFG->sessioncookiedomain, $CFG->cookiesecure, $CFG->cookiehttponly);
@@ -121,14 +107,14 @@ function set_moodle_cookie($username) {
 }
 
 /**
- * Gets a moodle cookie with a weakly encrypted username
+ * Gets a lion cookie with a weakly encrypted username
  *
  * @return string username
  */
-function get_moodle_cookie() {
+function get_lion_cookie() {
     global $CFG;
 
-    if (NO_MOODLE_COOKIES) {
+    if (NO_LION_COOKIES) {
         return '';
     }
 
@@ -136,7 +122,7 @@ function get_moodle_cookie() {
         return '';
     }
 
-    $cookiename = 'MOODLEID1_'.$CFG->sessioncookie;
+    $cookiename = 'LIONID1_'.$CFG->sessioncookie;
 
     if (empty($_COOKIE[$cookiename])) {
         return '';
@@ -203,7 +189,7 @@ function cron_setup_user($user = NULL, $course = NULL) {
 
     // TODO MDL-19774 relying on global $PAGE in cron is a bad idea.
     // Temporary hack so that cron does not give fatal errors.
-    $PAGE = new moodle_page();
+    $PAGE = new lion_page();
     if ($course) {
         $PAGE->set_course($course);
     } else {

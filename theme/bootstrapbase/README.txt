@@ -1,9 +1,9 @@
 About this theme
 ================
 
-This is the Bootstrap theme for Moodle.
+This is the Bootstrap theme for Lion.
 
-* package   Moodle Bootstrap theme
+* package   Lion Bootstrap theme
 * copyright 2013 Bas Brands. www.sonsbeekmedia.nl
 * authors   Bas Brands, David Scotson
 * license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -14,11 +14,11 @@ Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans
 This theme is based on the Twitter Bootstrap CSS framework version 2.3.
 It contains all unmodified less* CSS sources from the Twitter Bootstrap CSS
 framework in folder /less/bootstrap.
-On top of the Bootstrap less CSS sources Moodle CSS is added to create this
+On top of the Bootstrap less CSS sources Lion CSS is added to create this
 theme.
 
 HTML5 is tags are used in the /layout/general.php file. The structure of this file
-provides a 2-1-3 layout when looking at your Moodle page source. This improves
+provides a 2-1-3 layout when looking at your Lion page source. This improves
 accessibility and Search Engine Optimization (SEO).
 
 *less CSS
@@ -42,13 +42,13 @@ These are the 3 out of 12 original YUI ports of the Twitter Bootstrap jQuery lib
 Jay Shirley. The full list of the ported libraries can be found here:
 https://github.com/jshirley/bootstrap/tree/master/js
 
-moodlebootstrap.js
+lionbootstrap.js
 ------------------
 This file initiates the bootstrap*.js libraries.
 
 headercollapse.js
 -----------------
-Workaround for the collapse button on the Moodle custom menu. Without this
+Workaround for the collapse button on the Lion custom menu. Without this
 Submenu items cannot be opened
 
 Updating Twitter bootstrap and Libraries
@@ -63,8 +63,8 @@ https://github.com/twitter/bootstrap.git
 
 To update to the latest release of twitter bootstrap remove all files from less/bootstrap,
 download the new less files and store them in less/bootstrap
-Inclusion of bootstrap files is configured in less/moodle.less. To generate the new
-Moodle CSS read /less/README
+Inclusion of bootstrap files is configured in less/lion.less. To generate the new
+Lion CSS read /less/README
 
 html5shiv.js
 ------------
@@ -143,7 +143,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-moodlebootstrap.js
+lionbootstrap.js
 ------------------
 Author: 2013 Bas Brands. www.sonsbeekmedia.nl
 license:  http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

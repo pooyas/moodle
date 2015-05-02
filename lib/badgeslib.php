@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Contains classes, functions and constants used in badges.
@@ -20,11 +6,11 @@
  * @package    core
  * @subpackage badges
  * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /* Include required award criteria library. */
 require_once($CFG->dirroot . '/badges/criteria/award_criteria.php');
@@ -224,7 +210,7 @@ class badge {
         if ($DB->update_record_raw('badge', $fordb)) {
             return true;
         } else {
-            throw new moodle_exception('error:save', 'badges');
+            throw new lion_exception('error:save', 'badges');
             return false;
         }
     }
@@ -276,7 +262,7 @@ class badge {
 
             return $new;
         } else {
-            throw new moodle_exception('error:clone', 'badges');
+            throw new lion_exception('error:clone', 'badges');
             return false;
         }
     }
@@ -471,7 +457,7 @@ class badge {
                     list($earnedsql, $earnedparams) = $DB->get_in_or_equal($earned, SQL_PARAMS_NAMED, 'u', false);
                     $wheresql = ' WHERE u.id ' . $earnedsql;
                 }
-                list($enrolledsql, $enrolledparams) = get_enrolled_sql($this->get_context(), 'moodle/badges:earnbadge', 0, true);
+                list($enrolledsql, $enrolledparams) = get_enrolled_sql($this->get_context(), 'lion/badges:earnbadge', 0, true);
                 $sql = "SELECT u.id
                         FROM {user} u
                         {$extrajoin}
@@ -678,7 +664,7 @@ function badges_notify_badge_award(badge $badge, $userid, $issued, $filepathhash
     $userfrom->firstname = !empty($CFG->badges_defaultissuername) ? $CFG->badges_defaultissuername : $admin->firstname;
     $userfrom->maildisplay = true;
 
-    $issuedlink = html_writer::link(new moodle_url('/badges/badge.php', array('hash' => $issued)), $badge->name);
+    $issuedlink = html_writer::link(new lion_url('/badges/badge.php', array('hash' => $issued)), $badge->name);
     $userto = $DB->get_record('user', array('id' => $userid), '*', MUST_EXIST);
 
     $params = new stdClass();
@@ -690,7 +676,7 @@ function badges_notify_badge_award(badge $badge, $userid, $issued, $filepathhash
 
     // Notify recipient.
     $eventdata = new stdClass();
-    $eventdata->component         = 'moodle';
+    $eventdata->component         = 'lion';
     $eventdata->name              = 'badgerecipientnotice';
     $eventdata->userfrom          = $userfrom;
     $eventdata->userto            = $userto;
@@ -726,7 +712,7 @@ function badges_notify_badge_award(badge $badge, $userid, $issued, $filepathhash
         $creatorsubject = get_string('creatorsubject', 'badges', $badge->name);
 
         $eventdata = new stdClass();
-        $eventdata->component         = 'moodle';
+        $eventdata->component         = 'lion';
         $eventdata->name              = 'badgecreatornotice';
         $eventdata->userfrom          = $userfrom;
         $eventdata->userto            = $creator;
@@ -901,26 +887,26 @@ function badges_add_course_navigation(navigation_node $coursenode, stdClass $cou
 
     $coursecontext = context_course::instance($course->id);
     $isfrontpage = (!$coursecontext || $course->id == $SITE->id);
-    $canmanage = has_any_capability(array('moodle/badges:viewawarded',
-                                          'moodle/badges:createbadge',
-                                          'moodle/badges:awardbadge',
-                                          'moodle/badges:configurecriteria',
-                                          'moodle/badges:configuremessages',
-                                          'moodle/badges:configuredetails',
-                                          'moodle/badges:deletebadge'), $coursecontext);
+    $canmanage = has_any_capability(array('lion/badges:viewawarded',
+                                          'lion/badges:createbadge',
+                                          'lion/badges:awardbadge',
+                                          'lion/badges:configurecriteria',
+                                          'lion/badges:configuremessages',
+                                          'lion/badges:configuredetails',
+                                          'lion/badges:deletebadge'), $coursecontext);
 
     if (!empty($CFG->enablebadges) && !empty($CFG->badges_allowcoursebadges) && !$isfrontpage && $canmanage) {
         $coursenode->add(get_string('coursebadges', 'badges'), null,
                 navigation_node::TYPE_CONTAINER, null, 'coursebadges',
                 new pix_icon('i/badge', get_string('coursebadges', 'badges')));
 
-        $url = new moodle_url('/badges/index.php', array('type' => BADGE_TYPE_COURSE, 'id' => $course->id));
+        $url = new lion_url('/badges/index.php', array('type' => BADGE_TYPE_COURSE, 'id' => $course->id));
 
         $coursenode->get('coursebadges')->add(get_string('managebadges', 'badges'), $url,
             navigation_node::TYPE_SETTING, null, 'coursebadges');
 
-        if (has_capability('moodle/badges:createbadge', $coursecontext)) {
-            $url = new moodle_url('/badges/newbadge.php', array('type' => BADGE_TYPE_COURSE, 'id' => $course->id));
+        if (has_capability('lion/badges:createbadge', $coursecontext)) {
+            $url = new lion_url('/badges/newbadge.php', array('type' => BADGE_TYPE_COURSE, 'id' => $course->id));
 
             $coursenode->get('coursebadges')->add(get_string('newbadge', 'badges'), $url,
                     navigation_node::TYPE_SETTING, null, 'newbadge');
@@ -986,7 +972,7 @@ function badges_process_badge_image(badge $badge, $iconfile) {
 function print_badge_image(badge $badge, stdClass $context, $size = 'small') {
     $fsize = ($size == 'small') ? 'f2' : 'f1';
 
-    $imageurl = moodle_url::make_pluginfile_url($context->id, 'badges', 'badgeimage', $badge->id, '/', $fsize, false);
+    $imageurl = lion_url::make_pluginfile_url($context->id, 'badges', 'badgeimage', $badge->id, '/', $fsize, false);
     // Appending a random parameter to image link to forse browser reload the image.
     $imageurl->param('refresh', rand(1, 10000));
     $attributes = array('src' => $imageurl, 'alt' => s($badge->name), 'class' => 'activatebadge');
@@ -1018,7 +1004,7 @@ function badges_bake($hash, $badgeid, $userid = 0, $pathhash = false) {
             $contents = $file->get_content();
 
             $filehandler = new PNG_MetaDataHandler($contents);
-            $assertion = new moodle_url('/badges/assertion.php', array('b' => $hash));
+            $assertion = new lion_url('/badges/assertion.php', array('b' => $hash));
             if ($filehandler->check_chunks("tEXt", "openbadges")) {
                 // Add assertion URL tExt chunk.
                 $newcontents = $filehandler->add_chunks("tEXt", "openbadges", $assertion->out(false));
@@ -1049,7 +1035,7 @@ function badges_bake($hash, $badgeid, $userid = 0, $pathhash = false) {
         return $file->get_pathnamehash();
     }
 
-    $fileurl = moodle_url::make_pluginfile_url($user_context->id, 'badges', 'userbadge', $badge->id, '/', $hash, true);
+    $fileurl = lion_url::make_pluginfile_url($user_context->id, 'badges', 'userbadge', $badge->id, '/', $hash, true);
     return $fileurl;
 }
 
@@ -1157,7 +1143,7 @@ function profile_display_badges($userid, $courseid = 0) {
         $context = context_system::instance();
     }
 
-    if ($USER->id == $userid || has_capability('moodle/badges:viewotherbadges', $context)) {
+    if ($USER->id == $userid || has_capability('lion/badges:viewotherbadges', $context)) {
         $records = badges_get_user_badges($userid, $courseid, null, null, null, true);
         $renderer = new core_badges_renderer($PAGE, '');
 
@@ -1192,7 +1178,7 @@ function badges_check_backpack_accessibility() {
     include_once $CFG->libdir . '/filelib.php';
 
     // Using fake assertion url to check whether backpack can access the web site.
-    $fakeassertion = new moodle_url('/badges/assertion.php', array('b' => 'abcd1234567890'));
+    $fakeassertion = new lion_url('/badges/assertion.php', array('b' => 'abcd1234567890'));
 
     // Curl request to backpack baker.
     $curl = new curl();
@@ -1271,7 +1257,7 @@ function badges_setup_backpack_js() {
     if (!empty($CFG->badges_allowexternalbackpack)) {
         $PAGE->requires->string_for_js('error:backpackproblem', 'badges');
         $protocol = (is_https()) ? 'https://' : 'http://';
-        $PAGE->requires->js(new moodle_url($protocol . BADGE_BACKPACKURL . '/issuer.js'), true);
+        $PAGE->requires->js(new lion_url($protocol . BADGE_BACKPACKURL . '/issuer.js'), true);
         $PAGE->requires->js('/badges/backpack.js', true);
     }
 }

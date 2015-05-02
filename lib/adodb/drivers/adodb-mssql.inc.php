@@ -193,7 +193,7 @@ class ADODB_mssql extends ADOConnection {
  			return "'".$s."'";
 		}
 	}
-// moodle change end - see readme_moodle.txt
+// lion change end - see readme_lion.txt
 
 	function _affectedrows()
 	{

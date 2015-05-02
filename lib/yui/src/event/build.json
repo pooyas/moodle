@@ -1,7 +1,7 @@
 {
-    "name": "moodle-core-event",
+    "name": "lion-core-event",
     "builds": {
-        "moodle-core-event": {
+        "lion-core-event": {
             "jsfiles": [
                 "event.js"
             ]

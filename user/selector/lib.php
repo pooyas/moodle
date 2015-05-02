@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Code for ajax user selectors.
  *
  * @package   core_user
  * @copyright 1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -35,7 +21,7 @@ define('USER_SELECTOR_DEFAULT_ROWS', 20);
  * specified.
  *
  * @copyright 1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class user_selector_base {
     /** @var string The control name (and id) in the HTML. */
@@ -72,11 +58,11 @@ abstract class user_selector_base {
     protected static $jsmodule = array(
                 'name' => 'user_selector',
                 'fullpath' => '/user/selector/module.js',
-                'requires'  => array('node', 'event-custom', 'datasource', 'json', 'moodle-core-notification'),
+                'requires'  => array('node', 'event-custom', 'datasource', 'json', 'lion-core-notification'),
                 'strings' => array(
-                    array('previouslyselectedusers', 'moodle', '%%SEARCHTERM%%'),
-                    array('nomatchingusers', 'moodle', '%%SEARCHTERM%%'),
-                    array('none', 'moodle')
+                    array('previouslyselectedusers', 'lion', '%%SEARCHTERM%%'),
+                    array('nomatchingusers', 'lion', '%%SEARCHTERM%%'),
+                    array('none', 'lion')
                 ));
 
     /** @var int this is used to define maximum number of users visible in list */
@@ -105,7 +91,7 @@ abstract class user_selector_base {
         if (isset($options['extrafields'])) {
             $this->extrafields = $options['extrafields'];
         } else if (!empty($CFG->showuseridentity) &&
-                has_capability('moodle/site:viewuseridentity', $this->accesscontext)) {
+                has_capability('lion/site:viewuseridentity', $this->accesscontext)) {
             $this->extrafields = explode(',', $CFG->showuseridentity);
         } else {
             $this->extrafields = array();
@@ -173,12 +159,12 @@ abstract class user_selector_base {
     /**
      * Convenience method for when multiselect is false (throws an exception if not).
      *
-     * @throws moodle_exception
+     * @throws lion_exception
      * @return object the selected user object, or null if none.
      */
     public function get_selected_user() {
         if ($this->multiselect) {
-            throw new moodle_exception('cannotcallusgetselecteduser');
+            throw new lion_exception('cannotcallusgetselecteduser');
         }
         $users = $this->get_selected_users();
         if (count($users) == 1) {
@@ -186,7 +172,7 @@ abstract class user_selector_base {
         } else if (count($users) == 0) {
             return null;
         } else {
-            throw new moodle_exception('userselectortoomany');
+            throw new lion_exception('userselectortoomany');
         }
     }
 
@@ -663,7 +649,7 @@ abstract class user_selector_base {
  * Base class to avoid duplicating code.
  *
  * @copyright 1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class groups_user_selector_base extends user_selector_base {
     /** @var int */
@@ -738,7 +724,7 @@ abstract class groups_user_selector_base extends user_selector_base {
  * Used on the add group memebers page.
  *
  * @copyright 1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class group_members_selector extends groups_user_selector_base {
 
@@ -766,7 +752,7 @@ class group_members_selector extends groups_user_selector_base {
  * Used on the add group members page.
  *
  * @copyright 1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class group_non_members_selector extends groups_user_selector_base {
     /**
@@ -799,8 +785,8 @@ class group_non_members_selector extends groups_user_selector_base {
      *
      * Used by /group/clientlib.js
      *
-     * @global moodle_database $DB
-     * @global moodle_page $PAGE
+     * @global lion_database $DB
+     * @global lion_page $PAGE
      * @param int $courseid
      */
     public function print_user_summaries($courseid) {

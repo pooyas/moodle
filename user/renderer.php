@@ -1,33 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides user rendering functionality such as printing private files tree and displaying a search utility
  *
  * @package    core_user
- * @copyright  2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Provides user rendering functionality such as printing private files tree and displaying a search utility
- * @copyright  2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 class core_user_renderer extends plugin_renderer_base {
 
@@ -75,7 +61,7 @@ class core_user_renderer extends plugin_renderer_base {
         }
         $result = '<ul>';
         foreach ($dir['subdirs'] as $subdir) {
-            $image = $this->output->pix_icon(file_folder_icon(), $subdir['dirname'], 'moodle', array('class' => 'icon'));
+            $image = $this->output->pix_icon(file_folder_icon(), $subdir['dirname'], 'lion', array('class' => 'icon'));
             $result .= '<li yuiConfig=\''.json_encode($yuiconfig).'\'><div>'.$image.' '.s($subdir['dirname']).'</div> '.
                 $this->htmllize_tree($tree, $subdir).'</li>';
         }
@@ -83,7 +69,7 @@ class core_user_renderer extends plugin_renderer_base {
             $url = file_encode_url("$CFG->wwwroot/pluginfile.php", '/'.$tree->context->id.'/user/private'.
                 $file->get_filepath().$file->get_filename(), true);
             $filename = $file->get_filename();
-            $image = $this->output->pix_icon(file_file_icon($file), $filename, 'moodle', array('class' => 'icon'));
+            $image = $this->output->pix_icon(file_file_icon($file), $filename, 'lion', array('class' => 'icon'));
             $result .= '<li yuiConfig=\''.json_encode($yuiconfig).'\'><div>'.$image.' '.html_writer::link($url, $filename).
                 '</div></li>';
         }
@@ -113,7 +99,7 @@ class core_user_renderer extends plugin_renderer_base {
             $heading = get_string('allparticipants');
         }
 
-        $content = html_writer::start_tag('form', array('action' => new moodle_url($url)));
+        $content = html_writer::start_tag('form', array('action' => new lion_url($url)));
         $content .= html_writer::start_tag('div');
 
         // Search utility heading.
@@ -168,8 +154,8 @@ class core_user_renderer extends plugin_renderer_base {
 
 /**
  * User files tree
- * @copyright  2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 class user_files_tree implements renderable {
 

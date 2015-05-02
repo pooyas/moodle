@@ -3,7 +3,7 @@
  *
  * This file contains the Navigation block JS..
  *
- * @module moodle-block_navigation-navigation
+ * @module lion-block_navigation-navigation
  */
 
 /**
@@ -224,7 +224,7 @@ TREE.prototype = {
      * @param {Object} config
      */
     initializer : function(config) {
-        Y.log('Initialising navigation block tree', 'note', 'moodle-block_navigation');
+        Y.log('Initialising navigation block tree', 'note', 'lion-block_navigation');
 
         this.id = parseInt(config.id, 10);
 
@@ -624,7 +624,7 @@ BRANCH.prototype = {
             // We've already loaded this stuff.
             return true;
         }
-        Y.log('Loading navigation branch via AJAX: '+this.get('key'), 'note', 'moodle-block_navigation');
+        Y.log('Loading navigation branch via AJAX: '+this.get('key'), 'note', 'lion-block_navigation');
         this.node.addClass('loadingbranch');
 
         var params = {
@@ -666,7 +666,7 @@ BRANCH.prototype = {
         try {
             var object = Y.JSON.parse(outcome.responseText);
             if (object.error) {
-                Y.use('moodle-core-notification-ajaxexception', function () {
+                Y.use('lion-core-notification-ajaxexception', function () {
                     return new M.core.ajaxException(object).show();
                 });
                 return false;
@@ -687,7 +687,7 @@ BRANCH.prototype = {
                      && coursecount >= M.block_navigation.courselimit) {
                     this.addViewAllCoursesChild(this);
                 }
-                Y.log('AJAX loading complete.', 'note', 'moodle-block_navigation');
+                Y.log('AJAX loading complete.', 'note', 'lion-block_navigation');
                 // If this block can dock tell the dock to resize if required and check
                 // the width on the dock panel in case it is presently in use.
                 if (this.get('tree').get('candock') && M.core.dock.notifyBlockChange) {
@@ -695,12 +695,12 @@ BRANCH.prototype = {
                 }
                 return true;
             }
-            Y.log('AJAX loading complete but there were no children.', 'note', 'moodle-block_navigation');
+            Y.log('AJAX loading complete but there were no children.', 'note', 'lion-block_navigation');
         } catch (error) {
             if (outcome && outcome.status && outcome.status > 0) {
                 // If we got here then there was an error parsing the result.
-                Y.log('Error parsing AJAX response or adding branches to the navigation tree', 'error', 'moodle-block_navigation');
-                Y.use('moodle-core-notification-exception', function () {
+                Y.log('Error parsing AJAX response or adding branches to the navigation tree', 'error', 'lion-block_navigation');
+                Y.use('lion-core-notification-exception', function () {
                     return new M.core.exception(error).show();
                 });
             }
@@ -761,11 +761,11 @@ BRANCH.prototype = {
             url = M.cfg.wwwroot+'/course/index.php?categoryid=' + branch.get('key');
         }
         branch.addChild({
-            name : M.util.get_string('viewallcourses', 'moodle'),
-            title : M.util.get_string('viewallcourses', 'moodle'),
+            name : M.util.get_string('viewallcourses', 'lion'),
+            title : M.util.get_string('viewallcourses', 'lion'),
             link : url,
             haschildren : false,
-            icon : {'pix':"i/navigationitem",'component':'moodle'}
+            icon : {'pix':"i/navigationitem",'component':'lion'}
         });
     }
 };

@@ -1,26 +1,12 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides the interface for grading essay questions
  *
  * @package mod_lesson
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  **/
 
 require_once('../../config.php');
@@ -41,7 +27,7 @@ require_login($course, false, $cm);
 $context = context_module::instance($cm->id);
 require_capability('mod/lesson:grade', $context);
 
-$url = new moodle_url('/mod/lesson/essay.php', array('id'=>$id));
+$url = new lion_url('/mod/lesson/essay.php', array('id'=>$id));
 if ($mode !== 'display') {
     $url->param('mode', $mode);
 }
@@ -163,7 +149,7 @@ switch ($mode) {
             // update central gradebook
             lesson_update_grades($lesson, $grade->userid);
 
-            redirect(new moodle_url('/mod/lesson/essay.php', array('id'=>$cm->id)));
+            redirect(new lion_url('/mod/lesson/essay.php', array('id'=>$cm->id)));
         } else {
             print_error('invalidformdata');
         }
@@ -282,7 +268,7 @@ switch ($mode) {
             }
         }
         $lesson->add_message(get_string('emailsuccess', 'lesson'), 'notifysuccess');
-        redirect(new moodle_url('/mod/lesson/essay.php', array('id'=>$cm->id)));
+        redirect(new lion_url('/mod/lesson/essay.php', array('id'=>$cm->id)));
         break;
     case 'display':  // Default view - get the necessary data
     default:
@@ -395,7 +381,7 @@ switch ($mode) {
                     $essayinfo = lesson_page_type_essay::extract_useranswer($essay->useranswer);
 
                     // link for each essay
-                    $url = new moodle_url('/mod/lesson/essay.php', array('id'=>$cm->id,'mode'=>'grade','attemptid'=>$essay->id,'sesskey'=>sesskey()));
+                    $url = new lion_url('/mod/lesson/essay.php', array('id'=>$cm->id,'mode'=>'grade','attemptid'=>$essay->id,'sesskey'=>sesskey()));
                     $attributes = array();
                     // Different colors for all the states of an essay (graded, if sent, not graded)
                     if (!$essayinfo->graded) {
@@ -409,14 +395,14 @@ switch ($mode) {
                 }
             }
             // email link for this user
-            $url = new moodle_url('/mod/lesson/essay.php', array('id'=>$cm->id,'mode'=>'email','userid'=>$userid,'sesskey'=>sesskey()));
+            $url = new lion_url('/mod/lesson/essay.php', array('id'=>$cm->id,'mode'=>'email','userid'=>$userid,'sesskey'=>sesskey()));
             $emaillink = html_writer::link($url, get_string('emailgradedessays', 'lesson'));
 
             $table->data[] = array($OUTPUT->user_picture($users[$userid], array('courseid'=>$course->id)).$studentname, implode("<br />", $essaylinks), $emaillink);
         }
 
         // email link for all users
-        $url = new moodle_url('/mod/lesson/essay.php', array('id'=>$cm->id,'mode'=>'email','sesskey'=>sesskey()));
+        $url = new lion_url('/mod/lesson/essay.php', array('id'=>$cm->id,'mode'=>'email','sesskey'=>sesskey()));
         $emailalllink = html_writer::link($url, get_string('emailallgradedessays', 'lesson'));
 
         $table->data[] = array(' ', ' ', $emailalllink);

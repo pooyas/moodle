@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the forms to create and edit an instance of this module
  *
  * @package   assignfeedback_offline
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
+defined('LION_INTERNAL') || die('Direct access to this script is forbidden.');
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot.'/mod/assign/feedback/offline/importgradeslib.php');
@@ -32,9 +18,9 @@ require_once($CFG->dirroot.'/mod/assign/feedback/offline/importgradeslib.php');
  *
  * @package   assignfeedback_offline
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class assignfeedback_offline_import_grades_form extends moodleform implements renderable {
+class assignfeedback_offline_import_grades_form extends lionform implements renderable {
 
     /**
      * Create this grade import form
@@ -72,7 +58,7 @@ class assignfeedback_offline_import_grades_form extends moodleform implements re
             }
         }
         if (!$gradeimporter->init()) {
-            $thisurl = new moodle_url('/mod/assign/view.php', array('action'=>'viewpluginpage',
+            $thisurl = new lion_url('/mod/assign/view.php', array('action'=>'viewpluginpage',
                                                                      'pluginsubtype'=>'assignfeedback',
                                                                      'plugin'=>'offline',
                                                                      'pluginaction'=>'uploadgrades',

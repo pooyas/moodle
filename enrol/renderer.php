@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This is the main renderer for the enrol section.
  *
  * @package    core_enrol
  * @copyright  2010 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
  * This is the core renderer
  *
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_enrol_renderer extends plugin_renderer_base {
 
@@ -34,11 +20,11 @@ class core_enrol_renderer extends plugin_renderer_base {
      * Renders a course enrolment table
      *
      * @param course_enrolment_table $table
-     * @param moodleform $mform Form that contains filter controls
+     * @param lionform $mform Form that contains filter controls
      * @return string
      */
     public function render_course_enrolment_users_table(course_enrolment_users_table $table,
-            moodleform $mform) {
+            lionform $mform) {
 
         $table->initialise_javascript();
 
@@ -63,7 +49,7 @@ class core_enrol_renderer extends plugin_renderer_base {
         // Check if the table has any bulk operations. If it does we want to wrap the table in a
         // form so that we can capture and perform any required bulk operations.
         if ($table->has_bulk_user_enrolment_operations()) {
-            $content .= html_writer::start_tag('form', array('action' => new moodle_url('/enrol/bulkchange.php'), 'method' => 'post'));
+            $content .= html_writer::start_tag('form', array('action' => new lion_url('/enrol/bulkchange.php'), 'method' => 'post'));
             foreach ($table->get_combined_url_params() as $key => $value) {
                 if ($key == 'action') {
                     continue;
@@ -180,7 +166,7 @@ class core_enrol_renderer extends plugin_renderer_base {
      * @param int $userid
      * @param array $roles
      * @param array $assignableroles
-     * @param moodle_url $pageurl
+     * @param lion_url $pageurl
      * @return string
      */
     public function user_roles_and_actions($userid, $roles, $assignableroles, $canassign, $pageurl) {
@@ -194,7 +180,7 @@ class core_enrol_renderer extends plugin_renderer_base {
             if ($canassign and (is_siteadmin() or isset($assignableroles[$roleid])) and !$role['unchangeable']) {
                 $strunassign = get_string('unassignarole', 'role', $role['text']);
                 $icon = html_writer::empty_tag('img', array('alt'=>$strunassign, 'src'=>$iconenrolremove));
-                $url = new moodle_url($pageurl, array('action'=>'unassign', 'roleid'=>$roleid, 'user'=>$userid));
+                $url = new lion_url($pageurl, array('action'=>'unassign', 'roleid'=>$roleid, 'user'=>$userid));
                 $rolesoutput .= html_writer::tag('div', $role['text'] . html_writer::link($url, $icon, array('class'=>'unassignrolelink', 'rel'=>$roleid, 'title'=>$strunassign)), array('class'=>'role role_'.$roleid));
             } else {
                 $rolesoutput .= html_writer::tag('div', $role['text'], array('class'=>'role unchangeable', 'rel'=>$roleid));
@@ -211,7 +197,7 @@ class core_enrol_renderer extends plugin_renderer_base {
                 }
             }
             if (!$hasallroles) {
-                $url = new moodle_url($pageurl, array('action' => 'assign', 'user' => $userid));
+                $url = new lion_url($pageurl, array('action' => 'assign', 'user' => $userid));
                 $roleicon = $this->output->pix_icon('i/assignroles', get_string('assignroles', 'role'));
                 $link = html_writer::link($url, $roleicon, array('class' => 'assignrolelink'));
                 $output = html_writer::tag('div', $link, array('class'=>'addrole'));
@@ -228,7 +214,7 @@ class core_enrol_renderer extends plugin_renderer_base {
      * @param array $groups
      * @param array $allgroups
      * @param bool $canmanagegroups
-     * @param moodle_url $pageurl
+     * @param lion_url $pageurl
      * @return string
      */
     public function user_groups_and_actions($userid, $groups, $allgroups, $canmanagegroups, $pageurl) {
@@ -240,7 +226,7 @@ class core_enrol_renderer extends plugin_renderer_base {
         foreach($groups as $groupid=>$name) {
             if ($canmanagegroups and groups_remove_member_allowed($groupid, $userid)) {
                 $icon = html_writer::empty_tag('img', array('alt'=>get_string('removefromgroup', 'group', $name), 'src'=>$iconenrolremove));
-                $url = new moodle_url($pageurl, array('action'=>'removemember', 'group'=>$groupid, 'user'=>$userid));
+                $url = new lion_url($pageurl, array('action'=>'removemember', 'group'=>$groupid, 'user'=>$userid));
                 $groupoutput .= html_writer::tag('div', $name . html_writer::link($url, $icon), array('class'=>'group', 'rel'=>$groupid));
             } else {
                 $groupoutput .= html_writer::tag('div', $name, array('class'=>'group', 'rel'=>$groupid));
@@ -248,7 +234,7 @@ class core_enrol_renderer extends plugin_renderer_base {
         }
         $output = '';
         if ($canmanagegroups && (count($groups) < count($allgroups))) {
-            $url = new moodle_url($pageurl, array('action'=>'addmember', 'user'=>$userid));
+            $url = new lion_url($pageurl, array('action'=>'addmember', 'user'=>$userid));
             $output .= html_writer::tag('div', html_writer::link($url, $groupicon), array('class'=>'addgroup'));
         }
         $output = $output.html_writer::tag('div', $groupoutput, array('class'=>'groups'));
@@ -260,7 +246,7 @@ class core_enrol_renderer extends plugin_renderer_base {
      *
      * @param int $userid
      * @param array $enrolments
-     * @param moodle_url $pageurl
+     * @param lion_url $pageurl
      * @return string
      */
     public function user_enrolments_and_actions($enrolments) {
@@ -302,7 +288,7 @@ class core_enrol_renderer extends plugin_renderer_base {
  * @package    core
  * @subpackage enrol
  * @copyright  2010 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class course_enrolment_table extends html_table implements renderable {
 
@@ -494,7 +480,7 @@ class course_enrolment_table extends html_table implements renderable {
         $this->head = array();
         $this->colclasses = array();
         $this->align = array();
-        $url = $this->manager->get_moodlepage()->url;
+        $url = $this->manager->get_lionpage()->url;
 
         if (!empty($this->bulkoperations)) {
             // If there are bulk operations add a column for checkboxes.
@@ -513,9 +499,9 @@ class course_enrolment_table extends html_table implements renderable {
                     if (!in_array($n, self::$sortablefields)) {
                         $bits[] = $l;
                     } else {
-                        $link = html_writer::link(new moodle_url($url, array(self::SORTVAR=>$n)), $fields[$name][$n]);
+                        $link = html_writer::link(new lion_url($url, array(self::SORTVAR=>$n)), $fields[$name][$n]);
                         if ($this->sort == $n) {
-                            $link .= html_writer::link(new moodle_url($url, array(self::SORTVAR=>$n, self::SORTDIRECTIONVAR=>$this->get_field_sort_direction($n))), $this->get_direction_icon($output, $n));
+                            $link .= html_writer::link(new lion_url($url, array(self::SORTVAR=>$n, self::SORTDIRECTIONVAR=>$this->get_field_sort_direction($n))), $this->get_direction_icon($output, $n));
                         }
                         $bits[] = html_writer::tag('span', $link, array('class'=>'subheading_'.$n));
 
@@ -526,9 +512,9 @@ class course_enrolment_table extends html_table implements renderable {
                 if (!in_array($name, self::$sortablefields)) {
                     $newlabel = $label;
                 } else {
-                    $newlabel  = html_writer::link(new moodle_url($url, array(self::SORTVAR=>$name)), $fields[$name]);
+                    $newlabel  = html_writer::link(new lion_url($url, array(self::SORTVAR=>$name)), $fields[$name]);
                     if ($this->sort == $name) {
-                        $newlabel .= html_writer::link(new moodle_url($url, array(self::SORTVAR=>$name, self::SORTDIRECTIONVAR=>$this->get_field_sort_direction($name))), $this->get_direction_icon($output, $name));
+                        $newlabel .= html_writer::link(new lion_url($url, array(self::SORTVAR=>$name, self::SORTDIRECTIONVAR=>$this->get_field_sort_direction($name))), $this->get_direction_icon($output, $name));
                     }
                 }
             }
@@ -592,22 +578,22 @@ class course_enrolment_table extends html_table implements renderable {
     }
 
     public function initialise_javascript() {
-        if (has_capability('moodle/role:assign', $this->manager->get_context())) {
-            $this->manager->get_moodlepage()->requires->strings_for_js(array(
+        if (has_capability('lion/role:assign', $this->manager->get_context())) {
+            $this->manager->get_lionpage()->requires->strings_for_js(array(
                 'assignroles',
                 'confirmunassign',
                 'confirmunassigntitle',
                 'confirmunassignyes',
                 'confirmunassignno'
             ), 'role');
-            $modules = array('moodle-enrol-rolemanager', 'moodle-enrol-rolemanager-skin');
+            $modules = array('lion-enrol-rolemanager', 'lion-enrol-rolemanager-skin');
             $function = 'M.enrol.rolemanager.init';
             $arguments = array(
                 'containerId'=>$this->id,
                 'userIds'=>array_keys($this->users),
                 'courseId'=>$this->manager->get_course()->id,
                 'otherusers'=>isset($this->otherusers));
-            $this->manager->get_moodlepage()->requires->yui_module($modules, $function, array($arguments));
+            $this->manager->get_lionpage()->requires->yui_module($modules, $function, array($arguments));
         }
     }
 
@@ -618,7 +604,7 @@ class course_enrolment_table extends html_table implements renderable {
      */
     public function get_paging_bar() {
         if ($this->pagingbar == null) {
-            $this->pagingbar = new paging_bar($this->totalusers, $this->page, $this->perpage, $this->manager->get_moodlepage()->url, self::PAGEVAR);
+            $this->pagingbar = new paging_bar($this->totalusers, $this->page, $this->perpage, $this->manager->get_lionpage()->url, self::PAGEVAR);
         }
         return $this->pagingbar;
     }
@@ -700,7 +686,7 @@ class course_enrolment_table extends html_table implements renderable {
  * Table control used for enrolled users
  *
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class course_enrolment_users_table extends course_enrolment_table {
 
@@ -719,7 +705,7 @@ class course_enrolment_users_table extends course_enrolment_table {
  * Other users are users who have roles but are not enrolled.
  *
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class course_enrolment_other_users_table extends course_enrolment_table {
 
@@ -744,15 +730,15 @@ class course_enrolment_other_users_table extends course_enrolment_table {
      */
     public function get_user_search_button() {
         static $count = 0;
-        if (!has_capability('moodle/role:assign', $this->manager->get_context())) {
+        if (!has_capability('lion/role:assign', $this->manager->get_context())) {
             return false;
         }
         $count++;
-        $url = new moodle_url('/admin/roles/assign.php', array('contextid'=>$this->manager->get_context()->id, 'sesskey'=>sesskey()));
+        $url = new lion_url('/admin/roles/assign.php', array('contextid'=>$this->manager->get_context()->id, 'sesskey'=>sesskey()));
         $control = new single_button($url, get_string('assignroles', 'role'), 'get');
         $control->class = 'singlebutton assignuserrole instance'.$count;
         if ($count == 1) {
-            $this->manager->get_moodlepage()->requires->strings_for_js(array(
+            $this->manager->get_lionpage()->requires->strings_for_js(array(
                     'ajaxoneuserfound',
                     'ajaxxusersfound',
                     'ajaxnext25',
@@ -769,15 +755,15 @@ class course_enrolment_other_users_table extends course_enrolment_table {
                     'startdatetoday',
                     'durationdays',
                     'enrolperiod'), 'enrol');
-            $this->manager->get_moodlepage()->requires->string_for_js('assignrole', 'role');
+            $this->manager->get_lionpage()->requires->string_for_js('assignrole', 'role');
 
-            $modules = array('moodle-enrol-otherusersmanager', 'moodle-enrol-otherusersmanager-skin');
+            $modules = array('lion-enrol-otherusersmanager', 'lion-enrol-otherusersmanager-skin');
             $function = 'M.enrol.otherusersmanager.init';
             $arguments = array(
                 'courseId'=> $this->manager->get_course()->id,
                 'ajaxUrl' => '/enrol/ajax.php',
-                'url' => $this->manager->get_moodlepage()->url->out(false));
-            $this->manager->get_moodlepage()->requires->yui_module($modules, $function, array($arguments));
+                'url' => $this->manager->get_lionpage()->url->out(false));
+            $this->manager->get_lionpage()->requires->yui_module($modules, $function, array($arguments));
         }
         return $control;
     }

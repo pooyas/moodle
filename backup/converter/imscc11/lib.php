@@ -5,13 +5,13 @@
  *
  * @package    core
  * @subpackage backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@moodlerooms.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Darko Miletic <dmiletic@lionrooms.com>
+ * 
  */
 
 require_once($CFG->dirroot.'/backup/converter/convertlib.php');
 require_once($CFG->dirroot.'/backup/cc/includes/constants.php');
-require_once($CFG->dirroot.'/backup/cc/cc112moodle.php');
+require_once($CFG->dirroot.'/backup/cc/cc112lion.php');
 require_once($CFG->dirroot.'/backup/cc/validator.php');
 
 
@@ -41,7 +41,7 @@ class imscc11_converter extends base_converter {
         global $CFG;
 
         $filepath = $CFG->dataroot . '/temp/backup/' . $tempdir;
-        $manifest = cc112moodle::get_manifest($filepath);
+        $manifest = cc112lion::get_manifest($filepath);
         if (file_exists($manifest)) {
             // Looks promising, lets load some information.
             $handle = fopen($manifest, 'r');
@@ -69,15 +69,15 @@ class imscc11_converter extends base_converter {
      * Returns the basic information about the converter
      *
      * The returned array must contain the following keys:
-     * 'from' - the supported source format, eg. backup::FORMAT_MOODLE1
-     * 'to'   - the supported target format, eg. backup::FORMAT_MOODLE
+     * 'from' - the supported source format, eg. backup::FORMAT_LION1
+     * 'to'   - the supported target format, eg. backup::FORMAT_LION
      * 'cost' - the cost of the conversion, non-negative non-zero integer
      */
     public static function description() {
 
         return array(
                 'from'  => backup::FORMAT_IMSCC11,
-                'to'    => backup::FORMAT_MOODLE1,
+                'to'    => backup::FORMAT_LION1,
                 'cost'  => 10
         );
     }
@@ -85,7 +85,7 @@ class imscc11_converter extends base_converter {
     protected function execute() {
         global $CFG;
 
-        $manifest = cc112moodle::get_manifest($this->get_tempdir_path());
+        $manifest = cc112lion::get_manifest($this->get_tempdir_path());
         if (empty($manifest)) {
             throw new imscc11_convert_exception('No Manifest detected!');
         }
@@ -97,11 +97,11 @@ class imscc11_converter extends base_converter {
             throw new imscc11_convert_exception(error_messages::instance()->to_string(true));
         }
         $manifestdir = dirname($manifest);
-        $cc112moodle = new cc112moodle($manifest);
-        if ($cc112moodle->is_auth()) {
+        $cc112lion = new cc112lion($manifest);
+        if ($cc112lion->is_auth()) {
             throw new imscc11_convert_exception('protected_cc_not_supported');
         }
-        $status = $cc112moodle->generate_moodle_xml();
+        $status = $cc112lion->generate_lion_xml();
         // Final cleanup.
         $xml_error = new libxml_errors_mgr(true);
         $mdoc = new DOMDocument();
@@ -109,8 +109,8 @@ class imscc11_converter extends base_converter {
         $mdoc->formatOutput = true;
         $mdoc->validateOnParse = false;
         $mdoc->strictErrorChecking = false;
-        if ($mdoc->load($manifestdir.'/moodle.xml', LIBXML_NONET)) {
-            $mdoc->save($this->get_workdir_path().'/moodle.xml', LIBXML_NOEMPTYTAG);
+        if ($mdoc->load($manifestdir.'/lion.xml', LIBXML_NONET)) {
+            $mdoc->save($this->get_workdir_path().'/lion.xml', LIBXML_NOEMPTYTAG);
         } else {
             $xml_error->collect();
             $this->log('validation error(s): '.PHP_EOL.error_messages::instance(), backup::LOG_DEBUG, null, 2);

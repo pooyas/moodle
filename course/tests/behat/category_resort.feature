@@ -1,6 +1,6 @@
 @core @core_course
 Feature: Test we can resort categories in the management interface.
-  As a moodle admin
+  As a lion admin
   I need to test we can resort top level categories.
   I need to test we can resort sub categories.
   I need to test we can manually sort categories.

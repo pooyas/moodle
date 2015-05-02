@@ -1,7 +1,7 @@
 @core @core_course
 Feature: Courses can be searched for and moved in bulk.
   In order to manage a large number of courses
-  As a Moodle Administrator
+  As a Lion Administrator
   I need to be able to search courses in bulk and move them around
 
   Background:

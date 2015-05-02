@@ -1,14 +1,14 @@
 /**
-The Moodle Bootstrap theme's bootstrap JavaScript
+The Lion Bootstrap theme's bootstrap JavaScript
 
-@namespace Moodle
+@namespace Lion
 @module theme_bootstrapbase-bootstrap
 **/
 
 /**
-The Moodle Bootstrap theme's bootstrap JavaScript
+The Lion Bootstrap theme's bootstrap JavaScript
 
-@class Moodle.theme_bootstrapbase.bootstrap
+@class Lion.theme_bootstrapbase.bootstrap
 @uses node
 @uses selector-css3
 @constructor
@@ -21,16 +21,16 @@ var CSS = {
         // FIXME This is deliberately wrong because of a breaking issue in the upstream library.
         TOGGLECOLLAPSE: '*[data-disabledtoggle="collapse"]'
     },
-    NS = Y.namespace('Moodle.theme_bootstrapbase.bootstrap');
+    NS = Y.namespace('Lion.theme_bootstrapbase.bootstrap');
 
 /**
- * Initialise the Moodle Bootstrap theme JavaScript
+ * Initialise the Lion Bootstrap theme JavaScript
  *
  * @method init
  */
 NS.init = function() {
     // We must use these here and *must not* add them to the list of dependencies until
-    // Moodle fully supports the gallery.
+    // Lion fully supports the gallery.
     // When debugging is disabled and we seed the Loader with out configuration, if these
     // are in the requires array, then the Loader will try to load them from the CDN. It
     // does not know that we have added them to the module rollup.

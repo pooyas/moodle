@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Defines the renderer for the quiz module.
  *
  * @package   mod_quiz
  * @copyright 2011 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * The renderer for the quiz module.
  *
  * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_quiz_renderer extends plugin_renderer_base {
     /**
@@ -509,7 +495,7 @@ class mod_quiz_renderer extends plugin_renderer_base {
     /**
      * Output a page with an optional message, and JavaScript code to close the
      * current window and redirect the parent window to a new URL.
-     * @param moodle_url $url the URL to redirect the parent window to.
+     * @param lion_url $url the URL to redirect the parent window to.
      * @param string $message message to display before closing the window. (optional)
      * @return string HTML to output.
      */
@@ -635,7 +621,7 @@ class mod_quiz_renderer extends plugin_renderer_base {
         // Return to place button.
         if ($attemptobj->get_state() == quiz_attempt::IN_PROGRESS) {
             $button = new single_button(
-                    new moodle_url($attemptobj->attempt_url(null, $attemptobj->get_currentpage())),
+                    new lion_url($attemptobj->attempt_url(null, $attemptobj->get_currentpage())),
                     get_string('returnattempt', 'quiz'));
             $output .= $this->container($this->container($this->render($button),
                     'controls'), 'submitbtns mdl-align');
@@ -651,7 +637,7 @@ class mod_quiz_renderer extends plugin_renderer_base {
         );
 
         $button = new single_button(
-                new moodle_url($attemptobj->processattempt_url(), $options),
+                new lion_url($attemptobj->processattempt_url(), $options),
                 get_string('submitallandfinish', 'quiz'));
         $button->id = 'responseform';
         if ($attemptobj->get_state() == quiz_attempt::IN_PROGRESS) {
@@ -744,7 +730,7 @@ class mod_quiz_renderer extends plugin_renderer_base {
      * @param mod_quiz_view_object $viewobj
      * @param string $buttontext
      */
-    public function start_attempt_button($buttontext, moodle_url $url,
+    public function start_attempt_button($buttontext, lion_url $url,
             $startattemptwarning, $popuprequired, $popupoptions) {
 
         $button = new single_button($url, $buttontext);
@@ -1095,7 +1081,7 @@ class mod_quiz_renderer extends plugin_renderer_base {
      * Output either a link to the review page for an attempt, or a button to
      * open the review in a popup window.
      *
-     * @param moodle_url $url of the target page.
+     * @param lion_url $url of the target page.
      * @param bool $reviewinpopup whether a pop-up is required.
      * @param array $popupoptions options to pass to the popup_action constructor.
      * @return string HTML to output.
@@ -1147,18 +1133,18 @@ class mod_quiz_renderer extends plugin_renderer_base {
         }
 
         require_once($CFG->dirroot . '/mod/quiz/report/reportlib.php');
-        $url = new moodle_url('/mod/quiz/report.php', array(
+        $url = new lion_url('/mod/quiz/report.php', array(
                 'id' => $cm->id, 'mode' => quiz_report_default_report($context)));
         return html_writer::link($url, $summary);
     }
 
     /**
      * Output a graph, or a message saying that GD is required.
-     * @param moodle_url $url the URL of the graph.
+     * @param lion_url $url the URL of the graph.
      * @param string $title the title to display above the graph.
      * @return string HTML fragment for the graph.
      */
-    public function graph(moodle_url $url, $title) {
+    public function graph(lion_url $url, $title) {
         global $CFG;
 
         $graph = html_writer::empty_tag('img', array('src' => $url, 'alt' => $title));
@@ -1203,7 +1189,7 @@ class mod_quiz_view_object {
     public $canreviewmine;
     /** @var bool $canedit whether the current user has the capability to edit the quiz. */
     public $canedit;
-    /** @var moodle_url $editurl the URL for editing this quiz. */
+    /** @var lion_url $editurl the URL for editing this quiz. */
     public $editurl;
     /** @var int $attemptcolumn contains the number of attempts done. */
     public $attemptcolumn;
@@ -1239,9 +1225,9 @@ class mod_quiz_view_object {
     public $buttontext;
     /** @var string $startattemptwarning alert to show the user before starting an attempt. */
     public $startattemptwarning;
-    /** @var moodle_url $startattempturl URL to start an attempt. */
+    /** @var lion_url $startattempturl URL to start an attempt. */
     public $startattempturl;
-    /** @var moodle_url $startattempturl URL for any Back to the course button. */
+    /** @var lion_url $startattempturl URL for any Back to the course button. */
     public $backtocourseurl;
     /** @var bool $showbacktocourse should we show a back to the course button? */
     public $showbacktocourse;

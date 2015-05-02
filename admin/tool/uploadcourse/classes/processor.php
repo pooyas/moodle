@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * File containing processor class.
  *
  * @package    tool_uploadcourse
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->libdir . '/csvlib.class.php');
 
 /**
@@ -30,7 +16,7 @@ require_once($CFG->libdir . '/csvlib.class.php');
  *
  * @package    tool_uploadcourse
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class tool_uploadcourse_processor {
 
@@ -378,9 +364,9 @@ class tool_uploadcourse_processor {
      */
     protected function validate() {
         if (empty($this->columns)) {
-            throw new moodle_exception('cannotreadtmpfile', 'error');
+            throw new lion_exception('cannotreadtmpfile', 'error');
         } else if (count($this->columns) < 2) {
-            throw new moodle_exception('csvfewcolumns', 'error');
+            throw new lion_exception('csvfewcolumns', 'error');
         }
     }
 }

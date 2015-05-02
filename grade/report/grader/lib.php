@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Definition of the grader report class
  *
  * @package   gradereport_grader
  * @copyright 2007 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once($CFG->dirroot . '/grade/report/lib.php');
@@ -29,7 +15,7 @@ require_once($CFG->libdir.'/tablelib.php');
  * Class providing an API for the grader report building and displaying.
  * @uses grade_report
  * @copyright 2007 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class grade_report_grader extends grade_report {
     /**
@@ -113,7 +99,7 @@ class grade_report_grader extends grade_report {
         global $CFG;
         parent::__construct($courseid, $gpr, $context, $page);
 
-        $this->canviewhidden = has_capability('moodle/grade:viewhidden', context_course::instance($this->course->id));
+        $this->canviewhidden = has_capability('lion/grade:viewhidden', context_course::instance($this->course->id));
 
         // load collapsed settings for this report
         $this->collapsed = static::get_collapsed_preferences($this->course->id);
@@ -137,20 +123,20 @@ class grade_report_grader extends grade_report {
 
         // base url for sorting by first/last name
 
-        $this->baseurl = new moodle_url('index.php', array('id' => $this->courseid));
+        $this->baseurl = new lion_url('index.php', array('id' => $this->courseid));
 
         $studentsperpage = $this->get_students_per_page();
         if (!empty($this->page) && !empty($studentsperpage)) {
             $this->baseurl->params(array('perpage' => $studentsperpage, 'page' => $this->page));
         }
 
-        $this->pbarurl = new moodle_url('/grade/report/grader/index.php', array('id' => $this->courseid));
+        $this->pbarurl = new lion_url('/grade/report/grader/index.php', array('id' => $this->courseid));
 
         $this->setup_groups();
         $this->setup_users();
         $this->setup_sortitemid();
 
-        $this->overridecat = (bool)get_config('moodle', 'grade_overridecat');
+        $this->overridecat = (bool)get_config('lion', 'grade_overridecat');
     }
 
     /**
@@ -165,7 +151,7 @@ class grade_report_grader extends grade_report {
 
         $separategroups = false;
         $mygroups       = array();
-        if ($this->groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $this->context)) {
+        if ($this->groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $this->context)) {
             $separategroups = true;
             $mygroups = groups_get_user_groups($this->course->id);
             $mygroups = $mygroups[0]; // ignore groupings
@@ -318,7 +304,7 @@ class grade_report_grader extends grade_report {
                         }
                     }
 
-                    $gradeitem->update_final_grade($userid, $finalgrade, 'gradebook', $feedback, FORMAT_MOODLE);
+                    $gradeitem->update_final_grade($userid, $finalgrade, 'gradebook', $feedback, FORMAT_LION);
 
                     // We can update feedback without reloading the grade item as it doesn't affect grade calculations
                     if ($datatype === 'feedback') {
@@ -416,7 +402,7 @@ class grade_report_grader extends grade_report {
         $coursecontext = $this->context->get_course_context(true);
         $defaultgradeshowactiveenrol = !empty($CFG->grade_report_showonlyactiveenrol);
         $showonlyactiveenrol = get_user_preferences('grade_report_showonlyactiveenrol', $defaultgradeshowactiveenrol);
-        $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('moodle/course:viewsuspendedusers', $coursecontext);
+        $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('lion/course:viewsuspendedusers', $coursecontext);
 
         // Limit to users with an active enrollment.
         list($enrolledsql, $enrolledparams) = get_enrolled_sql($this->context, '', 0, $showonlyactiveenrol);
@@ -560,7 +546,7 @@ class grade_report_grader extends grade_report {
 
     /**
      * Gets html toggle
-     * @deprecated since Moodle 2.4 as it appears not to be used any more.
+     * @deprecated since Lion 2.4 as it appears not to be used any more.
      */
     public function get_toggles_html() {
         throw new coding_exception('get_toggles_html() can not be used any more');
@@ -665,7 +651,7 @@ class grade_report_grader extends grade_report {
             }
 
             $fullname = fullname($user);
-            $usercell->text .= html_writer::link(new moodle_url('/user/view.php', array('id' => $user->id, 'course' => $this->course->id)), $fullname, array(
+            $usercell->text .= html_writer::link(new lion_url('/user/view.php', array('id' => $user->id, 'course' => $this->course->id)), $fullname, array(
                 'class' => 'username',
             ));
 
@@ -689,12 +675,12 @@ class grade_report_grader extends grade_report {
                 $a = new stdClass();
                 $a->user = $fullname;
                 $strgradesforuser = get_string('gradesforuser', 'grades', $a);
-                $url = new moodle_url('/grade/report/'.$CFG->grade_profilereport.'/index.php', array('userid' => $user->id, 'id' => $this->course->id));
+                $url = new lion_url('/grade/report/'.$CFG->grade_profilereport.'/index.php', array('userid' => $user->id, 'id' => $this->course->id));
                 $userreportcell->text .= $OUTPUT->action_icon($url, new pix_icon('t/grades', $strgradesforuser));
             }
 
             if (has_capability('gradereport/singleview:view', $this->context)) {
-                $url = new moodle_url('/grade/report/singleview/index.php', array('id' => $this->course->id, 'itemid' => $user->id, 'item' => 'user'));
+                $url = new lion_url('/grade/report/singleview/index.php', array('id' => $this->course->id, 'itemid' => $user->id, 'item' => 'user'));
                 $singleview = $OUTPUT->action_icon($url, new pix_icon('t/editstring', get_string('singleview', 'grades', $fullname)));
                 $userreportcell->text .= $singleview;
             }
@@ -838,7 +824,7 @@ class grade_report_grader extends grade_report {
 
                     $singleview = '';
                     if (has_capability('gradereport/singleview:view', $this->context)) {
-                        $url = new moodle_url('/grade/report/singleview/index.php', array(
+                        $url = new lion_url('/grade/report/singleview/index.php', array(
                             'id' => $this->course->id,
                             'item' => 'grade',
                             'itemid' => $element['object']->id));
@@ -932,7 +918,7 @@ class grade_report_grader extends grade_report {
                 }
 
                 // MDL-11274
-                // Hide grades in the grader report if the current grader doesn't have 'moodle/grade:viewhidden'
+                // Hide grades in the grader report if the current grader doesn't have 'lion/grade:viewhidden'
                 if (!$this->canviewhidden and $grade->is_hidden()) {
                     if (!empty($CFG->grade_hiddenasdate) and $grade->get_datesubmitted() and !$item->is_category_item() and !$item->is_course_item()) {
                         // the problem here is that we do not have the time when grade value was modified, 'timemodified' is general modification date for grade_grades records
@@ -1074,7 +1060,7 @@ class grade_report_grader extends grade_report {
                     if ($enableajax) {
                         $canoverride = true;
                         if ($item->is_category_item() || $item->is_course_item()) {
-                            $canoverride = (bool) get_config('moodle', 'grade_overridecat');
+                            $canoverride = (bool) get_config('lion', 'grade_overridecat');
                         }
                         if ($canoverride) {
                             $itemcell->attributes['class'] .= ' clickable';
@@ -1131,13 +1117,13 @@ class grade_report_grader extends grade_report {
         $PAGE->requires->strings_for_js(array('addfeedback', 'feedback', 'grade'), 'grades');
         $PAGE->requires->strings_for_js(array('ajaxchoosescale', 'ajaxclicktoclose', 'ajaxerror', 'ajaxfailedupdate', 'ajaxfieldchanged'), 'gradereport_grader');
         if (!$enableajax && $USER->gradeediting[$this->courseid]) {
-            $PAGE->requires->yui_module('moodle-core-formchangechecker',
+            $PAGE->requires->yui_module('lion-core-formchangechecker',
                     'M.core_formchangechecker.init',
                     array(array(
                         'formid' => 'gradereport_grader'
                     ))
             );
-            $PAGE->requires->string_for_js('changesmadereallygoaway', 'moodle');
+            $PAGE->requires->string_for_js('changesmadereallygoaway', 'lion');
         }
 
         $rows = $this->get_right_range_row($rows);
@@ -1380,7 +1366,7 @@ class grade_report_grader extends grade_report {
             $coursecontext = $this->context->get_course_context(true);
             $defaultgradeshowactiveenrol = !empty($CFG->grade_report_showonlyactiveenrol);
             $showonlyactiveenrol = get_user_preferences('grade_report_showonlyactiveenrol', $defaultgradeshowactiveenrol);
-            $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('moodle/course:viewsuspendedusers', $coursecontext);
+            $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('lion/course:viewsuspendedusers', $coursecontext);
             list($enrolledsql, $enrolledparams) = get_enrolled_sql($this->context, '', 0, $showonlyactiveenrol);
 
             // We want to query both the current context and parent contexts.
@@ -1530,7 +1516,7 @@ class grade_report_grader extends grade_report {
             $strswitchplus  = $this->get_lang_string('gradesonly', 'grades');
             $strswitchwhole = $this->get_lang_string('fullmode', 'grades');
 
-            $url = new moodle_url($this->gpr->get_return_url(null, array('target' => $element['eid'], 'sesskey' => sesskey())));
+            $url = new lion_url($this->gpr->get_return_url(null, array('target' => $element['eid'], 'sesskey' => sesskey())));
 
             if (in_array($element['object']->id, $this->collapsed['aggregatesonly'])) {
                 $url->param('action', 'switch_plus');
@@ -1590,7 +1576,7 @@ class grade_report_grader extends grade_report {
         $showhideicon        = '';
         $lockunlockicon      = '';
 
-        if (has_capability('moodle/grade:manage', $this->context)) {
+        if (has_capability('lion/grade:manage', $this->context)) {
             if ($this->get_pref('showcalculations')) {
                 $editcalculationicon = $this->gtree->get_calculation_icon($element, $this->gpr);
             }
@@ -1616,8 +1602,8 @@ class grade_report_grader extends grade_report {
     /**
      * Given a category element returns collapsing +/- icon if available
      *
-     * @deprecated since Moodle 2.9 MDL-46662 - please do not use this function any more.
-     * @todo MDL-49021 This will be deleted in Moodle 3.1
+     * @deprecated since Lion 2.9 MDL-46662 - please do not use this function any more.
+     * @todo MDL-49021 This will be deleted in Lion 3.1
      * @see grade_report_grader::get_course_header()
      * @param object $element
      * @return string HTML
@@ -1634,7 +1620,7 @@ class grade_report_grader extends grade_report {
             $strswitchplus  = $this->get_lang_string('gradesonly', 'grades');
             $strswitchwhole = $this->get_lang_string('fullmode', 'grades');
 
-            $url = new moodle_url($this->gpr->get_return_url(null, array('target'=>$element['eid'], 'sesskey'=>sesskey())));
+            $url = new lion_url($this->gpr->get_return_url(null, array('target'=>$element['eid'], 'sesskey'=>sesskey())));
 
             if (in_array($element['object']->id, $this->collapsed['aggregatesonly'])) {
                 $url->param('action', 'switch_plus');
@@ -1840,8 +1826,8 @@ class grade_report_grader extends grade_report {
         $iconasc = $OUTPUT->pix_icon('t/sort_asc', $strsortasc, '', array('class' => 'iconsmall sorticon'));
         $icondesc = $OUTPUT->pix_icon('t/sort_desc', $strsortdesc, '', array('class' => 'iconsmall sorticon'));
 
-        $firstlink = html_writer::link(new moodle_url($this->baseurl, array('sortitemid'=>'firstname')), $strfirstname);
-        $lastlink = html_writer::link(new moodle_url($this->baseurl, array('sortitemid'=>'lastname')), $strlastname);
+        $firstlink = html_writer::link(new lion_url($this->baseurl, array('sortitemid'=>'firstname')), $strfirstname);
+        $lastlink = html_writer::link(new lion_url($this->baseurl, array('sortitemid'=>'lastname')), $strlastname);
 
         $arrows['studentname'] = $lastlink;
 
@@ -1864,7 +1850,7 @@ class grade_report_grader extends grade_report {
         }
 
         foreach ($extrafields as $field) {
-            $fieldlink = html_writer::link(new moodle_url($this->baseurl,
+            $fieldlink = html_writer::link(new lion_url($this->baseurl,
                     array('sortitemid'=>$field)), get_user_field_name($field));
             $arrows[$field] = $fieldlink;
 

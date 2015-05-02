@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cache store - base class
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are required in order to use caching.
  *
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Cache store interface.
@@ -37,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface cache_store_interface {
     /**
@@ -98,11 +84,11 @@ interface cache_store_interface {
  * All cache store plugins must extend this base class.
  * It lays down the foundation for what is required of a cache store plugin.
  *
- * @since Moodle 2.4
+ * @since Lion 2.4
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class cache_store implements cache_store_interface {
 
@@ -267,7 +253,7 @@ abstract class cache_store implements cache_store_interface {
     /**
      * Performs any necessary operation when the store instance has been created.
      *
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public function instance_created() {
         // By default, do nothing.
@@ -278,7 +264,7 @@ abstract class cache_store implements cache_store_interface {
      *
      * This method may be called before the store has been initialised.
      *
-     * @since Moodle 2.5
+     * @since Lion 2.5
      * @see cleanup()
      */
     public function instance_deleted() {

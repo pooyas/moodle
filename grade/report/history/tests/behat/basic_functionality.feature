@@ -26,7 +26,7 @@ Feature: A teacher checks the grade history report in a course
     And I turn editing mode on
     And I add a "Assignment" to section "1" and I fill the form with:
       | Assignment name | The greatest assignment ever |
-      | Description | Write a behat test for Moodle - it's amazing! |
+      | Description | Write a behat test for Lion - it's amazing! |
     And I add a "Assignment" to section "1" and I fill the form with:
       | Assignment name | Rewarding assignment |
       | Description | After writing your behat test go grab a beer! |

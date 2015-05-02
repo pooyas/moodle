@@ -1,21 +1,7 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Configuration for Moodle's Canvas theme.
+ * Configuration for Lion's Canvas theme.
  *
  * This theme is special, and implements a minimalist theme with basic styles.
  * It is intended to be used with Base as a starting point for other themes to build upon.
@@ -24,12 +10,12 @@
  * DO NOT COPY THIS TO START NEW THEMES!
  * Start with another theme, like "standard".
  *
- * For full information about creating Moodle themes, see:
- *  http://docs.moodle.org/dev/Themes_2.0
+ * For full information about creating Lion themes, see:
+ *  http://docs.lion.org/dev/Themes_2.0
  *
  * @package   theme_canvas
  * @copyright 2010 Patrick Malley
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 $THEME->name = 'canvas';
@@ -175,7 +161,7 @@ $THEME->layouts = array(
 );
 
 /////////////////////////////////////////////////////////
-// These are all of the possible layouts in Moodle. The
+// These are all of the possible layouts in Lion. The
 // simplest way to do this is to keep the theme and file
 // variables the same for every layout. Including them
 // all in this way allows some flexibility down the road
@@ -231,13 +217,13 @@ $THEME->editor_sheets = array('editor');
 
 ////////////////////////////////////////////////////
 // Overrides the left arrow image used throughout
-// Moodle
+// Lion
 ////////////////////////////////////////////////////
 
 // $THEME->rarrow
 
 ////////////////////////////////////////////////////
-// Overrides the right arrow image used throughout Moodle
+// Overrides the right arrow image used throughout Lion
 ////////////////////////////////////////////////////
 
 // $THEME->parents_exclude_javascripts

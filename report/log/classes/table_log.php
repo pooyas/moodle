@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Table log for displaying logs.
  *
  * @package    report_log
  * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Table log class for displaying logs.
  *
  * @package    report_log
  * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class report_log_table_log extends table_sql {
 
@@ -37,7 +23,7 @@ class report_log_table_log extends table_sql {
     private $userfullnames = array();
 
     /**
-     * @deprecated since Moodle 2.9 MDL-48595 - please do not use this argument any more.
+     * @deprecated since Lion 2.9 MDL-48595 - please do not use this argument any more.
      * @todo MDL-49291 This will be deleted in 3.1
      * @var array list of course short names shown in report.
      */
@@ -98,7 +84,7 @@ class report_log_table_log extends table_sql {
     /**
      * Generate the course column.
      *
-     * @deprecated since Moodle 2.9 MDL-48595 - please do not use this function any more.
+     * @deprecated since Lion 2.9 MDL-48595 - please do not use this function any more.
      * @todo MDL-49291 This will be deleted in 3.1
      * @param stdClass $event event data.
      * @return string HTML for the course column.
@@ -120,7 +106,7 @@ class report_log_table_log extends table_sql {
      * This function is useful because, in the unlikely case that the user is
      * not already loaded in $this->userfullnames it will fetch it from db.
      *
-     * @since Moodle 2.9
+     * @since Lion 2.9
      * @param int $userid
      * @return string|false
      */
@@ -186,9 +172,9 @@ class report_log_table_log extends table_sql {
                 if ($event->courseid) {
                     $params['course'] = $event->courseid;
                 }
-                $a->realusername = html_writer::link(new moodle_url('/user/view.php', $params), $a->realusername);
+                $a->realusername = html_writer::link(new lion_url('/user/view.php', $params), $a->realusername);
                 $params['id'] = $event->userid;
-                $a->asusername = html_writer::link(new moodle_url('/user/view.php', $params), $a->asusername);
+                $a->asusername = html_writer::link(new lion_url('/user/view.php', $params), $a->asusername);
             }
             $username = get_string('eventloggedas', 'report_log', $a);
 
@@ -198,7 +184,7 @@ class report_log_table_log extends table_sql {
                 if ($event->courseid) {
                     $params['course'] = $event->courseid;
                 }
-                $username = html_writer::link(new moodle_url('/user/view.php', $params), $username);
+                $username = html_writer::link(new lion_url('/user/view.php', $params), $username);
             }
         } else {
             $username = '-';
@@ -220,7 +206,7 @@ class report_log_table_log extends table_sql {
                 if ($event->courseid) {
                     $params['course'] = $event->courseid;
                 }
-                $username = html_writer::link(new moodle_url('/user/view.php', $params), $username);
+                $username = html_writer::link(new lion_url('/user/view.php', $params), $username);
             }
         } else {
             $username = '-';
@@ -335,7 +321,7 @@ class report_log_table_log extends table_sql {
         $ip = $logextra['ip'];
 
         if (empty($this->download)) {
-            $url = new moodle_url("/iplookup/index.php?ip={$ip}&user={$event->userid}");
+            $url = new lion_url("/iplookup/index.php?ip={$ip}&user={$event->userid}");
             $ip = $this->action_link($url, $ip, 'ip');
         }
         return $ip;
@@ -344,13 +330,13 @@ class report_log_table_log extends table_sql {
     /**
      * Method to create a link with popup action.
      *
-     * @param moodle_url $url The url to open.
+     * @param lion_url $url The url to open.
      * @param string $text Anchor text for the link.
      * @param string $name Name of the popup window.
      *
      * @return string html to use.
      */
-    protected function action_link(moodle_url $url, $text, $name = 'popup') {
+    protected function action_link(lion_url $url, $text, $name = 'popup') {
         global $OUTPUT;
         $link = new action_link($url, $text, new popup_action('click', $url, $name, array('height' => 440, 'width' => 700)));
         return $OUTPUT->render($link);
@@ -538,7 +524,7 @@ class report_log_table_log extends table_sql {
      * This will update $this->userfullnames and $this->courseshortnames array with userfullname and courseshortname (with link),
      * which will be used to render logs in table.
      *
-     * @deprecated since Moodle 2.9 MDL-48595 - please do not use this function any more.
+     * @deprecated since Lion 2.9 MDL-48595 - please do not use this function any more.
      * @todo MDL-49291 This will be deleted in 3.1
      * @see self::update_users_used()
      */
@@ -572,9 +558,9 @@ class report_log_table_log extends table_sql {
             }
         }
 
-        // Closing it just in case, we can not rewind moodle recordsets anyway.
+        // Closing it just in case, we can not rewind lion recordsets anyway.
         if ($this->rawdata instanceof \core\dml\recordset_walk ||
-                $this->rawdata instanceof moodle_recordset) {
+                $this->rawdata instanceof lion_recordset) {
             $this->rawdata->close();
         }
 
@@ -607,7 +593,7 @@ class report_log_table_log extends table_sql {
 
             $courses = $DB->get_records_sql($sql, $courseparams);
             foreach ($courses as $courseid => $course) {
-                $url = new moodle_url("/course/view.php", array('id' => $courseid));
+                $url = new lion_url("/course/view.php", array('id' => $courseid));
                 context_helper::preload_from_record($course);
                 $context = context_course::instance($courseid, IGNORE_MISSING);
                 // Method format_string() takes care of missing contexts.
@@ -623,7 +609,7 @@ class report_log_table_log extends table_sql {
      * This will update $this->userfullnames array with userfullname,
      * which will be used to render logs in table.
      *
-     * @since   Moodle 2.9
+     * @since   Lion 2.9
      * @return  void
      */
     protected function update_users_used() {

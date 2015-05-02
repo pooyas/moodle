@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The purpose of this feature is to quickly remove all user related data from a course
@@ -22,7 +8,7 @@
  * specific data.  Each module must be modified to take advantage of this new feature.
  * The feature will also reset the start date of the course if necessary.
  *
- * @copyright Mark Flach and moodle.com
+ * @copyright Mark Flach and lion.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @package course
  */
@@ -40,7 +26,7 @@ $PAGE->set_url('/course/reset.php', array('id'=>$id));
 $PAGE->set_pagelayout('admin');
 
 require_login($course);
-require_capability('moodle/course:reset', context_course::instance($course->id));
+require_capability('lion/course:reset', context_course::instance($course->id));
 
 $strreset       = get_string('reset');
 $strresetcourse = get_string('resetcourse');

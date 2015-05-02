@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Course and category management interfaces.
  *
  * @package    core_course
  * @copyright  2013 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once('../config.php');
@@ -48,7 +34,7 @@ if ($issearching) {
     $viewmode = 'courses';
 }
 
-$url = new moodle_url('/course/management.php');
+$url = new lion_url('/course/management.php');
 $systemcontext = $context = context_system::instance();
 if ($courseid) {
     $record = get_course($courseid);
@@ -108,9 +94,9 @@ $PAGE->set_heading($pageheading);
 // This is a system level page that operates on other contexts.
 require_login();
 
-if (!coursecat::has_capability_on_any(array('moodle/category:manage', 'moodle/course:create'))) {
+if (!coursecat::has_capability_on_any(array('lion/category:manage', 'lion/course:create'))) {
     // The user isn't able to manage any categories. Lets redirect them to the relevant course/index.php page.
-    $url = new moodle_url('/course/index.php');
+    $url = new lion_url('/course/index.php');
     if ($categoryid) {
         $url->param('categoryid', $categoryid);
     }
@@ -121,24 +107,24 @@ if (!coursecat::has_capability_on_any(array('moodle/category:manage', 'moodle/co
 // tree and the management link within it.
 // This is the most accurate form of navigation.
 $capabilities = array(
-    'moodle/site:config',
-    'moodle/backup:backupcourse',
-    'moodle/category:manage',
-    'moodle/course:create',
-    'moodle/site:approvecourse'
+    'lion/site:config',
+    'lion/backup:backupcourse',
+    'lion/category:manage',
+    'lion/course:create',
+    'lion/site:approvecourse'
 );
 if ($category && !has_any_capability($capabilities, $systemcontext)) {
     // If the user doesn't poses any of these system capabilities then we're going to mark the manage link in the settings block
     // as active, tell the page to ignore the active path and just build what the user would expect.
     // This will at least give the page some relevant navigation.
-    navigation_node::override_active_url(new moodle_url('/course/management.php', array('categoryid' => $category->id)));
+    navigation_node::override_active_url(new lion_url('/course/management.php', array('categoryid' => $category->id)));
     $PAGE->set_category_by_id($category->id);
     $PAGE->navbar->ignore_active(true);
     $PAGE->navbar->add(get_string('coursemgmt', 'admin'), $PAGE->url->out_omit_querystring());
 } else {
     // If user has system capabilities, make sure the "Manage courses and categories" item in Administration block is active.
     navigation_node::require_admin_tree();
-    navigation_node::override_active_url(new moodle_url('/course/management.php'));
+    navigation_node::override_active_url(new lion_url('/course/management.php'));
 }
 if (!$issearching && $category !== null) {
     $parents = coursecat::get_many($category->get_parents());
@@ -146,7 +132,7 @@ if (!$issearching && $category !== null) {
     foreach ($parents as $parent) {
         $PAGE->navbar->add(
             $parent->get_formatted_name(),
-            new moodle_url('/course/management.php', array('categoryid' => $parent->id))
+            new lion_url('/course/management.php', array('categoryid' => $parent->id))
         );
     }
     if ($course instanceof course_in_list) {
@@ -231,7 +217,7 @@ if ($action !== false && confirm_sesskey()) {
             // They must have specified a category.
             required_param('categoryid', PARAM_INT);
             if (!$category->can_delete()) {
-                throw new moodle_exception('permissiondenied', 'error', '', null, 'coursecat::can_resort');
+                throw new lion_exception('permissiondenied', 'error', '', null, 'coursecat::can_resort');
             }
             $mform = new core_course_deletecategory_form(null, $category);
             if ($mform->is_cancelled()) {
@@ -241,12 +227,12 @@ if ($action !== false && confirm_sesskey()) {
             /* @var core_course_management_renderer|core_renderer $renderer */
             $renderer = $PAGE->get_renderer('core_course', 'management');
             echo $renderer->header();
-            echo $renderer->heading(get_string('deletecategory', 'moodle', $category->get_formatted_name()));
+            echo $renderer->heading(get_string('deletecategory', 'lion', $category->get_formatted_name()));
 
             if ($data = $mform->get_data()) {
                 // The form has been submit handle it.
                 if ($data->fulldelete == 1 && $category->can_delete_full()) {
-                    $continueurl = new moodle_url('/course/management.php');
+                    $continueurl = new lion_url('/course/management.php');
                     if ($category->parent != '0') {
                         $continueurl->param('categoryid', $category->parent);
                     }
@@ -258,7 +244,7 @@ if ($action !== false && confirm_sesskey()) {
                     echo $renderer->notification($notification, 'notifysuccess');
                     echo $renderer->continue_button($continueurl);
                 } else if ($data->fulldelete == 0 && $category->can_move_content_to($data->newparent)) {
-                    $continueurl = new moodle_url('/course/management.php', array('categoryid' => $data->newparent));
+                    $continueurl = new lion_url('/course/management.php', array('categoryid' => $data->newparent));
                     $category->delete_move($data->newparent, true);
                     echo $renderer->continue_button($continueurl);
                 } else {
@@ -296,9 +282,9 @@ if ($action !== false && confirm_sesskey()) {
                         $a = new stdClass;
                         $a->category = $moveto->get_formatted_name();
                         $a->courses = count($courseids);
-                        $redirectmessage = get_string('bulkmovecoursessuccess', 'moodle', $a);
+                        $redirectmessage = get_string('bulkmovecoursessuccess', 'lion', $a);
                     }
-                } catch (moodle_exception $ex) {
+                } catch (lion_exception $ex) {
                     $redirectback = false;
                     $notificationsfail[] = $ex->getMessage();
                 }
@@ -334,7 +320,7 @@ if ($action !== false && confirm_sesskey()) {
                     if ($movetocatid == 0) {
                         $movesuccessstrkey = 'movecategoriestotopsuccess';
                     }
-                    $notificationspass[] = get_string($movesuccessstrkey, 'moodle', $a);
+                    $notificationspass[] = get_string($movesuccessstrkey, 'lion', $a);
                 } else if ($movecount === 1) {
                     $a = new stdClass;
                     $a->moved = $cattomove->get_formatted_name();
@@ -343,7 +329,7 @@ if ($action !== false && confirm_sesskey()) {
                     if ($movetocatid == 0) {
                         $movesuccessstrkey = 'movecategorytotopsuccess';
                     }
-                    $notificationspass[] = get_string($movesuccessstrkey, 'moodle', $a);
+                    $notificationspass[] = get_string($movesuccessstrkey, 'lion', $a);
                 }
             } else if ($bulkresortcategories) {
                 $for = required_param('selectsortby', PARAM_ALPHA);
@@ -382,7 +368,7 @@ if ($action !== false && confirm_sesskey()) {
                     if ($sortcategoriesby && coursecat::get(0)->can_resort_subcategories()) {
                         \core_course\management\helper::action_category_resort_subcategories(coursecat::get(0), $sortcategoriesby);
                     }
-                    $categorieslist = coursecat::make_categories_list('moodle/category:manage');
+                    $categorieslist = coursecat::make_categories_list('lion/category:manage');
                     $categoryids = array_keys($categorieslist);
                     $categories = coursecat::get_many($categoryids);
                     unset($categorieslist);
@@ -402,7 +388,7 @@ if ($action !== false && confirm_sesskey()) {
                 if ($category === null && count($categoryids) === 1) {
                     // They're bulk sorting just a single category and they've not selected a category.
                     // Lets for convenience sake auto-select the category that has been resorted for them.
-                    redirect(new moodle_url($PAGE->url, array('categoryid' => reset($categoryids))));
+                    redirect(new lion_url($PAGE->url, array('categoryid' => reset($categoryids))));
                 }
             }
     }

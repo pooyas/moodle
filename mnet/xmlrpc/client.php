@@ -366,7 +366,7 @@ class mnet_xmlrpc_client {
         curl_setopt($httprequest, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($httprequest, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($httprequest, CURLOPT_POST, true);
-        curl_setopt($httprequest, CURLOPT_USERAGENT, 'Moodle');
+        curl_setopt($httprequest, CURLOPT_USERAGENT, 'Lion');
         curl_setopt($httprequest, CURLOPT_HTTPHEADER, array("Content-Type: text/xml charset=UTF-8"));
 
         $verifyhost = 0;

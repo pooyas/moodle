@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Listens for Instant Payment Notification from PayPal
@@ -25,10 +11,10 @@
  * @package    enrol_paypal
  * @copyright 2010 Eugene Venter
  * @author     Eugene Venter - based on code by others
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// Disable moodle specific debug messages and any errors in output,
+// Disable lion specific debug messages and any errors in output,
 // comment out when debugging or better look into error log!
 define('NO_DEBUG_DISPLAY', true);
 
@@ -143,12 +129,12 @@ if (strlen($result) > 0) {
 
         if ($data->payment_status == "Pending" and $data->pending_reason != "echeck") {
             $eventdata = new stdClass();
-            $eventdata->modulename        = 'moodle';
+            $eventdata->modulename        = 'lion';
             $eventdata->component         = 'enrol_paypal';
             $eventdata->name              = 'paypal_enrolment';
             $eventdata->userfrom          = get_admin();
             $eventdata->userto            = $user;
-            $eventdata->subject           = "Moodle: PayPal payment";
+            $eventdata->subject           = "Lion: PayPal payment";
             $eventdata->fullmessage       = "Your PayPal payment is pending.";
             $eventdata->fullmessageformat = FORMAT_PLAIN;
             $eventdata->fullmessagehtml   = '';
@@ -228,7 +214,7 @@ if (strlen($result) > 0) {
         $plugin->enrol_user($plugin_instance, $user->id, $plugin_instance->roleid, $timestart, $timeend);
 
         // Pass $view=true to filter hidden caps if the user cannot see them
-        if ($users = get_users_by_capability($context, 'moodle/course:update', 'u.*', 'u.id ASC',
+        if ($users = get_users_by_capability($context, 'lion/course:update', 'u.*', 'u.id ASC',
                                              '', '', '', '', false, true)) {
             $users = sort_by_roleassignment_authority($users, $context);
             $teacher = array_shift($users);
@@ -248,7 +234,7 @@ if (strlen($result) > 0) {
             $a->profileurl = "$CFG->wwwroot/user/view.php?id=$user->id";
 
             $eventdata = new stdClass();
-            $eventdata->modulename        = 'moodle';
+            $eventdata->modulename        = 'lion';
             $eventdata->component         = 'enrol_paypal';
             $eventdata->name              = 'paypal_enrolment';
             $eventdata->userfrom          = empty($teacher) ? core_user::get_support_user() : $teacher;
@@ -267,7 +253,7 @@ if (strlen($result) > 0) {
             $a->user = fullname($user);
 
             $eventdata = new stdClass();
-            $eventdata->modulename        = 'moodle';
+            $eventdata->modulename        = 'lion';
             $eventdata->component         = 'enrol_paypal';
             $eventdata->name              = 'paypal_enrolment';
             $eventdata->userfrom          = $user;
@@ -286,7 +272,7 @@ if (strlen($result) > 0) {
             $admins = get_admins();
             foreach ($admins as $admin) {
                 $eventdata = new stdClass();
-                $eventdata->modulename        = 'moodle';
+                $eventdata->modulename        = 'lion';
                 $eventdata->component         = 'enrol_paypal';
                 $eventdata->name              = 'paypal_enrolment';
                 $eventdata->userfrom          = $user;
@@ -324,7 +310,7 @@ function message_paypal_error_to_admin($subject, $data) {
     }
 
     $eventdata = new stdClass();
-    $eventdata->modulename        = 'moodle';
+    $eventdata->modulename        = 'lion';
     $eventdata->component         = 'enrol_paypal';
     $eventdata->name              = 'paypal_enrolment';
     $eventdata->userfrom          = $admin;

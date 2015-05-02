@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package moodlecore
+ * @package lioncore
  * @subpackage backup-controller
  * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -38,7 +24,7 @@ class restore_controller extends base_controller {
     protected $courseid; // courseid where restore is going to happen
 
     protected $type;   // Type of backup (activity, section, course)
-    protected $format; // Format of backup (moodle, imscc)
+    protected $format; // Format of backup (lion, imscc)
     protected $interactive; // yes/no
     protected $mode;   // Purpose of the backup (default settings)
     protected $userid; // user id executing the restore
@@ -132,11 +118,11 @@ class restore_controller extends base_controller {
         // Calculate original restore format
         $this->format = backup_general_helper::detect_backup_format($tempdir);
 
-        // If format is not moodle2, set to conversion needed
-        if ($this->format !== backup::FORMAT_MOODLE) {
+        // If format is not lion2, set to conversion needed
+        if ($this->format !== backup::FORMAT_LION) {
             $this->set_status(backup::STATUS_REQUIRE_CONV);
 
-        // Else, format is moodle2, load plan, apply security and set status based on interactivity
+        // Else, format is lion2, load plan, apply security and set status based on interactivity
         } else {
             // Load plan
             $this->load_plan();
@@ -435,7 +421,7 @@ class restore_controller extends base_controller {
     }
 
     /**
-     * Converts from current format to backup::MOODLE format
+     * Converts from current format to backup::LION format
      */
     public function convert() {
         global $CFG;
@@ -453,7 +439,7 @@ class restore_controller extends base_controller {
         $this->log('backup format conversion required', backup::LOG_INFO);
 
         // Run conversion to the proper format
-        if (!convert_helper::to_moodle2_format($this->get_tempdir(), $this->format, $this->get_logger())) {
+        if (!convert_helper::to_lion2_format($this->get_tempdir(), $this->format, $this->get_logger())) {
             // todo - unable to find the conversion path, what to do now?
             // throwing the exception as a temporary solution
             throw new restore_controller_exception('unable_to_find_conversion_path');
@@ -462,7 +448,7 @@ class restore_controller extends base_controller {
         $this->log('backup format conversion successful', backup::LOG_INFO);
 
         // If no exceptions were thrown, then we are in the proper format
-        $this->format = backup::FORMAT_MOODLE;
+        $this->format = backup::FORMAT_LION;
 
         // Load plan, apply security and set status based on interactivity
         $this->load_plan();
@@ -488,7 +474,7 @@ class restore_controller extends base_controller {
     }
 
     protected function load_plan() {
-        // First of all, we need to introspect the moodle_backup.xml file
+        // First of all, we need to introspect the lion_backup.xml file
         // in order to detect all the required stuff. So, create the
         // monster $info structure where everything will be defined
         $this->log('loading backup info', backup::LOG_DEBUG);

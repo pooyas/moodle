@@ -9,7 +9,7 @@ $mode= optional_param('mode', '', PARAM_ALPHA);           // term entry cat date
 $hook= optional_param('hook', '', PARAM_CLEAN);           // the term, entry, cat, etc... to look for based on mode
 $cat = optional_param('cat',0, PARAM_ALPHANUM);
 
-$url = new moodle_url('/mod/glossary/export.php', array('id'=>$id));
+$url = new lion_url('/mod/glossary/export.php', array('id'=>$id));
 if ($cat !== 0) {
     $url->param('cat', $cat);
 }
@@ -54,7 +54,7 @@ $PAGE->set_heading($course->fullname);
 echo $OUTPUT->header();
 echo $OUTPUT->heading($strexportentries);
 echo $OUTPUT->box_start('glossarydisplay generalbox');
-$exporturl = moodle_url::make_pluginfile_url($context->id, 'mod_glossary', 'export', 0, "/$cat/", 'export.xml', true);
+$exporturl = lion_url::make_pluginfile_url($context->id, 'mod_glossary', 'export', 0, "/$cat/", 'export.xml', true);
 
 ?>
     <form action="<?php echo $exporturl->out(); ?>" method="post">

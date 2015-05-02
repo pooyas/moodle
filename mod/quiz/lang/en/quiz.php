@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'quiz', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'quiz', language 'en', branch 'LION_20_STABLE'
  *
  * @package   mod_quiz
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 $string['accessnoticesheader'] = 'You can preview this quiz, but if this were a real attempt, you would be blocked because:';
@@ -905,7 +891,7 @@ $string['validate'] = 'Validate';
 $string['viewallanswers'] = 'View {$a} quiz attempts';
 $string['viewallreports'] = 'View reports for {$a} attempts';
 $string['viewed'] = 'Viewed';
-$string['warningmissingtype'] = '<b>This question is of a type that has not been installed on your Moodle yet.<br />Please alert your Moodle administrator.</b>';
+$string['warningmissingtype'] = '<b>This question is of a type that has not been installed on your Lion yet.<br />Please alert your Lion administrator.</b>';
 $string['wheregrade'] = 'Where\'s my grade?';
 $string['wildcard'] = 'Wild card';
 $string['windowclosing'] = 'This window will close shortly.';
@@ -915,7 +901,7 @@ $string['xhtml'] = 'XHTML';
 $string['youneedtoenrol'] = 'You need to enrol in this course before you can attempt this quiz';
 $string['yourfinalgradeis'] = 'Your final grade for this quiz is {$a}.';
 
-// Deprecated since Moodle 2.8.
+// Deprecated since Lion 2.8.
 
 $string['categories'] = 'Categories';
 $string['category'] = 'Category';

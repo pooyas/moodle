@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Microsoft Live Skydrive Repository Plugin
@@ -20,10 +6,10 @@
  * @package    repository_skydrive
  * @copyright  2012 Lancaster University Network Services Ltd
  * @author     Dan Poltawski <dan.poltawski@luns.net.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once('microsoftliveapi.php');
 
@@ -33,7 +19,7 @@ require_once('microsoftliveapi.php');
  * @package    repository_skydrive
  * @copyright  2012 Lancaster University Network Services Ltd
  * @author     Dan Poltawski <dan.poltawski@luns.net.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class repository_skydrive extends repository {
     /** @var microsoft_skydrive skydrive oauth2 api helper object */
@@ -51,7 +37,7 @@ class repository_skydrive extends repository {
 
         $clientid = get_config('skydrive', 'clientid');
         $secret = get_config('skydrive', 'secret');
-        $returnurl = new moodle_url('/repository/repository_callback.php');
+        $returnurl = new lion_url('/repository/repository_callback.php');
         $returnurl->param('callback', 'yes');
         $returnurl->param('repo_id', $this->id);
         $returnurl->param('sesskey', sesskey());
@@ -90,7 +76,7 @@ class repository_skydrive extends repository {
     /**
      * Given a path, and perhaps a search, get a list of files.
      *
-     * See details on {@link http://docs.moodle.org/dev/Repository_plugins}
+     * See details on {@link http://docs.lion.org/dev/Repository_plugins}
      *
      * @param string $path identifier for current path
      * @param string $page the page number of file list
@@ -153,7 +139,7 @@ class repository_skydrive extends repository {
     /**
      * Setup repistory form.
      *
-     * @param moodleform $mform Moodle form (passed by reference)
+     * @param lionform $mform Lion form (passed by reference)
      * @param string $classname repository class name
      */
     public static function type_config_form($mform, $classname = 'repository') {

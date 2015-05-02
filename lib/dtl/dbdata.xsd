@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="moodle_database" type="databaseType" />
+    <xs:element name="lion_database" type="databaseType" />
     <xs:complexType name="databaseType">
     	<xs:sequence>
     		<xs:element maxOccurs="unbounded" name="table"

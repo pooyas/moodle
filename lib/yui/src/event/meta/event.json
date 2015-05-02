@@ -1,5 +1,5 @@
 {
-    "moodle-core-event": {
+    "lion-core-event": {
         "requires": [
             "event-custom"
         ]

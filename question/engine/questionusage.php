@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file defines the question usage class, and a few related classes.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -47,7 +33,7 @@ defined('MOODLE_INTERNAL') || die();
  * Instances of this class correspond to rows in the question_usages table.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_usage_by_activity {
     /**
@@ -895,7 +881,7 @@ class question_usage_by_activity {
  * {@link question_usage_by_activity::get_attempt_iterator()}
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_attempt_iterator implements Iterator, ArrayAccess {
     /** @var question_usage_by_activity that we are iterating over. */
@@ -960,7 +946,7 @@ class question_attempt_iterator implements Iterator, ArrayAccess {
  * take as they work through a question, and later, as a teacher manually grades it.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface question_usage_observer {
     /** Called when a field of the question_usage_by_activity is changed. */
@@ -1009,7 +995,7 @@ interface question_usage_observer {
  * Does nothing.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_usage_null_observer implements question_usage_observer {
     public function notify_modified() {

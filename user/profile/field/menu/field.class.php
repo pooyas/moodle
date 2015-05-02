@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Menu profile field.
  *
  * @package    profilefield_menu
  * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
  * Class profile_field_menu
  *
  * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class profile_field_menu extends profile_field_base {
 
@@ -75,7 +61,7 @@ class profile_field_menu extends profile_field_base {
     /**
      * Create the code snippet for this field instance
      * Overwrites the base class method
-     * @param moodleform $mform Moodle form instance
+     * @param lionform $mform Lion form instance
      */
     public function edit_field_add($mform) {
         $mform->addElement('select', $this->inputname, format_string($this->field->name), $this->options);
@@ -84,7 +70,7 @@ class profile_field_menu extends profile_field_base {
     /**
      * Set the default value for this field instance
      * Overwrites the base class method.
-     * @param moodleform $mform Moodle form instance
+     * @param lionform $mform Lion form instance
      */
     public function edit_field_set_default($mform) {
         $key = $this->field->defaultdata;
@@ -124,13 +110,13 @@ class profile_field_menu extends profile_field_base {
 
     /**
      * HardFreeze the field if locked.
-     * @param moodleform $mform instance of the moodleform class
+     * @param lionform $mform instance of the lionform class
      */
     public function edit_field_set_locked($mform) {
         if (!$mform->elementExists($this->inputname)) {
             return;
         }
-        if ($this->is_locked() and !has_capability('moodle/user:update', context_system::instance())) {
+        if ($this->is_locked() and !has_capability('lion/user:update', context_system::instance())) {
             $mform->hardFreeze($this->inputname);
             $mform->setConstant($this->inputname, format_string($this->datakey));
         }

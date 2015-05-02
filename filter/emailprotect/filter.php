@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Basic email protection filter.
@@ -21,16 +7,16 @@
  * @package    filter
  * @subpackage emailprotect
  * @copyright  2004 Mike Churchward
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * This class looks for email addresses in Moodle text and
- * hides them using the Moodle obfuscate_text function.
+ * This class looks for email addresses in Lion text and
+ * hides them using the Lion obfuscate_text function.
  */
-class filter_emailprotect extends moodle_text_filter {
+class filter_emailprotect extends lion_text_filter {
     function filter($text, array $options = array()) {
     /// Do a quick check using stripos to avoid unnecessary work
         if (strpos($text, '@') === false) {

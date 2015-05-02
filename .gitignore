@@ -1,10 +1,10 @@
-# This file specifies intentionally untracked files that all Moodle git
+# This file specifies intentionally untracked files that all Lion git
 # repositories should ignore. It is recommended not to modify this file in your
 # local clone. Instead, use .git/info/exclude and add new records there as
 # needed.
 #
 # Example: if you deploy a contributed plugin mod/foobar into your site, put
-# the following line into .git/info/exclude file in your Moodle clone:
+# the following line into .git/info/exclude file in your Lion clone:
 # /mod/foobar/
 #
 # See gitignore(5) man page for more details

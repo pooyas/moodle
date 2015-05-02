@@ -1,7 +1,7 @@
 {
-  "name": "moodle-question-searchform",
+  "name": "lion-question-searchform",
   "builds": {
-    "moodle-question-searchform": {
+    "lion-question-searchform": {
       "jsfiles": [
         "searchform.js"
       ]

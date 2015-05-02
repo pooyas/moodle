@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,10 +6,10 @@
  *
  * @package   core_files
  * @copyright 2008 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("$CFG->libdir/filestorage/stored_file.php");
 
@@ -32,15 +18,15 @@ require_once("$CFG->libdir/filestorage/stored_file.php");
  *
  * Only owner of file area may use this class to access own files,
  * for example only code in mod/assignment/* may access assignment
- * attachments. When some other part of moodle needs to access
+ * attachments. When some other part of lion needs to access
  * files of modules it has to use file_browser class instead or there
  * has to be some callback API.
  *
  * @package   core_files
  * @category  files
  * @copyright 2008 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
+ * 
+ * @since     Lion 2.0
  */
 class file_storage {
     /** @var string Directory with file contents */
@@ -80,7 +66,7 @@ class file_storage {
             // place warning file in file pool root
             if (!file_exists($this->filedir.'/warning.txt')) {
                 file_put_contents($this->filedir.'/warning.txt',
-                                  'This directory contains the content of uploaded files and is controlled by Moodle code. Do not manually move, change or rename any of the files and subdirectories here.');
+                                  'This directory contains the content of uploaded files and is controlled by Lion code. Do not manually move, change or rename any of the files and subdirectories here.');
                 chmod($this->filedir.'/warning.txt', $CFG->filepermissions);
             }
         }
@@ -199,7 +185,7 @@ class file_storage {
      * @param string $filename the file name.
      * @return string available file name.
      * @throws coding_exception if the file name is invalid.
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public function get_unused_filename($contextid, $component, $filearea, $itemid, $filepath, $filename) {
         global $DB;
@@ -280,7 +266,7 @@ class file_storage {
      * @param int $itemid area item ID.
      * @param string $suggestedpath the suggested file path.
      * @return string available file path
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public function get_unused_dirname($contextid, $component, $filearea, $itemid, $suggestedpath) {
         global $DB;
@@ -1452,7 +1438,7 @@ class file_storage {
         }
 
         if (isset($filerecord->contenthash) && $this->content_exists($filerecord->contenthash)) {
-            // there was specified the contenthash for a file already stored in moodle filepool
+            // there was specified the contenthash for a file already stored in lion filepool
             if (empty($filerecord->filesize)) {
                 $filepathname = $this->path_from_hash($filerecord->contenthash) . '/' . $filerecord->contenthash;
                 $filerecord->filesize = filesize($filepathname);
@@ -1467,7 +1453,7 @@ class file_storage {
                 $filerecord->contenthash = $lastcontent->contenthash;
                 $filerecord->filesize = $lastcontent->filesize;
             } else {
-                // External file doesn't have content in moodle.
+                // External file doesn't have content in lion.
                 // So we create an empty file for it.
                 list($filerecord->contenthash, $filerecord->filesize, $newfile) = $this->add_string_to_pool(null);
             }
@@ -1915,7 +1901,7 @@ class file_storage {
     }
 
     /**
-     * When user referring to a moodle file, we build the reference field
+     * When user referring to a lion file, we build the reference field
      *
      * @param array $params
      * @return string
@@ -2119,7 +2105,7 @@ class file_storage {
     /**
      * Convert file alias to local file
      *
-     * @throws moodle_exception if file could not be downloaded
+     * @throws lion_exception if file could not be downloaded
      *
      * @param stored_file $storedfile a stored_file instances
      * @param int $maxbytes throw an exception if file size is bigger than $maxbytes (0 means no limit)

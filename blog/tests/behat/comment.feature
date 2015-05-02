@@ -7,8 +7,8 @@ Feature: Comment on a blog entry
   Background:
     Given the following "users" exist:
       | username | firstname | lastname | email |
-      | testuser | Test | User | moodle@moodlemoodle.com |
-      | testuser2 | Test2 | User2 | moodle2@moodlemoodle.com |
+      | testuser | Test | User | lion@lionlion.com |
+      | testuser2 | Test2 | User2 | lion2@lionlion.com |
     And I log in as "testuser"
     And I am on homepage
     And I expand "My profile" node

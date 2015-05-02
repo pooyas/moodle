@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Quiz statistics report class.
@@ -20,10 +6,10 @@
  * @package   quiz_statistics
  * @copyright 2014 Open University
  * @author    James Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/quiz/report/statistics/statistics_form.php');
 require_once($CFG->dirroot . '/mod/quiz/report/statistics/statistics_table.php');
@@ -35,7 +21,7 @@ require_once($CFG->dirroot . '/mod/quiz/report/statistics/statisticslib.php');
  * detailed information about each question.
  *
  * @copyright 2008 Jamie Pratt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class quiz_statistics_report extends quiz_default_report {
 
@@ -79,7 +65,7 @@ class quiz_statistics_report extends quiz_default_report {
         $pageoptions['id'] = $cm->id;
         $pageoptions['mode'] = 'statistics';
 
-        $reporturl = new moodle_url('/mod/quiz/report.php', $pageoptions);
+        $reporturl = new lion_url('/mod/quiz/report.php', $pageoptions);
 
         $mform = new quiz_statistics_settings_form($reporturl, compact('quiz'));
 
@@ -226,7 +212,7 @@ class quiz_statistics_report extends quiz_default_report {
                     $number = $questionstats->for_slot($slot)->question->number;
                     echo $OUTPUT->heading(get_string('slotstructureanalysis', 'quiz_statistics', $number), 3);
                 }
-                $this->table->define_baseurl(new moodle_url($reporturl, array('slot' => $slot)));
+                $this->table->define_baseurl(new lion_url($reporturl, array('slot' => $slot)));
                 $this->table->format_and_add_array_of_rows($questionstats->structure_analysis_for_one_slot($slot));
             } else {
                 $this->output_individual_question_data($quiz, $questionstats->for_slot($slot, $variantno));
@@ -366,7 +352,7 @@ class quiz_statistics_report extends quiz_default_report {
      * @param object           $question  the question to report on.
      * @param int|null         $variantno the variant
      * @param int              $s
-     * @param moodle_url       $reporturl the URL to redisplay this report.
+     * @param lion_url       $reporturl the URL to redisplay this report.
      * @param qubaid_condition $qubaids
      * @param string           $whichtries
      */
@@ -518,7 +504,7 @@ class quiz_statistics_report extends quiz_default_report {
         global $PAGE;
 
         $output = $PAGE->get_renderer('mod_quiz');
-        $imageurl = new moodle_url('/mod/quiz/report/statistics/statistics_graph.php',
+        $imageurl = new lion_url('/mod/quiz/report/statistics/statistics_graph.php',
                                     compact('quizid', 'currentgroup', 'whichattempts'));
         $graphname = get_string('statisticsreportgraph', 'quiz_statistics');
         echo $output->graph($imageurl, $graphname);
@@ -694,7 +680,7 @@ class quiz_statistics_report extends quiz_default_report {
      *                                   $quiz->grademethod ie.
      *                                   QUIZ_GRADEAVERAGE, QUIZ_GRADEHIGHEST, QUIZ_ATTEMPTLAST or QUIZ_ATTEMPTFIRST
      *                                   we calculate stats based on which attempts would affect the grade for each student.
-     * @param moodle_url $reporturl url for this report
+     * @param lion_url $reporturl url for this report
      * @return string HTML.
      */
     protected function output_caching_info($lastcachetime, $quizid, $groupstudents, $whichattempts, $reporturl) {
@@ -721,7 +707,7 @@ class quiz_statistics_report extends quiz_default_report {
         $a->lastcalculated = format_time(time() - $lastcachetime);
         $a->count = $count;
 
-        $recalcualteurl = new moodle_url($reporturl,
+        $recalcualteurl = new lion_url($reporturl,
                 array('recalculate' => 1, 'sesskey' => sesskey()));
         $output = '';
         $output .= $OUTPUT->box_start(

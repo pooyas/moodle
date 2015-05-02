@@ -11,7 +11,7 @@ information provided here is intended especially for developers.
 
 * modgrade form element has been redesigned and allows setting the maximum grade point higher than 100.
 * The usage of $module in mod/xxx/version.php files is now deprecated. Please use
-  $plugin instead. The support for the legacy notation will be dropped in Moodle 2.10.
+  $plugin instead. The support for the legacy notation will be dropped in Lion 2.10.
 * xxx_get_view_actions() and xxx_get_post_actions() will be ignored by new logging system for
   participation report. view_action and post_action will be detected by event's crud and edulevel.
 * The functions xxx_user_outline() and xxx_user_complete() have been removed from the majority of core modules (see MDL-41286),
@@ -64,7 +64,7 @@ optional - no changes needed:
 
 * add support for handling course drag and drop types - functions
   xxx_dndupload_register() and xxx_dndupload_handle($uploadinfo) see:
-  http://docs.moodle.org/dev/Implementing_Course_drag_and_drop_upload_support_in_a_module
+  http://docs.lion.org/dev/Implementing_Course_drag_and_drop_upload_support_in_a_module
 
 === 2.2 ===
 
@@ -85,9 +85,9 @@ required changes in code:
 
 required changes in code:
 * use new DML syntax everywhere
-  (http://docs.moodle.org/dev/DML_functions)
+  (http://docs.lion.org/dev/DML_functions)
 * use new DDL syntax in db/upgrade.php
-  (http://docs.moodle.org/dev/DDL_functions)
+  (http://docs.lion.org/dev/DDL_functions)
 * replace defaults.php by settings.php and db/install.php
 * replace STATEMENTS section in db/install.xml with PHP code db/install.php or db/log.php
 * move post installation code from lib.php into db/install.php
@@ -95,7 +95,7 @@ required changes in code:
 * new mandatory naming of intro and introformat table fields in module tables,
   the presence of these fields is indicated in xxx_plugin_supports()
 * completely rewrite file handling
-  (http://docs.moodle.org/dev/File_API)
+  (http://docs.lion.org/dev/File_API)
 * rewrite backup/restore
   (not finished yet)
 * rewrite trusttext support - new db table columns needed
@@ -109,9 +109,9 @@ required changes in code:
                  move module icon to mod/xxx/pix/icon.gif
                  old global $THEME is fully replaced by $OUTPUT
                  create plugin renderers
-  (http://docs.moodle.org/dev/Theme_changes_in_2.0)
+  (http://docs.lion.org/dev/Theme_changes_in_2.0)
 * migrate all javascript new coding style using YUI3+YUI2
-  (http://docs.moodle.org/dev/JavaScript_usage_guide)
+  (http://docs.lion.org/dev/JavaScript_usage_guide)
 * remove '_utf8' from lang pack names, use new {a} syntax
 * replace helps with new 'xxx_hlp' strings
 * please note the $plugin->requires in version.php has to be bigger than 2010000000,
@@ -122,11 +122,11 @@ optional - no changes needed in older code:
 * support for new mforms editor element and embedded files
   (not finished yet)
 * portfolio support
-  (http://docs.moodle.org/dev/Portfolio_API)
+  (http://docs.lion.org/dev/Portfolio_API)
 * course completion tracking support
 * new navigation features
 * new comments API
-  (http://docs.moodle.org/dev/Comments_2.0)
+  (http://docs.lion.org/dev/Comments_2.0)
 * new ratings API
-  (http://docs.moodle.org/dev/Ratings_2.0)
+  (http://docs.lion.org/dev/Ratings_2.0)
 

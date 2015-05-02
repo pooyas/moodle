@@ -7,8 +7,8 @@ Feature: Attemp a quiz where some questions require that the previous question h
   Background:
     Given the following "users" exist:
       | username | firstname | lastname | email              |
-      | student  | Student   | One      | student@moodle.com |
-      | teacher  | Teacher   | One      | teacher@moodle.com |
+      | student  | Student   | One      | student@lion.com |
+      | teacher  | Teacher   | One      | teacher@lion.com |
     And the following "courses" exist:
       | fullname | shortname | category |
       | Course 1 | C1        | 0        |

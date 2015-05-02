@@ -1,20 +1,6 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @module moodle-gradereport_grader-gradereporttable
+ * @module lion-gradereport_grader-gradereporttable
  * @submodule floatingheaders
  */
 
@@ -31,7 +17,7 @@ var HEIGHT = 'height',
     WIDTH = 'width',
     OFFSETWIDTH = 'offsetWidth',
     OFFSETHEIGHT = 'offsetHeight',
-    LOGNS = 'moodle-core-grade-report-grader';
+    LOGNS = 'lion-core-grade-report-grader';
 
 CSS.FLOATING = 'floating';
 
@@ -292,7 +278,7 @@ FloatingHeaders.prototype = {
 
         // Listen for a resize event globally - other parts of the code not in this YUI wrapper may make changes to the
         // fields which result in size changes.
-        Y.Global.on('moodle-gradereport_grader:resized', this._handleResizeEvent, this);
+        Y.Global.on('lion-gradereport_grader:resized', this._handleResizeEvent, this);
 
         return this;
     },

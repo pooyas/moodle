@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Database manager instance is responsible for all database structure modifications.
@@ -21,10 +7,10 @@
  * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
  *             2008 Petr Skoda                   http://skodak.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Database manager instance is responsible for all database structure modifications.
@@ -35,11 +21,11 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
  *             2008 Petr Skoda                   http://skodak.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class database_manager {
 
-    /** @var moodle_database A moodle_database driver specific instance.*/
+    /** @var lion_database A lion_database driver specific instance.*/
     protected $mdb;
 
     /** @var sql_generator A driver specific SQL generator instance. Public because XMLDB editor needs to access it.*/
@@ -47,7 +33,7 @@ class database_manager {
 
     /**
      * Creates a new database manager instance.
-     * @param moodle_database $mdb A moodle_database driver specific instance.
+     * @param lion_database $mdb A lion_database driver specific instance.
      * @param sql_generator $generator A driver specific SQL generator instance.
      */
     public function __construct($mdb, $generator) {
@@ -236,9 +222,9 @@ class database_manager {
         // Get list of keys in table
         // first primaries (we aren't going to use this now, because the MetaPrimaryKeys is awful)
             //TODO: To implement when we advance in relational integrity
-        // then uniques (note that Moodle, for now, shouldn't have any UNIQUE KEY for now, but unique indexes)
+        // then uniques (note that Lion, for now, shouldn't have any UNIQUE KEY for now, but unique indexes)
             //TODO: To implement when we advance in relational integrity (note that AdoDB hasn't any MetaXXX for this.
-        // then foreign (note that Moodle, for now, shouldn't have any FOREIGN KEY for now, but indexes)
+        // then foreign (note that Lion, for now, shouldn't have any FOREIGN KEY for now, but indexes)
             //TODO: To implement when we advance in relational integrity (note that AdoDB has one MetaForeignKeys()
             //but it's far from perfect.
         // TODO: To create the proper functions inside each generator to retrieve all the needed KEY info (name
@@ -604,7 +590,7 @@ class database_manager {
      * @return void
      */
     public function change_field_unsigned(xmldb_table $xmldb_table, xmldb_field $xmldb_field) {
-        debugging('All unsigned numbers are converted to signed automatically during Moodle upgrade.');
+        debugging('All unsigned numbers are converted to signed automatically during Lion upgrade.');
         $this->change_field_type($xmldb_table, $xmldb_field);
     }
 
@@ -874,7 +860,7 @@ class database_manager {
     }
 
     /**
-     * Reads the install.xml files for Moodle core and modules and returns an array of
+     * Reads the install.xml files for Lion core and modules and returns an array of
      * xmldb_structure object with xmldb_table from these files.
      * @return xmldb_structure schema from install.xml files
      */

@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Events tests.
  *
  * @package mod_data
  * @category test
- * @copyright 2014 Mark Nelson <markn@moodle.com>
+ * @copyright 2014 Mark Nelson <markn@lion.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -73,7 +59,7 @@ class mod_data_events_testcase extends advanced_testcase {
             $field->field->id, $field->field->id, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/field.php', array('d' => $data->id));
+        $url = new lion_url('/mod/data/field.php', array('d' => $data->id));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -113,7 +99,7 @@ class mod_data_events_testcase extends advanced_testcase {
             $field->field->id, $field->field->id, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/field.php', array('d' => $data->id));
+        $url = new lion_url('/mod/data/field.php', array('d' => $data->id));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -152,7 +138,7 @@ class mod_data_events_testcase extends advanced_testcase {
         $expected = array($course->id, 'data', 'fields delete', 'field.php?d=' . $data->id, $field->field->name, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/field.php', array('d' => $data->id));
+        $url = new lion_url('/mod/data/field.php', array('d' => $data->id));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -182,7 +168,7 @@ class mod_data_events_testcase extends advanced_testcase {
             $data->id, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/view.php', array('d' => $data->id, 'rid' => $recordid));
+        $url = new lion_url('/mod/data/view.php', array('d' => $data->id, 'rid' => $recordid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -224,7 +210,7 @@ class mod_data_events_testcase extends advanced_testcase {
         $expected = array($course->id, 'data', 'update', 'view.php?d=' . $data->id . '&amp;rid=1', $data->id, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/view.php', array('d' => $data->id, 'rid' => $event->objectid));
+        $url = new lion_url('/mod/data/view.php', array('d' => $data->id, 'rid' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -275,7 +261,7 @@ class mod_data_events_testcase extends advanced_testcase {
         $expected = array($course->id, 'data', 'record delete', 'view.php?id=' . $data->cmid, $data->id, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/view.php', array('d' => $data->id));
+        $url = new lion_url('/mod/data/view.php', array('d' => $data->id));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -317,7 +303,7 @@ class mod_data_events_testcase extends advanced_testcase {
             $data->id, $data->id, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/templates.php', array('d' => $data->id));
+        $url = new lion_url('/mod/data/templates.php', array('d' => $data->id));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -359,7 +345,7 @@ class mod_data_events_testcase extends advanced_testcase {
             $data->id, $data->id, $data->cmid);
         $this->assertEventLegacyLogData($expected, $event);
         $this->assertEventContextNotUsed($event);
-        $url = new moodle_url('/mod/data/templates.php', array('d' => $data->id));
+        $url = new lion_url('/mod/data/templates.php', array('d' => $data->id));
         $this->assertEquals($url, $event->get_url());
     }
 }

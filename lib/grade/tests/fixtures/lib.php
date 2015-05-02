@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package    core_grades
  * @category   phpunit
- * @copyright  nicolas@moodle.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  nicolas@lion.com
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/adminlib.php');
@@ -111,7 +97,7 @@ abstract class grade_base_testcase extends advanced_testcase {
         $scale->courseid    = $this->course->id;
         $scale->userid      = $this->user[0]->id;
         $scale->scale       = 'Way off topic, Not very helpful, Fairly neutral, Fairly helpful, Supportive, Some good information, Perfect answer!';
-        $scale->description = 'This scale defines some of qualities that make posts helpful within the Moodle help forums.\n Your feedback will help others see how their posts are being received.';
+        $scale->description = 'This scale defines some of qualities that make posts helpful within the Lion help forums.\n Your feedback will help others see how their posts are being received.';
 
         $this->scale[0] = $this->getDataGenerator()->create_scale($scale);
         $this->scalemax[0] = substr_count($scale->scale, ',');

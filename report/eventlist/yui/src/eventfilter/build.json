@@ -1,7 +1,7 @@
 {
-    "name": "moodle-report_eventlist-eventfilter",
+    "name": "lion-report_eventlist-eventfilter",
     "builds": {
-        "moodle-report_eventlist-eventfilter": {
+        "lion-report_eventlist-eventfilter": {
             "jsfiles": [
                 "eventfilter.js"
             ]

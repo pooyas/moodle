@@ -1,6 +1,6 @@
 @tool @tool_behat
 Feature: Forms manipulation
-  In order to interact with Moodle
+  In order to interact with Lion
   As a user
   I need to set forms values
 

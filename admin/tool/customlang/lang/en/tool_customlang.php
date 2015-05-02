@@ -1,36 +1,22 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Strings for Language customisation admin tool
  *
  * @package    tool
  * @subpackage customlang
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2010 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 $string['checkin'] = 'Save strings to language pack';
 $string['checkout'] = 'Open language pack for editing';
 $string['checkoutdone'] = 'Language pack loaded';
 $string['checkoutinprogress'] = 'Loading language pack';
-$string['confirmcheckin'] = 'You are about to save modifications to your local language pack. This will export the customised strings from the translator into you Moodle data directory and Moodle will start using the modified strings. Press \'Continue\' to proceed with saving.';
+$string['confirmcheckin'] = 'You are about to save modifications to your local language pack. This will export the customised strings from the translator into you Lion data directory and Lion will start using the modified strings. Press \'Continue\' to proceed with saving.';
 $string['customlang:edit'] = 'Edit local translation';
 $string['customlang:view'] = 'View local translation';
 $string['filter'] = 'Filter strings';

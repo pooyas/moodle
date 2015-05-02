@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Event to be triggered when a new course module is created.
  *
  * @package    core
  * @copyright  2013 Ankit Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * .
  */
 
 namespace core\event;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Class course_module_created
@@ -39,9 +25,9 @@ defined('MOODLE_INTERNAL') || die();
  * }
  *
  * @package    core
- * @since      Moodle 2.6
+ * @since      Lion 2.6
  * @copyright  2013 Ankit Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * .
  */
 class course_module_created extends base {
 
@@ -57,7 +43,7 @@ class course_module_created extends base {
     /**
      * Api to Create new event from course module.
      *
-     * @since Moodle 2.6.4, 2.7.1
+     * @since Lion 2.6.4, 2.7.1
      * @param \cm_info|\stdClass $cm course module instance, as returned by {@link get_coursemodule_from_id}
      *                               or {@link get_coursemodule_from_instance}.
      * @param \context_module $modcontext module context instance
@@ -104,10 +90,10 @@ class course_module_created extends base {
 
     /**
      * Returns relevant URL.
-     * @return \moodle_url
+     * @return \lion_url
      */
     public function get_url() {
-        return new \moodle_url('/mod/' . $this->other['modulename'] . '/view.php', array('id' => $this->objectid));
+        return new \lion_url('/mod/' . $this->other['modulename'] . '/view.php', array('id' => $this->objectid));
     }
 
     /**

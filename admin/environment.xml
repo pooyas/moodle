@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <COMPATIBILITY_MATRIX>
-  <MOODLE version="1.5">
+  <LION version="1.5">
     <DATABASE level="required">
       <VENDOR name="mysql" version="3.23" />
       <VENDOR name="postgres" version="7.4" />
@@ -9,8 +9,8 @@
     <PHP_EXTENSIONS>
       <PHP_EXTENSION name="mbstring" level="optional" />
     </PHP_EXTENSIONS>
-  </MOODLE>
-  <MOODLE version="1.6">
+  </LION>
+  <LION version="1.6">
     <DATABASE level="required">
       <VENDOR name="mysql" version="4.1.16">
         <FEEDBACK>
@@ -33,8 +33,8 @@
         </FEEDBACK>
       </PHP_EXTENSION>
     </PHP_EXTENSIONS>
-  </MOODLE>
-  <MOODLE version="1.7">
+  </LION>
+  <LION version="1.7">
     <UNICODE level="optional">
       <FEEDBACK>
         <ON_CHECK message="unicoderecommended" />
@@ -68,8 +68,8 @@
         </FEEDBACK>
       </PHP_EXTENSION>
     </PHP_EXTENSIONS>
-  </MOODLE>
-  <MOODLE version="1.8">
+  </LION>
+  <LION version="1.8">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -127,8 +127,8 @@
         </FEEDBACK>
       </PHP_EXTENSION>
     </PHP_EXTENSIONS>
-  </MOODLE>
-  <MOODLE version="1.9">
+  </LION>
+  <LION version="1.9">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -206,8 +206,8 @@
         </FEEDBACK>
       </CUSTOM_CHECK>
     </CUSTOM_CHECKS>
-  </MOODLE>
-  <MOODLE version="2.0" requires="1.9">
+  </LION>
+  <LION version="2.0" requires="1.9">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -323,8 +323,8 @@
         </FEEDBACK>
       </CUSTOM_CHECK>
     </CUSTOM_CHECKS>
-  </MOODLE>
-  <MOODLE version="2.1" requires="1.9">
+  </LION>
+  <LION version="2.1" requires="1.9">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -433,8 +433,8 @@
         </FEEDBACK>
       </PHP_SETTING>
     </PHP_SETTINGS>
-  </MOODLE>
-  <MOODLE version="2.2" requires="1.9">
+  </LION>
+  <LION version="2.2" requires="1.9">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -543,8 +543,8 @@
         </FEEDBACK>
       </PHP_SETTING>
     </PHP_SETTINGS>
-  </MOODLE>
-  <MOODLE version="2.3" requires="2.2">
+  </LION>
+  <LION version="2.3" requires="2.2">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -659,8 +659,8 @@
         </FEEDBACK>
       </PHP_SETTING>
     </PHP_SETTINGS>
-  </MOODLE>
-  <MOODLE version="2.4" requires="2.2">
+  </LION>
+  <LION version="2.4" requires="2.2">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -775,8 +775,8 @@
         </FEEDBACK>
       </PHP_SETTING>
     </PHP_SETTINGS>
-  </MOODLE>
-  <MOODLE version="2.5" requires="2.2">
+  </LION>
+  <LION version="2.5" requires="2.2">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -891,8 +891,8 @@
         </FEEDBACK>
       </PHP_SETTING>
     </PHP_SETTINGS>
-  </MOODLE>
-  <MOODLE version="2.6" requires="2.2">
+  </LION>
+  <LION version="2.6" requires="2.2">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -1012,8 +1012,8 @@
         </FEEDBACK>
       </PHP_SETTING>
     </PHP_SETTINGS>
-  </MOODLE>
-  <MOODLE version="2.7" requires="2.2">
+  </LION>
+  <LION version="2.7" requires="2.2">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -1135,8 +1135,8 @@
         </FEEDBACK>
       </CUSTOM_CHECK>
     </CUSTOM_CHECKS>
-  </MOODLE>
-  <MOODLE version="2.8" requires="2.2">
+  </LION>
+  <LION version="2.8" requires="2.2">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -1258,8 +1258,8 @@
         </FEEDBACK>
       </CUSTOM_CHECK>
     </CUSTOM_CHECKS>
-  </MOODLE>
-  <MOODLE version="2.9" requires="2.2">
+  </LION>
+  <LION version="2.9" requires="2.2">
     <UNICODE level="required">
       <FEEDBACK>
         <ON_ERROR message="unicoderequired" />
@@ -1386,5 +1386,5 @@
         </FEEDBACK>
       </CUSTOM_CHECK>
     </CUSTOM_CHECKS>
-  </MOODLE>
+  </LION>
 </COMPATIBILITY_MATRIX>

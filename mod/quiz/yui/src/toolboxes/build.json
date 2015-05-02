@@ -1,7 +1,7 @@
 {
-    "name": "moodle-mod_quiz-toolboxes",
+    "name": "lion-mod_quiz-toolboxes",
     "builds": {
-        "moodle-mod_quiz-toolboxes": {
+        "lion-mod_quiz-toolboxes": {
             "jsfiles": [
                 "toolbox.js",
                 "resource.js",

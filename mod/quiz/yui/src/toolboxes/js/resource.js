@@ -169,12 +169,12 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             var data = {
                 'class': 'resource',
                 'action': 'DELETE',
-                'id': Y.Moodle.mod_quiz.util.slot.getId(element)
+                'id': Y.Lion.mod_quiz.util.slot.getId(element)
             };
             this.send_request(data, spinner, function(response) {
                 if (response.deleted) {
                     // Actually remove the element.
-                    Y.Moodle.mod_quiz.util.slot.remove(element);
+                    Y.Lion.mod_quiz.util.slot.remove(element);
                     this.reorganise_edit_page();
                     if (M.core.actionmenu && M.core.actionmenu.instance) {
                         M.core.actionmenu.instance.hideMenu();
@@ -211,7 +211,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             data = {
                 'class'   : 'resource',
                 'field'   : 'getmaxmark',
-                'id'      : Y.Moodle.mod_quiz.util.slot.getId(activity)
+                'id'      : Y.Lion.mod_quiz.util.slot.getId(activity)
             };
 
         // Prevent the default actions.
@@ -230,7 +230,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             // Create the editor and submit button.
             var editform = Y.Node.create('<form action="#" />');
             var editinstructions = Y.Node.create('<span class="' + CSS.EDITINSTRUCTIONS + '" id="id_editinstructions" />')
-                .set('innerHTML', M.util.get_string('edittitleinstructions', 'moodle'));
+                .set('innerHTML', M.util.get_string('edittitleinstructions', 'lion'));
             var editor = Y.Node.create('<input name="maxmark" type="text" class="' + CSS.TITLEEDITOR + '" />').setAttrs({
                 'value' : maxmarktext,
                 'autocomplete' : 'off',
@@ -290,7 +290,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
                 'class'   : 'resource',
                 'field'   : 'updatemaxmark',
                 'maxmark'   : newmaxmark,
-                'id'      : Y.Moodle.mod_quiz.util.slot.getId(activity)
+                'id'      : Y.Lion.mod_quiz.util.slot.getId(activity)
             };
             this.send_request(data, spinner, function(response) {
                 if (response.instancemaxmark) {
@@ -375,17 +375,17 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
         var data = {
             'class': 'resource',
             'field': 'updatepagebreak',
-            'id':    Y.Moodle.mod_quiz.util.slot.getId(nextactivity),
+            'id':    Y.Lion.mod_quiz.util.slot.getId(nextactivity),
             'value': value
         };
 
         this.send_request(data, spinner, function(response) {
             if (response.slots) {
                 if (action === 'addpagebreak') {
-                    Y.Moodle.mod_quiz.util.page.add(activity);
+                    Y.Lion.mod_quiz.util.page.add(activity);
                 } else {
-                    var page = activity.next(Y.Moodle.mod_quiz.util.page.SELECTORS.PAGE);
-                    Y.Moodle.mod_quiz.util.page.remove(page, true);
+                    var page = activity.next(Y.Lion.mod_quiz.util.page.SELECTORS.PAGE);
+                    Y.Lion.mod_quiz.util.page.remove(page, true);
                 }
                 this.reorganise_edit_page();
             }
@@ -414,13 +414,13 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
         var data = {
             'class': 'resource',
             'field': 'updatedependency',
-            'id':    Y.Moodle.mod_quiz.util.slot.getId(activity),
+            'id':    Y.Lion.mod_quiz.util.slot.getId(activity),
             'value': action === 'adddependency' ? 1 : 0
         };
 
         this.send_request(data, spinner, function(response) {
             if (response.hasOwnProperty('requireprevious')) {
-                Y.Moodle.mod_quiz.util.slot.updateDependencyIcon(activity, response.requireprevious);
+                Y.Lion.mod_quiz.util.slot.updateDependencyIcon(activity, response.requireprevious);
             }
         });
 
@@ -434,10 +434,10 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
      * @method reorganise_edit_page
      */
     reorganise_edit_page: function() {
-        Y.Moodle.mod_quiz.util.slot.reorderSlots();
-        Y.Moodle.mod_quiz.util.slot.reorderPageBreaks();
-        Y.Moodle.mod_quiz.util.page.reorderPages();
-        Y.Moodle.mod_quiz.util.slot.updateAllDependencyIcons();
+        Y.Lion.mod_quiz.util.slot.reorderSlots();
+        Y.Lion.mod_quiz.util.slot.reorderPageBreaks();
+        Y.Lion.mod_quiz.util.page.reorderPages();
+        Y.Lion.mod_quiz.util.slot.updateAllDependencyIcons();
     },
 
     NAME : 'mod_quiz-resource-toolbox',

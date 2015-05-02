@@ -11,7 +11,7 @@ $id = required_param('id', PARAM_INT);    // Course Module ID
 $mode     = optional_param('mode', 'letter', PARAM_ALPHA );
 $hook     = optional_param('hook', 'ALL', PARAM_ALPHANUM);
 
-$url = new moodle_url('/mod/glossary/import.php', array('id'=>$id));
+$url = new lion_url('/mod/glossary/import.php', array('id'=>$id));
 if ($mode !== 'letter') {
     $url->param('mode', $mode);
 }
@@ -94,7 +94,7 @@ if ($xml = glossary_read_imported_file($result)) {
             $glossary->name = ($xmlglossary['NAME'][0]['#']);
             $glossary->globalglossary = ($xmlglossary['GLOBALGLOSSARY'][0]['#']);
             $glossary->intro = ($xmlglossary['INTRO'][0]['#']);
-            $glossary->introformat = isset($xmlglossary['INTROFORMAT'][0]['#']) ? $xmlglossary['INTROFORMAT'][0]['#'] : FORMAT_MOODLE;
+            $glossary->introformat = isset($xmlglossary['INTROFORMAT'][0]['#']) ? $xmlglossary['INTROFORMAT'][0]['#'] : FORMAT_LION;
             $glossary->showspecial = ($xmlglossary['SHOWSPECIAL'][0]['#']);
             $glossary->showalphabet = ($xmlglossary['SHOWALPHABET'][0]['#']);
             $glossary->showall = ($xmlglossary['SHOWALL'][0]['#']);

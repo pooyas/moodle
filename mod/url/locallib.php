@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Private url module utility functions
  *
  * @package    mod_url
  * @copyright  2009 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/filelib.php");
 require_once("$CFG->libdir/resourcelib.php");
@@ -301,7 +287,7 @@ function url_display_embed($url, $cm, $course) {
 
     $link = html_writer::tag('a', $fullurl, array('href'=>str_replace('&amp;', '&', $fullurl)));
     $clicktoopen = get_string('clicktoopen', 'url', $link);
-    $moodleurl = new moodle_url($fullurl);
+    $lionurl = new lion_url($fullurl);
 
     $extension = resourcelib_get_extension($url->externalurl);
 
@@ -314,9 +300,9 @@ function url_display_embed($url, $cm, $course) {
     if (in_array($mimetype, array('image/gif','image/jpeg','image/png'))) {  // It's an image
         $code = resourcelib_embed_image($fullurl, $title);
 
-    } else if ($mediarenderer->can_embed_url($moodleurl, $embedoptions)) {
+    } else if ($mediarenderer->can_embed_url($lionurl, $embedoptions)) {
         // Media (audio/video) file.
-        $code = $mediarenderer->embed_url($moodleurl, $title, 0, 0, $embedoptions);
+        $code = $mediarenderer->embed_url($lionurl, $title, 0, 0, $embedoptions);
 
     } else {
         // anything else - just try object tag enlarged as much as possible
@@ -346,10 +332,10 @@ function url_get_final_display_type($url) {
         return $url->display;
     }
 
-    // detect links to local moodle pages
+    // detect links to local lion pages
     if (strpos($url->externalurl, $CFG->wwwroot) === 0) {
         if (strpos($url->externalurl, 'file.php') === false and strpos($url->externalurl, '.php') !== false ) {
-            // most probably our moodle page with navigation
+            // most probably our lion page with navigation
             return RESOURCELIB_DISPLAY_OPEN;
         }
     }

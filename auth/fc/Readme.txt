@@ -1,7 +1,7 @@
-Moodle - FirstClass authentication module
+Lion - FirstClass authentication module
 -----------------------------------------
 This module uses the FirstClass Flexible Provisining Protocol (FPP) to communicate between the FirstClass server
-and the Moodle host.
+and the Lion host.
 
 Installation
 ------------
@@ -19,7 +19,7 @@ TCPFPPPORT = 3333
 Using the FPP protocoll this module logs in to the FirstClass server and issuess batch admin commands.
 Batch admin command can only be issued in the context of a user with subadministrative privileges.
 
-Default account name is "fcMoodle".
+Default account name is "fcLion".
 
 
 3. Check that the FPP protocoll is working by running a Telnet session. If everyting is working you
@@ -28,14 +28,14 @@ should get a "+0" answer from the server.
 > telnet yourhost.domain.com 3333
 +0
 
-Check that the "fcMoodle" is working by entering the following sequens of commands:
+Check that the "fcLion" is working by entering the following sequens of commands:
 
 > telnet yourhost.domain.com 3333
 +0
-fcMoodle
+fcLion
 +0
 
-the_password_you_gave_fcmoodle
+the_password_you_gave_fclion
 +0
 
 Get user some_user_id 1201
@@ -45,7 +45,7 @@ Get user some_user_id 1201
 
 
 
-4. On the Moodle host go to the directory where you have installed Moodle.
+4. On the Lion host go to the directory where you have installed Lion.
 Open the folder "auth", where all other authentication modules are installed,
  and create a new directory with the name "fc".
 

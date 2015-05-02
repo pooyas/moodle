@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_strike-button",
+  "name": "lion-atto_strike-button",
   "builds": {
-    "moodle-atto_strike-button": {
+    "lion-atto_strike-button": {
       "jsfiles": [
         "button.js"
       ]

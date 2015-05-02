@@ -15,8 +15,8 @@ information provided here is intended especially for developers.
 * \core_component::fetch_subsystems() now returns a valid path for completion component instead of null.
 * Deprecated JS global methods have been removed (show_item, destroy_item, hide_item, addonload, getElementsByTagName, findChildNodes).
 * For 3rd party plugin specific environment.xml files, it's now possible to specify version independent checks by using the
-  <PLUGIN name="component_name"> tag instead of the version dependent <MOODLE version="x.y"> one. If the PLUGIN tag is used any
-  Moodle specific tags will be ignored.
+  <PLUGIN name="component_name"> tag instead of the version dependent <LION version="x.y"> one. If the PLUGIN tag is used any
+  Lion specific tags will be ignored.
 * External function core_files_get_files returns additional fields (timecreated, filesize, author, license)
 * html_table: new API for adding captions to tables (new field, $table->caption) and subsequently hiding said captions from sighted users using accesshide (enabled using $table->captionhide).
 * The authorization procedure in the mdeploy.php script has been improved. The script
@@ -36,7 +36,7 @@ information provided here is intended especially for developers.
   found to be using this setting, a warning to check the grades will be shown in the
   course grader report after upgrading the site. The same warning will be shown on
   courses restored from backup that had this setting enabled (see MDL-47503).
-* lib/excelllib.class.php has been updated. The class MoodleExcelWorkbook will now only produce excel 2007 files.
+* lib/excelllib.class.php has been updated. The class LionExcelWorkbook will now only produce excel 2007 files.
 * renderers: We now remove the suffix _renderable when looking for a render method for a renderable.
   If you have a renderable class named like "blah_renderable" and have a method on a renderer named "render_blah_renderable"
   you will need to change the name of your render method to "render_blah" instead, as renderable at the end is no longer accepted.
@@ -61,10 +61,10 @@ information provided here is intended especially for developers.
 * grade_get_grades() optional parameteres $itemtype, $itemmodule, $iteminstance are now required.
 
 DEPRECATIONS:
-* completion_info->get_incomplete_criteria() is deprecated and will be removed in Moodle 3.0.
-* grade_category::aggregate_values() is deprecated and will be removed in Moodle 3.0.
+* completion_info->get_incomplete_criteria() is deprecated and will be removed in Lion 3.0.
+* grade_category::aggregate_values() is deprecated and will be removed in Lion 3.0.
 * groups_filter_users_by_course_module_visible() is deprecated; replace with
-  core_availability\info::filter_user_list. Will be removed in Moodle 3.0.
+  core_availability\info::filter_user_list. Will be removed in Lion 3.0.
 * groups_course_module_visible() is deprecated; replace with $cm->uservisible.
 * cm_info property $cm->groupmembersonly is deprecated and always returns 0.
   Use core_availability\info::filter_user_list if trying to determine which
@@ -98,8 +98,8 @@ DEPRECATIONS:
 
 Events and Logging:
 * Significant changes in Logging API. For upgrading existing events_trigger() and
-  add_to_log() see http://docs.moodle.org/dev/Migrating_logging_calls_in_plugins
-  For accessing logs from plugins see http://docs.moodle.org/dev/Migrating_log_access_in_reports
+  add_to_log() see http://docs.lion.org/dev/Migrating_logging_calls_in_plugins
+  For accessing logs from plugins see http://docs.lion.org/dev/Migrating_log_access_in_reports
 * The validation of the following events is now stricter (see MDL-45445):
     - \core\event\blog_entry_created
     - \core\event\blog_entry_deleted
@@ -128,7 +128,7 @@ Events and Logging:
     - \core\event\webservice_token_created
 
 DEPRECATIONS:
-* $module uses in mod/xxx/version.php files is now deprecated. Please use $plugin instead. It will be removed in Moodle 2.10.
+* $module uses in mod/xxx/version.php files is now deprecated. Please use $plugin instead. It will be removed in Lion 2.10.
 * Update init methods in all event classes - "level" property was renamed to "edulevel", the level property is now deprecated.
 * Abstract class \core\event\course_module_instances_list_viewed is deprecated now, use \core\event\instances_list_viewed instead.
 * Abstract class core\event\content_viewed has been deprecated. Please extend base event or other relevant abstract class.
@@ -165,18 +165,18 @@ Conditional availability (activities and sections):
   for an activity or section is likely to need substantial changes.
 
 YUI:
-  * The lightbox attribute for moodle-core-notification-dialogue has been
+  * The lightbox attribute for lion-core-notification-dialogue has been
     deprecated and replaced by the modal attribute. This was actually
-    changed in Moodle 2.2, but has only been marked as deprecated now. It
-    will be removed in Moodle 2.9.
-  * When destroying any type of dialogue based on moodle-core-notification, the relevant content is also removed from
+    changed in Lion 2.2, but has only been marked as deprecated now. It
+    will be removed in Lion 2.9.
+  * When destroying any type of dialogue based on lion-core-notification, the relevant content is also removed from
     the DOM. Previously it was left orphaned.
 
 JavaSript:
     * The findChildNodes global function has been deprecated. Y.all should
       be used instead.
     * The callback argument to confirm_action and M.util.show_confirm_dialog has been deprecated. If you need to write a
-      confirmation which includes a callback, please use moodle-core-notification-confirmation and attach callbacks to the
+      confirmation which includes a callback, please use lion-core-notification-confirmation and attach callbacks to the
       events provided.
 
 * New locking api and admin settings to configure the system locking type.
@@ -194,7 +194,7 @@ JavaSript:
   exactly the same, the only differences are that core_component::get_plugin_types() now always returns
   full paths and core_component::get_plugin_list() does not accept empty parameter any more.
 * Use core_text::* instead of textlib:: and also core_collator::* instead of collatorlib::*.
-* Use new function moodleform::mock_submit() to simulate form submission in unit tests (backported).
+* Use new function lionform::mock_submit() to simulate form submission in unit tests (backported).
 * New $CFG->localcachedir setting useful for cluster nodes. Admins have to update X-Sendfile aliases if used.
 * MS SQL Server drivers are now using NVARCHAR(MAX) instead of NTEXT and VARBINARY(MAX) instead of IMAGE,
   this change should be fully transparent and it should help significantly with add-on compatibility.
@@ -229,12 +229,12 @@ JavaSript:
 * Use core_shutdown_manager::register_function() instead of register_shutdown_function().
 * New file packer for .tar.gz files; obtain by calling get_file_packer('application/x-gzip'). Intended initially
   for use in backup/restore only, as there are limitations on supported filenames. Also new packer for
-  backups which supports both compression formats; get_file_packer('application/vnd.moodle.backup').
+  backups which supports both compression formats; get_file_packer('application/vnd.lion.backup').
 * New optional parameter to stored_file::get_content_file_handle to open file handle with 'gzopen' instead
   of 'fopen' to read gzip-compressed files if required.
 * update_internal_user_password() and setnew_password_and_mail() now trigger user_updated event.
 * Add thirdpartylibs.xml file to plugins that bundle any 3rd party libraries.
-* New class introduced to help auto generate zIndex values for modal dialogues. Class "moodle-has-zindex"
+* New class introduced to help auto generate zIndex values for modal dialogues. Class "lion-has-zindex"
   should set on any element which uses a non-default zindex and needs to ensure it doesn't show above a
   dialogue.
 * $CFG->filelifetime is now used consistently for most file serving operations, the default was lowered
@@ -360,7 +360,7 @@ User-agent related functions:
     * get_browser_version_classes()         -> core_useragent::get_browser_version_classes()
 
 YUI:
-    * moodle-core-notification has been deprecated with a recommendation of
+    * lion-core-notification has been deprecated with a recommendation of
       using its subclasses instead. This is to allow for reduced page
       transport costs. Current subclasses include:
       * dialogue
@@ -372,7 +372,7 @@ YUI:
 Event triggering and event handlers:
     * All existing events and event handlers should be replaced by new
       event classes and matching new event observers.
-    * See http://docs.moodle.org/dev/Event_2 for more information.
+    * See http://docs.lion.org/dev/Event_2 for more information.
     * The following events will be entirely removed, though they can still
       be captured using handlers, but they should not be used any more.
       * groups_members_removed          -> \core\event\group_member_removed
@@ -388,7 +388,7 @@ Event triggering and event handlers:
 
 === 2.5 ===
 
-* The database drivers (moodle_database and subclasses) aren't using anymore the ::columns property
+* The database drivers (lion_database and subclasses) aren't using anymore the ::columns property
   for caching database metadata. MUC (databasemeta) is used instead. Any custom DB driver should
   apply for that change.
 * The cron output has been changed to include time and memory usage (see cron_trace_time_and_memory()),
@@ -431,11 +431,11 @@ Event triggering and event handlers:
   moved to course/renderer.php. The following global functions are deprecated: make_categories_list(),
   category_delete_move(), category_delete_full(), move_category(), course_category_hide(),
   course_category_show(), get_course_category(), create_course_category(), get_all_subcategories(),
-  get_child_categories(), get_categories(), print_my_moodle(), print_remote_course(),
+  get_child_categories(), get_categories(), print_my_lion(), print_remote_course(),
   print_remote_host(), print_whole_category_list(), print_category_info(), get_course_category_tree(),
   print_courses(), print_course(), get_category_courses_array(), get_category_courses_array_recursively(),
   get_courses_wmanagers()
-  See http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+  See http://docs.lion.org/dev/Courses_lists_upgrade_to_2.5
 * $core_renderer->block_move_target() changed to support more verbose move-block-here descriptions.
 * Additional (optional) param $onlyactive has been added to get_enrolled_users, count_enrolled_users
   functions to get information for only active (excluding suspended enrolments) users. Included two
@@ -443,7 +443,7 @@ Event triggering and event handlers:
 * The core_plugin_manager class now provides two new helper methods for getting information
   about known plugins: get_plugins_of_type() and get_subplugins_of_plugin().
 * The get_uninstall_url() method of all subclasses of \core\plugininfo\base class is now expected
-  to always return moodle_url. Subclasses can use the new method is_uninstall_allowed()
+  to always return lion_url. Subclasses can use the new method is_uninstall_allowed()
   to control the availability of the 'Uninstall' link at the Plugins overview page (previously
   they would do it by get_uninstall_url() returning null). By default, URL to a new general plugin
   uninstall tool is returned. Unless the plugin type needs extra steps that can't be handled by
@@ -457,7 +457,7 @@ Database (DML) layer:
   Please note that internally we create indexes instead of foreign keys.
 
 YUI changes:
-* M.util.help_icon has been deprecated. Code should be updated to use moodle-core-popuphelp
+* M.util.help_icon has been deprecated. Code should be updated to use lion-core-popuphelp
   instead. To do so, remove any existing JS calls to M.util.help_icon from your PHP and ensure
   that your help link is placed in a span which has the class 'helplink'.
 
@@ -479,10 +479,10 @@ YUI changes:
   are deprecated. See their phpdocs in lib/deprecatedlib.php on how to replace them
 
 YUI changes:
-* moodle-enrol-notification has been renamed to moodle-core-notification
+* lion-enrol-notification has been renamed to lion-core-notification
 * YUI2 code must now use 2in3, see http://yuilibrary.com/yui/docs/yui/yui-yui2.html
 * M.util.init_select_autosubmit() and M.util.init_url_select() have been deprecated. Code using this should be updated
-  to use moodle-core-formautosubmit
+  to use lion-core-formautosubmit
 
 Unit testing changes:
 * output debugging() is not sent to standard output any more,
@@ -526,16 +526,16 @@ API changes:
 === 2.0 ===
 
 API changes:
-* new DML API - http://docs.moodle.org/dev/DML_functions
-* new DDL API - http://docs.moodle.org/dev/DDL_functions
-* new file API - http://docs.moodle.org/dev/File_API
+* new DML API - http://docs.lion.org/dev/DML_functions
+* new DDL API - http://docs.lion.org/dev/DDL_functions
+* new file API - http://docs.lion.org/dev/File_API
 * new $PAGE and $OUTPUT API
 * new navigation API
-* new theme API - http://docs.moodle.org/dev/Theme_changes_in_2.0
-* new javascript API - http://docs.moodle.org/dev/JavaScript_usage_guide
+* new theme API - http://docs.lion.org/dev/Theme_changes_in_2.0
+* new javascript API - http://docs.lion.org/dev/JavaScript_usage_guide
 * new portfolio API
 * new local plugin type
-* new translation support - http://lang.moodle.org
+* new translation support - http://lang.lion.org
 * new web service API
 * new cohorts API
 * new messaging API
@@ -552,4 +552,4 @@ API changes:
 * new plagiarism API
 * changed blog API
 * new text editor API
-* new my moodle and profiles API
+* new my lion and profiles API

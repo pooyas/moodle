@@ -1,24 +1,10 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package   mod_forum
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 require_once('../../config.php');
@@ -127,7 +113,7 @@ $strpage = get_string("page");
 
 if (!$search || $showform) {
 
-    $PAGE->navbar->add($strforums, new moodle_url('/mod/forum/index.php', array('id'=>$course->id)));
+    $PAGE->navbar->add($strforums, new lion_url('/mod/forum/index.php', array('id'=>$course->id)));
     $PAGE->navbar->add(get_string('advancedsearch', 'forum'));
 
     $PAGE->set_title($strsearch);
@@ -146,7 +132,7 @@ $searchterms = explode(' ', $searchterms);
 
 $searchform = forum_search_form($course, $search);
 
-$PAGE->navbar->add($strsearch, new moodle_url('/mod/forum/search.php', array('id'=>$course->id)));
+$PAGE->navbar->add($strsearch, new lion_url('/mod/forum/search.php', array('id'=>$course->id)));
 $PAGE->navbar->add($strsearchresults);
 if (!$posts = forum_search_posts($searchterms, $course->id, $page*$perpage, $perpage, $totalcount)) {
     $PAGE->set_title($strsearchresults);
@@ -200,7 +186,7 @@ echo '</div>';
 echo $OUTPUT->heading($strforums, 2);
 echo $OUTPUT->heading("$strsearchresults: $totalcount", 3);
 
-$url = new moodle_url('search.php', array('search' => $search, 'id' => $course->id, 'perpage' => $perpage));
+$url = new lion_url('search.php', array('search' => $search, 'id' => $course->id, 'perpage' => $perpage));
 echo $OUTPUT->paging_bar($totalcount, $page, $perpage, $url);
 
 //added to implement highlighting of search terms found only in HTML markup

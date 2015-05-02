@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Defines the \mod_quiz\structure class.
  *
  * @package   mod_quiz
  * @copyright 2013 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 namespace mod_quiz;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Quiz structure class.
@@ -35,7 +21,7 @@ defined('MOODLE_INTERNAL') || die();
  * that that student should answer, and we no longer use this class.
  *
  * @copyright 2014 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class structure {
     /** @var \quiz the quiz this is the structure of. */
@@ -285,8 +271,8 @@ class structure {
         if (!$this->can_be_edited()) {
             $reportlink = quiz_attempt_summary_link_to_reports($this->get_quiz(),
                     $this->quizobj->get_cm(), $this->quizobj->get_context());
-            throw new \moodle_exception('cannoteditafterattempts', 'quiz',
-                    new \moodle_url('/mod/quiz/edit.php', array('cmid' => $this->get_cmid())), $reportlink);
+            throw new \lion_exception('cannoteditafterattempts', 'quiz',
+                    new \lion_url('/mod/quiz/edit.php', array('cmid' => $this->get_cmid())), $reportlink);
         }
     }
 
@@ -433,7 +419,7 @@ class structure {
         }
 
         if ($this->is_shuffled()) {
-            $updateurl = new \moodle_url('/course/mod.php',
+            $updateurl = new \lion_url('/course/mod.php',
                     array('return' => 'true', 'update' => $this->quizobj->get_cmid(), 'sesskey' => sesskey()));
             $updatelink = '<a href="'.$updateurl->out().'">' . get_string('updatethis', '',
                     get_string('modulename', 'quiz')) . '</a>';
@@ -619,7 +605,7 @@ class structure {
 
         $movingslot = $this->slots[$idmove];
         if (empty($movingslot)) {
-            throw new moodle_exception('Bad slot ID ' . $idmove);
+            throw new lion_exception('Bad slot ID ' . $idmove);
         }
         $movingslotnumber = (int) $movingslot->slot;
 

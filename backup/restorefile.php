@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Import backup file or select existing backup file from moodle
- * @package   moodlecore
- * @copyright 2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Import backup file or select existing backup file from lion
+ * @package   lioncore
+ * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 
 require_once('../config.php');
@@ -46,7 +32,7 @@ if (!empty($filecontextid)) {
     $filecontext = context::instance_by_id($filecontextid);
 }
 
-$url = new moodle_url('/backup/restorefile.php', array('contextid'=>$contextid));
+$url = new lion_url('/backup/restorefile.php', array('contextid'=>$contextid));
 
 switch ($context->contextlevel) {
     case CONTEXT_MODULE:
@@ -59,7 +45,7 @@ switch ($context->contextlevel) {
 
 
 require_login($course, false, $cm);
-require_capability('moodle/restore:restorecourse', $context);
+require_capability('lion/restore:restorecourse', $context);
 
 if (is_null($course)) {
     $courseid = 0;
@@ -87,14 +73,14 @@ if ($action == 'choosebackupfile') {
             $params = $fileinfo->get_params();
             $file = $fs->get_file($params['contextid'], $params['component'], $params['filearea'],
                     $params['itemid'], $params['filepath'], $params['filename']);
-            $restore_url = new moodle_url('/backup/restore.php', array('contextid' => $contextid,
+            $restore_url = new lion_url('/backup/restore.php', array('contextid' => $contextid,
                     'pathnamehash' => $file->get_pathnamehash(), 'contenthash' => $file->get_contenthash()));
         } else {
             // If it's some weird other kind of file then use old code.
             $filename = restore_controller::get_tempdir_name($courseid, $USER->id);
             $pathname = $tmpdir . '/' . $filename;
             $fileinfo->copy_to_pathname($pathname);
-            $restore_url = new moodle_url('/backup/restore.php', array(
+            $restore_url = new lion_url('/backup/restore.php', array(
                     'contextid' => $contextid, 'filename' => $filename));
         }
         redirect($restore_url);
@@ -112,11 +98,11 @@ $PAGE->set_pagelayout('admin');
 
 $form = new course_restore_form(null, array('contextid'=>$contextid));
 $data = $form->get_data();
-if ($data && has_capability('moodle/restore:uploadfile', $context)) {
+if ($data && has_capability('lion/restore:uploadfile', $context)) {
     $filename = restore_controller::get_tempdir_name($courseid, $USER->id);
     $pathname = $tmpdir . '/' . $filename;
     $form->save_file('backupfile', $pathname);
-    $restore_url = new moodle_url('/backup/restore.php', array('contextid'=>$contextid, 'filename'=>$filename));
+    $restore_url = new lion_url('/backup/restore.php', array('contextid'=>$contextid, 'filename'=>$filename));
     redirect($restore_url);
     die;
 }
@@ -126,7 +112,7 @@ if ($data && has_capability('moodle/restore:uploadfile', $context)) {
 echo $OUTPUT->header();
 
 // require uploadfile cap to use file picker
-if (has_capability('moodle/restore:uploadfile', $context)) {
+if (has_capability('lion/restore:uploadfile', $context)) {
     echo $OUTPUT->heading(get_string('importfile', 'backup'));
     echo $OUTPUT->container_start();
     $form->display();

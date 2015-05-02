@@ -1,7 +1,7 @@
 {
-    "name": "moodle-tool_capability-search",
+    "name": "lion-tool_capability-search",
     "builds": {
-        "moodle-tool_capability-search": {
+        "lion-tool_capability-search": {
             "jsfiles": [
                 "search.js"
             ]

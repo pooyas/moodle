@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * MNet enrolment plugin
  *
  * @package    enrol_mnet
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2010 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * MNet enrolment plugin implementation for Moodle 2.x enrolment framework
+ * MNet enrolment plugin implementation for Lion 2.x enrolment framework
  */
 class enrol_mnet_plugin extends enrol_plugin {
 
@@ -67,7 +53,7 @@ class enrol_mnet_plugin extends enrol_plugin {
      * The link is returned only if there are some MNet peers that we publish enrolment service to.
      *
      * @param int $courseid id of the course to add the instance to
-     * @return moodle_url|null page url or null if instance can not be created
+     * @return lion_url|null page url or null if instance can not be created
      */
     public function get_newinstance_link($courseid) {
         global $CFG, $DB;
@@ -78,7 +64,7 @@ class enrol_mnet_plugin extends enrol_plugin {
             return null;
         }
         $coursecontext = context_course::instance($courseid);
-        if (!has_capability('moodle/course:enrolconfig', $coursecontext)) {
+        if (!has_capability('lion/course:enrolconfig', $coursecontext)) {
             return null;
         }
         $subscribers = $service->get_remote_subscribers();
@@ -86,7 +72,7 @@ class enrol_mnet_plugin extends enrol_plugin {
             return null;
         }
 
-        return new moodle_url('/enrol/mnet/addinstance.php', array('id'=>$courseid));
+        return new lion_url('/enrol/mnet/addinstance.php', array('id'=>$courseid));
     }
 
     /**

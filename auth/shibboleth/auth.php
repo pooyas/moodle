@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Authentication Plugin: Shibboleth Authentication
@@ -26,7 +12,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/authlib.php');
 
@@ -118,7 +104,7 @@ class auth_plugin_shibboleth extends auth_plugin_base {
             }
         }
 
-         // Provide an API to modify the information to fit the Moodle internal
+         // Provide an API to modify the information to fit the Lion internal
         // data representation
         if (
               $this->config->convert_data
@@ -126,8 +112,8 @@ class auth_plugin_shibboleth extends auth_plugin_base {
               && is_readable($this->config->convert_data)
             ) {
 
-            // Include a custom file outside the Moodle dir to
-            // modify the variable $moodleattributes
+            // Include a custom file outside the Lion dir to
+            // modify the variable $lionattributes
             include($this->config->convert_data);
         }
 
@@ -135,23 +121,23 @@ class auth_plugin_shibboleth extends auth_plugin_base {
     }
 
     /**
-     * Returns array containg attribute mappings between Moodle and Shibboleth.
+     * Returns array containg attribute mappings between Lion and Shibboleth.
      *
      * @return array
      */
     function get_attributes() {
         $configarray = (array) $this->config;
 
-        $moodleattributes = array();
+        $lionattributes = array();
         $userfields = array_merge($this->userfields, $this->get_custom_user_profile_fields());
         foreach ($userfields as $field) {
             if (isset($configarray["field_map_$field"])) {
-                $moodleattributes[$field] = $configarray["field_map_$field"];
+                $lionattributes[$field] = $configarray["field_map_$field"];
             }
         }
-        $moodleattributes['username'] = $configarray["user_attribute"];
+        $lionattributes['username'] = $configarray["user_attribute"];
 
-        return $moodleattributes;
+        return $lionattributes;
     }
 
     function prevent_local_passwords() {
@@ -288,7 +274,7 @@ class auth_plugin_shibboleth extends auth_plugin_base {
             set_config('alternateloginurl', $CFG->wwwroot.'/auth/shibboleth/login.php');
         } else {
             // Check if integrated WAYF was enabled and is now turned off
-            // If it was and only then, reset the Moodle alternate URL
+            // If it was and only then, reset the Lion alternate URL
             if (isset($this->config->alt_login) and $this->config->alt_login == 'on'){
                 set_config('alt_login',    'off',    'auth/shibboleth');
                 set_config('alternateloginurl', '');
@@ -372,7 +358,7 @@ class auth_plugin_shibboleth extends auth_plugin_base {
 
 
      /**
-     * Generate array of IdPs from Moodle Shibboleth settings
+     * Generate array of IdPs from Lion Shibboleth settings
      *
      * @param string Text containing tuble/triple of IdP entityId, name and (optionally) session initiator
      * @return array Identifier of IdPs and their name/session initiator

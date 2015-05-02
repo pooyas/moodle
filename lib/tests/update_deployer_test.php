@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for the update deployer.
  *
  * @package   core
  * @category  phpunit
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -33,7 +19,7 @@ class core_update_deployer_testcase extends advanced_testcase {
 
     public function test_magic_setters() {
         $deployer = testable_available_update_deployer::instance();
-        $value = new moodle_url('/');
+        $value = new lion_url('/');
         $deployer->set_returnurl($value);
         $this->assertSame($deployer->get_returnurl(), $value);
     }
@@ -121,7 +107,7 @@ class testable_available_update_checker extends \core\update\checker {
     private function get_fake_response() {
         $fakeresponse = array(
             'status' => 'OK',
-            'provider' => 'https://download.moodle.org/api/1.0/updates.php',
+            'provider' => 'https://download.lion.org/api/1.0/updates.php',
             'apiver' => '1.0',
             'timegenerated' => time(),
             'forversion' => '2012010100.00',
@@ -133,15 +119,15 @@ class testable_available_update_checker extends \core\update\checker {
                         'version' => 2012060103.00,
                         'release' => '2.3.3 (Build: 20121201)',
                         'maturity' => 200,
-                        'url' => 'https://download.moodle.org/',
-                        'download' => 'https://download.moodle.org/download.php/MOODLE_23_STABLE/moodle-2.3.3-latest.zip',
+                        'url' => 'https://download.lion.org/',
+                        'download' => 'https://download.lion.org/download.php/LION_23_STABLE/lion-2.3.3-latest.zip',
                     ),
                     array(
                         'version' => 2012120100.00,
                         'release' => '2.4dev (Build: 20121201)',
                         'maturity' => 50,
-                        'url' => 'https://download.moodle.org/',
-                        'download' => 'https://download.moodle.org/download.php/MOODLE_24_STABLE/moodle-2.4.0-latest.zip',
+                        'url' => 'https://download.lion.org/',
+                        'download' => 'https://download.lion.org/download.php/LION_24_STABLE/lion-2.4.0-latest.zip',
                     ),
                 ),
                 'mod_foo' => array(
@@ -150,15 +136,15 @@ class testable_available_update_checker extends \core\update\checker {
                         'requires' => 2012010100,
                         'maturity' => 200,
                         'release' => '1.1',
-                        'url' => 'http://moodle.org/plugins/blahblahblah/',
-                        'download' => 'http://moodle.org/plugins/download.php/blahblahblah',
+                        'url' => 'http://lion.org/plugins/blahblahblah/',
+                        'download' => 'http://lion.org/plugins/download.php/blahblahblah',
                     ),
                     array(
                         'version' => 2012030502,
                         'requires' => 2012010100,
                         'maturity' => 100,
                         'release' => '1.2 beta',
-                        'url' => 'http://moodle.org/plugins/',
+                        'url' => 'http://lion.org/plugins/',
                     ),
                 ),
             ),

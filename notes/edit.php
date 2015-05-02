@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once('../config.php');
 require_once('lib.php');
@@ -20,7 +6,7 @@ require_once('edit_form.php');
 
 $noteid = optional_param('id', 0, PARAM_INT);
 
-$url = new moodle_url('/notes/edit.php');
+$url = new lion_url('/notes/edit.php');
 
 if ($noteid) {
     // Existing note.
@@ -60,7 +46,7 @@ if (empty($CFG->enablenotes)) {
 }
 
 $context = context_course::instance($course->id);
-require_capability('moodle/notes:manage', $context);
+require_capability('lion/notes:manage', $context);
 
 if (!$user = $DB->get_record('user', array('id' => $note->userid))) {
     print_error('invaliduserid');
@@ -95,15 +81,15 @@ if ($noteid) {
 
 // Output HTML.
 $link = null;
-if (has_capability('moodle/course:viewparticipants', $context)
-    || has_capability('moodle/site:viewparticipants', context_system::instance())) {
+if (has_capability('lion/course:viewparticipants', $context)
+    || has_capability('lion/site:viewparticipants', context_system::instance())) {
 
-    $link = new moodle_url('/user/index.php', array('id' => $course->id));
+    $link = new lion_url('/user/index.php', array('id' => $course->id));
 }
 $PAGE->navbar->add(get_string('participants'), $link);
-$PAGE->navbar->add(fullname($user), new moodle_url('/user/view.php', array('id' => $user->id, 'course' => $course->id)));
+$PAGE->navbar->add(fullname($user), new lion_url('/user/view.php', array('id' => $user->id, 'course' => $course->id)));
 $PAGE->navbar->add(get_string('notes', 'notes'),
-                   new moodle_url('/notes/index.php', array('user' => $user->id, 'course' => $course->id)));
+                   new lion_url('/notes/index.php', array('user' => $user->id, 'course' => $course->id)));
 $PAGE->navbar->add($strnotes);
 $PAGE->set_title($course->shortname . ': ' . $strnotes);
 $PAGE->set_heading($course->fullname);

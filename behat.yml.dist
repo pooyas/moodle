@@ -9,6 +9,6 @@ default:
       base_url: 'http://localhost:8000'
       goutte: null
       selenium2: null
-    Moodle\BehatExtension\Extension:
+    Lion\BehatExtension\Extension:
       features: {  }
       steps_definitions: {  }

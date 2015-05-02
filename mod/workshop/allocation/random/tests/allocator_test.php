@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for Random allocation
@@ -20,10 +6,10 @@
  * @package    workshopallocation_random
  * @category   phpunit
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include the code to test
 global $CFG;
@@ -121,7 +107,7 @@ class workshopallocation_random_testcase extends advanced_testcase {
             87 => (object)array('id' => 121, 'authorid' => 3),
         );
         // set expectation
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         // exercise SUT
         $submissions = $this->allocator->index_submissions_by_authors($submissions);
     }

@@ -1,4 +1,4 @@
-Official Chat Module for Moodle
+Official Chat Module for Lion
 ------------------------------
 
 The chat module now supports a backend daemon for
@@ -14,10 +14,10 @@ instructions:
 
 3) Start the server like this (from the Unix command line):
 
-   cd moodle/mod/chat
+   cd lion/mod/chat
    php chatd.php --start &
 
-4) Go to a chat room in Moodle and open it as normal.
+4) Go to a chat room in Lion and open it as normal.
 
 ------
 

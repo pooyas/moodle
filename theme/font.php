@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file is responsible for serving the fonts used in CSS.
@@ -21,10 +7,10 @@
  *
  * @package   core
  * @copyright 2013 Petr Skoda (skodak)  {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// Disable moodle specific debug messages and any errors in output,
+// Disable lion specific debug messages and any errors in output,
 // comment out when debugging or better look into error log!
 define('NO_DEBUG_DISPLAY', true);
 
@@ -53,7 +39,7 @@ if (!$font) {
     font_not_found();
 }
 
-if (empty($component) or $component === 'moodle' or $component === 'core') {
+if (empty($component) or $component === 'lion' or $component === 'core') {
     $component = 'core';
 }
 
@@ -118,10 +104,10 @@ if ($rev > 0) {
     }
 }
 
-// Ok, now we need to start normal moodle script, we need to load all libs and $DB.
+// Ok, now we need to start normal lion script, we need to load all libs and $DB.
 define('ABORT_AFTER_CONFIG_CANCEL', true);
 
-define('NO_MOODLE_COOKIES', true); // Session not used here.
+define('NO_LION_COOKIES', true); // Session not used here.
 define('NO_UPGRADE_CHECK', true);  // Ignore upgrade check.
 
 require("$CFG->dirroot/lib/setup.php");

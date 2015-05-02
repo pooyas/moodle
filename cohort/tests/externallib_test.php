@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External cohort API
@@ -20,10 +6,10 @@
  * @package    core_cohort
  * @category   external
  * @copyright  MediaTouch 2000 srl
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -64,7 +50,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
             'idnumber' => 'cohorttest3',
             'description' => 'This is a description for cohorttest3'
             );
-        $roleid = $this->assignUserCapability('moodle/cohort:manage', $contextid);
+        $roleid = $this->assignUserCapability('lion/cohort:manage', $contextid);
 
         // Call the external function.
         $this->setCurrentTimeStart();
@@ -95,7 +81,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
         }
 
         // Call without required capability.
-        $this->unassignUserCapability('moodle/cohort:manage', $contextid, $roleid);
+        $this->unassignUserCapability('lion/cohort:manage', $contextid, $roleid);
         $this->setExpectedException('required_capability_exception');
         $createdcohorts = core_cohort_external::create_cohorts(array($cohort3));
     }
@@ -115,7 +101,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
                 array('cohortid1' => $cohort1->id, 'cohortid2' => $cohort2->id)));
 
         $contextid = $cohort1->contextid;
-        $roleid = $this->assignUserCapability('moodle/cohort:manage', $contextid);
+        $roleid = $this->assignUserCapability('lion/cohort:manage', $contextid);
 
         // Call the external function.
         core_cohort_external::delete_cohorts(array($cohort1->id, $cohort2->id));
@@ -127,7 +113,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
         // Call without required capability.
         $cohort1 = self::getDataGenerator()->create_cohort();
         $cohort2 = self::getDataGenerator()->create_cohort();
-        $this->unassignUserCapability('moodle/cohort:manage', $contextid, $roleid);
+        $this->unassignUserCapability('lion/cohort:manage', $contextid, $roleid);
         $this->setExpectedException('required_capability_exception');
         core_cohort_external::delete_cohorts(array($cohort1->id, $cohort2->id));
     }
@@ -150,7 +136,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
         $cohort2 = self::getDataGenerator()->create_cohort();
 
         $context = context_system::instance();
-        $roleid = $this->assignUserCapability('moodle/cohort:view', $context->id);
+        $roleid = $this->assignUserCapability('lion/cohort:view', $context->id);
 
         // Call the external function.
         $returnedcohorts = core_cohort_external::get_cohorts(array(
@@ -168,8 +154,8 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
         }
 
         // Check that a user with cohort:manage can see the cohort.
-        $this->unassignUserCapability('moodle/cohort:view', $context->id, $roleid);
-        $roleid = $this->assignUserCapability('moodle/cohort:manage', $context->id, $roleid);
+        $this->unassignUserCapability('lion/cohort:view', $context->id, $roleid);
+        $roleid = $this->assignUserCapability('lion/cohort:manage', $context->id, $roleid);
         // Call the external function.
         $returnedcohorts = core_cohort_external::get_cohorts(array(
             $cohort1->id, $cohort2->id));
@@ -197,7 +183,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
             );
 
         $context = context_system::instance();
-        $roleid = $this->assignUserCapability('moodle/cohort:manage', $context->id);
+        $roleid = $this->assignUserCapability('lion/cohort:manage', $context->id);
 
         // Call the external function.
         core_cohort_external::update_cohorts(array($cohort1));
@@ -220,7 +206,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
         $this->assertEquals(1, $dbcohort->visible);
 
         // Call without required capability.
-        $this->unassignUserCapability('moodle/cohort:manage', $context->id, $roleid);
+        $this->unassignUserCapability('lion/cohort:manage', $context->id, $roleid);
         $this->setExpectedException('required_capability_exception');
         core_cohort_external::update_cohorts(array($cohort1));
     }
@@ -280,7 +266,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
             );
         $cohort1 = self::getDataGenerator()->create_cohort($cohort);
 
-        $roleid = $this->assignUserCapability('moodle/cohort:manage', $context1->id);
+        $roleid = $this->assignUserCapability('lion/cohort:manage', $context1->id);
 
         $cohortupdate = array(
             'id' => $cohort1->id,
@@ -321,7 +307,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
             );
         $cohort1 = self::getDataGenerator()->create_cohort($cohort);
 
-        $roleid = $this->assignUserCapability('moodle/cohort:manage', $context2->id);
+        $roleid = $this->assignUserCapability('lion/cohort:manage', $context2->id);
 
         $cohortupdate = array(
             'id' => $cohort1->id,
@@ -363,7 +349,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
             'usertype' => array('type' => 'id', 'value' => '1')
             );
 
-        $roleid = $this->assignUserCapability('moodle/cohort:assign', $contextid);
+        $roleid = $this->assignUserCapability('lion/cohort:assign', $contextid);
 
         // Call the external function.
         $addcohortmembers = core_cohort_external::add_cohort_members(array($cohort1));
@@ -382,7 +368,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
             'cohorttype' => array('type' => 'id', 'value' => $cohort0->id),
             'usertype' => array('type' => 'id', 'value' => '2')
             );
-        $this->unassignUserCapability('moodle/cohort:assign', $contextid, $roleid);
+        $this->unassignUserCapability('lion/cohort:assign', $contextid, $roleid);
         $this->setExpectedException('required_capability_exception');
         $addcohortmembers = core_cohort_external::add_cohort_members(array($cohort2));
     }
@@ -401,7 +387,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
         $user2 = self::getDataGenerator()->create_user();
 
         $context = context_system::instance();
-        $roleid = $this->assignUserCapability('moodle/cohort:assign', $context->id);
+        $roleid = $this->assignUserCapability('lion/cohort:assign', $context->id);
 
         $cohortaddmember1 = array(
             'cohorttype' => array('type' => 'id', 'value' => $cohort1->id),
@@ -436,7 +422,7 @@ class core_cohort_externallib_testcase extends externallib_advanced_testcase {
             array('idcohort1' => $cohort1->id, 'iduser1' => $user1->id, 'idcohort2' => $cohort2->id, 'iduser2' => $user2->id)));
 
         // Call without required capability.
-        $this->unassignUserCapability('moodle/cohort:assign', $context->id, $roleid);
+        $this->unassignUserCapability('lion/cohort:assign', $context->id, $roleid);
         $this->setExpectedException('required_capability_exception');
         core_cohort_external::delete_cohort_members(array($cohortdel1, $cohortdel2));
     }

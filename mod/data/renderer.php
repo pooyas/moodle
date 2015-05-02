@@ -1,6 +1,6 @@
 <?php
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class mod_data_renderer extends plugin_renderer_base {
 

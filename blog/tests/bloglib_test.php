@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for blog
@@ -20,7 +6,7 @@
  * @package    core_blog
  * @category   phpunit
  * @copyright  2009 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 global $CFG;
@@ -174,7 +160,7 @@ class core_bloglib_testcase extends advanced_testcase {
 
         // Validate event data.
         $this->assertInstanceOf('\core\event\blog_entry_created', $event);
-        $url = new moodle_url('/blog/index.php', array('entryid' => $event->objectid));
+        $url = new lion_url('/blog/index.php', array('entryid' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEquals($sitecontext->id, $event->contextid);
         $this->assertEquals($blog->id, $event->objectid);
@@ -201,7 +187,7 @@ class core_bloglib_testcase extends advanced_testcase {
         // Edit a blog entry as Admin.
         $blog = new blog_entry($this->postid);
         $sink = $this->redirectEvents();
-        $blog->summary_editor = array('text' => 'Something', 'format' => FORMAT_MOODLE);
+        $blog->summary_editor = array('text' => 'Something', 'format' => FORMAT_LION);
         $blog->edit(array(), null, array(), array());
         $events = $sink->get_events();
         $event = array_pop($events);
@@ -209,7 +195,7 @@ class core_bloglib_testcase extends advanced_testcase {
 
         // Validate event data.
         $this->assertInstanceOf('\core\event\blog_entry_updated', $event);
-        $url = new moodle_url('/blog/index.php', array('entryid' => $event->objectid));
+        $url = new lion_url('/blog/index.php', array('entryid' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEquals($sitecontext->id, $event->contextid);
         $this->assertEquals($blog->id, $event->objectid);
@@ -283,7 +269,7 @@ class core_bloglib_testcase extends advanced_testcase {
         // Validate event data.
         $this->assertInstanceOf('\core\event\blog_association_created', $event);
         $this->assertEquals($sitecontext->id, $event->contextid);
-        $url = new moodle_url('/blog/index.php', array('entryid' => $event->other['blogid']));
+        $url = new lion_url('/blog/index.php', array('entryid' => $event->other['blogid']));
         $this->assertEquals($url, $event->get_url());
         $this->assertEquals($blog->id, $event->other['blogid']);
         $this->assertEquals($this->courseid, $event->other['associateid']);
@@ -392,8 +378,8 @@ class core_bloglib_testcase extends advanced_testcase {
         $sink->close();
 
         // Validate event data.
-        $url = new moodle_url('/blog/index.php', $other);
-        $url2 = new moodle_url('index.php', $other);
+        $url = new lion_url('/blog/index.php', $other);
+        $url2 = new lion_url('index.php', $other);
         $this->assertEquals($url, $event->get_url());
         $arr = array(SITEID, 'blog', 'view', $url2->out(), 'view blog entry');
         $this->assertEventLegacyLogData($arr, $event);
@@ -431,7 +417,7 @@ class core_bloglib_testcase extends advanced_testcase {
         $this->assertInstanceOf('\core\event\blog_comment_created', $event);
         $this->assertEquals($context, $event->get_context());
         $this->assertEquals($this->postid, $event->other['itemid']);
-        $url = new moodle_url('/blog/index.php', array('entryid' => $this->postid));
+        $url = new lion_url('/blog/index.php', array('entryid' => $this->postid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEventContextNotUsed($event);
     }
@@ -468,7 +454,7 @@ class core_bloglib_testcase extends advanced_testcase {
         $this->assertInstanceOf('\core\event\blog_comment_deleted', $event);
         $this->assertEquals($context, $event->get_context());
         $this->assertEquals($this->postid, $event->other['itemid']);
-        $url = new moodle_url('/blog/index.php', array('entryid' => $this->postid));
+        $url = new lion_url('/blog/index.php', array('entryid' => $this->postid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEventContextNotUsed($event);
     }

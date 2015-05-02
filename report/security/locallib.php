@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Lib functions
@@ -20,10 +6,10 @@
  * @package    report
  * @subpackage security
  * @copyright  2008 petr Skoda
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 
 define('REPORT_SECURITY_OK', 'ok');
@@ -726,7 +712,7 @@ function report_security_check_riskbackup($detailed=false) {
 
     $syscontext = context_system::instance();
 
-    $params = array('capability'=>'moodle/backup:userinfo', 'permission'=>CAP_ALLOW, 'contextid'=>$syscontext->id);
+    $params = array('capability'=>'lion/backup:userinfo', 'permission'=>CAP_ALLOW, 'contextid'=>$syscontext->id);
     $sql = "SELECT DISTINCT r.id, r.name, r.shortname, r.sortorder, r.archetype
               FROM {role} r
               JOIN {role_capabilities} rc ON rc.roleid = r.id
@@ -735,7 +721,7 @@ function report_security_check_riskbackup($detailed=false) {
                AND rc.permission = :permission";
     $systemroles = $DB->get_records_sql($sql, $params);
 
-    $params = array('capability'=>'moodle/backup:userinfo', 'permission'=>CAP_ALLOW, 'contextid'=>$syscontext->id);
+    $params = array('capability'=>'lion/backup:userinfo', 'permission'=>CAP_ALLOW, 'contextid'=>$syscontext->id);
     $sql = "SELECT DISTINCT r.id, r.name, r.shortname, r.sortorder, r.archetype, rc.contextid
               FROM {role} r
               JOIN {role_capabilities} rc ON rc.roleid = r.id
@@ -747,7 +733,7 @@ function report_security_check_riskbackup($detailed=false) {
     // list of users that are able to backup personal info
     // note: "sc" is context where is role assigned,
     //       "c" is context where is role overridden or system context if in role definition
-    $params = array('capability'=>'moodle/backup:userinfo', 'permission'=>CAP_ALLOW, 'context1'=>CONTEXT_COURSE, 'context2'=>CONTEXT_COURSE);
+    $params = array('capability'=>'lion/backup:userinfo', 'permission'=>CAP_ALLOW, 'context1'=>CONTEXT_COURSE, 'context2'=>CONTEXT_COURSE);
 
     $sqluserinfo = "
         FROM (SELECT rcx.*

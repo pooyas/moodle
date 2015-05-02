@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Display profile for a particular user
@@ -38,7 +24,7 @@ if (empty($id)) {
     $id = $USER->id;
 }
 
-if ($courseid == SITEID) {   // Since Moodle 2.0 all site-level profiles are shown by profile.php.
+if ($courseid == SITEID) {   // Since Lion 2.0 all site-level profiles are shown by profile.php.
     redirect($CFG->wwwroot.'/user/profile.php?id='.$id);  // Immediate redirect.
 }
 
@@ -77,13 +63,13 @@ if (!empty($CFG->forceloginforprofiles)) {
 $PAGE->set_course($course);
 $PAGE->set_pagetype('course-view-' . $course->format);  // To get the blocks exactly like the course.
 $PAGE->add_body_class('path-user');                     // So we can style it independently.
-$PAGE->set_other_editing_capability('moodle/course:manageactivities');
+$PAGE->set_other_editing_capability('lion/course:manageactivities');
 
-// Set the Moodle docs path explicitly because the default behaviour
+// Set the Lion docs path explicitly because the default behaviour
 // of inhereting the pagetype will lead to an incorrect docs location.
 $PAGE->set_docs_path('user/profile');
 
-$cansendmessage = isloggedin() && has_capability('moodle/site:sendmessage', $usercontext)
+$cansendmessage = isloggedin() && has_capability('lion/site:sendmessage', $usercontext)
     && !empty($CFG->messaging) && !isguestuser() && !isguestuser($user) && ($USER->id != $user->id);
 if ($cansendmessage) {
     message_messenger_requirejs();
@@ -93,7 +79,7 @@ $isparent = false;
 
 if (!$currentuser and !$user->deleted
   and $DB->record_exists('role_assignments', array('userid' => $USER->id, 'contextid' => $usercontext->id))
-  and has_capability('moodle/user:viewdetails', $usercontext)) {
+  and has_capability('lion/user:viewdetails', $usercontext)) {
     // TODO: very ugly hack - do not force "parents" to enrol into course their child is enrolled in,
     //       this way they may access the profile where they get overview of grades and child activity in course,
     //       please note this is just a guess!
@@ -110,7 +96,7 @@ $strpersonalprofile = get_string('personalprofile');
 $strparticipants = get_string("participants");
 $struser = get_string("user");
 
-$fullname = fullname($user, has_capability('moodle/site:viewfullnames', $coursecontext));
+$fullname = fullname($user, has_capability('lion/site:viewfullnames', $coursecontext));
 
 // Now test the actual capabilities and enrolment in course.
 if ($currentuser) {
@@ -131,16 +117,16 @@ if ($currentuser) {
     $PAGE->set_heading("$strpersonalprofile: ");
 
     // Check course level capabilities.
-    if (!has_capability('moodle/user:viewdetails', $coursecontext) && // Normal enrolled user or mnager.
-        ($user->deleted or !has_capability('moodle/user:viewdetails', $usercontext))) {   // Usually parent.
+    if (!has_capability('lion/user:viewdetails', $coursecontext) && // Normal enrolled user or mnager.
+        ($user->deleted or !has_capability('lion/user:viewdetails', $usercontext))) {   // Usually parent.
         print_error('cannotviewprofile');
     }
 
     if (!is_enrolled($coursecontext, $user->id)) {
         // TODO: the only potential problem is that managers and inspectors might post in forum, but the link
-        //       to profile would not work - maybe a new capability - moodle/user:freely_acessile_profile_for_anybody
+        //       to profile would not work - maybe a new capability - lion/user:freely_acessile_profile_for_anybody
         //       or test for course:inspect capability.
-        if (has_capability('moodle/role:assign', $coursecontext)) {
+        if (has_capability('lion/role:assign', $coursecontext)) {
             $PAGE->navbar->add($fullname);
             echo $OUTPUT->header();
             echo $OUTPUT->heading(get_string('notenrolled', '', $fullname));
@@ -160,8 +146,8 @@ if ($currentuser) {
     // Except when we are a parent, in which case we would not be in any group.
     if (groups_get_course_groupmode($course) == SEPARATEGROUPS
             and $course->groupmodeforce
-            and !has_capability('moodle/site:accessallgroups', $coursecontext)
-            and !has_capability('moodle/site:accessallgroups', $coursecontext, $user->id)
+            and !has_capability('lion/site:accessallgroups', $coursecontext)
+            and !has_capability('lion/site:accessallgroups', $coursecontext, $user->id)
             and !$isparent) {
         if (!isloggedin() or isguestuser()) {
             // Do not use require_login() here because we might have already used require_login($course).
@@ -201,7 +187,7 @@ echo $OUTPUT->heading(fullname($user).' ('.format_string($course->shortname, tru
 
 if ($user->deleted) {
     echo $OUTPUT->heading(get_string('userdeleted'));
-    if (!has_capability('moodle/user:update', $coursecontext)) {
+    if (!has_capability('lion/user:update', $coursecontext)) {
         echo $OUTPUT->footer();
         die;
     }
@@ -224,7 +210,7 @@ $event->add_record_snapshot('user', $user);
 $event->trigger();
 
 // Get the hidden field list.
-if (has_capability('moodle/user:viewhiddendetails', $coursecontext)) {
+if (has_capability('lion/user:viewhiddendetails', $coursecontext)) {
     $hiddenfields = array();
 } else {
     $hiddenfields = array_flip(explode(',', $CFG->hiddenuserfields));
@@ -253,7 +239,7 @@ echo '</div>';
 echo '<div class="descriptionbox"><div class="description">';
 if ($user->description && !isset($hiddenfields['description'])) {
     if (!empty($CFG->profilesforenrolledusersonly) && !$DB->record_exists('role_assignments', array('userid' => $id))) {
-        echo get_string('profilenotshown', 'moodle');
+        echo get_string('profilenotshown', 'lion');
     } else {
         if ($courseid == SITEID) {
             $user->description = file_rewrite_pluginfile_urls($user->description, 'pluginfile.php', $usercontext->id, 'user', 'profile', null);
@@ -279,8 +265,8 @@ echo html_writer::start_tag('dl', array('class' => 'list'));
 if ($currentuser
    or $user->maildisplay == 1
    or ($user->maildisplay == 2 && is_enrolled($coursecontext, $USER))
-   or has_capability('moodle/course:viewhiddenuserfields', $coursecontext)
-   or has_capability('moodle/site:viewuseridentity', $coursecontext)) {
+   or has_capability('lion/course:viewhiddenuserfields', $coursecontext)
+   or has_capability('lion/site:viewuseridentity', $coursecontext)) {
     echo html_writer::tag('dt', get_string('email'));
     echo html_writer::tag('dd', obfuscate_mailto($user->email, ''));
 }
@@ -304,7 +290,7 @@ if ($rolestring = get_user_roles_in_course($id, $course->id)) {
 
 // Show groups this user is in.
 if (!isset($hiddenfields['groups'])) {
-    $accessallgroups = has_capability('moodle/site:accessallgroups', $coursecontext);
+    $accessallgroups = has_capability('lion/site:accessallgroups', $coursecontext);
     if ($usergroups = groups_get_all_groups($course->id, $user->id)) {
         $groupstr = '';
         foreach ($usergroups as $group) {
@@ -340,7 +326,7 @@ if (!isset($hiddenfields['mycourses'])) {
                 if ($mycourse->id != $course->id) {
                     $linkattributes = null;
                     if ($mycourse->visible == 0) {
-                        if (!has_capability('moodle/course:viewhiddencourses', $ccontext)) {
+                        if (!has_capability('lion/course:viewhiddencourses', $ccontext)) {
                             continue;
                         }
                         $linkattributes['class'] = 'dimmed';
@@ -349,7 +335,7 @@ if (!isset($hiddenfields['mycourses'])) {
                     if ($showallcourses) {
                         $params['showallcourses'] = 1;
                     }
-                    $url = new moodle_url('/user/view.php', $params);
+                    $url = new lion_url('/user/view.php', $params);
                     $courselisting .= html_writer::link($url, $ccontext->get_context_name(false), $linkattributes);
                     $courselisting .= ', ';
                 } else {
@@ -359,7 +345,7 @@ if (!isset($hiddenfields['mycourses'])) {
             }
             $shown++;
             if (!$showallcourses && $shown >= 20) {
-                $url = new moodle_url('/user/view.php', array('id' => $user->id, 'course' => $courseid, 'showallcourses' => 1));
+                $url = new lion_url('/user/view.php', array('id' => $user->id, 'course' => $courseid, 'showallcourses' => 1));
                 $courselisting .= html_writer::link($url, '...', array('title' => get_string('viewmore')));
                 break;
             }
@@ -380,9 +366,9 @@ if (!isset($hiddenfields['suspended'])) {
     }
 }
 
-if (has_capability('moodle/user:viewlastip', $usercontext) && !isset($hiddenfields['lastip'])) {
+if (has_capability('lion/user:viewlastip', $usercontext) && !isset($hiddenfields['lastip'])) {
     if ($user->lastip) {
-        $iplookupurl = new moodle_url('/iplookup/index.php', array('ip' => $user->lastip, 'user' => $USER->id));
+        $iplookupurl = new lion_url('/iplookup/index.php', array('ip' => $user->lastip, 'user' => $USER->id));
         $ipstring = html_writer::link($iplookupurl, $user->lastip);
     } else {
         $ipstring = get_string("none");
@@ -395,7 +381,7 @@ echo "</div></div>"; // Closing desriptionbox and userprofilebox.
 // Print messaging link if allowed.
 if ($cansendmessage) {
     echo '<div class="messagebox">';
-    $sendmessageurl = new moodle_url('/message/index.php', array('id' => $user->id));
+    $sendmessageurl = new lion_url('/message/index.php', array('id' => $user->id));
     if ($courseid) {
         $sendmessageurl->param('viewing', MESSAGE_VIEW_COURSE. $courseid);
     }
@@ -403,7 +389,7 @@ if ($cansendmessage) {
     echo '</div>';
 }
 
-if (empty($CFG->forceloginforprofiles) || $currentuser || has_capability('moodle/user:viewdetails', $usercontext)
+if (empty($CFG->forceloginforprofiles) || $currentuser || has_capability('lion/user:viewdetails', $usercontext)
         || has_coursecontact_role($id)) {
     echo '<div class="fullprofilelink">';
     echo html_writer::link($CFG->wwwroot.'/user/profile.php?id='.$id, get_string('fullprofile'));

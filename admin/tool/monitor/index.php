@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This page lets users to manage rules for a given course.
  *
  * @package    tool_monitor
  * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(__DIR__ . '/../../../config.php');
@@ -56,7 +42,7 @@ $sitename = format_string($SITE->fullname, true, array('context' => $context));
 $PAGE->set_context($context);
 
 // Set up the page.
-$indexurl = new moodle_url('/admin/tool/monitor/index.php', array('courseid' => $courseid));
+$indexurl = new lion_url('/admin/tool/monitor/index.php', array('courseid' => $courseid));
 $PAGE->set_url($indexurl);
 $PAGE->set_pagelayout('report');
 $PAGE->set_title($sitename);
@@ -75,14 +61,14 @@ if (!empty($action)) {
         case 'unsubscribe' :
             // If the subscription does not exist, then redirect back as the subscription must have already been deleted.
             if (!$subscription = $DB->record_exists('tool_monitor_subscriptions', array('id' => $subscriptionid))) {
-                redirect(new moodle_url('/admin/tool/monitor/index.php', array('courseid' => $courseid)));
+                redirect(new lion_url('/admin/tool/monitor/index.php', array('courseid' => $courseid)));
             }
 
             // Set the URLs.
-            $confirmurl = new moodle_url('/admin/tool/monitor/index.php', array('subscriptionid' => $subscriptionid,
+            $confirmurl = new lion_url('/admin/tool/monitor/index.php', array('subscriptionid' => $subscriptionid,
                 'courseid' => $courseid, 'action' => 'unsubscribe', 'confirm' => true,
                 'sesskey' => sesskey()));
-            $cancelurl = new moodle_url('/admin/tool/monitor/index.php', array('subscriptionid' => $subscriptionid,
+            $cancelurl = new lion_url('/admin/tool/monitor/index.php', array('subscriptionid' => $subscriptionid,
                 'courseid' => $courseid, 'sesskey' => sesskey()));
             if ($confirm) {
                 \tool_monitor\subscription_manager::delete_subscription($subscriptionid);
@@ -130,7 +116,7 @@ if (empty($totalrules)) {
     echo html_writer::start_div();
     echo html_writer::tag('span', get_string('norules', 'tool_monitor'));
     if ($canmanagerules) {
-        $manageurl = new moodle_url("/admin/tool/monitor/managerules.php", array('courseid' => $courseid));
+        $manageurl = new lion_url("/admin/tool/monitor/managerules.php", array('courseid' => $courseid));
         $a = html_writer::link($manageurl, get_string('managerules', 'tool_monitor'));
         $link = "&nbsp;";
         $link .= html_writer::tag('span', get_string('manageruleslink', 'tool_monitor', $a));
@@ -138,7 +124,7 @@ if (empty($totalrules)) {
     }
     echo html_writer::end_div();
 } else if ($canmanagerules) {
-    $manageurl = new moodle_url("/admin/tool/monitor/managerules.php", array('courseid' => $courseid));
+    $manageurl = new lion_url("/admin/tool/monitor/managerules.php", array('courseid' => $courseid));
     echo $renderer->render_rules_link($manageurl);
 }
 echo $OUTPUT->footer();

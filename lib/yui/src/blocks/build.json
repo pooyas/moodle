@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core-blocks",
+  "name": "lion-core-blocks",
   "builds": {
-    "moodle-core-blocks": {
+    "lion-core-blocks": {
       "jsfiles": [
         "blocks.js",
         "manager.js",

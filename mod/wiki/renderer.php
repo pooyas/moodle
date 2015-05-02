@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moodle Wiki 2.0 Renderer
+ * Lion Wiki 2.0 Renderer
  *
  * @package   mod_wiki
- * @copyright 2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class mod_wiki_renderer extends plugin_renderer_base {
     public function page_index() {
@@ -47,7 +33,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
             $selectoptions[$page->id] = format_string($page->title, true, array('context' => $this->page->context));
         }
         $label = get_string('pageindex', 'wiki') . ': ';
-        $select = new single_select(new moodle_url('/mod/wiki/view.php'), 'pageid', $selectoptions);
+        $select = new single_select(new lion_url('/mod/wiki/view.php'), 'pageid', $selectoptions);
         $select->label = $label;
         return $this->output->container($this->output->render($select), 'wiki_index');
     }
@@ -83,9 +69,9 @@ class mod_wiki_renderer extends plugin_renderer_base {
         $strdatetime = get_string('strftimedatetime', 'langconfig');
 
         $olduser = $old->user;
-        $versionlink = new moodle_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $old->id));
-        $restorelink = new moodle_url('/mod/wiki/restoreversion.php', array('pageid' => $pageid, 'versionid' => $old->id));
-        $userlink = new moodle_url('/user/view.php', array('id' => $olduser->id));
+        $versionlink = new lion_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $old->id));
+        $restorelink = new lion_url('/mod/wiki/restoreversion.php', array('pageid' => $pageid, 'versionid' => $old->id));
+        $userlink = new lion_url('/user/view.php', array('id' => $olduser->id));
         // view version link
         $oldversionview = ' ';
         $oldversionview .= html_writer::link($versionlink->out(false), get_string('view', 'wiki'), array('class' => 'wiki_diffview'));
@@ -111,9 +97,9 @@ class mod_wiki_renderer extends plugin_renderer_base {
         $oldheading .= $this->output->container_end();
 
         $newuser = $new->user;
-        $versionlink = new moodle_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $new->id));
-        $restorelink = new moodle_url('/mod/wiki/restoreversion.php', array('pageid' => $pageid, 'versionid' => $new->id));
-        $userlink = new moodle_url('/user/view.php', array('id' => $newuser->id));
+        $versionlink = new lion_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $new->id));
+        $restorelink = new lion_url('/mod/wiki/restoreversion.php', array('pageid' => $pageid, 'versionid' => $new->id));
+        $userlink = new lion_url('/user/view.php', array('id' => $newuser->id));
 
         $newversionview = ' ';
         $newversionview .= html_writer::link($versionlink->out(false), get_string('view', 'wiki'), array('class' => 'wiki_diffview'));
@@ -159,7 +145,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
      * @param int $maxpage Last page to be displayed in the bar
      * @param int $page The page you are currently viewing
      * @param mixed $baseurl If this  is a string then it is the url which will be appended with $pagevar, an equals sign and the page number.
-     *                          If this is a moodle_url object then the pagevar param will be replaced by the page no, for each page.
+     *                          If this is a lion_url object then the pagevar param will be replaced by the page no, for each page.
      * @param string $pagevar This is the variable name that you use for the page number in your code (ie. 'tablepage', 'blogpage', etc)
      * @param bool $nocurr do not display the current page as a link
      * @param bool $return whether to return an output string or echo now
@@ -175,7 +161,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
             $output .= get_string('version', 'wiki') . ':';
             if ($page - $minpage > 0) {
                 $pagenum = $page - 1;
-                if (!is_a($baseurl, 'moodle_url')) {
+                if (!is_a($baseurl, 'lion_url')) {
                     $output .= '&nbsp;(<a class="previous" href="' . $baseurl . $pagevar . '=' . $pagenum . '">' . get_string('previous') . '</a>)&nbsp;';
                 } else {
                     $output .= '&nbsp;(<a class="previous" href="' . $baseurl->out(false, array($pagevar => $pagenum)) . '">' . get_string('previous') . '</a>)&nbsp;';
@@ -184,7 +170,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
 
             if ($page - $minpage > 4) {
                 $startpage = $page - 3;
-                if (!is_a($baseurl, 'moodle_url')) {
+                if (!is_a($baseurl, 'lion_url')) {
                     $output .= '&nbsp;<a href="' . $baseurl . $pagevar . '=' . $minpage . '">' . $minpage . '</a>&nbsp;...';
                 } else {
                     $output .= '&nbsp;<a href="' . $baseurl->out(false, array($pagevar => $minpage)) . '">' . $minpage . '</a>&nbsp;...';
@@ -198,7 +184,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
                 if ($page == $currpage && empty($nocurr)) {
                     $output .= '&nbsp;&nbsp;' . $currpage;
                 } else {
-                    if (!is_a($baseurl, 'moodle_url')) {
+                    if (!is_a($baseurl, 'lion_url')) {
                         $output .= '&nbsp;&nbsp;<a href="' . $baseurl . $pagevar . '=' . $currpage . '">' . $currpage . '</a>';
                     } else {
                         $output .= '&nbsp;&nbsp;<a href="' . $baseurl->out(false, array($pagevar => $currpage)) . '">' . $currpage . '</a>';
@@ -209,13 +195,13 @@ class mod_wiki_renderer extends plugin_renderer_base {
                 $currpage++;
             }
             if ($currpage < $maxpage) {
-                if (!is_a($baseurl, 'moodle_url')) {
+                if (!is_a($baseurl, 'lion_url')) {
                     $output .= '&nbsp;...<a href="' . $baseurl . $pagevar . '=' . $maxpage . '">' . $maxpage . '</a>&nbsp;';
                 } else {
                     $output .= '&nbsp;...<a href="' . $baseurl->out(false, array($pagevar => $maxpage)) . '">' . $maxpage . '</a>&nbsp;';
                 }
             } else if ($currpage == $maxpage) {
-                if (!is_a($baseurl, 'moodle_url')) {
+                if (!is_a($baseurl, 'lion_url')) {
                     $output .= '&nbsp;&nbsp;<a href="' . $baseurl . $pagevar . '=' . $currpage . '">' . $currpage . '</a>';
                 } else {
                     $output .= '&nbsp;&nbsp;<a href="' . $baseurl->out(false, array($pagevar => $currpage)) . '">' . $currpage . '</a>';
@@ -223,7 +209,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
             }
             $pagenum = $page + 1;
             if ($page != $maxpage) {
-                if (!is_a($baseurl, 'moodle_url')) {
+                if (!is_a($baseurl, 'lion_url')) {
                     $output .= '&nbsp;&nbsp;(<a class="next" href="' . $baseurl . $pagevar . '=' . $pagenum . '">' . get_string('next') . '</a>)';
                 } else {
                     $output .= '&nbsp;&nbsp;(<a class="next" href="' . $baseurl->out(false, array($pagevar => $pagenum)) . '">' . get_string('next') . '</a>)';
@@ -279,7 +265,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
             if ($tab == 'admin' && !has_capability('mod/wiki:managewiki', $context)) {
                 continue;
             }
-            $link = new moodle_url('/mod/wiki/'. $tab. '.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/'. $tab. '.php', array('pageid' => $pageid));
             if ($linked == $tab) {
                 $tabs[] = new tabobject($tab, $link, get_string($tab, 'wiki'), '', true);
             } else {
@@ -292,7 +278,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
 
     public function prettyview_link($page) {
         $html = '';
-        $link = new moodle_url('/mod/wiki/prettyview.php', array('pageid' => $page->id));
+        $link = new lion_url('/mod/wiki/prettyview.php', array('pageid' => $page->id));
         $html .= $this->output->container_start('wiki_right');
         $html .= $this->output->action_link($link, get_string('prettyprint', 'wiki'), new popup_action('click', $link), array('class' => 'printicon'));
         $html .= $this->output->container_end();
@@ -306,19 +292,19 @@ class mod_wiki_renderer extends plugin_renderer_base {
 
         switch ($pagetype) {
         case 'files':
-            $baseurl = new moodle_url('/mod/wiki/files.php',
+            $baseurl = new lion_url('/mod/wiki/files.php',
                     array('wid' => $wiki->id, 'title' => $page->title, 'pageid' => $page->id));
             break;
         case 'search':
             $search = optional_param('searchstring', null, PARAM_TEXT);
             $searchcontent = optional_param('searchwikicontent', 0, PARAM_INT);
-            $baseurl = new moodle_url('/mod/wiki/search.php',
+            $baseurl = new lion_url('/mod/wiki/search.php',
                     array('cmid' => $cm->id, 'courseid' => $cm->course,
                         'searchstring' => $search, 'searchwikicontent' => $searchcontent));
             break;
         case 'view':
         default:
-            $baseurl = new moodle_url('/mod/wiki/view.php',
+            $baseurl = new lion_url('/mod/wiki/view.php',
                     array('wid' => $wiki->id, 'title' => $page->title));
             break;
         }
@@ -410,7 +396,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
         CASE VISIBLEGROUPS:
             if ($wiki->wikimode == 'collaborative') {
                 // We need to print a select to choose a course group
-                // moodle_url will take care of encoding for us
+                // lion_url will take care of encoding for us
 
                 echo $this->output->container_start('wiki_right');
                 groups_print_activity_menu($cm, $baseurl);
@@ -466,7 +452,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
         foreach ($items as $key => $item) {
             $selectoptions[$key + 1] = $item;
         }
-        $select = new single_select(new moodle_url('/mod/wiki/map.php', array('pageid' => $pageid)), 'option', $selectoptions, $currentselect, null);
+        $select = new single_select(new lion_url('/mod/wiki/map.php', array('pageid' => $pageid)), 'option', $selectoptions, $currentselect, null);
         $select->label = get_string('mapmenu', 'wiki') . ': ';
         return $this->output->container($this->output->render($select), 'midpad');
     }
@@ -497,7 +483,7 @@ class mod_wiki_renderer extends plugin_renderer_base {
         foreach ($items as $key => $item) {
             $selectoptions[$key + 1] = $item;
         }
-        $select = new single_select(new moodle_url('/mod/wiki/admin.php', array('pageid' => $pageid)), 'option', $selectoptions, $currentselect, null);
+        $select = new single_select(new lion_url('/mod/wiki/admin.php', array('pageid' => $pageid)), 'option', $selectoptions, $currentselect, null);
         $select->label = get_string('adminmenu', 'wiki') . ': ';
         return $this->output->container($this->output->render($select), 'midpad');
     }
@@ -515,13 +501,13 @@ class mod_wiki_renderer extends plugin_renderer_base {
         }
         $result = '<ul>';
         foreach ($dir['subdirs'] as $subdir) {
-            $image = $this->output->pix_icon(file_folder_icon(), $subdir['dirname'], 'moodle', array('class'=>'icon'));
+            $image = $this->output->pix_icon(file_folder_icon(), $subdir['dirname'], 'lion', array('class'=>'icon'));
             $result .= '<li yuiConfig=\''.json_encode($yuiconfig).'\'><div>'.$image.' '.s($subdir['dirname']).'</div> '.$this->htmllize_tree($tree, $subdir).'</li>';
         }
         foreach ($dir['files'] as $file) {
             $url = file_encode_url("$CFG->wwwroot/pluginfile.php", '/'.$tree->context->id.'/mod_wiki/attachments/' . $tree->subwiki->id . '/'. $file->get_filepath() . $file->get_filename(), true);
             $filename = $file->get_filename();
-            $image = $this->output->pix_icon(file_file_icon($file), $filename, 'moodle', array('class'=>'icon'));
+            $image = $this->output->pix_icon(file_file_icon($file), $filename, 'lion', array('class'=>'icon'));
             $result .= '<li yuiConfig=\''.json_encode($yuiconfig).'\'><div>'.$image.' '.html_writer::link($url, $filename).'</div></li>';
         }
         $result .= '</ul>';

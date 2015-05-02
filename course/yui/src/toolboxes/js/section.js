@@ -4,7 +4,7 @@
  * This class is responsible for managing AJAX interactions with activities and resources
  * when viewing a course in editing mode.
  *
- * @module moodle-course-toolboxes
+ * @module lion-course-toolboxes
  * @namespace M.course.toolboxes
  */
 
@@ -80,7 +80,7 @@ Y.extend(SECTIONTOOLBOX, TOOLBOX, {
         var data = {
             'class' : 'section',
             'field' : 'visible',
-            'id'    : Y.Moodle.core_course.util.section.getId(section.ancestor(M.course.format.get_section_wrapper(Y), true)),
+            'id'    : Y.Lion.core_course.util.section.getId(section.ancestor(M.course.format.get_section_wrapper(Y), true)),
             'value' : value
         };
 
@@ -96,7 +96,7 @@ Y.extend(SECTIONTOOLBOX, TOOLBOX, {
                 } else {
                     button = node.one(SELECTOR.HIDE);
                 }
-                var activityid = Y.Moodle.core_course.util.cm.getId(node);
+                var activityid = Y.Lion.core_course.util.cm.getId(node);
 
                 // NOTE: resourcestotoggle is returned as a string instead
                 // of a Number so we must cast our activityid to a String.
@@ -127,7 +127,7 @@ Y.extend(SECTIONTOOLBOX, TOOLBOX, {
         var value = 0;
 
         // Set the current highlighted item text.
-        var old_string = M.util.get_string('markthistopic', 'moodle');
+        var old_string = M.util.get_string('markthistopic', 'lion');
         Y.one(SELECTOR.PAGECONTENT)
             .all(M.course.format.get_section_selector(Y) + '.current ' + SELECTOR.HIGHLIGHT)
             .set('title', old_string);
@@ -143,8 +143,8 @@ Y.extend(SECTIONTOOLBOX, TOOLBOX, {
         // Then add it if required to the selected section.
         if (!togglestatus) {
             section.addClass('current');
-            value = Y.Moodle.core_course.util.section.getId(section.ancestor(M.course.format.get_section_wrapper(Y), true));
-            var new_string = M.util.get_string('markedthistopic', 'moodle');
+            value = Y.Lion.core_course.util.section.getId(section.ancestor(M.course.format.get_section_wrapper(Y), true));
+            var new_string = M.util.get_string('markedthistopic', 'lion');
             button
                 .set('title', new_string);
             buttonicon

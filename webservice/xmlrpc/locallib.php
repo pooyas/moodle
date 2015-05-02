@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,7 +6,7 @@
  *
  * @package    webservice_xmlrpc
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("$CFG->dirroot/webservice/lib.php");
@@ -31,15 +17,15 @@ require_once 'Zend/XmlRpc/Server.php';
  *
  * @package    webservice_xmlrpc
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
-class moodle_zend_xmlrpc_server extends Zend_XmlRpc_Server {
+class lion_zend_xmlrpc_server extends Zend_XmlRpc_Server {
 
     /**
      * Raise an xmlrpc server fault
      *
-     * Moodle note: the difference with the Zend server is that we throw a plain PHP Exception
+     * Lion note: the difference with the Zend server is that we throw a plain PHP Exception
      * with the debuginfo integrated to the exception message when DEBUG >= NORMAL
      *
      * @param string|Exception $fault
@@ -48,7 +34,7 @@ class moodle_zend_xmlrpc_server extends Zend_XmlRpc_Server {
      */
     public function fault($fault = null, $code = 404)
     {
-        // Intercept any exceptions with debug info and transform it in Moodle exception.
+        // Intercept any exceptions with debug info and transform it in Lion exception.
         if ($fault instanceof Exception) {
             // Code php exception must be a long
             // we obtain a hash of the errorcode, and then to get an integer hash.
@@ -77,8 +63,8 @@ class moodle_zend_xmlrpc_server extends Zend_XmlRpc_Server {
  *
  * @package    webservice_xmlrpc
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class webservice_xmlrpc_server extends webservice_zend_server {
 
@@ -89,7 +75,7 @@ class webservice_xmlrpc_server extends webservice_zend_server {
      */
     public function __construct($authmethod) {
         require_once 'Zend/XmlRpc/Server.php';
-        parent::__construct($authmethod, 'moodle_zend_xmlrpc_server');
+        parent::__construct($authmethod, 'lion_zend_xmlrpc_server');
         $this->wsname = 'xmlrpc';
     }
 
@@ -99,9 +85,9 @@ class webservice_xmlrpc_server extends webservice_zend_server {
     protected function init_zend_server() {
         parent::init_zend_server();
         // this exception indicates request failed
-        Zend_XmlRpc_Server_Fault::attachFaultException('moodle_exception');
+        Zend_XmlRpc_Server_Fault::attachFaultException('lion_exception');
         //when DEBUG >= NORMAL then the thrown exceptions are "casted" into a plain PHP Exception class
-        //in order to display the $debuginfo (see moodle_zend_xmlrpc_server class - MDL-29435)
+        //in order to display the $debuginfo (see lion_zend_xmlrpc_server class - MDL-29435)
         if (debugging()) {
             Zend_XmlRpc_Server_Fault::attachFaultException('Exception');
         }
@@ -114,8 +100,8 @@ class webservice_xmlrpc_server extends webservice_zend_server {
  *
  * @package    webservice_xmlrpc
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class webservice_xmlrpc_test_client implements webservice_test_client_interface {
     /**

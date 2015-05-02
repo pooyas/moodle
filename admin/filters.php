@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Filter management page.
  *
  * @package    core
  * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(__FILE__) . '/../config.php');
@@ -30,7 +16,7 @@ $filterpath = optional_param('filterpath', '', PARAM_PLUGIN);
 
 require_login();
 $systemcontext = context_system::instance();
-require_capability('moodle/site:config', $systemcontext);
+require_capability('lion/site:config', $systemcontext);
 
 admin_externalpage_setup('managefilters');
 
@@ -108,7 +94,7 @@ switch ($action) {
 if ($action) {
     reset_text_filters_cache();
     core_plugin_manager::reset_caches();
-    redirect(new moodle_url('/admin/filters.php'));
+    redirect(new lion_url('/admin/filters.php'));
 }
 
 // Print the page heading.
@@ -163,13 +149,13 @@ die;
  *
  * @param string $filterpath
  * @param string $action
- * @return moodle_url
+ * @return lion_url
  */
 function filters_action_url($filterpath, $action) {
     if ($action === 'delete') {
         return core_plugin_manager::instance()->get_uninstall_url('filter_'.$filterpath, 'manage');
     }
-    return new moodle_url('/admin/filters.php', array('sesskey'=>sesskey(), 'filterpath'=>$filterpath, 'action'=>$action));
+    return new lion_url('/admin/filters.php', array('sesskey'=>sesskey(), 'filterpath'=>$filterpath, 'action'=>$action));
 }
 
 /**
@@ -241,7 +227,7 @@ function get_table_row(\core\plugininfo\filter $plugininfo, $state, $isfirstrow,
 
     // Settings link, if required.
     if ($active and filter_has_global_settings($filter)) {
-        $row[] = html_writer::link(new moodle_url('/admin/settings.php', array('section'=>'filtersetting'.$filter)), get_string('settings'));
+        $row[] = html_writer::link(new lion_url('/admin/settings.php', array('section'=>'filtersetting'.$filter)), get_string('settings'));
     } else {
         $row[] = '';
     }

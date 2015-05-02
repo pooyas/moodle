@@ -1,34 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// This file is part of BasicLTI4Lion
 //
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-//
-// This file is part of BasicLTI4Moodle
-//
-// BasicLTI4Moodle is an IMS BasicLTI (Basic Learning Tools for Interoperability)
-// consumer for Moodle 1.9 and Moodle 2.0. BasicLTI is a IMS Standard that allows web
+// BasicLTI4Lion is an IMS BasicLTI (Basic Learning Tools for Interoperability)
+// consumer for Lion 1.9 and Lion 2.0. BasicLTI is a IMS Standard that allows web
 // based learning tools to be easily integrated in LMS as native ones. The IMS BasicLTI
 // specification is part of the IMS standard Common Cartridge 1.1 Sakai and other main LMS
 // are already supporting or going to support BasicLTI. This project Implements the consumer
-// for Moodle. Moodle is a Free Open source Learning Management System by Martin Dougiamas.
-// BasicLTI4Moodle is a project iniciated and leaded by Ludo(Marc Alier) and Jordi Piguillem
+// for Lion. Lion is a Free Open source Learning Management System by Martin Dougiamas.
+// BasicLTI4Lion is a project iniciated and leaded by Ludo(Marc Alier) and Jordi Piguillem
 // at the GESSI research group at UPC.
-// SimpleLTI consumer for Moodle is an implementation of the early specification of LTI
+// SimpleLTI consumer for Lion is an implementation of the early specification of LTI
 // by Charles Severance (Dr Chuck) htp://dr-chuck.com , developed by Jordi Piguillem in a
 // Google Summer of Code 2008 project co-mentored by Charles Severance and Marc Alier.
 //
-// BasicLTI4Moodle is copyright 2009 by Marc Alier Forment, Jordi Piguillem and Nikolas Galanis
+// BasicLTI4Lion is copyright 2009 by Marc Alier Forment, Jordi Piguillem and Nikolas Galanis
 // of the Universitat Politecnica de Catalunya http://www.upc.edu
 // Contact info: Marc Alier Forment granludo @ gmail.com or marc.alier @ upc.edu.
 
@@ -43,13 +29,13 @@
  * @author     Jordi Piguillem
  * @author     Nikolas Galanis
  * @author     Chris Scribner
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 // TODO: Switch to core oauthlib once implemented - MDL-30149.
-use moodle\mod\lti as lti;
+use lion\mod\lti as lti;
 
 require_once($CFG->dirroot.'/mod/lti/OAuth.php');
 
@@ -59,7 +45,7 @@ define('LTI_LAUNCH_CONTAINER_DEFAULT', 1);
 define('LTI_LAUNCH_CONTAINER_EMBED', 2);
 define('LTI_LAUNCH_CONTAINER_EMBED_NO_BLOCKS', 3);
 define('LTI_LAUNCH_CONTAINER_WINDOW', 4);
-define('LTI_LAUNCH_CONTAINER_REPLACE_MOODLE_WINDOW', 5);
+define('LTI_LAUNCH_CONTAINER_REPLACE_LION_WINDOW', 5);
 
 define('LTI_TOOL_STATE_ANY', 0);
 define('LTI_TOOL_STATE_CONFIGURED', 1);
@@ -185,7 +171,7 @@ function lti_view($instance) {
                              'sesskey' => sesskey());
 
     // Add the return URL. We send the launch container along to help us avoid frames-within-frames when the user returns.
-    $url = new \moodle_url('/mod/lti/return.php', $returnurlparams);
+    $url = new \lion_url('/mod/lti/return.php', $returnurlparams);
     $returnurl = $url->out(false);
 
     if (isset($typeconfig['forcessl']) && ($typeconfig['forcessl'] == '1')) {
@@ -198,7 +184,7 @@ function lti_view($instance) {
         case LTI_LAUNCH_CONTAINER_EMBED_NO_BLOCKS:
             $target = 'iframe';
             break;
-        case LTI_LAUNCH_CONTAINER_REPLACE_MOODLE_WINDOW:
+        case LTI_LAUNCH_CONTAINER_REPLACE_LION_WINDOW:
             $target = 'frame';
             break;
         case LTI_LAUNCH_CONTAINER_WINDOW:
@@ -225,7 +211,7 @@ function lti_view($instance) {
     if (!empty($key) && !empty($secret)) {
         $parms = lti_sign_parameters($requestparams, $endpoint, "POST", $key, $secret);
 
-        $endpointurl = new \moodle_url($endpoint);
+        $endpointurl = new \lion_url($endpoint);
         $endpointparams = $endpointurl->params();
 
         // Strip querystring params in endpoint url from $parms to avoid duplication.
@@ -279,7 +265,7 @@ function lti_register($toolproxy) {
 
     // Add the return URL.
     $returnurlparams = array('id' => $toolproxy->id, 'sesskey'=>sesskey());
-    $url = new \moodle_url('/mod/lti/registrationreturn.php', $returnurlparams);
+    $url = new \lion_url('/mod/lti/registrationreturn.php', $returnurlparams);
     $returnurl = $url->out(false);
 
     $requestparams['launch_presentation_return_url'] = $returnurl;
@@ -378,7 +364,7 @@ function lti_build_request($instance, $typeconfig, $course, $typeid = null, $isl
          ($typeconfig['acceptgrades'] == LTI_SETTING_DELEGATE && $instance->instructorchoiceacceptgrades == LTI_SETTING_ALWAYS))) {
 
         // Add outcome service URL.
-        $serviceurl = new \moodle_url('/mod/lti/service.php');
+        $serviceurl = new \lion_url('/mod/lti/service.php');
         $serviceurl = $serviceurl->out();
 
         $forcessl = false;
@@ -461,8 +447,8 @@ function lti_build_standard_request($instance, $orgid, $islti2) {
     $requestparams['launch_presentation_locale'] = current_language();
 
     // Make sure we let the tool know what LMS they are being called from.
-    $requestparams['ext_lms'] = 'moodle-2';
-    $requestparams['tool_consumer_info_product_family_code'] = 'moodle';
+    $requestparams['ext_lms'] = 'lion-2';
+    $requestparams['tool_consumer_info_product_family_code'] = 'lion';
     $requestparams['tool_consumer_info_version'] = strval($CFG->version);
 
     // Add oauth_callback to be compliant with the 1.0A spec.
@@ -557,7 +543,7 @@ function lti_get_tool_table($tools, $id) {
             $delete = get_string('delete', 'lti');
 
             if (empty($type->toolproxyid)) {
-                $baseurl = new \moodle_url('/mod/lti/typessettings.php', array(
+                $baseurl = new \lion_url('/mod/lti/typessettings.php', array(
                         'action' => 'accept',
                         'id' => $type->id,
                         'sesskey' => sesskey(),
@@ -565,7 +551,7 @@ function lti_get_tool_table($tools, $id) {
                     ));
                 $ref = $type->baseurl;
             } else {
-                $baseurl = new \moodle_url('/mod/lti/toolssettings.php', array(
+                $baseurl = new \lion_url('/mod/lti/toolssettings.php', array(
                         'action' => 'accept',
                         'id' => $type->id,
                         'sesskey' => sesskey(),
@@ -664,14 +650,14 @@ EOD;
             $update = get_string('update', 'lti');
             $delete = get_string('delete', 'lti');
 
-            $baseurl = new \moodle_url('/mod/lti/registersettings.php', array(
+            $baseurl = new \lion_url('/mod/lti/registersettings.php', array(
                     'action' => 'accept',
                     'id' => $toolproxy->id,
                     'sesskey' => sesskey(),
                     'tab' => $id
                 ));
 
-            $registerurl = new \moodle_url('/mod/lti/register.php', array(
+            $registerurl = new \lion_url('/mod/lti/register.php', array(
                     'id' => $toolproxy->id,
                     'sesskey' => sesskey(),
                     'tab' => 'tool_proxy'
@@ -875,7 +861,7 @@ function lti_get_ims_role($user, $cmid, $courseid, $islti2) {
         // a real LTI instance.
         $coursecontext = context_course::instance($courseid);
 
-        if (has_capability('moodle/course:manageactivities', $coursecontext)) {
+        if (has_capability('lion/course:manageactivities', $coursecontext)) {
             array_push($roles, 'Instructor');
         } else {
             array_push($roles, 'Learner');
@@ -1749,7 +1735,7 @@ function lti_get_launch_container($lti, $toolconfig) {
     // Opening the popup window also had some issues in testing
     // For mobile devices, always take up the entire screen to ensure the best experience.
     if ($devicetype === core_useragent::DEVICETYPE_MOBILE || $devicetype === core_useragent::DEVICETYPE_TABLET ) {
-        $launchcontainer = LTI_LAUNCH_CONTAINER_REPLACE_MOODLE_WINDOW;
+        $launchcontainer = LTI_LAUNCH_CONTAINER_REPLACE_LION_WINDOW;
     }
 
     return $launchcontainer;

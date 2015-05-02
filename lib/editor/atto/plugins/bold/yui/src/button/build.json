@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_bold-button",
+  "name": "lion-atto_bold-button",
   "builds": {
-    "moodle-atto_bold-button": {
+    "lion-atto_bold-button": {
       "jsfiles": [
         "button.js"
       ]

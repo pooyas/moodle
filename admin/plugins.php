@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * UI for general plugins management
@@ -29,8 +15,8 @@
  *
  * @package    core
  * @subpackage admin
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 David Mudrak <david@lion.com>
+ * 
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
@@ -50,7 +36,7 @@ $return      = optional_param('return', 'overview', PARAM_ALPHA);
 
 require_login();
 $syscontext = context_system::instance();
-require_capability('moodle/site:config', $syscontext);
+require_capability('lion/site:config', $syscontext);
 
 $pluginman = core_plugin_manager::instance();
 
@@ -73,7 +59,7 @@ if ($uninstall) {
 
     // Make sure we know the plugin.
     if (is_null($pluginfo)) {
-        throw new moodle_exception('err_uninstalling_unknown_plugin', 'core_plugin', '', array('plugin' => $uninstall),
+        throw new lion_exception('err_uninstalling_unknown_plugin', 'core_plugin', '', array('plugin' => $uninstall),
             'core_plugin_manager::get_plugin_info() returned null for the plugin to be uninstalled');
     }
 
@@ -82,13 +68,13 @@ if ($uninstall) {
     $PAGE->navbar->add(get_string('uninstalling', 'core_plugin', array('name' => $pluginname)));
 
     if (!$pluginman->can_uninstall_plugin($pluginfo->component)) {
-        throw new moodle_exception('err_cannot_uninstall_plugin', 'core_plugin', '',
+        throw new lion_exception('err_cannot_uninstall_plugin', 'core_plugin', '',
             array('plugin' => $pluginfo->component),
             'core_plugin_manager::can_uninstall_plugin() returned false');
     }
 
     if (!$confirmed) {
-        $continueurl = new moodle_url($PAGE->url, array('uninstall' => $pluginfo->component, 'sesskey' => sesskey(), 'confirm' => 1, 'return'=>$return));
+        $continueurl = new lion_url($PAGE->url, array('uninstall' => $pluginfo->component, 'sesskey' => sesskey(), 'confirm' => 1, 'return'=>$return));
         $cancelurl = $pluginfo->get_return_url_after_uninstall($return);
         echo $output->plugin_uninstall_confirm_page($pluginman, $pluginfo, $continueurl, $cancelurl);
         exit();
@@ -100,7 +86,7 @@ if ($uninstall) {
         $progress->finished();
 
         if ($pluginman->is_plugin_folder_removable($pluginfo->component)) {
-            $continueurl = new moodle_url($PAGE->url, array('delete' => $pluginfo->component, 'sesskey' => sesskey(), 'confirm' => 1));
+            $continueurl = new lion_url($PAGE->url, array('delete' => $pluginfo->component, 'sesskey' => sesskey(), 'confirm' => 1));
             echo $output->plugin_uninstall_results_removable_page($pluginman, $pluginfo, $progress, $continueurl);
             // Reset op code caches.
             if (function_exists('opcache_reset')) {
@@ -134,7 +120,7 @@ if ($delete and $confirmed) {
 
     // Make sure we know the plugin.
     if (is_null($pluginfo)) {
-        throw new moodle_exception('err_removing_unknown_plugin', 'core_plugin', '', array('plugin' => $delete),
+        throw new lion_exception('err_removing_unknown_plugin', 'core_plugin', '', array('plugin' => $delete),
             'core_plugin_manager::get_plugin_info() returned null for the plugin to be deleted');
     }
 
@@ -144,23 +130,23 @@ if ($delete and $confirmed) {
 
     // Make sure it is not installed.
     if (!is_null($pluginfo->versiondb)) {
-        throw new moodle_exception('err_removing_installed_plugin', 'core_plugin', '',
+        throw new lion_exception('err_removing_installed_plugin', 'core_plugin', '',
             array('plugin' => $pluginfo->component, 'versiondb' => $pluginfo->versiondb),
             'core_plugin_manager::get_plugin_info() returned not-null versiondb for the plugin to be deleted');
     }
 
     // Make sure the folder is removable.
     if (!$pluginman->is_plugin_folder_removable($pluginfo->component)) {
-        throw new moodle_exception('err_removing_unremovable_folder', 'core_plugin', '',
+        throw new lion_exception('err_removing_unremovable_folder', 'core_plugin', '',
             array('plugin' => $pluginfo->component, 'rootdir' => $pluginfo->rootdir),
             'plugin root folder is not removable as expected');
     }
 
-    // Make sure the folder is within Moodle installation tree.
+    // Make sure the folder is within Lion installation tree.
     if (strpos($pluginfo->rootdir, $CFG->dirroot) !== 0) {
-        throw new moodle_exception('err_unexpected_plugin_rootdir', 'core_plugin', '',
+        throw new lion_exception('err_unexpected_plugin_rootdir', 'core_plugin', '',
             array('plugin' => $pluginfo->component, 'rootdir' => $pluginfo->rootdir, 'dirroot' => $CFG->dirroot),
-            'plugin root folder not in the moodle dirroot');
+            'plugin root folder not in the lion dirroot');
     }
 
     // So long, and thanks for all the bugs.
@@ -170,7 +156,7 @@ if ($delete and $confirmed) {
         opcache_reset();
     }
     // We need to execute upgrade to make sure everything including caches is up to date.
-    redirect(new moodle_url('/admin/index.php'));
+    redirect(new lion_url('/admin/index.php'));
 }
 
 admin_externalpage_setup('pluginsoverview');
@@ -189,13 +175,13 @@ $options = array(
 if ($fetchremote) {
     require_sesskey();
     $checker->fetch();
-    redirect(new moodle_url($PAGE->url, $options));
+    redirect(new lion_url($PAGE->url, $options));
 }
 
 $deployer = \core\update\deployer::instance();
 if ($deployer->enabled()) {
-    $myurl = new moodle_url($PAGE->url, array('updatesonly' => $updatesonly, 'contribonly' => $contribonly));
-    $deployer->initialize($myurl, new moodle_url('/admin'));
+    $myurl = new lion_url($PAGE->url, array('updatesonly' => $updatesonly, 'contribonly' => $contribonly));
+    $deployer->initialize($myurl, new lion_url('/admin'));
 
     $deploydata = $deployer->submitted_data();
     if (!empty($deploydata)) {

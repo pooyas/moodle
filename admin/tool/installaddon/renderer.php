@@ -1,36 +1,22 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Output rendering for the plugin.
  *
  * @package     tool_installaddon
  * @category    output
- * @copyright   2013 David Mudrak <david@moodle.com>
+ * @copyright   2013 David Mudrak <david@lion.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Implements the plugin renderer
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2013 David Mudrak <david@lion.com>
+ * 
  */
 class tool_installaddon_renderer extends plugin_renderer_base {
 
@@ -79,8 +65,8 @@ class tool_installaddon_renderer extends plugin_renderer_base {
             throw new coding_exception('Installer instance has not been set.');
         }
 
-        $permcheckurl = new moodle_url('/admin/tool/installaddon/permcheck.php');
-        $this->page->requires->yui_module('moodle-tool_installaddon-permcheck', 'M.tool_installaddon.permcheck.init',
+        $permcheckurl = new lion_url('/admin/tool/installaddon/permcheck.php');
+        $this->page->requires->yui_module('lion-tool_installaddon-permcheck', 'M.tool_installaddon.permcheck.init',
             array(array('permcheckurl' => $permcheckurl->out())));
         $this->page->requires->strings_for_js(
             array('permcheckprogress', 'permcheckresultno', 'permcheckresultyes', 'permcheckerror', 'permcheckrepeat'),
@@ -122,10 +108,10 @@ class tool_installaddon_renderer extends plugin_renderer_base {
     /**
      * Inform the user about invalid remote installation request.
      *
-     * @param moodle_url $continueurl
+     * @param lion_url $continueurl
      * @return string
      */
-    public function remote_request_invalid_page(moodle_url $continueurl) {
+    public function remote_request_invalid_page(lion_url $continueurl) {
 
         $out = $this->output->header();
         $out .= $this->output->heading(get_string('installfromrepo', 'tool_installaddon'));
@@ -140,10 +126,10 @@ class tool_installaddon_renderer extends plugin_renderer_base {
      * Inform the user that such plugin is already installed
      *
      * @param stdClass $data decoded request data
-     * @param moodle_url $continueurl
+     * @param lion_url $continueurl
      * @return string
      */
-    public function remote_request_alreadyinstalled_page(stdClass $data, moodle_url $continueurl) {
+    public function remote_request_alreadyinstalled_page(stdClass $data, lion_url $continueurl) {
 
         $out = $this->output->header();
         $out .= $this->output->heading(get_string('installfromrepo', 'tool_installaddon'));
@@ -158,11 +144,11 @@ class tool_installaddon_renderer extends plugin_renderer_base {
      * Let the user confirm the remote installation request.
      *
      * @param stdClass $data decoded request data
-     * @param moodle_url $continueurl
-     * @param moodle_url $cancelurl
+     * @param lion_url $continueurl
+     * @param lion_url $cancelurl
      * @return string
      */
-    public function remote_request_confirm_page(stdClass $data, moodle_url $continueurl, moodle_url $cancelurl) {
+    public function remote_request_confirm_page(stdClass $data, lion_url $continueurl, lion_url $cancelurl) {
 
         $out = $this->output->header();
         $out .= $this->output->heading(get_string('installfromrepo', 'tool_installaddon'));
@@ -177,11 +163,11 @@ class tool_installaddon_renderer extends plugin_renderer_base {
      *
      * @param stdClass $data decoded request data
      * @param string $plugintypepath full path to the plugin type location
-     * @param moodle_url $continueurl to repeat the write permission check
-     * @param moodle_url $cancelurl to cancel the installation
+     * @param lion_url $continueurl to repeat the write permission check
+     * @param lion_url $cancelurl to cancel the installation
      * @return string
      */
-    public function remote_request_permcheck_page(stdClass $data, $plugintypepath, moodle_url $continueurl, moodle_url $cancelurl) {
+    public function remote_request_permcheck_page(stdClass $data, $plugintypepath, lion_url $continueurl, lion_url $cancelurl) {
 
         $data->typepath = $plugintypepath;
 
@@ -202,10 +188,10 @@ class tool_installaddon_renderer extends plugin_renderer_base {
      *
      * @param stdClass $data decoded request data
      * @param tool_installaddon_pluginfo_exception $e thrown exception
-     * @param moodle_url $continueurl
+     * @param lion_url $continueurl
      * @return string
      */
-    public function remote_request_pluginfo_exception(stdClass $data, tool_installaddon_pluginfo_exception $e, moodle_url $continueurl) {
+    public function remote_request_pluginfo_exception(stdClass $data, tool_installaddon_pluginfo_exception $e, lion_url $continueurl) {
 
         $out = $this->output->header();
         $out .= $this->output->heading(get_string('installfromrepo', 'tool_installaddon'));
@@ -224,10 +210,10 @@ class tool_installaddon_renderer extends plugin_renderer_base {
      * in non-debugging mode only. If debugging is allowed at the site, default exception handler is triggered.
      *
      * @param tool_installaddon_installer_exception $e thrown exception
-     * @param moodle_url $continueurl
+     * @param lion_url $continueurl
      * @return string
      */
-    public function installer_exception(tool_installaddon_installer_exception $e, moodle_url $continueurl) {
+    public function installer_exception(tool_installaddon_installer_exception $e, lion_url $continueurl) {
 
         $out = $this->output->header();
         $out .= $this->output->heading(get_string('installfromrepo', 'tool_installaddon'));
@@ -396,7 +382,7 @@ class tool_installaddon_renderer extends plugin_renderer_base {
         }
 
         $cancelbutton = $this->output->single_button(
-            new moodle_url('/admin/tool/installaddon/index.php'), get_string('cancel', 'core'), 'get',
+            new lion_url('/admin/tool/installaddon/index.php'), get_string('cancel', 'core'), 'get',
             array('class' => 'singlebutton cancelbutton'));
 
         $output .= $this->output->container($cancelbutton.$contbutton, 'postvalidationbuttons');

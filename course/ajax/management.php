@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Performs course category management ajax actions.
@@ -21,7 +7,7 @@
  *
  * @package    core_course
  * @copyright  2013 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('AJAX_SCRIPT', true);
@@ -64,13 +50,13 @@ switch ($action) {
         if ($totalpages == 0) {
             $str = get_string('nocoursesyet');
         } else if ($totalpages == 1) {
-            $str = get_string('showingacourses', 'moodle', $totalcourses);
+            $str = get_string('showingacourses', 'lion', $totalcourses);
         } else {
             $a = new stdClass;
             $a->start = ($page * $perpage) + 1;
             $a->end = min((($page + 1) * $perpage), $totalcourses);
             $a->total = $totalcourses;
-            $str = get_string('showingxofycourses', 'moodle', $a);
+            $str = get_string('showingxofycourses', 'lion', $a);
         }
         $outcome->totalcatcourses = $category->get_courses_count();
         $outcome->fromcatcoursecount = $totalcourses;

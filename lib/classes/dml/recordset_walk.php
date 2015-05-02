@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Applies the same callback to all recorset records.
  *
- * @since      Moodle 2.9
+ * @since      Lion 2.9
  * @package    core
  * @category   dml
  * @copyright  2015 David Monllao
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 namespace core\dml;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Iterator that walks through a moodle_recordset applying the provided function.
+ * Iterator that walks through a lion_recordset applying the provided function.
  *
  * The internal recordset can be closed using the close() function.
  *
@@ -38,16 +24,16 @@ defined('MOODLE_INTERNAL') || die();
  * - Once all recordset records have been iterated
  * - The object is destroyed
  *
- * @since      Moodle 2.9
+ * @since      Lion 2.9
  * @package    core
  * @category   dml
  * @copyright  2015 David Monllao
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class recordset_walk implements \Iterator {
 
     /**
-     * @var \moodle_recordset The recordset.
+     * @var \lion_recordset The recordset.
      */
     protected $recordset;
 
@@ -64,11 +50,11 @@ class recordset_walk implements \Iterator {
     /**
      * Create a new iterator applying the callback to each record.
      *
-     * @param \moodle_recordset $recordset Recordset to iterate.
+     * @param \lion_recordset $recordset Recordset to iterate.
      * @param callable $callback Apply this function to each record. If using a method, it should be public.
      * @param array $callbackextra Array of arguments to pass to the callback.
      */
-    public function __construct(\moodle_recordset $recordset, callable $callback, $callbackextra = false) {
+    public function __construct(\lion_recordset $recordset, callable $callback, $callbackextra = false) {
         $this->recordset = $recordset;
         $this->callback = $callback;
         $this->callbackextra = $callbackextra;
@@ -146,7 +132,7 @@ class recordset_walk implements \Iterator {
      * @return void
      */
     public function rewind() {
-        // No rewind as it is not implemented in moodle_recordset.
+        // No rewind as it is not implemented in lion_recordset.
         return;
     }
 

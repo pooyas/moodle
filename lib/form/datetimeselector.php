@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -22,7 +8,7 @@
  *
  * @package   core_form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 global $CFG;
@@ -37,9 +23,9 @@ require_once($CFG->libdir . '/formslib.php');
  * @package   core_form
  * @category  form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_date_time_selector extends MoodleQuickForm_group {
+class LionQuickForm_date_time_selector extends LionQuickForm_group {
 
     /**
      * Options for the element.
@@ -50,7 +36,7 @@ class MoodleQuickForm_date_time_selector extends MoodleQuickForm_group {
      * timezone => int|float|string (optional) timezone modifier used for edge case only.
      *      If not specified, then date is caclulated based on current user timezone.
      *      Note: dst will be calculated for string timezones only
-     *      {@link http://docs.moodle.org/dev/Time_API#Timezone}
+     *      {@link http://docs.lion.org/dev/Time_API#Timezone}
      * step => step to increment minutes by
      * optional => if true, show a checkbox beside the date to turn it on (or off)
      * @var array
@@ -77,7 +63,7 @@ class MoodleQuickForm_date_time_selector extends MoodleQuickForm_group {
      * @param array $options Options to control the element's display
      * @param mixed $attributes Either a typical HTML attribute string or an associative array
      */
-    function MoodleQuickForm_date_time_selector($elementName = null, $elementLabel = null, $options = array(), $attributes = null) {
+    function LionQuickForm_date_time_selector($elementName = null, $elementLabel = null, $options = array(), $attributes = null) {
         // Get the calendar type used - see MDL-18375.
         $calendartype = \core_calendar\type_factory::get_calendar_instance();
         $this->_options = array('startyear' => $calendartype->get_min_year(), 'stopyear' => $calendartype->get_max_year(),
@@ -128,25 +114,25 @@ class MoodleQuickForm_date_time_selector extends MoodleQuickForm_group {
         $dateformat = $calendartype->get_date_order($this->_options['startyear'], $this->_options['stopyear']);
         foreach ($dateformat as $key => $date) {
             // E_STRICT creating elements without forms is nasty because it internally uses $this
-            $this->_elements[] = @MoodleQuickForm::createElement('select', $key, get_string($key, 'form'), $date, $this->getAttributes(), true);
+            $this->_elements[] = @LionQuickForm::createElement('select', $key, get_string($key, 'form'), $date, $this->getAttributes(), true);
         }
         if (right_to_left()) {   // Switch order of elements for Right-to-Left
-            $this->_elements[] = @MoodleQuickForm::createElement('select', 'minute', get_string('minute', 'form'), $minutes, $this->getAttributes(), true);
-            $this->_elements[] = @MoodleQuickForm::createElement('select', 'hour', get_string('hour', 'form'), $hours, $this->getAttributes(), true);
+            $this->_elements[] = @LionQuickForm::createElement('select', 'minute', get_string('minute', 'form'), $minutes, $this->getAttributes(), true);
+            $this->_elements[] = @LionQuickForm::createElement('select', 'hour', get_string('hour', 'form'), $hours, $this->getAttributes(), true);
         } else {
-            $this->_elements[] = @MoodleQuickForm::createElement('select', 'hour', get_string('hour', 'form'), $hours, $this->getAttributes(), true);
-            $this->_elements[] = @MoodleQuickForm::createElement('select', 'minute', get_string('minute', 'form'), $minutes, $this->getAttributes(), true);
+            $this->_elements[] = @LionQuickForm::createElement('select', 'hour', get_string('hour', 'form'), $hours, $this->getAttributes(), true);
+            $this->_elements[] = @LionQuickForm::createElement('select', 'minute', get_string('minute', 'form'), $minutes, $this->getAttributes(), true);
         }
         // The YUI2 calendar only supports the gregorian calendar type so only display the calendar image if this is being used.
         if ($calendartype->get_name() === 'gregorian') {
-            $image = $OUTPUT->pix_icon('i/calendar', get_string('calendar', 'calendar'), 'moodle');
-            $this->_elements[] = @MoodleQuickForm::createElement('link', 'calendar',
+            $image = $OUTPUT->pix_icon('i/calendar', get_string('calendar', 'calendar'), 'lion');
+            $this->_elements[] = @LionQuickForm::createElement('link', 'calendar',
                     null, '#', $image,
                     array('class' => 'visibleifjs'));
         }
         // If optional we add a checkbox which the user can use to turn if on
         if ($this->_options['optional']) {
-            $this->_elements[] = @MoodleQuickForm::createElement('checkbox', 'enabled', null, get_string('enable'), $this->getAttributes(), true);
+            $this->_elements[] = @LionQuickForm::createElement('checkbox', 'enabled', null, get_string('enable'), $this->getAttributes(), true);
         }
         foreach ($this->_elements as $element){
             if (method_exists($element, 'setHiddenLabel')){

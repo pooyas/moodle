@@ -1,7 +1,7 @@
 /**
  * JavaScript for form editing grade conditions.
  *
- * @module moodle-availability_grade-form
+ * @module lion-availability_grade-form
  */
 M.availability_grade = M.availability_grade || {};
 
@@ -36,7 +36,7 @@ M.availability_grade.form.getNode = function(json) {
 
     // Create HTML structure.
     var html = '<label>' + M.util.get_string('title', 'availability_grade') + ' <span class="availability-group">' +
-            '<select name="id"><option value="0">' + M.util.get_string('choosedots', 'moodle') + '</option>';
+            '<select name="id"><option value="0">' + M.util.get_string('choosedots', 'lion') + '</option>';
     for (var i = 0; i < this.grades.length; i++) {
         var grade = this.grades[i];
         // String has already been escaped using format_string.

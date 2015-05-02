@@ -1,8 +1,8 @@
 {
-    "moodle-atto_equation-button": {
+    "lion-atto_equation-button": {
         "requires": [
-            "moodle-editor_atto-plugin",
-            "moodle-core-event",
+            "lion-editor_atto-plugin",
+            "lion-core-event",
             "io",
             "event-valuechange",
             "tabview",

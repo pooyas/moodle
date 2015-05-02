@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Change permissions.
  *
  * @package    core_role
  * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../../config.php');
@@ -37,7 +23,7 @@ $return     = optional_param('return', null, PARAM_ALPHANUMEXT);
 
 list($context, $course, $cm) = get_context_info_array($contextid);
 
-$url = new moodle_url('/admin/roles/permissions.php', array('contextid' => $contextid));
+$url = new lion_url('/admin/roles/permissions.php', array('contextid' => $contextid));
 
 if ($course) {
     $isfrontpage = ($course->id == SITEID);
@@ -55,7 +41,7 @@ if ($course) {
 
 // Security first.
 require_login($course, false, $cm);
-require_capability('moodle/role:review', $context);
+require_capability('lion/role:review', $context);
 $PAGE->set_url($url);
 
 if ($context->contextlevel == CONTEXT_USER and $USER->id != $context->instanceid) {
@@ -75,8 +61,8 @@ if ($capability) {
     $capability = $DB->get_record('capabilities', array('name'=>$capability), '*', MUST_EXIST);
 }
 
-$allowoverrides     = has_capability('moodle/role:override', $context);
-$allowsafeoverrides = has_capability('moodle/role:safeoverride', $context);
+$allowoverrides     = has_capability('lion/role:override', $context);
+$allowsafeoverrides = has_capability('lion/role:safeoverride', $context);
 
 $contextname = $context->get_context_name();
 $title = get_string('permissionsincontext', 'core_role', $contextname);
@@ -90,7 +76,7 @@ switch ($context->contextlevel) {
         print_error('cannotoverridebaserole', 'error');
         break;
     case CONTEXT_USER:
-        $fullname = fullname($user, has_capability('moodle/site:viewfullnames', $context));
+        $fullname = fullname($user, has_capability('lion/site:viewfullnames', $context));
         $PAGE->set_heading($fullname);
         $showroles = 1;
         break;
@@ -127,7 +113,7 @@ if ($capability && ($allowoverrides || ($allowsafeoverrides && is_safe_capabilit
             } else {
                 $a = (object)array('cap'=>get_capability_docs_link($capability)." ($capability->name)", 'role'=>$overridableroles[$roleid], 'context'=>$contextname);
                 $message = get_string('confirmroleprevent', 'core_role', $a);
-                $continueurl = new moodle_url($PAGE->url,
+                $continueurl = new lion_url($PAGE->url,
                     array('contextid'=>$context->id, 'roleid'=>$roleid, 'capability'=>$capability->name, 'prevent'=>1, 'sesskey'=>sesskey(), 'confirm'=>1));
             }
         }
@@ -139,7 +125,7 @@ if ($capability && ($allowoverrides || ($allowsafeoverrides && is_safe_capabilit
             } else {
                 $a = (object)array('cap'=>get_capability_docs_link($capability)." ($capability->name)", 'role'=>$overridableroles[$roleid], 'context'=>$contextname);
                 $message = get_string('confirmroleunprohibit', 'core_role', $a);
-                $continueurl = new moodle_url($PAGE->url,
+                $continueurl = new lion_url($PAGE->url,
                     array('contextid'=>$context->id, 'roleid'=>$roleid, 'capability'=>$capability->name, 'unprohibit'=>1, 'sesskey'=>sesskey(), 'confirm'=>1));
             }
         }
@@ -198,7 +184,7 @@ $table = new core_role_permissions_table($context, $contextname, $allowoverrides
 echo $OUTPUT->box_start('generalbox capbox');
 // Print link to advanced override page.
 if ($overridableroles) {
-    $overrideurl = new moodle_url('/admin/roles/override.php', array('contextid' => $context->id));
+    $overrideurl = new lion_url('/admin/roles/override.php', array('contextid' => $context->id));
     $select = new single_select($overrideurl, 'roleid', $nameswithcounts);
     $select->label = get_string('advancedoverride', 'core_role');
     echo html_writer::tag('div', $OUTPUT->render($select), array('class'=>'advancedoverride'));
@@ -210,7 +196,7 @@ echo $OUTPUT->box_end();
 if ($context->contextlevel > CONTEXT_USER) {
 
     if ($context->contextlevel === CONTEXT_COURSECAT && $return === 'management') {
-        $url = new moodle_url('/course/management.php', array('categoryid' => $context->instanceid));
+        $url = new lion_url('/course/management.php', array('categoryid' => $context->instanceid));
     } else {
         $url = $context->get_url();
     }

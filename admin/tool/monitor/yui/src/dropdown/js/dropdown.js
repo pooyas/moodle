@@ -1,14 +1,14 @@
 /**
  * A module to manage dropdowns on the rule add/edit form.
  *
- * @module moodle-tool_monitor-dropdown
+ * @module lion-tool_monitor-dropdown
  */
 
 /**
  * A module to manage dependent selects on the edit page.
  *
- * @since Moodle 2.8
- * @class moodle-tool_monitor.dropdown
+ * @since Lion 2.8
+ * @class lion-tool_monitor.dropdown
  * @extends Base
  * @constructor
  */

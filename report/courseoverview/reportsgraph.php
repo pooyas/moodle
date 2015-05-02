@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Graph
  *
  * @package    report
  * @subpackage courseoverview
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 require_once('../../config.php');
@@ -63,7 +49,7 @@ $graph = new graph(750,400);
 $graph->parameter['legend'] = 'outside-right';
 $graph->parameter['legend_size'] = 10;
 $graph->parameter['x_axis_angle'] = 90;
-$graph->parameter['title'] = false; // moodle will do a nicer job.
+$graph->parameter['title'] = false; // lion will do a nicer job.
 $graph->y_tick_labels = null;
 $graph->offset_relation = null;
 if ($report != STATS_REPORT_ACTIVE_COURSES) {

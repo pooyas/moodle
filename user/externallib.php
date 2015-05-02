@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External user API
@@ -20,7 +6,7 @@
  * @package    core_user
  * @category   external
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("$CFG->libdir/externallib.php");
@@ -31,8 +17,8 @@ require_once("$CFG->libdir/externallib.php");
  * @package    core_user
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
 class core_user_external extends external_api {
 
@@ -40,7 +26,7 @@ class core_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_users_parameters() {
         global $CFG;
@@ -51,7 +37,7 @@ class core_user_external extends external_api {
                     new external_single_structure(
                         array(
                             'username' =>
-                                new external_value(PARAM_USERNAME, 'Username policy is defined in Moodle security config.'),
+                                new external_value(PARAM_USERNAME, 'Username policy is defined in Lion security config.'),
                             'password' =>
                                 new external_value(PARAM_RAW, 'Plain text password consisting of any characters'),
                             'firstname' =>
@@ -122,7 +108,7 @@ class core_user_external extends external_api {
      * @throws invalid_parameter_exception
      * @param array $users An array of users to create.
      * @return array An array of arrays
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_users($users) {
         global $CFG, $DB;
@@ -133,7 +119,7 @@ class core_user_external extends external_api {
         // Ensure the current user is allowed to run this function.
         $context = context_system::instance();
         self::validate_context($context);
-        require_capability('moodle/user:create', $context);
+        require_capability('lion/user:create', $context);
 
         // Do basic automatic PARAM checks on incoming data, using params description.
         // If any problems are found then exceptions are thrown with helpful error messages.
@@ -220,7 +206,7 @@ class core_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_users_returns() {
         return new external_multiple_structure(
@@ -238,7 +224,7 @@ class core_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_users_parameters() {
         return new external_function_parameters(
@@ -251,10 +237,10 @@ class core_user_external extends external_api {
     /**
      * Delete users
      *
-     * @throws moodle_exception
+     * @throws lion_exception
      * @param array $userids
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_users($userids) {
         global $CFG, $DB, $USER;
@@ -262,7 +248,7 @@ class core_user_external extends external_api {
 
         // Ensure the current user is allowed to run this function.
         $context = context_system::instance();
-        require_capability('moodle/user:delete', $context);
+        require_capability('lion/user:delete', $context);
         self::validate_context($context);
 
         $params = self::validate_parameters(self::delete_users_parameters(), array('userids' => $userids));
@@ -273,10 +259,10 @@ class core_user_external extends external_api {
             $user = $DB->get_record('user', array('id' => $userid, 'deleted' => 0), '*', MUST_EXIST);
             // Must not allow deleting of admins or self!!!
             if (is_siteadmin($user)) {
-                throw new moodle_exception('useradminodelete', 'error');
+                throw new lion_exception('useradminodelete', 'error');
             }
             if ($USER->id == $user->id) {
-                throw new moodle_exception('usernotdeletederror', 'error');
+                throw new lion_exception('usernotdeletederror', 'error');
             }
             user_delete_user($user);
         }
@@ -290,7 +276,7 @@ class core_user_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_users_returns() {
         return null;
@@ -301,7 +287,7 @@ class core_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function update_users_parameters() {
         return new external_function_parameters(
@@ -312,7 +298,7 @@ class core_user_external extends external_api {
                             'id' =>
                                 new external_value(PARAM_INT, 'ID of the user'),
                             'username' =>
-                                new external_value(PARAM_USERNAME, 'Username policy is defined in Moodle security config.',
+                                new external_value(PARAM_USERNAME, 'Username policy is defined in Lion security config.',
                                     VALUE_OPTIONAL, '', NULL_NOT_ALLOWED),
                             'password' =>
                                 new external_value(PARAM_RAW, 'Plain text password consisting of any characters', VALUE_OPTIONAL,
@@ -386,7 +372,7 @@ class core_user_external extends external_api {
      *
      * @param array $users
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function update_users($users) {
         global $CFG, $DB;
@@ -395,7 +381,7 @@ class core_user_external extends external_api {
 
         // Ensure the current user is allowed to run this function.
         $context = context_system::instance();
-        require_capability('moodle/user:update', $context);
+        require_capability('lion/user:update', $context);
         self::validate_context($context);
 
         $params = self::validate_parameters(self::update_users_parameters(), array('users' => $users));
@@ -435,7 +421,7 @@ class core_user_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function update_users_returns() {
         return null;
@@ -445,7 +431,7 @@ class core_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     public static function get_users_by_field_parameters() {
         return new external_function_parameters(
@@ -466,7 +452,7 @@ class core_user_external extends external_api {
      * @param string $field
      * @param array $values
      * @return array An array of arrays containg user profiles.
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     public static function get_users_by_field($field, $values) {
         global $CFG, $USER, $DB;
@@ -529,7 +515,7 @@ class core_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_multiple_structure
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     public static function get_users_by_field_returns() {
         return new external_multiple_structure(self::user_description());
@@ -540,7 +526,7 @@ class core_user_external extends external_api {
      * Returns description of get_users() parameters.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_users_parameters() {
         return new external_function_parameters(
@@ -573,10 +559,10 @@ class core_user_external extends external_api {
     /**
      * Retrieve matching user.
      *
-     * @throws moodle_exception
+     * @throws lion_exception
      * @param array $criteria the allowed array keys are id/lastname/firstname/idnumber/username/email/auth.
      * @return array An array of arrays containing user profiles.
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_users($criteria = array()) {
         global $CFG, $USER, $DB;
@@ -599,7 +585,7 @@ class core_user_external extends external_api {
 
             // Check that the criteria has never been used.
             if (array_key_exists($criteria['key'], $usedkeys)) {
-                throw new moodle_exception('keyalreadyset', '', '', null, 'The key ' . $criteria['key'] . ' can only be sent once');
+                throw new lion_exception('keyalreadyset', '', '', null, 'The key ' . $criteria['key'] . ' can only be sent once');
             } else {
                 $usedkeys[$criteria['key']] = true;
             }
@@ -700,7 +686,7 @@ class core_user_external extends external_api {
      * Returns description of get_users result value.
      *
      * @return external_description
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_users_returns() {
         return new external_single_structure(
@@ -716,8 +702,8 @@ class core_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
-     * @deprecated Moodle 2.5 MDL-38030 - Please do not call this function any more.
+     * @since Lion 2.2
+     * @deprecated Lion 2.5 MDL-38030 - Please do not call this function any more.
      * @see core_user_external::get_users_by_field_parameters()
      */
     public static function get_users_by_id_parameters() {
@@ -736,8 +722,8 @@ class core_user_external extends external_api {
      *
      * @param array $userids  array of user ids
      * @return array An array of arrays describing users
-     * @since Moodle 2.2
-     * @deprecated Moodle 2.5 MDL-38030 - Please do not call this function any more.
+     * @since Lion 2.2
+     * @deprecated Lion 2.5 MDL-38030 - Please do not call this function any more.
      * @see core_user_external::get_users_by_field()
      */
     public static function get_users_by_id($userids) {
@@ -757,7 +743,7 @@ class core_user_external extends external_api {
         $users = $DB->get_recordset_sql($usersql, $params);
 
         $result = array();
-        $hasuserupdatecap = has_capability('moodle/user:update', context_system::instance());
+        $hasuserupdatecap = has_capability('lion/user:update', context_system::instance());
         foreach ($users as $user) {
             if (!empty($user->deleted)) {
                 continue;
@@ -790,8 +776,8 @@ class core_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
-     * @deprecated Moodle 2.5 MDL-38030 - Please do not call this function any more.
+     * @since Lion 2.2
+     * @deprecated Lion 2.5 MDL-38030 - Please do not call this function any more.
      * @see core_user_external::get_users_by_field_returns()
      */
     public static function get_users_by_id_returns() {
@@ -820,7 +806,7 @@ class core_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_course_user_profiles_parameters() {
         return new external_function_parameters(
@@ -842,7 +828,7 @@ class core_user_external extends external_api {
      *
      * @param array $userlist  array of user ids and according course ids
      * @return array An array of arrays describing course participants
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_course_user_profiles($userlist) {
         global $CFG, $USER, $DB;
@@ -905,7 +891,7 @@ class core_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_course_user_profiles_returns() {
         $additionalfields = array(
@@ -1009,7 +995,7 @@ class core_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function add_user_private_files_parameters() {
         return new external_function_parameters(
@@ -1025,7 +1011,7 @@ class core_user_external extends external_api {
      * @throws invalid_parameter_exception
      * @param int $draftid Id of a draft area containing files.
      * @return array An array of warnings
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function add_user_private_files($draftid) {
         global $CFG, $USER, $DB;
@@ -1038,11 +1024,11 @@ class core_user_external extends external_api {
         }
 
         $context = context_user::instance($USER->id);
-        require_capability('moodle/user:manageownfiles', $context);
+        require_capability('lion/user:manageownfiles', $context);
 
         $maxbytes = $CFG->userquota;
         $maxareabytes = $CFG->userquota;
-        if (has_capability('moodle/user:ignoreuserquota', $context)) {
+        if (has_capability('lion/user:ignoreuserquota', $context)) {
             $maxbytes = USER_CAN_IGNORE_FILE_SIZE_LIMITS;
             $maxareabytes = FILE_AREA_MAX_BYTES_UNLIMITED;
         }
@@ -1062,7 +1048,7 @@ class core_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function add_user_private_files_returns() {
         return null;
@@ -1072,12 +1058,12 @@ class core_user_external extends external_api {
      * Returns description of method parameters.
      *
      * @return external_function_parameters
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function add_user_device_parameters() {
         return new external_function_parameters(
             array(
-                'appid'     => new external_value(PARAM_NOTAGS, 'the app id, usually something like com.moodle.moodlemobile'),
+                'appid'     => new external_value(PARAM_NOTAGS, 'the app id, usually something like com.lion.lionmobile'),
                 'name'      => new external_value(PARAM_NOTAGS, 'the device name, \'occam\' or \'iPhone\' etc.'),
                 'model'     => new external_value(PARAM_NOTAGS, 'the device model \'Nexus4\' or \'iPad1,1\' etc.'),
                 'platform'  => new external_value(PARAM_NOTAGS, 'the device platform \'iOS\' or \'Android\' etc.'),
@@ -1089,10 +1075,10 @@ class core_user_external extends external_api {
     }
 
     /**
-     * Add a user device in Moodle database (for PUSH notifications usually).
+     * Add a user device in Lion database (for PUSH notifications usually).
      *
-     * @throws moodle_exception
-     * @param string $appid The app id, usually something like com.moodle.moodlemobile.
+     * @throws lion_exception
+     * @param string $appid The app id, usually something like com.lion.lionmobile.
      * @param string $name The device name, occam or iPhone etc.
      * @param string $model The device model Nexus4 or iPad1.1 etc.
      * @param string $platform The device platform iOs or Android etc.
@@ -1100,7 +1086,7 @@ class core_user_external extends external_api {
      * @param string $pushid The device PUSH token/key/identifier/registration id.
      * @param string $uuid The device UUID.
      * @return array List of possible warnings.
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function add_user_device($appid, $name, $model, $platform, $version, $pushid, $uuid) {
         global $CFG, $USER, $DB;
@@ -1141,7 +1127,7 @@ class core_user_external extends external_api {
         $userdevice->timemodified = $userdevice->timecreated;
 
         if (!$DB->insert_record('user_devices', $userdevice)) {
-            throw new moodle_exception("There was a problem saving in the database the device with key: " . $params['pushid']);
+            throw new lion_exception("There was a problem saving in the database the device with key: " . $params['pushid']);
         }
 
         return $warnings;
@@ -1151,7 +1137,7 @@ class core_user_external extends external_api {
      * Returns description of method result value.
      *
      * @return external_multiple_structure
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public static function add_user_device_returns() {
         return new external_multiple_structure(
@@ -1163,7 +1149,7 @@ class core_user_external extends external_api {
      * Returns description of method parameters.
      *
      * @return external_function_parameters
-     * @since Moodle 2.9
+     * @since Lion 2.9
      */
     public static function remove_user_device_parameters() {
         return new external_function_parameters(
@@ -1177,12 +1163,12 @@ class core_user_external extends external_api {
     }
 
     /**
-     * Remove a user device from the Moodle database (for PUSH notifications usually).
+     * Remove a user device from the Lion database (for PUSH notifications usually).
      *
      * @param string $uuid The device UUID.
      * @param string $appid The app id, opitonal parameter. If empty all the devices fmatching the UUID or the user will be removed.
      * @return array List of possible warnings and removal status.
-     * @since Moodle 2.9
+     * @since Lion 2.9
      */
     public static function remove_user_device($uuid, $appid = "") {
         global $CFG;
@@ -1218,7 +1204,7 @@ class core_user_external extends external_api {
      * Returns description of method result value.
      *
      * @return external_multiple_structure
-     * @since Moodle 2.9
+     * @since Lion 2.9
      */
     public static function remove_user_device_returns() {
         return new external_single_structure(
@@ -1236,19 +1222,19 @@ class core_user_external extends external_api {
   *
   * @package    core_user
   * @copyright  2009 Petr Skodak
-  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-  * @since Moodle 2.0
-  * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+  * 
+  * @since Lion 2.0
+  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
   * @see core_user_external
   */
-class moodle_user_external extends external_api {
+class lion_user_external extends external_api {
 
     /**
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::create_users_parameters()
      */
     public static function create_users_parameters() {
@@ -1260,8 +1246,8 @@ class moodle_user_external extends external_api {
      *
      * @param array $users  An array of users to create.
      * @return array An array of arrays
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::create_users()
      */
     public static function create_users($users) {
@@ -1272,8 +1258,8 @@ class moodle_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::create_users_returns()
      */
     public static function create_users_returns() {
@@ -1293,8 +1279,8 @@ class moodle_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::delete_users_parameters()
      */
     public static function delete_users_parameters() {
@@ -1306,8 +1292,8 @@ class moodle_user_external extends external_api {
      *
      * @param array $userids
      * @return null
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::delete_users()
      */
     public static function delete_users($userids) {
@@ -1318,8 +1304,8 @@ class moodle_user_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::delete_users_returns()
      */
     public static function delete_users_returns() {
@@ -1339,8 +1325,8 @@ class moodle_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::update_users_parameters()
      */
     public static function update_users_parameters() {
@@ -1352,8 +1338,8 @@ class moodle_user_external extends external_api {
      *
      * @param array $users
      * @return null
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::update_users()
      */
     public static function update_users($users) {
@@ -1364,8 +1350,8 @@ class moodle_user_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::update_users_returns()
      */
     public static function update_users_returns() {
@@ -1385,8 +1371,8 @@ class moodle_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::get_users_by_id_parameters()
      */
     public static function get_users_by_id_parameters() {
@@ -1401,8 +1387,8 @@ class moodle_user_external extends external_api {
      *
      * @param array $userids  array of user ids
      * @return array An array of arrays describing users
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::get_users_by_id()
      */
     public static function get_users_by_id($userids) {
@@ -1413,8 +1399,8 @@ class moodle_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::get_users_by_id_returns()
      */
     public static function get_users_by_id_returns() {
@@ -1434,8 +1420,8 @@ class moodle_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::get_course_user_profiles_parameters()
      */
     public static function get_course_participants_by_id_parameters() {
@@ -1447,8 +1433,8 @@ class moodle_user_external extends external_api {
      *
      * @param array $userlist  array of user ids and according course ids
      * @return array An array of arrays describing course participants
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::get_course_user_profiles()
      */
     public static function get_course_participants_by_id($userlist) {
@@ -1459,8 +1445,8 @@ class moodle_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_user_external::get_course_user_profiles_returns()
      */
     public static function get_course_participants_by_id_returns() {
@@ -1480,8 +1466,8 @@ class moodle_user_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_enrolled_users_parameters()
      */
     public static function get_users_by_courseid_parameters() {
@@ -1499,8 +1485,8 @@ class moodle_user_external extends external_api {
      *                                'value' => option value
      *                               }
      * @return array An array of users
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_enrolled_users()
      */
     public static function get_users_by_courseid($courseid, $options = array()) {
@@ -1512,8 +1498,8 @@ class moodle_user_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_enrolled_users_returns()
      */
     public static function get_users_by_courseid_returns() {

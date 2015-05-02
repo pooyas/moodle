@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Lets users configure which filters are active in a sub-context.
@@ -34,11 +20,11 @@ list($context, $course, $cm) = get_context_info_array($contextid);
 
 /// Check login and permissions.
 require_login($course, false, $cm);
-require_capability('moodle/filter:manage', $context);
+require_capability('lion/filter:manage', $context);
 $PAGE->set_context($context);
 
 $args = array('contextid'=>$contextid);
-$baseurl = new moodle_url('/filter/manage.php', $args);
+$baseurl = new lion_url('/filter/manage.php', $args);
 if (!empty($forfilter)) {
     $args['filter'] = $forfilter;
 }
@@ -69,7 +55,7 @@ if ($context->contextlevel == CONTEXT_COURSECAT) {
 
 /// Check login and permissions.
 require_login($course, false, $cm);
-require_capability('moodle/filter:manage', $context);
+require_capability('lion/filter:manage', $context);
 
 $PAGE->set_context($context);
 $PAGE->set_heading($heading);
@@ -212,7 +198,7 @@ if (empty($availablefilters)) {
 if (!$isfrontpage) {
 
     if ($context->contextlevel === CONTEXT_COURSECAT && $returnto === 'management') {
-        $url = new moodle_url('/course/management.php', array('categoryid' => $context->instanceid));
+        $url = new lion_url('/course/management.php', array('categoryid' => $context->instanceid));
     } else {
         $url = $context->get_url();
     }

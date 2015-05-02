@@ -2,7 +2,7 @@
 
 /**
  *  BENNU - PHP iCalendar library
- *  (c) 2005-2006 Ioannis Papaioannou (pj@moodle.org). All rights reserved.
+ *  (c) 2005-2006 Ioannis Papaioannou (pj@lion.org). All rights reserved.
  *
  *  Released under the LGPL.
  *

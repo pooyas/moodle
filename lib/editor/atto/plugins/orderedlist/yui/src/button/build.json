@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_orderedlist-button",
+  "name": "lion-atto_orderedlist-button",
   "builds": {
-    "moodle-atto_orderedlist-button": {
+    "lion-atto_orderedlist-button": {
       "jsfiles": [
         "button.js"
       ]

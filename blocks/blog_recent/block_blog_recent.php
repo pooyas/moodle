@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Recent Blog Entries Block page.
  *
  * @package   block_blog_recent
  * @copyright 2009 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * This block simply outputs a list of links to recent blog entries, depending on
@@ -86,7 +72,7 @@ class block_blog_recent extends block_base {
 
         $context = $this->page->context;
 
-        $url = new moodle_url('/blog/index.php');
+        $url = new lion_url('/blog/index.php');
         $filter = array();
         if ($context->contextlevel == CONTEXT_MODULE) {
             $filter['module'] = $context->instanceid;
@@ -110,7 +96,7 @@ class block_blog_recent extends block_base {
 
         if (!empty($entries)) {
             $entrieslist = array();
-            $viewblogurl = new moodle_url('/blog/index.php');
+            $viewblogurl = new lion_url('/blog/index.php');
 
             foreach ($entries as $entryid => $entry) {
                 $viewblogurl->param('entryid', $entryid);

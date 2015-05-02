@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -24,10 +10,10 @@
  * @package    core_enrol
  * @category   external
  * @copyright  2010 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("$CFG->libdir/externallib.php");
 
@@ -37,8 +23,8 @@ require_once("$CFG->libdir/externallib.php");
  * @package    core_enrol
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
 class core_enrol_external extends external_api {
 
@@ -46,7 +32,7 @@ class core_enrol_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     public static function get_enrolled_users_with_capability_parameters() {
         return new external_function_parameters(
@@ -54,7 +40,7 @@ class core_enrol_external extends external_api {
                 'coursecapabilities' => new external_multiple_structure(
                     new external_single_structure(
                         array (
-                            'courseid' => new external_value(PARAM_INT, 'Course ID number in the Moodle course table'),
+                            'courseid' => new external_value(PARAM_INT, 'Course ID number in the Lion course table'),
                             'capabilities' => new external_multiple_structure(
                                 new external_value(PARAM_CAPABILITY, 'Capability name, such as mod/forum:viewdiscussion')),
                         )
@@ -67,8 +53,8 @@ class core_enrol_external extends external_api {
                             'value' => new external_value(PARAM_RAW, 'option value')
                         )
                     ), 'Option names:
-                            * groupid (integer) return only users in this group id. Requires \'moodle/site:accessallgroups\' .
-                            * onlyactive (integer) only users with active enrolments. Requires \'moodle/course:enrolreview\' .
+                            * groupid (integer) return only users in this group id. Requires \'lion/site:accessallgroups\' .
+                            * onlyactive (integer) only users with active enrolments. Requires \'lion/course:enrolreview\' .
                             * userfields (\'string, string, ...\') return only the values of these user fields.
                             * limitfrom (integer) sql limit from.
                             * limitnumber (integer) max number of users per course and capability.', VALUE_DEFAULT, array())
@@ -82,7 +68,7 @@ class core_enrol_external extends external_api {
      *
      * @param array $coursecapabilities array of course ids and associated capability names {courseid, {capabilities}}
      * @return array An array of arrays describing users for each associated courseid and capability
-     * @since  Moodle 2.4
+     * @since  Lion 2.4
      */
     public static function get_enrolled_users_with_capability($coursecapabilities, $options) {
         global $CFG, $DB;
@@ -128,7 +114,7 @@ class core_enrol_external extends external_api {
             $course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
             $coursecontext = context_course::instance($courseid);
             if (!$coursecontext) {
-                throw new moodle_exception('cannotfindcourse', 'error', '', null,
+                throw new lion_exception('cannotfindcourse', 'error', '', null,
                         'The course id ' . $courseid . ' doesn\'t exist.');
             }
             if ($courseid == SITEID) {
@@ -142,25 +128,25 @@ class core_enrol_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $params['courseid'];
-                throw new moodle_exception(get_string('errorcoursecontextnotvalid' , 'webservice', $exceptionparam));
+                throw new lion_exception(get_string('errorcoursecontextnotvalid' , 'webservice', $exceptionparam));
             }
 
             if ($courseid == SITEID) {
-                require_capability('moodle/site:viewparticipants', $context);
+                require_capability('lion/site:viewparticipants', $context);
             } else {
-                require_capability('moodle/course:viewparticipants', $context);
+                require_capability('lion/course:viewparticipants', $context);
             }
             // The accessallgroups capability is needed to use this option.
             if (!empty($groupid) && groups_is_member($groupid)) {
-                require_capability('moodle/site:accessallgroups', $coursecontext);
+                require_capability('lion/site:accessallgroups', $coursecontext);
             }
             // The course:enrolereview capability is needed to use this option.
             if ($onlyactive) {
-                require_capability('moodle/course:enrolreview', $coursecontext);
+                require_capability('lion/course:enrolreview', $coursecontext);
             }
 
             // To see the permissions of others role:review capability is required.
-            require_capability('moodle/role:review', $coursecontext);
+            require_capability('lion/role:review', $coursecontext);
             foreach ($coursecapability['capabilities'] as $capability) {
                 $courseusers['courseid'] = $courseid;
                 $courseusers['capability'] = $capability;
@@ -188,12 +174,12 @@ class core_enrol_external extends external_api {
      * Returns description of method result value
      *
      * @return external_multiple_structure
-     * @since Moodle 2.4
+     * @since Lion 2.4
      */
     public static function get_enrolled_users_with_capability_returns() {
         return  new external_multiple_structure( new external_single_structure (
                 array (
-                    'courseid' => new external_value(PARAM_INT, 'Course ID number in the Moodle course table'),
+                    'courseid' => new external_value(PARAM_INT, 'Course ID number in the Lion course table'),
                     'capability' => new external_value(PARAM_CAPABILITY, 'Capability name'),
                     'users' => new external_multiple_structure(
                         new external_single_structure(
@@ -311,7 +297,7 @@ class core_enrol_external extends external_api {
                 continue;
             }
 
-            if ($userid != $USER->id and !has_capability('moodle/course:viewparticipants', $context)) {
+            if ($userid != $USER->id and !has_capability('lion/course:viewparticipants', $context)) {
                 // we need capability to view participants
                 continue;
             }
@@ -362,9 +348,9 @@ class core_enrol_external extends external_api {
                             'value' => new external_value(PARAM_RAW, 'option value')
                         )
                     ), 'Option names:
-                            * withcapability (string) return only users with this capability. This option requires \'moodle/role:review\' on the course context.
-                            * groupid (integer) return only users in this group id. This option requires \'moodle/site:accessallgroups\' on the course context.
-                            * onlyactive (integer) return only users with active enrolments and matching time restrictions. This option requires \'moodle/course:enrolreview\' on the course context.
+                            * withcapability (string) return only users with this capability. This option requires \'lion/role:review\' on the course context.
+                            * groupid (integer) return only users in this group id. This option requires \'lion/site:accessallgroups\' on the course context.
+                            * onlyactive (integer) return only users with active enrolments and matching time restrictions. This option requires \'lion/course:enrolreview\' on the course context.
                             * userfields (\'string, string, ...\') return only the values of these user fields.
                             * limitfrom (integer) sql limit from.
                             * limitnumber (integer) maximum number of returned users.', VALUE_DEFAULT, array()),
@@ -438,25 +424,25 @@ class core_enrol_external extends external_api {
             $exceptionparam = new stdClass();
             $exceptionparam->message = $e->getMessage();
             $exceptionparam->courseid = $params['courseid'];
-            throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+            throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
         }
 
         if ($courseid == SITEID) {
-            require_capability('moodle/site:viewparticipants', $context);
+            require_capability('lion/site:viewparticipants', $context);
         } else {
-            require_capability('moodle/course:viewparticipants', $context);
+            require_capability('lion/course:viewparticipants', $context);
         }
         // to overwrite this parameter, you need role:review capability
         if ($withcapability) {
-            require_capability('moodle/role:review', $coursecontext);
+            require_capability('lion/role:review', $coursecontext);
         }
         // need accessallgroups capability if you want to overwrite this option
         if (!empty($groupid) && groups_is_member($groupid)) {
-            require_capability('moodle/site:accessallgroups', $coursecontext);
+            require_capability('lion/site:accessallgroups', $coursecontext);
         }
         // to overwrite this option, you need course:enrolereview permission
         if ($onlyactive) {
-            require_capability('moodle/course:enrolreview', $coursecontext);
+            require_capability('lion/course:enrolreview', $coursecontext);
         }
 
         list($enrolledsql, $enrolledparams) = get_enrolled_sql($coursecontext, $withcapability, $groupid, $onlyactive);
@@ -490,7 +476,7 @@ class core_enrol_external extends external_api {
             new external_single_structure(
                 array(
                     'id'    => new external_value(PARAM_INT, 'ID of the user'),
-                    'username'    => new external_value(PARAM_RAW, 'Username policy is defined in Moodle security config', VALUE_OPTIONAL),
+                    'username'    => new external_value(PARAM_RAW, 'Username policy is defined in Lion security config', VALUE_OPTIONAL),
                     'firstname'   => new external_value(PARAM_NOTAGS, 'The first name(s) of the user', VALUE_OPTIONAL),
                     'lastname'    => new external_value(PARAM_NOTAGS, 'The family name of the user', VALUE_OPTIONAL),
                     'fullname'    => new external_value(PARAM_NOTAGS, 'The fullname of the user'),
@@ -629,8 +615,8 @@ class core_enrol_external extends external_api {
  * @package    core_role
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
 class core_role_external extends external_api {
 
@@ -678,7 +664,7 @@ class core_role_external extends external_api {
 
             // Ensure the current user is allowed to run this function in the enrolment context.
             self::validate_context($context);
-            require_capability('moodle/role:assign', $context);
+            require_capability('lion/role:assign', $context);
 
             // throw an exception if user is not able to assign the role in this context
             $roles = get_assignable_roles($context, ROLENAME_SHORT);
@@ -745,7 +731,7 @@ class core_role_external extends external_api {
             // Ensure the current user is allowed to run this function in the unassignment context
             $context = self::get_context_from_params($unassignment);
             self::validate_context($context);
-            require_capability('moodle/role:assign', $context);
+            require_capability('lion/role:assign', $context);
 
             // throw an exception if user is not able to unassign the role in this context
             $roles = get_assignable_roles($context, ROLENAME_SHORT);
@@ -775,21 +761,21 @@ class core_role_external extends external_api {
  *
  * @package    core_enrol
  * @copyright  2010 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+ * 
+ * @since Lion 2.0
+ * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_enrol_external
  * @see core_role_external
  */
-class moodle_enrol_external extends external_api {
+class lion_enrol_external extends external_api {
 
 
     /**
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_enrolled_users_parameters()
      */
     public static function get_enrolled_users_parameters() {
@@ -811,8 +797,8 @@ class moodle_enrol_external extends external_api {
      * @param int $groupid
      * @param bool $onlyactive
      * @return array of course participants
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_enrolled_users()
      */
     public static function get_enrolled_users($courseid, $withcapability = null, $groupid = null, $onlyactive = false) {
@@ -840,23 +826,23 @@ class moodle_enrol_external extends external_api {
             $exceptionparam = new stdClass();
             $exceptionparam->message = $e->getMessage();
             $exceptionparam->courseid = $params['courseid'];
-            throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+            throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
         }
 
         if ($courseid == SITEID) {
-            require_capability('moodle/site:viewparticipants', $context);
+            require_capability('lion/site:viewparticipants', $context);
         } else {
-            require_capability('moodle/course:viewparticipants', $context);
+            require_capability('lion/course:viewparticipants', $context);
         }
 
         if ($withcapability) {
-            require_capability('moodle/role:review', $coursecontext);
+            require_capability('lion/role:review', $coursecontext);
         }
         if ($groupid && groups_is_member($groupid)) {
-            require_capability('moodle/site:accessallgroups', $coursecontext);
+            require_capability('lion/site:accessallgroups', $coursecontext);
         }
         if ($onlyactive) {
-            require_capability('moodle/course:enrolreview', $coursecontext);
+            require_capability('lion/course:enrolreview', $coursecontext);
         }
 
         list($sqlparams, $params) =  get_enrolled_sql($coursecontext, $withcapability, $groupid, $onlyactive);
@@ -871,10 +857,10 @@ class moodle_enrol_external extends external_api {
         $enrolledusers = $DB->get_records_sql($sql, $params);
         $result = array();
         $isadmin = is_siteadmin($USER);
-        $canviewfullnames = has_capability('moodle/site:viewfullnames', $context);
+        $canviewfullnames = has_capability('lion/site:viewfullnames', $context);
         foreach ($enrolledusers as $enrolleduser) {
-            $profilimgurl = moodle_url::make_pluginfile_url($enrolleduser->usercontextid, 'user', 'icon', NULL, '/', 'f1');
-            $profilimgurlsmall = moodle_url::make_pluginfile_url($enrolleduser->usercontextid, 'user', 'icon', NULL, '/', 'f2');
+            $profilimgurl = lion_url::make_pluginfile_url($enrolleduser->usercontextid, 'user', 'icon', NULL, '/', 'f1');
+            $profilimgurlsmall = lion_url::make_pluginfile_url($enrolleduser->usercontextid, 'user', 'icon', NULL, '/', 'f2');
             $resultuser = array(
                 'courseid' => $enrolleduser->courseid,
                 'userid' => $enrolleduser->userid,
@@ -901,8 +887,8 @@ class moodle_enrol_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_enrolled_users_returns()
      */
     public static function get_enrolled_users_returns() {
@@ -935,8 +921,8 @@ class moodle_enrol_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_users_courses_parameters()
      */
     public static function get_users_courses_parameters() {
@@ -949,8 +935,8 @@ class moodle_enrol_external extends external_api {
      *
      * @param int $userid
      * @return array of courses
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see use core_enrol_external::get_users_courses()
      */
     public static function get_users_courses($userid) {
@@ -961,8 +947,8 @@ class moodle_enrol_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_enrol_external::get_users_courses_returns()
      */
     public static function get_users_courses_returns() {
@@ -982,8 +968,8 @@ class moodle_enrol_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_role_external::assign_roles_parameters()
      */
     public static function role_assign_parameters() {
@@ -994,8 +980,8 @@ class moodle_enrol_external extends external_api {
      * Manual role assignments to users
      *
      * @param array $assignments An array of manual role assignment
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_role_external::assign_roles()
      */
     public static function role_assign($assignments) {
@@ -1006,8 +992,8 @@ class moodle_enrol_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_role_external::assign_roles_returns()
      */
     public static function role_assign_returns() {
@@ -1027,8 +1013,8 @@ class moodle_enrol_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_role_external::unassign_roles_parameters()
      */
     public static function role_unassign_parameters() {
@@ -1039,8 +1025,8 @@ class moodle_enrol_external extends external_api {
      * Unassign roles from users
      *
      * @param array $unassignments An array of unassignment
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_role_external::unassign_roles()
      */
     public static function role_unassign($unassignments) {
@@ -1051,8 +1037,8 @@ class moodle_enrol_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_role_external::unassign_roles_returns()
      */
     public static function role_unassign_returns() {

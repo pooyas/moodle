@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Renderer for core_admin subsystem
  *
  * @package    core
  * @subpackage admin
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -43,14 +29,14 @@ class core_admin_renderer extends plugin_renderer_base {
         $copyrightnotice = text_to_html(get_string('gpl3'));
         $copyrightnotice = str_replace('target="_blank"', 'onclick="this.target=\'_blank\'"', $copyrightnotice); // extremely ugly validation hack
 
-        $continue = new single_button(new moodle_url('/admin/index.php', array('lang'=>$CFG->lang, 'agreelicense'=>1)), get_string('continue'), 'get');
+        $continue = new single_button(new lion_url('/admin/index.php', array('lang'=>$CFG->lang, 'agreelicense'=>1)), get_string('continue'), 'get');
 
         $output .= $this->header();
-        $output .= $this->heading('<a href="http://moodle.org">Moodle</a> - Modular Object-Oriented Dynamic Learning Environment');
+        $output .= $this->heading('<a href="http://lion.org">Lion</a> - Modular Object-Oriented Dynamic Learning Environment');
         $output .= $this->heading(get_string('copyrightnotice'));
         $output .= $this->box($copyrightnotice, 'copyrightnotice');
         $output .= html_writer::empty_tag('br');
-        $output .= $this->confirm(get_string('doyouagree'), $continue, "http://docs.moodle.org/dev/License");
+        $output .= $this->confirm(get_string('doyouagree'), $continue, "http://docs.lion.org/dev/License");
         $output .= $this->footer();
 
         return $output;
@@ -81,7 +67,7 @@ class core_admin_renderer extends plugin_renderer_base {
      * @param int $maturity
      * @param boolean $envstatus final result of the check (true/false)
      * @param array $environment_results array of results gathered
-     * @param string $release moodle release
+     * @param string $release lion release
      * @return string HTML to output.
      */
     public function install_environment_page($maturity, $envstatus, $environment_results, $release) {
@@ -90,16 +76,16 @@ class core_admin_renderer extends plugin_renderer_base {
 
         $output .= $this->header();
         $output .= $this->maturity_warning($maturity);
-        $output .= $this->heading("Moodle $release");
+        $output .= $this->heading("Lion $release");
         $output .= $this->release_notes_link();
 
         $output .= $this->environment_check_table($envstatus, $environment_results);
 
         if (!$envstatus) {
-            $output .= $this->upgrade_reload(new moodle_url('/admin/index.php', array('agreelicense' => 1, 'lang' => $CFG->lang)));
+            $output .= $this->upgrade_reload(new lion_url('/admin/index.php', array('agreelicense' => 1, 'lang' => $CFG->lang)));
         } else {
             $output .= $this->notification(get_string('environmentok', 'admin'), 'notifysuccess');
-            $output .= $this->continue_button(new moodle_url('/admin/index.php', array('agreelicense'=>1, 'confirmrelease'=>1, 'lang'=>$CFG->lang)));
+            $output .= $this->continue_button(new lion_url('/admin/index.php', array('agreelicense'=>1, 'confirmrelease'=>1, 'lang'=>$CFG->lang)));
         }
 
         $output .= $this->footer();
@@ -109,12 +95,12 @@ class core_admin_renderer extends plugin_renderer_base {
     /**
      * Displays the list of plugins with unsatisfied dependencies
      *
-     * @param double|string|int $version Moodle on-disk version
+     * @param double|string|int $version Lion on-disk version
      * @param array $failed list of plugins with unsatisfied dependecies
-     * @param moodle_url $reloadurl URL of the page to recheck the dependencies
+     * @param lion_url $reloadurl URL of the page to recheck the dependencies
      * @return string HTML
      */
-    public function unsatisfied_dependencies_page($version, array $failed, moodle_url $reloadurl) {
+    public function unsatisfied_dependencies_page($version, array $failed, lion_url $reloadurl) {
         $output = '';
 
         $output .= $this->header();
@@ -130,7 +116,7 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Display the 'You are about to upgrade Moodle' page. The first page
+     * Display the 'You are about to upgrade Lion' page. The first page
      * during upgrade.
      * @param string $strnewversion
      * @param int $maturity
@@ -140,9 +126,9 @@ class core_admin_renderer extends plugin_renderer_base {
     public function upgrade_confirm_page($strnewversion, $maturity, $testsite) {
         $output = '';
 
-        $continueurl = new moodle_url('/admin/index.php', array('confirmupgrade' => 1, 'cache' => 0));
+        $continueurl = new lion_url('/admin/index.php', array('confirmupgrade' => 1, 'cache' => 0));
         $continue = new single_button($continueurl, get_string('continue'), 'get');
-        $cancelurl = new moodle_url('/admin/index.php');
+        $cancelurl = new lion_url('/admin/index.php');
 
         $output .= $this->header();
         $output .= $this->maturity_warning($maturity);
@@ -165,12 +151,12 @@ class core_admin_renderer extends plugin_renderer_base {
         $output = '';
 
         $output .= $this->header();
-        $output .= $this->heading("Moodle $release");
+        $output .= $this->heading("Lion $release");
         $output .= $this->release_notes_link();
         $output .= $this->environment_check_table($envstatus, $environment_results);
 
         if (!$envstatus) {
-            $output .= $this->upgrade_reload(new moodle_url('/admin/index.php'), array('confirmupgrade' => 1, 'cache' => 0));
+            $output .= $this->upgrade_reload(new lion_url('/admin/index.php'), array('confirmupgrade' => 1, 'cache' => 0));
 
         } else {
             $output .= $this->notification(get_string('environmentok', 'admin'), 'notifysuccess');
@@ -179,7 +165,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 $output .= $this->box(get_string('langpackwillbeupdated', 'admin'), 'generalbox', 'notice');
             }
 
-            $output .= $this->continue_button(new moodle_url('/admin/index.php', array('confirmupgrade' => 1, 'confirmrelease' => 1, 'cache' => 0)));
+            $output .= $this->continue_button(new lion_url('/admin/index.php', array('confirmupgrade' => 1, 'confirmrelease' => 1, 'cache' => 0)));
         }
 
         $output .= $this->footer();
@@ -191,10 +177,10 @@ class core_admin_renderer extends plugin_renderer_base {
      * Display the upgrade page that lists all the plugins that require attention.
      * @param core_plugin_manager $pluginman provides information about the plugins.
      * @param \core\update\checker $checker provides information about available updates.
-     * @param int $version the version of the Moodle code from version.php.
+     * @param int $version the version of the Lion code from version.php.
      * @param bool $showallplugins
-     * @param moodle_url $reloadurl
-     * @param moodle_url $continueurl
+     * @param lion_url $reloadurl
+     * @param lion_url $continueurl
      * @return string HTML to output.
      */
     public function upgrade_plugin_check_page(core_plugin_manager $pluginman, \core\update\checker $checker,
@@ -209,7 +195,7 @@ class core_admin_renderer extends plugin_renderer_base {
         $output .= html_writer::tag('p', get_string('pluginchecknotice', 'core_plugin'));
         if (empty($CFG->disableupdatenotifications)) {
             $output .= $this->container_start('checkforupdates');
-            $output .= $this->single_button(new moodle_url($reloadurl, array('fetchupdates' => 1)), get_string('checkforupdates', 'core_plugin'));
+            $output .= $this->single_button(new lion_url($reloadurl, array('fetchupdates' => 1)), get_string('checkforupdates', 'core_plugin'));
             if ($timefetched = $checker->get_last_timefetched()) {
                 $output .= $this->container(get_string('checkforupdateslast', 'core_plugin',
                     userdate($timefetched, get_string('strftimedatetime', 'core_langconfig'))));
@@ -327,7 +313,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
         ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
-        $output .= $this->moodle_copyright();
+        $output .= $this->lion_copyright();
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
         $output .= $this->footer();
@@ -359,7 +345,7 @@ class core_admin_renderer extends plugin_renderer_base {
         if (empty($CFG->disableupdatenotifications)) {
             $output .= $this->container_start('checkforupdates');
             $output .= $this->single_button(
-                new moodle_url($this->page->url, array_merge($options, array('fetchremote' => 1))),
+                new lion_url($this->page->url, array_merge($options, array('fetchremote' => 1))),
                 get_string('checkforupdates', 'core_plugin')
             );
             if ($timefetched = $checker->get_last_timefetched()) {
@@ -380,11 +366,11 @@ class core_admin_renderer extends plugin_renderer_base {
      *
      * @param core_plugin_manager $pluginman
      * @param \core\plugininfo\base $pluginfo
-     * @param moodle_url $continueurl URL to continue after confirmation
-     * @param moodle_url $cancelurl URL to to go if cancelled
+     * @param lion_url $continueurl URL to continue after confirmation
+     * @param lion_url $cancelurl URL to to go if cancelled
      * @return string
      */
-    public function plugin_uninstall_confirm_page(core_plugin_manager $pluginman, \core\plugininfo\base $pluginfo, moodle_url $continueurl, moodle_url $cancelurl) {
+    public function plugin_uninstall_confirm_page(core_plugin_manager $pluginman, \core\plugininfo\base $pluginfo, lion_url $continueurl, lion_url $cancelurl) {
         $output = '';
 
         $pluginname = $pluginman->plugin_name($pluginfo->component);
@@ -408,11 +394,11 @@ class core_admin_renderer extends plugin_renderer_base {
      * @param core_plugin_manager $pluginman
      * @param \core\plugininfo\base $pluginfo
      * @param progress_trace_buffer $progress
-     * @param moodle_url $continueurl URL to continue to remove the plugin folder
+     * @param lion_url $continueurl URL to continue to remove the plugin folder
      * @return string
      */
     public function plugin_uninstall_results_removable_page(core_plugin_manager $pluginman, \core\plugininfo\base $pluginfo,
-                                                            progress_trace_buffer $progress, moodle_url $continueurl) {
+                                                            progress_trace_buffer $progress, lion_url $continueurl) {
         $output = '';
 
         $pluginname = $pluginman->plugin_name($pluginfo->component);
@@ -435,7 +421,7 @@ class core_admin_renderer extends plugin_renderer_base {
         }
 
         // After any uninstall we must execute full upgrade to finish the cleanup!
-        $output .= $this->output->confirm($confirm, $continueurl, new moodle_url('/admin/index.php'));
+        $output .= $this->output->confirm($confirm, $continueurl, new lion_url('/admin/index.php'));
         $output .= $this->output->footer();
 
         return $output;
@@ -461,7 +447,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
         $output .= $this->output->box(get_string('uninstalldelete', 'core_plugin',
             array('name' => $pluginname, 'rootdir' => $pluginfo->rootdir)), 'generalbox uninstalldelete');
-        $output .= $this->output->continue_button(new moodle_url('/admin/index.php'));
+        $output .= $this->output->continue_button(new lion_url('/admin/index.php'));
         $output .= $this->output->footer();
 
         return $output;
@@ -481,7 +467,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
         // Print the component download link
         $output .= html_writer::tag('div', html_writer::link(
-                    new moodle_url('/admin/environment.php', array('action' => 'updatecomponent', 'sesskey' => sesskey())),
+                    new lion_url('/admin/environment.php', array('action' => 'updatecomponent', 'sesskey' => sesskey())),
                     get_string('updatecomponent', 'admin')),
                 array('class' => 'reportlink'));
 
@@ -491,8 +477,8 @@ class core_admin_renderer extends plugin_renderer_base {
         // Box with info and a menu to choose the version.
         $output .= $this->box_start();
         $output .= html_writer::tag('div', get_string('adminhelpenvironment'));
-        $select = new single_select(new moodle_url('/admin/environment.php'), 'version', $versions, $version, null);
-        $select->label = get_string('moodleversion');
+        $select = new single_select(new lion_url('/admin/environment.php'), 'version', $versions, $version, null);
+        $select->label = get_string('lionversion');
         $output .= $this->render($select);
         $output .= $this->box_end();
 
@@ -570,9 +556,9 @@ class core_admin_renderer extends plugin_renderer_base {
         }
 
         if (empty($CFG->cronclionly)) {
-            $url = new moodle_url('/admin/cron.php');
+            $url = new lion_url('/admin/cron.php');
             if (!empty($CFG->cronremotepassword)) {
-                $url = new moodle_url('/admin/cron.php', array('password' => $CFG->cronremotepassword));
+                $url = new lion_url('/admin/cron.php', array('password' => $CFG->cronremotepassword));
             }
 
             return $this->warning(get_string('cronwarning', 'admin', $url->out()) . '&nbsp;' .
@@ -620,7 +606,7 @@ class core_admin_renderer extends plugin_renderer_base {
             return '';
         }
 
-        $url = new moodle_url('/admin/settings.php', array('section' => 'maintenancemode'));
+        $url = new lion_url('/admin/settings.php', array('section' => 'maintenancemode'));
         $url = $url->out(); // get_string() does not support objects in params
 
         return $this->warning(get_string('sitemaintenancewarning2', 'admin', $url));
@@ -663,16 +649,16 @@ class core_admin_renderer extends plugin_renderer_base {
      * Output the copyright notice.
      * @return string HTML to output.
      */
-    protected function moodle_copyright() {
+    protected function lion_copyright() {
         global $CFG;
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
         ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
-        $copyrighttext = '<a href="http://moodle.org/">Moodle</a> '.
-                         '<a href="http://docs.moodle.org/dev/Releases" title="'.$CFG->version.'">'.$CFG->release.'</a><br />'.
+        $copyrighttext = '<a href="http://lion.org/">Lion</a> '.
+                         '<a href="http://docs.lion.org/dev/Releases" title="'.$CFG->version.'">'.$CFG->release.'</a><br />'.
                          'Copyright &copy; 1999 onwards, Martin Dougiamas<br />'.
-                         'and <a href="http://moodle.org/dev">many other contributors</a>.<br />'.
-                         '<a href="http://docs.moodle.org/dev/License">GNU Public License</a>';
+                         'and <a href="http://lion.org/dev">many other contributors</a>.<br />'.
+                         '<a href="http://docs.lion.org/dev/License">GNU Public License</a>';
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
         return $this->box($copyrighttext, 'copyright');
@@ -701,7 +687,7 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Displays the info about available Moodle core and plugin updates
+     * Displays the info about available Lion core and plugin updates
      *
      * The structure of the $updates param has changed since 2.4. It contains not only updates
      * for the core itself, but also for all other installed plugins.
@@ -719,7 +705,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 $someupdateavailable = true;
                 $updateinfo .= $this->heading(get_string('updateavailable', 'core_admin'), 3);
                 foreach ($updates['core'] as $update) {
-                    $updateinfo .= $this->moodle_available_update_info($update);
+                    $updateinfo .= $this->lion_available_update_info($update);
                 }
             }
             unset($updates['core']);
@@ -727,7 +713,7 @@ class core_admin_renderer extends plugin_renderer_base {
             if (!empty($updates)) {
                 $someupdateavailable = true;
                 $updateinfo .= $this->heading(get_string('updateavailableforplugin', 'core_admin'), 3);
-                $pluginsoverviewurl = new moodle_url('/admin/plugins.php', array('updatesonly' => 1));
+                $pluginsoverviewurl = new lion_url('/admin/plugins.php', array('updatesonly' => 1));
                 $updateinfo .= $this->container(get_string('pluginsoverviewsee', 'core_admin',
                     array('url' => $pluginsoverviewurl->out())));
             }
@@ -741,7 +727,7 @@ class core_admin_renderer extends plugin_renderer_base {
         }
 
         $updateinfo .= $this->container_start('checkforupdates');
-        $fetchurl = new moodle_url('/admin/index.php', array('fetchupdates' => 1, 'sesskey' => sesskey(), 'cache' => 0));
+        $fetchurl = new lion_url('/admin/index.php', array('fetchupdates' => 1, 'sesskey' => sesskey(), 'cache' => 0));
         $updateinfo .= $this->single_button($fetchurl, get_string('checkforupdates', 'core_plugin'));
         if ($fetch) {
             $updateinfo .= $this->container(get_string('checkforupdateslast', 'core_plugin',
@@ -753,17 +739,17 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Display a warning about not being registered on Moodle.org if necesary.
+     * Display a warning about not being registered on Lion.org if necesary.
      *
-     * @param boolean $registered true if the site is registered on Moodle.org
+     * @param boolean $registered true if the site is registered on Lion.org
      * @return string HTML to output.
      */
     protected function registration_warning($registered) {
 
         if (!$registered) {
 
-            $registerbutton = $this->single_button(new moodle_url('/admin/registration/register.php',
-                    array('huburl' =>  HUB_MOODLEORGHUBURL, 'hubname' => 'Moodle.org')),
+            $registerbutton = $this->single_button(new lion_url('/admin/registration/register.php',
+                    array('huburl' =>  HUB_LIONORGHUBURL, 'hubname' => 'Lion.org')),
                     get_string('register', 'admin'));
 
             return $this->warning( get_string('registrationwarning', 'admin')
@@ -774,13 +760,13 @@ class core_admin_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Helper method to render the information about the available Moodle update
+     * Helper method to render the information about the available Lion update
      *
-     * @param \core\update\info $updateinfo information about the available Moodle core update
+     * @param \core\update\info $updateinfo information about the available Lion core update
      */
-    protected function moodle_available_update_info(\core\update\info $updateinfo) {
+    protected function lion_available_update_info(\core\update\info $updateinfo) {
 
-        $boxclasses = 'moodleupdateinfo';
+        $boxclasses = 'lionupdateinfo';
         $info = array();
 
         if (isset($updateinfo->release)) {
@@ -820,7 +806,7 @@ class core_admin_renderer extends plugin_renderer_base {
      * @return string HTML to output.
      */
     protected function release_notes_link() {
-        $releasenoteslink = get_string('releasenoteslink', 'admin', 'http://docs.moodle.org/dev/Releases');
+        $releasenoteslink = get_string('releasenoteslink', 'admin', 'http://docs.lion.org/dev/Releases');
         $releasenoteslink = str_replace('target="_blank"', 'onclick="this.target=\'_blank\'"', $releasenoteslink); // extremely ugly validation hack
         return $this->box($releasenoteslink, 'generalbox releasenoteslink');
     }
@@ -846,7 +832,7 @@ class core_admin_renderer extends plugin_renderer_base {
      *     (bool)xdep = false: display the plugins with unsatisified dependecies only
      *
      * @param core_plugin_manager $pluginman provides information about the plugins.
-     * @param int $version the version of the Moodle code from version.php.
+     * @param int $version the version of the Lion code from version.php.
      * @param array $options rendering options
      * @return string HTML code
      */
@@ -909,7 +895,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 if ($this->page->theme->resolve_image_location('icon', $plugin->type . '_' . $plugin->name, null)) {
                     $icon = $this->output->pix_icon('icon', '', $plugin->type . '_' . $plugin->name, array('class' => 'smallicon pluginicon'));
                 } else {
-                    $icon = $this->output->pix_icon('spacer', '', 'moodle', array('class' => 'smallicon pluginicon noicon'));
+                    $icon = $this->output->pix_icon('spacer', '', 'lion', array('class' => 'smallicon pluginicon noicon'));
                 }
                 $displayname  = $icon . ' ' . $plugin->displayname;
                 $displayname = new html_table_cell($displayname);
@@ -989,7 +975,7 @@ class core_admin_renderer extends plugin_renderer_base {
             $out  = $this->output->container_start('nonehighlighted', 'plugins-check-info');
             $out .= $this->output->heading(get_string('nonehighlighted', 'core_plugin'));
             if (empty($options['full'])) {
-                $out .= html_writer::link(new moodle_url('/admin/index.php',
+                $out .= html_writer::link(new lion_url('/admin/index.php',
                     array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 1, 'cache' => 0)),
                     get_string('nonehighlightedinfo', 'core_plugin'));
             }
@@ -999,11 +985,11 @@ class core_admin_renderer extends plugin_renderer_base {
             $out  = $this->output->container_start('somehighlighted', 'plugins-check-info');
             $out .= $this->output->heading(get_string('somehighlighted', 'core_plugin', $sumofhighlighted));
             if (empty($options['full'])) {
-                $out .= html_writer::link(new moodle_url('/admin/index.php',
+                $out .= html_writer::link(new lion_url('/admin/index.php',
                     array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 1, 'cache' => 0)),
                     get_string('somehighlightedinfo', 'core_plugin'));
             } else {
-                $out .= html_writer::link(new moodle_url('/admin/index.php',
+                $out .= html_writer::link(new lion_url('/admin/index.php',
                     array('confirmupgrade' => 1, 'confirmrelease' => 1, 'showallplugins' => 0, 'cache' => 0)),
                     get_string('somehighlightedonly', 'core_plugin'));
             }
@@ -1034,7 +1020,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 $class = 'requires-failed';
             }
             $requires[] = html_writer::tag('li',
-                get_string('moodleversion', 'core_plugin', $plugin->versionrequires),
+                get_string('lionversion', 'core_plugin', $plugin->versionrequires),
                 array('class' => $class));
         }
 
@@ -1045,8 +1031,8 @@ class core_admin_renderer extends plugin_renderer_base {
             if (is_null($otherplugin)) {
                 // The required plugin is not installed.
                 $class = 'requires-failed requires-missing';
-                $installurl = new moodle_url('https://moodle.org/plugins/view.php', array('plugin' => $component));
-                $uploadurl = new moodle_url('/admin/tool/installaddon/');
+                $installurl = new lion_url('https://lion.org/plugins/view.php', array('plugin' => $component));
+                $uploadurl = new lion_url('/admin/tool/installaddon/');
                 $actions[] = html_writer::link($installurl, get_string('dependencyinstall', 'core_plugin'));
                 $actions[] = html_writer::link($uploadurl, get_string('dependencyupload', 'core_plugin'));
 
@@ -1054,7 +1040,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 // The required plugin is installed but needs to be updated.
                 $class = 'requires-failed requires-outdated';
                 if (!$otherplugin->is_standard()) {
-                    $updateurl = new moodle_url($this->page->url, array('sesskey' => sesskey(), 'fetchupdates' => 1));
+                    $updateurl = new lion_url($this->page->url, array('sesskey' => sesskey(), 'fetchupdates' => 1));
                     $actions[] = html_writer::link($updateurl, get_string('checkforupdates', 'core_plugin'));
                 }
 
@@ -1123,7 +1109,7 @@ class core_admin_renderer extends plugin_renderer_base {
         if ($numextension > 0) {
             if (empty($options['contribonly'])) {
                 $filter[] = html_writer::link(
-                    new moodle_url($this->page->url, array('contribonly' => 1)),
+                    new lion_url($this->page->url, array('contribonly' => 1)),
                     get_string('filtercontribonly', 'core_plugin'),
                     array('class' => 'filter-item show-contribonly')
                 );
@@ -1137,7 +1123,7 @@ class core_admin_renderer extends plugin_renderer_base {
             $info[] = html_writer::tag('span', get_string('numupdatable', 'core_plugin', $numupdatable), array('class' => 'info updatable'));
             if (empty($options['updatesonly'])) {
                 $filter[] = html_writer::link(
-                    new moodle_url($this->page->url, array('updatesonly' => 1)),
+                    new lion_url($this->page->url, array('updatesonly' => 1)),
                     get_string('filterupdatesonly', 'core_plugin'),
                     array('class' => 'filter-item show-updatesonly')
                 );
@@ -1252,7 +1238,7 @@ class core_admin_renderer extends plugin_renderer_base {
                 if ($this->page->theme->resolve_image_location('icon', $plugin->type . '_' . $plugin->name)) {
                     $icon = $this->output->pix_icon('icon', '', $plugin->type . '_' . $plugin->name, array('class' => 'icon pluginicon'));
                 } else {
-                    $icon = $this->output->pix_icon('spacer', '', 'moodle', array('class' => 'icon pluginicon noicon'));
+                    $icon = $this->output->pix_icon('spacer', '', 'lion', array('class' => 'icon pluginicon noicon'));
                 }
                 $status = $plugin->get_status();
                 $row->attributes['class'] .= ' status-'.$status;
@@ -1391,7 +1377,7 @@ class core_admin_renderer extends plugin_renderer_base {
 
     /**
      * This function will render one beautiful table with all the environmental
-     * configuration and how it suits Moodle needs.
+     * configuration and how it suits Lion needs.
      *
      * @param boolean $result final result of the check (true/false)
      * @param environment_results[] $environment_results array of results gathered

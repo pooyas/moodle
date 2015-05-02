@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Renderer for use with the course section and all the goodness that falls
@@ -21,9 +7,9 @@
  *
  * This renderer should contain methods useful to courses, and categories.
  *
- * @package   moodlecore
+ * @package   lioncore
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -52,10 +38,10 @@ class core_course_renderer extends plugin_renderer_base {
     /**
      * Override the constructor so that we can initialise the string cache
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param string $target
      */
-    public function __construct(moodle_page $page, $target) {
+    public function __construct(lion_page $page, $target) {
         $this->strings = new stdClass;
         parent::__construct($page, $target);
         $this->add_modchoosertoggle();
@@ -75,11 +61,11 @@ class core_course_renderer extends plugin_renderer_base {
             return;
         }
 
-        if ($this->page->state > moodle_page::STATE_PRINTING_HEADER ||
+        if ($this->page->state > lion_page::STATE_PRINTING_HEADER ||
                 $this->page->course->id == SITEID ||
                 !$this->page->user_is_editing() ||
                 !($context = context_course::instance($this->page->course->id)) ||
-                !has_capability('moodle/course:manageactivities', $context) ||
+                !has_capability('lion/course:manageactivities', $context) ||
                 !course_ajax_enabled($this->page->course) ||
                 !($coursenode = $this->page->settingsnav->find('courseadmin', navigation_node::TYPE_COURSE)) ||
                 !($turneditingnode = $coursenode->get('turneditingonoff'))) {
@@ -88,20 +74,20 @@ class core_course_renderer extends plugin_renderer_base {
             return;
         }
 
-        if ($this->page->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
+        if ($this->page->url->compare(new lion_url('/course/view.php'), URL_MATCH_BASE)) {
             // We are on the course page, retain the current page params e.g. section.
             $modchoosertoggleurl = clone($this->page->url);
         } else {
             // Edit on the main course page.
-            $modchoosertoggleurl = new moodle_url('/course/view.php', array('id' => $this->page->course->id,
+            $modchoosertoggleurl = new lion_url('/course/view.php', array('id' => $this->page->course->id,
                 'return' => $this->page->url->out_as_local_url(false)));
         }
         $modchoosertoggleurl->param('sesskey', sesskey());
         if ($usemodchooser = get_user_preferences('usemodchooser', $CFG->modchooserdefault)) {
-            $modchoosertogglestring = get_string('modchooserdisable', 'moodle');
+            $modchoosertogglestring = get_string('modchooserdisable', 'lion');
             $modchoosertoggleurl->param('modchooser', 'off');
         } else {
-            $modchoosertogglestring = get_string('modchooserenable', 'moodle');
+            $modchoosertogglestring = get_string('modchooserenable', 'lion');
             $modchoosertoggleurl->param('modchooser', 'on');
         }
         $modchoosertoggle = navigation_node::create($modchoosertogglestring, $modchoosertoggleurl, navigation_node::TYPE_SETTING, null, 'modchoosertoggle');
@@ -137,7 +123,7 @@ class core_course_renderer extends plugin_renderer_base {
      *
      * @deprecated since 2.5
      *
-     * Please see http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+     * Please see http://docs.lion.org/dev/Courses_lists_upgrade_to_2.5
      *
      * @param array $ignored argument ignored
      * @return string
@@ -152,7 +138,7 @@ class core_course_renderer extends plugin_renderer_base {
      *
      * @deprecated since 2.5
      *
-     * Please see http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+     * Please see http://docs.lion.org/dev/Courses_lists_upgrade_to_2.5
      *
      * @param array $category
      * @param int $depth
@@ -177,7 +163,7 @@ class core_course_renderer extends plugin_renderer_base {
         }
 
         // Add the module chooser
-        $this->page->requires->yui_module('moodle-course-modchooser',
+        $this->page->requires->yui_module('lion-course-modchooser',
         'M.course.init_chooser',
         array(array('courseid' => $course->id, 'closeButtonTitle' => get_string('close', 'editor')))
         );
@@ -185,13 +171,13 @@ class core_course_renderer extends plugin_renderer_base {
                 'addresourceoractivity',
                 'modchooserenable',
                 'modchooserdisable',
-        ), 'moodle');
+        ), 'lion');
 
         // Add the header
-        $header = html_writer::tag('div', get_string('addresourceoractivity', 'moodle'),
+        $header = html_writer::tag('div', get_string('addresourceoractivity', 'lion'),
                 array('class' => 'hd choosertitle'));
 
-        $formcontent = html_writer::start_tag('form', array('action' => new moodle_url('/course/jumpto.php'),
+        $formcontent = html_writer::start_tag('form', array('action' => new lion_url('/course/jumpto.php'),
                 'id' => 'chooserform', 'method' => 'post'));
         $formcontent .= html_writer::start_tag('div', array('id' => 'typeformdiv'));
         $formcontent .= html_writer::tag('input', '', array('type' => 'hidden', 'id' => 'course',
@@ -202,7 +188,7 @@ class core_course_renderer extends plugin_renderer_base {
 
         // Put everything into one tag 'options'
         $formcontent .= html_writer::start_tag('div', array('class' => 'options'));
-        $formcontent .= html_writer::tag('div', get_string('selectmoduletoviewhelp', 'moodle'),
+        $formcontent .= html_writer::tag('div', get_string('selectmoduletoviewhelp', 'lion'),
                 array('class' => 'instruction'));
         // Put all options into one tag 'alloptions' to allow us to handle scrolling
         $formcontent .= html_writer::start_tag('div', array('class' => 'alloptions'));
@@ -294,7 +280,7 @@ class core_course_renderer extends plugin_renderer_base {
         $output .= html_writer::tag('span', $module->title, array('class' => 'typename'));
         if (!isset($module->help)) {
             // Add help if found
-            $module->help = get_string('nohelpforactivityorresource', 'moodle');
+            $module->help = get_string('nohelpforactivityorresource', 'lion');
         }
 
         // Format the help text using markdown with the following options
@@ -429,7 +415,7 @@ class core_course_renderer extends plugin_renderer_base {
         $vertical = !empty($displayoptions['inblock']);
 
         // check to see if user can add menus and there are modules to add
-        if (!has_capability('moodle/course:manageactivities', context_course::instance($course->id))
+        if (!has_capability('lion/course:manageactivities', context_course::instance($course->id))
                 || !$this->page->user_is_editing()
                 || !($modnames = get_module_types_names()) || empty($modnames)) {
             return '';
@@ -568,7 +554,7 @@ class core_course_renderer extends plugin_renderer_base {
         }
 
         $strsearchcourses= get_string("searchcourses");
-        $searchurl = new moodle_url('/course/search.php');
+        $searchurl = new lion_url('/course/search.php');
 
         $output = html_writer::start_tag('form', array('id' => $formid, 'action' => $searchurl, 'method' => 'get'));
         $output .= html_writer::start_tag('fieldset', array('class' => 'coursesearchbox invisiblefieldset'));
@@ -671,7 +657,7 @@ class core_course_renderer extends plugin_renderer_base {
                     $extraclass = ' preventjs';
                 }
                 $output .= html_writer::start_tag('form', array('method' => 'post',
-                    'action' => new moodle_url('/course/togglecompletion.php'),
+                    'action' => new lion_url('/course/togglecompletion.php'),
                     'class' => 'togglecompletion'. $extraclass));
                 $output .= html_writer::start_tag('div');
                 $output .= html_writer::empty_tag('input', array(
@@ -770,7 +756,7 @@ class core_course_renderer extends plugin_renderer_base {
         if ($mod->uservisible) {
             $conditionalhidden = $this->is_cm_conditionally_hidden($mod);
             $accessiblebutdim = (!$mod->visible || $conditionalhidden) &&
-                has_capability('moodle/course:viewhiddenactivities', $mod->context);
+                has_capability('lion/course:viewhiddenactivities', $mod->context);
             if ($accessiblebutdim) {
                 $linkclasses .= ' dimmed';
                 $textclasses .= ' dimmed_text';
@@ -827,7 +813,7 @@ class core_course_renderer extends plugin_renderer_base {
         if ($mod->uservisible) {
             $conditionalhidden = $this->is_cm_conditionally_hidden($mod);
             $accessiblebutdim = (!$mod->visible || $conditionalhidden) &&
-                has_capability('moodle/course:viewhiddenactivities', $mod->context);
+                has_capability('lion/course:viewhiddenactivities', $mod->context);
             if ($accessiblebutdim) {
                 $textclasses .= ' dimmed_text';
                 if ($conditionalhidden) {
@@ -878,7 +864,7 @@ class core_course_renderer extends plugin_renderer_base {
         // this is a teacher who is allowed to see module but still should see the
         // information that module is not available to all/some students
         $modcontext = context_module::instance($mod->id);
-        $canviewhidden = has_capability('moodle/course:viewhiddenactivities', $modcontext);
+        $canviewhidden = has_capability('lion/course:viewhiddenactivities', $modcontext);
         if ($canviewhidden && !empty($CFG->enableavailability)) {
             // Don't add availability information if user is not editing and activity is hidden.
             if ($mod->visible || $this->page->user_is_editing()) {
@@ -1066,7 +1052,7 @@ class core_course_renderer extends plugin_renderer_base {
         // check if we are currently in the process of moving a module with JavaScript disabled
         $ismoving = $this->page->user_is_editing() && ismoving($course->id);
         if ($ismoving) {
-            $movingpix = new pix_icon('movehere', get_string('movehere'), 'moodle', array('class' => 'movetarget'));
+            $movingpix = new pix_icon('movehere', get_string('movehere'), 'lion', array('class' => 'movetarget'));
             $strmovefull = strip_tags(get_string("movefull", "", "'$USER->activitycopyname'"));
         }
 
@@ -1092,7 +1078,7 @@ class core_course_renderer extends plugin_renderer_base {
         if (!empty($moduleshtml) || $ismoving) {
             foreach ($moduleshtml as $modnumber => $modulehtml) {
                 if ($ismoving) {
-                    $movingurl = new moodle_url('/course/mod.php', array('moveto' => $modnumber, 'sesskey' => sesskey()));
+                    $movingurl = new lion_url('/course/mod.php', array('moveto' => $modnumber, 'sesskey' => sesskey()));
                     $sectionoutput .= html_writer::tag('li',
                             html_writer::link($movingurl, $this->output->render($movingpix), array('title' => $strmovefull)),
                             array('class' => 'movehere'));
@@ -1102,7 +1088,7 @@ class core_course_renderer extends plugin_renderer_base {
             }
 
             if ($ismoving) {
-                $movingurl = new moodle_url('/course/mod.php', array('movetosection' => $section->id, 'sesskey' => sesskey()));
+                $movingurl = new lion_url('/course/mod.php', array('movetosection' => $section->id, 'sesskey' => sesskey()));
                 $sectionoutput .= html_writer::tag('li',
                         html_writer::link($movingurl, $this->output->render($movingpix), array('title' => $strmovefull)),
                         array('class' => 'movehere'));
@@ -1128,7 +1114,7 @@ class core_course_renderer extends plugin_renderer_base {
      * @param array $courses array of course records (or instances of course_in_list) to show on this page
      * @param bool $showcategoryname whether to add category name to the course description
      * @param string $additionalclasses additional CSS classes to add to the div.courses
-     * @param moodle_url $paginationurl url to view more or url to form links to the other pages in paging bar
+     * @param lion_url $paginationurl url to view more or url to form links to the other pages in paging bar
      * @param int $totalcount total number of courses on all pages, if omitted $paginationurl will be displayed as 'View more' link
      * @param int $page current page number (defaults to 0 referring to the first page)
      * @param int $perpage number of records per page (defaults to $CFG->coursesperpage)
@@ -1207,14 +1193,14 @@ class core_course_renderer extends plugin_renderer_base {
 
         // course name
         $coursename = $chelper->get_course_formatted_name($course);
-        $coursenamelink = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
+        $coursenamelink = html_writer::link(new lion_url('/course/view.php', array('id' => $course->id)),
                                             $coursename, array('class' => $course->visible ? '' : 'dimmed'));
         $content .= html_writer::tag($nametag, $coursenamelink, array('class' => 'coursename'));
         // If we display course in collapsed form but the course has summary or course contacts, display the link to the info page.
         $content .= html_writer::start_tag('div', array('class' => 'moreinfo'));
         if ($chelper->get_show_courses() < self::COURSECAT_SHOW_COURSES_EXPANDED) {
             if ($course->has_summary() || $course->has_course_contacts() || $course->has_course_overviewfiles()) {
-                $url = new moodle_url('/course/info.php', array('id' => $course->id));
+                $url = new lion_url('/course/info.php', array('id' => $course->id));
                 $image = html_writer::empty_tag('img', array('src' => $this->output->pix_url('i/info'),
                     'alt' => $this->strings->summary));
                 $content .= html_writer::link($url, $image, array('title' => $this->strings->summary));
@@ -1283,7 +1269,7 @@ class core_course_renderer extends plugin_renderer_base {
                         html_writer::empty_tag('img', array('src' => $url)),
                         array('class' => 'courseimage'));
             } else {
-                $image = $this->output->pix_icon(file_file_icon($file, 24), $file->get_filename(), 'moodle');
+                $image = $this->output->pix_icon(file_file_icon($file, 24), $file->get_filename(), 'lion');
                 $filename = html_writer::tag('span', $image, array('class' => 'fp-icon')).
                         html_writer::tag('span', $file->get_filename(), array('class' => 'fp-filename'));
                 $contentfiles .= html_writer::tag('span',
@@ -1298,7 +1284,7 @@ class core_course_renderer extends plugin_renderer_base {
             $content .= html_writer::start_tag('ul', array('class' => 'teachers'));
             foreach ($course->get_course_contacts() as $userid => $coursecontact) {
                 $name = $coursecontact['rolename'].': '.
-                        html_writer::link(new moodle_url('/user/view.php',
+                        html_writer::link(new lion_url('/user/view.php',
                                 array('id' => $userid, 'course' => SITEID)),
                             $coursecontact['username']);
                 $content .= html_writer::tag('li', $name);
@@ -1312,7 +1298,7 @@ class core_course_renderer extends plugin_renderer_base {
             if ($cat = coursecat::get($course->category, IGNORE_MISSING)) {
                 $content .= html_writer::start_tag('div', array('class' => 'coursecat'));
                 $content .= get_string('category').': '.
-                        html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
+                        html_writer::link(new lion_url('/course/index.php', array('categoryid' => $cat->id)),
                                 $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
                 $content .= html_writer::end_tag('div'); // .coursecat
             }
@@ -1452,7 +1438,7 @@ class core_course_renderer extends plugin_renderer_base {
                 }
             } else if ($viewmoreurl = $chelper->get_categories_display_option('viewmoreurl')) {
                 // the option 'viewmoreurl' was specified, display more link (if it is link to category view page, add category id)
-                if ($viewmoreurl->compare(new moodle_url('/course/index.php'), URL_MATCH_BASE)) {
+                if ($viewmoreurl->compare(new lion_url('/course/index.php'), URL_MATCH_BASE)) {
                     $viewmoreurl->param('categoryid', $coursecat->id);
                 }
                 $viewmoretext = $chelper->get_categories_display_option('viewmoretext', new lang_string('viewmore'));
@@ -1496,8 +1482,8 @@ class core_course_renderer extends plugin_renderer_base {
         }
 
         // We must only load this module once.
-        $this->page->requires->yui_module('moodle-course-categoryexpander',
-                'Y.Moodle.course.categoryexpander.init');
+        $this->page->requires->yui_module('lion-course-categoryexpander',
+                'Y.Lion.course.categoryexpander.init');
     }
 
     /**
@@ -1531,8 +1517,8 @@ class core_course_renderer extends plugin_renderer_base {
             }
             if ($viewmoreurl = $chelper->get_courses_display_option('viewmoreurl')) {
                 // the option for 'View more' link was specified, display more link (if it is link to category view page, add category id)
-                if ($viewmoreurl->compare(new moodle_url('/course/index.php'), URL_MATCH_BASE)) {
-                    $chelper->set_courses_display_option('viewmoreurl', new moodle_url($viewmoreurl, array('categoryid' => $coursecat->id)));
+                if ($viewmoreurl->compare(new lion_url('/course/index.php'), URL_MATCH_BASE)) {
+                    $chelper->set_courses_display_option('viewmoreurl', new lion_url($viewmoreurl, array('categoryid' => $coursecat->id)));
                 }
             }
             $content .= $this->coursecat_courses($chelper, $courses, $coursecat->get_courses_count());
@@ -1594,7 +1580,7 @@ class core_course_renderer extends plugin_renderer_base {
 
         // category name
         $categoryname = $coursecat->get_formatted_name();
-        $categoryname = html_writer::link(new moodle_url('/course/index.php',
+        $categoryname = html_writer::link(new lion_url('/course/index.php',
                 array('categoryid' => $coursecat->id)),
                 $categoryname);
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_COUNT
@@ -1647,7 +1633,7 @@ class core_course_renderer extends plugin_renderer_base {
             $content .= html_writer::link('#', get_string('collapseall'),
                     array('class' => implode(' ', $classes)));
             $content .= html_writer::end_tag('div');
-            $this->page->requires->strings_for_js(array('collapseall', 'expandall'), 'moodle');
+            $this->page->requires->strings_for_js(array('collapseall', 'expandall'), 'lion');
         }
 
         $content .= html_writer::tag('div', $categorycontent, array('class' => 'content'));
@@ -1673,7 +1659,7 @@ class core_course_renderer extends plugin_renderer_base {
 
         if (can_edit_in_category($category)) {
             // Add 'Manage' button if user has permissions to edit this category.
-            $managebutton = $this->single_button(new moodle_url('/course/management.php'), get_string('managecourses'), 'get');
+            $managebutton = $this->single_button(new lion_url('/course/management.php'), get_string('managecourses'), 'get');
             $this->page->set_button($managebutton);
         }
         if (!$coursecat->id) {
@@ -1691,7 +1677,7 @@ class core_course_renderer extends plugin_renderer_base {
 
             // Print the category selector
             $output .= html_writer::start_tag('div', array('class' => 'categorypicker'));
-            $select = new single_select(new moodle_url('/course/index.php'), 'categoryid',
+            $select = new single_select(new lion_url('/course/index.php'), 'categoryid',
                     coursecat::make_categories_list(), $coursecat->id, null, 'switchcategory');
             $select->set_label(get_string('categories').':');
             $output .= $this->render($select);
@@ -1713,7 +1699,7 @@ class core_course_renderer extends plugin_renderer_base {
         $browse = optional_param('browse', null, PARAM_ALPHA);
         $perpage = optional_param('perpage', $CFG->coursesperpage, PARAM_INT);
         $page = optional_param('page', 0, PARAM_INT);
-        $baseurl = new moodle_url('/course/index.php');
+        $baseurl = new lion_url('/course/index.php');
         if ($coursecat->id) {
             $baseurl->param('categoryid', $coursecat->id);
         }
@@ -1724,20 +1710,20 @@ class core_course_renderer extends plugin_renderer_base {
         $catdisplayoptions['limit'] = $perpage;
         if ($browse === 'courses' || !$coursecat->has_children()) {
             $coursedisplayoptions['offset'] = $page * $perpage;
-            $coursedisplayoptions['paginationurl'] = new moodle_url($baseurl, array('browse' => 'courses'));
+            $coursedisplayoptions['paginationurl'] = new lion_url($baseurl, array('browse' => 'courses'));
             $catdisplayoptions['nodisplay'] = true;
-            $catdisplayoptions['viewmoreurl'] = new moodle_url($baseurl, array('browse' => 'categories'));
+            $catdisplayoptions['viewmoreurl'] = new lion_url($baseurl, array('browse' => 'categories'));
             $catdisplayoptions['viewmoretext'] = new lang_string('viewallsubcategories');
         } else if ($browse === 'categories' || !$coursecat->has_courses()) {
             $coursedisplayoptions['nodisplay'] = true;
             $catdisplayoptions['offset'] = $page * $perpage;
-            $catdisplayoptions['paginationurl'] = new moodle_url($baseurl, array('browse' => 'categories'));
-            $coursedisplayoptions['viewmoreurl'] = new moodle_url($baseurl, array('browse' => 'courses'));
+            $catdisplayoptions['paginationurl'] = new lion_url($baseurl, array('browse' => 'categories'));
+            $coursedisplayoptions['viewmoreurl'] = new lion_url($baseurl, array('browse' => 'courses'));
             $coursedisplayoptions['viewmoretext'] = new lang_string('viewallcourses');
         } else {
             // we have a category that has both subcategories and courses, display pagination separately
-            $coursedisplayoptions['viewmoreurl'] = new moodle_url($baseurl, array('browse' => 'courses', 'page' => 1));
-            $catdisplayoptions['viewmoreurl'] = new moodle_url($baseurl, array('browse' => 'categories', 'page' => 1));
+            $coursedisplayoptions['viewmoreurl'] = new lion_url($baseurl, array('browse' => 'courses', 'page' => 1));
+            $catdisplayoptions['viewmoreurl'] = new lion_url($baseurl, array('browse' => 'categories', 'page' => 1));
         }
         $chelper->set_courses_display_options($coursedisplayoptions)->set_categories_display_options($catdisplayoptions);
         // Add course search form.
@@ -1749,12 +1735,12 @@ class core_course_renderer extends plugin_renderer_base {
         // Add action buttons
         $output .= $this->container_start('buttons');
         $context = get_category_or_system_context($coursecat->id);
-        if (has_capability('moodle/course:create', $context)) {
+        if (has_capability('lion/course:create', $context)) {
             // Print link to create a new course, for the 1st available category.
             if ($coursecat->id) {
-                $url = new moodle_url('/course/edit.php', array('category' => $coursecat->id, 'returnto' => 'category'));
+                $url = new lion_url('/course/edit.php', array('category' => $coursecat->id, 'returnto' => 'category'));
             } else {
-                $url = new moodle_url('/course/edit.php', array('category' => $CFG->defaultrequestcategory, 'returnto' => 'topcat'));
+                $url = new lion_url('/course/edit.php', array('category' => $CFG->defaultrequestcategory, 'returnto' => 'topcat'));
             }
             $output .= $this->single_button($url, get_string('addnewcourse'), 'get');
         }
@@ -1795,14 +1781,14 @@ class core_course_renderer extends plugin_renderer_base {
             $category = coursecat::get($categoryid);
 
             $chelper = new coursecat_helper();
-            $baseurl = new moodle_url('/course/index.php', array('categoryid' => $categoryid));
+            $baseurl = new lion_url('/course/index.php', array('categoryid' => $categoryid));
             $coursedisplayoptions = array(
                 'limit' => $CFG->coursesperpage,
-                'viewmoreurl' => new moodle_url($baseurl, array('browse' => 'courses', 'page' => 1))
+                'viewmoreurl' => new lion_url($baseurl, array('browse' => 'courses', 'page' => 1))
             );
             $catdisplayoptions = array(
                 'limit' => $CFG->coursesperpage,
-                'viewmoreurl' => new moodle_url($baseurl, array('browse' => 'categories', 'page' => 1))
+                'viewmoreurl' => new lion_url($baseurl, array('browse' => 'categories', 'page' => 1))
             );
             $chelper->set_show_courses($showcourses)->
                     set_courses_display_options($coursedisplayoptions)->
@@ -1845,7 +1831,7 @@ class core_course_renderer extends plugin_renderer_base {
                 $displayoptions['offset'] = $displayoptions['limit'] * $page;
             }
             // options 'paginationurl' and 'paginationallowall' are only used in method coursecat_courses()
-            $displayoptions['paginationurl'] = new moodle_url('/course/search.php', $searchcriteria);
+            $displayoptions['paginationurl'] = new lion_url('/course/search.php', $searchcriteria);
             $displayoptions['paginationallowall'] = true; // allow adding link 'View all'
 
             $class = 'course-search-result';
@@ -1901,7 +1887,7 @@ class core_course_renderer extends plugin_renderer_base {
         global $CFG;
         require_once($CFG->libdir. '/coursecatlib.php');
         $displayoptions = array('limit' => $CFG->coursesperpage);
-        $displayoptions['viewmoreurl'] = new moodle_url('/course/search.php',
+        $displayoptions['viewmoreurl'] = new lion_url('/course/search.php',
                 array('tagid' => $tagid, 'page' => 1, 'perpage' => $CFG->coursesperpage));
         $displayoptions['viewmoretext'] = new lang_string('findmorecourses');
         $chelper = new coursecat_helper();
@@ -1930,7 +1916,7 @@ class core_course_renderer extends plugin_renderer_base {
      * @return string
      */
     protected function frontpage_remote_course(stdClass $course) {
-        $url = new moodle_url('/auth/mnet/jump.php', array(
+        $url = new lion_url('/auth/mnet/jump.php', array(
             'hostid' => $course->hostid,
             'wantsurl' => '/course/view.php?id='. $course->remoteid
         ));
@@ -2020,13 +2006,13 @@ class core_course_renderer extends plugin_renderer_base {
                 $totalcount = count($courses);
                 $courses = array_slice($courses, 0, $CFG->frontpagecourselimit, true);
                 $chelper->set_courses_display_options(array(
-                        'viewmoreurl' => new moodle_url('/my/'),
+                        'viewmoreurl' => new lion_url('/my/'),
                         'viewmoretext' => new lang_string('mycourses')
                     ));
             } else {
                 // All enrolled courses are displayed, display link to 'All courses' if there are more courses in system.
                 $chelper->set_courses_display_options(array(
-                        'viewmoreurl' => new moodle_url('/course/index.php'),
+                        'viewmoreurl' => new lion_url('/course/index.php'),
                         'viewmoretext' => new lang_string('fulllistofcourses')
                     ));
                 $totalcount = $DB->count_records('course') - 1;
@@ -2069,13 +2055,13 @@ class core_course_renderer extends plugin_renderer_base {
                 set_courses_display_options(array(
                     'recursive' => true,
                     'limit' => $CFG->frontpagecourselimit,
-                    'viewmoreurl' => new moodle_url('/course/index.php'),
+                    'viewmoreurl' => new lion_url('/course/index.php'),
                     'viewmoretext' => new lang_string('fulllistofcourses')));
 
         $chelper->set_attributes(array('class' => 'frontpage-course-list-all'));
         $courses = coursecat::get(0)->get_courses($chelper->get_courses_display_options());
         $totalcount = coursecat::get(0)->get_courses_count($chelper->get_courses_display_options());
-        if (!$totalcount && !$this->page->user_is_editing() && has_capability('moodle/course:create', context_system::instance())) {
+        if (!$totalcount && !$this->page->user_is_editing() && has_capability('lion/course:create', context_system::instance())) {
             // Print link to create a new course, for the 1st available category.
             return $this->add_new_course_button();
         }
@@ -2091,7 +2077,7 @@ class core_course_renderer extends plugin_renderer_base {
         global $CFG;
         // Print link to create a new course, for the 1st available category.
         $output = $this->container_start('buttons');
-        $url = new moodle_url('/course/edit.php', array('category' => $CFG->defaultrequestcategory, 'returnto' => 'topcat'));
+        $url = new lion_url('/course/edit.php', array('category' => $CFG->defaultrequestcategory, 'returnto' => 'topcat'));
         $output .= $this->single_button($url, get_string('addnewcourse'), 'get');
         $output .= $this->container_end('buttons');
         return $output;
@@ -2109,12 +2095,12 @@ class core_course_renderer extends plugin_renderer_base {
         $chelper->set_subcat_depth($CFG->maxcategorydepth)->
             set_categories_display_options(array(
                 'limit' => $CFG->coursesperpage,
-                'viewmoreurl' => new moodle_url('/course/index.php',
+                'viewmoreurl' => new lion_url('/course/index.php',
                         array('browse' => 'categories', 'page' => 1))
             ))->
             set_courses_display_options(array(
                 'limit' => $CFG->coursesperpage,
-                'viewmoreurl' => new moodle_url('/course/index.php',
+                'viewmoreurl' => new lion_url('/course/index.php',
                         array('browse' => 'courses', 'page' => 1))
             ))->
             set_attributes(array('class' => 'frontpage-category-combo'));
@@ -2134,7 +2120,7 @@ class core_course_renderer extends plugin_renderer_base {
                 set_show_courses(self::COURSECAT_SHOW_COURSES_COUNT)->
                 set_categories_display_options(array(
                     'limit' => $CFG->coursesperpage,
-                    'viewmoreurl' => new moodle_url('/course/index.php',
+                    'viewmoreurl' => new lion_url('/course/index.php',
                             array('browse' => 'categories', 'page' => 1))
                 ))->
                 set_attributes(array('class' => 'frontpage-category-names'));
@@ -2153,7 +2139,7 @@ class core_course_renderer extends plugin_renderer_base {
  *
  * @package   core
  * @copyright 2013 Marina Glancy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class coursecat_helper {
     /** @var string [none, collapsed, expanded] how (if) display courses list */
@@ -2380,7 +2366,7 @@ class coursecat_helper {
     public function get_category_formatted_description($coursecat, $options = null) {
         if ($coursecat->id && !empty($coursecat->description)) {
             if (!isset($coursecat->descriptionformat)) {
-                $descriptionformat = FORMAT_MOODLE;
+                $descriptionformat = FORMAT_LION;
             } else {
                 $descriptionformat = $coursecat->descriptionformat;
             }

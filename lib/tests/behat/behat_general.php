@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * General use steps definitions.
@@ -20,10 +6,10 @@
  * @package   core
  * @category  test
  * @copyright 2012 David Monllaó
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/../../behat/behat_base.php');
 
@@ -46,7 +32,7 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  * @package   core
  * @category  test
  * @copyright 2012 David Monllaó
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_general extends behat_base {
 
@@ -54,7 +40,7 @@ class behat_general extends behat_base {
      * @var string used by {@link switch_to_window()} and
      * {@link switch_to_the_main_window()} to work-around a Chrome browser issue.
      */
-    const MAIN_WINDOW_NAME = '__moodle_behat_main_window_name';
+    const MAIN_WINDOW_NAME = '__lion_behat_main_window_name';
 
     /**
      * @var string when we want to check whether or not a new page has loaded,
@@ -70,7 +56,7 @@ class behat_general extends behat_base {
     private $pageloaddetectionrunning = false;
 
     /**
-     * Opens Moodle homepage.
+     * Opens Lion homepage.
      *
      * @Given /^I am on homepage$/
      */
@@ -95,7 +81,7 @@ class behat_general extends behat_base {
     public function i_wait_to_be_redirected() {
 
         // Xpath and processes based on core_renderer::redirect_message(), core_renderer::$metarefreshtag and
-        // moodle_page::$periodicrefreshdelay possible values.
+        // lion_page::$periodicrefreshdelay possible values.
         if (!$metarefresh = $this->getSession()->getPage()->find('xpath', "//head/descendant::meta[@http-equiv='refresh']")) {
             // We don't fail the scenario if no redirection with message is found to avoid race condition false failures.
             return true;
@@ -162,7 +148,7 @@ class behat_general extends behat_base {
     }
 
     /**
-     * Switches to the main Moodle frame.
+     * Switches to the main Lion frame.
      *
      * @Given /^I switch to the main frame$/
      */
@@ -190,7 +176,7 @@ class behat_general extends behat_base {
     }
 
     /**
-     * Switches to the main Moodle window. Useful when you finish interacting with popup windows.
+     * Switches to the main Lion window. Useful when you finish interacting with popup windows.
      *
      * @Given /^I switch to the main window$/
      */
@@ -1122,7 +1108,7 @@ class behat_general extends behat_base {
 
     /**
      * Checks that the provided value exist in table.
-     * More info in http://docs.moodle.org/dev/Acceptance_testing#Providing_values_to_steps.
+     * More info in http://docs.lion.org/dev/Acceptance_testing#Providing_values_to_steps.
      *
      * First row may contain column headers or numeric indexes of the columns
      * (syntax -1- is also considered to be column index). Column indexes are
@@ -1152,7 +1138,7 @@ class behat_general extends behat_base {
 
     /**
      * Checks that the provided value exist in table.
-     * More info in http://docs.moodle.org/dev/Acceptance_testing#Providing_values_to_steps.
+     * More info in http://docs.lion.org/dev/Acceptance_testing#Providing_values_to_steps.
      *
      * @Then /^the following should not exist in the "(?P<table_string>[^"]*)" table:$/
      * @throws ExpectationException
@@ -1207,8 +1193,8 @@ class behat_general extends behat_base {
         }
 
         // Download the URL and check the size.
-        $session = $this->getSession()->getCookie('MoodleSession');
-        return download_file_content($url, array('Cookie' => 'MoodleSession=' . $session));
+        $session = $this->getSession()->getCookie('LionSession');
+        return download_file_content($url, array('Cookie' => 'LionSession=' . $session));
     }
 
     /**

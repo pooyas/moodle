@@ -1,7 +1,7 @@
 {
-    "name": "moodle-course-toolboxes",
+    "name": "lion-course-toolboxes",
     "builds": {
-        "moodle-course-toolboxes": {
+        "lion-course-toolboxes": {
             "jsfiles": [
                 "toolbox.js",
                 "resource.js",

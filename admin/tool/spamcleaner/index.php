@@ -3,7 +3,7 @@
 /**
  * Spam Cleaner
  *
- * Helps an admin to clean up spam in Moodle
+ * Helps an admin to clean up spam in Lion
  *
  * @author Dongsheng Cai
  * @author Martin Dougiamas
@@ -352,7 +352,7 @@ function print_user_entry($user, $keywords, $count) {
         }
 
         if (!isset($user->descriptionformat)) {
-            $user->descriptionformat = FORMAT_MOODLE;
+            $user->descriptionformat = FORMAT_LION;
         }
 
         $html .= '<td align="left">'.format_text($user->description, $user->descriptionformat, array('overflowdiv'=>true)).'</td>';

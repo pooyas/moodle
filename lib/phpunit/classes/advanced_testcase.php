@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Advanced test case.
@@ -20,23 +6,23 @@
  * @package    core
  * @category   phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
 /**
- * Advanced PHPUnit test case customised for Moodle.
+ * Advanced PHPUnit test case customised for Lion.
  *
  * @package    core
  * @category   phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
     /** @var bool automatically reset everything? null means log changes */
     private $resetAfterTest;
 
-    /** @var moodle_transaction */
+    /** @var lion_transaction */
     private $testdbtransaction;
 
     /** @var int timestamp used for current time asserts */
@@ -184,7 +170,7 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
     }
 
     /**
-     * Load date into moodle database tables from standard PHPUnit data set.
+     * Load date into lion database tables from standard PHPUnit data set.
      *
      * Note: it is usually better to use data generators
      *
@@ -518,7 +504,7 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
      *  - TEST_EXTERNAL_FILES_HTTPS_URL
      *
      * They should point to standard external test files repository,
-     * it defaults to 'http://download.moodle.org/unittest'.
+     * it defaults to 'http://download.lion.org/unittest'.
      *
      * False value means skip tests that require external files.
      *
@@ -538,7 +524,7 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
                 }
                 return TEST_EXTERNAL_FILES_HTTPS_URL.$path;
             }
-            return 'https://download.moodle.org/unittest'.$path;
+            return 'https://download.lion.org/unittest'.$path;
         }
 
         if (defined('TEST_EXTERNAL_FILES_HTTP_URL')) {
@@ -547,7 +533,7 @@ abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
             }
             return TEST_EXTERNAL_FILES_HTTP_URL.$path;
         }
-        return 'http://download.moodle.org/unittest'.$path;
+        return 'http://download.lion.org/unittest'.$path;
     }
 
     /**

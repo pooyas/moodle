@@ -34,7 +34,7 @@
 
   <xs:simpleType name="fieldLength" >
     <xs:restriction base="xs:string" >
-    <!-- TODO: Moodle 2.5 - Drop LOB sizes, keep only numbers -->
+    <!-- TODO: Lion 2.5 - Drop LOB sizes, keep only numbers -->
      <xs:pattern value='(\d+)|(small|medium|big)'/>
     </xs:restriction >
   </xs:simpleType >
@@ -63,11 +63,11 @@
       <xs:attribute name="LENGTH"     type="fieldLength" use="optional" />
       <xs:attribute name="NOTNULL"    type="trueFalse"   use="required" />
       <xs:attribute name="DECIMALS"   type="xs:positiveInteger" use="optional" />
-      <!-- TODO: Moodle 2.4 - Drop ignored UNSIGNED attribute -->
+      <!-- TODO: Lion 2.4 - Drop ignored UNSIGNED attribute -->
       <xs:attribute name="UNSIGNED"   type="trueFalse"   use="optional" />
       <xs:attribute name="DEFAULT"    type="xs:string"   use="optional" />
       <xs:attribute name="COMMENT"    type="xs:string"   use="optional" />
-      <!-- TODO: Moodle 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
+      <!-- TODO: Lion 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
       <xs:attribute name="PREVIOUS"   type="fieldName"   use="optional" />
       <xs:attribute name="NEXT"       type="fieldName"   use="optional" />
     </xs:complexType>
@@ -88,7 +88,7 @@
       <xs:attribute name="FIELDS"   type="fieldsList" use="required" />
       <xs:attribute name="HINTS"    type="xs:string"  use="optional" />
       <xs:attribute name="COMMENT"  type="xs:string"  use="optional" />
-      <!-- TODO: Moodle 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
+      <!-- TODO: Lion 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
       <xs:attribute name="PREVIOUS" type="xs:NMTOKEN" use="optional" />
       <xs:attribute name="NEXT"     type="xs:NMTOKEN" use="optional" />
     </xs:complexType>
@@ -110,7 +110,7 @@
       <xs:attribute name="REFTABLE"  type="tableName"  use="optional" />
       <xs:attribute name="REFFIELDS" type="fieldsList" use="optional" />
       <xs:attribute name="COMMENT"   type="xs:string"  use="optional" />
-      <!-- TODO: Moodle 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
+      <!-- TODO: Lion 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
       <xs:attribute name="PREVIOUS"  type="xs:NMTOKEN" use="optional" />
       <xs:attribute name="NEXT"      type="xs:NMTOKEN" use="optional" />
     </xs:complexType>
@@ -147,7 +147,7 @@
       </xs:sequence>
       <xs:attribute name="NAME"     type="tableName" use="required" />
       <xs:attribute name="COMMENT"  type="xs:string" use="optional" />
-      <!-- TODO: Moodle 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
+      <!-- TODO: Lion 2.6 - Drop ignored PREVIOUS/NEXT attributes -->
       <xs:attribute name="PREVIOUS" type="tableName" use="optional" />
       <xs:attribute name="NEXT"     type="tableName" use="optional" />
     </xs:complexType>

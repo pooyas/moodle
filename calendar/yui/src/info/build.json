@@ -1,7 +1,7 @@
 {
-    "name": "moodle-calendar-info",
+    "name": "lion-calendar-info",
     "builds": {
-        "moodle-calendar-info": {
+        "lion-calendar-info": {
             "jsfiles": [
                 "info.js"
             ]

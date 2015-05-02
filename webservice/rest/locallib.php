@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,7 +6,7 @@
  *
  * @package    webservice_rest
  * @copyright  2009 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("$CFG->dirroot/webservice/lib.php");
@@ -30,7 +16,7 @@ require_once("$CFG->dirroot/webservice/lib.php");
  *
  * @package    webservice_rest
  * @copyright  2009 Petr Skoda (skodak)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class webservice_rest_server extends webservice_base_server {
 
@@ -66,10 +52,10 @@ class webservice_rest_server extends webservice_base_server {
         $methodvariables = array_merge($_GET, $_POST);
 
         // Retrieve REST format parameter - 'xml' (default) or 'json'.
-        $restformatisset = isset($methodvariables['moodlewsrestformat'])
-                && (($methodvariables['moodlewsrestformat'] == 'xml' || $methodvariables['moodlewsrestformat'] == 'json'));
-        $this->restformat = $restformatisset ? $methodvariables['moodlewsrestformat'] : 'xml';
-        unset($methodvariables['moodlewsrestformat']);
+        $restformatisset = isset($methodvariables['lionwsrestformat'])
+                && (($methodvariables['lionwsrestformat'] == 'xml' || $methodvariables['lionwsrestformat'] == 'json'));
+        $this->restformat = $restformatisset ? $methodvariables['lionwsrestformat'] : 'xml';
+        unset($methodvariables['lionwsrestformat']);
 
         if ($this->authmethod == WEBSERVICE_AUTHMETHOD_USERNAME) {
             $this->username = isset($methodvariables['wsusername']) ? $methodvariables['wsusername'] : null;
@@ -238,7 +224,7 @@ class webservice_rest_server extends webservice_base_server {
  *
  * @package    webservice_rest
  * @copyright  2009 Petr Skoda (skodak)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class webservice_rest_test_client implements webservice_test_client_interface {
     /**

@@ -1,22 +1,8 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * My Moodle -- a user's personal dashboard
+ * My Lion -- a user's personal dashboard
  *
  * - each user can currently have their own page (cloned from system and then customised)
  * - only the user can see their own dashboard
@@ -27,12 +13,12 @@
  * This script implements the user's view of the dashboard, and allows editing
  * of the dashboard.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage my
  * @copyright  2010 Remote-Learner.net
  * @author     Hubert Chathi <hubert@remote-learner.net>
  * @author     Olav Jordan <olav.jordan@remote-learner.net>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(__FILE__) . '/../config.php');
@@ -46,30 +32,30 @@ $reset  = optional_param('reset', null, PARAM_BOOL);
 
 require_login();
 
-$strmymoodle = get_string('myhome');
+$strmylion = get_string('myhome');
 
 if (isguestuser()) {  // Force them to see system default, no editing allowed
-    // If guests are not allowed my moodle, send them to front page.
-    if (empty($CFG->allowguestmymoodle)) {
-        redirect(new moodle_url('/', array('redirect' => 0)));
+    // If guests are not allowed my lion, send them to front page.
+    if (empty($CFG->allowguestmylion)) {
+        redirect(new lion_url('/', array('redirect' => 0)));
     }
 
     $userid = null;
     $USER->editing = $edit = 0;  // Just in case
     $context = context_system::instance();
-    $PAGE->set_blocks_editing_capability('moodle/my:configsyspages');  // unlikely :)
-    $header = "$SITE->shortname: $strmymoodle (GUEST)";
+    $PAGE->set_blocks_editing_capability('lion/my:configsyspages');  // unlikely :)
+    $header = "$SITE->shortname: $strmylion (GUEST)";
 
-} else {        // We are trying to view or edit our own My Moodle page
+} else {        // We are trying to view or edit our own My Lion page
     $userid = $USER->id;  // Owner of the page
     $context = context_user::instance($USER->id);
-    $PAGE->set_blocks_editing_capability('moodle/my:manageblocks');
-    $header = "$SITE->shortname: $strmymoodle";
+    $PAGE->set_blocks_editing_capability('lion/my:manageblocks');
+    $header = "$SITE->shortname: $strmylion";
 }
 
-// Get the My Moodle page info.  Should always return something unless the database is broken.
+// Get the My Lion page info.  Should always return something unless the database is broken.
 if (!$currentpage = my_get_page($userid, MY_PAGE_PRIVATE)) {
-    print_error('mymoodlesetup');
+    print_error('mylionsetup');
 }
 
 if (!$currentpage->userid) {
@@ -92,7 +78,7 @@ if (!isguestuser()) {   // Skip default home page for guests
         if (optional_param('setdefaulthome', false, PARAM_BOOL)) {
             set_user_preference('user_home_page_preference', HOMEPAGE_MY);
         } else if (!empty($CFG->defaulthomepage) && $CFG->defaulthomepage == HOMEPAGE_USER) {
-            $PAGE->settingsnav->get('usercurrentsettings')->add(get_string('makethismyhome'), new moodle_url('/my/', array('setdefaulthome'=>true)), navigation_node::TYPE_SETTING);
+            $PAGE->settingsnav->get('usercurrentsettings')->add(get_string('makethismyhome'), new lion_url('/my/', array('setdefaulthome'=>true)), navigation_node::TYPE_SETTING);
         }
     }
 }
@@ -105,7 +91,7 @@ if ($PAGE->user_allowed_editing()) {
             if(!$currentpage = my_reset_page($userid, MY_PAGE_PRIVATE)){
                 print_error('reseterror', 'my');
             }
-            redirect(new moodle_url('/my'));
+            redirect(new lion_url('/my'));
         }
     } else if ($edit !== null) {             // Editing state was specified
         $USER->editing = $edit;       // Change editing state
@@ -114,7 +100,7 @@ if ($PAGE->user_allowed_editing()) {
             // editing on, copy the system pages as new user pages, and get the
             // new page record
             if (!$currentpage = my_copy_page($USER->id, MY_PAGE_PRIVATE)) {
-                print_error('mymoodlesetup');
+                print_error('mylionsetup');
             }
             $context = context_user::instance($USER->id);
             $PAGE->set_context($context);
@@ -137,20 +123,20 @@ if ($PAGE->user_allowed_editing()) {
 
     $resetbutton = '';
     $resetstring = get_string('resetpage', 'my');
-    $reseturl = new moodle_url("$CFG->wwwroot/my/index.php", array('edit' => 1, 'reset' => 1));
+    $reseturl = new lion_url("$CFG->wwwroot/my/index.php", array('edit' => 1, 'reset' => 1));
 
     if (!$currentpage->userid) {
         // viewing a system page -- let the user customise it
-        $editstring = get_string('updatemymoodleon');
+        $editstring = get_string('updatemylionon');
         $params['edit'] = 1;
     } else if (empty($edit)) {
-        $editstring = get_string('updatemymoodleon');
+        $editstring = get_string('updatemylionon');
     } else {
-        $editstring = get_string('updatemymoodleoff');
+        $editstring = get_string('updatemylionoff');
         $resetbutton = $OUTPUT->single_button($reseturl, $resetstring);
     }
 
-    $url = new moodle_url("$CFG->wwwroot/my/index.php", $params);
+    $url = new lion_url("$CFG->wwwroot/my/index.php", $params);
     $button = $OUTPUT->single_button($url, $editstring);
     $PAGE->set_button($resetbutton . $button);
 

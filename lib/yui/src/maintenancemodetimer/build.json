@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core-maintenancemodetimer",
+  "name": "lion-core-maintenancemodetimer",
   "builds": {
-    "moodle-core-maintenancemodetimer": {
+    "lion-core-maintenancemodetimer": {
       "jsfiles": [
         "maintenancemodetimer.js"
       ]

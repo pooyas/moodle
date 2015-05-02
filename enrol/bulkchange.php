@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Bulk user enrolment processing.
  *
  * @package    core_enrol
  * @copyright  2011 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../config.php');
@@ -38,24 +24,24 @@ $course = $DB->get_record('course', array('id'=>$id), '*', MUST_EXIST);
 $context = context_course::instance($course->id, MUST_EXIST);
 
 if ($course->id == SITEID) {
-    redirect(new moodle_url('/'));
+    redirect(new lion_url('/'));
 }
 
 require_login($course);
-require_capability('moodle/course:enrolreview', $context);
+require_capability('lion/course:enrolreview', $context);
 $PAGE->set_pagelayout('admin');
 
 $manager = new course_enrolment_manager($PAGE, $course, $filter);
 $table = new course_enrolment_users_table($manager, $PAGE);
-$returnurl = new moodle_url('/enrol/users.php', $table->get_combined_url_params());
-$actionurl = new moodle_url('/enrol/bulkchange.php', $table->get_combined_url_params()+array('bulkuserop' => $bulkuserop));
+$returnurl = new lion_url('/enrol/users.php', $table->get_combined_url_params());
+$actionurl = new lion_url('/enrol/bulkchange.php', $table->get_combined_url_params()+array('bulkuserop' => $bulkuserop));
 
 $PAGE->set_url($actionurl);
-navigation_node::override_active_url(new moodle_url('/enrol/users.php', array('id' => $id)));
+navigation_node::override_active_url(new lion_url('/enrol/users.php', array('id' => $id)));
 
 $ops = $table->get_bulk_user_enrolment_operations();
 if (!array_key_exists($bulkuserop, $ops)) {
-    throw new moodle_exception('invalidbulkenrolop');
+    throw new lion_exception('invalidbulkenrolop');
 }
 $operation = $ops[$bulkuserop];
 

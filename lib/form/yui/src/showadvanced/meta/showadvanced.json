@@ -1,5 +1,5 @@
 {
-    "moodle-form-showadvanced": {
+    "lion-form-showadvanced": {
         "requires": [
             "node",
             "base",

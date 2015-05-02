@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Core grades external functions
  *
  * @package    core_grades
  * @copyright  2012 Andrew Davis
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.7
+ * 
+ * @since Lion 2.7
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 require_once("$CFG->libdir/gradelib.php");
@@ -37,7 +23,7 @@ class core_grades_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function get_grades_parameters() {
         return new external_function_parameters(
@@ -64,7 +50,7 @@ class core_grades_external extends external_api {
      * @param  int $activityid      Activity id
      * @param  array  $userids      Array of user ids
      * @return array                Array of grades
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function get_grades($courseid, $component = null, $activityid = null, $userids = array()) {
         global $CFG, $USER, $DB;
@@ -85,33 +71,33 @@ class core_grades_external extends external_api {
             $exceptionparam = new stdClass();
             $exceptionparam->message = $e->getMessage();
             $exceptionparam->courseid = $params['courseid'];
-            throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+            throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
         }
 
-        require_capability('moodle/grade:viewhidden', $coursecontext);
+        require_capability('lion/grade:viewhidden', $coursecontext);
 
         $course = $DB->get_record('course', array('id' => $params['courseid']), '*', MUST_EXIST);
 
         $access = false;
-        if (has_capability('moodle/grade:viewall', $coursecontext)) {
+        if (has_capability('lion/grade:viewall', $coursecontext)) {
             // Can view all user's grades in this course.
             $access = true;
 
         } else if ($course->showgrades && count($params['userids']) == 1) {
             // Course showgrades == students/parents can access grades.
 
-            if ($params['userids'][0] == $USER->id and has_capability('moodle/grade:view', $coursecontext)) {
+            if ($params['userids'][0] == $USER->id and has_capability('lion/grade:view', $coursecontext)) {
                 // Student can view their own grades in this course.
                 $access = true;
 
-            } else if (has_capability('moodle/grade:viewall', context_user::instance($params['userids'][0]))) {
+            } else if (has_capability('lion/grade:viewall', context_user::instance($params['userids'][0]))) {
                 // User can view the grades of this user. Parent most probably.
                 $access = true;
             }
         }
 
         if (!$access) {
-            throw new moodle_exception('nopermissiontoviewgrades', 'error');
+            throw new lion_exception('nopermissiontoviewgrades', 'error');
         }
 
         $itemtype = null;
@@ -125,7 +111,7 @@ class core_grades_external extends external_api {
         $cm = null;
         if (!empty($itemmodule) && !empty($params['activityid'])) {
             if (!$cm = get_coursemodule_from_id($itemmodule, $params['activityid'])) {
-                throw new moodle_exception('invalidcoursemodule');
+                throw new lion_exception('invalidcoursemodule');
             }
             $iteminstance = $cm->instance;
         }
@@ -146,7 +132,7 @@ class core_grades_external extends external_api {
         }
 
         if ($activitygrades = grade_item::fetch_all($gradeparams)) {
-            $canviewhidden = has_capability('moodle/grade:viewhidden', context_course::instance($params['courseid']));
+            $canviewhidden = has_capability('lion/grade:viewhidden', context_course::instance($params['courseid']));
 
             foreach ($activitygrades as $activitygrade) {
 
@@ -306,7 +292,7 @@ class core_grades_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function get_grades_returns() {
         return new external_single_structure(
@@ -405,7 +391,7 @@ class core_grades_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function update_grades_parameters() {
         return new external_function_parameters(
@@ -464,7 +450,7 @@ class core_grades_external extends external_api {
      * @param  array  $grades      Array of grades
      * @param  array  $itemdetails Array of item details
      * @return int                  A status flag
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function update_grades($source, $courseid, $component, $activityid,
         $itemnumber, $grades = array(), $itemdetails = array()) {
@@ -486,7 +472,7 @@ class core_grades_external extends external_api {
         list($itemtype, $itemmodule) = normalize_component($params['component']);
 
         if (! $cm = get_coursemodule_from_id($itemmodule, $activityid)) {
-            throw new moodle_exception('invalidcoursemodule');
+            throw new lion_exception('invalidcoursemodule');
         }
         $iteminstance = $cm->instance;
 
@@ -498,7 +484,7 @@ class core_grades_external extends external_api {
             $exceptionparam = new stdClass();
             $exceptionparam->message = $e->getMessage();
             $exceptionparam->courseid = $params['courseid'];
-            throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+            throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
         }
 
         $hidinggrades = false;
@@ -518,18 +504,18 @@ class core_grades_external extends external_api {
             }
         }
 
-        if ($editinggradeitem && !has_capability('moodle/grade:manage', $coursecontext)) {
-            throw new moodle_exception('nopermissiontoviewgrades', 'error', '', null,
-                'moodle/grade:manage required to edit grade information');
+        if ($editinggradeitem && !has_capability('lion/grade:manage', $coursecontext)) {
+            throw new lion_exception('nopermissiontoviewgrades', 'error', '', null,
+                'lion/grade:manage required to edit grade information');
         }
-        if ($hidinggrades && !has_capability('moodle/grade:hide', $coursecontext) &&
-            !has_capability('moodle/grade:hide', $coursecontext)) {
-            throw new moodle_exception('nopermissiontoviewgrades', 'error', '', null,
-                'moodle/grade:hide required to hide grade items');
+        if ($hidinggrades && !has_capability('lion/grade:hide', $coursecontext) &&
+            !has_capability('lion/grade:hide', $coursecontext)) {
+            throw new lion_exception('nopermissiontoviewgrades', 'error', '', null,
+                'lion/grade:hide required to hide grade items');
         }
-        if ($editinggrades && !has_capability('moodle/grade:edit', $coursecontext)) {
-            throw new moodle_exception('nopermissiontoviewgrades', 'error', '', null,
-                'moodle/grade:edit required to edit grades');
+        if ($editinggrades && !has_capability('lion/grade:edit', $coursecontext)) {
+            throw new lion_exception('nopermissiontoviewgrades', 'error', '', null,
+                'lion/grade:edit required to edit grades');
         }
 
         return grade_update($params['source'], $params['courseid'], $itemtype,
@@ -540,7 +526,7 @@ class core_grades_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.7
+     * @since Lion 2.7
      */
     public static function update_grades_returns() {
         return new external_value(

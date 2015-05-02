@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Display all recent activity in a flexible way
@@ -73,7 +59,7 @@ if (!empty($param->user)) {
 }
 
 $strrecentactivity = get_string('recentactivity');
-$PAGE->navbar->add($strrecentactivity, new moodle_url('/course/recent.php', array('id'=>$course->id)));
+$PAGE->navbar->add($strrecentactivity, new lion_url('/course/recent.php', array('id'=>$course->id)));
 $PAGE->navbar->add($userinfo);
 $PAGE->set_title("$course->shortname: $strrecentactivity");
 $PAGE->set_heading($course->fullname);
@@ -85,7 +71,7 @@ $mform->display();
 $modinfo = get_fast_modinfo($course);
 $modnames = get_module_types_names();
 
-if (has_capability('moodle/course:viewhiddensections', $context)) {
+if (has_capability('lion/course:viewhiddensections', $context)) {
     $hiddenfilter = "";
 } else {
     $hiddenfilter = "AND cs.visible = 1";
@@ -231,7 +217,7 @@ if (!empty($activities)) {
                 $modfullname = $modnames[$cm->modname];
 
                 $image = $OUTPUT->pix_icon('icon', $modfullname, $cm->modname, array('class' => 'icon smallicon'));
-                $link = html_writer::link(new moodle_url("/mod/$cm->modname/view.php",
+                $link = html_writer::link(new lion_url("/mod/$cm->modname/view.php",
                             array("id" => $cm->id)), $name, array('class' => $class));
                 echo html_writer::tag('h3', "$image $modfullname $link");
            }
@@ -240,7 +226,7 @@ if (!empty($activities)) {
 
             if (!isset($viewfullnames[$activity->cmid])) {
                 $cm_context = context_module::instance($activity->cmid);
-                $viewfullnames[$activity->cmid] = has_capability('moodle/site:viewfullnames', $cm_context);
+                $viewfullnames[$activity->cmid] = has_capability('lion/site:viewfullnames', $cm_context);
             }
 
             if (!$inbox) {

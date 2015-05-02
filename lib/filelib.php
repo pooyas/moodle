@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Functions for file handling.
  *
  * @package   core_files
  * @copyright 1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * BYTESERVING_BOUNDARY - string unique string constant.
@@ -42,7 +28,7 @@ require_once("$CFG->libdir/filebrowser/file_browser.php");
 /**
  * Encodes file serving url
  *
- * @deprecated use moodle_url factory methods instead
+ * @deprecated use lion_url factory methods instead
  *
  * @todo MDL-31071 deprecate this function
  * @global stdClass $CFG
@@ -335,7 +321,7 @@ function file_postupdate_standard_filemanager($data, $field, array $options, $co
  * Generate a draft itemid
  *
  * @category files
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @global stdClass $USER
  * @return int a random but available draft itemid that can be used to create a new draft
  * file area.
@@ -541,7 +527,7 @@ function file_get_draft_area_info($draftitemid, $filepath = '/') {
  * @param int $newfilesize the size that would be added to the current area.
  * @param bool $includereferences true to include the size of the references in the area size.
  * @return bool true if the area will/has exceeded its limit.
- * @since Moodle 2.4
+ * @since Lion 2.4
  */
 function file_is_draft_area_limit_reached($draftitemid, $areamaxbytes, $newfilesize = 0, $includereferences = false) {
     if ($areamaxbytes != FILE_AREA_MAX_BYTES_UNLIMITED) {
@@ -559,7 +545,7 @@ function file_is_draft_area_limit_reached($draftitemid, $areamaxbytes, $newfiles
 
 /**
  * Get used space of files
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @global stdClass $USER
  * @return int total bytes
  */
@@ -697,7 +683,7 @@ function file_get_drafarea_files($draftitemid, $filepath = '/') {
                 } else {
                     $item->type = 'file';
                 }
-                $itemurl = moodle_url::make_draftfile_url($draftitemid, $item->filepath, $item->filename);
+                $itemurl = lion_url::make_draftfile_url($draftitemid, $item->filepath, $item->filename);
                 $item->url = $itemurl->out();
                 $item->icon = $OUTPUT->pix_url(file_file_icon($file, 24))->out(false);
                 $item->thumbnail = $OUTPUT->pix_url(file_file_icon($file, 90))->out(false);
@@ -764,7 +750,7 @@ function file_restore_source_field_from_draft_file($storedfile) {
             $restoredsource = $source->source;
             $storedfile->set_source($restoredsource);
         } else {
-            throw new moodle_exception('invalidsourcefield', 'error');
+            throw new lion_exception('invalidsourcefield', 'error');
         }
     }
     return $storedfile;
@@ -1009,7 +995,7 @@ function file_rewrite_urls_to_pluginfile($text, $draftitemid, $forcehttps = fals
 /**
  * Set file sort order
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param int $contextid the context id
  * @param string $component file component
  * @param string $filearea file area.
@@ -1033,7 +1019,7 @@ function file_set_sortorder($contextid, $component, $filearea, $itemid, $filepat
 
 /**
  * reset file sort order number to 0
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param int $contextid the context id
  * @param string $component
  * @param string $filearea file area.
@@ -1357,11 +1343,11 @@ function download_file_content($url, $headers=null, $postdata=null, $fullrespons
  * The following elements expected in value array for each extension:
  * 'type' - mimetype
  * 'icon' - location of the icon file. If value is FILENAME, then either pix/f/FILENAME.gif
- *     or pix/f/FILENAME.png must be present in moodle and contain 16x16 filetype icon;
+ *     or pix/f/FILENAME.png must be present in lion and contain 16x16 filetype icon;
  *     also files with bigger sizes under names
  *     FILENAME-24, FILENAME-32, FILENAME-64, FILENAME-128, FILENAME-256 are recommended.
  * 'groups' (optional) - array of filetype groups this filetype extension is part of;
- *     commonly used in moodle the following groups:
+ *     commonly used in lion the following groups:
  *       - web_image - image that can be included as <img> in HTML
  *       - image - image that we can parse using GD to find it's dimensions, also used for portfolio format
  *       - video - file that can be imported as video in text editor
@@ -1981,7 +1967,7 @@ function readstring_accel($string, $mimetype, $accelerate) {
  * Handles the sending of temporary file to user, download is forced.
  * File is deleted after abort or successful sending, does not return, script terminated
  *
- * @param string $path path to file, preferably from moodledata/temp/something; or content of file itself
+ * @param string $path path to file, preferably from liondata/temp/something; or content of file itself
  * @param string $filename proposed file name when saving file
  * @param bool $pathisstring If the path is string
  */
@@ -2148,7 +2134,7 @@ function send_file($path, $filename, $lifetime = null , $filter=0, $pathisstring
             $options->newlines = false;
             $options->noclean = true;
             $text = htmlentities($pathisstring ? $path : implode('', file($path)), ENT_QUOTES, 'UTF-8');
-            $output = '<pre>'. format_text($text, FORMAT_MOODLE, $options, $COURSE->id) .'</pre>';
+            $output = '<pre>'. format_text($text, FORMAT_LION, $options, $COURSE->id) .'</pre>';
 
             readstring_accel($output, $mimetype, false);
 
@@ -2330,7 +2316,7 @@ function send_stored_file($stored_file, $lifetime=null, $filter=0, $forcedownloa
             $options->newlines = false;
             $options->noclean = true;
             $text = $stored_file->get_content();
-            $output = '<pre>'. format_text($text, FORMAT_MOODLE, $options, $COURSE->id) .'</pre>';
+            $output = '<pre>'. format_text($text, FORMAT_LION, $options, $COURSE->id) .'</pre>';
 
             readstring_accel($output, $mimetype, false);
 
@@ -2349,7 +2335,7 @@ function send_stored_file($stored_file, $lifetime=null, $filter=0, $forcedownloa
  * them into a given table structure
  *
  * @global stdClass $CFG
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param string $file The path to a CSV file
  * @param string $table The table to retrieve columns from
  * @return bool|array Returns an array of CSV records or false
@@ -2398,7 +2384,7 @@ function get_records_csv($file, $table) {
  * Create a file with CSV contents
  *
  * @global stdClass $CFG
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param string $file The file to put the CSV content into
  * @param array $records An array of records to write to a CSV file
  * @param string $table The table to get columns from
@@ -2650,14 +2636,14 @@ function file_modify_html_header($text) {
  * // HTTP GET Method
  * $html = $c->get('http://example.com');
  * // HTTP POST Method
- * $html = $c->post('http://example.com/', array('q'=>'words', 'name'=>'moodle'));
+ * $html = $c->post('http://example.com/', array('q'=>'words', 'name'=>'lion'));
  * // HTTP PUT Method
  * $html = $c->put('http://example.com/', array('file'=>'/var/www/test.txt');
  * </code>
  *
  * @package   core_files
  * @category files
- * @copyright Dongsheng Cai <dongsheng@moodle.com>
+ * @copyright Dongsheng Cai <dongsheng@lion.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class curl {
@@ -2777,7 +2763,7 @@ class curl {
      */
     public function resetopt() {
         $this->options = array();
-        $this->options['CURLOPT_USERAGENT']         = 'MoodleBot/1.0';
+        $this->options['CURLOPT_USERAGENT']         = 'LionBot/1.0';
         // True to include the header in the output
         $this->options['CURLOPT_HEADER']            = 0;
         // True to Exclude the body from the output
@@ -2806,8 +2792,8 @@ class curl {
         global $CFG;
 
         // Bundle in dataroot always wins.
-        if (is_readable("$CFG->dataroot/moodleorgca.crt")) {
-            return realpath("$CFG->dataroot/moodleorgca.crt");
+        if (is_readable("$CFG->dataroot/lionorgca.crt")) {
+            return realpath("$CFG->dataroot/lionorgca.crt");
         }
 
         // Next comes the default from php.ini
@@ -3009,7 +2995,7 @@ class curl {
         // set headers
         if (empty($this->header)) {
             $this->setHeader(array(
-                'User-Agent: MoodleBot/1.0',
+                'User-Agent: LionBot/1.0',
                 'Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7',
                 'Connection: keep-alive'
                 ));
@@ -3290,7 +3276,7 @@ class curl {
         } else {
             return $this->error;
             // exception is not ajax friendly
-            //throw new moodle_exception($this->error, 'curl');
+            //throw new lion_exception($this->error, 'curl');
         }
     }
 
@@ -3430,7 +3416,7 @@ class curl {
         $options['CURLOPT_INFILESIZE'] = $size;
         $options['CURLOPT_INFILE']     = $fp;
         if (!isset($this->options['CURLOPT_USERPWD'])) {
-            $this->setopt(array('CURLOPT_USERPWD'=>'anonymous: noreply@moodle.org'));
+            $this->setopt(array('CURLOPT_USERPWD'=>'anonymous: noreply@lion.org'));
         }
         $ret = $this->request($url, $options);
         fclose($fp);
@@ -3448,7 +3434,7 @@ class curl {
     public function delete($url, $param = array(), $options = array()) {
         $options['CURLOPT_CUSTOMREQUEST'] = 'DELETE';
         if (!isset($options['CURLOPT_USERPWD'])) {
-            $options['CURLOPT_USERPWD'] = 'anonymous: noreply@moodle.org';
+            $options['CURLOPT_USERPWD'] = 'anonymous: noreply@lion.org';
         }
         $ret = $this->request($url, $options);
         return $ret;
@@ -3550,8 +3536,8 @@ class curl {
  * </code>
  *
  * @package   core_files
- * @copyright Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 class curl_cache {
     /** @var string Path to cache directory */
@@ -3919,7 +3905,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
             // If its a group event require either membership of view all groups capability
             if ($event->eventtype === 'group') {
-                if (!has_capability('moodle/site:accessallgroups', $context) && !groups_is_member($event->groupid, $USER->id)) {
+                if (!has_capability('lion/site:accessallgroups', $context) && !groups_is_member($event->groupid, $USER->id)) {
                     send_file_not_found();
                 }
             } else if ($event->eventtype === 'course' || $event->eventtype === 'site') {
@@ -3965,7 +3951,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 // also if login is required for profile images and is not logged in or guest
                 // do not use require_login() because it is expensive and not suitable here anyway
                 $theme = theme_config::load($themename);
-                redirect($theme->pix_url('u/'.$filename, 'moodle')); // intentionally not cached
+                redirect($theme->pix_url('u/'.$filename, 'lion')); // intentionally not cached
             }
 
             if (!$file = $fs->get_file($context->id, 'user', 'icon', 0, '/', $filename.'.png')) {
@@ -3987,7 +3973,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 }
                 // no redirect here because it is not cached
                 $theme = theme_config::load($themename);
-                $imagefile = $theme->resolve_image_location('u/'.$filename, 'moodle', null);
+                $imagefile = $theme->resolve_image_location('u/'.$filename, 'lion', null);
                 send_file($imagefile, basename($imagefile), 60*60*24*14);
             }
 
@@ -4038,12 +4024,12 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 }
 
                 // we allow access to site profile of all course contacts (usually teachers)
-                if (!has_coursecontact_role($userid) && !has_capability('moodle/user:viewdetails', $context)) {
+                if (!has_coursecontact_role($userid) && !has_capability('lion/user:viewdetails', $context)) {
                     send_file_not_found();
                 }
 
                 $canview = false;
-                if (has_capability('moodle/user:viewdetails', $context)) {
+                if (has_capability('lion/user:viewdetails', $context)) {
                     $canview = true;
                 } else {
                     $courses = enrol_get_my_courses();
@@ -4051,7 +4037,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
                 while (!$canview && count($courses) > 0) {
                     $course = array_shift($courses);
-                    if (has_capability('moodle/user:viewdetails', context_course::instance($course->id))) {
+                    if (has_capability('lion/user:viewdetails', context_course::instance($course->id))) {
                         $canview = true;
                     }
                 }
@@ -4081,16 +4067,16 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
                 }
 
                 //TODO: review this logic of user profile access prevention
-                if (!has_coursecontact_role($userid) and !has_capability('moodle/user:viewdetails', $usercontext)) {
+                if (!has_coursecontact_role($userid) and !has_capability('lion/user:viewdetails', $usercontext)) {
                     print_error('usernotavailable');
                 }
-                if (!has_capability('moodle/user:viewdetails', $context) && !has_capability('moodle/user:viewdetails', $usercontext)) {
+                if (!has_capability('lion/user:viewdetails', $context) && !has_capability('lion/user:viewdetails', $usercontext)) {
                     print_error('cannotviewprofile');
                 }
                 if (!is_enrolled($context, $userid)) {
                     print_error('notenrolledprofile');
                 }
-                if (groups_get_course_groupmode($course) == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+                if (groups_get_course_groupmode($course) == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
                     print_error('groupnotamember');
                 }
             }
@@ -4209,7 +4195,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
         $groupid = (int)array_shift($args);
 
         $group = $DB->get_record('groups', array('id'=>$groupid, 'courseid'=>$course->id), '*', MUST_EXIST);
-        if (($course->groupmodeforce and $course->groupmode == SEPARATEGROUPS) and !has_capability('moodle/site:accessallgroups', $context) and !groups_is_member($group->id, $USER->id)) {
+        if (($course->groupmodeforce and $course->groupmode == SEPARATEGROUPS) and !has_capability('lion/site:accessallgroups', $context) and !groups_is_member($group->id, $USER->id)) {
             // do not allow access to separate group info if not member or teacher
             send_file_not_found();
         }
@@ -4275,7 +4261,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
     } else if ($component === 'backup') {
         if ($filearea === 'course' and $context->contextlevel == CONTEXT_COURSE) {
             require_login($course);
-            require_capability('moodle/backup:downloadfile', $context);
+            require_capability('lion/backup:downloadfile', $context);
 
             $filename = array_pop($args);
             $filepath = $args ? '/'.implode('/', $args).'/' : '/';
@@ -4288,7 +4274,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
         } else if ($filearea === 'section' and $context->contextlevel == CONTEXT_COURSE) {
             require_login($course);
-            require_capability('moodle/backup:downloadfile', $context);
+            require_capability('lion/backup:downloadfile', $context);
 
             $sectionid = (int)array_shift($args);
 
@@ -4303,7 +4289,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
         } else if ($filearea === 'activity' and $context->contextlevel == CONTEXT_MODULE) {
             require_login($course, false, $cm);
-            require_capability('moodle/backup:downloadfile', $context);
+            require_capability('lion/backup:downloadfile', $context);
 
             $filename = array_pop($args);
             $filepath = $args ? '/'.implode('/', $args).'/' : '/';
@@ -4318,7 +4304,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
             // Backup files that were generated by the automated backup systems.
 
             require_login($course);
-            require_capability('moodle/site:config', $context);
+            require_capability('lion/site:config', $context);
 
             $filename = array_pop($args);
             $filepath = $args ? '/'.implode('/', $args).'/' : '/';
@@ -4438,7 +4424,7 @@ function file_pluginfile($relativepath, $forcedownload, $preview = null) {
 
             $bprecord = $DB->get_record('block_positions', array('contextid' => $context->id, 'blockinstanceid' => $context->instanceid));
             // User can't access file, if block is hidden or doesn't have block:view capability
-            if (($bprecord && !$bprecord->visible) || !has_capability('moodle/block:view', $context)) {
+            if (($bprecord && !$bprecord->visible) || !has_capability('lion/block:view', $context)) {
                  send_file_not_found();
             }
         } else {

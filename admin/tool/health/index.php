@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'tool_health', language 'en', branch 'MOODLE_22_STABLE'
+ * Strings for component 'tool_health', language 'en', branch 'LION_22_STABLE'
  *
  * @package    tool
  * @subpackage health
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
     ob_start(); //for whitespace test
@@ -40,7 +26,7 @@
     $solution = optional_param('solution', 0, PARAM_PLUGIN);
 
     require_login();
-    require_capability('moodle/site:config', context_system::instance());
+    require_capability('lion/site:config', context_system::instance());
 
     $site = get_site();
 
@@ -169,7 +155,7 @@ class problem_000002 extends problem_base {
         return SEVERITY_SIGNIFICANT;
     }
     function description() {
-        return 'Your Moodle configuration file config.php or another library file, contains some characters after the closing PHP tag (?>). This causes Moodle to exhibit several kinds of problems (such as broken downloaded files) and must be fixed.';
+        return 'Your Lion configuration file config.php or another library file, contains some characters after the closing PHP tag (?>). This causes Lion to exhibit several kinds of problems (such as broken downloaded files) and must be fixed.';
     }
     function solution() {
         global $CFG;
@@ -193,11 +179,11 @@ class problem_000003 extends problem_base {
     }
     function description() {
         global $CFG;
-        return 'Your <strong>config.php</strong> says that your "data root" directory is <strong>'.$CFG->dataroot.'</strong>. However, this directory either does not exist or cannot be written to by Moodle. This means that a variety of problems will be present, such as users not being able to log in and not being able to upload any files. It is imperative that you address this problem for Moodle to work correctly.';
+        return 'Your <strong>config.php</strong> says that your "data root" directory is <strong>'.$CFG->dataroot.'</strong>. However, this directory either does not exist or cannot be written to by Lion. This means that a variety of problems will be present, such as users not being able to log in and not being able to upload any files. It is imperative that you address this problem for Lion to work correctly.';
     }
     function solution() {
         global $CFG;
-        return 'First of all, make sure that the directory <strong>'.$CFG->dataroot.'</strong> exists. If the directory does exist, then you must make sure that Moodle is able to write to it. Contact your web server administrator and request that he gives write permissions for that directory to the user that the web server process is running as.';
+        return 'First of all, make sure that the directory <strong>'.$CFG->dataroot.'</strong> exists. If the directory does exist, then you must make sure that Lion is able to write to it. Contact your web server administrator and request that he gives write permissions for that directory to the user that the web server process is running as.';
     }
 }
 
@@ -214,7 +200,7 @@ class problem_000004 extends problem_base {
         return SEVERITY_SIGNIFICANT;
     }
     function description() {
-        return 'The cron.php mainenance script has not been run in the past 24 hours. This probably means that your server is not configured to automatically run this script in regular time intervals. If this is the case, then Moodle will mostly work as it should but some operations (notably sending email to users) will not be carried out at all.';
+        return 'The cron.php mainenance script has not been run in the past 24 hours. This probably means that your server is not configured to automatically run this script in regular time intervals. If this is the case, then Lion will mostly work as it should but some operations (notably sending email to users) will not be carried out at all.';
     }
     function solution() {
         global $CFG;
@@ -233,7 +219,7 @@ class problem_000005 extends problem_base {
         return SEVERITY_CRITICAL;
     }
     function description() {
-        return 'Your PHP configuration includes an enabled setting, session.auto_start, that <strong>must be disabled</strong> in order for Moodle to work correctly. Notable symptoms arising from this misconfiguration include fatal errors and/or blank pages when trying to log in.';
+        return 'Your PHP configuration includes an enabled setting, session.auto_start, that <strong>must be disabled</strong> in order for Lion to work correctly. Notable symptoms arising from this misconfiguration include fatal errors and/or blank pages when trying to log in.';
     }
     function solution() {
         global $CFG;
@@ -252,7 +238,7 @@ class problem_000007 extends problem_base {
         return SEVERITY_SIGNIFICANT;
     }
     function description() {
-        return 'Your PHP configuration includes a disabled setting, file_uploads, that <strong>must be enabled</strong> to let Moodle offer its full functionality. Until this setting is enabled, it will not be possible to upload any files into Moodle. This includes, for example, course content and user pictures.';
+        return 'Your PHP configuration includes a disabled setting, file_uploads, that <strong>must be enabled</strong> to let Lion offer its full functionality. Until this setting is enabled, it will not be possible to upload any files into Lion. This includes, for example, course content and user pictures.';
     }
     function solution() {
         global $CFG;
@@ -262,7 +248,7 @@ class problem_000007 extends problem_base {
 
 class problem_000008 extends problem_base {
     function title() {
-        return 'PHP: memory_limit cannot be controlled by Moodle';
+        return 'PHP: memory_limit cannot be controlled by Lion';
     }
     function exists() {
         global $CFG;
@@ -298,7 +284,7 @@ class problem_000008 extends problem_base {
     function description() {
         return 'The settings for PHP on your server do not allow a script to request more memory during its execution. '.
                'This means that there is a hard limit of '.@ini_get('memory_limit').' for each script. '.
-               'It is possible that certain operations within Moodle will require more than this amount in order '.
+               'It is possible that certain operations within Lion will require more than this amount in order '.
                'to complete successfully, especially if there are lots of data to be processed.';
     }
     function solution() {
@@ -319,11 +305,11 @@ class problem_000009 extends problem_base {
     }
     function description() {
         global $CFG;
-        return 'The user account your are connecting to the database server with is set up without a password. This is a very big security risk and is only somewhat lessened if your database is configured to not accept connections from any hosts other than the server Moodle is running on. Unless you use a strong password to connect to the database, you risk unauthorized access to and manipulation of your data.'.($CFG->dbuser != 'root'?'':' <strong>This is especially alarming because such access to the database would be as the superuser (root)!</strong>');
+        return 'The user account your are connecting to the database server with is set up without a password. This is a very big security risk and is only somewhat lessened if your database is configured to not accept connections from any hosts other than the server Lion is running on. Unless you use a strong password to connect to the database, you risk unauthorized access to and manipulation of your data.'.($CFG->dbuser != 'root'?'':' <strong>This is especially alarming because such access to the database would be as the superuser (root)!</strong>');
     }
     function solution() {
         global $CFG;
-        return 'You should change the password of the user <strong>'.$CFG->dbuser.'</strong> both in your database and in your Moodle <strong>config.php</strong> immediately!'.($CFG->dbuser != 'root'?'':' It would also be a good idea to change the user account from root to something else, because this would lessen the impact in the event that your database is compromised anyway.');
+        return 'You should change the password of the user <strong>'.$CFG->dbuser.'</strong> both in your database and in your Lion <strong>config.php</strong> immediately!'.($CFG->dbuser != 'root'?'':' It would also be a good idea to change the user account from root to something else, because this would lessen the impact in the event that your database is compromised anyway.');
     }
 }
 /* // not implemented in 2.0 yet
@@ -351,9 +337,9 @@ class problem_000010 extends problem_base {
         global $CFG;
         $desc = 'Slasharguments are needed for relative linking in uploaded resources:<ul>';
         if (!$this->is_enabled()) {
-            $desc .= '<li>slasharguments are <strong>disabled</strong> in Moodle configuration</li>';
+            $desc .= '<li>slasharguments are <strong>disabled</strong> in Lion configuration</li>';
         } else {
-            $desc .= '<li>slasharguments are enabled in Moodle configuration</li>';
+            $desc .= '<li>slasharguments are enabled in Lion configuration</li>';
         }
         if ($this->status() == -1) {
             $desc .= '<li>can not run automatic test, you can verify it <a href="'.$CFG->wwwroot.'/file.php/testslasharguments" target="_blank">here</a> manually</li>';
@@ -371,7 +357,7 @@ class problem_000010 extends problem_base {
         $status = $this->status();
         $solution = '';
         if ($enabled and ($status == 0)) {
-            $solution .= 'Slasharguments are enabled, but the test failed. Please disable slasharguments in Moodle configuration or fix the server configuration.<hr />';
+            $solution .= 'Slasharguments are enabled, but the test failed. Please disable slasharguments in Lion configuration or fix the server configuration.<hr />';
         } else if ((!$enabled) and ($status == 0)) {
             $solution .= 'Slasharguments are disabled and the test failed. You may try to fix the server configuration.<hr />';
         } else if ($enabled and ($status == -1)) {
@@ -379,7 +365,7 @@ class problem_000010 extends problem_base {
         } else if ((!$enabled) and ($status == -1)) {
             $solution .= 'Slasharguments are disabled, <a href="'.$CFG->wwwroot.'/file.php/testslasharguments">automatic testing</a> not possible.<hr />';
         } else if ((!$enabled) and ($status > 0)) {
-            $solution .= 'Slasharguments are disabled though the iternal test is OK. You should enable slasharguments in Moodle configuration.';
+            $solution .= 'Slasharguments are disabled though the iternal test is OK. You should enable slasharguments in Lion configuration.';
         } else if ($enabled and ($status > 0)) {
             $solution .= 'Congratulations - everything seems OK now :-D';
         }
@@ -428,11 +414,11 @@ class problem_000012 extends problem_base {
         return '<p>For random questions, question.parent should equal question.id. ' .
         'There are some questions in your database for which this is not true. ' .
         'One way that this could have happened is for random questions restored from backup before ' .
-        '<a href="http://tracker.moodle.org/browse/MDL-5482">MDL-5482</a> was fixed.</p>';
+        '<a href="http://tracker.lion.org/browse/MDL-5482">MDL-5482</a> was fixed.</p>';
     }
     function solution() {
         global $CFG;
-        return '<p>Upgrade to Moodle 1.9.1 or later, or manually execute the SQL</p>' .
+        return '<p>Upgrade to Lion 1.9.1 or later, or manually execute the SQL</p>' .
         '<pre>UPDATE ' . $CFG->prefix . 'question SET parent = id WHERE qtype = \'random\' and parent &lt;> id;</pre>';
     }
 }
@@ -464,12 +450,12 @@ class problem_000013 extends problem_base {
         'category as its parent. There are questions in your database for ' .
         'which this is not the case. One way that this could have happened is ' .
         'for multi-answer questions restored from backup before ' .
-        '<a href="http://tracker.moodle.org/browse/MDL-14750">MDL-14750</a> was fixed.</p>';
+        '<a href="http://tracker.lion.org/browse/MDL-14750">MDL-14750</a> was fixed.</p>';
     }
     function solution() {
-        return '<p>Upgrade to Moodle 1.9.1 or later, or manually execute the ' .
+        return '<p>Upgrade to Lion 1.9.1 or later, or manually execute the ' .
         'code in question_multianswer_fix_subquestion_parents_and_categories in ' .
-        '<a href="http://cvs.moodle.org/moodle/question/type/multianswer/db/upgrade.php?revision=1.1.10.2&amp;view=markup">/question/type/multianswer/db/upgrade.php' .
+        '<a href="http://cvs.lion.org/lion/question/type/multianswer/db/upgrade.php?revision=1.1.10.2&amp;view=markup">/question/type/multianswer/db/upgrade.php' .
         'from the 1.9 stable branch</a>.</p>';
     }
 }
@@ -495,7 +481,7 @@ class problem_000014 extends problem_base {
     function solution() {
         return '<p>It is impossible to give a solution without knowing more about ' .
         ' how the problem was caused. You may be able to get help from the ' .
-        '<a href="http://moodle.org/mod/forum/view.php?f=121">Quiz forum</a>.</p>';
+        '<a href="http://lion.org/mod/forum/view.php?f=121">Quiz forum</a>.</p>';
     }
 }
 
@@ -543,7 +529,7 @@ WHERE
     NOT EXISTS (SELECT * FROM ' . $CFG->prefix . 'question q WHERE q.category = ' . $CFG->prefix . 'question_categories.id)
 AND NOT EXISTS (SELECT * FROM ' . $CFG->prefix . 'context con WHERE contextid = con.id)
         </pre><p>Any remaining categories that contain questions will require more thought. ' .
-        'People in the <a href="http://moodle.org/mod/forum/view.php?f=121">Quiz forum</a> may be able to help.</p>';
+        'People in the <a href="http://lion.org/mod/forum/view.php?f=121">Quiz forum</a> may be able to help.</p>';
     }
 }
 
@@ -588,7 +574,7 @@ class problem_000016 extends problem_base {
     function solution() {
         return '<p>An automated solution is difficult. It depends whether the ' .
         'parent or child category is in the wrong pace.' .
-        'People in the <a href="http://moodle.org/mod/forum/view.php?f=121">Quiz forum</a> may be able to help.</p>';
+        'People in the <a href="http://lion.org/mod/forum/view.php?f=121">Quiz forum</a> may be able to help.</p>';
     }
 }
 
@@ -637,7 +623,7 @@ class problem_000017 extends problem_base {
     /**
      * Outputs resolutions to problems outlined in MDL-34684 with items having themselves as parent
      *
-     * @link https://tracker.moodle.org/browse/MDL-34684
+     * @link https://tracker.lion.org/browse/MDL-34684
      * @return string Formatted html to be output to the browser with instructions and sql statements to run
      */
     public function solution() {
@@ -667,7 +653,7 @@ class problem_000017 extends problem_base {
  * Check course categories tree structure for problems.
  *
  * @copyright  2013 Marko Vidberg
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class problem_000018 extends problem_base {
     /**

@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Block Class and Functions
@@ -23,10 +9,10 @@
  * @package    core
  * @subpackage block
  * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**#@+
  * Default names for the block regions in the standard theme.
@@ -47,10 +33,10 @@ define('BUI_CONTEXTS_CURRENT_SUBS', 1);
  * not exist on a page.
  *
  * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
+ * 
+ * @since     Lion 2.0
  */
-class block_not_on_page_exception extends moodle_exception {
+class block_not_on_page_exception extends lion_exception {
     /**
      * Constructor
      * @param int $instanceid the block instance id of the block that was looked for.
@@ -65,13 +51,13 @@ class block_not_on_page_exception extends moodle_exception {
 }
 
 /**
- * This class keeps track of the block that should appear on a moodle_page.
+ * This class keeps track of the block that should appear on a lion_page.
  *
  * The page to work with as passed to the constructor.
  *
  * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
+ * 
+ * @since     Lion 2.0
  */
 class block_manager {
     /**
@@ -83,8 +69,8 @@ class block_manager {
 /// Field declarations =========================================================
 
     /**
-     * the moodle_page we are managing blocks for.
-     * @var moodle_page
+     * the lion_page we are managing blocks for.
+     * @var lion_page
      */
     protected $page;
 
@@ -151,7 +137,7 @@ class block_manager {
 
     /**
      * Constructor.
-     * @param object $page the moodle_page object object we are managing the blocks for,
+     * @param object $page the lion_page object object we are managing the blocks for,
      * or a reasonable faxilimily. (See the comment at the top of this class
      * and {@link http://en.wikipedia.org/wiki/Duck_typing})
      */
@@ -306,7 +292,7 @@ class block_manager {
      * @return string URL for moving block $this->movingblock to this position.
      */
     protected function get_move_target_url($region, $weight) {
-        return new moodle_url($this->page->url, array('bui_moveid' => $this->movingblock,
+        return new lion_url($this->page->url, array('bui_moveid' => $this->movingblock,
                 'bui_newregion' => $region, 'bui_newweight' => $weight, 'sesskey' => sesskey()));
     }
 
@@ -1054,8 +1040,8 @@ class block_manager {
             // Move icon.
             $str = new lang_string('moveblock', 'block', $blocktitle);
             $controls[] = new action_menu_link_primary(
-                new moodle_url($actionurl, array('bui_moveid' => $block->instance->id)),
-                new pix_icon('t/move', $str, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+                new lion_url($actionurl, array('bui_moveid' => $block->instance->id)),
+                new pix_icon('t/move', $str, 'lion', array('class' => 'iconsmall', 'title' => '')),
                 $str,
                 array('class' => 'editing_move')
             );
@@ -1066,8 +1052,8 @@ class block_manager {
             // Edit config icon - always show - needed for positioning UI.
             $str = new lang_string('configureblock', 'block', $blocktitle);
             $controls[] = new action_menu_link_secondary(
-                new moodle_url($actionurl, array('bui_editid' => $block->instance->id)),
-                new pix_icon('t/edit', $str, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+                new lion_url($actionurl, array('bui_editid' => $block->instance->id)),
+                new pix_icon('t/edit', $str, 'lion', array('class' => 'iconsmall', 'title' => '')),
                 $str,
                 array('class' => 'editing_edit')
             );
@@ -1078,33 +1064,33 @@ class block_manager {
             // Show/hide icon.
             if ($block->instance->visible) {
                 $str = new lang_string('hideblock', 'block', $blocktitle);
-                $url = new moodle_url($actionurl, array('bui_hideid' => $block->instance->id));
-                $icon = new pix_icon('t/hide', $str, 'moodle', array('class' => 'iconsmall', 'title' => ''));
+                $url = new lion_url($actionurl, array('bui_hideid' => $block->instance->id));
+                $icon = new pix_icon('t/hide', $str, 'lion', array('class' => 'iconsmall', 'title' => ''));
                 $attributes = array('class' => 'editing_hide');
             } else {
                 $str = new lang_string('showblock', 'block', $blocktitle);
-                $url = new moodle_url($actionurl, array('bui_showid' => $block->instance->id));
-                $icon = new pix_icon('t/show', $str, 'moodle', array('class' => 'iconsmall', 'title' => ''));
+                $url = new lion_url($actionurl, array('bui_showid' => $block->instance->id));
+                $icon = new pix_icon('t/show', $str, 'lion', array('class' => 'iconsmall', 'title' => ''));
                 $attributes = array('class' => 'editing_show');
             }
             $controls[] = new action_menu_link_secondary($url, $icon, $str, $attributes);
         }
 
         // Assign roles icon.
-        if ($this->page->pagetype != 'my-index' && has_capability('moodle/role:assign', $block->context)) {
+        if ($this->page->pagetype != 'my-index' && has_capability('lion/role:assign', $block->context)) {
             //TODO: please note it is sloppy to pass urls through page parameters!!
             //      it is shortened because some web servers (e.g. IIS by default) give
             //      a 'security' error if you try to pass a full URL as a GET parameter in another URL.
             $return = $this->page->url->out(false);
             $return = str_replace($CFG->wwwroot . '/', '', $return);
 
-            $rolesurl = new moodle_url('/admin/roles/assign.php', array('contextid'=>$block->context->id,
+            $rolesurl = new lion_url('/admin/roles/assign.php', array('contextid'=>$block->context->id,
                                                                          'returnurl'=>$return));
             // Delete icon.
             $str = new lang_string('assignrolesinblock', 'block', $blocktitle);
             $controls[] = new action_menu_link_secondary(
                 $rolesurl,
-                new pix_icon('t/assignroles', $str, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+                new pix_icon('t/assignroles', $str, 'lion', array('class' => 'iconsmall', 'title' => '')),
                 $str,
                 array('class' => 'editing_roles')
             );
@@ -1114,8 +1100,8 @@ class block_manager {
             // Delete icon.
             $str = new lang_string('deleteblock', 'block', $blocktitle);
             $controls[] = new action_menu_link_secondary(
-                new moodle_url($actionurl, array('bui_deleteid' => $block->instance->id)),
-                new pix_icon('t/delete', $str, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+                new lion_url($actionurl, array('bui_deleteid' => $block->instance->id)),
+                new pix_icon('t/delete', $str, 'lion', array('class' => 'iconsmall', 'title' => '')),
                 $str,
                 array('class' => 'editing_delete')
             );
@@ -1161,11 +1147,11 @@ class block_manager {
         require_sesskey();
 
         if (!$this->page->user_can_edit_blocks()) {
-            throw new moodle_exception('nopermissions', '', $this->page->url->out(), get_string('addblock'));
+            throw new lion_exception('nopermissions', '', $this->page->url->out(), get_string('addblock'));
         }
 
         if (!array_key_exists($blocktype, $this->get_addable_blocks())) {
-            throw new moodle_exception('cannotaddthisblocktype', '', $this->page->url->out(), $blocktype);
+            throw new lion_exception('cannotaddthisblocktype', '', $this->page->url->out(), $blocktype);
         }
 
         $this->add_block_at_end_of_default_region($blocktype);
@@ -1193,11 +1179,11 @@ class block_manager {
         require_sesskey();
         $block = $this->page->blocks->find_instance($blockid);
         if (!$this->user_can_delete_block($block)) {
-            throw new moodle_exception('nopermissions', '', $this->page->url->out(), get_string('deleteablock'));
+            throw new lion_exception('nopermissions', '', $this->page->url->out(), get_string('deleteablock'));
         }
 
         if (!$confirmdelete) {
-            $deletepage = new moodle_page();
+            $deletepage = new lion_page();
             $deletepage->set_pagelayout('admin');
             $deletepage->set_course($this->page->course);
             $deletepage->set_context($this->page->context);
@@ -1212,7 +1198,7 @@ class block_manager {
             // At this point we are either going to redirect, or display the form, so
             // overwrite global $PAGE ready for this. (Formslib refers to it.)
             $PAGE = $deletepage;
-            //some functions like MoodleQuickForm::addHelpButton use $OUTPUT so we need to replace that too
+            //some functions like LionQuickForm::addHelpButton use $OUTPUT so we need to replace that too
             $output = $deletepage->get_renderer('core');
             $OUTPUT = $output;
 
@@ -1246,8 +1232,8 @@ class block_manager {
             $PAGE->set_title($blocktitle . ': ' . $strdeletecheck);
             $PAGE->set_heading($site->fullname);
             echo $OUTPUT->header();
-            $confirmurl = new moodle_url($deletepage->url, array('sesskey' => sesskey(), 'bui_deleteid' => $block->instance->id, 'bui_confirm' => 1));
-            $cancelurl = new moodle_url($deletepage->url);
+            $confirmurl = new lion_url($deletepage->url, array('sesskey' => sesskey(), 'bui_deleteid' => $block->instance->id, 'bui_confirm' => 1));
+            $cancelurl = new lion_url($deletepage->url);
             $yesbutton = new single_button($confirmurl, get_string('yes'));
             $nobutton = new single_button($cancelurl, get_string('no'));
             echo $OUTPUT->confirm($message, $yesbutton, $nobutton);
@@ -1281,7 +1267,7 @@ class block_manager {
         $block = $this->page->blocks->find_instance($blockid);
 
         if (!$this->page->user_can_edit_blocks()) {
-            throw new moodle_exception('nopermissions', '', $this->page->url->out(), get_string('hideshowblocks'));
+            throw new lion_exception('nopermissions', '', $this->page->url->out(), get_string('hideshowblocks'));
         } else if (!$block->instance_can_be_hidden()) {
             return false;
         }
@@ -1314,10 +1300,10 @@ class block_manager {
         $block = $this->find_instance($blockid);
 
         if (!$block->user_can_edit() && !$this->page->user_can_edit_blocks()) {
-            throw new moodle_exception('nopermissions', '', $this->page->url->out(), get_string('editblock'));
+            throw new lion_exception('nopermissions', '', $this->page->url->out(), get_string('editblock'));
         }
 
-        $editpage = new moodle_page();
+        $editpage = new lion_page();
         $editpage->set_pagelayout('admin');
         $editpage->set_course($this->page->course);
         //$editpage->set_context($block->context);
@@ -1333,7 +1319,7 @@ class block_manager {
         // At this point we are either going to redirect, or display the form, so
         // overwrite global $PAGE ready for this. (Formslib refers to it.)
         $PAGE = $editpage;
-        //some functions like MoodleQuickForm::addHelpButton use $OUTPUT so we need to replace that to
+        //some functions like LionQuickForm::addHelpButton use $OUTPUT so we need to replace that to
         $output = $editpage->get_renderer('core');
         $OUTPUT = $output;
 
@@ -1372,7 +1358,7 @@ class block_manager {
             $parentcontext = context::instance_by_id($data->bui_parentcontextid);
 
             // Updating stickiness and contexts.  See MDL-21375 for details.
-            if (has_capability('moodle/site:manageblocks', $parentcontext)) { // Check permissions in destination
+            if (has_capability('lion/site:manageblocks', $parentcontext)) { // Check permissions in destination
 
                 // Explicitly set the default context
                 $bi->parentcontextid = $parentcontext->id;
@@ -1473,17 +1459,17 @@ class block_manager {
             redirect($this->page->url);
 
         } else {
-            $strheading = get_string('blockconfiga', 'moodle', $block->get_title());
+            $strheading = get_string('blockconfiga', 'lion', $block->get_title());
             $editpage->set_title($strheading);
             $editpage->set_heading($strheading);
             $bits = explode('-', $this->page->pagetype);
             if ($bits[0] == 'tag' && !empty($this->page->subpage)) {
                 // better navbar for tag pages
-                $editpage->navbar->add(get_string('tags'), new moodle_url('/tag/'));
+                $editpage->navbar->add(get_string('tags'), new lion_url('/tag/'));
                 $tag = tag_get('id', $this->page->subpage, '*');
                 // tag search page doesn't have subpageid
                 if ($tag) {
-                    $editpage->navbar->add($tag->name, new moodle_url('/tag/index.php', array('id'=>$tag->id)));
+                    $editpage->navbar->add($tag->name, new lion_url('/tag/index.php', array('id'=>$tag->id)));
                 }
             }
             $editpage->navbar->add($block->get_title());
@@ -1514,7 +1500,7 @@ class block_manager {
         $block = $this->find_instance($blockid);
 
         if (!$this->page->user_can_edit_blocks()) {
-            throw new moodle_exception('nopermissions', '', $this->page->url->out(), get_string('editblock'));
+            throw new lion_exception('nopermissions', '', $this->page->url->out(), get_string('editblock'));
         }
 
         $newregion = optional_param('bui_newregion', '', PARAM_ALPHANUMEXT);
@@ -1527,7 +1513,7 @@ class block_manager {
         }
 
         if (!$this->is_known_region($newregion)) {
-            throw new moodle_exception('unknownblockregion', '', $this->page->url, $newregion);
+            throw new lion_exception('unknownblockregion', '', $this->page->url, $newregion);
         }
 
         // Move this block. This may involve moving other nearby blocks.
@@ -1656,7 +1642,7 @@ function block_method_result($blockname, $method, $param = NULL) {
  *
  * @param string $blockname the name of the block.
  * @param $instance block_instances DB table row (optional).
- * @param moodle_page $page the page this block is appearing on.
+ * @param lion_page $page the page this block is appearing on.
  * @return block_base the requested block instance.
  */
 function block_instance($blockname, $instance = NULL, $page = NULL) {
@@ -1697,7 +1683,7 @@ function block_load_class($blockname) {
     $blockpath = $CFG->dirroot.'/blocks/'.$blockname.'/block_'.$blockname.'.php';
 
     if (file_exists($blockpath)) {
-        require_once($CFG->dirroot.'/blocks/moodleblock.class.php');
+        require_once($CFG->dirroot.'/blocks/lionblock.class.php');
         include_once($blockpath);
     }else{
         //debugging("$blockname code does not exist in $blockpath", DEBUG_DEVELOPER);
@@ -1876,7 +1862,7 @@ function default_page_type_list($pagetype, $parentcontext = null, $currentcontex
 }
 
 /**
- * Generates the page type list for the my moodle page
+ * Generates the page type list for the my lion page
  *
  * @param string $pagetype
  * @param stdClass $parentcontext
@@ -1946,7 +1932,7 @@ function block_add_block_ui($page, $output) {
     }
     core_collator::asort($menu);
 
-    $actionurl = new moodle_url($page->url, array('sesskey'=>sesskey()));
+    $actionurl = new lion_url($page->url, array('sesskey'=>sesskey()));
     $select = new single_select($actionurl, 'bui_addblock', $menu, null, array(''=>get_string('adddots')), 'add_block');
     $select->set_label(get_string('addblock'), array('class'=>'accesshide'));
     $bc->content = $OUTPUT->render($select);
@@ -2059,7 +2045,7 @@ function blocks_delete_all_for_context($contextid) {
  *
  * @param object $instance a row from the block_instances, preferably LEFT JOINed with the
  *      block_positions table as return by block_manager.
- * @param moodle_page $page the back to set the visibility with respect to.
+ * @param lion_page $page the back to set the visibility with respect to.
  * @param integer $newvisibility 1 for visible, 0 for hidden.
  */
 function blocks_set_visibility($instance, $page, $newvisibility) {
@@ -2201,7 +2187,7 @@ function blocks_add_default_course_blocks($course) {
     } else {
         $pagetypepattern = 'course-view-*';
     }
-    $page = new moodle_page();
+    $page = new lion_page();
     $page->set_course($course);
     $page->blocks->add_blocks($blocknames, $pagetypepattern);
 }
@@ -2216,7 +2202,7 @@ function blocks_add_default_course_blocks($course) {
 function blocks_add_default_system_blocks() {
     global $DB;
 
-    $page = new moodle_page();
+    $page = new lion_page();
     $page->set_context(context_system::instance());
     $page->blocks->add_blocks(array(BLOCK_POS_LEFT => array('navigation', 'settings')), '*', null, true);
     $page->blocks->add_blocks(array(BLOCK_POS_LEFT => array('admin_bookmarks')), 'admin-*', null, null, 2);

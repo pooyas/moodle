@@ -1,5 +1,5 @@
 {
-    "moodle-course-formatchooser": {
+    "lion-course-formatchooser": {
         "requires": [
             "base",
             "node",

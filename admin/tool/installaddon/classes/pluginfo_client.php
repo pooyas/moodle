@@ -1,36 +1,22 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides tool_installaddon_pluginfo_client and related classes
  *
  * @package     tool_installaddon
  * @subpackage  classes
- * @copyright   2013 David Mudrak <david@moodle.com>
+ * @copyright   2013 David Mudrak <david@lion.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Implements a client for https://download.moodle.org/api/x.y/pluginfo.php service
+ * Implements a client for https://download.lion.org/api/x.y/pluginfo.php service
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2013 David Mudrak <david@lion.com>
+ * 
  */
 class tool_installaddon_pluginfo_client {
 
@@ -108,7 +94,7 @@ class tool_installaddon_pluginfo_client {
     /**
      * Return URL to the pluginfo.php service
      *
-     * @return moodle_url
+     * @return lion_url
      */
     protected function service_request_url() {
         global $CFG;
@@ -116,10 +102,10 @@ class tool_installaddon_pluginfo_client {
         if (!empty($CFG->config_php_settings['alternativepluginfoserviceurl'])) {
             $url = $CFG->config_php_settings['alternativepluginfoserviceurl'];
         } else {
-            $url = 'https://download.moodle.org/api/1.2/pluginfo.php';
+            $url = 'https://download.lion.org/api/1.2/pluginfo.php';
         }
 
-        return new moodle_url($url);
+        return new lion_url($url);
     }
 
     /**
@@ -194,10 +180,10 @@ class tool_installaddon_pluginfo_client {
 /**
  * General exception thrown by {@link tool_installaddon_pluginfo_client} class
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2013 David Mudrak <david@lion.com>
+ * 
  */
-class tool_installaddon_pluginfo_exception extends moodle_exception {
+class tool_installaddon_pluginfo_exception extends lion_exception {
 
     /**
      * @param string $errorcode exception description identifier

@@ -35,7 +35,7 @@ if ($action == 'newon') {
 
 admin_externalpage_setup($pagename);
 
-require_capability('moodle/site:config', context_system::instance());
+require_capability('lion/site:config', context_system::instance());
 
 $baseurl    = "$CFG->wwwroot/$CFG->admin/portfolio.php";
 $sesskeyurl = "$CFG->wwwroot/$CFG->admin/portfolio.php?sesskey=" . sesskey();
@@ -44,12 +44,12 @@ $configstr  = get_string('manageportfolios', 'portfolio');
 $return = true; // direct back to the main page
 
 /**
- * Helper function that generates a moodle_url object
+ * Helper function that generates a lion_url object
  * relevant to the portfolio
  */
 function portfolio_action_url($portfolio) {
     global $baseurl;
-    return new moodle_url($baseurl, array('sesskey'=>sesskey(), 'pf'=>$portfolio));
+    return new lion_url($baseurl, array('sesskey'=>sesskey(), 'pf'=>$portfolio));
 }
 
 if (($action == 'edit') || ($action == 'new')) {

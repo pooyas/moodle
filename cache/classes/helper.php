@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cache helper class
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The cache helper class.
@@ -37,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_helper {
 
@@ -62,7 +48,7 @@ class cache_helper {
     protected static $siteidentifier = null;
 
     /**
-     * Returns true if the cache API can be initialised before Moodle has finished initialising itself.
+     * Returns true if the cache API can be initialised before Lion has finished initialising itself.
      *
      * This check is essential when trying to cache the likes of configuration information. It checks to make sure that the cache
      * configuration file has been created which allows use to set up caching when ever is required.
@@ -173,7 +159,7 @@ class cache_helper {
     /**
      * Returns an array of plugins without using core methods.
      *
-     * This function explicitly does NOT use core functions as it will in some circumstances be called before Moodle has
+     * This function explicitly does NOT use core functions as it will in some circumstances be called before Lion has
      * finished initialising. This happens when loading configuration for instance.
      *
      * @return string
@@ -400,7 +386,7 @@ class cache_helper {
     /**
      * Record a cache hit in the stats for the given store and definition.
      *
-     * In Moodle 2.9 the $definition argument changed from accepting only a string to accepting a string or a
+     * In Lion 2.9 the $definition argument changed from accepting only a string to accepting a string or a
      * cache_definition instance. It is preferable to pass a cache definition instance.
      *
      * @internal
@@ -418,7 +404,7 @@ class cache_helper {
     /**
      * Record a cache miss in the stats for the given store and definition.
      *
-     * In Moodle 2.9 the $definition argument changed from accepting only a string to accepting a string or a
+     * In Lion 2.9 the $definition argument changed from accepting only a string to accepting a string or a
      * cache_definition instance. It is preferable to pass a cache definition instance.
      *
      * @internal
@@ -436,7 +422,7 @@ class cache_helper {
     /**
      * Record a cache set in the stats for the given store and definition.
      *
-     * In Moodle 2.9 the $definition argument changed from accepting only a string to accepting a string or a
+     * In Lion 2.9 the $definition argument changed from accepting only a string to accepting a string or a
      * cache_definition instance. It is preferable to pass a cache definition instance.
      *
      * @internal

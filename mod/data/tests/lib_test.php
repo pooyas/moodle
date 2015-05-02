@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for lib.php
@@ -20,10 +6,10 @@
  * @package    mod_data
  * @category   phpunit
  * @copyright  2013 Adrian Greeve
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/mod/data/lib.php');
@@ -33,7 +19,7 @@ require_once($CFG->dirroot . '/mod/data/lib.php');
  *
  * @package    mod_data
  * @copyright  2013 Adrian Greeve
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class data_lib_testcase extends advanced_testcase {
 
@@ -163,7 +149,7 @@ class data_lib_testcase extends advanced_testcase {
         // Checking that the event contains the expected values.
         $this->assertInstanceOf('\mod_data\event\comment_created', $event);
         $this->assertEquals($context, $event->get_context());
-        $url = new moodle_url('/mod/data/view.php', array('id' => $cm->id));
+        $url = new lion_url('/mod/data/view.php', array('id' => $cm->id));
         $this->assertEquals($url, $event->get_url());
         $this->assertEventContextNotUsed($event);
     }
@@ -227,7 +213,7 @@ class data_lib_testcase extends advanced_testcase {
         // Checking that the event contains the expected values.
         $this->assertInstanceOf('\mod_data\event\comment_deleted', $event);
         $this->assertEquals($context, $event->get_context());
-        $url = new moodle_url('/mod/data/view.php', array('id' => $module->cmid));
+        $url = new lion_url('/mod/data/view.php', array('id' => $module->cmid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEventContextNotUsed($event);
     }

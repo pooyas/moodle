@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of internal classes and functions for module workshop
@@ -25,10 +11,10 @@
  *
  * @package    mod_workshop
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(dirname(__FILE__).'/lib.php');     // we extend this library here
 require_once($CFG->libdir . '/gradelib.php');   // we use some rounding and comparing routines here
@@ -932,9 +918,9 @@ class workshop {
         $summary->gradeinfo->received = $this->real_grade($example->grade);
         $summary->gradeinfo->max      = $this->real_grade(100);
 
-        $summary->url       = new moodle_url($this->exsubmission_url($example->id));
-        $summary->editurl   = new moodle_url($this->exsubmission_url($example->id), array('edit' => 'on'));
-        $summary->assessurl = new moodle_url($this->exsubmission_url($example->id), array('assess' => 'on', 'sesskey' => sesskey()));
+        $summary->url       = new lion_url($this->exsubmission_url($example->id));
+        $summary->editurl   = new lion_url($this->exsubmission_url($example->id), array('edit' => 'on'));
+        $summary->assessurl = new lion_url($this->exsubmission_url($example->id), array('assess' => 'on', 'sesskey' => sesskey()));
 
         return $summary;
     }
@@ -1404,75 +1390,75 @@ class workshop {
     }
 
     /**
-     * @return moodle_url of this workshop's view page
+     * @return lion_url of this workshop's view page
      */
     public function view_url() {
         global $CFG;
-        return new moodle_url('/mod/workshop/view.php', array('id' => $this->cm->id));
+        return new lion_url('/mod/workshop/view.php', array('id' => $this->cm->id));
     }
 
     /**
-     * @return moodle_url of the page for editing this workshop's grading form
+     * @return lion_url of the page for editing this workshop's grading form
      */
     public function editform_url() {
         global $CFG;
-        return new moodle_url('/mod/workshop/editform.php', array('cmid' => $this->cm->id));
+        return new lion_url('/mod/workshop/editform.php', array('cmid' => $this->cm->id));
     }
 
     /**
-     * @return moodle_url of the page for previewing this workshop's grading form
+     * @return lion_url of the page for previewing this workshop's grading form
      */
     public function previewform_url() {
         global $CFG;
-        return new moodle_url('/mod/workshop/editformpreview.php', array('cmid' => $this->cm->id));
+        return new lion_url('/mod/workshop/editformpreview.php', array('cmid' => $this->cm->id));
     }
 
     /**
      * @param int $assessmentid The ID of assessment record
-     * @return moodle_url of the assessment page
+     * @return lion_url of the assessment page
      */
     public function assess_url($assessmentid) {
         global $CFG;
         $assessmentid = clean_param($assessmentid, PARAM_INT);
-        return new moodle_url('/mod/workshop/assessment.php', array('asid' => $assessmentid));
+        return new lion_url('/mod/workshop/assessment.php', array('asid' => $assessmentid));
     }
 
     /**
      * @param int $assessmentid The ID of assessment record
-     * @return moodle_url of the example assessment page
+     * @return lion_url of the example assessment page
      */
     public function exassess_url($assessmentid) {
         global $CFG;
         $assessmentid = clean_param($assessmentid, PARAM_INT);
-        return new moodle_url('/mod/workshop/exassessment.php', array('asid' => $assessmentid));
+        return new lion_url('/mod/workshop/exassessment.php', array('asid' => $assessmentid));
     }
 
     /**
-     * @return moodle_url of the page to view a submission, defaults to the own one
+     * @return lion_url of the page to view a submission, defaults to the own one
      */
     public function submission_url($id=null) {
         global $CFG;
-        return new moodle_url('/mod/workshop/submission.php', array('cmid' => $this->cm->id, 'id' => $id));
+        return new lion_url('/mod/workshop/submission.php', array('cmid' => $this->cm->id, 'id' => $id));
     }
 
     /**
      * @param int $id example submission id
-     * @return moodle_url of the page to view an example submission
+     * @return lion_url of the page to view an example submission
      */
     public function exsubmission_url($id) {
         global $CFG;
-        return new moodle_url('/mod/workshop/exsubmission.php', array('cmid' => $this->cm->id, 'id' => $id));
+        return new lion_url('/mod/workshop/exsubmission.php', array('cmid' => $this->cm->id, 'id' => $id));
     }
 
     /**
      * @param int $sid submission id
      * @param array $aid of int assessment ids
-     * @return moodle_url of the page to compare assessments of the given submission
+     * @return lion_url of the page to compare assessments of the given submission
      */
     public function compare_url($sid, array $aids) {
         global $CFG;
 
-        $url = new moodle_url('/mod/workshop/compare.php', array('cmid' => $this->cm->id, 'sid' => $sid));
+        $url = new lion_url('/mod/workshop/compare.php', array('cmid' => $this->cm->id, 'sid' => $sid));
         $i = 0;
         foreach ($aids as $aid) {
             $url->param("aid{$i}", $aid);
@@ -1484,24 +1470,24 @@ class workshop {
     /**
      * @param int $sid submission id
      * @param int $aid assessment id
-     * @return moodle_url of the page to compare the reference assessments of the given example submission
+     * @return lion_url of the page to compare the reference assessments of the given example submission
      */
     public function excompare_url($sid, $aid) {
         global $CFG;
-        return new moodle_url('/mod/workshop/excompare.php', array('cmid' => $this->cm->id, 'sid' => $sid, 'aid' => $aid));
+        return new lion_url('/mod/workshop/excompare.php', array('cmid' => $this->cm->id, 'sid' => $sid, 'aid' => $aid));
     }
 
     /**
-     * @return moodle_url of the mod_edit form
+     * @return lion_url of the mod_edit form
      */
     public function updatemod_url() {
         global $CFG;
-        return new moodle_url('/course/modedit.php', array('update' => $this->cm->id, 'return' => 1));
+        return new lion_url('/course/modedit.php', array('update' => $this->cm->id, 'return' => 1));
     }
 
     /**
      * @param string $method allocation method
-     * @return moodle_url to the allocation page
+     * @return lion_url to the allocation page
      */
     public function allocation_url($method=null) {
         global $CFG;
@@ -1509,33 +1495,33 @@ class workshop {
         if (!empty($method)) {
             $params['method'] = $method;
         }
-        return new moodle_url('/mod/workshop/allocation.php', $params);
+        return new lion_url('/mod/workshop/allocation.php', $params);
     }
 
     /**
      * @param int $phasecode The internal phase code
-     * @return moodle_url of the script to change the current phase to $phasecode
+     * @return lion_url of the script to change the current phase to $phasecode
      */
     public function switchphase_url($phasecode) {
         global $CFG;
         $phasecode = clean_param($phasecode, PARAM_INT);
-        return new moodle_url('/mod/workshop/switchphase.php', array('cmid' => $this->cm->id, 'phase' => $phasecode));
+        return new lion_url('/mod/workshop/switchphase.php', array('cmid' => $this->cm->id, 'phase' => $phasecode));
     }
 
     /**
-     * @return moodle_url to the aggregation page
+     * @return lion_url to the aggregation page
      */
     public function aggregate_url() {
         global $CFG;
-        return new moodle_url('/mod/workshop/aggregate.php', array('cmid' => $this->cm->id));
+        return new lion_url('/mod/workshop/aggregate.php', array('cmid' => $this->cm->id));
     }
 
     /**
-     * @return moodle_url of this workshop's toolbox page
+     * @return lion_url of this workshop's toolbox page
      */
     public function toolbox_url($tool) {
         global $CFG;
-        return new moodle_url('/mod/workshop/toolbox.php', array('id' => $this->cm->id, 'tool' => $tool));
+        return new lion_url('/mod/workshop/toolbox.php', array('id' => $this->cm->id, 'tool' => $tool));
     }
 
     /**
@@ -1543,12 +1529,12 @@ class workshop {
      * @deprecated since 2.7 Please use the provided event classes for logging actions.
      *
      * @param string $action to be logged
-     * @param moodle_url $url absolute url as returned by {@see workshop::submission_url()} and friends
+     * @param lion_url $url absolute url as returned by {@see workshop::submission_url()} and friends
      * @param mixed $info additional info, usually id in a table
      * @param bool $return true to return the arguments for add_to_log.
      * @return void|array array of arguments for add_to_log if $return is true
      */
-    public function log($action, moodle_url $url = null, $info = null, $return = false) {
+    public function log($action, lion_url $url = null, $info = null, $return = false) {
         debugging('The log method is now deprecated, please use event classes instead', DEBUG_DEVELOPER);
 
         if (is_null($url)) {
@@ -2238,12 +2224,12 @@ class workshop {
     /**
      * Returns the mform the teachers use to put a feedback for the reviewer
      *
-     * @param moodle_url $actionurl
+     * @param lion_url $actionurl
      * @param stdClass $assessment
      * @param array $options editable, editableweight, overridablegradinggrade
      * @return workshop_feedbackreviewer_form
      */
-    public function get_feedbackreviewer_form(moodle_url $actionurl, stdclass $assessment, $options=array()) {
+    public function get_feedbackreviewer_form(lion_url $actionurl, stdclass $assessment, $options=array()) {
         global $CFG;
         require_once(dirname(__FILE__) . '/feedbackreviewer_form.php');
 
@@ -2274,12 +2260,12 @@ class workshop {
     /**
      * Returns the mform the teachers use to put a feedback for the author on their submission
      *
-     * @param moodle_url $actionurl
+     * @param lion_url $actionurl
      * @param stdClass $submission
      * @param array $options editable
      * @return workshop_feedbackauthor_form
      */
-    public function get_feedbackauthor_form(moodle_url $actionurl, stdclass $submission, $options=array()) {
+    public function get_feedbackauthor_form(lion_url $actionurl, stdclass $submission, $options=array()) {
         global $CFG;
         require_once(dirname(__FILE__) . '/feedbackauthor_form.php');
 
@@ -2335,7 +2321,7 @@ class workshop {
             if (!empty($gradebook->items[0]->grades)) {
                 $submissiongrade = reset($gradebook->items[0]->grades);
                 if (!is_null($submissiongrade->grade)) {
-                    if (!$submissiongrade->hidden or has_capability('moodle/grade:viewhidden', $this->context, $userid)) {
+                    if (!$submissiongrade->hidden or has_capability('lion/grade:viewhidden', $this->context, $userid)) {
                         $grades->submissiongrade = $submissiongrade;
                     }
                 }
@@ -2346,7 +2332,7 @@ class workshop {
             if (!empty($gradebook->items[1]->grades)) {
                 $assessmentgrade = reset($gradebook->items[1]->grades);
                 if (!is_null($assessmentgrade->grade)) {
-                    if (!$assessmentgrade->hidden or has_capability('moodle/grade:viewhidden', $this->context, $userid)) {
+                    if (!$assessmentgrade->hidden or has_capability('lion/grade:viewhidden', $this->context, $userid)) {
                         $grades->assessmentgrade = $assessmentgrade;
                     }
                 }
@@ -2709,14 +2695,14 @@ class workshop {
     /**
      * Converts absolute URL to relative URL needed by {@see add_to_log()}
      *
-     * @param moodle_url $url absolute URL
+     * @param lion_url $url absolute URL
      * @return string
      */
-    protected function log_convert_url(moodle_url $fullurl) {
+    protected function log_convert_url(lion_url $fullurl) {
         static $baseurl;
 
         if (!isset($baseurl)) {
-            $baseurl = new moodle_url('/mod/workshop/');
+            $baseurl = new lion_url('/mod/workshop/');
             $baseurl = $baseurl->out();
         }
 
@@ -2816,14 +2802,14 @@ class workshop_user_plan implements renderable {
         $phase = new stdclass();
         $phase->title = get_string('phasesetup', 'workshop');
         $phase->tasks = array();
-        if (has_capability('moodle/course:manageactivities', $workshop->context, $userid)) {
+        if (has_capability('lion/course:manageactivities', $workshop->context, $userid)) {
             $task = new stdclass();
             $task->title = get_string('taskintro', 'workshop');
             $task->link = $workshop->updatemod_url();
             $task->completed = !(trim($workshop->intro) == '');
             $phase->tasks['intro'] = $task;
         }
-        if (has_capability('moodle/course:manageactivities', $workshop->context, $userid)) {
+        if (has_capability('lion/course:manageactivities', $workshop->context, $userid)) {
             $task = new stdclass();
             $task->title = get_string('taskinstructauthors', 'workshop');
             $task->link = $workshop->updatemod_url();
@@ -2867,7 +2853,7 @@ class workshop_user_plan implements renderable {
         $phase = new stdclass();
         $phase->title = get_string('phasesubmission', 'workshop');
         $phase->tasks = array();
-        if (has_capability('moodle/course:manageactivities', $workshop->context, $userid)) {
+        if (has_capability('lion/course:manageactivities', $workshop->context, $userid)) {
             $task = new stdclass();
             $task->title = get_string('taskinstructreviewers', 'workshop');
             $task->link = $workshop->updatemod_url();
@@ -3143,7 +3129,7 @@ class workshop_user_plan implements renderable {
             $phase->tasks['evaluateinfo'] = $task;
         }
 
-        if (has_capability('moodle/course:manageactivities', $workshop->context, $userid)) {
+        if (has_capability('lion/course:manageactivities', $workshop->context, $userid)) {
             $task = new stdclass();
             $task->title = get_string('taskconclusion', 'workshop');
             $task->link = $workshop->updatemod_url();
@@ -3323,7 +3309,7 @@ class workshop_submission_summary extends workshop_submission_base implements re
     public $authorimagealt;
     /** @var string */
     public $authoremail;
-    /** @var moodle_url to display submission */
+    /** @var lion_url to display submission */
     public $url;
 
     /**
@@ -3379,13 +3365,13 @@ class workshop_example_submission_summary extends workshop_submission_base imple
     public $status;
     /** @var stdClass */
     public $gradeinfo;
-    /** @var moodle_url */
+    /** @var lion_url */
     public $url;
-    /** @var moodle_url */
+    /** @var lion_url */
     public $editurl;
     /** @var string */
     public $assesslabel;
-    /** @var moodle_url */
+    /** @var lion_url */
     public $assessurl;
     /** @var bool must be set explicitly by the caller */
     public $editable = false;
@@ -3445,7 +3431,7 @@ abstract class workshop_assessment_base {
     /** @var workshop_assessment_form $form as returned by {@link workshop_strategy::get_assessment_form()} */
     public $form;
 
-    /** @var moodle_url */
+    /** @var lion_url */
     public $url;
 
     /** @var float|null the real received grade */
@@ -3504,11 +3490,11 @@ abstract class workshop_assessment_base {
     /**
      * Adds a new action
      *
-     * @param moodle_url $url action URL
+     * @param lion_url $url action URL
      * @param string $label action label
      * @param string $method get|post
      */
-    public function add_action(moodle_url $url, $label, $method = 'get') {
+    public function add_action(lion_url $url, $label, $method = 'get') {
 
         $action = new stdClass();
         $action->url = $url;
@@ -3631,9 +3617,9 @@ class workshop_assessment extends workshop_assessment_base implements renderable
             }
             $filepath = $file->get_filepath();
             $filename = $file->get_filename();
-            $fileurl = moodle_url::make_pluginfile_url($this->workshop->context->id, 'mod_workshop',
+            $fileurl = lion_url::make_pluginfile_url($this->workshop->context->id, 'mod_workshop',
                 'overallfeedback_attachment', $this->id, $filepath, $filename, true);
-            $previewurl = new moodle_url(moodle_url::make_pluginfile_url($this->workshop->context->id, 'mod_workshop',
+            $previewurl = new lion_url(lion_url::make_pluginfile_url($this->workshop->context->id, 'mod_workshop',
                 'overallfeedback_attachment', $this->id, $filepath, $filename, false), array('preview' => 'bigthumb'));
             $attachments[] = (object)array(
                 'filepath' => $filepath,
@@ -3702,7 +3688,7 @@ class workshop_message implements renderable {
     protected $text = '';
     /** @var int */
     protected $type = self::TYPE_INFO;
-    /** @var moodle_url */
+    /** @var lion_url */
     protected $actionurl = null;
     /** @var string */
     protected $actionlabel = '';
@@ -3741,10 +3727,10 @@ class workshop_message implements renderable {
     /**
      * Sets the optional message action
      *
-     * @param moodle_url $url to follow on action
+     * @param lion_url $url to follow on action
      * @param string $label action label
      */
-    public function set_action(moodle_url $url, $label) {
+    public function set_action(lion_url $url, $label) {
         $this->actionurl    = $url;
         $this->actionlabel  = $label;
     }
@@ -3770,7 +3756,7 @@ class workshop_message implements renderable {
     /**
      * Returns action URL
      *
-     * @return moodle_url|null
+     * @return lion_url|null
      */
     public function get_action_url() {
         return $this->actionurl;

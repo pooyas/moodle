@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for lib/navigationlib.php
@@ -20,10 +6,10 @@
  * @package   core
  * @category  phpunit
  * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later (5)
+ *  (5)
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/navigationlib.php');
@@ -42,7 +28,7 @@ class core_navigationlib_testcase extends advanced_testcase {
         $PAGE->set_course($SITE);
 
         $activeurl = $PAGE->url;
-        $inactiveurl = new moodle_url('http://www.moodle.com/');
+        $inactiveurl = new lion_url('http://www.lion.com/');
 
         navigation_node::override_active_url($PAGE->url);
 
@@ -70,7 +56,7 @@ class core_navigationlib_testcase extends advanced_testcase {
             'shorttext' => 'A very silly extra long short text string, more than 25 characters',
             'key' => 'key',
             'type' => 'navigation_node::TYPE_COURSE',
-            'action' => new moodle_url('http://www.moodle.org/'));
+            'action' => new lion_url('http://www.lion.org/'));
 
         $node = new navigation_node($fakeproperties);
         $this->assertSame($fakeproperties['text'], $node->text);
@@ -84,10 +70,10 @@ class core_navigationlib_testcase extends advanced_testcase {
         $this->setup_node();
 
         // Add a node with all args set.
-        $node1 = $this->node->add('test_add_1', 'http://www.moodle.org/', navigation_node::TYPE_COURSE, 'testadd1', 'key', new pix_icon('i/course', ''));
+        $node1 = $this->node->add('test_add_1', 'http://www.lion.org/', navigation_node::TYPE_COURSE, 'testadd1', 'key', new pix_icon('i/course', ''));
         // Add a node with the minimum args required.
         $node2 = $this->node->add('test_add_2', null, navigation_node::TYPE_CUSTOM, 'testadd2');
-        $node3 = $this->node->add(str_repeat('moodle ', 15), str_repeat('moodle', 15));
+        $node3 = $this->node->add(str_repeat('lion ', 15), str_repeat('lion', 15));
 
         $this->assertInstanceOf('navigation_node', $node1);
         $this->assertInstanceOf('navigation_node', $node2);
@@ -145,13 +131,13 @@ class core_navigationlib_testcase extends advanced_testcase {
         $this->setup_node();
 
         // First test the string urls
-        // Demo1 -> action is http://www.moodle.org/, thus should be true.
+        // Demo1 -> action is http://www.lion.org/, thus should be true.
         $demo5 = $this->node->find('demo5', navigation_node::TYPE_COURSE);
         if ($this->assertInstanceOf('navigation_node', $demo5)) {
             $this->assertTrue($demo5->check_if_active());
         }
 
-        // Demo2 -> action is http://www.moodle.com/, thus should be false.
+        // Demo2 -> action is http://www.lion.com/, thus should be false.
         $demo2 = $this->node->get('demo2');
         if ($this->assertInstanceOf('navigation_node', $demo2)) {
             $this->assertFalse($demo2->check_if_active());
@@ -249,7 +235,7 @@ class core_navigationlib_testcase extends advanced_testcase {
         $this->setup_node();
 
         $node1 = $this->node->add('active node 1', null, navigation_node::TYPE_CUSTOM, null, 'anode1');
-        $node2 = $this->node->add('active node 2', new moodle_url($CFG->wwwroot), navigation_node::TYPE_COURSE, null, 'anode2');
+        $node2 = $this->node->add('active node 2', new lion_url($CFG->wwwroot), navigation_node::TYPE_COURSE, null, 'anode2');
         $node1->make_active();
         $this->node->get('anode2')->make_active();
         $this->assertTrue($node1->isactive);
@@ -342,9 +328,9 @@ class core_navigationlib_testcase extends advanced_testcase {
         $cat2 = $generator->create_category(array('parent' => $cat1->id));
         $course = $generator->create_course(array('category' => $cat2->id));
 
-        $page = new moodle_page();
+        $page = new lion_page();
         $page->set_course($course);
-        $page->set_url(new moodle_url('/course/view.php', array('id' => $course->id)));
+        $page->set_url(new lion_url('/course/view.php', array('id' => $course->id)));
         $page->navbar->prepend('test 1');
         $page->navbar->prepend('test 2');
         $page->navbar->add('test 3');
@@ -373,7 +359,7 @@ class core_navigationlib_testcase extends advanced_testcase {
      * @depends test_navbar_prepend_and_add
      * @param $node
      */
-    public function test_navbar_has_items(moodle_page $page) {
+    public function test_navbar_has_items(lion_page $page) {
         $this->resetAfterTest();
 
         $this->assertTrue($page->navbar->has_items());
@@ -418,9 +404,9 @@ class core_navigationlib_testcase extends advanced_testcase {
         $cache = new navigation_cache('unittest_nav');
         $cache->anysetvariable = true;
 
-        $cache->set('software', 'Moodle');
+        $cache->set('software', 'Lion');
         $this->assertTrue($cache->cached('software'));
-        $this->assertEquals($cache->software, 'Moodle');
+        $this->assertEquals($cache->software, 'Lion');
     }
 
     public function test_setting___construct() {
@@ -469,7 +455,7 @@ class core_navigationlib_testcase extends advanced_testcase {
  */
 class exposed_global_navigation extends global_navigation {
     protected $exposedkey = 'exposed_';
-    public function __construct(moodle_page $page=null) {
+    public function __construct(lion_page $page=null) {
         global $PAGE;
         if ($page === null) {
             $page = $PAGE;
@@ -527,7 +513,7 @@ class mock_initialise_global_navigation extends global_navigation {
  */
 class exposed_navbar extends navbar {
     protected $exposedkey = 'exposed_';
-    public function __construct(moodle_page $page) {
+    public function __construct(lion_page $page) {
         parent::__construct($page);
         $this->cache = new navigation_cache('unittest_nav');
     }
@@ -542,7 +528,7 @@ class exposed_navbar extends navbar {
     }
 }
 
-class navigation_exposed_moodle_page extends moodle_page {
+class navigation_exposed_lion_page extends lion_page {
     public function set_navigation(navigation_node $node) {
         $this->_navigation = $node;
     }

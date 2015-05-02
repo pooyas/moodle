@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Test for various bits of datalib.php.
@@ -20,10 +6,10 @@
  * @package   core
  * @category  phpunit
  * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -32,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package   core
  * @category  phpunit
  * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_datalib_testcase extends advanced_testcase {
     protected function normalise_sql($sort) {
@@ -68,9 +54,9 @@ class core_datalib_testcase extends advanced_testcase {
             'department' => 'Department of user 1',
             'institution' => 'Institution of user 1',
             'description' => 'This is a description for user 1',
-            'descriptionformat' => FORMAT_MOODLE,
+            'descriptionformat' => FORMAT_LION,
             'city' => 'Perth',
-            'url' => 'http://moodle.org',
+            'url' => 'http://lion.org',
             'country' => 'au'
             );
         $user1 = self::getDataGenerator()->create_user($user1);
@@ -91,9 +77,9 @@ class core_datalib_testcase extends advanced_testcase {
             'department' => 'Department of user 2',
             'institution' => 'Institution of user 2',
             'description' => 'This is a description for user 2',
-            'descriptionformat' => FORMAT_MOODLE,
+            'descriptionformat' => FORMAT_LION,
             'city' => 'Perth',
-            'url' => 'http://moodle.org',
+            'url' => 'http://lion.org',
             'country' => 'au'
             );
         $user2 = self::getDataGenerator()->create_user($user2);
@@ -387,28 +373,28 @@ class core_datalib_testcase extends advanced_testcase {
         try {
             get_coursemodule_from_id('folder', -11, 0, false, MUST_EXIST);
             $this->fail('dml_missing_record_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_missing_record_exception', $e);
         }
 
         try {
             get_coursemodule_from_id('', -11, 0, false, MUST_EXIST);
             $this->fail('dml_missing_record_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_missing_record_exception', $e);
         }
 
         try {
             get_coursemodule_from_id('a b', $folder1a->cmid, 0, false, MUST_EXIST);
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             get_coursemodule_from_id('abc', $folder1a->cmid, 0, false, MUST_EXIST);
             $this->fail('dml_read_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_read_exception', $e);
         }
     }
@@ -451,28 +437,28 @@ class core_datalib_testcase extends advanced_testcase {
         try {
             get_coursemodule_from_instance('folder', -11, 0, false, MUST_EXIST);
             $this->fail('dml_missing_record_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_missing_record_exception', $e);
         }
 
         try {
             get_coursemodule_from_instance('a b', $folder1a->cmid, 0, false, MUST_EXIST);
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             get_coursemodule_from_instance('', $folder1a->cmid, 0, false, MUST_EXIST);
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             get_coursemodule_from_instance('abc', $folder1a->cmid, 0, false, MUST_EXIST);
             $this->fail('dml_read_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_read_exception', $e);
         }
     }
@@ -534,14 +520,14 @@ class core_datalib_testcase extends advanced_testcase {
         try {
             get_coursemodules_in_course('a b', $course1->id);
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             get_coursemodules_in_course('abc', $course1->id);
             $this->fail('dml_read_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_read_exception', $e);
         }
     }
@@ -589,14 +575,14 @@ class core_datalib_testcase extends advanced_testcase {
         try {
             get_all_instances_in_courses('a b', array($course1->id => $course1, $course2->id => $course2));
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             get_all_instances_in_courses('', array($course1->id => $course1, $course2->id => $course2));
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
     }
@@ -642,14 +628,14 @@ class core_datalib_testcase extends advanced_testcase {
         try {
             get_all_instances_in_course('a b', $course1);
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             get_all_instances_in_course('', $course1);
             $this->fail('coding_exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
     }

@@ -1,4 +1,4 @@
-Moodle Universal Cache / Cache API
+Lion Universal Cache / Cache API
 ==================================
 
 Sample code snippets
@@ -103,7 +103,7 @@ Internally there is lots of magic going on. The important parts to know about ar
 
 ### Store
 The store is the bridge between the cache API and a cache solution.
-Cache store plugins exist within moodle/cache/store.
+Cache store plugins exist within lion/cache/store.
 The administrator of a site can configure multiple instances of each plugin, the configuration gets initialised as a store for the loader when required in code (during construction of the loader).
 The following points highlight things you should know about stores.
 * A cache_store interface is used to define the requirements of a store plugin.
@@ -247,7 +247,7 @@ The following snippet illustrates how to configure the three core cache stores t
     define('TEST_CACHESTORE_MEMCACHED_TESTSERVERS', '127.0.0.1:11211');
     define('TEST_CACHESTORE_MONGODB_TESTSERVER', 'mongodb://localhost:27017');
 
-As of Moodle 2.8 it is also possible to set the default cache stores used when running tests.
+As of Lion 2.8 it is also possible to set the default cache stores used when running tests.
 You can do this by adding the following define to your config.php file:
 
     // xxx is one of Memcache, Memcached, mongodb or other cachestore with a test define.
@@ -260,13 +260,13 @@ To do this you must add the following to your config.php file:
     define('TEST_CACHE_USING_ALT_CACHE_CONFIG_PATH', true');
     $CFG->altcacheconfigpath = '/a/temp/directory/yoursite.php'
 
-This tells Moodle to use the config at $CFG->altcacheconfigpath when running tests.
+This tells Lion to use the config at $CFG->altcacheconfigpath when running tests.
 There are a couple of considerations to using this method:
 * By setting $CFG->altcacheconfigpath your site will store the cache config in the specified path, not just the test cache config but your site config as well.
-* If you have configured your cache before setting $CFG->altcacheconfigpath you will need to copy it from moodledata/muc/config.php to the destination you specified.
+* If you have configured your cache before setting $CFG->altcacheconfigpath you will need to copy it from liondata/muc/config.php to the destination you specified.
 * This allows you to share a cache config between sites.
 * It also allows you to use tests to test your sites cache config.
 
 Please be aware that if you are using Memcache or Memcached it is recommended to use dedicated Memcached servers.
-When caches get purged the memcached servers you have configured get purged, any data stored within them whether it belongs to Moodle or not will be removed.
+When caches get purged the memcached servers you have configured get purged, any data stored within them whether it belongs to Lion or not will be removed.
 If you are using Memcached for sessions as well as caching/testing and caches get purged your sessions will be removed prematurely and users will be need to start again.

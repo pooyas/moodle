@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * setup.php - Sets up sessions, connects to databases and so on
@@ -23,22 +9,22 @@
  *
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 /**
- * Holds the core settings that affect how Moodle works. Some of its fields
+ * Holds the core settings that affect how Lion works. Some of its fields
  * are set in config.php, and the rest are loaded from the config table.
  *
  * Some typical settings in the $CFG global:
- *  - $CFG->wwwroot  - Path to moodle index directory in url format.
- *  - $CFG->dataroot - Path to moodle data files directory on server's filesystem.
- *  - $CFG->dirroot  - Path to moodle's library folder on server's filesystem.
- *  - $CFG->libdir   - Path to moodle's library folder on server's filesystem.
- *  - $CFG->tempdir  - Path to moodle's temp file directory on server's filesystem.
- *  - $CFG->cachedir - Path to moodle's cache directory on server's filesystem (shared by cluster nodes).
- *  - $CFG->localcachedir - Path to moodle's local cache directory (not shared by cluster nodes).
+ *  - $CFG->wwwroot  - Path to lion index directory in url format.
+ *  - $CFG->dataroot - Path to lion data files directory on server's filesystem.
+ *  - $CFG->dirroot  - Path to lion's library folder on server's filesystem.
+ *  - $CFG->libdir   - Path to lion's library folder on server's filesystem.
+ *  - $CFG->tempdir  - Path to lion's temp file directory on server's filesystem.
+ *  - $CFG->cachedir - Path to lion's cache directory on server's filesystem (shared by cluster nodes).
+ *  - $CFG->localcachedir - Path to lion's local cache directory (not shared by cluster nodes).
  *
  * @global object $CFG
  * @name $CFG
@@ -169,7 +155,7 @@ if ($CFG->dataroot === false) {
 }
 
 // wwwroot is mandatory
-if (!isset($CFG->wwwroot) or $CFG->wwwroot === 'http://example.com/moodle') {
+if (!isset($CFG->wwwroot) or $CFG->wwwroot === 'http://example.com/lion') {
     if (isset($_SERVER['REMOTE_ADDR'])) {
         header($_SERVER['SERVER_PROTOCOL'] . ' 503 Service Unavailable');
     }
@@ -234,7 +220,7 @@ ini_set('serialize_precision', 17); // Make float serialization consistent on al
 // and in some cases you also need to set custom default exception handler
 if (!defined('NO_DEBUG_DISPLAY')) {
     if (defined('AJAX_SCRIPT') and AJAX_SCRIPT) {
-        // Moodle AJAX scripts are expected to return json data, any PHP notices or errors break it badly,
+        // Lion AJAX scripts are expected to return json data, any PHP notices or errors break it badly,
         // developers simply must learn to watch error log.
         define('NO_DEBUG_DISPLAY', true);
     } else {
@@ -268,7 +254,7 @@ if (!defined('MDL_PERF_TEST')) {
     }
 }
 
-// When set to true MUC (Moodle caching) will be disabled as much as possible.
+// When set to true MUC (Lion caching) will be disabled as much as possible.
 // A special cache factory will be used to handle this situation and will use special "disabled" equivalents objects.
 // This ensure we don't attempt to read or create the config file, don't use stores, don't provide persistence or
 // storage of any kind.
@@ -276,7 +262,7 @@ if (!defined('CACHE_DISABLE_ALL')) {
     define('CACHE_DISABLE_ALL', false);
 }
 
-// When set to true MUC (Moodle caching) will not use any of the defined or default stores.
+// When set to true MUC (Lion caching) will not use any of the defined or default stores.
 // The Cache API will continue to function however this will force the use of the cachestore_dummy so all requests
 // will be interacting with a static property and will never go to the proper cache stores.
 // Useful if you need to avoid the stores for one reason or another.
@@ -351,7 +337,7 @@ if (CLI_SCRIPT) {
     if (version_compare(phpversion(), '5.4.4') < 0) {
         $phpversion = phpversion();
         // do NOT localise - lang strings would not work here and we CAN NOT move it to later place
-        echo "Moodle 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).\n";
+        echo "Lion 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).\n";
         echo "Some servers may have multiple PHP versions installed, are you using the correct executable?\n";
         exit(1);
     }
@@ -367,7 +353,7 @@ $CFG->yui2version = '2.9.0';
 $CFG->yui3version = '3.17.2';
 
 // Patching the upstream YUI release.
-// For important information on patching YUI modules, please see http://docs.moodle.org/dev/YUI/Patching.
+// For important information on patching YUI modules, please see http://docs.lion.org/dev/YUI/Patching.
 // If we need to patch a YUI modules between official YUI releases, the yuipatchlevel will need to be manually
 // incremented here. The module will also need to be listed in the yuipatchedmodules.
 // When upgrading to a subsequent version of YUI, these should be reset back to 0 and an empty array.
@@ -392,9 +378,9 @@ if (isset($CFG->debug)) {
 }
 $CFG->debugdeveloper = (($CFG->debug & (E_ALL | E_STRICT)) === (E_ALL | E_STRICT)); // DEBUG_DEVELOPER is not available yet.
 
-if (!defined('MOODLE_INTERNAL')) { // Necessary because cli installer has to define it earlier.
-    /** Used by library scripts to check they are being called by Moodle. */
-    define('MOODLE_INTERNAL', true);
+if (!defined('LION_INTERNAL')) { // Necessary because cli installer has to define it earlier.
+    /** Used by library scripts to check they are being called by Lion. */
+    define('LION_INTERNAL', true);
 }
 
 // core_component can be used in any scripts, it does not need anything else.
@@ -406,7 +392,7 @@ if (defined('ABORT_AFTER_CONFIG')) {
         // hide debugging if not enabled in config.php - we do not want to disclose sensitive info
         error_reporting($CFG->debug);
         if (NO_DEBUG_DISPLAY) {
-            // Some parts of Moodle cannot display errors and debug at all.
+            // Some parts of Lion cannot display errors and debug at all.
             ini_set('display_errors', '0');
             ini_set('log_errors', '1');
         } else if (empty($CFG->debugdisplay)) {
@@ -422,19 +408,19 @@ if (defined('ABORT_AFTER_CONFIG')) {
 
 // Early profiling start, based exclusively on config.php $CFG settings
 if (!empty($CFG->earlyprofilingenabled)) {
-    require_once($CFG->libdir . '/xhprof/xhprof_moodle.php');
+    require_once($CFG->libdir . '/xhprof/xhprof_lion.php');
     profiling_start();
 }
 
 /**
  * Database connection. Used for all access to the database.
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @name $DB
  */
 global $DB;
 
 /**
- * Moodle's wrapper round PHP's $_SESSION.
+ * Lion's wrapper round PHP's $_SESSION.
  *
  * @global object $SESSION
  * @name $SESSION
@@ -471,7 +457,7 @@ global $SITE;
  * A central store of information about the current page we are
  * generating in response to the user's request.
  *
- * @global moodle_page $PAGE
+ * @global lion_page $PAGE
  * @name $PAGE
  */
 global $PAGE;
@@ -525,7 +511,7 @@ global $ME;
 global $FULLSCRIPT;
 
 /**
- * Relative moodle script path '/course/view.php'
+ * Relative lion script path '/course/view.php'
  * @global string $SCRIPT
  * @name $SCRIPT
  */
@@ -575,10 +561,10 @@ if (!empty($_SERVER['HTTP_X_moz']) && $_SERVER['HTTP_X_moz'] === 'prefetch'){
     exit(1);
 }
 
-//point pear include path to moodles lib/pear so that includes and requires will search there for files before anywhere else
+//point pear include path to lions lib/pear so that includes and requires will search there for files before anywhere else
 //the problem is that we need specific version of quickforms and hacked excel files :-(
 ini_set('include_path', $CFG->libdir.'/pear' . PATH_SEPARATOR . ini_get('include_path'));
-//point zend include path to moodles lib/zend so that includes and requires will search there for files before anywhere else
+//point zend include path to lions lib/zend so that includes and requires will search there for files before anywhere else
 //please note zend library is supposed to be used only from web service protocol classes, it may be removed in future
 ini_set('include_path', $CFG->libdir.'/zend' . PATH_SEPARATOR . ini_get('include_path'));
 
@@ -599,9 +585,9 @@ require_once($CFG->libdir .'/dmllib.php');          // Database access
 require_once($CFG->libdir .'/datalib.php');         // Legacy lib with a big-mix of functions.
 require_once($CFG->libdir .'/accesslib.php');       // Access control functions
 require_once($CFG->libdir .'/deprecatedlib.php');   // Deprecated functions included for backward compatibility
-require_once($CFG->libdir .'/moodlelib.php');       // Other general-purpose functions
+require_once($CFG->libdir .'/lionlib.php');       // Other general-purpose functions
 require_once($CFG->libdir .'/enrollib.php');        // Enrolment related functions
-require_once($CFG->libdir .'/pagelib.php');         // Library that defines the moodle_page class, used for $PAGE
+require_once($CFG->libdir .'/pagelib.php');         // Library that defines the lion_page class, used for $PAGE
 require_once($CFG->libdir .'/blocklib.php');        // Library for controlling blocks
 require_once($CFG->libdir .'/eventslib.php');       // Events functions
 require_once($CFG->libdir .'/grouplib.php');        // Groups functions
@@ -651,16 +637,16 @@ if (isset($CFG->debug)) {
 $CFG->debugdeveloper = (($CFG->debug & DEBUG_DEVELOPER) === DEBUG_DEVELOPER);
 
 // Find out if PHP configured to display warnings,
-// this is a security problem because some moodle scripts may
+// this is a security problem because some lion scripts may
 // disclose sensitive information.
 if (ini_get_bool('display_errors')) {
     define('WARN_DISPLAY_ERRORS_ENABLED', true);
 }
-// If we want to display Moodle errors, then try and set PHP errors to match.
+// If we want to display Lion errors, then try and set PHP errors to match.
 if (!isset($CFG->debugdisplay)) {
     // Keep it "as is" during installation.
 } else if (NO_DEBUG_DISPLAY) {
-    // Some parts of Moodle cannot display errors and debug at all.
+    // Some parts of Lion cannot display errors and debug at all.
     ini_set('display_errors', '0');
     ini_set('log_errors', '1');
 } else if (empty($CFG->debugdisplay)) {
@@ -737,7 +723,7 @@ if (!defined('SYSCONTEXTID')) {
 // Defining the site - aka frontpage course
 try {
     $SITE = get_site();
-} catch (moodle_exception $e) {
+} catch (lion_exception $e) {
     $SITE = null;
     if (empty($CFG->version)) {
         $SITE = new stdClass();
@@ -755,21 +741,21 @@ define('SITEID', $SITE->id);
 // init session prevention flag - this is defined on pages that do not want session
 if (CLI_SCRIPT) {
     // no sessions in CLI scripts possible
-    define('NO_MOODLE_COOKIES', true);
+    define('NO_LION_COOKIES', true);
 
 } else if (WS_SERVER) {
     // No sessions possible in web services.
-    define('NO_MOODLE_COOKIES', true);
+    define('NO_LION_COOKIES', true);
 
-} else if (!defined('NO_MOODLE_COOKIES')) {
+} else if (!defined('NO_LION_COOKIES')) {
     if (empty($CFG->version) or $CFG->version < 2009011900) {
         // no session before sessions table gets created
-        define('NO_MOODLE_COOKIES', true);
+        define('NO_LION_COOKIES', true);
     } else if (CLI_SCRIPT) {
         // CLI scripts can not have session
-        define('NO_MOODLE_COOKIES', true);
+        define('NO_LION_COOKIES', true);
     } else {
-        define('NO_MOODLE_COOKIES', false);
+        define('NO_LION_COOKIES', false);
     }
 }
 
@@ -804,7 +790,7 @@ if (!isset($CFG->filelifetime)) {
 
 // Late profiling, only happening if early one wasn't started
 if (!empty($CFG->profilingenabled)) {
-    require_once($CFG->libdir . '/xhprof/xhprof_moodle.php');
+    require_once($CFG->libdir . '/xhprof/xhprof_lion.php');
     profiling_start();
 }
 
@@ -857,7 +843,7 @@ unset($lang);
 if ($forcelang = optional_param('forcelang', '', PARAM_SAFEDIR)) {
     if (isloggedin()
         && get_string_manager()->translation_exists($forcelang, false)
-        && has_capability('moodle/site:forcelanguage', context_system::instance())) {
+        && has_capability('lion/site:forcelanguage', context_system::instance())) {
         $SESSION->forcelang = $forcelang;
     } else if (isset($SESSION->forcelang)) {
         unset($SESSION->forcelang);
@@ -877,16 +863,16 @@ if (empty($CFG->lang)) {
 
 // Set the default site locale, a lot of the stuff may depend on this
 // it is definitely too late to call this first in require_login()!
-moodle_setlocale();
+lion_setlocale();
 
 // Create the $PAGE global - this marks the PAGE and OUTPUT fully initialised, this MUST be done at the end of setup!
-if (!empty($CFG->moodlepageclass)) {
-    if (!empty($CFG->moodlepageclassfile)) {
-        require_once($CFG->moodlepageclassfile);
+if (!empty($CFG->lionpageclass)) {
+    if (!empty($CFG->lionpageclassfile)) {
+        require_once($CFG->lionpageclassfile);
     }
-    $classname = $CFG->moodlepageclass;
+    $classname = $CFG->lionpageclass;
 } else {
-    $classname = 'moodle_page';
+    $classname = 'lion_page';
 }
 $PAGE = new $classname();
 unset($classname);
@@ -909,7 +895,7 @@ if (!empty($CFG->debugvalidators) and !empty($CFG->guestloginbutton)) {
 }
 
 // Apache log integration. In apache conf file one can use ${MOODULEUSER}n in
-// LogFormat to get the current logged in username in moodle.
+// LogFormat to get the current logged in username in lion.
 if ($USER && function_exists('apache_note')
     && !empty($CFG->apacheloguser) && isset($USER->username)) {
     $apachelog_userid = $USER->id;
@@ -939,7 +925,7 @@ if ($USER && function_exists('apache_note')
             $logname = $apachelog_userid;
             break;
     }
-    apache_note('MOODLEUSER', $logname);
+    apache_note('LIONUSER', $logname);
 }
 
 // Use a custom script replacement if one exists
@@ -1021,7 +1007,7 @@ if (isset($CFG->maintenance_later) and $CFG->maintenance_later <= time()) {
     if (AJAX_SCRIPT) {
         die;
     } else if (!CLI_SCRIPT) {
-        redirect(new moodle_url('/'));
+        redirect(new lion_url('/'));
     }
 }
 
@@ -1033,7 +1019,7 @@ if (isset($CFG->maintenance_later) and $CFG->maintenance_later <= time()) {
 // this is a funny trick to make Eclipse believe that $OUTPUT and other globals
 // contains an instance of core_renderer, etc. which in turn fixes autocompletion ;-)
 if (false) {
-    $DB = new moodle_database();
+    $DB = new lion_database();
     $OUTPUT = new core_renderer(null, null);
-    $PAGE = new moodle_page();
+    $PAGE = new lion_page();
 }

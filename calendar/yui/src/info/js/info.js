@@ -1,26 +1,12 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Overlay manager for the Moodle Calendar.
+ * Overlay manager for the Lion Calendar.
  *
- * @module     moodle-core_calendar-info
+ * @module     lion-core_calendar-info
  * @package    core_calendar
  * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @main       moodle-core_calendar-info
+ * 
+ * @main       lion-core_calendar-info
  */
 
 var ARIACONTROLS = 'aria-controls',
@@ -35,7 +21,7 @@ var ARIACONTROLS = 'aria-controls',
     INNERHTML = 'innerHTML',
 
     /**
-     * Overlay manager for the Moodle calendar.
+     * Overlay manager for the Lion calendar.
      *
      * @namespace M.core_calendar
      * @class Info

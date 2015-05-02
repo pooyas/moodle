@@ -3,10 +3,10 @@
 //                                                                       //
 // NOTICE OF COPYRIGHT                                                   //
 //                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.org                                            //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
+//          http://lion.org                                            //
 //                                                                       //
-// Copyright (C) 1999-onwards Moodle Pty Ltd  http://moodle.com          //
+// Copyright (C) 1999-onwards Lion Pty Ltd  http://lion.com          //
 //                                                                       //
 // This program is free software; you can redistribute it and/or modify  //
 // it under the terms of the GNU General Public License as published by  //
@@ -52,8 +52,8 @@ class data_field_file extends data_field_base {
                         }
                         if (empty($content->content1)) {
                             // Print icon if file already exists
-                            $src = moodle_url::make_draftfile_url($itemid, '/', $file->get_filename());
-                            $displayname = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'moodle', array('class' => 'icon')). '<a href="'.$src.'" >'.s($file->get_filename()).'</a>';
+                            $src = lion_url::make_draftfile_url($itemid, '/', $file->get_filename());
+                            $displayname = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'lion', array('class' => 'icon')). '<a href="'.$src.'" >'.s($file->get_filename()).'</a>';
 
                         } else {
                             $displayname = 'no file added';
@@ -153,7 +153,7 @@ class data_field_file extends data_field_base {
         $width  = $this->field->param1 ? ' width  = "'.s($this->field->param1).'" ':' ';
         $height = $this->field->param2 ? ' height = "'.s($this->field->param2).'" ':' ';
 
-        $str = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'moodle', array('width' => 16, 'height' => 16)). '&nbsp;'.
+        $str = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'lion', array('width' => 16, 'height' => 16)). '&nbsp;'.
                '<a href="'.$src.'" >'.s($name).'</a>';
         return $str;
     }

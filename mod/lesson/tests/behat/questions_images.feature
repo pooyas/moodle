@@ -18,7 +18,7 @@ Feature: In a lesson activity, teacher can add embedded images in questions answ
       | student1 | C1 | student |
     And I log in as "teacher1"
     And I navigate to "My private files" node in "My profile"
-    And I upload "mod/lesson/tests/fixtures/moodle_logo.jpg" file to "Files" filemanager
+    And I upload "mod/lesson/tests/fixtures/lion_logo.jpg" file to "Files" filemanager
     And I click on "Save changes" "button"
     When I am on homepage
     And I follow "Course 1"
@@ -50,7 +50,7 @@ Feature: In a lesson activity, teacher can add embedded images in questions answ
     And I click on "Image" "button" in the "#fitem_id_answer_editor_2" "css_element"
     And I click on "Browse repositories..." "button"
     And I click on "Private files" "link"
-    And I click on "moodle_logo.jpg" "link"
+    And I click on "lion_logo.jpg" "link"
     And I click on "Select this file" "button"
     And I set the field "Describe this image for someone who cannot see it" to "It's the logo"
     And I click on "Save image" "button"
@@ -72,7 +72,7 @@ Feature: In a lesson activity, teacher can add embedded images in questions answ
     And I click on "Image" "button" in the "#fitem_id_response_editor_0" "css_element"
     And I click on "Browse repositories..." "button"
     And I click on "Private files" "link"
-    And I click on "moodle_logo.jpg" "link"
+    And I click on "lion_logo.jpg" "link"
     And I click on "Select this file" "button"
     And I set the field "Describe this image for someone who cannot see it" to "It's the logo"
     And I click on "Save image" "button"
@@ -83,7 +83,7 @@ Feature: In a lesson activity, teacher can add embedded images in questions answ
     When I follow "Test lesson name"
     Then I should see "What animal is an amphibian?"
     And "//*[contains(@class, 'answeroption')]//img[contains(@src, 'pluginfile.php')]" "xpath_element" should exist
-    And "//*[contains(@class, 'answeroption')]//img[contains(@src, 'moodle_logo.jpg')]" "xpath_element" should exist
+    And "//*[contains(@class, 'answeroption')]//img[contains(@src, 'lion_logo.jpg')]" "xpath_element" should exist
     And I set the following fields to these values:
       | Cat | 1 |
     And I press "Submit"
@@ -96,7 +96,7 @@ Feature: In a lesson activity, teacher can add embedded images in questions answ
     And I should see "Correct"
     And I should not see "Wrong"
     And "//img[contains(@src, 'pluginfile.php')]" "xpath_element" should exist in the ".correctanswer" "css_element"
-    And "//img[contains(@src, 'moodle_logo.jpg')]" "xpath_element" should exist in the ".correctanswer" "css_element"
+    And "//img[contains(@src, 'lion_logo.jpg')]" "xpath_element" should exist in the ".correctanswer" "css_element"
     And I press "Continue"
     And I should see "Congratulations - end of lesson reached"
     And I should see "Your score is 1 (out of 2)."

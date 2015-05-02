@@ -1,27 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Allows the admin to manage question behaviours.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
@@ -33,10 +19,10 @@ require_once($CFG->libdir . '/tablelib.php');
 // Check permissions.
 require_login();
 $systemcontext = context_system::instance();
-require_capability('moodle/question:config', $systemcontext);
+require_capability('lion/question:config', $systemcontext);
 
 admin_externalpage_setup('manageqbehaviours');
-$thispageurl = new moodle_url('/admin/qbehaviours.php');
+$thispageurl = new lion_url('/admin/qbehaviours.php');
 
 $behaviours = core_component::get_plugin_list('qbehaviour');
 $pluginmanager = core_plugin_manager::instance();
@@ -233,9 +219,9 @@ function question_behaviour_enable_disable_icons($behaviour, $enabled) {
 
 function question_behaviour_icon_html($action, $behaviour, $icon, $alt, $tip) {
     global $OUTPUT;
-    return $OUTPUT->action_icon(new moodle_url('/admin/qbehaviours.php',
+    return $OUTPUT->action_icon(new lion_url('/admin/qbehaviours.php',
             array($action => $behaviour, 'sesskey' => sesskey())),
-            new pix_icon($icon, $alt, 'moodle', array('title' => '', 'class' => 'iconsmall')),
+            new pix_icon($icon, $alt, 'lion', array('title' => '', 'class' => 'iconsmall')),
             null, array('title' => $tip));
 }
 

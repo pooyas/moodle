@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Page for creating or editing course category name/parent/description.
@@ -23,7 +9,7 @@
  *
  * @package    core_course
  * @copyright  2007 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once('../config.php');
@@ -34,7 +20,7 @@ require_login();
 
 $id = optional_param('id', 0, PARAM_INT);
 
-$url = new moodle_url('/course/editcategory.php');
+$url = new lion_url('/course/editcategory.php');
 if ($id) {
     $coursecat = coursecat::get($id, MUST_EXIST, true);
     $category = $coursecat->get_db_record();
@@ -55,7 +41,7 @@ if ($id) {
     } else {
         $context = context_system::instance();
     }
-    navigation_node::override_active_url(new moodle_url('/course/editcategory.php', array('parent' => $parent)));
+    navigation_node::override_active_url(new lion_url('/course/editcategory.php', array('parent' => $parent)));
 
     $category = new stdClass();
     $category->id = 0;
@@ -66,7 +52,7 @@ if ($id) {
     $fullname = $SITE->fullname;
 }
 
-require_capability('moodle/category:manage', $context);
+require_capability('lion/category:manage', $context);
 
 $PAGE->set_context($context);
 $PAGE->set_url($url);
@@ -90,7 +76,7 @@ $mform->set_data(file_prepare_standard_editor(
     $itemid
 ));
 
-$manageurl = new moodle_url('/course/management.php');
+$manageurl = new lion_url('/course/management.php');
 if ($mform->is_cancelled()) {
     if ($id) {
         $manageurl->param('categoryid', $id);

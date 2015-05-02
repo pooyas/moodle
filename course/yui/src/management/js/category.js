@@ -9,7 +9,7 @@
 function Category() {
     Category.superclass.constructor.apply(this, arguments);
 }
-Category.NAME = 'moodle-course-management-category';
+Category.NAME = 'lion-course-management-category';
 Category.CSS_PREFIX = 'management-category';
 Category.ATTRS = {
     /**
@@ -151,7 +151,7 @@ Category.prototype = {
                 }
                 break;
             default:
-                Y.log('Invalid AJAX action requested of managed category.', 'warn', 'moodle-course-management');
+                Y.log('Invalid AJAX action requested of managed category.', 'warn', 'lion-course-management');
                 return false;
         }
     },
@@ -166,10 +166,10 @@ Category.prototype = {
             ul = node.one('ul[role=group]');
         node.removeClass('collapsed').setAttribute('aria-expanded', 'true');
         action.setAttribute('data-action', 'collapse').setAttrs({
-            title : M.util.get_string('collapsecategory', 'moodle', this.getName())
+            title : M.util.get_string('collapsecategory', 'lion', this.getName())
         }).one('img').setAttrs({
-            src : M.util.image_url('t/switch_minus', 'moodle'),
-            alt : M.util.get_string('collapse', 'moodle')
+            src : M.util.image_url('t/switch_minus', 'lion'),
+            alt : M.util.get_string('collapse', 'lion')
         });
         if (ul) {
             ul.setAttribute('aria-hidden', 'false');
@@ -187,10 +187,10 @@ Category.prototype = {
             ul = node.one('ul[role=group]');
         node.addClass('collapsed').setAttribute('aria-expanded', 'false');
         action.setAttribute('data-action', 'expand').setAttrs({
-            title : M.util.get_string('expandcategory', 'moodle', this.getName())
+            title : M.util.get_string('expandcategory', 'lion', this.getName())
         }).one('img').setAttrs({
-            src : M.util.image_url('t/switch_plus', 'moodle'),
-            alt : M.util.get_string('expand', 'moodle')
+            src : M.util.image_url('t/switch_plus', 'lion'),
+            alt : M.util.get_string('expand', 'lion')
         });
         if (ul) {
             ul.setAttribute('aria-hidden', 'true');
@@ -215,10 +215,10 @@ Category.prototype = {
             ul,
             actionnode;
         if (outcome === false) {
-            Y.log('AJAX failed to load sub categories for '+this.get('itemname'), 'warn', 'moodle-course-management');
+            Y.log('AJAX failed to load sub categories for '+this.get('itemname'), 'warn', 'lion-course-management');
             return false;
         }
-        Y.log('AJAX loaded subcategories for '+this.get('itemname'), 'info', 'moodle-course-management');
+        Y.log('AJAX loaded subcategories for '+this.get('itemname'), 'info', 'lion-course-management');
         node.append(outcome.html);
         managementconsole.initialiseCategories(node);
         if (M.core && M.core.actionmenu && M.core.actionmenu.newDOMNode) {
@@ -240,15 +240,15 @@ Category.prototype = {
      */
     moveCourseTo : function(course) {
         var self = this;
-        Y.use('moodle-core-notification-confirm', function() {
+        Y.use('lion-core-notification-confirm', function() {
             var confirm = new M.core.confirm({
-                title : M.util.get_string('confirm', 'moodle'),
-                question : M.util.get_string('confirmcoursemove', 'moodle', {
+                title : M.util.get_string('confirm', 'lion'),
+                question : M.util.get_string('confirmcoursemove', 'lion', {
                     course : course.getName(),
                     category : self.getName()
                 }),
-                yesLabel : M.util.get_string('move', 'moodle'),
-                noLabel : M.util.get_string('cancel', 'moodle')
+                yesLabel : M.util.get_string('move', 'lion'),
+                noLabel : M.util.get_string('cancel', 'lion')
             });
             confirm.on('complete-yes', function() {
                 confirm.hide();
@@ -278,16 +278,16 @@ Category.prototype = {
             course,
             totals;
         if (outcome === false) {
-            Y.log('AJAX failed to move courses into this category: '+this.get('itemname'), 'warn', 'moodle-course-management');
+            Y.log('AJAX failed to move courses into this category: '+this.get('itemname'), 'warn', 'lion-course-management');
             return false;
         }
         course = managementconsole.getCourseById(args.courseid);
         if (!course) {
-            Y.log('Course was moved but the course listing could not be found to reflect this', 'warn', 'moodle-course-management');
+            Y.log('Course was moved but the course listing could not be found to reflect this', 'warn', 'lion-course-management');
             return false;
         }
         Y.log('Moved the course (' + course.getName() + ') into this category (' + this.getName() + ')',
-            'debug', 'moodle-course-management');
+            'debug', 'lion-course-management');
         this.highlight();
         if (course) {
             if (outcome.paginationtotals) {
@@ -330,7 +330,7 @@ Category.prototype = {
         var outcome = this.checkAjaxResponse(transactionid, response, args),
             hidebtn;
         if (outcome === false) {
-            Y.log('AJAX request to show '+this.get('itemname')+' by outcome.', 'warn', 'moodle-course-management');
+            Y.log('AJAX request to show '+this.get('itemname')+' by outcome.', 'warn', 'lion-course-management');
             return false;
         }
 
@@ -346,7 +346,7 @@ Category.prototype = {
             this.updateCourseVisiblity(outcome.coursevisibility);
         }
         this.updated();
-        Y.log('Success: category made visible by AJAX.', 'info', 'moodle-course-management');
+        Y.log('Success: category made visible by AJAX.', 'info', 'lion-course-management');
     },
 
     /**
@@ -362,7 +362,7 @@ Category.prototype = {
         var outcome = this.checkAjaxResponse(transactionid, response, args),
             showbtn;
         if (outcome === false) {
-            Y.log('AJAX request to hide '+this.get('itemname')+' by outcome.', 'warn', 'moodle-course-management');
+            Y.log('AJAX request to hide '+this.get('itemname')+' by outcome.', 'warn', 'lion-course-management');
             return false;
         }
         this.markHidden();
@@ -377,7 +377,7 @@ Category.prototype = {
             this.updateCourseVisiblity(outcome.coursevisibility);
         }
         this.updated();
-        Y.log('Success: '+this.get('itemname')+' made hidden by AJAX.', 'info', 'moodle-course-management');
+        Y.log('Success: '+this.get('itemname')+' made hidden by AJAX.', 'info', 'lion-course-management');
     },
 
     /**
@@ -390,7 +390,7 @@ Category.prototype = {
         var managementconsole = this.get('console'),
             key,
             course;
-        Y.log('Changing categories course visibility', 'info', 'moodle-course-management');
+        Y.log('Changing categories course visibility', 'info', 'lion-course-management');
         try {
             for (key in courses) {
                 if (typeof courses[key] === 'object') {
@@ -405,7 +405,7 @@ Category.prototype = {
                 }
             }
         } catch (err) {
-            Y.log('Error trying to update course visibility: ' + err.message, 'warn', 'moodle-course-management');
+            Y.log('Error trying to update course visibility: ' + err.message, 'warn', 'lion-course-management');
         }
         return this;
     },
@@ -420,7 +420,7 @@ Category.prototype = {
         var managementconsole = this.get('console'),
             key,
             category;
-        Y.log('Changing categories subcategory visibility', 'info', 'moodle-course-management');
+        Y.log('Changing categories subcategory visibility', 'info', 'lion-course-management');
         try {
             for (key in categories) {
                 if (typeof categories[key] === 'object') {
@@ -435,7 +435,7 @@ Category.prototype = {
                 }
             }
         } catch (err) {
-            Y.log('Error trying to update category visibility: ' + err.message, 'warn', 'moodle-course-management');
+            Y.log('Error trying to update category visibility: ' + err.message, 'warn', 'lion-course-management');
         }
         return this;
     }

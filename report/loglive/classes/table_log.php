@@ -1,37 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Table log for displaying logs.
  *
  * @package    report_loglive
  * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 require_once($CFG->libdir . '/tablelib.php');
 
 /**
  * Table log class for displaying logs.
  *
- * @since      Moodle 2.7
+ * @since      Lion 2.7
  * @package    report_loglive
  * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class report_loglive_table_log extends table_sql {
 
@@ -137,10 +123,10 @@ class report_loglive_table_log extends table_sql {
             if ($event->courseid) {
                 $params['course'] = $event->courseid;
             }
-            $a->realusername = html_writer::link(new moodle_url("/user/view.php", $params),
+            $a->realusername = html_writer::link(new lion_url("/user/view.php", $params),
                 $this->userfullnames[$logextra['realuserid']]);
             $params['id'] = $event->userid;
-            $a->asusername = html_writer::link(new moodle_url("/user/view.php", $params),
+            $a->asusername = html_writer::link(new lion_url("/user/view.php", $params),
                 $this->userfullnames[$event->userid]);
             $username = get_string('eventloggedas', 'report_loglive', $a);
         } else if (!empty($event->userid) && !empty($this->userfullnames[$event->userid])) {
@@ -148,7 +134,7 @@ class report_loglive_table_log extends table_sql {
             if ($event->courseid) {
                 $params['course'] = $event->courseid;
             }
-            $username = html_writer::link(new moodle_url("/user/view.php", $params), $this->userfullnames[$event->userid]);
+            $username = html_writer::link(new lion_url("/user/view.php", $params), $this->userfullnames[$event->userid]);
         } else {
             $username = '-';
         }
@@ -168,7 +154,7 @@ class report_loglive_table_log extends table_sql {
             if ($event->courseid) {
                 $params['course'] = $event->courseid;
             }
-            return html_writer::link(new moodle_url("/user/view.php", $params), $this->userfullnames[$event->relateduserid]);
+            return html_writer::link(new lion_url("/user/view.php", $params), $this->userfullnames[$event->relateduserid]);
         } else {
             return '-';
         }
@@ -278,20 +264,20 @@ class report_loglive_table_log extends table_sql {
         // Get extra event data for origin and realuserid.
         $logextra = $event->get_logextra();
 
-        $url = new moodle_url("/iplookup/index.php?ip={$logextra['ip']}&user=$event->userid");
+        $url = new lion_url("/iplookup/index.php?ip={$logextra['ip']}&user=$event->userid");
         return $this->action_link($url, $logextra['ip'], 'ip');
     }
 
     /**
      * Method to create a link with popup action.
      *
-     * @param moodle_url $url The url to open.
+     * @param lion_url $url The url to open.
      * @param string $text Anchor text for the link.
      * @param string $name Name of the popup window.
      *
      * @return string html to use.
      */
-    protected function action_link(moodle_url $url, $text, $name = 'popup') {
+    protected function action_link(lion_url $url, $text, $name = 'popup') {
         global $OUTPUT;
         $link = new action_link($url, $text, new popup_action('click', $url, $name, array('height' => 440, 'width' => 700)));
         return $OUTPUT->render($link);
@@ -393,7 +379,7 @@ class report_loglive_table_log extends table_sql {
 
             $courses = $DB->get_records_sql($sql, $courseparams);
             foreach ($courses as $courseid => $course) {
-                $url = new moodle_url("/course/view.php", array('id' => $courseid));
+                $url = new lion_url("/course/view.php", array('id' => $courseid));
                 context_helper::preload_from_record($course);
                 $context = context_course::instance($courseid, IGNORE_MISSING);
                 // Method format_string() takes care of missing contexts.

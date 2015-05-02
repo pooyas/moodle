@@ -46,7 +46,7 @@ require_once 'PEAR.php';
 * @version $Revision$
 */
 
-// PEAR::loadExtension('radius'); // Moodle commented. See MDL-38373.
+// PEAR::loadExtension('radius'); // Lion commented. See MDL-38373.
 
 /**
  * class Auth_RADIUS
@@ -127,7 +127,7 @@ class Auth_RADIUS extends PEAR {
      */
     function Auth_RADIUS()
     {
-        $this->loadExtension('radius'); // Moodle added. See MDL-38373.
+        $this->loadExtension('radius'); // Lion added. See MDL-38373.
         $this->PEAR();
     }
 

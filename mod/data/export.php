@@ -1,22 +1,8 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file is part of the Database module for Moodle
+ * This file is part of the Database module for Lion
  *
  * @copyright 2005 Martin Dougiamas  http://dougiamas.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -87,7 +73,7 @@ if($mform->is_cancelled()) {
     echo $OUTPUT->heading(format_string($data->name), 2);
     echo $OUTPUT->box(format_module_intro('data', $data, $cm->id), 'generalbox', 'intro');
 
-    $url = new moodle_url('/mod/data/export.php', array('d' => $d));
+    $url = new lion_url('/mod/data/export.php', array('d' => $d));
     groups_print_activity_menu($cm, $url);
 
     // these are for the tab display

@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This page prints a particular instance of lesson
  *
  * @package mod_lesson
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  **/
 
@@ -42,14 +28,14 @@ $lesson = new lesson($DB->get_record('lesson', array('id' => $cm->instance), '*'
 require_login($course, false, $cm);
 
 if ($backtocourse) {
-    redirect(new moodle_url('/course/view.php', array('id'=>$course->id)));
+    redirect(new lion_url('/course/view.php', array('id'=>$course->id)));
 }
 
 // Mark as viewed
 $completion = new completion_info($course);
 $completion->set_module_viewed($cm);
 
-$url = new moodle_url('/mod/lesson/view.php', array('id'=>$id));
+$url = new lion_url('/mod/lesson/view.php', array('id'=>$id));
 if ($pageid !== null) {
     $url->param('pageid', $pageid);
 }
@@ -152,7 +138,7 @@ if (!$canmanage) {
         }
     } else if ($lesson->highscores && !$lesson->practice && !optional_param('viewed', 0, PARAM_INT) && empty($pageid)) {
         // Display high scores before starting lesson
-        redirect(new moodle_url('/mod/lesson/highscores.php', array("id"=>$cm->id)));
+        redirect(new lion_url('/mod/lesson/highscores.php', array("id"=>$cm->id)));
     }
 }
 
@@ -242,7 +228,7 @@ if (empty($pageid)) {
             echo $lessonoutput->header($lesson, $cm, '', false, null, get_string('leftduringtimedsession', 'lesson'));
             if ($lesson->timelimit) {
                 if ($lesson->retake) {
-                    $continuelink = new single_button(new moodle_url('/mod/lesson/view.php',
+                    $continuelink = new single_button(new lion_url('/mod/lesson/view.php',
                             array('id' => $cm->id, 'pageid' => $lesson->firstpageid, 'startlastseen' => 'no')),
                             get_string('continue', 'lesson'), 'get');
 
@@ -250,7 +236,7 @@ if (empty($pageid)) {
                             'center leftduring');
 
                 } else {
-                    $courselink = new single_button(new moodle_url('/course/view.php',
+                    $courselink = new single_button(new lion_url('/course/view.php',
                             array('id' => $PAGE->course->id)), get_string('returntocourse', 'lesson'), 'get');
 
                     echo html_writer::div($lessonoutput->message(get_string('leftduringtimednoretake', 'lesson'), $courselink),
@@ -267,7 +253,7 @@ if (empty($pageid)) {
     if ($attemptflag) {
         if (!$lesson->retake) {
             echo $lessonoutput->header($lesson, $cm, 'view', '', null, get_string("noretake", "lesson"));
-            $courselink = new single_button(new moodle_url('/course/view.php', array('id'=>$PAGE->course->id)), get_string('returntocourse', 'lesson'), 'get');
+            $courselink = new single_button(new lion_url('/course/view.php', array('id'=>$PAGE->course->id)), get_string('returntocourse', 'lesson'), 'get');
             echo $lessonoutput->message(get_string("noretake", "lesson"), $courselink);
             echo $lessonoutput->footer();
             exit();
@@ -330,7 +316,7 @@ if ($pageid != LESSON_EOL) {
             if ($timeleft <= 0) {
                 // Out of time
                 $lesson->add_message(get_string('eolstudentoutoftime', 'lesson'));
-                redirect(new moodle_url('/mod/lesson/view.php', array('id'=>$cm->id,'pageid'=>LESSON_EOL, 'outoftime'=>'normal')));
+                redirect(new lion_url('/mod/lesson/view.php', array('id'=>$cm->id,'pageid'=>LESSON_EOL, 'outoftime'=>'normal')));
                 die; // Shouldn't be reached, but make sure
             } else if ($timeleft < 60) {
                 // One minute warning
@@ -584,13 +570,13 @@ if ($pageid != LESSON_EOL) {
             }
             if (!$highscores or $madeit) {
                 $lessoncontent .= $lessonoutput->paragraph(get_string("youmadehighscore", "lesson", $lesson->maxhighscores), 'center');
-                $aurl = new moodle_url('/mod/lesson/highscores.php', array('id'=>$PAGE->cm->id, 'sesskey'=>sesskey()));
+                $aurl = new lion_url('/mod/lesson/highscores.php', array('id'=>$PAGE->cm->id, 'sesskey'=>sesskey()));
                 $lessoncontent .= $OUTPUT->single_button($aurl, get_string('clicktopost', 'lesson'));
             } else {
                 $lessoncontent .= get_string("nothighscore", "lesson", $lesson->maxhighscores)."<br />";
             }
         }
-        $url = new moodle_url('/mod/lesson/highscores.php', array('id'=>$PAGE->cm->id, 'link'=>'1'));
+        $url = new lion_url('/mod/lesson/highscores.php', array('id'=>$PAGE->cm->id, 'link'=>'1'));
         $lessoncontent .= html_writer::link($url, get_string('viewhighscores', 'lesson'), array('class'=>'centerpadded lessonbutton standardbutton'));
         $lessoncontent .= $OUTPUT->box_end();
     }
@@ -602,7 +588,7 @@ if ($pageid != LESSON_EOL) {
         // $ntries is decremented above
         if (!$attempts = $lesson->get_attempts($ntries)) {
             $attempts = array();
-            $url = new moodle_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id));
+            $url = new lion_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id));
         } else {
             $firstattempt = current($attempts);
             $pageid = $firstattempt->pageid;
@@ -611,7 +597,7 @@ if ($pageid != LESSON_EOL) {
             $lastattempt = end($attempts);
             $USER->modattempts[$lesson->id] = $lastattempt->pageid;
 
-            $url = new moodle_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id, 'pageid'=>$pageid));
+            $url = new lion_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id, 'pageid'=>$pageid));
         }
         $lessoncontent .= html_writer::link($url, get_string('reviewlesson', 'lesson'), array('class' => 'centerpadded lessonbutton standardbutton'));
     } elseif ($lesson->modattempts && $canmanage) {
@@ -622,12 +608,12 @@ if ($pageid != LESSON_EOL) {
         $lessoncontent .= $lesson->link_for_activitylink();
     }
 
-    $url = new moodle_url('/course/view.php', array('id'=>$course->id));
+    $url = new lion_url('/course/view.php', array('id'=>$course->id));
     $lessoncontent .= html_writer::link($url, get_string('returnto', 'lesson', format_string($course->fullname, true)), array('class'=>'centerpadded lessonbutton standardbutton'));
 
     if (has_capability('gradereport/user:view', context_course::instance($course->id))
             && $course->showgrades && $lesson->grade != 0 && !$lesson->practice) {
-        $url = new moodle_url('/grade/index.php', array('id' => $course->id));
+        $url = new lion_url('/grade/index.php', array('id' => $course->id));
         $lessoncontent .= html_writer::link($url, get_string('viewgrades', 'lesson'),
             array('class' => 'centerpadded lessonbutton standardbutton'));
     }

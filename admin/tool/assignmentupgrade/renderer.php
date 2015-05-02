@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Defines the renderer for the assignment upgrade helper plugin.
  *
  * @package    tool_assignmentupgrade
  * @copyright  2012 NetSpot
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Renderer for the assignment upgrade helper plugin.
  *
  * @package    tool_assignmentupgrade
  * @copyright  2012 NetSpot
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class tool_assignmentupgrade_renderer extends plugin_renderer_base {
 
@@ -132,7 +118,7 @@ class tool_assignmentupgrade_renderer extends plugin_renderer_base {
         $output .= $this->container_start('tool_assignmentupgrade_upgradetable');
 
         $output .= $this->container_start('tool_assignmentupgrade_paginationform');
-        $output .= $this->moodleform($paginationform);
+        $output .= $this->lionform($paginationform);
         $output .= $this->container_end();
 
         $output .= $this->flexible_table($assignments, $assignments->get_rows_per_page(), true);
@@ -140,7 +126,7 @@ class tool_assignmentupgrade_renderer extends plugin_renderer_base {
 
         if ($assignments->anyupgradableassignments) {
             $output .= $this->container_start('tool_assignmentupgrade_batchform');
-            $output .= $this->moodleform($batchform);
+            $output .= $this->lionform($batchform);
             $output .= $this->container_end();
         }
 
@@ -165,7 +151,7 @@ class tool_assignmentupgrade_renderer extends plugin_renderer_base {
             $output .= $this->container(get_string('conversionfailed', 'tool_assignmentupgrade', $log));
         } else {
             $output .= $this->container(get_string('upgradeassignmentsuccess', 'tool_assignmentupgrade'));
-            $url = new moodle_url('/course/view.php', array('id'=>$assignmentsummary->courseid));
+            $url = new lion_url('/course/view.php', array('id'=>$assignmentsummary->courseid));
             $output .= $this->container(html_writer::link($url, get_string('viewcourse', 'tool_assignmentupgrade')));
         }
         $output .= $this->container_end();
@@ -212,12 +198,12 @@ class tool_assignmentupgrade_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Helper method dealing with the fact we can not just fetch the output of moodleforms
+     * Helper method dealing with the fact we can not just fetch the output of lionforms
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      * @return string HTML
      */
-    protected function moodleform(moodleform $mform) {
+    protected function lionform(lionform $mform) {
 
         $o = '';
         ob_start();
@@ -231,7 +217,7 @@ class tool_assignmentupgrade_renderer extends plugin_renderer_base {
 
     /**
      * Render a link in a div, such as the 'Back to plugin main page' link.
-     * @param string|moodle_url $url the link URL.
+     * @param string|lion_url $url the link URL.
      * @param string $text the link text.
      * @return string html to output.
      */

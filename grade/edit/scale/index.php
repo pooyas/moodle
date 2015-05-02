@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * A page for managing custom and standard scales
  *
  * @package   core_grades
  * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once '../../../config.php';
@@ -38,7 +24,7 @@ if ($courseid) {
     }
     require_login($course);
     $context = context_course::instance($course->id);
-    require_capability('moodle/course:managescales', $context);
+    require_capability('lion/course:managescales', $context);
     $PAGE->set_pagelayout('admin');
 } else {
     require_once $CFG->libdir.'/adminlib.php';
@@ -69,7 +55,7 @@ switch ($action) {
         }
 
         if (empty($scale->courseid)) {
-            require_capability('moodle/course:managescales', context_system::instance());
+            require_capability('lion/course:managescales', context_system::instance());
         } else if ($scale->courseid != $courseid) {
             print_error('invalidcourseid');
         }
@@ -86,7 +72,7 @@ switch ($action) {
             $PAGE->set_title($strdeletescale);
             $PAGE->set_heading($COURSE->fullname);
             echo $OUTPUT->header();
-            $confirmurl = new moodle_url('index.php', array(
+            $confirmurl = new lion_url('index.php', array(
                     'id' => $courseid, 'scaleid' => $scale->id,
                     'action'=> 'delete',
                     'sesskey' =>  sesskey(),
@@ -147,10 +133,10 @@ if ($scales = grade_scale::fetch_all_global()) {
         $line[] = $used ? get_string('yes') : get_string('no');
 
         $buttons = "";
-        if (has_capability('moodle/course:managescales', context_system::instance())) {
+        if (has_capability('lion/course:managescales', context_system::instance())) {
             $buttons .= grade_button('edit', $courseid, $scale);
         }
-        if (!$used and has_capability('moodle/course:managescales', context_system::instance())) {
+        if (!$used and has_capability('lion/course:managescales', context_system::instance())) {
             $buttons .= grade_button('delete', $courseid, $scale);
         }
         $line[] = $buttons;
@@ -173,6 +159,6 @@ echo html_writer::table($table);
 echo $OUTPUT->heading($strstandardscale, 3, 'main');
 echo html_writer::table($table2);
 echo $OUTPUT->container_start('buttons');
-echo $OUTPUT->single_button(new moodle_url('edit.php', array('courseid'=>$courseid)), $srtcreatenewscale);
+echo $OUTPUT->single_button(new lion_url('edit.php', array('courseid'=>$courseid)), $srtcreatenewscale);
 echo $OUTPUT->container_end();
 echo $OUTPUT->footer();

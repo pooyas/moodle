@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Book module local lib functions
  *
  * @package    mod_book
  * @copyright  2010-2011 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once(dirname(__FILE__).'/lib.php');
 require_once($CFG->libdir.'/filelib.php');
@@ -276,36 +262,36 @@ function book_get_toc($chapters, $chapter, $book, $cm, $edit) {
             if ($ch->id == $chapter->id) {
                 $toc .= html_writer::tag('strong', $title);
             } else {
-                $toc .= html_writer::link(new moodle_url('view.php', array('id' => $cm->id, 'chapterid' => $ch->id)), $title, array('title' => s($title)));
+                $toc .= html_writer::link(new lion_url('view.php', array('id' => $cm->id, 'chapterid' => $ch->id)), $title, array('title' => s($title)));
             }
 
             $toc .= html_writer::start_tag('div', array('class' => 'action-list'));
             if ($i != 1) {
-                $toc .= html_writer::link(new moodle_url('move.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'up' => '1', 'sesskey' => $USER->sesskey)),
+                $toc .= html_writer::link(new lion_url('move.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'up' => '1', 'sesskey' => $USER->sesskey)),
                         $OUTPUT->pix_icon('t/up', get_string('movechapterup', 'mod_book', $title)),
                         array('title' => get_string('movechapterup', 'mod_book', $title)));
             }
             if ($i != count($chapters)) {
-                $toc .= html_writer::link(new moodle_url('move.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'up' => '0', 'sesskey' => $USER->sesskey)),
+                $toc .= html_writer::link(new lion_url('move.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'up' => '0', 'sesskey' => $USER->sesskey)),
                         $OUTPUT->pix_icon('t/down', get_string('movechapterdown', 'mod_book', $title)),
                         array('title' => get_string('movechapterdown', 'mod_book', $title)));
             }
-            $toc .= html_writer::link(new moodle_url('edit.php', array('cmid' => $cm->id, 'id' => $ch->id)),
+            $toc .= html_writer::link(new lion_url('edit.php', array('cmid' => $cm->id, 'id' => $ch->id)),
                     $OUTPUT->pix_icon('t/edit', get_string('editchapter', 'mod_book', $title)),
                     array('title' => get_string('editchapter', 'mod_book', $title)));
-            $toc .= html_writer::link(new moodle_url('delete.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'sesskey' => $USER->sesskey)),
+            $toc .= html_writer::link(new lion_url('delete.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'sesskey' => $USER->sesskey)),
                         $OUTPUT->pix_icon('t/delete', get_string('deletechapter', 'mod_book', $title)),
                         array('title' => get_string('deletechapter', 'mod_book', $title)));
             if ($ch->hidden) {
-                $toc .= html_writer::link(new moodle_url('show.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'sesskey' => $USER->sesskey)),
+                $toc .= html_writer::link(new lion_url('show.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'sesskey' => $USER->sesskey)),
                         $OUTPUT->pix_icon('t/show', get_string('showchapter', 'mod_book', $title)),
                         array('title' => get_string('showchapter', 'mod_book', $title)));
             } else {
-                $toc .= html_writer::link(new moodle_url('show.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'sesskey' => $USER->sesskey)),
+                $toc .= html_writer::link(new lion_url('show.php', array('id' => $cm->id, 'chapterid' => $ch->id, 'sesskey' => $USER->sesskey)),
                         $OUTPUT->pix_icon('t/hide', get_string('hidechapter', 'mod_book', $title)),
                         array('title' => get_string('hidechapter', 'mod_book', $title)));
             }
-            $toc .= html_writer::link(new moodle_url('edit.php', array('cmid' => $cm->id, 'pagenum' => $ch->pagenum, 'subchapter' => $ch->subchapter)),
+            $toc .= html_writer::link(new lion_url('edit.php', array('cmid' => $cm->id, 'pagenum' => $ch->pagenum, 'subchapter' => $ch->subchapter)),
                                             $OUTPUT->pix_icon('add', get_string('addafter', 'mod_book'), 'mod_book'), array('title' => get_string('addafter', 'mod_book')));
             $toc .= html_writer::end_tag('div');
 
@@ -359,7 +345,7 @@ function book_get_toc($chapters, $chapter, $book, $cm, $edit) {
                 if ($ch->id == $chapter->id) {
                     $toc .= html_writer::tag('strong', $title);
                 } else {
-                    $toc .= html_writer::link(new moodle_url('view.php', array('id' => $cm->id, 'chapterid' => $ch->id)), $title, array('title' => s($title)));
+                    $toc .= html_writer::link(new lion_url('view.php', array('id' => $cm->id, 'chapterid' => $ch->id)), $title, array('title' => s($title)));
                 }
 
                 if (!$ch->subchapter) {
@@ -390,7 +376,7 @@ function book_get_toc($chapters, $chapter, $book, $cm, $edit) {
  * File browsing support class
  *
  * @copyright  2010-2011 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class book_file_info extends file_info {
     /** @var stdClass Course object */

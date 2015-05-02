@@ -6,7 +6,7 @@ Feature: Add links to Atto
   Scenario: Insert a links
     Given I log in as "admin"
     And I navigate to "My private files" node in "My profile"
-    And I upload "lib/editor/atto/tests/fixtures/moodle-logo.png" file to "Files" filemanager
+    And I upload "lib/editor/atto/tests/fixtures/lion-logo.png" file to "Files" filemanager
     And I click on "Save changes" "button"
     When I navigate to "Edit profile" node in "My profile settings"
     And I set the field "Text editor" to "Plain text area"
@@ -15,7 +15,7 @@ Feature: Add links to Atto
     And I click on "Link" "button"
     And I click on "Browse repositories..." "button"
     And I click on "Private files" "link"
-    And I click on "moodle-logo.png" "link"
+    And I click on "lion-logo.png" "link"
     And I click on "Select this file" "button"
     And I click on "Update profile" "button"
     And I follow "Edit profile"

@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once($CFG->dirroot.'/grade/export/lib.php');
 
@@ -49,7 +35,7 @@ class grade_export_xls extends grade_export {
         $shortname = format_string($this->course->shortname, true, array('context' => context_course::instance($this->course->id)));
         $downloadfilename = clean_filename("$shortname $strgrades.xls");
         // Creating a workbook
-        $workbook = new MoodleExcelWorkbook("-");
+        $workbook = new LionExcelWorkbook("-");
         // Sending HTTP headers
         $workbook->send($downloadfilename);
         // Adding the worksheet

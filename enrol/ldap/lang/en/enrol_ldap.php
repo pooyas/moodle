@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Strings for component 'enrol_ldap', language 'en'.
  *
  * @package    enrol_ldap
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
  * @copyright  2010 Iñaki Arenaza <iarenaza@eps.mondragon.edu>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 $string['assignrole']  = "Assigning role '{\$a->role_shortname}' to user '{\$a->user_username}' into course '{\$a->course_shortname}' (id {\$a->course_id})";
 $string['assignrolefailed'] = "Failed to assign role '{\$a->role_shortname}' to user '{\$a->user_username}' into course '{\$a->course_shortname}' (id {\$a->course_id})\n";
-$string['autocreate'] = '<p>Courses can be created automatically if there are enrolments to a course that doesn\'t yet exist in Moodle</p><p>If you are using automatic course creation, it is recommended that you remove the following capabilities: moodle/course:changeidnumber, moodle/course:changeshortname, moodle/course:changefullname and moodle/course:changesummary, from the relevant roles to prevent modifications of the four course fields specified above (ID number, shortname, fullname and summary).</p>';
+$string['autocreate'] = '<p>Courses can be created automatically if there are enrolments to a course that doesn\'t yet exist in Lion</p><p>If you are using automatic course creation, it is recommended that you remove the following capabilities: lion/course:changeidnumber, lion/course:changeshortname, lion/course:changefullname and lion/course:changesummary, from the relevant roles to prevent modifications of the four course fields specified above (ID number, shortname, fullname and summary).</p>';
 $string['autocreate_key'] = 'Auto create';
 $string['autocreation_settings'] = 'Automatic course creation settings';
 $string['autoupdate_settings'] = 'Automatic course update settings';

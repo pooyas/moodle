@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Quiz statistics report, table for showing statistics of each question in the quiz.
  *
  * @package   quiz_statistics
  * @copyright 2008 Jamie Pratt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/tablelib.php');
 
@@ -33,7 +19,7 @@ require_once($CFG->libdir.'/tablelib.php');
  * There are columns for the various item and position statistics.
  *
  * @copyright 2008 Jamie Pratt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class quiz_statistics_table extends flexible_table {
     /** @var object the quiz settings. */
@@ -55,7 +41,7 @@ class quiz_statistics_table extends flexible_table {
      *
      * @param object $quiz the quiz settings
      * @param int $cmid the quiz course_module id
-     * @param moodle_url $reporturl the URL to redisplay this report.
+     * @param lion_url $reporturl the URL to redisplay this report.
      * @param int $s number of attempts included in the statistics.
      */
     public function statistics_setup($quiz, $cmid, $reporturl, $s) {
@@ -202,17 +188,17 @@ class quiz_statistics_table extends flexible_table {
             return $name;
         }
 
-        $baseurl = new moodle_url($this->baseurl);
+        $baseurl = new lion_url($this->baseurl);
         if (!is_null($questionstat->variant)) {
             if ($questionstat->subquestion) {
                 // Variant of a sub-question.
-                $url = new moodle_url($baseurl, array('qid' => $questionstat->questionid, 'variant' => $questionstat->variant));
+                $url = new lion_url($baseurl, array('qid' => $questionstat->questionid, 'variant' => $questionstat->variant));
                 $name = html_writer::link($url, $name, array('title' => get_string('detailedanalysisforvariant',
                                                                                    'quiz_statistics',
                                                                                    $questionstat->variant)));
             } else if ($questionstat->slot) {
                 // Variant of a question in a slot.
-                $url = new moodle_url($baseurl, array('slot' => $questionstat->slot, 'variant' => $questionstat->variant));
+                $url = new lion_url($baseurl, array('slot' => $questionstat->slot, 'variant' => $questionstat->variant));
                 $name = html_writer::link($url, $name, array('title' => get_string('detailedanalysisforvariant',
                                                                                    'quiz_statistics',
                                                                                    $questionstat->variant)));
@@ -220,13 +206,13 @@ class quiz_statistics_table extends flexible_table {
         } else {
             if ($questionstat->subquestion && !$questionstat->get_variants()) {
                 // Sub question without variants.
-                $url = new moodle_url($baseurl, array('qid' => $questionstat->questionid));
+                $url = new lion_url($baseurl, array('qid' => $questionstat->questionid));
                 $name = html_writer::link($url, $name, array('title' => get_string('detailedanalysis', 'quiz_statistics')));
             } else if ($baseurl->param('slot') === null && $questionstat->slot) {
                 // Question in a slot, we are not on a page showing structural analysis of one slot,
                 // we don't want linking on those pages.
                 $number = $questionstat->question->number;
-                $url = new moodle_url($baseurl, array('slot' => $questionstat->slot));
+                $url = new lion_url($baseurl, array('slot' => $questionstat->slot));
                 if ($questionstat->get_variants() || $questionstat->get_sub_question_ids()) {
                     // Question can be broken down into sub-questions or variants. Link will show structural analysis page.
                     $name = html_writer::link($url,
@@ -388,7 +374,7 @@ class quiz_statistics_table extends flexible_table {
     }
 
     public function  wrap_html_start() {
-        // Horrible Moodle 2.0 wide-content work-around.
+        // Horrible Lion 2.0 wide-content work-around.
         if (!$this->is_downloading()) {
             echo html_writer::start_tag('div', array('id' => 'tablecontainer',
                     'class' => 'statistics-tablecontainer'));

@@ -1,33 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cohort enrolment plugin.
  *
  * @package    enrol_cohort
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Cohort enrolment plugin implementation.
  * @author Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class enrol_cohort_plugin extends enrol_plugin {
 
@@ -77,14 +63,14 @@ class enrol_cohort_plugin extends enrol_plugin {
     /**
      * Returns link to page which may be used to add new instance of enrolment plugin in course.
      * @param int $courseid
-     * @return moodle_url page url
+     * @return lion_url page url
      */
     public function get_newinstance_link($courseid) {
         if (!$this->can_add_new_instances($courseid)) {
             return NULL;
         }
         // Multiple instances supported - multiple parent courses linked.
-        return new moodle_url('/enrol/cohort/edit.php', array('courseid'=>$courseid));
+        return new lion_url('/enrol/cohort/edit.php', array('courseid'=>$courseid));
     }
 
     /**
@@ -98,7 +84,7 @@ class enrol_cohort_plugin extends enrol_plugin {
         global $CFG;
         require_once($CFG->dirroot . '/cohort/lib.php');
         $coursecontext = context_course::instance($courseid);
-        if (!has_capability('moodle/course:enrolconfig', $coursecontext) or !has_capability('enrol/cohort:config', $coursecontext)) {
+        if (!has_capability('lion/course:enrolconfig', $coursecontext) or !has_capability('enrol/cohort:config', $coursecontext)) {
             return false;
         }
         return cohort_get_available_cohorts($coursecontext, 0, 0, 1) ? true : false;
@@ -120,7 +106,7 @@ class enrol_cohort_plugin extends enrol_plugin {
         $icons = array();
 
         if (has_capability('enrol/cohort:config', $context)) {
-            $editlink = new moodle_url("/enrol/cohort/edit.php", array('courseid'=>$instance->courseid, 'id'=>$instance->id));
+            $editlink = new lion_url("/enrol/cohort/edit.php", array('courseid'=>$instance->courseid, 'id'=>$instance->id));
             $icons[] = $OUTPUT->action_icon($editlink, new pix_icon('t/edit', get_string('edit'), 'core',
                     array('class' => 'iconsmall')));
         }
@@ -199,10 +185,10 @@ class enrol_cohort_plugin extends enrol_plugin {
         $actions = array();
         $context = $manager->get_context();
         $instance = $ue->enrolmentinstance;
-        $params = $manager->get_moodlepage()->url->params();
+        $params = $manager->get_lionpage()->url->params();
         $params['ue'] = $ue->id;
         if ($this->allow_unenrol_user($instance, $ue) && has_capability('enrol/cohort:unenrol', $context)) {
-            $url = new moodle_url('/enrol/unenroluser.php', $params);
+            $url = new lion_url('/enrol/unenroluser.php', $params);
             $actions[] = new user_enrolment_action(new pix_icon('t/delete', ''), get_string('unenrol', 'enrol'), $url, array('class'=>'unenrollink', 'rel'=>$ue->id));
         }
         return $actions;

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Base class for a single availability condition.
@@ -26,7 +12,7 @@
 
 namespace core_availability;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Base class for a single availability condition.
@@ -180,7 +166,7 @@ abstract class condition extends tree_node {
      *
      * Default implementation returns false.
      *
-     * @param \stdClass $course Moodle course object
+     * @param \stdClass $course Lion course object
      * @param int $cmid ID of activity whose completion value is considered
      * @return boolean True if the availability of something else may rely on it
      */

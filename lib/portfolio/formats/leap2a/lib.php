@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the LEAP2a writer used by portfolio_format_leap2a
@@ -23,7 +9,7 @@
  *
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Object to encapsulate the writing of leap2a.
@@ -87,7 +73,7 @@ class portfolio_format_leap2a_writer {
         $this->feed->appendChild($this->dom->createElement('leap2:version', 'http://www.leapspecs.org/2010-07/2A/'));
 
 
-        $generator = $this->dom->createElement('generator', 'Moodle');
+        $generator = $this->dom->createElement('generator', 'Lion');
         $generator->setAttribute('uri', $CFG->wwwroot);
         $generator->setAttribute('version', $CFG->version);
 
@@ -440,7 +426,7 @@ class portfolio_format_leap2a_entry {
      * Try to load whatever is in $content into xhtml and add it to the dom.
      * Failing that, load the html, escape it, and set it as the body of the tag.
      * Either way it sets the type attribute of the top level element.
-     * Moodle should always provide xhtml content, but user-defined content can't be trusted
+     * Lion should always provide xhtml content, but user-defined content can't be trusted
      *
      * @todo MDL-31304 - convert <html><body> </body></html> to xml
      * @param DomDocument $dom the dom doc to use

@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Bulk group creation registration script from a comma separated file
@@ -37,17 +23,17 @@ $PAGE->set_url('/group/import.php', array('id'=>$id));
 require_login($course);
 $context = context_course::instance($id);
 
-require_capability('moodle/course:managegroups', $context);
+require_capability('lion/course:managegroups', $context);
 
 $strimportgroups = get_string('importgroups', 'core_group');
 
 $PAGE->navbar->add($strimportgroups);
-navigation_node::override_active_url(new moodle_url('/group/index.php', array('id' => $course->id)));
+navigation_node::override_active_url(new lion_url('/group/index.php', array('id' => $course->id)));
 $PAGE->set_title("$course->shortname: $strimportgroups");
 $PAGE->set_heading($course->fullname);
 $PAGE->set_pagelayout('admin');
 
-$returnurl = new moodle_url('/group/index.php', array('id'=>$id));
+$returnurl = new lion_url('/group/index.php', array('id'=>$id));
 
 $mform_post = new groups_import_form(null, array('id'=>$id));
 
@@ -164,7 +150,7 @@ if ($mform_post->is_cancelled()) {
                 $newgrpcoursecontext = context_course::instance($newgroup->courseid);
 
                 ///Users cannot upload groups in courses they cannot update.
-                if (!has_capability('moodle/course:managegroups', $newgrpcoursecontext) or (!is_enrolled($newgrpcoursecontext) and !has_capability('moodle/course:view', $newgrpcoursecontext))) {
+                if (!has_capability('lion/course:managegroups', $newgrpcoursecontext) or (!is_enrolled($newgrpcoursecontext) and !has_capability('lion/course:view', $newgrpcoursecontext))) {
                     echo $OUTPUT->notification(get_string('nopermissionforcreation', 'group', $groupname));
 
                 } else {
@@ -172,7 +158,7 @@ if ($mform_post->is_cancelled()) {
                         // The CSV field for the group idnumber is groupidnumber rather than
                         // idnumber as that field is already in use for the course idnumber.
                         $newgroup->groupidnumber = trim($newgroup->groupidnumber);
-                        if (has_capability('moodle/course:changeidnumber', $newgrpcoursecontext)) {
+                        if (has_capability('lion/course:changeidnumber', $newgrpcoursecontext)) {
                             $newgroup->idnumber = $newgroup->groupidnumber;
                             if ($existing = groups_get_group_by_idnumber($newgroup->courseid, $newgroup->idnumber)) {
                                 // idnumbers must be unique to a course but we shouldn't ignore group creation for duplicates

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Multiple choice question definition classes.
@@ -20,11 +6,11 @@
  * @package    qtype
  * @subpackage multichoice
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -32,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
  * single select and multiple select.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class qtype_multichoice_base extends question_graded_automatically {
     const LAYOUT_DROPDOWN = 0;
@@ -138,10 +124,10 @@ abstract class qtype_multichoice_base extends question_graded_automatically {
  * Represents a multiple choice question where only one choice should be selected.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qtype_multichoice_single_question extends qtype_multichoice_base {
-    public function get_renderer(moodle_page $page) {
+    public function get_renderer(lion_page $page) {
         return $page->get_renderer('qtype_multichoice', 'single');
     }
 
@@ -260,10 +246,10 @@ class qtype_multichoice_single_question extends qtype_multichoice_base {
  * Represents a multiple choice question where multiple choices can be selected.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qtype_multichoice_multi_question extends qtype_multichoice_base {
-    public function get_renderer(moodle_page $page) {
+    public function get_renderer(lion_page $page) {
         return $page->get_renderer('qtype_multichoice', 'multi');
     }
 

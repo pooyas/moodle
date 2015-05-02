@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of useful functions
@@ -22,7 +8,7 @@
  * @package core_course
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once($CFG->libdir.'/completionlib.php');
 require_once($CFG->libdir.'/filelib.php');
@@ -154,7 +140,7 @@ function build_mnet_logs_array($hostid, $course, $user=0, $date=0, $order="l.tim
 
     /// If the group mode is separate, and this user does not have editing privileges,
     /// then only the user's group can be viewed.
-    //if ($course->groupmode == SEPARATEGROUPS and !has_capability('moodle/course:managegroups', context_course::instance($course->id))) {
+    //if ($course->groupmode == SEPARATEGROUPS and !has_capability('lion/course:managegroups', context_course::instance($course->id))) {
     //    $groupid = get_current_group($course->id);
     //}
     /// If this course doesn't have groups, no groupid can be specified.
@@ -240,7 +226,7 @@ function build_logs_array($course, $user=0, $date=0, $order="l.time ASC", $limit
 
     /// If the group mode is separate, and this user does not have editing privileges,
     /// then only the user's group can be viewed.
-    if ($course->groupmode == SEPARATEGROUPS and !has_capability('moodle/course:managegroups', context_course::instance($course->id))) {
+    if ($course->groupmode == SEPARATEGROUPS and !has_capability('lion/course:managegroups', context_course::instance($course->id))) {
         if (isset($SESSION->currentgroup[$course->id])) {
             $groupid =  $SESSION->currentgroup[$course->id];
         } else {
@@ -417,10 +403,10 @@ function print_log($course, $user=0, $date=0, $order="l.time ASC", $page=0, $per
 
         $row[] = userdate($log->time, '%a').' '.userdate($log->time, $strftimedatetime);
 
-        $link = new moodle_url("/iplookup/index.php?ip=$log->ip&user=$log->userid");
+        $link = new lion_url("/iplookup/index.php?ip=$log->ip&user=$log->userid");
         $row[] = $OUTPUT->action_link($link, $log->ip, new popup_action('click', $link, 'iplookup', array('height' => 440, 'width' => 700)));
 
-        $row[] = html_writer::link(new moodle_url("/user/view.php?id={$log->userid}&course={$log->course}"), fullname($log, has_capability('moodle/site:viewfullnames', context_course::instance($course->id))));
+        $row[] = html_writer::link(new lion_url("/user/view.php?id={$log->userid}&course={$log->course}"), fullname($log, has_capability('lion/site:viewfullnames', context_course::instance($course->id))));
 
         $displayaction="$log->module $log->action";
         if ($brokenurl) {
@@ -524,10 +510,10 @@ function print_mnet_log($hostid, $course, $user=0, $date=0, $order="l.time ASC",
         echo "<td class=\"r$row c1\" align=\"right\">".userdate($log->time, '%a').
              ' '.userdate($log->time, $strftimedatetime)."</td>\n";
         echo "<td class=\"r$row c2\" >\n";
-        $link = new moodle_url("/iplookup/index.php?ip=$log->ip&user=$log->userid");
+        $link = new lion_url("/iplookup/index.php?ip=$log->ip&user=$log->userid");
         echo $OUTPUT->action_link($link, $log->ip, new popup_action('click', $link, 'iplookup', array('height' => 400, 'width' => 700)));
         echo "</td>\n";
-        $fullname = fullname($log, has_capability('moodle/site:viewfullnames', context_course::instance($course->id)));
+        $fullname = fullname($log, has_capability('lion/site:viewfullnames', context_course::instance($course->id)));
         echo "<td class=\"r$row c3\" >\n";
         echo "    <a href=\"$CFG->wwwroot/user/view.php?id={$log->userid}\">$fullname</a>\n";
         echo "</td>\n";
@@ -615,7 +601,7 @@ function print_log_csv($course, $user, $date, $order='l.time DESC', $modname,
 
         $coursecontext = context_course::instance($course->id);
         $firstField = format_string($courses[$log->course], true, array('context' => $coursecontext));
-        $fullname = fullname($log, has_capability('moodle/site:viewfullnames', $coursecontext));
+        $fullname = fullname($log, has_capability('lion/site:viewfullnames', $coursecontext));
         $actionurl = $CFG->wwwroot. make_log_url($log->module,$log->url);
         $row = array($firstField, userdate($log->time, $strftimedatetime), $log->ip, $fullname, $log->module.' '.$log->action.' ('.$actionurl.')', $log->info);
         $csvexporter->add_data($row);
@@ -661,7 +647,7 @@ function print_log_xls($course, $user, $date, $order='l.time DESC', $modname,
     $filename = 'logs_'.userdate(time(),get_string('backupnameformat', 'langconfig'),99,false);
     $filename .= '.xls';
 
-    $workbook = new MoodleExcelWorkbook('-');
+    $workbook = new LionExcelWorkbook('-');
     $workbook->send($filename);
 
     $worksheet = array();
@@ -726,7 +712,7 @@ function print_log_xls($course, $user, $date, $order='l.time DESC', $modname,
         $myxls->write($row, 0, format_string($courses[$log->course], true, array('context' => $coursecontext)), '');
         $myxls->write_date($row, 1, $log->time, $formatDate); // write_date() does conversion/timezone support. MDL-14934
         $myxls->write($row, 2, $log->ip, '');
-        $fullname = fullname($log, has_capability('moodle/site:viewfullnames', $coursecontext));
+        $fullname = fullname($log, has_capability('lion/site:viewfullnames', $coursecontext));
         $myxls->write($row, 3, $fullname, '');
         $actionurl = $CFG->wwwroot. make_log_url($log->module,$log->url);
         $myxls->write($row, 4, $log->module.' '.$log->action.' ('.$actionurl.')', '');
@@ -775,7 +761,7 @@ function print_log_ods($course, $user, $date, $order='l.time DESC', $modname,
     $filename = 'logs_'.userdate(time(),get_string('backupnameformat', 'langconfig'),99,false);
     $filename .= '.ods';
 
-    $workbook = new MoodleODSWorkbook('-');
+    $workbook = new LionODSWorkbook('-');
     $workbook->send($filename);
 
     $worksheet = array();
@@ -840,7 +826,7 @@ function print_log_ods($course, $user, $date, $order='l.time DESC', $modname,
         $myxls->write_string($row, 0, format_string($courses[$log->course], true, array('context' => $coursecontext)));
         $myxls->write_date($row, 1, $log->time);
         $myxls->write_string($row, 2, $log->ip);
-        $fullname = fullname($log, has_capability('moodle/site:viewfullnames', $coursecontext));
+        $fullname = fullname($log, has_capability('lion/site:viewfullnames', $coursecontext));
         $myxls->write_string($row, 3, $fullname);
         $actionurl = $CFG->wwwroot. make_log_url($log->module,$log->url);
         $myxls->write_string($row, 4, $log->module.' '.$log->action.' ('.$actionurl.')');
@@ -1002,7 +988,7 @@ function get_array_of_activities($courseid) {
     $course = $DB->get_record('course', array('id'=>$courseid));
 
     if (empty($course)) {
-        throw new moodle_exception('courseidnotfound');
+        throw new lion_exception('courseidnotfound');
     }
 
     $mod = array();
@@ -1085,7 +1071,7 @@ function get_array_of_activities($courseid) {
                                }
                                if (!empty($info->iconurl)) {
                                    // Convert URL to string as it's easier to store. Also serialized object contains \0 byte and can not be written to Postgres DB.
-                                   $url = new moodle_url($info->iconurl);
+                                   $url = new lion_url($info->iconurl);
                                    $mod[$seq]->iconurl = $url->out(false);
                                }
                                if (!empty($info->onclick)) {
@@ -1263,7 +1249,7 @@ function get_module_metadata($course, $modnames, $sectionreturn = null) {
     }
 
     $return = array();
-    $urlbase = new moodle_url('/course/mod.php', array('id' => $course->id, 'sesskey' => sesskey()));
+    $urlbase = new lion_url('/course/mod.php', array('id' => $course->id, 'sesskey' => sesskey()));
     if ($sectionreturn !== null) {
         $urlbase->param('sr', $sectionreturn);
     }
@@ -1319,7 +1305,7 @@ function get_module_metadata($course, $modnames, $sectionreturn = null) {
                     } else if (get_string_manager()->string_exists('help' . $subtype->name, $modname)) {
                         $subtype->help = get_string('help' . $subtype->name, $modname);
                     }
-                    $subtype->link = new moodle_url($urlbase, array('add' => $modname, 'type' => $subtype->name));
+                    $subtype->link = new lion_url($urlbase, array('add' => $modname, 'type' => $subtype->name));
                     $group->types[] = $subtype;
                 }
                 $modlist[$course->id][$modname] = $group;
@@ -1328,12 +1314,12 @@ function get_module_metadata($course, $modnames, $sectionreturn = null) {
             $module = new stdClass();
             $module->title = $modnamestr;
             $module->name = $modname;
-            $module->link = new moodle_url($urlbase, array('add' => $modname));
+            $module->link = new lion_url($urlbase, array('add' => $modname));
             $module->icon = $OUTPUT->pix_icon('icon', '', $module->name, array('class' => 'icon'));
             $sm = get_string_manager();
             if ($sm->string_exists('modulename_help', $modname)) {
                 $module->help = get_string('modulename_help', $modname);
-                if ($sm->string_exists('modulename_link', $modname)) {  // Link to further info in Moodle docs
+                if ($sm->string_exists('modulename_link', $modname)) {  // Link to further info in Lion docs
                     $link = get_string('modulename_link', $modname);
                     $linktext = get_string('morehelp');
                     $module->help .= html_writer::tag('div', $OUTPUT->doc_link($link, $linktext, true), array('class' => 'helpdoclink'));
@@ -1396,14 +1382,14 @@ function print_course_request_buttons($context) {
     if (empty($CFG->enablecourserequests)) {
         return;
     }
-    if (!has_capability('moodle/course:create', $context) && has_capability('moodle/course:request', $context)) {
+    if (!has_capability('lion/course:create', $context) && has_capability('lion/course:request', $context)) {
     /// Print a button to request a new course
-        echo $OUTPUT->single_button(new moodle_url('/course/request.php'), get_string('requestcourse'), 'get');
+        echo $OUTPUT->single_button(new lion_url('/course/request.php'), get_string('requestcourse'), 'get');
     }
     /// Print a button to manage pending requests
-    if ($context->contextlevel == CONTEXT_SYSTEM && has_capability('moodle/site:approvecourse', $context)) {
+    if ($context->contextlevel == CONTEXT_SYSTEM && has_capability('lion/site:approvecourse', $context)) {
         $disabled = !$DB->record_exists('course_request', array());
-        echo $OUTPUT->single_button(new moodle_url('/course/pending.php'), get_string('coursespending'), 'get', array('disabled' => $disabled));
+        echo $OUTPUT->single_button(new lion_url('/course/pending.php'), get_string('coursespending'), 'get', array('disabled' => $disabled));
     }
 }
 
@@ -1415,7 +1401,7 @@ function print_course_request_buttons($context) {
  */
 function can_edit_in_category($categoryid = 0) {
     $context = get_category_or_system_context($categoryid);
-    return has_any_capability(array('moodle/category:manage', 'moodle/course:create'), $context);
+    return has_any_capability(array('lion/category:manage', 'lion/course:create'), $context);
 }
 
 /// MODULE FUNCTIONS /////////////////////////////////////////////////////////////////
@@ -1639,7 +1625,7 @@ function set_coursemodule_visible($id, $visible) {
  * event to the DB.
  *
  * @param int $cmid the course module id
- * @since Moodle 2.5
+ * @since Lion 2.5
  */
 function course_delete_module($cmid) {
     global $CFG, $DB;
@@ -1667,7 +1653,7 @@ function course_delete_module($cmid) {
     if (file_exists($modlib)) {
         require_once($modlib);
     } else {
-        throw new moodle_exception('cannotdeletemodulemissinglib', '', '', null,
+        throw new lion_exception('cannotdeletemodulemissinglib', '', '', null,
             "Cannot delete this module as the file mod/$modulename/lib.php is missing.");
     }
 
@@ -1675,13 +1661,13 @@ function course_delete_module($cmid) {
 
     // Ensure the delete_instance function exists for this module.
     if (!function_exists($deleteinstancefunction)) {
-        throw new moodle_exception('cannotdeletemodulemissingfunc', '', '', null,
+        throw new lion_exception('cannotdeletemodulemissingfunc', '', '', null,
             "Cannot delete this module as the function {$modulename}_delete_instance is missing in mod/$modulename/lib.php.");
     }
 
     // Call the delete_instance function, if it returns false throw an exception.
     if (!$deleteinstancefunction($cm->instance)) {
-        throw new moodle_exception('cannotdeletemoduleinstance', '', '', null,
+        throw new lion_exception('cannotdeletemoduleinstance', '', '', null,
             "Cannot delete the module $modulename (instance).");
     }
 
@@ -1723,7 +1709,7 @@ function course_delete_module($cmid) {
 
     // Delete module from that section.
     if (!delete_mod_from_section($cm->id, $cm->section)) {
-        throw new moodle_exception('cannotdeletemodulefromsection', '', '', null,
+        throw new lion_exception('cannotdeletemodulefromsection', '', '', null,
             "Cannot delete the module $modulename (instance) from section.");
     }
 
@@ -1862,14 +1848,14 @@ function course_can_delete_section($course, $section) {
     }
     // Make sure user has capability to update course and move sections.
     $context = context_course::instance(is_object($course) ? $course->id : $course);
-    if (!has_all_capabilities(array('moodle/course:movesections', 'moodle/course:update'), $context)) {
+    if (!has_all_capabilities(array('lion/course:movesections', 'lion/course:update'), $context)) {
         return false;
     }
     // Make sure user has capability to delete each activity in this section.
     $modinfo = get_fast_modinfo($course);
     if (!empty($modinfo->sections[$section])) {
         foreach ($modinfo->sections[$section] as $cmid) {
-            if (!has_capability('moodle/course:manageactivities', context_module::instance($cmid))) {
+            if (!has_capability('lion/course:manageactivities', context_module::instance($cmid))) {
                 return false;
             }
         }
@@ -2008,26 +1994,26 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
     $coursecontext = context_course::instance($mod->course);
     $modcontext = context_module::instance($mod->id);
 
-    $editcaps = array('moodle/course:manageactivities', 'moodle/course:activityvisibility', 'moodle/role:assign');
-    $dupecaps = array('moodle/backup:backuptargetimport', 'moodle/restore:restoretargetimport');
+    $editcaps = array('lion/course:manageactivities', 'lion/course:activityvisibility', 'lion/role:assign');
+    $dupecaps = array('lion/backup:backuptargetimport', 'lion/restore:restoretargetimport');
 
     // No permission to edit anything.
     if (!has_any_capability($editcaps, $modcontext) and !has_all_capabilities($dupecaps, $coursecontext)) {
         return array();
     }
 
-    $hasmanageactivities = has_capability('moodle/course:manageactivities', $modcontext);
+    $hasmanageactivities = has_capability('lion/course:manageactivities', $modcontext);
 
     if (!isset($str)) {
         $str = get_strings(array('delete', 'move', 'moveright', 'moveleft',
-            'editsettings', 'duplicate', 'hide', 'show'), 'moodle');
+            'editsettings', 'duplicate', 'hide', 'show'), 'lion');
         $str->assign         = get_string('assignroles', 'role');
-        $str->groupsnone     = get_string('clicktochangeinbrackets', 'moodle', get_string("groupsnone"));
-        $str->groupsseparate = get_string('clicktochangeinbrackets', 'moodle', get_string("groupsseparate"));
-        $str->groupsvisible  = get_string('clicktochangeinbrackets', 'moodle', get_string("groupsvisible"));
+        $str->groupsnone     = get_string('clicktochangeinbrackets', 'lion', get_string("groupsnone"));
+        $str->groupsseparate = get_string('clicktochangeinbrackets', 'lion', get_string("groupsseparate"));
+        $str->groupsvisible  = get_string('clicktochangeinbrackets', 'lion', get_string("groupsvisible"));
     }
 
-    $baseurl = new moodle_url('/course/mod.php', array('sesskey' => sesskey()));
+    $baseurl = new lion_url('/course/mod.php', array('sesskey' => sesskey()));
 
     if ($sr !== null) {
         $baseurl->param('sr', $sr);
@@ -2037,8 +2023,8 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
     // Update.
     if ($hasmanageactivities) {
         $actions['update'] = new action_menu_link_secondary(
-            new moodle_url($baseurl, array('update' => $mod->id)),
-            new pix_icon('t/edit', $str->editsettings, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new lion_url($baseurl, array('update' => $mod->id)),
+            new pix_icon('t/edit', $str->editsettings, 'lion', array('class' => 'iconsmall', 'title' => '')),
             $str->editsettings,
             array('class' => 'editing_update', 'data-action' => 'update')
         );
@@ -2063,8 +2049,8 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
             $enabledclass = '';
         }
         $actions['moveright'] = new action_menu_link_secondary(
-            new moodle_url($baseurl, array('id' => $mod->id, 'indent' => '1')),
-            new pix_icon($rightarrow, $str->moveright, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new lion_url($baseurl, array('id' => $mod->id, 'indent' => '1')),
+            new pix_icon($rightarrow, $str->moveright, 'lion', array('class' => 'iconsmall', 'title' => '')),
             $str->moveright,
             array('class' => 'editing_moveright ' . $enabledclass, 'data-action' => 'moveright', 'data-keepopen' => true)
         );
@@ -2075,8 +2061,8 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
             $enabledclass = '';
         }
         $actions['moveleft'] = new action_menu_link_secondary(
-            new moodle_url($baseurl, array('id' => $mod->id, 'indent' => '-1')),
-            new pix_icon($leftarrow, $str->moveleft, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new lion_url($baseurl, array('id' => $mod->id, 'indent' => '-1')),
+            new pix_icon($leftarrow, $str->moveleft, 'lion', array('class' => 'iconsmall', 'title' => '')),
             $str->moveleft,
             array('class' => 'editing_moveleft ' . $enabledclass, 'data-action' => 'moveleft', 'data-keepopen' => true)
         );
@@ -2084,18 +2070,18 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
     }
 
     // Hide/Show.
-    if (has_capability('moodle/course:activityvisibility', $modcontext)) {
+    if (has_capability('lion/course:activityvisibility', $modcontext)) {
         if ($mod->visible) {
             $actions['hide'] = new action_menu_link_secondary(
-                new moodle_url($baseurl, array('hide' => $mod->id)),
-                new pix_icon('t/hide', $str->hide, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+                new lion_url($baseurl, array('hide' => $mod->id)),
+                new pix_icon('t/hide', $str->hide, 'lion', array('class' => 'iconsmall', 'title' => '')),
                 $str->hide,
                 array('class' => 'editing_hide', 'data-action' => 'hide')
             );
         } else {
             $actions['show'] = new action_menu_link_secondary(
-                new moodle_url($baseurl, array('show' => $mod->id)),
-                new pix_icon('t/show', $str->show, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+                new lion_url($baseurl, array('show' => $mod->id)),
+                new pix_icon('t/show', $str->show, 'lion', array('class' => 'iconsmall', 'title' => '')),
                 $str->show,
                 array('class' => 'editing_show', 'data-action' => 'show')
             );
@@ -2104,10 +2090,10 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
 
     // Duplicate (require both target import caps to be able to duplicate and backup2 support, see modduplicate.php)
     if (has_all_capabilities($dupecaps, $coursecontext) &&
-            plugin_supports('mod', $mod->modname, FEATURE_BACKUP_MOODLE2)) {
+            plugin_supports('mod', $mod->modname, FEATURE_BACKUP_LION2)) {
         $actions['duplicate'] = new action_menu_link_secondary(
-            new moodle_url($baseurl, array('duplicate' => $mod->id)),
-            new pix_icon('t/copy', $str->duplicate, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new lion_url($baseurl, array('duplicate' => $mod->id)),
+            new pix_icon('t/copy', $str->duplicate, 'lion', array('class' => 'iconsmall', 'title' => '')),
             $str->duplicate,
             array('class' => 'editing_duplicate', 'data-action' => 'duplicate', 'data-sr' => $sr)
         );
@@ -2134,8 +2120,8 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
             }
 
             $actions[$actionname] = new action_menu_link_primary(
-                new moodle_url($baseurl, array('id' => $mod->id, 'groupmode' => $nextgroupmode)),
-                new pix_icon($groupimage, null, 'moodle', array('class' => 'iconsmall')),
+                new lion_url($baseurl, array('id' => $mod->id, 'groupmode' => $nextgroupmode)),
+                new pix_icon($groupimage, null, 'lion', array('class' => 'iconsmall')),
                 $grouptitle,
                 array('class' => 'editing_'. $actionname, 'data-action' => $actionname, 'data-nextgroupmode' => $nextgroupmode, 'aria-live' => 'assertive')
             );
@@ -2145,10 +2131,10 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
     }
 
     // Assign.
-    if (has_capability('moodle/role:assign', $modcontext)){
+    if (has_capability('lion/role:assign', $modcontext)){
         $actions['assign'] = new action_menu_link_secondary(
-            new moodle_url('/admin/roles/assign.php', array('contextid' => $modcontext->id)),
-            new pix_icon('t/assignroles', $str->assign, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new lion_url('/admin/roles/assign.php', array('contextid' => $modcontext->id)),
+            new pix_icon('t/assignroles', $str->assign, 'lion', array('class' => 'iconsmall', 'title' => '')),
             $str->assign,
             array('class' => 'editing_assign', 'data-action' => 'assignroles')
         );
@@ -2157,8 +2143,8 @@ function course_get_cm_edit_actions(cm_info $mod, $indent = -1, $sr = null) {
     // Delete.
     if ($hasmanageactivities) {
         $actions['delete'] = new action_menu_link_secondary(
-            new moodle_url($baseurl, array('delete' => $mod->id)),
-            new pix_icon('t/delete', $str->delete, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new lion_url($baseurl, array('delete' => $mod->id)),
+            new pix_icon('t/delete', $str->delete, 'lion', array('class' => 'iconsmall', 'title' => '')),
             $str->delete,
             array('class' => 'editing_delete', 'data-action' => 'delete')
         );
@@ -2181,14 +2167,14 @@ function course_get_cm_rename_action(cm_info $mod, $sr = null) {
     static $baseurl;
 
     $modcontext = context_module::instance($mod->id);
-    $hasmanageactivities = has_capability('moodle/course:manageactivities', $modcontext);
+    $hasmanageactivities = has_capability('lion/course:manageactivities', $modcontext);
 
     if (!isset($str)) {
         $str = get_strings(array('edittitle'));
     }
 
     if (!isset($baseurl)) {
-        $baseurl = new moodle_url('/course/mod.php', array('sesskey' => sesskey()));
+        $baseurl = new lion_url('/course/mod.php', array('sesskey' => sesskey()));
     }
 
     if ($sr !== null) {
@@ -2201,8 +2187,8 @@ function course_get_cm_rename_action(cm_info $mod, $sr = null) {
         // we will not display link if we are on some other-course page (where we should not see this module anyway)
         return html_writer::span(
             html_writer::link(
-                new moodle_url($baseurl, array('update' => $mod->id)),
-                $OUTPUT->pix_icon('t/editstring', '', 'moodle', array('class' => 'iconsmall visibleifjs', 'title' => '')),
+                new lion_url($baseurl, array('update' => $mod->id)),
+                $OUTPUT->pix_icon('t/editstring', '', 'lion', array('class' => 'iconsmall visibleifjs', 'title' => '')),
                 array(
                     'class' => 'editing_title',
                     'data-action' => 'edittitle',
@@ -2228,14 +2214,14 @@ function course_get_cm_move(cm_info $mod, $sr = null) {
     static $baseurl;
 
     $modcontext = context_module::instance($mod->id);
-    $hasmanageactivities = has_capability('moodle/course:manageactivities', $modcontext);
+    $hasmanageactivities = has_capability('lion/course:manageactivities', $modcontext);
 
     if (!isset($str)) {
         $str = get_strings(array('move'));
     }
 
     if (!isset($baseurl)) {
-        $baseurl = new moodle_url('/course/mod.php', array('sesskey' => sesskey()));
+        $baseurl = new lion_url('/course/mod.php', array('sesskey' => sesskey()));
 
         if ($sr !== null) {
             $baseurl->param('sr', $sr);
@@ -2251,8 +2237,8 @@ function course_get_cm_move(cm_info $mod, $sr = null) {
         }
 
         return html_writer::link(
-            new moodle_url($baseurl, array('copy' => $mod->id)),
-            $OUTPUT->pix_icon($pixicon, $str->move, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new lion_url($baseurl, array('copy' => $mod->id)),
+            $OUTPUT->pix_icon($pixicon, $str->move, 'lion', array('class' => 'iconsmall', 'title' => '')),
             array('class' => 'editing_move', 'data-action' => 'move')
         );
     }
@@ -2397,7 +2383,7 @@ function course_format_uses_sections($format) {
  * Returns the information about the ajax support in the given source format
  *
  * The returned object's property (boolean)capable indicates that
- * the course format supports Moodle course ajax features.
+ * the course format supports Lion course ajax features.
  *
  * @param string $format
  * @return stdClass
@@ -2420,12 +2406,12 @@ function can_delete_course($courseid) {
 
     $context = context_course::instance($courseid);
 
-    if (has_capability('moodle/course:delete', $context)) {
+    if (has_capability('lion/course:delete', $context)) {
         return true;
     }
 
     // hack: now try to find out if creator created this course recently (1 day)
-    if (!has_capability('moodle/course:create', $context)) {
+    if (!has_capability('lion/course:create', $context)) {
         return false;
     }
 
@@ -2551,14 +2537,14 @@ function create_course($data, $editoroptions = NULL) {
     // Check if the shortname already exists.
     if (!empty($data->shortname)) {
         if ($DB->record_exists('course', array('shortname' => $data->shortname))) {
-            throw new moodle_exception('shortnametaken', '', '', $data->shortname);
+            throw new lion_exception('shortnametaken', '', '', $data->shortname);
         }
     }
 
     // Check if the idnumber already exists.
     if (!empty($data->idnumber)) {
         if ($DB->record_exists('course', array('idnumber' => $data->idnumber))) {
-            throw new moodle_exception('courseidnumbertaken', '', '', $data->idnumber);
+            throw new lion_exception('courseidnumbertaken', '', '', $data->idnumber);
         }
     }
 
@@ -2659,14 +2645,14 @@ function update_course($data, $editoroptions = NULL) {
     // Check we don't have a duplicate shortname.
     if (!empty($data->shortname) && $oldcourse->shortname != $data->shortname) {
         if ($DB->record_exists_sql('SELECT id from {course} WHERE shortname = ? AND id <> ?', array($data->shortname, $data->id))) {
-            throw new moodle_exception('shortnametaken', '', '', $data->shortname);
+            throw new lion_exception('shortnametaken', '', '', $data->shortname);
         }
     }
 
     // Check we don't have a duplicate idnumber.
     if (!empty($data->idnumber) && $oldcourse->idnumber != $data->idnumber) {
         if ($DB->record_exists_sql('SELECT id from {course} WHERE idnumber = ? AND id <> ?', array($data->idnumber, $data->id))) {
-            throw new moodle_exception('courseidnumbertaken', '', '', $data->idnumber);
+            throw new lion_exception('courseidnumbertaken', '', '', $data->idnumber);
         }
     }
 
@@ -2823,8 +2809,8 @@ function average_number_of_courses_modules() {
  * to store them with proper access control.
  *
  * @copyright 2009 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  *
  * @property-read int $id
  * @property-read string $fullname
@@ -2900,7 +2886,7 @@ class course_request {
         $request = new course_request($data);
 
         // Notify the admin if required.
-        if ($users = get_users_from_config($CFG->courserequestnotify, 'moodle/site:approvecourse')) {
+        if ($users = get_users_from_config($CFG->courserequestnotify, 'lion/site:approvecourse')) {
 
             $a = new stdClass;
             $a->link = "$CFG->wwwroot/course/pending.php";
@@ -3029,8 +3015,8 @@ class course_request {
      * Returns the category where this course request should be created
      *
      * Note that we don't check here that user has a capability to view
-     * hidden categories if he has capabilities 'moodle/site:approvecourse' and
-     * 'moodle/course:changecategory'
+     * hidden categories if he has capabilities 'lion/site:approvecourse' and
+     * 'lion/course:changecategory'
      *
      * @return coursecat
      */
@@ -3039,8 +3025,8 @@ class course_request {
         require_once($CFG->libdir.'/coursecatlib.php');
         // If the category is not set, if the current user does not have the rights to change the category, or if the
         // category does not exist, we set the default category to the course to be approved.
-        // The system level is used because the capability moodle/site:approvecourse is based on a system level.
-        if (empty($this->properties->category) || !has_capability('moodle/course:changecategory', context_system::instance()) ||
+        // The system level is used because the capability lion/site:approvecourse is based on a system level.
+        if (empty($this->properties->category) || !has_capability('lion/course:changecategory', context_system::instance()) ||
                 (!$category = coursecat::get($this->properties->category, IGNORE_MISSING, true))) {
             $category = coursecat::get($CFG->defaultrequestcategory, IGNORE_MISSING, true);
         }
@@ -3064,7 +3050,7 @@ class course_request {
 
         $user = $DB->get_record('user', array('id' => $this->properties->requester, 'deleted'=>0), '*', MUST_EXIST);
 
-        $courseconfig = get_config('moodlecourse');
+        $courseconfig = get_config('lioncourse');
 
         // Transfer appropriate settings
         $data = clone($this->properties);
@@ -3101,7 +3087,7 @@ class course_request {
         }
 
         // enrol the requester as teacher if necessary
-        if (!empty($CFG->creatornewroleid) and !is_viewing($context, $user, 'moodle/role:assign') and !is_enrolled($context, $user, 'moodle/role:assign')) {
+        if (!empty($CFG->creatornewroleid) and !is_viewing($context, $user, 'lion/role:assign') and !is_enrolled($context, $user, 'lion/role:assign')) {
             enrol_try_internal_enrol($course->id, $user->id, $CFG->creatornewroleid);
         }
 
@@ -3110,7 +3096,7 @@ class course_request {
         $a = new stdClass();
         $a->name = format_string($course->fullname, true, array('context' => context_course::instance($course->id)));
         $a->url = $CFG->wwwroot.'/course/view.php?id=' . $course->id;
-        $this->notify($user, $USER, 'courserequestapproved', get_string('courseapprovedsubject'), get_string('courseapprovedemail2', 'moodle', $a));
+        $this->notify($user, $USER, 'courserequestapproved', get_string('courseapprovedsubject'), get_string('courseapprovedemail2', 'lion', $a));
 
         return $course->id;
     }
@@ -3126,7 +3112,7 @@ class course_request {
     public function reject($notice) {
         global $USER, $DB;
         $user = $DB->get_record('user', array('id' => $this->properties->requester), '*', MUST_EXIST);
-        $this->notify($user, $USER, 'courserequestrejected', get_string('courserejectsubject'), get_string('courserejectemail', 'moodle', $notice));
+        $this->notify($user, $USER, 'courserequestrejected', get_string('courserejectsubject'), get_string('courserejectemail', 'lion', $notice));
         $this->delete();
     }
 
@@ -3149,7 +3135,7 @@ class course_request {
      */
     protected function notify($touser, $fromuser, $name='courserequested', $subject, $message) {
         $eventdata = new stdClass();
-        $eventdata->component         = 'moodle';
+        $eventdata->component         = 'lion';
         $eventdata->name              = $name;
         $eventdata->userfrom          = $fromuser;
         $eventdata->userto            = $touser;
@@ -3262,7 +3248,7 @@ function include_course_ajax($course, $usedmodules = array(), $enabledmodules = 
     }
 
     // Include toolboxes
-    $PAGE->requires->yui_module('moodle-course-toolboxes',
+    $PAGE->requires->yui_module('lion-course-toolboxes',
             'M.course.init_resource_toolbox',
             array(array(
                 'courseid' => $course->id,
@@ -3270,7 +3256,7 @@ function include_course_ajax($course, $usedmodules = array(), $enabledmodules = 
                 'config' => $config,
             ))
     );
-    $PAGE->requires->yui_module('moodle-course-toolboxes',
+    $PAGE->requires->yui_module('lion-course-toolboxes',
             'M.course.init_section_toolbox',
             array(array(
                 'courseid' => $course->id,
@@ -3282,14 +3268,14 @@ function include_course_ajax($course, $usedmodules = array(), $enabledmodules = 
 
     // Include course dragdrop
     if (course_format_uses_sections($course->format)) {
-        $PAGE->requires->yui_module('moodle-course-dragdrop', 'M.course.init_section_dragdrop',
+        $PAGE->requires->yui_module('lion-course-dragdrop', 'M.course.init_section_dragdrop',
             array(array(
                 'courseid' => $course->id,
                 'ajaxurl' => $config->sectionurl,
                 'config' => $config,
             )), null, true);
 
-        $PAGE->requires->yui_module('moodle-course-dragdrop', 'M.course.init_resource_dragdrop',
+        $PAGE->requires->yui_module('lion-course-dragdrop', 'M.course.init_resource_dragdrop',
             array(array(
                 'courseid' => $course->id,
                 'ajaxurl' => $config->resourceurl,
@@ -3321,7 +3307,7 @@ function include_course_ajax($course, $usedmodules = array(), $enabledmodules = 
             'afterresource',
             'aftersection',
             'totopofsection',
-        ), 'moodle');
+        ), 'lion');
 
     // Include section-specific strings for formats which support sections.
     if (course_format_uses_sections($course->format)) {
@@ -3381,7 +3367,7 @@ function get_sorted_course_formats($enabledonly = false) {
  * @param array $options options for view URL. At the moment core uses:
  *     'navigation' (bool) if true and section has no separate page, the function returns null
  *     'sr' (int) used by multipage formats to specify to which section to return
- * @return moodle_url The url of course
+ * @return lion_url The url of course
  */
 function course_get_url($courseorid, $section = null, $options = array()) {
     return course_get_format($courseorid)->get_view_url($section, $options);
@@ -3396,7 +3382,7 @@ function course_get_url($courseorid, $section = null, $options = array()) {
  *
  * @param object $module
  * @return object the created module info
- * @throws moodle_exception if user is not allowed to perform the action or module is not allowed in this course
+ * @throws lion_exception if user is not allowed to perform the action or module is not allowed in this course
  */
 function create_module($moduleinfo) {
     global $DB, $CFG;
@@ -3410,7 +3396,7 @@ function create_module($moduleinfo) {
     }
     foreach($mandatoryfields as $mandatoryfield) {
         if (!isset($moduleinfo->{$mandatoryfield})) {
-            throw new moodle_exception('createmodulemissingattribut', '', '', $mandatoryfield);
+            throw new lion_exception('createmodulemissingattribut', '', '', $mandatoryfield);
         }
     }
 
@@ -3434,7 +3420,7 @@ function create_module($moduleinfo) {
  *
  * @param object $module
  * @return object the updated module info
- * @throws moodle_exception if current user is not allowed to update the module
+ * @throws lion_exception if current user is not allowed to update the module
  */
 function update_module($moduleinfo) {
     global $DB, $CFG;
@@ -3470,7 +3456,7 @@ function update_module($moduleinfo) {
  * @param object $course The course
  * @param object $cm The course module to duplicate
  * @param int $sr The section to link back to (used for creating the links)
- * @throws moodle_exception if the plugin doesn't support duplication
+ * @throws lion_exception if the plugin doesn't support duplication
  * @return Object containing:
  * - fullcontent: The HTML markup for the created CM
  * - cmid: The CMID of the newly created CM
@@ -3502,11 +3488,11 @@ function mod_duplicate_activity($course, $cm, $sr = null) {
  *
  * @param object $course course object.
  * @param object $cm course module object to be duplicated.
- * @since Moodle 2.8
+ * @since Lion 2.8
  *
  * @throws Exception
  * @throws coding_exception
- * @throws moodle_exception
+ * @throws lion_exception
  * @throws restore_controller_exception
  *
  * @return cm_info|null cminfo object if we sucessfully duplicated the mod and found the new cm.
@@ -3521,13 +3507,13 @@ function duplicate_module($course, $cm) {
     $a->modtype = get_string('modulename', $cm->modname);
     $a->modname = format_string($cm->name);
 
-    if (!plugin_supports('mod', $cm->modname, FEATURE_BACKUP_MOODLE2)) {
-        throw new moodle_exception('duplicatenosupport', 'error', '', $a);
+    if (!plugin_supports('mod', $cm->modname, FEATURE_BACKUP_LION2)) {
+        throw new lion_exception('duplicatenosupport', 'error', '', $a);
     }
 
     // Backup the activity.
 
-    $bc = new backup_controller(backup::TYPE_1ACTIVITY, $cm->id, backup::FORMAT_MOODLE,
+    $bc = new backup_controller(backup::TYPE_1ACTIVITY, $cm->id, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_IMPORT, $USER->id);
 
     $backupid       = $bc->get_backupid();

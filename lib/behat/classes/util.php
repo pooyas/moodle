@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Utils for behat-related stuff
@@ -20,10 +6,10 @@
  * @package    core
  * @category   test
  * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(__DIR__ . '/../lib.php');
 require_once(__DIR__ . '/../../testing/classes/util.php');
@@ -94,7 +80,7 @@ class behat_util extends testing_util {
 
         // Update admin user info.
         $user = $DB->get_record('user', array('username' => 'admin'));
-        $user->email = 'moodle@moodlemoodle.com';
+        $user->email = 'lion@lionlion.com';
         $user->firstname = 'Admin';
         $user->lastname = 'User';
         $user->city = 'Perth';
@@ -190,7 +176,7 @@ class behat_util extends testing_util {
      * the test environment and updating the available
      * features and steps definitions.
      *
-     * Stores a file in dataroot/behat to allow Moodle to switch
+     * Stores a file in dataroot/behat to allow Lion to switch
      * to the test environment when using cli-server.
      * @throws coding_exception
      * @return void
@@ -210,7 +196,7 @@ class behat_util extends testing_util {
         // Check that test environment is correctly set up.
         self::test_environment_problem();
 
-        // Updates all the Moodle features and steps definitions.
+        // Updates all the Lion features and steps definitions.
         behat_config_manager::update_config_file();
 
         if (self::is_test_mode_enabled()) {

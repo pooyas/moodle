@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Multichoice
  *
  * @package mod_lesson
  * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  **/
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** Multichoice question type */
 define("LESSON_PAGE_MULTICHOICE",   "3");
@@ -65,7 +51,7 @@ class lesson_page_type_multichoice extends lesson_page {
                 $jumps[] = $this->get_jump_name($answer->jumpto);
             }
         } else {
-            // We get here is the lesson was created on a Moodle 1.9 site and
+            // We get here is the lesson was created on a Lion 1.9 site and
             // the lesson contains question pages without any answers.
             $jumps[] = $this->get_jump_name($this->properties->nextpageid);
         }
@@ -135,7 +121,7 @@ class lesson_page_type_multichoice extends lesson_page {
         require_sesskey();
 
         if (!$data) {
-            redirect(new moodle_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id, 'pageid'=>$this->properties->id)));
+            redirect(new lion_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id, 'pageid'=>$this->properties->id)));
         }
 
         if ($this->properties->qoption) {
@@ -431,7 +417,7 @@ class lesson_page_type_multichoice extends lesson_page {
                     $data = "<input type=\"checkbox\" readonly=\"readonly\" name=\"answer[$i]\" value=\"0\" disabled=\"disabled\" />";
                 }
                 if (($answer->score > 0 && $this->lesson->custom) || ($this->lesson->jumpto_is_correct($this->properties->id, $answer->jumpto) && !$this->lesson->custom)) {
-                    $data = "<div class=\"highlight\">".$data.' '.format_text($answer->answer,FORMAT_MOODLE,$formattextdefoptions)."</div>";
+                    $data = "<div class=\"highlight\">".$data.' '.format_text($answer->answer,FORMAT_LION,$formattextdefoptions)."</div>";
                 } else {
                     $data .= format_text($answer->answer,$answer->answerformat,$formattextdefoptions);
                 }
@@ -473,7 +459,7 @@ class lesson_add_page_form_multichoice extends lesson_add_page_form_base {
     }
 }
 
-class lesson_display_answer_form_multichoice_singleanswer extends moodleform {
+class lesson_display_answer_form_multichoice_singleanswer extends lionform {
 
     public function definition() {
         global $USER, $OUTPUT;
@@ -534,7 +520,7 @@ class lesson_display_answer_form_multichoice_singleanswer extends moodleform {
 
 }
 
-class lesson_display_answer_form_multichoice_multianswer extends moodleform {
+class lesson_display_answer_form_multichoice_multianswer extends lionform {
 
     public function definition() {
         global $USER, $OUTPUT;

@@ -58,7 +58,7 @@ Y.extend(DRAGSECTION, M.core.dragdrop, {
     setup_for_section: function(baseselector) {
         Y.Node.all(baseselector).each(function(sectionnode) {
             // Determine the section ID
-            var sectionid = Y.Moodle.core_course.util.section.getId(sectionnode);
+            var sectionid = Y.Lion.core_course.util.section.getId(sectionnode);
 
             // We skip the top section as it is not draggable
             if (sectionid > 0) {
@@ -67,7 +67,7 @@ Y.extend(DRAGSECTION, M.core.dragdrop, {
                 var moveup = sectionnode.one('.' + CSS.RIGHT + ' a.' + CSS.MOVEUP);
 
                 // Add dragger icon
-                var title = M.util.get_string('movesection', 'moodle', sectionid);
+                var title = M.util.get_string('movesection', 'lion', sectionid);
                 var cssleft = sectionnode.one('.' + CSS.LEFT);
 
                 if ((movedown || moveup) && cssleft) {
@@ -129,7 +129,7 @@ Y.extend(DRAGSECTION, M.core.dragdrop, {
 
         // Get references to our nodes and their IDs.
         var dragnode = drag.get('node'),
-            dragnodeid = Y.Moodle.core_course.util.section.getId(dragnode),
+            dragnodeid = Y.Lion.core_course.util.section.getId(dragnode),
             loopstart = dragnodeid,
 
             dropnodeindex = this.get_section_index(dragnode),
@@ -137,11 +137,11 @@ Y.extend(DRAGSECTION, M.core.dragdrop, {
 
         if (dragnodeid === dropnodeindex) {
             Y.log("Skipping move - same location moving " + dragnodeid + " to " + dropnodeindex,
-                  'debug', 'moodle-mod_quiz-dragdrop');
+                  'debug', 'lion-mod_quiz-dragdrop');
             return;
         }
 
-        Y.log("Moving from position " + dragnodeid + " to position " + dropnodeindex, 'debug', 'moodle-mod_quiz-dragdrop');
+        Y.log("Moving from position " + dragnodeid + " to position " + dropnodeindex, 'debug', 'lion-mod_quiz-dragdrop');
 
         if (loopstart > loopend) {
             // If we're going up, we need to swap the loop order
@@ -208,11 +208,11 @@ Y.extend(DRAGSECTION, M.core.dragdrop, {
                     do {
                         swapped = false;
                         for (index = loopstart; index <= loopend; index++) {
-                            if (Y.Moodle.core_course.util.section.getId(sectionlist.item(index - 1)) >
-                                        Y.Moodle.core_course.util.section.getId(sectionlist.item(index))) {
-                                Y.log("Swapping " + Y.Moodle.core_course.util.section.getId(sectionlist.item(index - 1)) +
-                                        " with " + Y.Moodle.core_course.util.section.getId(sectionlist.item(index)),
-                                        "debug", "moodle-mod_quiz-dragdrop");
+                            if (Y.Lion.core_course.util.section.getId(sectionlist.item(index - 1)) >
+                                        Y.Lion.core_course.util.section.getId(sectionlist.item(index))) {
+                                Y.log("Swapping " + Y.Lion.core_course.util.section.getId(sectionlist.item(index - 1)) +
+                                        " with " + Y.Lion.core_course.util.section.getId(sectionlist.item(index)),
+                                        "debug", "lion-mod_quiz-dragdrop");
                                 // Swap section id.
                                 var sectionid = sectionlist.item(index - 1).get('id');
                                 sectionlist.item(index - 1).set('id', sectionlist.item(index).get('id'));

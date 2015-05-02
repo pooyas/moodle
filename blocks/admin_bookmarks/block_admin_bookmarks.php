@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Admin Bookmarks Block page.
  *
  * @package    block_admin_bookmarks
- * @copyright  2011 Moodle
+ * @copyright  2011 Lion
  * @author     2006 vinkmar
  *             2011 Rossiani Wijaya (updated)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -59,7 +45,7 @@ class block_admin_bookmarks extends block_base {
      * @return array
      */
     function applicable_formats() {
-        if (has_capability('moodle/site:config', context_system::instance())) {
+        if (has_capability('lion/site:config', context_system::instance())) {
             return array('all' => true);
         } else {
             return array('site' => true);
@@ -89,11 +75,11 @@ class block_admin_bookmarks extends block_base {
             foreach($bookmarks as $bookmark) {
                 $temp = $adminroot->locate($bookmark);
                 if ($temp instanceof admin_settingpage) {
-                    $contenturl = new moodle_url('/admin/settings.php', array('section'=>$bookmark));
+                    $contenturl = new lion_url('/admin/settings.php', array('section'=>$bookmark));
                     $contentlink = html_writer::link($contenturl, $temp->visiblename);
                     $contents[] = html_writer::tag('li', $contentlink);
                 } else if ($temp instanceof admin_externalpage) {
-                    $contenturl = new moodle_url($temp->url);
+                    $contenturl = new lion_url($temp->url);
                     $contentlink = html_writer::link($contenturl, $temp->visiblename);
                     $contents[] = html_writer::tag('li', $contentlink);
                 }
@@ -115,10 +101,10 @@ class block_admin_bookmarks extends block_base {
             // the search page can't be properly bookmarked at present
             $this->content->footer = '';
         } else if (in_array($section, $bookmarks)) {
-            $deleteurl = new moodle_url('/blocks/admin_bookmarks/delete.php', array('section'=>$section, 'sesskey'=>sesskey()));
+            $deleteurl = new lion_url('/blocks/admin_bookmarks/delete.php', array('section'=>$section, 'sesskey'=>sesskey()));
             $this->content->footer =  html_writer::link($deleteurl, get_string('unbookmarkthispage','admin'));
         } else {
-            $createurl = new moodle_url('/blocks/admin_bookmarks/create.php', array('section'=>$section, 'sesskey'=>sesskey()));
+            $createurl = new lion_url('/blocks/admin_bookmarks/create.php', array('section'=>$section, 'sesskey'=>sesskey()));
             $this->content->footer = html_writer::link($createurl, get_string('bookmarkthispage','admin'));
         }
 

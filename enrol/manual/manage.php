@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Manual user enrolment UI.
  *
  * @package    enrol_manual
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../../config.php');
@@ -68,7 +54,7 @@ $PAGE->set_url('/enrol/manual/manage.php', array('enrolid'=>$instance->id));
 $PAGE->set_pagelayout('admin');
 $PAGE->set_title($enrol_manual->get_instance_name($instance));
 $PAGE->set_heading($course->fullname);
-navigation_node::override_active_url(new moodle_url('/enrol/users.php', array('id'=>$course->id)));
+navigation_node::override_active_url(new lion_url('/enrol/users.php', array('id'=>$course->id)));
 
 // Create the user selector objects.
 $options = array('enrolid' => $enrolid, 'accesscontext' => $context);

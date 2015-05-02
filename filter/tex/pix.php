@@ -3,9 +3,9 @@
       // If not, it obtains the corresponding TeX expression from the cache_tex db table
       // and uses mimeTeX to create the image file
 
-// disable moodle specific debug messages and any errors in output
+// disable lion specific debug messages and any errors in output
 define('NO_DEBUG_DISPLAY', true);
-define('NO_MOODLE_COOKIES', true); // Because it interferes with caching
+define('NO_LION_COOKIES', true); // Because it interferes with caching
 
     require_once('../../config.php');
 

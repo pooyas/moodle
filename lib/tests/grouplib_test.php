@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Tests groups subsystems.
@@ -21,10 +7,10 @@
  * @category   phpunit
  * @copyright  2007 onwards Martin Dougiamas (http://dougiamas.com)
  * @author     Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Unit tests for lib/grouplib.php
@@ -457,7 +443,7 @@ class core_grouplib_testcase extends advanced_testcase {
         $role = $DB->get_field("role", "id", array("shortname" => "manager"));
         $generator->enrol_user($user3->id, $course->id, $role);
         // Make sure the user has the capability.
-        assign_capability('moodle/site:accessallgroups', CAP_ALLOW, $role, $coursecontext->id);
+        assign_capability('lion/site:accessallgroups', CAP_ALLOW, $role, $coursecontext->id);
 
         // No groups , not forced.
         $result = groups_group_visible($group1->id, $course, null, $user1->id);

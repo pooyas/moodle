@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The file defines a base class that can be used to build a report like the
@@ -20,11 +6,11 @@
  *
  * @package   mod_quiz
  * @copyright 2010 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/tablelib.php');
 
@@ -33,7 +19,7 @@ require_once($CFG->libdir.'/tablelib.php');
  * Base class for quiz reports that are basically a table with one row for each attempt.
  *
  * @copyright 2010 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class quiz_attempts_report extends quiz_default_report {
     /** @var int default page size for reports. */
@@ -91,10 +77,10 @@ abstract class quiz_attempts_report extends quiz_default_report {
 
     /**
      * Get the base URL for this report.
-     * @return moodle_url the URL.
+     * @return lion_url the URL.
      */
     protected function get_base_url() {
-        return new moodle_url('/mod/quiz/report.php',
+        return new lion_url('/mod/quiz/report.php',
                 array('id' => $this->context->instanceid, 'mode' => $this->mode));
     }
 
@@ -251,7 +237,7 @@ abstract class quiz_attempts_report extends quiz_default_report {
      * @param table_sql $table the table being constructed.
      * @param array $columns the list of columns.
      * @param array $headers the columns headings.
-     * @param moodle_url $reporturl the URL of this report.
+     * @param lion_url $reporturl the URL of this report.
      * @param mod_quiz_attempts_report_options $options the display options.
      * @param bool $collapsible whether to allow columns in the report to be collapsed.
      */
@@ -280,7 +266,7 @@ abstract class quiz_attempts_report extends quiz_default_report {
      * @param int $currentgroup the currently selected group.
      * @param array $groupstudents the students in the current group.
      * @param array $allowed the users whose attempt this user is allowed to modify.
-     * @param moodle_url $redirecturl where to redircet to after a successful action.
+     * @param lion_url $redirecturl where to redircet to after a successful action.
      */
     protected function process_actions($quiz, $cm, $currentgroup, $groupstudents, $allowed, $redirecturl) {
         if (empty($currentgroup) || $groupstudents) {

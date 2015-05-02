@@ -9,7 +9,7 @@
 function Course() {
     Course.superclass.constructor.apply(this, arguments);
 }
-Course.NAME = 'moodle-course-management-course';
+Course.NAME = 'lion-course-management-course';
 Course.CSS_PREFIX = 'management-course';
 Course.ATTRS = {
 
@@ -122,7 +122,7 @@ Course.prototype = {
                 }
                 break;
             default:
-                Y.log('Invalid AJAX action requested of managed course.', 'warn', 'moodle-course-management');
+                Y.log('Invalid AJAX action requested of managed course.', 'warn', 'lion-course-management');
                 return false;
         }
     },
@@ -169,7 +169,7 @@ Course.prototype = {
             previous;
         if (outcome === false) {
             previous = node.ancestor('ul').one('li[data-id='+args.previous+']');
-            Y.log('AJAX failed to move this course after the requested course', 'warn', 'moodle-course-management');
+            Y.log('AJAX failed to move this course after the requested course', 'warn', 'lion-course-management');
             if (previous) {
                 // After the last previous.
                 previous.insertAfter(node, 'after');
@@ -179,7 +179,7 @@ Course.prototype = {
             }
             return false;
         }
-        Y.log('AJAX successfully moved course ('+this.getName()+')', 'info', 'moodle-course-management');
+        Y.log('AJAX successfully moved course ('+this.getName()+')', 'info', 'lion-course-management');
         this.highlight();
     }
 };

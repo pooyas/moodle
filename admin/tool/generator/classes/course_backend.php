@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * tool_generator course backend code.
@@ -22,7 +8,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Backend code for the 'make large course' tool.
@@ -191,10 +177,10 @@ class tool_generator_course_backend extends tool_generator_backend {
                 array('shortname' => $shortname), IGNORE_MISSING);
         if ($fullname !== false) {
             // I wanted to throw an exception here but it is not possible to
-            // use strings from moodle.php in exceptions, and I didn't want
+            // use strings from lion.php in exceptions, and I didn't want
             // to duplicate the string in tool_generator, so I changed this to
             // not use exceptions.
-            return get_string('shortnametaken', 'moodle', $fullname);
+            return get_string('shortnametaken', 'lion', $fullname);
         }
         return '';
     }

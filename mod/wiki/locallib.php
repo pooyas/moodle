@@ -1,19 +1,19 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This contains functions and classes that will be used by scripts in wiki module
@@ -825,12 +825,12 @@ function wiki_user_can_view($subwiki, $wiki = null) {
                 // User must have:
                 //      mod/wiki:managewiki capability
                 // or
-                //      moodle/site:accessallgroups capability
+                //      lion/site:accessallgroups capability
                 // and
                 //      mod/wiki:viewpage capability
                 $view = has_capability('mod/wiki:viewpage', $context);
                 $manage = has_capability('mod/wiki:managewiki', $context);
-                $access = has_capability('moodle/site:accessallgroups', $context);
+                $access = has_capability('lion/site:accessallgroups', $context);
                 return ($manage || $access) && $view;
             }
         } else {
@@ -915,11 +915,11 @@ function wiki_user_can_edit($subwiki) {
                 // User must have:
                 //      mod/wiki:managewiki capability
                 // and
-                //      moodle/site:accessallgroups capability
+                //      lion/site:accessallgroups capability
                 // and
                 //      mod/wiki:editpage capability
                 $manage = has_capability('mod/wiki:managewiki', $context);
-                $access = has_capability('moodle/site:accessallgroups', $context);
+                $access = has_capability('lion/site:accessallgroups', $context);
                 $edit = has_capability('mod/wiki:editpage', $context);
                 return $manage && $access && $edit;
             }
@@ -934,11 +934,11 @@ function wiki_user_can_edit($subwiki) {
                 // User must have:
                 //      mod/wiki:managewiki capability
                 // and
-                //      moodle/site:accessallgroups capability
+                //      lion/site:accessallgroups capability
                 // and
                 //      mod/wiki:editpage capability
                 $manage = has_capability('mod/wiki:managewiki', $context);
-                $access = has_capability('moodle/site:accessallgroups', $context);
+                $access = has_capability('lion/site:accessallgroups', $context);
                 $edit = has_capability('mod/wiki:editpage', $context);
                 return $manage && $access && $edit;
             }
@@ -1383,7 +1383,7 @@ function wiki_print_page_content($page, $context, $subwikiid) {
         }
     }
     $html = file_rewrite_pluginfile_urls($page->cachedcontent, 'pluginfile.php', $context->id, 'mod_wiki', 'attachments', $subwikiid);
-    $html = format_text($html, FORMAT_MOODLE, array('overflowdiv'=>true, 'allowid'=>true));
+    $html = format_text($html, FORMAT_LION, array('overflowdiv'=>true, 'allowid'=>true));
     echo $OUTPUT->box($html);
 
     if (!empty($CFG->usetags)) {
@@ -1392,7 +1392,7 @@ function wiki_print_page_content($page, $context, $subwikiid) {
         echo '<span class="wiki-tags-title">'.get_string('tags').': </span>';
         $links = array();
         foreach ($tags as $tagid=>$tag) {
-            $url = new moodle_url('/tag/index.php', array('tag'=>$tag));
+            $url = new lion_url('/tag/index.php', array('tag'=>$tag));
             $links[] = html_writer::link($url, $tag, array('title'=>get_string('tagtitle', 'wiki', $tag)));
         }
         echo join($links, ", ");
@@ -1440,7 +1440,7 @@ function wiki_print_edit_form_default_fields($format, $pageid, $version = -1, $u
     //attachments
     require_once($CFG->dirroot . '/lib/form/filemanager.php');
 
-    $filemanager = new MoodleQuickForm_filemanager('attachments', get_string('wikiattachments', 'wiki'), array('id' => 'attachments'), array('subdirs' => false, 'maxfiles' => 99, 'maxbytes' => $CFG->maxbytes));
+    $filemanager = new LionQuickForm_filemanager('attachments', get_string('wikiattachments', 'wiki'), array('id' => 'attachments'), array('subdirs' => false, 'maxfiles' => 99, 'maxbytes' => $CFG->maxbytes));
 
     $value = file_get_submitted_draft_itemid('attachments');
     if (!empty($value) && !$upload) {
@@ -1526,7 +1526,7 @@ function wiki_build_tree($page, $node, &$keys) {
         }
         array_push($keys, $key);
         $l = wiki_parser_link($p);
-        $link = new moodle_url('/mod/wiki/view.php', array('pageid' => $p->id));
+        $link = new lion_url('/mod/wiki/view.php', array('pageid' => $p->id));
         // navigation_node::get_content will format the title for us
         $nodeaux = $node->add($p->title, $link, null, null, null, $icon);
         if ($l['new']) {

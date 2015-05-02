@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Code for handling and processing questions
@@ -25,14 +11,14 @@
  * TODO: separate those functions which form part of the API
  *       from the helper functions.
  *
- * @package moodlecore
+ * @package lioncore
  * @subpackage questionbank
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://moodle.com}
+ * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/question/engine/lib.php');
 require_once($CFG->dirroot . '/question/type/questiontypebase.php');
@@ -116,7 +102,7 @@ function question_save_qtype_order($neworder, $config = null) {
 
 /**
  * @param array $questionids of question ids.
- * @return boolean whether any of these questions are being used by any part of Moodle.
+ * @return boolean whether any of these questions are being used by any part of Lion.
  */
 function questions_in_use($questionids) {
     global $CFG;
@@ -221,7 +207,7 @@ function match_grade_options($gradeoptionsfull, $grade, $matchgrades = 'error') 
 }
 
 /**
- * Tests whether any question in a category is used by any part of Moodle.
+ * Tests whether any question in a category is used by any part of Lion.
  *
  * @param integer $categoryid a question category id.
  * @param boolean $recursive whether to check child categories too.
@@ -635,7 +621,7 @@ function question_move_category_to_context($categoryid, $oldcontextid, $newconte
  *      be picked randomly.
  * @param object $context context to run the preview in (affects things like
  *      filter settings, theme, lang, etc.) Defaults to $PAGE->context.
- * @return moodle_url the URL.
+ * @return lion_url the URL.
  */
 function question_preview_url($questionid, $preferredbehaviour = null,
         $maxmark = null, $displayoptions = null, $variant = null, $context = null) {
@@ -674,7 +660,7 @@ function question_preview_url($questionid, $preferredbehaviour = null,
         $params['variant'] = $variant;
     }
 
-    return new moodle_url('/question/preview.php', $params);
+    return new lion_url('/question/preview.php', $params);
 }
 
 /**
@@ -1047,7 +1033,7 @@ function question_make_default_categories($contexts) {
             $category = question_get_default_category($context->id);
         }
         $thispreferredness = $preferredlevels[$context->contextlevel];
-        if (has_any_capability(array('moodle/question:usemine', 'moodle/question:useall'), $context)) {
+        if (has_any_capability(array('lion/question:usemine', 'lion/question:useall'), $context)) {
             $thispreferredness += 10;
         }
         if ($thispreferredness > $preferredness) {
@@ -1257,7 +1243,7 @@ function question_default_export_filename($course, $category) {
  * Converts contextlevels to strings and back to help with reading/writing contexts
  * to/from import/export files.
  *
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class context_to_string_translator{
@@ -1350,9 +1336,9 @@ function question_has_capability_on($question, $cap, $cachecat = -1) {
     $context = context::instance_by_id($category->contextid);
 
     if (array_search($cap, $question_questioncaps)!== false) {
-        if (!has_capability('moodle/question:' . $cap . 'all', $context)) {
+        if (!has_capability('lion/question:' . $cap . 'all', $context)) {
             if ($question->createdby == $USER->id) {
-                return has_capability('moodle/question:' . $cap . 'mine', $context);
+                return has_capability('lion/question:' . $cap . 'mine', $context);
             } else {
                 return false;
             }
@@ -1360,7 +1346,7 @@ function question_has_capability_on($question, $cap, $cachecat = -1) {
             return true;
         }
     } else {
-        return has_capability('moodle/question:' . $cap, $context);
+        return has_capability('lion/question:' . $cap, $context);
     }
 
 }
@@ -1427,23 +1413,23 @@ function question_extend_settings_navigation(navigation_node $navigationnode, $c
     }
 
     $questionnode = $navigationnode->add(get_string('questionbank', 'question'),
-            new moodle_url('/question/edit.php', $params), navigation_node::TYPE_CONTAINER);
+            new lion_url('/question/edit.php', $params), navigation_node::TYPE_CONTAINER);
 
     $contexts = new question_edit_contexts($context);
     if ($contexts->have_one_edit_tab_cap('questions')) {
-        $questionnode->add(get_string('questions', 'question'), new moodle_url(
+        $questionnode->add(get_string('questions', 'question'), new lion_url(
                 '/question/edit.php', $params), navigation_node::TYPE_SETTING);
     }
     if ($contexts->have_one_edit_tab_cap('categories')) {
-        $questionnode->add(get_string('categories', 'question'), new moodle_url(
+        $questionnode->add(get_string('categories', 'question'), new lion_url(
                 '/question/category.php', $params), navigation_node::TYPE_SETTING);
     }
     if ($contexts->have_one_edit_tab_cap('import')) {
-        $questionnode->add(get_string('import', 'question'), new moodle_url(
+        $questionnode->add(get_string('import', 'question'), new lion_url(
                 '/question/import.php', $params), navigation_node::TYPE_SETTING);
     }
     if ($contexts->have_one_edit_tab_cap('export')) {
-        $questionnode->add(get_string('export', 'question'), new moodle_url(
+        $questionnode->add(get_string('export', 'question'), new lion_url(
                 '/question/export.php', $params), navigation_node::TYPE_SETTING);
     }
 
@@ -1455,15 +1441,15 @@ function question_extend_settings_navigation(navigation_node $navigationnode, $c
  */
 function question_get_question_capabilities() {
     return array(
-        'moodle/question:add',
-        'moodle/question:editmine',
-        'moodle/question:editall',
-        'moodle/question:viewmine',
-        'moodle/question:viewall',
-        'moodle/question:usemine',
-        'moodle/question:useall',
-        'moodle/question:movemine',
-        'moodle/question:moveall',
+        'lion/question:add',
+        'lion/question:editmine',
+        'lion/question:editall',
+        'lion/question:viewmine',
+        'lion/question:viewall',
+        'lion/question:usemine',
+        'lion/question:useall',
+        'lion/question:movemine',
+        'lion/question:moveall',
     );
 }
 
@@ -1472,8 +1458,8 @@ function question_get_question_capabilities() {
  */
 function question_get_all_capabilities() {
     $caps = question_get_question_capabilities();
-    $caps[] = 'moodle/question:managecategory';
-    $caps[] = 'moodle/question:flag';
+    $caps[] = 'lion/question:managecategory';
+    $caps[] = 'lion/question:flag';
     return $caps;
 }
 
@@ -1483,30 +1469,30 @@ function question_get_all_capabilities() {
  * questions, and provides helper methods to check permissions.
  *
  * @copyright 2007 Jamie Pratt me@jamiep.org
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_edit_contexts {
 
     public static $caps = array(
-        'editq' => array('moodle/question:add',
-            'moodle/question:editmine',
-            'moodle/question:editall',
-            'moodle/question:viewmine',
-            'moodle/question:viewall',
-            'moodle/question:usemine',
-            'moodle/question:useall',
-            'moodle/question:movemine',
-            'moodle/question:moveall'),
-        'questions'=>array('moodle/question:add',
-            'moodle/question:editmine',
-            'moodle/question:editall',
-            'moodle/question:viewmine',
-            'moodle/question:viewall',
-            'moodle/question:movemine',
-            'moodle/question:moveall'),
-        'categories'=>array('moodle/question:managecategory'),
-        'import'=>array('moodle/question:add'),
-        'export'=>array('moodle/question:viewall', 'moodle/question:viewmine'));
+        'editq' => array('lion/question:add',
+            'lion/question:editmine',
+            'lion/question:editall',
+            'lion/question:viewmine',
+            'lion/question:viewall',
+            'lion/question:usemine',
+            'lion/question:useall',
+            'lion/question:movemine',
+            'lion/question:moveall'),
+        'questions'=>array('lion/question:add',
+            'lion/question:editmine',
+            'lion/question:editall',
+            'lion/question:viewmine',
+            'lion/question:viewall',
+            'lion/question:movemine',
+            'lion/question:moveall'),
+        'categories'=>array('lion/question:managecategory'),
+        'import'=>array('lion/question:add'),
+        'export'=>array('lion/question:viewall', 'lion/question:viewmine'));
 
     protected $allcontexts;
 
@@ -1577,10 +1563,10 @@ class question_edit_contexts {
     public function having_add_and_use() {
         $contextswithcap = array();
         foreach ($this->allcontexts as $context) {
-            if (!has_capability('moodle/question:add', $context)) {
+            if (!has_capability('lion/question:add', $context)) {
                 continue;
             }
-            if (!has_any_capability(array('moodle/question:useall', 'moodle/question:usemine'), $context)) {
+            if (!has_any_capability(array('lion/question:useall', 'lion/question:usemine'), $context)) {
                             continue;
             }
             $contextswithcap[] = $context;
@@ -1795,7 +1781,7 @@ function question_pluginfile($course, $context, $component, $filearea, $args, $f
             print_error('exporterror', 'question', $thispageurl->out());
         }
 
-        // export data to moodle file pool
+        // export data to lion file pool
         if (!$content = $qformat->exportprocess(true)) {
             send_file_not_found();
         }
@@ -1918,13 +1904,13 @@ function core_question_question_preview_pluginfile($previewcontext, $questionid,
  * @param string $format
  * @param string $withcategories
  * @param string $ithcontexts
- * @param moodle_url export file url
+ * @param lion_url export file url
  */
 function question_make_export_url($contextid, $categoryid, $format, $withcategories,
         $withcontexts, $filename) {
     global $CFG;
     $urlbase = "$CFG->httpswwwroot/pluginfile.php";
-    return moodle_url::make_file_url($urlbase,
+    return lion_url::make_file_url($urlbase,
             "/$contextid/question/export/{$categoryid}/{$format}/{$withcategories}" .
             "/{$withcontexts}/{$filename}", true);
 }

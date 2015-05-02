@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions and constants for module label
  *
  * @package mod_label
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /** LABEL_MAX_NAME_LENGTH = 50 */
 define("LABEL_MAX_NAME_LENGTH", 50);
@@ -139,7 +125,7 @@ function label_get_coursemodule_info($coursemodule) {
 }
 
 /**
- * This function is used by the reset_course_userdata function in moodlelib.
+ * This function is used by the reset_course_userdata function in lionlib.
  *
  * @param object $data the data submitted from the reset course.
  * @return array status array
@@ -154,7 +140,7 @@ function label_reset_userdata($data) {
  * @return array
  */
 function label_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -178,7 +164,7 @@ function label_supports($feature) {
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
         case FEATURE_MOD_ARCHETYPE:           return MOD_ARCHETYPE_RESOURCE;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_NO_VIEW_LINK:            return true;
 
         default: return null;
@@ -239,7 +225,7 @@ function label_dndupload_handle($uploadinfo) {
                 $data->intro = label_generate_resized_image($file, $config->dndresizewidth, $config->dndresizeheight);
             } else {
                 // We aren't supposed to be supporting non-image types here, but fallback to adding a link, just in case.
-                $url = moodle_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename());
+                $url = lion_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename());
                 $data->intro = html_writer::link($url, $file->get_filename());
             }
             $data->intro = file_save_draft_area_files($uploadinfo->draftitemid, $context->id, 'mod_label', 'intro', 0,
@@ -265,7 +251,7 @@ function label_dndupload_handle($uploadinfo) {
 function label_generate_resized_image(stored_file $file, $maxwidth, $maxheight) {
     global $CFG;
 
-    $fullurl = moodle_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename());
+    $fullurl = lion_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename());
     $link = null;
     $attrib = array('alt' => $file->get_filename(), 'src' => $fullurl);
 
@@ -309,7 +295,7 @@ function label_generate_resized_image(stored_file $file, $maxwidth, $maxheight) 
                     $smallfile = $fs->create_file_from_string($record, $data);
 
                     // Replace the image 'src' with the resized file and link to the original
-                    $attrib['src'] = moodle_url::make_draftfile_url($smallfile->get_itemid(), $smallfile->get_filepath(),
+                    $attrib['src'] = lion_url::make_draftfile_url($smallfile->get_itemid(), $smallfile->get_filepath(),
                                                                     $smallfile->get_filename());
                     $link = $fullurl;
                 }

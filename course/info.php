@@ -29,7 +29,7 @@
     }
 
     $context = context_course::instance($course->id);
-    if (!$course->visible and !has_capability('moodle/course:viewhiddencourses', $context)) {
+    if (!$course->visible and !has_capability('lion/course:viewhiddencourses', $context)) {
         print_error('coursehidden', '', $CFG->wwwroot .'/');
     }
 

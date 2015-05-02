@@ -1,21 +1,7 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-define('NO_MOODLE_COOKIES', true); // session not used here
+define('NO_LION_COOKIES', true); // session not used here
 require_once '../../../config.php';
 require_once($CFG->dirroot.'/grade/export/txt/grade_export_txt.php');
 
@@ -39,7 +25,7 @@ if (empty($CFG->gradepublishing)) {
 }
 
 $context = context_course::instance($id);
-require_capability('moodle/grade:export', $context);
+require_capability('lion/grade:export', $context);
 require_capability('gradeexport/txt:publish', $context);
 require_capability('gradeexport/txt:view', $context);
 

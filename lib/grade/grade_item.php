@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Definition of a class to represent a grade item
@@ -20,10 +6,10 @@
  * @package   core_grades
  * @category  grade
  * @copyright 2006 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once('grade_object.php');
 
 /**
@@ -34,7 +20,7 @@ require_once('grade_object.php');
  * @package   core_grades
  * @category  grade
  * @copyright 2006 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class grade_item extends grade_object {
     /**
@@ -841,7 +827,7 @@ class grade_item extends grade_object {
                 $this->scale->load_items();
             }
 
-            // Until scales are uniformly set to min=0 max=count(scaleitems)-1 throughout Moodle, we
+            // Until scales are uniformly set to min=0 max=count(scaleitems)-1 throughout Lion, we
             // stay with the current min=1 max=count(scaleitems)
             $this->grademax = count($this->scale->scale_items);
             $this->grademin = 1;
@@ -970,7 +956,7 @@ class grade_item extends grade_object {
      */
     public function is_overridable_item() {
         if ($this->is_course_item() or $this->is_category_item()) {
-            $overridable = (bool) get_config('moodle', 'grade_overridecat');
+            $overridable = (bool) get_config('lion', 'grade_overridecat');
         } else {
             $overridable = false;
         }
@@ -1532,7 +1518,7 @@ class grade_item extends grade_object {
      * @param int $usermodified The ID of the user making the modification
      * @return bool success
      */
-    public function update_final_grade($userid, $finalgrade=false, $source=NULL, $feedback=false, $feedbackformat=FORMAT_MOODLE, $usermodified=null) {
+    public function update_final_grade($userid, $finalgrade=false, $source=NULL, $feedback=false, $feedbackformat=FORMAT_LION, $usermodified=null) {
         global $USER, $CFG;
 
         $result = true;
@@ -1659,7 +1645,7 @@ class grade_item extends grade_object {
      * @param grade_grade $grade A grade object, useful for bulk upgrades
      * @return bool success
      */
-    public function update_raw_grade($userid, $rawgrade=false, $source=NULL, $feedback=false, $feedbackformat=FORMAT_MOODLE, $usermodified=null, $dategraded=null, $datesubmitted=null, $grade=null) {
+    public function update_raw_grade($userid, $rawgrade=false, $source=NULL, $feedback=false, $feedbackformat=FORMAT_LION, $usermodified=null, $dategraded=null, $datesubmitted=null, $grade=null) {
         global $USER;
 
         $result = true;

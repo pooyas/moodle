@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
 * Sets up the tabs used by the lesson pages for teachers.
@@ -21,11 +7,11 @@
 * This file was adapted from the mod/quiz/tabs.php
 *
  * @package mod_lesson
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
 */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /// This file to be included so we can assume config.php has already been included.
 global $DB;
@@ -49,7 +35,7 @@ $tabs = $row = $inactive = $activated = array();
 $attemptscount = $DB->count_records('lesson_grades', array('lessonid'=>$lesson->id));
 
 $row[] = new tabobject('view', "$CFG->wwwroot/mod/lesson/view.php?id=$cm->id", get_string('preview', 'lesson'), get_string('previewlesson', 'lesson', format_string($lesson->name)));
-$row[] = new tabobject('edit', "$CFG->wwwroot/mod/lesson/edit.php?id=$cm->id", get_string('edit', 'lesson'), get_string('edita', 'moodle', format_string($lesson->name)));
+$row[] = new tabobject('edit', "$CFG->wwwroot/mod/lesson/edit.php?id=$cm->id", get_string('edit', 'lesson'), get_string('edita', 'lion', format_string($lesson->name)));
 if (has_capability('mod/lesson:viewreports', $context)) {
     $row[] = new tabobject('reports', "$CFG->wwwroot/mod/lesson/report.php?id=$cm->id", get_string('reports', 'lesson'),
             get_string('viewreports2', 'lesson', $attemptscount));

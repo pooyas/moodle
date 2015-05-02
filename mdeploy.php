@@ -1,40 +1,26 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moodle deployment utility
+ * Lion deployment utility
  *
  * This script looks after deploying new add-ons and available updates for them
- * to the local Moodle site. It can operate via both HTTP and CLI mode.
- * Moodle itself calls this utility via the HTTP mode when the admin is about to
+ * to the local Lion site. It can operate via both HTTP and CLI mode.
+ * Lion itself calls this utility via the HTTP mode when the admin is about to
  * install or update an add-on. You can use the CLI mode in your custom deployment
  * shell scripts.
  *
  * CLI usage example:
  *
  *  $ sudo -u apache php mdeploy.php --install \
- *                                   --package=https://moodle.org/plugins/download.php/...zip \
- *                                   --typeroot=/var/www/moodle/htdocs/blocks
+ *                                   --package=https://lion.org/plugins/download.php/...zip \
+ *                                   --typeroot=/var/www/lion/htdocs/blocks
  *                                   --name=loancalc
  *                                   --md5=...
  *
  *  $ sudo -u apache php mdeploy.php --upgrade \
- *                                   --package=https://moodle.org/plugins/download.php/...zip \
- *                                   --typeroot=/var/www/moodle/htdocs/blocks
+ *                                   --package=https://lion.org/plugins/download.php/...zip \
+ *                                   --typeroot=/var/www/lion/htdocs/blocks
  *                                   --name=loancalc
  *                                   --md5=...
  *
@@ -44,18 +30,18 @@
  *
  * Changes
  *
- * 1.1 - Added support to install a new plugin from the Moodle Plugins directory.
- * 1.0 - Initial version used in Moodle 2.4 to deploy available updates.
+ * 1.1 - Added support to install a new plugin from the Lion Plugins directory.
+ * 1.0 - Initial version used in Lion 2.4 to deploy available updates.
  *
  * @package     core
  * @subpackage  mdeploy
  * @version     1.1
- * @copyright   2012 David Mudrak <david@moodle.com>
+ * @copyright   2012 David Mudrak <david@lion.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-if (defined('MOODLE_INTERNAL')) {
-    die('This is a standalone utility that should not be included by any other Moodle code.');
+if (defined('LION_INTERNAL')) {
+    die('This is a standalone utility that should not be included by any other Lion code.');
 }
 
 // This stops immediately at the beginning of lib/setup.php.
@@ -85,8 +71,8 @@ class invalid_setting_exception extends Exception {}
 /**
  * Base class implementing the singleton pattern using late static binding feature.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 abstract class singleton_pattern {
 
@@ -139,8 +125,8 @@ abstract class singleton_pattern {
  * Implements the delegate pattern by dispatching the calls to appropriate
  * helper class (CLI or HTTP).
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class input_manager extends singleton_pattern {
 
@@ -416,8 +402,8 @@ class input_manager extends singleton_pattern {
 /**
  * Base class for input providers.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 abstract class input_provider extends singleton_pattern {
 
@@ -498,8 +484,8 @@ abstract class input_provider extends singleton_pattern {
 /**
  * Provides access to the script options passed via CLI.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class input_cli_provider extends input_provider {
 
@@ -536,8 +522,8 @@ class input_cli_provider extends input_provider {
 /**
  * Provides access to the script options passed via HTTP request.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class input_http_provider extends input_provider {
 
@@ -557,8 +543,8 @@ class input_http_provider extends input_provider {
 /**
  * Provides output operations.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class output_manager extends singleton_pattern {
 
@@ -591,8 +577,8 @@ class output_manager extends singleton_pattern {
 /**
  * Base class for all output providers.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 abstract class output_provider extends singleton_pattern {
 }
@@ -600,8 +586,8 @@ abstract class output_provider extends singleton_pattern {
 /**
  * Provides output to the command line.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class output_cli_provider extends output_provider {
 
@@ -610,7 +596,7 @@ class output_cli_provider extends output_provider {
      */
     public function help() {
 
-        $this->outln('mdeploy.php - Moodle (http://moodle.org) deployment utility');
+        $this->outln('mdeploy.php - Lion (http://lion.org) deployment utility');
         $this->outln();
         $this->outln('Usage: $ sudo -u apache php mdeploy.php [options]');
         $this->outln();
@@ -643,8 +629,8 @@ class output_cli_provider extends output_provider {
 /**
  * Provides HTML output as a part of HTTP response.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class output_http_provider extends output_provider {
 
@@ -662,10 +648,10 @@ class output_http_provider extends output_provider {
      */
     public function exception(Exception $e) {
 
-        $docslink = 'http://docs.moodle.org/en/admin/mdeploy/'.get_class($e);
+        $docslink = 'http://docs.lion.org/en/admin/mdeploy/'.get_class($e);
         $this->start_output();
         echo('<h1>Oops! It did it again</h1>');
-        echo('<p><strong>Moodle deployment utility had a trouble with your request.
+        echo('<p><strong>Lion deployment utility had a trouble with your request.
             See <a href="'.$docslink.'">the docs page</a> and the debugging information for more details.</strong></p>');
         echo('<pre>');
         echo exception_handlers::format_exception_info($e);
@@ -707,8 +693,8 @@ class output_http_provider extends output_provider {
 /**
  * The actual worker class implementing the main functionality of the script.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2012 David Mudrak <david@lion.com>
+ * 
  */
 class worker extends singleton_pattern {
 
@@ -1050,7 +1036,7 @@ class worker extends singleton_pattern {
      * Downloads the given file into the given destination.
      *
      * This is basically a simplified version of {@link download_file_content()} from
-     * Moodle itself, tuned for fetching files from moodle.org servers.
+     * Lion itself, tuned for fetching files from lion.org servers.
      *
      * @param string $source file url starting with http(s)://
      * @param string $target store the downloaded content to this file (full path)
@@ -1074,7 +1060,7 @@ class worker extends singleton_pattern {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // return the transfer as a string
         curl_setopt($ch, CURLOPT_HEADER, false); // don't include the header in the output
         curl_setopt($ch, CURLOPT_TIMEOUT, 3600);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); // nah, moodle.org is never unavailable! :-p
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); // nah, lion.org is never unavailable! :-p
         curl_setopt($ch, CURLOPT_URL, $source);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Allow redirection, we trust in ssl.
         curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
@@ -1172,8 +1158,8 @@ class worker extends singleton_pattern {
         $dataroot = $this->get_env('dataroot');
 
         // Bundle in dataroot always wins.
-        if (is_readable($dataroot.'/moodleorgca.crt')) {
-            return realpath($dataroot.'/moodleorgca.crt');
+        if (is_readable($dataroot.'/lionorgca.crt')) {
+            return realpath($dataroot.'/lionorgca.crt');
         }
 
         // Next comes the default from php.ini
@@ -1530,7 +1516,7 @@ class exception_handlers {
      */
     public static function bootstrap_exception_handler(Exception $e) {
         echo('<h1>Oops! It did it again</h1>');
-        echo('<p><strong>Moodle deployment utility had a trouble with your request. See the debugging information for more details.</strong></p>');
+        echo('<p><strong>Lion deployment utility had a trouble with your request. See the debugging information for more details.</strong></p>');
         echo('<pre>');
         echo self::format_exception_info($e);
         echo('</pre>');

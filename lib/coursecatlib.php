@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Contains class coursecat reponsible for course category operations
@@ -20,10 +6,10 @@
  * @package    core
  * @subpackage course
  * @copyright  2013 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Class to store, cache, render and manage course category
@@ -46,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package    core
  * @subpackage course
  * @copyright  2013 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class coursecat implements renderable, cacheable_object, IteratorAggregate {
     /** @var coursecat stores pseudo category with id=0. Use coursecat::get(0) to retrieve */
@@ -228,9 +214,9 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @param bool $alwaysreturnhidden set to true if you want an object to be
      *     returned even if this category is not visible to the current user
      *     (category is hidden and user does not have
-     *     'moodle/category:viewhiddencategories' capability). Use with care!
+     *     'lion/category:viewhiddencategories' capability). Use with care!
      * @return null|coursecat
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     public static function get($id, $strictness = MUST_EXIST, $alwaysreturnhidden = false) {
         if (!$id) {
@@ -258,7 +244,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
             return $coursecat;
         } else {
             if ($strictness == MUST_EXIST) {
-                throw new moodle_exception('unknowncategory');
+                throw new lion_exception('unknowncategory');
             }
         }
         return null;
@@ -267,7 +253,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
     /**
      * Load many coursecat objects.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param array $ids An array of category ID's to load.
      * @return coursecat[]
      */
@@ -339,14 +325,14 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      *    form data and file_postupdate_standard_editor() is being called to
      *    process images in description.
      * @return coursecat
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     public static function create($data, $editoroptions = null) {
         global $DB, $CFG;
         $data = (object)$data;
         $newcategory = new stdClass();
 
-        $newcategory->descriptionformat = FORMAT_MOODLE;
+        $newcategory->descriptionformat = FORMAT_LION;
         $newcategory->description = '';
         // Copy all description* fields regardless of whether this is form data or direct field update.
         foreach ($data as $key => $value) {
@@ -356,20 +342,20 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         }
 
         if (empty($data->name)) {
-            throw new moodle_exception('categorynamerequired');
+            throw new lion_exception('categorynamerequired');
         }
         if (core_text::strlen($data->name) > 255) {
-            throw new moodle_exception('categorytoolong');
+            throw new lion_exception('categorytoolong');
         }
         $newcategory->name = $data->name;
 
         // Validate and set idnumber.
         if (!empty($data->idnumber)) {
             if (core_text::strlen($data->idnumber) > 100) {
-                throw new moodle_exception('idnumbertoolong');
+                throw new lion_exception('idnumbertoolong');
             }
             if ($DB->record_exists('course_categories', array('idnumber' => $data->idnumber))) {
-                throw new moodle_exception('categoryidnumbertaken');
+                throw new lion_exception('categoryidnumbertaken');
             }
         }
         if (isset($data->idnumber)) {
@@ -456,7 +442,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @param array $editoroptions if specified, the data is considered to be
      *    form data and file_postupdate_standard_editor() is being called to
      *    process images in description.
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     public function update($data, $editoroptions = null) {
         global $DB, $CFG;
@@ -477,22 +463,22 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         }
 
         if (isset($data->name) && empty($data->name)) {
-            throw new moodle_exception('categorynamerequired');
+            throw new lion_exception('categorynamerequired');
         }
 
         if (!empty($data->name) && $data->name !== $this->name) {
             if (core_text::strlen($data->name) > 255) {
-                throw new moodle_exception('categorytoolong');
+                throw new lion_exception('categorytoolong');
             }
             $newcategory->name = $data->name;
         }
 
         if (isset($data->idnumber) && $data->idnumber != $this->idnumber) {
             if (core_text::strlen($data->idnumber) > 100) {
-                throw new moodle_exception('idnumbertoolong');
+                throw new lion_exception('idnumbertoolong');
             }
             if ($DB->record_exists('course_categories', array('idnumber' => $data->idnumber))) {
-                throw new moodle_exception('categoryidnumbertaken');
+                throw new lion_exception('categoryidnumbertaken');
             }
             $newcategory->idnumber = $data->idnumber;
         }
@@ -553,7 +539,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      */
     public function is_uservisible() {
         return !$this->id || $this->visible ||
-                has_capability('moodle/category:viewhiddencategories', $this->get_context());
+                has_capability('lion/category:viewhiddencategories', $this->get_context());
     }
 
     /**
@@ -621,7 +607,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         $rs->close();
         if (!$count) {
             // No categories found.
-            // This may happen after upgrade of a very old moodle version.
+            // This may happen after upgrade of a very old lion version.
             // In new versions the default category is created on install.
             $defcoursecat = self::create(array('name' => get_string('miscellaneous')));
             set_config('defaultrequestcategory', $defcoursecat->id);
@@ -857,7 +843,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @param string $whereclause
      * @param array $params
      * @param array $options may indicate that summary and/or coursecontacts need to be retrieved
-     * @param bool $checkvisibility if true, capability 'moodle/course:viewhiddencourses' will be checked
+     * @param bool $checkvisibility if true, capability 'lion/course:viewhiddencourses' will be checked
      *     on not visible courses
      * @return array array of stdClass objects
      */
@@ -889,7 +875,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
                 if (empty($course->visible)) {
                     // Load context only if we need to check capability.
                     context_helper::preload_from_record($course);
-                    if (!has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id))) {
+                    if (!has_capability('lion/course:viewhiddencourses', context_course::instance($course->id))) {
                         unset($list[$course->id]);
                     }
                 }
@@ -929,7 +915,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
                 }
                 // Check that user has 'viewhiddencategories' capability for each hidden category.
                 foreach ($hidden as $id) {
-                    if (!has_capability('moodle/category:viewhiddencategories', context_coursecat::instance($id))) {
+                    if (!has_capability('lion/category:viewhiddencategories', context_coursecat::instance($id))) {
                         $invisibleids[] = $id;
                     }
                 }
@@ -1074,7 +1060,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public static function has_manage_capability_on_any() {
-        return self::has_capability_on_any('moodle/category:manage');
+        return self::has_capability_on_any('lion/category:manage');
     }
 
     /**
@@ -1493,7 +1479,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * Returns true if user can delete current category and all its contents
      *
      * To be able to delete course category the user must have permission
-     * 'moodle/category:manage' in ALL child course categories AND
+     * 'lion/category:manage' in ALL child course categories AND
      * be able to delete all courses
      *
      * @return bool
@@ -1507,7 +1493,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
 
         $context = $this->get_context();
         if (!$this->is_uservisible() ||
-                !has_capability('moodle/category:manage', $context)) {
+                !has_capability('lion/category:manage', $context)) {
             return false;
         }
 
@@ -1521,8 +1507,8 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         foreach ($childcategories as $childcat) {
             context_helper::preload_from_record($childcat);
             $childcontext = context_coursecat::instance($childcat->id);
-            if ((!$childcat->visible && !has_capability('moodle/category:viewhiddencategories', $childcontext)) ||
-                    !has_capability('moodle/category:manage', $childcontext)) {
+            if ((!$childcat->visible && !has_capability('lion/category:viewhiddencategories', $childcontext)) ||
+                    !has_capability('lion/category:manage', $childcontext)) {
                 return false;
             }
         }
@@ -1553,7 +1539,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      *
      * @param boolean $showfeedback display some notices
      * @return array return deleted courses
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     public function delete_full($showfeedback = true) {
         global $CFG, $DB;
@@ -1574,7 +1560,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         if ($courses = $DB->get_records('course', array('category' => $this->id), 'sortorder ASC')) {
             foreach ($courses as $course) {
                 if (!delete_course($course, false)) {
-                    throw new moodle_exception('cannotdeletecategorycourse', '', '', $course->shortname);
+                    throw new lion_exception('cannotdeletecategorycourse', '', '', $course->shortname);
                 }
                 $deletedcourses[] = $course;
             }
@@ -1586,7 +1572,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         // Now delete anything that may depend on course category context.
         grade_course_category_delete($this->id, 0, $showfeedback);
         if (!question_delete_course_category($this, 0, $showfeedback)) {
-            throw new moodle_exception('cannotdeletecategoryquestions', '', '', $this->get_formatted_name());
+            throw new lion_exception('cannotdeletecategoryquestions', '', '', $this->get_formatted_name());
         }
 
         // Finally delete the category and it's context.
@@ -1627,7 +1613,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         require_once($CFG->libdir . '/questionlib.php');
         $context = $this->get_context();
         if (!$this->is_uservisible() ||
-                !has_capability('moodle/category:manage', $context)) {
+                !has_capability('lion/category:manage', $context)) {
             // User is not able to manage current category, he is not able to delete it.
             // No possible target categories.
             return array();
@@ -1636,11 +1622,11 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         $testcaps = array();
         // If this category has courses in it, user must have 'course:create' capability in target category.
         if ($this->has_courses()) {
-            $testcaps[] = 'moodle/course:create';
+            $testcaps[] = 'lion/course:create';
         }
         // If this category has subcategories or questions, user must have 'category:manage' capability in target category.
         if ($this->has_children() || question_context_has_any_questions($context)) {
-            $testcaps[] = 'moodle/category:manage';
+            $testcaps[] = 'lion/category:manage';
         }
         if (!empty($testcaps)) {
             // Return list of categories excluding this one and it's children.
@@ -1663,17 +1649,17 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         require_once($CFG->libdir . '/questionlib.php');
         $context = $this->get_context();
         if (!$this->is_uservisible() ||
-                !has_capability('moodle/category:manage', $context)) {
+                !has_capability('lion/category:manage', $context)) {
             return false;
         }
         $testcaps = array();
         // If this category has courses in it, user must have 'course:create' capability in target category.
         if ($this->has_courses()) {
-            $testcaps[] = 'moodle/course:create';
+            $testcaps[] = 'lion/course:create';
         }
         // If this category has subcategories or questions, user must have 'category:manage' capability in target category.
         if ($this->has_children() || question_context_has_any_questions($context)) {
-            $testcaps[] = 'moodle/category:manage';
+            $testcaps[] = 'lion/category:manage';
         }
         if (!empty($testcaps)) {
             return has_all_capabilities($testcaps, context_coursecat::instance($newcatid));
@@ -1785,7 +1771,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public function can_change_parent($newparentcat) {
-        if (!has_capability('moodle/category:manage', $this->get_context())) {
+        if (!has_capability('lion/category:manage', $this->get_context())) {
             return false;
         }
         if (is_object($newparentcat)) {
@@ -1801,9 +1787,9 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
             return false;
         }
         if ($newparentcat->id) {
-            return has_capability('moodle/category:manage', context_coursecat::instance($newparentcat->id));
+            return has_capability('lion/category:manage', context_coursecat::instance($newparentcat->id));
         } else {
-            return has_capability('moodle/category:manage', context_system::instance());
+            return has_capability('lion/category:manage', context_system::instance());
         }
     }
 
@@ -1816,7 +1802,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @see coursecat::update()
      *
      * @param coursecat $newparentcat
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     protected function change_parent_raw(coursecat $newparentcat) {
         global $DB;
@@ -1830,7 +1816,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         } else {
             if ($newparentcat->id == $this->id || in_array($this->id, $newparentcat->get_parents())) {
                 // Can not move to itself or it's own child.
-                throw new moodle_exception('cannotmovecategory');
+                throw new lion_exception('cannotmovecategory');
             }
             $DB->set_field('course_categories', 'parent', $newparentcat->id, array('id' => $this->id));
             $newparent = context_coursecat::instance($newparentcat->id);
@@ -2138,7 +2124,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
                 if (!$record->parent || isset($baselist[$record->parent])) {
                     context_helper::preload_from_record($record);
                     $context = context_coursecat::instance($record->id);
-                    if (!$record->visible && !has_capability('moodle/category:viewhiddencategories', $context)) {
+                    if (!$record->visible && !has_capability('lion/category:viewhiddencategories', $context)) {
                         // No cap to view category, added to neither $baselist nor $thislist.
                         continue;
                     }
@@ -2245,7 +2231,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public static function can_create_top_level_category() {
-        return has_capability('moodle/category:manage', context_system::instance());
+        return has_capability('lion/category:manage', context_system::instance());
     }
 
     /**
@@ -2267,7 +2253,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      */
     public function has_manage_capability() {
         if ($this->hasmanagecapability === null) {
-            $this->hasmanagecapability = has_capability('moodle/category:manage', $this->get_context());
+            $this->hasmanagecapability = has_capability('lion/category:manage', $this->get_context());
         }
         return $this->hasmanagecapability;
     }
@@ -2277,7 +2263,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public function parent_has_manage_capability() {
-        return has_capability('moodle/category:manage', get_category_or_system_context($this->parent));
+        return has_capability('lion/category:manage', get_category_or_system_context($this->parent));
     }
 
     /**
@@ -2319,7 +2305,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public function can_create_course() {
-        return has_capability('moodle/course:create', $this->get_context());
+        return has_capability('lion/course:create', $this->get_context());
     }
 
     /**
@@ -2335,7 +2321,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public function can_review_roles() {
-        return has_capability('moodle/role:assign', $this->get_context());
+        return has_capability('lion/role:assign', $this->get_context());
     }
 
     /**
@@ -2344,10 +2330,10 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      */
     public function can_review_permissions() {
         return has_any_capability(array(
-            'moodle/role:assign',
-            'moodle/role:safeoverride',
-            'moodle/role:override',
-            'moodle/role:assign'
+            'lion/role:assign',
+            'lion/role:safeoverride',
+            'lion/role:override',
+            'lion/role:assign'
         ), $this->get_context());
     }
 
@@ -2356,7 +2342,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public function can_review_cohorts() {
-        return has_any_capability(array('moodle/cohort:view', 'moodle/cohort:manage'), $this->get_context());
+        return has_any_capability(array('lion/cohort:view', 'lion/cohort:manage'), $this->get_context());
     }
 
     /**
@@ -2364,7 +2350,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public function can_review_filters() {
-        return has_capability('moodle/filter:manage', $this->get_context()) &&
+        return has_capability('lion/filter:manage', $this->get_context()) &&
                count(filter_get_available_in_context($this->get_context()))>0;
     }
 
@@ -2397,7 +2383,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
      * @return bool
      */
     public function can_restore_courses_into() {
-        return has_capability('moodle/course:create', $this->get_context());
+        return has_capability('lion/course:create', $this->get_context());
     }
 
     /**
@@ -2521,7 +2507,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
     /**
      * Changes the sort order of this categories parent shifting this category up or down one.
      *
-     * @global \moodle_database $DB
+     * @global \lion_database $DB
      * @param bool $up If set to true the category is shifted up one spot, else its moved down.
      * @return bool True on success, false otherwise.
      */
@@ -2578,7 +2564,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
         if (empty($CFG->enablecourserequests) || $this->id != $CFG->defaultrequestcategory) {
             return false;
         }
-        return !$this->can_create_course() && has_capability('moodle/course:request', $this->get_context());
+        return !$this->can_create_course() && has_capability('lion/course:request', $this->get_context());
     }
 
     /**
@@ -2591,7 +2577,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
             return false;
         }
         $context = context_system::instance();
-        if (!has_capability('moodle/site:approvecourse', $context)) {
+        if (!has_capability('lion/site:approvecourse', $context)) {
             return false;
         }
         if (!$DB->record_exists('course_request', array())) {
@@ -2648,7 +2634,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
  * @package    core
  * @subpackage course
  * @copyright  2013 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class course_in_list implements IteratorAggregate {
 
@@ -2737,7 +2723,7 @@ class course_in_list implements IteratorAggregate {
             }
 
             // Build return array with full roles names (for this course context) and users names.
-            $canviewfullnames = has_capability('moodle/site:viewfullnames', $context);
+            $canviewfullnames = has_capability('lion/site:viewfullnames', $context);
             foreach ($this->record->managers as $ruser) {
                 if (isset($this->coursecontacts[$ruser->id])) {
                     // Only display a user once with the highest sortorder role.
@@ -2928,7 +2914,7 @@ class course_in_list implements IteratorAggregate {
      * @return bool
      */
     public function can_edit() {
-        return has_capability('moodle/course:update', $this->get_context());
+        return has_capability('lion/course:update', $this->get_context());
     }
 
     /**
@@ -2941,7 +2927,7 @@ class course_in_list implements IteratorAggregate {
      */
     public function can_change_visibility() {
         // You must be able to both hide a course and view the hidden course.
-        return has_all_capabilities(array('moodle/course:visibility', 'moodle/course:viewhiddencourses'), $this->get_context());
+        return has_all_capabilities(array('lion/course:visibility', 'lion/course:viewhiddencourses'), $this->get_context());
     }
 
     /**
@@ -2957,7 +2943,7 @@ class course_in_list implements IteratorAggregate {
      * @return bool
      */
     public function is_uservisible() {
-        return $this->visible || has_capability('moodle/course:viewhiddencourses', $this->get_context());
+        return $this->visible || has_capability('lion/course:viewhiddencourses', $this->get_context());
     }
 
     /**
@@ -2969,7 +2955,7 @@ class course_in_list implements IteratorAggregate {
      * @return bool
      */
     public function can_review_enrolments() {
-        return has_capability('moodle/course:enrolreview', $this->get_context());
+        return has_capability('lion/course:enrolreview', $this->get_context());
     }
 
     /**
@@ -2993,7 +2979,7 @@ class course_in_list implements IteratorAggregate {
      * @return bool
      */
     public function can_backup() {
-        return has_capability('moodle/backup:backupcourse', $this->get_context());
+        return has_capability('lion/backup:backupcourse', $this->get_context());
     }
 
     /**
@@ -3005,7 +2991,7 @@ class course_in_list implements IteratorAggregate {
      * @return bool
      */
     public function can_restore() {
-        return has_capability('moodle/restore:restorecourse', $this->get_context());
+        return has_capability('lion/restore:restorecourse', $this->get_context());
     }
 }
 
@@ -3017,7 +3003,7 @@ class course_in_list implements IteratorAggregate {
  * @package    core
  * @subpackage course
  * @copyright  2013 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class coursecat_sortable_records extends ArrayObject {
 

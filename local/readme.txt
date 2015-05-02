@@ -1,24 +1,10 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Readme file for local customisations
  *
  * @package    local
  * @copyright  2009 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 Local customisations directory
@@ -27,7 +13,7 @@ This directory is the recommended place for local customisations.
 Wherever possible, customisations should be written using one
 of the standard plug-in points like modules, blocks, auth plugins, themes, etc.
 
-See also http://docs.moodle.org/dev/Local_customisation for more
+See also http://docs.lion.org/dev/Local_customisation for more
 information.
 
 
@@ -50,7 +36,7 @@ Local plugins
 Local plugins are used in cases when no standard plugin fits, examples are:
 * event consumers communicating with external systems
 * custom definitions of web services and external functions
-* applications that extend moodle at the system level (hub server, amos server, etc.)
+* applications that extend lion at the system level (hub server, amos server, etc.)
 * new database tables used in core hacks (discouraged)
 * new capability definitions used in core hacks
 * custom admin settings
@@ -74,14 +60,14 @@ Local plugin version specification
 ----------------------------------
 version.php is mandatory for most of the standard plugin infrastructure.
 The version number must be incremented most plugin changes, the changed
-version tells Moodle to invalidate all caches, do db upgrades if necessary,
+version tells Lion to invalidate all caches, do db upgrades if necessary,
 install new capabilities, register event handlers, etc.
 
 Example:
 /local/nicehack/version.php
 <?php
 $plugin->version  = 2010022400;   // The (date) version of this plugin
-$plugin->requires = 2010021900;   // Requires this Moodle version
+$plugin->requires = 2010021900;   // Requires this Lion version
 
 
 Local plugin capabilities
@@ -130,7 +116,7 @@ $ADMIN->add('tweaks', new admin_externalpage('nicehackery', 'Tweak something',
 Or if you want a new standard settings page for the plugin, inside the local
 plugins category:
 <?php
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 if ($hassiteconfig) { // needs this condition or there is error on login page
     $settings = new admin_settingpage('local_thisplugin', 'This plugin');
@@ -157,7 +143,7 @@ $handlers = array (
      ),
 );
 
-NOTE: events are not yet fully implemented in current Moodle 2.0dev.
+NOTE: events are not yet fully implemented in current Lion 2.0dev.
 
 
 Local plugin database tables
@@ -181,7 +167,7 @@ List of upgrade related files:
 Local plugin web services
 -------------------------
 During plugin installation or upgrade, the web service definitions are read
-from /local/nicehack/db/services.php and are automatically installed/updated in Moodle.
+from /local/nicehack/db/services.php and are automatically installed/updated in Lion.
 
 sample files
 /local/nicehack/db/services.php
@@ -242,10 +228,10 @@ for installation and upgrade.
 
 Sample /local/defaults.php file content:
 <?php
-$defaults['moodle']['forcelogin'] = 1;  // new default for $CFG->forcelogin
+$defaults['lion']['forcelogin'] = 1;  // new default for $CFG->forcelogin
 $defaults['scorm']['maxgrade'] = 20;    // default for get_config('scorm', 'maxgrade')
-$defaults['moodlecourse']['numsections'] = 11;
-$defaults['moodle']['hiddenuserfields'] = array('city', 'country');
+$defaults['lioncourse']['numsections'] = 11;
+$defaults['lion']['hiddenuserfields'] = array('city', 'country');
 
 First bracket contains string from column plugin of config_plugins table.
 Second bracket is the name of setting. In the admin settings UI the plugin and
@@ -287,15 +273,15 @@ Other site customisation outside of "/local/" directory
 
 Local language pack modifications
 ---------------------------------
-Moodle supports other type of local customisation of standard language
+Lion supports other type of local customisation of standard language
 packs. If you want to create your own language pack based on another
 language create new dataroot directory with "_local" suffix, for example
 following file with content changes string "Login" to "Sign in":
-moodledata/lang/en_local
+liondata/lang/en_local
 <?php
   $string['login'] = 'Sign in';
 
-See also http://docs.moodle.org/en/Language_editing
+See also http://docs.lion.org/en/Language_editing
 
 
 Custom script injection
@@ -309,5 +295,5 @@ with the same structure as dirroot. Please note this hack only affects
 files that actually include the config.php!
 
 Examples:
-* disable one specific moodle page without code modification
+* disable one specific lion page without code modification
 * alter page parameters on the fly

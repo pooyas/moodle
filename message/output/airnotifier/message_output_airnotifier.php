@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Airnotifier message processor to send messages to the APNS provider: airnotfier. (https://github.com/dongsheng/airnotifier)
  *
  * @package    message_airnotifier
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.7
+ * @copyright  2012 Jerome Mouneyrac <jerome@lion.com>
+ * 
+ * @since Lion 2.7
  */
 
 
@@ -32,7 +18,7 @@ require_once($CFG->dirroot . '/message/output/lib.php');
  *
  * @package   message_airnotifier
  * @copyright 2012 Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class message_output_airnotifier extends message_output {
 
@@ -59,7 +45,7 @@ class message_output_airnotifier extends message_output {
             return true;
         }
 
-        // Site id, to map with Moodle Mobile stored sites.
+        // Site id, to map with Lion Mobile stored sites.
         $siteid = md5($CFG->wwwroot . $eventdata->userto->username);
 
         // Airnotifier can handle custom requests using processors (that are Airnotifier plugins).
@@ -76,7 +62,7 @@ class message_output_airnotifier extends message_output {
         $extra->usertoid = $eventdata->userto->id;
         unset($extra->userto);
 
-        $extra->processor       = 'moodle';
+        $extra->processor       = 'lion';
         $extra->site            = $siteid;
         $extra->date            = (!empty($eventdata->timecreated)) ? $eventdata->timecreated : time();
         $extra->notification    = (!empty($eventdata->notification)) ? 1 : 0;
@@ -153,7 +139,7 @@ class message_output_airnotifier extends message_output {
 
                     $hideshowicon = $OUTPUT->pix_icon($hideshowiconname, get_string('showhide', 'message_airnotifier'));
                     $name = "{$devicetoken->name} {$devicetoken->model} {$devicetoken->platform} {$devicetoken->version}";
-                    $hideurl = new moodle_url('message/output/airnotifier/action.php',
+                    $hideurl = new lion_url('message/output/airnotifier/action.php',
                                     array('hide' => !$devicetoken->enable, 'deviceid' => $devicetoken->id,
                                         'sesskey' => sesskey()));
 

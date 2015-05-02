@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions for database manipulation.
  *
  * Other main libraries:
  * - weblib.php - functions that produce web output
- * - moodlelib.php - general-purpose Moodle functions
+ * - lionlib.php - general-purpose Lion functions
  *
  * @package    core
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The maximum courses in a category
@@ -561,7 +547,7 @@ function get_site() {
     } else {
         // course table exists, but the site is not there,
         // unfortunately there is no automatic way to recover
-        throw new moodle_exception('nosite', 'error');
+        throw new lion_exception('nosite', 'error');
     }
 }
 
@@ -645,7 +631,7 @@ function get_courses($categoryid="all", $sort="c.sortorder ASC", $fields="c.*") 
             context_helper::preload_from_record($course);
             if (isset($course->visible) && $course->visible <= 0) {
                 // for hidden courses, require visibility check
-                if (has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id))) {
+                if (has_capability('lion/course:viewhiddencourses', context_course::instance($course->id))) {
                     $visiblecourses [$course->id] = $course;
                 }
             } else {
@@ -714,7 +700,7 @@ function get_courses_page($categoryid="all", $sort="c.sortorder ASC", $fields="c
         context_helper::preload_from_record($course);
         if ($course->visible <= 0) {
             // for hidden courses, require visibility check
-            if (has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id))) {
+            if (has_capability('lion/course:viewhiddencourses', context_course::instance($course->id))) {
                 $totalcount++;
                 if ($totalcount > $limitfrom && (!$limitnum or count($visiblecourses) < $limitnum)) {
                     $visiblecourses [$course->id] = $course;
@@ -827,7 +813,7 @@ function get_courses_search($searchterms, $sort, $page, $recordsperpage, &$total
             // preload contexts only for hidden courses or courses we need to return
             context_helper::preload_from_record($course);
             $coursecontext = context_course::instance($course->id);
-            if (!has_capability('moodle/course:viewhiddencourses', $coursecontext)) {
+            if (!has_capability('lion/course:viewhiddencourses', $coursecontext)) {
                 continue;
             }
         }
@@ -1611,11 +1597,11 @@ function get_log_manager($forcereload = false) {
  * Add an entry to the config log table.
  *
  * These are "action" focussed rather than web server hits,
- * and provide a way to easily reconstruct changes to Moodle configuration.
+ * and provide a way to easily reconstruct changes to Lion configuration.
  *
  * @package core
  * @category log
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @global stdClass $USER
  * @param    string  $name     The name of the configuration change action
                                For example 'filter_active' when activating or deactivating a filter
@@ -1644,7 +1630,7 @@ function add_to_config_log($name, $oldvalue, $value, $plugin) {
  * @category log
  * @global stdClass $USER
  * @global stdClass $CFG
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @uses LASTACCESS_UPDATE_SECS
  * @uses SITEID
  * @param int $courseid  empty courseid means site
@@ -1731,7 +1717,7 @@ function user_accesstime_log($courseid=0) {
  *
  * @package core
  * @category log
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param string $select SQL select criteria
  * @param array $params named sql type params
  * @param string $order SQL order by clause to sort the records returned
@@ -1775,7 +1761,7 @@ function get_logs($select, array $params=null, $order='l.time DESC', $limitfrom=
  *
  * @package core
  * @category log
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @uses DAYSECS
  * @param int $userid The id of the user as found in the 'user' table.
  * @param int $courseid The id of the course as found in the 'course' table.
@@ -1807,7 +1793,7 @@ function get_logs_usercourse($userid, $courseid, $coursestart) {
  *
  * @package core
  * @category log
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @uses HOURSECS
  * @param int $userid The id of the user as found in the 'user' table.
  * @param int $courseid The id of the course as found in the 'course' table.
@@ -1883,7 +1869,7 @@ function user_can_create_courses() {
     global $DB;
     $catsrs = $DB->get_recordset('course_categories');
     foreach ($catsrs as $cat) {
-        if (has_capability('moodle/course:create', context_coursecat::instance($cat->id))) {
+        if (has_capability('lion/course:create', context_coursecat::instance($cat->id))) {
             $catsrs->close();
             return true;
         }

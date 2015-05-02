@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,10 +6,10 @@
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Returns detailed function information
@@ -32,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param int $strictness IGNORE_MISSING means compatible mode, false returned if record not found, debug message if more found;
  *                        MUST_EXIST means throw exception if no record or multiple records found
  * @return stdClass description or false if not found or exception thrown
- * @since Moodle 2.0
+ * @since Lion 2.0
  */
 function external_function_info($function, $strictness=MUST_EXIST) {
     global $DB, $CFG;
@@ -122,14 +108,14 @@ function external_function_info($function, $strictness=MUST_EXIST) {
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
-class restricted_context_exception extends moodle_exception {
+class restricted_context_exception extends lion_exception {
     /**
      * Constructor
      *
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     function __construct() {
         parent::__construct('restrictedcontextexception', 'error');
@@ -141,8 +127,8 @@ class restricted_context_exception extends moodle_exception {
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class external_api {
 
@@ -153,7 +139,7 @@ class external_api {
      * Set context restriction for all following subsequent function calls.
      *
      * @param stdClass $context the context restriction
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public static function set_context_restriction($context) {
         self::$contextrestriction = $context;
@@ -164,7 +150,7 @@ class external_api {
      * that takes a longer time to finish!
      *
      * @param int $seconds max expected time the next operation needs
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public static function set_timeout($seconds=360) {
         $seconds = ($seconds < 300) ? 300 : $seconds;
@@ -180,7 +166,7 @@ class external_api {
      * @param external_description $description description of parameters
      * @param mixed $params the actual parameters
      * @return mixed params with added defaults for optional items, invalid_parameters_exception thrown if any problem found
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public static function validate_parameters(external_description $description, $params) {
         if ($description instanceof external_value) {
@@ -261,7 +247,7 @@ class external_api {
      * @param mixed $response the actual response
      * @return mixed response with added defaults for optional items, invalid_response_exception thrown if any problem found
      * @author 2010 Jerome Mouneyrac
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public static function clean_returnvalue(external_description $description, $response) {
         if ($description instanceof external_value) {
@@ -344,7 +330,7 @@ class external_api {
      * Makes sure user may execute functions in this context.
      *
      * @param stdClass $context
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     protected static function validate_context($context) {
         global $CFG;
@@ -384,7 +370,7 @@ class external_api {
      * See context_helper::get_all_levels() for a list of valid context levels.
      *
      * @param array $param
-     * @since Moodle 2.6
+     * @since Lion 2.6
      * @throws invalid_parameter_exception
      * @return context
      */
@@ -410,8 +396,8 @@ class external_api {
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 abstract class external_description {
     /** @var string Description of element */
@@ -429,7 +415,7 @@ abstract class external_description {
      * @param string $desc
      * @param bool $required
      * @param mixed $default
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public function __construct($desc, $required, $default) {
         $this->desc = $desc;
@@ -443,8 +429,8 @@ abstract class external_description {
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class external_value extends external_description {
 
@@ -462,7 +448,7 @@ class external_value extends external_description {
      * @param bool $required
      * @param mixed $default
      * @param bool $allownull
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public function __construct($type, $desc='', $required=VALUE_REQUIRED,
             $default=null, $allownull=NULL_ALLOWED) {
@@ -477,8 +463,8 @@ class external_value extends external_description {
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class external_single_structure extends external_description {
 
@@ -492,7 +478,7 @@ class external_single_structure extends external_description {
      * @param string $desc
      * @param bool $required
      * @param array $default
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public function __construct(array $keys, $desc='',
             $required=VALUE_REQUIRED, $default=null) {
@@ -506,8 +492,8 @@ class external_single_structure extends external_description {
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class external_multiple_structure extends external_description {
 
@@ -521,7 +507,7 @@ class external_multiple_structure extends external_description {
      * @param string $desc
      * @param bool $required
      * @param array $default
-     * @since Moodle 2.0
+     * @since Lion 2.0
      */
     public function __construct(external_description $content, $desc='',
             $required=VALUE_REQUIRED, $default=null) {
@@ -535,8 +521,8 @@ class external_multiple_structure extends external_description {
  *
  * @package    core_webservice
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class external_function_parameters extends external_single_structure {
 }
@@ -552,7 +538,7 @@ class external_function_parameters extends external_single_structure {
  * @param string $iprestriction allowed ip - if 0 or empty then all ips are allowed
  * @return string generated token
  * @author  2010 Jamie Pratt
- * @since Moodle 2.0
+ * @since Lion 2.0
  */
 function external_generate_token($tokentype, $serviceorid, $userid, $contextorid, $validuntil=0, $iprestriction=''){
     global $DB, $USER;
@@ -562,7 +548,7 @@ function external_generate_token($tokentype, $serviceorid, $userid, $contextorid
         $numtries ++;
         $generatedtoken = md5(uniqid(rand(),1));
         if ($numtries > 5){
-            throw new moodle_exception('tokengenerationfailed');
+            throw new lion_exception('tokengenerationfailed');
         }
     } while ($DB->record_exists('external_tokens', array('token'=>$generatedtoken)));
     $newtoken = new stdClass();
@@ -580,7 +566,7 @@ function external_generate_token($tokentype, $serviceorid, $userid, $contextorid
     if (empty($service->requiredcapability) || has_capability($service->requiredcapability, $context, $userid)) {
         $newtoken->externalserviceid = $service->id;
     } else {
-        throw new moodle_exception('nocapabilitytousethisservice');
+        throw new lion_exception('nocapabilitytousethisservice');
     }
     $newtoken->tokentype = $tokentype;
     $newtoken->userid = $userid;
@@ -601,14 +587,14 @@ function external_generate_token($tokentype, $serviceorid, $userid, $contextorid
 
 /**
  * Create and return a session linked token. Token to be used for html embedded client apps that want to communicate
- * with the Moodle server through web services. The token is linked to the current session for the current page request.
+ * with the Lion server through web services. The token is linked to the current session for the current page request.
  * It is expected this will be called in the script generating the html page that is embedding the client app and that the
  * returned token will be somehow passed into the client app being embedded in the page.
  *
  * @param string $servicename name of the web service. Service name as defined in db/services.php
  * @param int $context context within which the web service can operate.
  * @return int returns token id.
- * @since Moodle 2.0
+ * @since Lion 2.0
  */
 function external_create_service_token($servicename, $context){
     global $USER, $DB;
@@ -619,7 +605,7 @@ function external_create_service_token($servicename, $context){
 /**
  * Delete all pre-built services (+ related tokens) and external functions information defined in the specified component.
  *
- * @param string $component name of component (moodle, mod_assignment, etc.)
+ * @param string $component name of component (lion, mod_assignment, etc.)
  */
 function external_delete_descriptions($component) {
     global $DB;
@@ -637,19 +623,19 @@ function external_delete_descriptions($component) {
 }
 
 /**
- * Standard Moodle web service warnings
+ * Standard Lion web service warnings
  *
  * @package    core_webservice
  * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.3
+ * 
+ * @since Lion 2.3
  */
 class external_warnings extends external_multiple_structure {
 
     /**
      * Constructor
      *
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public function __construct($itemdesc = 'item', $itemiddesc = 'item id',
         $warningcodedesc = 'the warning code can be used by the client app to implement specific behaviour') {
@@ -676,8 +662,8 @@ class external_warnings extends external_multiple_structure {
  *
  * @package    core_webservice
  * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.3
+ * 
+ * @since Lion 2.3
  */
 class external_format_value extends external_value {
 
@@ -686,14 +672,14 @@ class external_format_value extends external_value {
      *
      * @param string $textfieldname Name of the text field
      * @param int $required if VALUE_REQUIRED then set standard default FORMAT_HTML
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public function __construct($textfieldname, $required = VALUE_REQUIRED) {
 
         $default = ($required == VALUE_DEFAULT) ? FORMAT_HTML : null;
 
         $desc = $textfieldname . ' format (' . FORMAT_HTML . ' = HTML, '
-                . FORMAT_MOODLE . ' = MOODLE, '
+                . FORMAT_LION . ' = LION, '
                 . FORMAT_PLAIN . ' = PLAIN or '
                 . FORMAT_MARKDOWN . ' = MARKDOWN)';
 
@@ -707,13 +693,13 @@ class external_format_value extends external_value {
  * @param array $format the format to validate
  * @return the validated format
  * @throws coding_exception
- * @since Moodle 2.3
+ * @since Lion 2.3
  */
 function external_validate_format($format) {
-    $allowedformats = array(FORMAT_HTML, FORMAT_MOODLE, FORMAT_PLAIN, FORMAT_MARKDOWN);
+    $allowedformats = array(FORMAT_HTML, FORMAT_LION, FORMAT_PLAIN, FORMAT_MARKDOWN);
     if (!in_array($format, $allowedformats)) {
-        throw new moodle_exception('formatnotsupported', 'webservice', '' , null,
-                'The format with value=' . $format . ' is not supported by this Moodle site');
+        throw new lion_exception('formatnotsupported', 'webservice', '' , null,
+                'The format with value=' . $format . ' is not supported by this Lion site');
     }
     return $format;
 }
@@ -731,7 +717,7 @@ function external_validate_format($format) {
  * @param string $filearea helps identify the file area.
  * @param int $itemid helps identify the file area.
  * @return array text + textformat
- * @since Moodle 2.3
+ * @since Lion 2.3
  */
 function external_format_text($text, $textformat, $contextid, $component, $filearea, $itemid) {
     global $CFG;
@@ -760,8 +746,8 @@ function external_format_text($text, $textformat, $contextid, $component, $filea
  *
  * @package    core_webservice
  * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.3
+ * 
+ * @since Lion 2.3
  */
 class external_settings {
 

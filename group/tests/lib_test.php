@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for group lib.
  *
  * @package    core_group
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/group/lib.php');
@@ -32,7 +18,7 @@ require_once($CFG->dirroot . '/group/lib.php');
  *
  * @package    core_group
  * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_group_lib_testcase extends advanced_testcase {
 
@@ -62,7 +48,7 @@ class core_group_lib_testcase extends advanced_testcase {
         $this->assertEquals($user->id, $event->relateduserid);
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/members.php', array('group' => $event->objectid));
+        $url = new lion_url('/group/members.php', array('group' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -91,7 +77,7 @@ class core_group_lib_testcase extends advanced_testcase {
         $this->assertEquals($user->id, $event->relateduserid);
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/members.php', array('group' => $event->objectid));
+        $url = new lion_url('/group/members.php', array('group' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -112,7 +98,7 @@ class core_group_lib_testcase extends advanced_testcase {
         $this->assertSame('groups_group_created', $event->get_legacy_eventname());
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/index.php', array('id' => $event->courseid));
+        $url = new lion_url('/group/index.php', array('id' => $event->courseid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -135,7 +121,7 @@ class core_group_lib_testcase extends advanced_testcase {
 
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/groupings.php', array('id' => $event->courseid));
+        $url = new lion_url('/group/groupings.php', array('id' => $event->courseid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -166,7 +152,7 @@ class core_group_lib_testcase extends advanced_testcase {
         $this->assertSame('groups_group_updated', $event->get_legacy_eventname());
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/group.php', array('id' => $event->objectid));
+        $url = new lion_url('/group/group.php', array('id' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -195,7 +181,7 @@ class core_group_lib_testcase extends advanced_testcase {
         $this->assertSame('groups_group_updated', $event->get_legacy_eventname());
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/group.php', array('id' => $event->objectid));
+        $url = new lion_url('/group/group.php', array('id' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -235,7 +221,7 @@ class core_group_lib_testcase extends advanced_testcase {
 
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($grouping->id, $event->objectid);
-        $url = new moodle_url('/group/grouping.php', array('id' => $event->objectid));
+        $url = new lion_url('/group/grouping.php', array('id' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -275,7 +261,7 @@ class core_group_lib_testcase extends advanced_testcase {
 
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($grouping->id, $event->objectid);
-        $url = new moodle_url('/group/grouping.php', array('id' => $event->objectid));
+        $url = new lion_url('/group/grouping.php', array('id' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -296,7 +282,7 @@ class core_group_lib_testcase extends advanced_testcase {
         $this->assertSame('groups_group_deleted', $event->get_legacy_eventname());
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/index.php', array('id' => $event->courseid));
+        $url = new lion_url('/group/index.php', array('id' => $event->courseid));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -317,7 +303,7 @@ class core_group_lib_testcase extends advanced_testcase {
         $this->assertSame('groups_grouping_deleted', $event->get_legacy_eventname());
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
         $this->assertEquals($group->id, $event->objectid);
-        $url = new moodle_url('/group/groupings.php', array('id' => $event->courseid));
+        $url = new lion_url('/group/groupings.php', array('id' => $event->courseid));
         $this->assertEquals($url, $event->get_url());
     }
 

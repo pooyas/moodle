@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * A single gradable area management page
@@ -22,8 +8,8 @@
  * current form as a template or re-use some existing form.
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 David Mudrak <david@lion.com>
+ * 
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -70,10 +56,10 @@ $method = $manager->get_active_method();
 list($context, $course, $cm) = get_context_info_array($manager->get_context()->id);
 
 require_login($course, true, $cm);
-require_capability('moodle/grade:managegradingforms', $context);
+require_capability('lion/grade:managegradingforms', $context);
 
 if (!empty($returnurl)) {
-    $returnurl = new moodle_url($returnurl);
+    $returnurl = new lion_url($returnurl);
 } else {
     $returnurl = null;
 }
@@ -97,14 +83,14 @@ if (!empty($setmethod)) {
 
 // publish the form as a template
 if (!empty($shareform)) {
-    require_capability('moodle/grade:sharegradingforms', context_system::instance());
+    require_capability('lion/grade:sharegradingforms', context_system::instance());
     $controller = $manager->get_controller($method);
     $definition = $controller->get_definition();
     if (!$confirmed) {
         // let the user confirm they understand what they are doing (haha ;-)
         echo $output->header();
         echo $output->confirm(get_string('manageactionshareconfirm', 'core_grading', s($definition->name)),
-            new moodle_url($PAGE->url, array('shareform' => $shareform, 'confirmed' => 1)),
+            new lion_url($PAGE->url, array('shareform' => $shareform, 'confirmed' => 1)),
             $PAGE->url);
         echo $output->footer();
         die();
@@ -115,7 +101,7 @@ if (!empty($shareform)) {
         $targetcontroller = $targetarea->get_controller($method);
         $targetcontroller->update_definition($controller->get_definition_copy($targetcontroller));
         $DB->set_field('grading_definitions', 'timecopied', time(), array('id' => $definition->id));
-        redirect(new moodle_url($PAGE->url, array('message' => get_string('manageactionsharedone', 'core_grading'))));
+        redirect(new lion_url($PAGE->url, array('message' => get_string('manageactionsharedone', 'core_grading'))));
     }
 }
 
@@ -130,13 +116,13 @@ if (!empty($deleteform)) {
             'formname'  => s($definition->name),
             'component' => $manager->get_component_title(),
             'area'      => $manager->get_area_title()))),
-            new moodle_url($PAGE->url, array('deleteform' => $deleteform, 'confirmed' => 1)), $PAGE->url);
+            new lion_url($PAGE->url, array('deleteform' => $deleteform, 'confirmed' => 1)), $PAGE->url);
         echo $output->footer();
         die();
     } else {
         require_sesskey();
         $controller->delete_definition();
-        redirect(new moodle_url($PAGE->url, array('message' => get_string('manageactiondeletedone', 'core_grading'))));
+        redirect(new lion_url($PAGE->url, array('message' => get_string('manageactiondeletedone', 'core_grading'))));
     }
 }
 
@@ -163,10 +149,10 @@ if (!empty($method)) {
         echo $output->management_action_icon($controller->get_editor_url($returnurl),
             get_string('manageactionedit', 'core_grading'), 'b/document-edit');
         // icon to delete the current form definition
-        echo $output->management_action_icon(new moodle_url($PAGE->url, array('deleteform' => $definition->id)),
+        echo $output->management_action_icon(new lion_url($PAGE->url, array('deleteform' => $definition->id)),
             get_string('manageactiondelete', 'core_grading'), 'b/edit-delete');
         // icon to save the form as a new template
-        if (has_capability('moodle/grade:sharegradingforms', context_system::instance())) {
+        if (has_capability('lion/grade:sharegradingforms', context_system::instance())) {
             if (empty($definition->copiedfromid)) {
                 $hasoriginal = false;
             } else {
@@ -204,14 +190,14 @@ if (!empty($method)) {
                 }
             }
             if ($allowshare) {
-                echo $output->management_action_icon(new moodle_url($PAGE->url, array('shareform' => $definition->id)),
+                echo $output->management_action_icon(new lion_url($PAGE->url, array('shareform' => $definition->id)),
                     get_string('manageactionshare', 'core_grading'), 'b/bookmark-new');
             }
         }
     } else {
         echo $output->management_action_icon($controller->get_editor_url($returnurl),
             get_string('manageactionnew', 'core_grading'), 'b/document-new');
-        $pickurl = new moodle_url('/grade/grading/pick.php', array('targetid' => $controller->get_areaid()));
+        $pickurl = new lion_url('/grade/grading/pick.php', array('targetid' => $controller->get_areaid()));
         if (!is_null($returnurl)) {
             $pickurl->param('returnurl', $returnurl->out(false));
         }

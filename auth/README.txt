@@ -6,12 +6,12 @@ check that a user has provided a correct
    - username, and
    - password.
 
-Even when external forms of authentication are being used, Moodle still
+Even when external forms of authentication are being used, Lion still
 maintains the internal "user" table with all the associated information about
 that user such as name, email address and so on.
 
 
-Multiauthentication in Moodle 1.8
+Multiauthentication in Lion 1.8
 -------------------------------------
 
 The active methods are set by the admin on the Configuration page. Multiple
@@ -55,7 +55,7 @@ ldap  - Uses an external LDAP server
     - these are checked against an LDAP server
     - if correct, user is logged in
     - optionally, info is copied from the LDAP
-      database to the Moodle user database
+      database to the Lion user database
 
     (see the ldap/README for more details on config etc...)
 
@@ -93,7 +93,7 @@ db  - Uses an external database to check username/password
     - these are checked against an external database
     - if correct, user is logged in
     - if the username doesn't already exist then
-      a new Moodle account is created
+      a new Lion account is created
 
 
 --------------------------------------------------------------------------------
@@ -110,7 +110,7 @@ called auth_plugin_ldap defined in:
 
    /auth/ldap/auth.php
 
-To instantiate the class, there is a function in lib/moodlelib called
+To instantiate the class, there is a function in lib/lionlib called
 get_auth_plugin() that does the work for you:
 
    $ldapauth = get_auth_plugin('ldap');
@@ -158,23 +158,23 @@ now become
    $ldapauth->user_login($user, $pass);
 
 this also avoids having to worry about which auth/lib file to include since
-Moodle takes care of it for you when you create an instance with
+Lion takes care of it for you when you create an instance with
 get_auth_plugin().
 
-The basic class defines all applicable methods that moodle uses, you can find
+The basic class defines all applicable methods that lion uses, you can find
 more information in lib/authlib.php file.
 
 
-Upgrading from Moodle 1.7
+Upgrading from Lion 1.7
 -----------------------------
 
-Moodle will upgrade the old auth settings (in $CFG->auth_foobar where foo is the
+Lion will upgrade the old auth settings (in $CFG->auth_foobar where foo is the
 auth plugin and bar is the setting) to the new style in the config_plugin
 database table.
 
 
 
-Upgrading from Moodle 1.8
+Upgrading from Lion 1.8
 ------------------------------
 
 user_activate() method was removed from public API because it was used only from user_confirm() in LDAP

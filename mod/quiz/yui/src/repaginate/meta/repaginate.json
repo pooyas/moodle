@@ -1,11 +1,11 @@
 {
-    "moodle-mod_quiz-repaginate": {
+    "lion-mod_quiz-repaginate": {
         "requires": [
             "base",
             "event",
             "node",
             "io",
-            "moodle-core-notification-dialogue"
+            "lion-core-notification-dialogue"
         ]
     }
 }

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -21,8 +7,8 @@
  * Contains HTML class for a single filepicker form element
  *
  * @package   core_form
- * @copyright 2009 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 
 global $CFG;
@@ -37,10 +23,10 @@ require_once($CFG->dirroot.'/repository/lib.php');
  *
  * @package   core_form
  * @category  form
- * @copyright 2009 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
-class MoodleQuickForm_filepicker extends HTML_QuickForm_input {
+class LionQuickForm_filepicker extends HTML_QuickForm_input {
     /** @var string html for help button, if empty then no help will icon will be dispalyed. */
     public $_helpbutton = '';
 
@@ -59,7 +45,7 @@ class MoodleQuickForm_filepicker extends HTML_QuickForm_input {
      *              or an associative array
      * @param array $options set of options to initalize filepicker
      */
-    function MoodleQuickForm_filepicker($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
+    function LionQuickForm_filepicker($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
         global $CFG, $PAGE;
 
         $options = (array)$options;
@@ -153,7 +139,7 @@ class MoodleQuickForm_filepicker extends HTML_QuickForm_input {
         $module = array('name'=>'form_filepicker', 'fullpath'=>'/lib/form/filepicker.js', 'requires'=>array('core_filepicker', 'node', 'node-event-simulate', 'core_dndupload'));
         $PAGE->requires->js_init_call('M.form_filepicker.init', array($fp->options), true, $module);
 
-        $nonjsfilepicker = new moodle_url('/repository/draftfiles_manager.php', array(
+        $nonjsfilepicker = new lion_url('/repository/draftfiles_manager.php', array(
             'env'=>'filepicker',
             'action'=>'browse',
             'itemid'=>$draftitemid,

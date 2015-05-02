@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the datetime profile field class.
  *
  * @package profilefield_datetime
- * @copyright 2010 Mark Nelson <markn@moodle.com>
+ * @copyright 2010 Mark Nelson <markn@lion.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
 /**
  * Handles displaying and editing the datetime field.
  *
- * @copyright 2010 Mark Nelson <markn@moodle.com>
+ * @copyright 2010 Mark Nelson <markn@lion.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class profile_field_datetime extends profile_field_base {
@@ -33,7 +19,7 @@ class profile_field_datetime extends profile_field_base {
     /**
      * Handles editing datetime fields.
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      */
     public function edit_field_add($mform) {
         // Get the current calendar in use - see MDL-18375.
@@ -73,7 +59,7 @@ class profile_field_datetime extends profile_field_base {
      * @param string|int $datetime datetime to be converted.
      * @param stdClass $datarecord The object that will be used to save the record
      * @return int timestamp
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public function edit_save_data_preprocess($datetime, $datarecord) {
         // If timestamp then explode it to check if year is within field limit.

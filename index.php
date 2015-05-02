@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moodle frontpage.
+ * Lion frontpage.
  *
  * @package    core
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 if (!file_exists('./config.php')) {
@@ -39,9 +25,9 @@ if (!empty($CFG->defaulthomepage) && ($CFG->defaulthomepage == HOMEPAGE_MY) && o
 }
 $PAGE->set_url('/', $urlparams);
 $PAGE->set_course($SITE);
-$PAGE->set_other_editing_capability('moodle/course:update');
-$PAGE->set_other_editing_capability('moodle/course:manageactivities');
-$PAGE->set_other_editing_capability('moodle/course:activityvisibility');
+$PAGE->set_other_editing_capability('lion/course:update');
+$PAGE->set_other_editing_capability('lion/course:manageactivities');
+$PAGE->set_other_editing_capability('lion/course:activityvisibility');
 
 // Prevent caching of this page to stop confusion when changing page after making AJAX changes.
 $PAGE->set_cacheable(false);
@@ -52,19 +38,19 @@ if ($CFG->forcelogin) {
     user_accesstime_log();
 }
 
-$hassiteconfig = has_capability('moodle/site:config', context_system::instance());
+$hassiteconfig = has_capability('lion/site:config', context_system::instance());
 
 // If the site is currently under maintenance, then print a message.
 if (!empty($CFG->maintenance_enabled) and !$hassiteconfig) {
     print_maintenance_message();
 }
 
-if ($hassiteconfig && moodle_needs_upgrading()) {
+if ($hassiteconfig && lion_needs_upgrading()) {
     redirect($CFG->wwwroot .'/'. $CFG->admin .'/index.php');
 }
 
 if (get_home_page() != HOMEPAGE_SITE) {
-    // Redirect logged-in users to My Moodle overview if required.
+    // Redirect logged-in users to My Lion overview if required.
     $redirect = optional_param('redirect', 1, PARAM_BOOL);
     if (optional_param('setdefaulthome', false, PARAM_BOOL)) {
         set_user_preference('user_home_page_preference', HOMEPAGE_SITE);
@@ -73,7 +59,7 @@ if (get_home_page() != HOMEPAGE_SITE) {
     } else if (!empty($CFG->defaulthomepage) && ($CFG->defaulthomepage == HOMEPAGE_USER)) {
         $PAGE->settingsnav->get('usercurrentsettings')->add(
             get_string('makethismyhome'),
-            new moodle_url('/', array('setdefaulthome' => true)),
+            new lion_url('/', array('setdefaulthome' => true)),
             navigation_node::TYPE_SETTING);
     }
 }
@@ -157,7 +143,7 @@ if (!empty($CFG->customfrontpageinclude)) {
 
         echo format_text($summarytext, $section->summaryformat, $summaryformatoptions);
 
-        if ($editing && has_capability('moodle/course:update', $context)) {
+        if ($editing && has_capability('lion/course:update', $context)) {
             $streditsummary = get_string('editsummary');
             echo "<a title=\"$streditsummary\" ".
                  " href=\"course/editsection.php?id=$section->id\"><img src=\"" . $OUTPUT->pix_url('t/edit') . "\" ".
@@ -215,7 +201,7 @@ foreach (explode(',', $frontpagelayout) as $v) {
                         $subtext = get_string('subscribe', 'forum');
                     }
                     echo $OUTPUT->heading($forumname);
-                    $suburl = new moodle_url('/mod/forum/subscribe.php', array('id' => $newsforum->id, 'sesskey' => sesskey()));
+                    $suburl = new lion_url('/mod/forum/subscribe.php', array('id' => $newsforum->id, 'sesskey' => sesskey()));
                     echo html_writer::tag('div', html_writer::link($suburl, $subtext), array('class' => 'subscribelink'));
                 } else {
                     echo $OUTPUT->heading($forumname);
@@ -312,7 +298,7 @@ foreach (explode(',', $frontpagelayout) as $v) {
     }
     echo '<br />';
 }
-if ($editing && has_capability('moodle/course:create', context_system::instance())) {
+if ($editing && has_capability('lion/course:create', context_system::instance())) {
     echo $courserenderer->add_new_course_button();
 }
 echo $OUTPUT->footer();

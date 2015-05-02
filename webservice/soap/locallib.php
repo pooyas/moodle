@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,7 +6,7 @@
  *
  * @package    webservice_soap
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("$CFG->dirroot/webservice/lib.php");
@@ -31,17 +17,17 @@ require_once 'Zend/Soap/Server.php';
  *
  * @package    webservice_soap
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
-class moodle_zend_soap_server extends Zend_Soap_Server {
+class lion_zend_soap_server extends Zend_Soap_Server {
 
     /**
      * Generate a server fault
      *
      * Note that the arguments are the reverse of those used by SoapFault.
      *
-     * Moodle note: basically we return the faultactor (errorcode) and faultdetails (debuginfo)
+     * Lion note: basically we return the faultactor (errorcode) and faultdetails (debuginfo)
      *
      * If an exception is passed as the first argument, its message and code
      * will be used to create the fault object if it has been registered via
@@ -154,8 +140,8 @@ class moodle_zend_soap_server extends Zend_Soap_Server {
  *
  * @package    webservice_soap
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class webservice_soap_server extends webservice_zend_server {
 
@@ -173,7 +159,7 @@ class webservice_soap_server extends webservice_zend_server {
         if (optional_param('wsdl', 0, PARAM_BOOL)) {
             parent::__construct($authmethod, 'Zend_Soap_AutoDiscover');
         } else {
-            parent::__construct($authmethod, 'moodle_zend_soap_server');
+            parent::__construct($authmethod, 'lion_zend_soap_server');
         }
         $this->wsname = 'soap';
     }
@@ -203,12 +189,12 @@ class webservice_soap_server extends webservice_zend_server {
 
         if (!optional_param('wsdl', 0, PARAM_BOOL)) {
             $this->zend_server->setReturnResponse(true);
-            $this->zend_server->registerFaultException('moodle_exception');
-            $this->zend_server->registerFaultException('webservice_parameter_exception'); //deprecated since Moodle 2.2 - kept for backward compatibility
+            $this->zend_server->registerFaultException('lion_exception');
+            $this->zend_server->registerFaultException('webservice_parameter_exception'); //deprecated since Lion 2.2 - kept for backward compatibility
             $this->zend_server->registerFaultException('invalid_parameter_exception');
             $this->zend_server->registerFaultException('invalid_response_exception');
             //when DEBUG >= NORMAL then the thrown exceptions are "casted" into a PHP SoapFault expception
-            //in order to diplay the $debuginfo (see moodle_zend_soap_server class - MDL-29435)
+            //in order to diplay the $debuginfo (see lion_zend_soap_server class - MDL-29435)
             if (debugging()) {
                 $this->zend_server->registerFaultException('SoapFault');
             }
@@ -253,7 +239,7 @@ class webservice_soap_server extends webservice_zend_server {
         $xml = '<?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 <SOAP-ENV:Body><SOAP-ENV:Fault>
-<faultcode>MOODLE:error</faultcode>
+<faultcode>LION:error</faultcode>
 <faultstring>'.$info.'</faultstring>
 </SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>';
 
@@ -304,8 +290,8 @@ class '.$classname.' {
  *
  * @package    webservice_soap
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * 
+ * @since Lion 2.0
  */
 class webservice_soap_test_client implements webservice_test_client_interface {
 

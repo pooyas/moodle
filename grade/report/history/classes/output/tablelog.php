@@ -1,40 +1,26 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Renderable class for gradehistory report.
  *
  * @package    gradereport_history
  * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 namespace gradereport_history\output;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once($CFG->libdir . '/tablelib.php');
 
 /**
  * Renderable class for gradehistory report.
  *
- * @since      Moodle 2.8
+ * @since      Lion 2.8
  * @package    gradereport_history
  * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class tablelog extends \table_sql implements \renderable {
 
@@ -74,7 +60,7 @@ class tablelog extends \table_sql implements \renderable {
      *
      * @param string $uniqueid unique id of table.
      * @param \context_course $context Context of the report.
-     * @param \moodle_url $url url of the page where this table would be displayed.
+     * @param \lion_url $url url of the page where this table would be displayed.
      * @param array $filters options are:
      *                          userids : limit to specific users (default: none)
      *                          itemid : limit to specific grade item (default: all)
@@ -118,9 +104,9 @@ class tablelog extends \table_sql implements \renderable {
     /**
      * Define table configs.
      *
-     * @param \moodle_url $url url of the page where this table would be displayed.
+     * @param \lion_url $url url of the page where this table would be displayed.
      */
-    protected function define_table_configs(\moodle_url $url) {
+    protected function define_table_configs(\lion_url $url) {
 
         // Set table url.
         $urlparams = (array)$this->filters;
@@ -150,7 +136,7 @@ class tablelog extends \table_sql implements \renderable {
 
         // Add headers for extra user fields.
         foreach ($extrafields as $field) {
-            if (get_string_manager()->string_exists($field, 'moodle')) {
+            if (get_string_manager()->string_exists($field, 'lion')) {
                 $cols[$field] = get_string($field);
             } else {
                 $cols[$field] = $field;
@@ -234,7 +220,7 @@ class tablelog extends \table_sql implements \renderable {
             if ($history->itemtype === 'mod' && !$this->is_downloading()) {
                 if (!empty($this->cms->instances[$history->itemmodule][$history->iteminstance])) {
                     $cm = $this->cms->instances[$history->itemmodule][$history->iteminstance];
-                    $url = new \moodle_url('/mod/' . $history->itemmodule . '/view.php', array('id' => $cm->id));
+                    $url = new \lion_url('/mod/' . $history->itemmodule . '/view.php', array('id' => $cm->id));
                     return \html_writer::link($url, $this->gradeitems[$itemid]->get_name());
                 }
             }
@@ -265,7 +251,7 @@ class tablelog extends \table_sql implements \renderable {
         }
 
         $userid = $history->usermodified;
-        $profileurl = new \moodle_url('/user/view.php', array('id' => $userid, 'course' => $this->courseid));
+        $profileurl = new \lion_url('/user/view.php', array('id' => $userid, 'course' => $this->courseid));
 
         return \html_writer::link($profileurl, $name);
     }

@@ -1,7 +1,7 @@
 /**
  * Provides drop down menus for list of action links.
  *
- * @module moodle-course-management
+ * @module lion-course-management
  */
 
 /**
@@ -17,7 +17,7 @@
 function Console() {
     Console.superclass.constructor.apply(this, arguments);
 }
-Console.NAME = 'moodle-course-management';
+Console.NAME = 'lion-course-management';
 Console.CSS_PREFIX = 'management';
 Console.ATTRS = {
     /**
@@ -207,7 +207,7 @@ Console.prototype = {
      * @method initializer
      */
     initializer : function() {
-        Y.log('Initialising course category management console', 'info', 'moodle-course-management');
+        Y.log('Initialising course category management console', 'info', 'lion-course-management');
         this.set('element', 'coursecat-management');
         var element = this.get('element'),
             categorylisting = element.one('#category-listing'),
@@ -277,9 +277,9 @@ Console.prototype = {
             this.get('categorylisting').delegate('click', this.handleCategoryDelegation, 'input[name="bcat[]"]', this);
             this.get('categorylisting').delegate('click', this.handleBulkSortByaction, '#menuselectsortby', this);
             this.categoriesinit = true;
-            Y.log(count+' categories being managed', 'info', 'moodle-course-management');
+            Y.log(count+' categories being managed', 'info', 'lion-course-management');
         } else {
-            Y.log(count+' new categories being managed', 'info', 'moodle-course-management');
+            Y.log(count+' new categories being managed', 'info', 'lion-course-management');
         }
     },
 
@@ -313,7 +313,7 @@ Console.prototype = {
         }, this);
         listing.delegate('click', this.handleCourseDelegation, 'a[data-action]', this);
         listing.delegate('click', this.handleCourseDelegation, 'input[name="bc[]"]', this);
-        Y.log(count+' courses being managed', 'info', 'moodle-course-management');
+        Y.log(count+' courses being managed', 'info', 'lion-course-management');
     },
 
     /**
@@ -342,7 +342,7 @@ Console.prototype = {
         if (course) {
             course.handle(action, e);
         } else {
-            Y.log('Course with ID '+courseid+' could not be found for delegation', 'error', 'moodle-course-management');
+            Y.log('Course with ID '+courseid+' could not be found for delegation', 'error', 'lion-course-management');
         }
     },
 
@@ -361,7 +361,7 @@ Console.prototype = {
         if (category) {
             category.handle(action, e);
         } else {
-            Y.log('Could not find category to delegate to.', 'error', 'moodle-course-management');
+            Y.log('Could not find category to delegate to.', 'error', 'lion-course-management');
         }
     },
 
@@ -556,7 +556,7 @@ Console.prototype = {
         args.sesskey = M.cfg.sesskey;
         if (callback === null) {
             callback = function() {
-                Y.log("'Action '"+action+"' completed", 'debug', 'moodle-course-management');
+                Y.log("'Action '"+action+"' completed", 'debug', 'lion-course-management');
             };
         }
         io.send(this.get('ajaxurl'), {

@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * CLI sync for full LDAP synchronisation.
  *
- * This script is meant to be called from a cronjob to sync moodle with the LDAP
+ * This script is meant to be called from a cronjob to sync lion with the LDAP
  * backend in those setups where the LDAP backend acts as 'master' for enrolment.
  *
  * Sample cron entry:
  * # 5 minutes past 4am
- * 5 4 * * * $sudo -u www-data /usr/bin/php /var/www/moodle/enrol/ldap/cli/sync.php
+ * 5 4 * * * $sudo -u www-data /usr/bin/php /var/www/lion/enrol/ldap/cli/sync.php
  *
  * Notes:
  *   - it is required to use the web server account when executing PHP CLI scripts
@@ -35,9 +21,9 @@
  *
  * @package    enrol_ldap
  * @author     Iñaki Arenaza - based on code by Martin Dougiamas, Martin Langhoff and others
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
  * @copyright  2010 Iñaki Arenaza <iarenaza@eps.mondragon.edu>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('CLI_SCRIPT', true);

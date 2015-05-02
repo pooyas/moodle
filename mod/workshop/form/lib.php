@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file defines interface of all grading strategy logic classes
  *
  * @package    mod_workshop
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Strategy interface defines all methods that strategy subplugins has to implement
@@ -52,13 +38,13 @@ interface workshop_strategy {
     /**
      * Factory method returning an instance of an assessment form
      *
-     * @param moodle_url $actionurl URL of form handler, defaults to auto detect the current url
+     * @param lion_url $actionurl URL of form handler, defaults to auto detect the current url
      * @param string $mode          Mode to open the form in: preview|assessment
      * @param stdClass $assessment  If opening in the assessment mode, the current assessment record
      * @param bool $editable        Shall the form be opened as editable (true) or read-only (false)
      * @param array $options        More assessment form options, editableweight implemented only now
      */
-    public function get_assessment_form(moodle_url $actionurl=null, $mode='preview', stdclass $assessment=null, $editable=true, $options=array());
+    public function get_assessment_form(lion_url $actionurl=null, $mode='preview', stdclass $assessment=null, $editable=true, $options=array());
 
     /**
      * Saves the filled assessment and returns the grade for submission as suggested by the reviewer
@@ -97,7 +83,7 @@ interface workshop_strategy {
      * assessments info.
      *
      * @param array|int|null $restrict optional id or ids of the reviewer
-     * @return moodle_recordset
+     * @return lion_recordset
      */
     public function get_assessments_recordset($restrict=null);
 

@@ -1,7 +1,7 @@
 @core @core_course
 Feature: Course category management interface performs as expected
   In order to test JS enhanced display of categories and subcategories.
-  As a moodle admin
+  As a lion admin
   I need to expand and collapse categories.
 
   @javascript

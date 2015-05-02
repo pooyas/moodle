@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Test classes for handling embedded media (audio/video).
@@ -23,7 +9,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/medialib.php');
@@ -98,11 +84,11 @@ class core_medialib_testcase extends advanced_testcase {
      * Test for core_media::get_filename.
      */
     public function test_get_filename() {
-        $this->assertSame('frog.mp4', core_media::get_filename(new moodle_url(
+        $this->assertSame('frog.mp4', core_media::get_filename(new lion_url(
                 '/pluginfile.php/312/mod_page/content/7/frog.mp4')));
         // This should work even though slasharguments is true, because we want
         // it to support 'legacy' links if somebody toggles the option later.
-        $this->assertSame('frog.mp4', core_media::get_filename(new moodle_url(
+        $this->assertSame('frog.mp4', core_media::get_filename(new lion_url(
                 '/pluginfile.php?file=/312/mod_page/content/7/frog.mp4')));
     }
 
@@ -110,13 +96,13 @@ class core_medialib_testcase extends advanced_testcase {
      * Test for core_media::get_extension.
      */
     public function test_get_extension() {
-        $this->assertSame('mp4', core_media::get_extension(new moodle_url(
+        $this->assertSame('mp4', core_media::get_extension(new lion_url(
                 '/pluginfile.php/312/mod_page/content/7/frog.mp4')));
-        $this->assertSame('', core_media::get_extension(new moodle_url(
+        $this->assertSame('', core_media::get_extension(new lion_url(
                 '/pluginfile.php/312/mod_page/content/7/frog')));
-        $this->assertSame('mp4', core_media::get_extension(new moodle_url(
+        $this->assertSame('mp4', core_media::get_extension(new lion_url(
                 '/pluginfile.php?file=/312/mod_page/content/7/frog.mp4')));
-        $this->assertSame('', core_media::get_extension(new moodle_url(
+        $this->assertSame('', core_media::get_extension(new lion_url(
                 '/pluginfile.php?file=/312/mod_page/content/7/frog')));
     }
 
@@ -128,9 +114,9 @@ class core_medialib_testcase extends advanced_testcase {
         $test = new core_media_player_test;
 
         // Some example URLs.
-        $supported1 = new moodle_url('http://example.org/1.test');
-        $supported2 = new moodle_url('http://example.org/2.TST');
-        $unsupported = new moodle_url('http://example.org/2.jpg');
+        $supported1 = new lion_url('http://example.org/1.test');
+        $supported2 = new lion_url('http://example.org/2.TST');
+        $unsupported = new lion_url('http://example.org/2.jpg');
 
         // No URLs => none.
         $result = $test->list_supported_urls(array());
@@ -177,7 +163,7 @@ class core_medialib_testcase extends advanced_testcase {
         global $CFG, $PAGE;
 
         // All players are initially disabled, so mp4 cannot be rendered.
-        $url = new moodle_url('http://example.org/test.mp4');
+        $url = new lion_url('http://example.org/test.mp4');
         $renderer = new core_media_renderer_test($PAGE, '');
         $this->assertFalse($renderer->can_embed_url($url));
 
@@ -210,7 +196,7 @@ class core_medialib_testcase extends advanced_testcase {
     public function test_embed_url_fallbacks() {
         global $CFG, $PAGE;
 
-        $url = new moodle_url('http://example.org/test.mp4');
+        $url = new lion_url('http://example.org/test.mp4');
 
         // All plugins disabled, NOLINK option.
         $renderer = new core_media_renderer_test($PAGE, '');
@@ -288,12 +274,12 @@ class core_medialib_testcase extends advanced_testcase {
         $renderer = new core_media_renderer_test($PAGE, '');
 
         // Without any options...
-        $url = new moodle_url('http://example.org/test.swf');
+        $url = new lion_url('http://example.org/test.swf');
         $t = $renderer->embed_url($url);
         $this->assertNotContains('</object>', $t);
 
         // ...and with the 'no it's safe, I checked it' option.
-        $url = new moodle_url('http://example.org/test.swf');
+        $url = new lion_url('http://example.org/test.swf');
         $t = $renderer->embed_url($url, '', 0, 0, array(core_media::OPTION_TRUSTED => true));
         $this->assertContains('</object>', $t);
     }
@@ -320,81 +306,81 @@ class core_medialib_testcase extends advanced_testcase {
         // the HTML itself is correct.
 
         // Format: mp3.
-        $url = new moodle_url('http://example.org/test.mp3');
+        $url = new lion_url('http://example.org/test.mp3');
         $t = $renderer->embed_url($url);
         $this->assertContains('core_media_mp3_', $t);
 
         // Format: flv.
-        $url = new moodle_url('http://example.org/test.flv');
+        $url = new lion_url('http://example.org/test.flv');
         $t = $renderer->embed_url($url);
         $this->assertContains('core_media_flv_', $t);
 
         // Format: wmp.
-        $url = new moodle_url('http://example.org/test.avi');
+        $url = new lion_url('http://example.org/test.avi');
         $t = $renderer->embed_url($url);
         $this->assertContains('6BF52A52-394A-11d3-B153-00C04F79FAA6', $t);
 
         // Format: rm.
-        $url = new moodle_url('http://example.org/test.rm');
+        $url = new lion_url('http://example.org/test.rm');
         $t = $renderer->embed_url($url);
         $this->assertContains('CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA', $t);
 
         // Format: youtube.
-        $url = new moodle_url('http://www.youtube.com/watch?v=vyrwMmsufJc');
+        $url = new lion_url('http://www.youtube.com/watch?v=vyrwMmsufJc');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
-        $url = new moodle_url('http://www.youtube.com/v/vyrwMmsufJc');
+        $url = new lion_url('http://www.youtube.com/v/vyrwMmsufJc');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
 
         // Format: youtube video within playlist.
-        $url = new moodle_url('https://www.youtube.com/watch?v=dv2f_xfmbD8&index=4&list=PLxcO_MFWQBDcyn9xpbmx601YSDlDcTcr0');
+        $url = new lion_url('https://www.youtube.com/watch?v=dv2f_xfmbD8&index=4&list=PLxcO_MFWQBDcyn9xpbmx601YSDlDcTcr0');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
         $this->assertContains('list=PLxcO_MFWQBDcyn9xpbmx601YSDlDcTcr0', $t);
 
         // Format: youtube video with start time.
-        $url = new moodle_url('https://www.youtube.com/watch?v=JNJMF1l3udM&t=1h11s');
+        $url = new lion_url('https://www.youtube.com/watch?v=JNJMF1l3udM&t=1h11s');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
         $this->assertContains('start=3611', $t);
 
         // Format: youtube video within playlist with start time.
-        $url = new moodle_url('https://www.youtube.com/watch?v=dv2f_xfmbD8&index=4&list=PLxcO_MFWQBDcyn9xpbmx601YSDlDcTcr0&t=1m5s');
+        $url = new lion_url('https://www.youtube.com/watch?v=dv2f_xfmbD8&index=4&list=PLxcO_MFWQBDcyn9xpbmx601YSDlDcTcr0&t=1m5s');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
         $this->assertContains('list=PLxcO_MFWQBDcyn9xpbmx601YSDlDcTcr0', $t);
         $this->assertContains('start=65', $t);
 
         // Format: youtube video with invalid parameter values (injection attempts).
-        $url = new moodle_url('https://www.youtube.com/watch?v=dv2f_xfmbD8&index=4&list=PLxcO_">');
+        $url = new lion_url('https://www.youtube.com/watch?v=dv2f_xfmbD8&index=4&list=PLxcO_">');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
         $this->assertNotContains('list=PLxcO_', $t); // We shouldn't get a list param as input was invalid.
-        $url = new moodle_url('https://www.youtube.com/watch?v=JNJMF1l3udM&t=">');
+        $url = new lion_url('https://www.youtube.com/watch?v=JNJMF1l3udM&t=">');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
         $this->assertNotContains('start=', $t); // We shouldn't get a start param as input was invalid.
 
         // Format: youtube playlist.
-        $url = new moodle_url('http://www.youtube.com/view_play_list?p=PL6E18E2927047B662');
+        $url = new lion_url('http://www.youtube.com/view_play_list?p=PL6E18E2927047B662');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
-        $url = new moodle_url('http://www.youtube.com/playlist?list=PL6E18E2927047B662');
+        $url = new lion_url('http://www.youtube.com/playlist?list=PL6E18E2927047B662');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
-        $url = new moodle_url('http://www.youtube.com/p/PL6E18E2927047B662');
+        $url = new lion_url('http://www.youtube.com/p/PL6E18E2927047B662');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
 
         // Format: vimeo.
-        $url = new moodle_url('http://vimeo.com/1176321');
+        $url = new lion_url('http://vimeo.com/1176321');
         $t = $renderer->embed_url($url);
         $this->assertContains('</iframe>', $t);
 
         // Format: html5audio.
         $this->pretend_to_be_firefox();
-        $url = new moodle_url('http://example.org/test.ogg');
+        $url = new lion_url('http://example.org/test.ogg');
         $t = $renderer->embed_url($url);
         $this->assertContains('</audio>', $t);
     }
@@ -414,7 +400,7 @@ class core_medialib_testcase extends advanced_testcase {
         $renderer = new core_media_renderer_test($PAGE, '');
 
         // Format: mp3.
-        $url = new moodle_url('http://example.org/pluginfile.php?file=x/y/z/test.mp3');
+        $url = new lion_url('http://example.org/pluginfile.php?file=x/y/z/test.mp3');
         $t = $renderer->embed_url($url);
         $this->assertContains('core_media_mp3_', $t);
     }
@@ -433,13 +419,13 @@ class core_medialib_testcase extends advanced_testcase {
         $options = array(core_media::OPTION_FALLBACK_TO_BLANK => true);
 
         // Embed that does match something should still include the link too.
-        $url = new moodle_url('http://example.org/test.ogg');
+        $url = new lion_url('http://example.org/test.ogg');
         $t = $renderer->embed_url($url, '', 0, 0, $options);
         $this->assertContains('</audio>', $t);
         $this->assertContains('mediafallbacklink', $t);
 
         // Embed that doesn't match something should be totally blank.
-        $url = new moodle_url('http://example.org/test.mp4');
+        $url = new lion_url('http://example.org/test.mp4');
         $t = $renderer->embed_url($url, '', 0, 0, $options);
         $this->assertSame('', $t);
     }
@@ -458,7 +444,7 @@ class core_medialib_testcase extends advanced_testcase {
         // through.
         $CFG->core_media_enable_html5video = true;
         $renderer = new core_media_renderer_test($PAGE, '');
-        $url = new moodle_url('http://example.org/test.mp4');
+        $url = new lion_url('http://example.org/test.mp4');
 
         // HTML5 default size - specifies core width and does not specify height.
         $t = $renderer->embed_url($url);
@@ -471,7 +457,7 @@ class core_medialib_testcase extends advanced_testcase {
         $this->assertContains('height="101"', $t);
 
         // HTML5 size specified in url, overrides call.
-        $url = new moodle_url('http://example.org/test.mp4?d=123x456');
+        $url = new lion_url('http://example.org/test.mp4?d=123x456');
         $t = $renderer->embed_url($url, '', '666', '101');
         $this->assertContains('width="123"', $t);
         $this->assertContains('height="456"', $t);
@@ -489,7 +475,7 @@ class core_medialib_testcase extends advanced_testcase {
         // html5video.
         $CFG->core_media_enable_html5video = true;
         $renderer = new core_media_renderer_test($PAGE, '');
-        $url = new moodle_url('http://example.org/test.mp4');
+        $url = new lion_url('http://example.org/test.mp4');
 
         // HTML5 default name - use filename.
         $t = $renderer->embed_url($url);
@@ -504,7 +490,7 @@ class core_medialib_testcase extends advanced_testcase {
      * Test for core_media_renderer split_alternatives.
      */
     public function test_split_alternatives() {
-        // Single URL - identical moodle_url.
+        // Single URL - identical lion_url.
         $mp4 = 'http://example.org/test.mp4';
         $result = core_media::split_alternatives($mp4, $w, $h);
         $this->assertEquals($mp4, $result[0]->out(false));
@@ -513,7 +499,7 @@ class core_medialib_testcase extends advanced_testcase {
         $this->assertEquals(0, $w);
         $this->assertEquals(0, $h);
 
-        // Two URLs - identical moodle_urls.
+        // Two URLs - identical lion_urls.
         $webm = 'http://example.org/test.webm';
         $result = core_media::split_alternatives("$mp4#$webm", $w, $h);
         $this->assertEquals($mp4, $result[0]->out(false));
@@ -546,9 +532,9 @@ class core_medialib_testcase extends advanced_testcase {
 
         // MP3, WebM and FLV.
         $urls = array(
-            new moodle_url('http://example.org/test.mp4'),
-            new moodle_url('http://example.org/test.webm'),
-            new moodle_url('http://example.org/test.flv'),
+            new lion_url('http://example.org/test.mp4'),
+            new lion_url('http://example.org/test.webm'),
+            new lion_url('http://example.org/test.flv'),
         );
 
         // Enable html5 and flv.
@@ -579,10 +565,10 @@ class core_medialib_testcase extends advanced_testcase {
     }
 
     /**
-     * Converts moodle_url array into a single comma-separated string for
+     * Converts lion_url array into a single comma-separated string for
      * easier testing.
      *
-     * @param array $urls Array of moodle_urls
+     * @param array $urls Array of lion_urls
      * @return string String containing those URLs, comma-separated
      */
     public static function string_urls($urls) {

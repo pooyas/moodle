@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the Field Form used for profile fields.
@@ -22,8 +8,8 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    //  It must be included from a Moodle page.
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    //  It must be included from a Lion page.
 }
 
 require_once($CFG->dirroot.'/lib/formslib.php');
@@ -34,7 +20,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class field_form extends moodleform {
+class field_form extends lionform {
 
     /** @var profile_define_base $field */
     public $field;
@@ -79,7 +65,7 @@ class field_form extends moodleform {
 
 
     /**
-     * Perform some moodle validation.
+     * Perform some lion validation.
      * @param array $data
      * @param array $files
      * @return array

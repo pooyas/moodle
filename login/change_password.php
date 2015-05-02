@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Change password page.
@@ -21,7 +7,7 @@
  * @package    core
  * @subpackage auth
  * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../config.php');
@@ -74,7 +60,7 @@ $PAGE->set_course($course);
 
 // do not require change own password cap if change forced
 if (!get_user_preferences('auth_forcepasswordchange', false)) {
-    require_capability('moodle/user:changeownpassword', $systemcontext);
+    require_capability('lion/user:changeownpassword', $systemcontext);
 }
 
 // do not allow "Logged in as" users to change any passwords
@@ -137,7 +123,7 @@ if ($mform->is_cancelled()) {
     $PAGE->set_heading($COURSE->fullname);
     echo $OUTPUT->header();
 
-    notice($strpasswordchanged, new moodle_url($PAGE->url, array('return'=>1)));
+    notice($strpasswordchanged, new lion_url($PAGE->url, array('return'=>1)));
 
     echo $OUTPUT->footer();
     exit;

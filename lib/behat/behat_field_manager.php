@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Form fields helper.
@@ -20,10 +6,10 @@
  * @package    core
  * @category   test
  * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 use Behat\Mink\Session as Session,
     Behat\Mink\Element\NodeElement as NodeElement,
@@ -36,7 +22,7 @@ use Behat\Mink\Session as Session,
  * @package    core
  * @category   test
  * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_field_manager {
 
@@ -49,7 +35,7 @@ class behat_field_manager {
      */
     public static function get_form_field_from_label($label, RawMinkContext $context) {
 
-        // There are moodle form elements that are not directly related with
+        // There are lion form elements that are not directly related with
         // a basic HTML form field, we should also take care of them.
         try {
             // The DOM node.
@@ -72,7 +58,7 @@ class behat_field_manager {
     /**
      * Gets an instance of the form field.
      *
-     * Not all the fields are part of a moodle form, in this
+     * Not all the fields are part of a lion form, in this
      * cases it fallsback to the generic form field. Also note
      * that this generic field type is using a generic setValue()
      * method from the Behat API, which is not always good to set
@@ -84,12 +70,12 @@ class behat_field_manager {
      */
     public static function get_form_field(NodeElement $fieldnode, Session $session) {
 
-        // Get the field type if is part of a moodleform.
-        if (self::is_moodleform_field($fieldnode)) {
+        // Get the field type if is part of a lionform.
+        if (self::is_lionform_field($fieldnode)) {
             $type = self::get_field_node_type($fieldnode, $session);
         }
 
-        // If is not a moodleforms field use the base field type.
+        // If is not a lionforms field use the base field type.
         if (empty($type)) {
             $type = 'field';
         }
@@ -111,7 +97,7 @@ class behat_field_manager {
 
         global $CFG;
 
-        // If the field is not part of a moodleform, we should still try to find out
+        // If the field is not part of a lionform, we should still try to find out
         // which field type are we dealing with.
         if ($type == 'field' &&
                 $guessedtype = self::guess_field_type($fieldnode, $session)) {
@@ -136,7 +122,7 @@ class behat_field_manager {
      * Guesses a basic field type and returns it.
      *
      * This method is intended to detect HTML form fields when no
-     * moodleform-specific elements have been detected.
+     * lionform-specific elements have been detected.
      *
      * @param NodeElement $fieldnode
      * @param Session $session
@@ -185,19 +171,19 @@ class behat_field_manager {
     }
 
     /**
-     * Detects when the field is a moodleform field type.
+     * Detects when the field is a lionform field type.
      *
-     * Note that there are fields inside moodleforms that are not
-     * moodleform element; this method can not detect this, this will
+     * Note that there are fields inside lionforms that are not
+     * lionform element; this method can not detect this, this will
      * be managed by get_field_node_type, after failing to find the form
      * element element type.
      *
      * @param NodeElement $fieldnode
      * @return bool
      */
-    protected static function is_moodleform_field(NodeElement $fieldnode) {
+    protected static function is_lionform_field(NodeElement $fieldnode) {
 
-        // We already waited when getting the NodeElement and we don't want an exception if it's not part of a moodleform.
+        // We already waited when getting the NodeElement and we don't want an exception if it's not part of a lionform.
         $parentformfound = $fieldnode->find('xpath',
             "/ancestor::fieldset" .
             "/ancestor::form[contains(concat(' ', normalize-space(@class), ' '), ' mform ')]"
@@ -231,7 +217,7 @@ class behat_field_manager {
                 return substr($class, 10);
             }
 
-            // Stop propagation through the DOM, if it does not have a felement is not part of a moodle form.
+            // Stop propagation through the DOM, if it does not have a felement is not part of a lion form.
             if (strstr($class, 'fcontainer') != false) {
                 return false;
             }
@@ -243,14 +229,14 @@ class behat_field_manager {
     /**
      * Gets an instance of the form field.
      *
-     * Not all the fields are part of a moodle form, in this
+     * Not all the fields are part of a lion form, in this
      * cases it fallsback to the generic form field. Also note
      * that this generic field type is using a generic setValue()
      * method from the Behat API, which is not always good to set
      * the value of form elements.
      *
-     * @deprecated since Moodle 2.6 MDL-39634 - please do not use this function any more.
-     * @todo MDL-XXXXX This will be deleted in Moodle 2.8
+     * @deprecated since Lion 2.6 MDL-39634 - please do not use this function any more.
+     * @todo MDL-XXXXX This will be deleted in Lion 2.8
      * @see behat_field_manager::get_form_field()
      * @param NodeElement $fieldnode
      * @param string $locator
@@ -270,8 +256,8 @@ class behat_field_manager {
      * Depending on the field the felement class node is in a level or in another. We
      * look recursively for a parent node with a 'felement' class to find the field type.
      *
-     * @deprecated since Moodle 2.6 MDL-39634 - please do not use this function any more.
-     * @todo MDL-XXXXX This will be deleted in Moodle 2.8
+     * @deprecated since Lion 2.6 MDL-39634 - please do not use this function any more.
+     * @todo MDL-XXXXX This will be deleted in Lion 2.8
      * @see behat_field_manager::get_field_node_type()
      * @param NodeElement $fieldnode The current node.
      * @param string $locator

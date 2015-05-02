@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Allows you to edit a users profile
@@ -106,13 +92,13 @@ $personalcontext = context_user::instance($user->id);
 // Check access control.
 if ($user->id == $USER->id) {
     // Editing own profile - require_login() MUST NOT be used here, it would result in infinite loop!
-    if (!has_capability('moodle/user:editownprofile', $systemcontext)) {
+    if (!has_capability('lion/user:editownprofile', $systemcontext)) {
         print_error('cannotedityourprofile');
     }
 
 } else {
     // Teachers, parents, etc.
-    require_capability('moodle/user:editprofile', $personalcontext);
+    require_capability('lion/user:editprofile', $personalcontext);
     // No editing of guest user account.
     if (isguestuser($user->id)) {
         print_error('guestnoeditprofileother');
@@ -189,9 +175,9 @@ if ($usernew = $userform->get_data()) {
     $emailchangedhtml = '';
 
     if ($CFG->emailchangeconfirmation) {
-        // Users with 'moodle/user:update' can change their email address immediately.
+        // Users with 'lion/user:update' can change their email address immediately.
         // Other users require a confirmation email.
-        if (isset($usernew->email) and $user->email != $usernew->email && !has_capability('moodle/user:update', $systemcontext)) {
+        if (isset($usernew->email) and $user->email != $usernew->email && !has_capability('lion/user:update', $systemcontext)) {
             $a = new stdClass();
             $a->newemail = $usernew->preference_newemail = $usernew->email;
             $usernew->preference_newemailkey = random_string(20);
@@ -285,7 +271,7 @@ if ($usernew = $userform->get_data()) {
 
     if (is_siteadmin() and empty($SITE->shortname)) {
         // Fresh cli install - we need to finish site settings.
-        redirect(new moodle_url('/admin/index.php'));
+        redirect(new lion_url('/admin/index.php'));
     }
 
     if (!$emailchanged || !$CFG->emailchangeconfirmation) {

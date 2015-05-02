@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Community library
@@ -78,7 +64,7 @@ class block_community_manager {
      * @param integer $courseid
      * @param string $huburl
      * @return array 'privatefile' the file name saved in private area
-     *               'tmpfile' the file name saved in the moodledata temp dir (for restore)
+     *               'tmpfile' the file name saved in the liondata temp dir (for restore)
      */
     public function block_community_download_course_backup($course) {
         global $CFG, $USER;
@@ -92,7 +78,7 @@ class block_community_manager {
 
         $filename = md5(time() . '-' . $course->id . '-'. $USER->id . '-'. random_string(20));
 
-        $url  = new moodle_url($course->huburl.'/local/hub/webservice/download.php', $params);
+        $url  = new lion_url($course->huburl.'/local/hub/webservice/download.php', $params);
         $path = $CFG->tempdir.'/backup/'.$filename.".mbz";
         $fp = fopen($path, 'w');
         $curlurl = $course->huburl.'/local/hub/webservice/download.php?filetype='

@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The ZIP package validation.
  *
  * @package     tool_installaddon
- * @copyright   2013 David Mudrak <david@moodle.com>
+ * @copyright   2013 David Mudrak <david@lion.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,7 +13,7 @@ require(dirname(__FILE__) . '/../../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 require_once($CFG->libdir.'/filelib.php');
 
-navigation_node::override_active_url(new moodle_url('/admin/tool/installaddon/index.php'));
+navigation_node::override_active_url(new lion_url('/admin/tool/installaddon/index.php'));
 admin_externalpage_setup('tool_installaddon_validate');
 
 if (!empty($CFG->disableonclickaddoninstall)) {
@@ -43,7 +29,7 @@ $rootdir = optional_param('rootdir', '', PARAM_PLUGIN);
 
 $zipfilepath = $CFG->tempdir.'/tool_installaddon/'.$jobid.'/source/'.$zipfilename;
 if (!file_exists($zipfilepath)) {
-    redirect(new moodle_url('/admin/tool/installaddon/index.php'),
+    redirect(new lion_url('/admin/tool/installaddon/index.php'),
         get_string('invaliddata', 'core_error'));
 }
 
@@ -57,11 +43,11 @@ $zipcontentfiles = $installer->extract_installfromzip_file($zipfilepath, $zipcon
 // Validate the contents of the plugin ZIP file.
 $validator = tool_installaddon_validator::instance($zipcontentpath, $zipcontentfiles);
 $validator->assert_plugin_type($plugintype);
-$validator->assert_moodle_version($CFG->version);
+$validator->assert_lion_version($CFG->version);
 $result = $validator->execute();
 
 if ($result) {
-    $validator->set_continue_url(new moodle_url('/admin/tool/installaddon/deploy.php', array(
+    $validator->set_continue_url(new lion_url('/admin/tool/installaddon/deploy.php', array(
         'sesskey' => sesskey(),
         'jobid' => $jobid,
         'type' => $plugintype,

@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Allows user to allocate the submissions manually
@@ -21,10 +7,10 @@
  * @package    workshopallocation
  * @subpackage manual
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(dirname(dirname(__FILE__)) . '/lib.php');                  // interface definition
 require_once(dirname(dirname(dirname(__FILE__))) . '/locallib.php');    // workshop internal API
@@ -74,7 +60,7 @@ class workshop_manual_allocator implements workshop_allocator {
         switch ($mode) {
         case 'new':
             if (!confirm_sesskey()) {
-                throw new moodle_exception('confirmsesskeybad');
+                throw new lion_exception('confirmsesskeybad');
             }
             $reviewerid = required_param('by', PARAM_INT);
             $authorid   = required_param('of', PARAM_INT);
@@ -103,7 +89,7 @@ class workshop_manual_allocator implements workshop_allocator {
             break;
         case 'del':
             if (!confirm_sesskey()) {
-                throw new moodle_exception('confirmsesskeybad');
+                throw new lion_exception('confirmsesskeybad');
             }
             $assessmentid   = required_param('what', PARAM_INT);
             $confirmed      = optional_param('confirm', 0, PARAM_INT);
@@ -188,7 +174,7 @@ class workshop_manual_allocator implements workshop_allocator {
                     $message    = new workshop_message(get_string('areyousuretodeallocategraded', 'workshopallocation_manual'),
                         workshop_message::TYPE_ERROR);
                 }
-                $url = new moodle_url($PAGE->url, array('mode' => 'del', 'what' => $m[1], 'confirm' => 1, 'sesskey' => sesskey()));
+                $url = new lion_url($PAGE->url, array('mode' => 'del', 'what' => $m[1], 'confirm' => 1, 'sesskey' => sesskey()));
                 $label = get_string('iamsure', 'workshop');
                 $message->set_action($url, $label);
                 break;

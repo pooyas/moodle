@@ -1,7 +1,7 @@
 {
-  "name": "moodle-theme_bootstrapbase-bootstrap",
+  "name": "lion-theme_bootstrapbase-bootstrap",
   "builds": {
-    "moodle-theme_bootstrapbase-bootstrap": {
+    "lion-theme_bootstrapbase-bootstrap": {
       "prependfiles": [
         "bootstrapengine.js",
         "bootstrapcollapse.js",

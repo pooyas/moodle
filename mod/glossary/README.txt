@@ -2,14 +2,14 @@ Glossary version 0.5 dev
 ------------------------
 By Williams Castillo (castillow@tutopia.com)
 
-This is the Glossary module. Created and maintained by Williams Castillo. This are my first lines in PHP... It means that, although I've tried to do my best, it might (in fact, it does) shows my inexperience... in PHP... and moodle as well.
+This is the Glossary module. Created and maintained by Williams Castillo. This are my first lines in PHP... It means that, although I've tried to do my best, it might (in fact, it does) shows my inexperience... in PHP... and lion as well.
 
 Basically, this module allows you to maintain a repository of data in the form of concepts, Entry->Definitions, etc. Thus:
 
-- Entries could be automatically linked from within moodle resources, labels, forum posts, etc.
+- Entries could be automatically linked from within lion resources, labels, forum posts, etc.
 - Entries can have aliases which allows to automatically link the concept to other words than itself.
 - Glossaries can be viewed in a printer-friendly version format
-- The display format of the entries is modular so you can create your own formats (and share them with the Moodle community!)
+- The display format of the entries is modular so you can create your own formats (and share them with the Lion community!)
 - Entries are posted by teachers and can be posted by students as well
 - Entries can be approved before make them public.
 - Entries can have an optional attached file.
@@ -20,7 +20,7 @@ Basically, this module allows you to maintain a repository of data in the form o
 
 Quick install instructions
 
-1) Be sure you have at least Moodle 1.2 dev installed
+1) Be sure you have at least Lion 1.2 dev installed
 2) Be sure to have the latest version of the module
 3) Be sure to have the latest language for english (en) and your own language.
 3) Create a directory inside you /mod directory and name it: glossary

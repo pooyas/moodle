@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'question', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'question', language 'en', branch 'LION_20_STABLE'
  *
  * @package   core_question
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 $string['addmorechoiceblanks'] = 'Blanks for {no} more choices';
@@ -79,7 +65,7 @@ $string['createdby'] = 'Created by';
 $string['createdmodifiedheader'] = 'Created / last saved';
 $string['createnewquestion'] = 'Create a new question ...';
 $string['cwrqpfs'] = 'Random questions selecting questions from sub categories.';
-$string['cwrqpfsinfo'] = '<p>During the upgrade to Moodle 1.9 we will separate question categories into
+$string['cwrqpfsinfo'] = '<p>During the upgrade to Lion 1.9 we will separate question categories into
 different contexts. Some question categories and questions on your site will have to have their sharing
 status changed. This is necessary in the rare case that one or more \'random\' questions in a quiz are set up to select from a mixture of
 shared and unshared categories (as is the case on this site). This happens when a \'random\' question is set to select
@@ -87,7 +73,7 @@ from subcategories and one or more subcategories have a different sharing status
 the random question is created.</p>
 <p>The following question categories, from which \'random\' questions in parent categories select questions from,
 will have their sharing status changed to the same sharing status as the category with the \'random\' question in
-on upgrading to Moodle 1.9. The following categories will have their sharing status changed. Questions which are
+on upgrading to Lion 1.9. The following categories will have their sharing status changed. Questions which are
 affected will continue to work in all existing quizzes until you remove them from these quizzes.</p>';
 $string['cwrqpfsnoprob'] = 'No question categories in your site are affected by the \'Random questions selecting questions from sub categories\' issue.';
 $string['defaultfor'] = 'Default for {$a}';
@@ -144,7 +130,7 @@ $string['export'] = 'Export';
 $string['exportcategory'] = 'Export category';
 $string['exportcategory_help'] = 'This setting determines the category from which the exported questions will be taken.
 
-Certain import formats, such as GIFT and Moodle XML, permit category and context data to be included in the export file, enabling them to (optionally) be recreated on import. If required, the appropriate checkboxes should be ticked.';
+Certain import formats, such as GIFT and Lion XML, permit category and context data to be included in the export file, enabling them to (optionally) be recreated on import. If required, the appropriate checkboxes should be ticked.';
 $string['exporterror'] = 'Errors occur during exporting!';
 $string['exportfilename'] = 'questions';
 $string['exportnameformat'] = '%Y%m%d-%H%M';
@@ -173,7 +159,7 @@ $string['import'] = 'Import';
 $string['importcategory'] = 'Import category';
 $string['importcategory_help'] = 'This setting determines the category into which the imported questions will go.
 
-Certain import formats, such as GIFT and Moodle XML, may include category and context data in the import file. To make use of this data, rather than the selected category, the appropriate checkboxes should be ticked. If categories specified in the import file do not exist, they will be created.';
+Certain import formats, such as GIFT and Lion XML, may include category and context data in the import file. To make use of this data, rather than the selected category, the appropriate checkboxes should be ticked. If categories specified in the import file do not exist, they will be created.';
 $string['importerror'] = 'An error occurred during import processing';
 $string['importerrorquestion'] = 'Error importing question';
 $string['importingquestions'] = 'Importing {$a} questions from file';
@@ -443,6 +429,6 @@ $string['withselected'] = 'With selected';
 $string['xoutofmax'] = '{$a->mark} out of {$a->max}';
 $string['yougotnright'] = 'You have correctly selected {$a->num}.';
 
-// Deprecated since Moodle 2.8.
+// Deprecated since Lion 2.8.
 
 $string['hidden'] = 'Hidden';

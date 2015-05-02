@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 // A lot of this initial stuff is copied from mod/data/view.php
 
@@ -26,7 +12,7 @@ $d       = required_param('d', PARAM_INT);   // database id
 $fieldid = required_param('fieldid', PARAM_INT);   // field id
 $rid     = optional_param('rid', 0, PARAM_INT);    //record id
 
-$url = new moodle_url('/mod/data/field/latlong/kml.php', array('d'=>$d, 'fieldid'=>$fieldid));
+$url = new lion_url('/mod/data/field/latlong/kml.php', array('d'=>$d, 'fieldid'=>$fieldid));
 if ($rid !== 0) {
     $url->param('rid', $rid);
 }
@@ -78,7 +64,7 @@ require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
 
 /// If it's hidden then it's don't show anything.  :)
-if (empty($cm->visible) and !has_capability('moodle/course:viewhiddenactivities', $context)) {
+if (empty($cm->visible) and !has_capability('lion/course:viewhiddenactivities', $context)) {
     $PAGE->set_title($data->name);
     echo $OUTPUT->header();
     notice(get_string("activityiscurrentlyhidden"));
@@ -96,7 +82,7 @@ if (has_capability('mod/data:managetemplates', $context)) {
 
 //header('Content-type: text/plain'); // This is handy for debug purposes to look at the KML in the browser
 header('Content-type: application/vnd.google-earth.kml+xml kml');
-header('Content-Disposition: attachment; filename="moodleearth-'.$d.'-'.$rid.'-'.$fieldid.'.kml"');
+header('Content-Disposition: attachment; filename="lionearth-'.$d.'-'.$rid.'-'.$fieldid.'.kml"');
 
 
 echo data_latlong_kml_top();
@@ -104,7 +90,7 @@ echo data_latlong_kml_top();
 if($rid) { // List one single item
     $pm = new stdClass();
     $pm->name = data_latlong_kml_get_item_name($content, $field);
-    $pm->description = "&lt;a href='$CFG->wwwroot/mod/data/view.php?d=$d&amp;rid=$rid'&gt;Item #$rid&lt;/a&gt; in Moodle data activity";
+    $pm->description = "&lt;a href='$CFG->wwwroot/mod/data/view.php?d=$d&amp;rid=$rid'&gt;Item #$rid&lt;/a&gt; in Lion data activity";
     $pm->long = $content->content1;
     $pm->lat = $content->content;
     echo data_latlong_kml_placemark($pm);
@@ -116,7 +102,7 @@ if($rid) { // List one single item
 
     foreach($contents as $content) {
         $pm->name = data_latlong_kml_get_item_name($content, $field);
-        $pm->description = "&lt;a href='$CFG->wwwroot/mod/data/view.php?d=$d&amp;rid=$content->recordid'&gt;Item #$content->recordid&lt;/a&gt; in Moodle data activity";
+        $pm->description = "&lt;a href='$CFG->wwwroot/mod/data/view.php?d=$d&amp;rid=$content->recordid'&gt;Item #$content->recordid&lt;/a&gt; in Lion data activity";
         $pm->long = $content->content1;
         $pm->lat = $content->content;
         echo data_latlong_kml_placemark($pm);

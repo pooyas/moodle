@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External notes functions unit tests
@@ -20,10 +6,10 @@
  * @package    core_notes
  * @category   external
  * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -45,8 +31,8 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function.
         $contextid = context_course::instance($course->id)->id;
-        $roleid = $this->assignUserCapability('moodle/notes:manage', $contextid);
-        $this->assignUserCapability('moodle/course:view', $contextid, $roleid);
+        $roleid = $this->assignUserCapability('lion/notes:manage', $contextid);
+        $this->assignUserCapability('lion/course:view', $contextid, $roleid);
 
         // Create test note data.
         $note1 = array();
@@ -71,7 +57,7 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
         $this->assertEquals($creatednotes[0]['clientnoteid'], $note1['clientnoteid']);
 
         // Call without required capability.
-        $this->unassignUserCapability('moodle/notes:manage', $contextid, $roleid);
+        $this->unassignUserCapability('lion/notes:manage', $contextid, $roleid);
         $this->setExpectedException('required_capability_exception');
         $creatednotes = core_notes_external::create_notes($notes);
     }
@@ -86,8 +72,8 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function.
         $contextid = context_course::instance($course->id)->id;
-        $roleid = $this->assignUserCapability('moodle/notes:manage', $contextid);
-        $this->assignUserCapability('moodle/course:view', $contextid, $roleid);
+        $roleid = $this->assignUserCapability('lion/notes:manage', $contextid);
+        $this->assignUserCapability('lion/course:view', $contextid, $roleid);
 
         // Create test note data.
         $cnote = array();
@@ -121,7 +107,7 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
         $creatednotes = core_notes_external::create_notes($cnotes);
         $dnotes3 = array($creatednotes[0]['noteid']);
 
-        $this->unassignUserCapability('moodle/notes:manage', $contextid, $roleid);
+        $this->unassignUserCapability('lion/notes:manage', $contextid, $roleid);
         $this->setExpectedException('required_capability_exception');
         $deletednotes = core_notes_external::delete_notes($dnotes3);
     }
@@ -136,9 +122,9 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function.
         $contextid = context_course::instance($course->id)->id;
-        $roleid = $this->assignUserCapability('moodle/notes:manage', $contextid);
-        $this->assignUserCapability('moodle/notes:view', $contextid, $roleid);
-        $this->assignUserCapability('moodle/course:view', $contextid, $roleid);
+        $roleid = $this->assignUserCapability('lion/notes:manage', $contextid);
+        $this->assignUserCapability('lion/notes:view', $contextid, $roleid);
+        $this->assignUserCapability('lion/course:view', $contextid, $roleid);
 
         // Create test note data.
         $cnote = array();
@@ -161,7 +147,7 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
         $getnotes = core_notes_external::get_notes($gnotes);
         $getnotes = external_api::clean_returnvalue(core_notes_external::get_notes_returns(), $getnotes);
 
-        $this->unassignUserCapability('moodle/notes:manage', $contextid, $roleid);
+        $this->unassignUserCapability('lion/notes:manage', $contextid, $roleid);
         // Confirm that base note data was retrieved correctly.
         $this->assertEquals($cnote['userid'], $getnotes["notes"][0]["userid"]);
         $this->assertEquals($cnote['text'], $getnotes["notes"][0]["text"]);
@@ -175,7 +161,7 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
         $this->assertEquals("Note does not exist", $getnotes["warnings"][0]["message"]);
 
         // Call without required capability.
-        $this->unassignUserCapability('moodle/notes:view', $contextid, $roleid);
+        $this->unassignUserCapability('lion/notes:view', $contextid, $roleid);
         $this->setExpectedException('required_capability_exception');
         $creatednotes = core_notes_external::get_notes($gnotes);
     }
@@ -190,8 +176,8 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function.
         $contextid = context_course::instance($course->id)->id;
-        $roleid = $this->assignUserCapability('moodle/notes:manage', $contextid);
-        $this->assignUserCapability('moodle/course:view', $contextid, $roleid);
+        $roleid = $this->assignUserCapability('lion/notes:manage', $contextid);
+        $this->assignUserCapability('lion/course:view', $contextid, $roleid);
 
         // Create test note data.
         $note1 = array();
@@ -230,7 +216,7 @@ class core_notes_externallib_testcase extends externallib_advanced_testcase {
 
         // Call without required capability.
         $creatednotes = core_notes_external::create_notes($notes1);
-        $this->unassignUserCapability('moodle/notes:manage', $contextid, $roleid);
+        $this->unassignUserCapability('lion/notes:manage', $contextid, $roleid);
         $this->setExpectedException('required_capability_exception');
         $note2 = array();
         $note2["id"] = $creatednotes[0]['noteid'];

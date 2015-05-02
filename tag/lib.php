@@ -1,22 +1,8 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
- * Moodle tag library
+ * Lion tag library
  *
  * Tag strings : you can use any character in tags, except the comma (which is the separator) and
  * the '\' (backslash).  Note that many spaces (or other blank characters) will get "compressed"
@@ -46,7 +32,7 @@
  *             the 'course categorization' system.
  * @see        http://www.php.net/manual/en/function.urlencode.php
  * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -269,8 +255,8 @@ function tag_type_set($tagid, $type) {
  * @access   public
  * @param    int      $tagid the id of the tag
  * @param    string   $description the tag's description string to be set
- * @param    int      $descriptionformat the moodle text format of the description
- *                    {@link http://docs.moodle.org/dev/Text_formats_2.0#Database_structure}
+ * @param    int      $descriptionformat the lion text format of the description
+ *                    {@link http://docs.lion.org/dev/Text_formats_2.0#Database_structure}
  * @return   bool     true on success, false otherwise
  */
 function tag_description_set($tagid, $description, $descriptionformat) {

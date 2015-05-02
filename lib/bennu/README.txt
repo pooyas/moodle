@@ -1,7 +1,7 @@
 Bennu - An object-oriented iCalendar (RFC2445) implementation in PHP
 http://bennu.sourceforge.net
 
-Bennu is copyright (C) 2005 by Ioannis Papaioannou (pj@moodle.org).
+Bennu is copyright (C) 2005 by Ioannis Papaioannou (pj@lion.org).
 
 =======================================================================
     TABLE OF CONTENTS
@@ -140,7 +140,7 @@ Bennu is copyright (C) 2005 by Ioannis Papaioannou (pj@moodle.org).
 4. Contact information
 -----------------------------------------------------------------------
 
-    You can contact me at the email address pj@moodle.org for any 
+    You can contact me at the email address pj@lion.org for any 
     suggestions, ideas, or bug reports regarding Bennu.
     
     At some point there will also be a site which you can use to do 

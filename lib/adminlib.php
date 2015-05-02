@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Functions and classes used during installation, upgrades and for admin settings.
@@ -20,25 +6,25 @@
  *  ADMIN SETTINGS TREE INTRODUCTION
  *
  *  This file performs the following tasks:
- *   -it defines the necessary objects and interfaces to build the Moodle
+ *   -it defines the necessary objects and interfaces to build the Lion
  *    admin hierarchy
  *   -it defines the admin_externalpage_setup()
  *
  *  ADMIN_SETTING OBJECTS
  *
- *  Moodle settings are represented by objects that inherit from the admin_setting
+ *  Lion settings are represented by objects that inherit from the admin_setting
  *  class. These objects encapsulate how to read a setting, how to write a new value
  *  to a setting, and how to appropriately display the HTML to modify the setting.
  *
  *  ADMIN_SETTINGPAGE OBJECTS
  *
  *  The admin_setting objects are then grouped into admin_settingpages. The latter
- *  appear in the Moodle admin tree block. All interaction with admin_settingpage
+ *  appear in the Lion admin tree block. All interaction with admin_settingpage
  *  objects is handled by the admin/settings.php file.
  *
  *  ADMIN_EXTERNALPAGE OBJECTS
  *
- *  There are some settings in Moodle that are too complex to (efficiently) handle
+ *  There are some settings in Lion that are too complex to (efficiently) handle
  *  with admin_settingpages. (Consider, for example, user management and displaying
  *  lists of users.) In this case, we use the admin_externalpage object. This object
  *  places a link to an external PHP file in the admin tree block.
@@ -99,10 +85,10 @@
  * @package    core
  * @subpackage admin
  * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /// Add libraries
 require_once($CFG->libdir.'/ddllib.php');
@@ -263,7 +249,7 @@ function get_component_version($component, $source='installed') {
 
     list($type, $name) = core_component::normalize_component($component);
 
-    // moodle core or a core subsystem
+    // lion core or a core subsystem
     if ($type === 'core') {
         if ($source === 'installed') {
             if (empty($CFG->version)) {
@@ -382,7 +368,7 @@ function drop_plugin_tables($name, $file, $feedback=true) {
 }
 
 /**
- * Returns names of all known tables == tables that moodle knows about.
+ * Returns names of all known tables == tables that lion knows about.
  *
  * @return array Array of lowercase table names
  */
@@ -478,7 +464,7 @@ function set_cron_lock($name, $until, $ignorecurrent=false) {
 function admin_critical_warnings_present() {
     global $SESSION;
 
-    if (!has_capability('moodle/site:config', context_system::instance())) {
+    if (!has_capability('lion/site:config', context_system::instance())) {
         return 0;
     }
 
@@ -529,7 +515,7 @@ function is_dataroot_insecure($fetchtest=false) {
     $rp = explode('/', $rp);
     foreach($rp as $r) {
         if (strpos($siteroot, '/'.$r.'/') === 0) {
-            $siteroot = substr($siteroot, strlen($r)+1); // moodle web in subdirectory
+            $siteroot = substr($siteroot, strlen($r)+1); // lion web in subdirectory
         } else {
             break; // probably alias root
         }
@@ -1216,12 +1202,12 @@ class admin_externalpage implements part_of_admin_tree {
      * @param string $name The internal name for this external page. Must be unique amongst ALL part_of_admin_tree objects.
      * @param string $visiblename The displayed name for this external page. Usually obtained through get_string().
      * @param string $url The external URL that we should link to when someone requests this external page.
-     * @param mixed $req_capability The role capability/permission a user must have to access this external page. Defaults to 'moodle/site:config'.
+     * @param mixed $req_capability The role capability/permission a user must have to access this external page. Defaults to 'lion/site:config'.
      * @param boolean $hidden Is this external page hidden in admin tree block? Default false.
      * @param stdClass $context The context the page relates to. Not sure what happens
      *      if you specify something other than system or front page. Defaults to system.
      */
-    public function __construct($name, $visiblename, $url, $req_capability='moodle/site:config', $hidden=false, $context=NULL) {
+    public function __construct($name, $visiblename, $url, $req_capability='lion/site:config', $hidden=false, $context=NULL) {
         $this->name        = $name;
         $this->visiblename = $visiblename;
         $this->url         = $url;
@@ -1358,12 +1344,12 @@ class admin_settingpage implements part_of_admin_tree {
      *
      * @param string $name The internal name for this external page. Must be unique amongst ALL part_of_admin_tree objects.
      * @param string $visiblename The displayed name for this external page. Usually obtained through get_string().
-     * @param mixed $req_capability The role capability/permission a user must have to access this external page. Defaults to 'moodle/site:config'.
+     * @param mixed $req_capability The role capability/permission a user must have to access this external page. Defaults to 'lion/site:config'.
      * @param boolean $hidden Is this external page hidden in admin tree block? Default false.
      * @param stdClass $context The context the page relates to. Not sure what happens
      *      if you specify something other than system or front page. Defaults to system.
      */
-    public function __construct($name, $visiblename, $req_capability='moodle/site:config', $hidden=false, $context=NULL) {
+    public function __construct($name, $visiblename, $req_capability='lion/site:config', $hidden=false, $context=NULL) {
         $this->settings    = new stdClass();
         $this->name        = $name;
         $this->visiblename = $visiblename;
@@ -1689,18 +1675,18 @@ abstract class admin_setting {
     private function parse_setting_name($name) {
         $bits = explode('/', $name);
         if (count($bits) > 2) {
-            throw new moodle_exception('invalidadminsettingname', '', '', $name);
+            throw new lion_exception('invalidadminsettingname', '', '', $name);
         }
         $this->name = array_pop($bits);
         if (!preg_match('/^[a-zA-Z0-9_]+$/', $this->name)) {
-            throw new moodle_exception('invalidadminsettingname', '', '', $name);
+            throw new lion_exception('invalidadminsettingname', '', '', $name);
         }
         if (!empty($bits)) {
             $this->plugin = array_pop($bits);
-            if ($this->plugin === 'moodle') {
+            if ($this->plugin === 'lion') {
                 $this->plugin = null;
             } else if (!preg_match('/^[a-zA-Z0-9_]+$/', $this->plugin)) {
-                    throw new moodle_exception('invalidadminsettingname', '', '', $name);
+                    throw new lion_exception('invalidadminsettingname', '', '', $name);
                 }
         }
     }
@@ -1809,7 +1795,7 @@ abstract class admin_setting {
     public function get_defaultsetting() {
         $adminroot =  admin_get_root(false, false);
         if (!empty($adminroot->custom_defaults)) {
-            $plugin = is_null($this->plugin) ? 'moodle' : $this->plugin;
+            $plugin = is_null($this->plugin) ? 'lion' : $this->plugin;
             if (isset($adminroot->custom_defaults[$plugin])) {
                 if (array_key_exists($this->name, $adminroot->custom_defaults[$plugin])) { // null is valid value here ;-)
                     return $adminroot->custom_defaults[$plugin][$this->name];
@@ -3256,7 +3242,7 @@ class admin_setting_configtime extends admin_setting {
  * Seconds duration setting.
  *
  * @copyright 2012 Petr Skoda (http://skodak.org)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configduration extends admin_setting {
 
@@ -3497,7 +3483,7 @@ class admin_setting_configiplist extends admin_setting_configtextarea {
  * no paging or searching of this list.
  *
  * To correctly get a list of users from this config setting, you need to call the
- * get_users_from_config($CFG->mysetting, $capability); function in moodlelib.php.
+ * get_users_from_config($CFG->mysetting, $capability); function in lionlib.php.
  *
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -4193,7 +4179,7 @@ class admin_setting_emoticons extends admin_setting {
         $out .= html_writer::end_tag('tbody');
         $out .= html_writer::end_tag('table');
         $out  = html_writer::tag('div', $out, array('class' => 'form-group'));
-        $out .= html_writer::tag('div', html_writer::link(new moodle_url('/admin/resetemoticons.php'), get_string('emoticonsreset', 'admin')));
+        $out .= html_writer::tag('div', html_writer::link(new lion_url('/admin/resetemoticons.php'), get_string('emoticonsreset', 'admin')));
 
         return format_admin_setting($this, $this->visiblename, $out, $this->description, false, '', NULL, $query);
     }
@@ -4338,7 +4324,7 @@ class admin_settings_country_select extends admin_setting_configselect {
  * simply so we can lazy-load the choices.
  *
  * @copyright 2011 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_settings_num_course_sections extends admin_setting_configselect {
     public function __construct($name, $visiblename, $description, $defaultsetting) {
@@ -4347,7 +4333,7 @@ class admin_settings_num_course_sections extends admin_setting_configselect {
 
     /** Lazy-load the available choices for the select box */
     public function load_choices() {
-        $max = get_config('moodlecourse', 'maxsections');
+        $max = get_config('lioncourse', 'maxsections');
         if (!isset($max) || !is_numeric($max)) {
             $max = 52;
         }
@@ -4427,7 +4413,7 @@ class admin_setting_special_backupdays extends admin_setting_configmulticheckbox
  * @package    core
  * @subpackage admin
  * @copyright  2014 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_backup_auto_destination extends admin_setting_configdirectory {
 
@@ -4697,7 +4683,7 @@ class admin_setting_configtext_with_advanced extends admin_setting_configtext {
  * Checkbox with an advanced checkbox that controls an additional $name.'_adv' config setting.
  *
  * @copyright 2009 Petr Skoda (http://skodak.org)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configcheckbox_with_advanced extends admin_setting_configcheckbox {
 
@@ -4724,7 +4710,7 @@ class admin_setting_configcheckbox_with_advanced extends admin_setting_configche
  * This is nearly a copy/paste of admin_setting_configcheckbox_with_adv
  *
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configcheckbox_with_lock extends admin_setting_configcheckbox {
     /**
@@ -5451,7 +5437,7 @@ class admin_setting_manageenrols extends admin_setting {
         // Iterate through enrol plugins and add to the display table.
         $updowncount = 1;
         $enrolcount = count($active_enrols);
-        $url = new moodle_url('/admin/enrol.php', array('sesskey'=>sesskey()));
+        $url = new lion_url('/admin/enrol.php', array('sesskey'=>sesskey()));
         $printed = array();
         foreach($allenrols as $enrol => $unused) {
             $plugininfo = $pluginmanager->get_plugin_info('enrol_'.$enrol);
@@ -5473,13 +5459,13 @@ class admin_setting_manageenrols extends admin_setting {
             // Hide/show links.
             $class = '';
             if (isset($active_enrols[$enrol])) {
-                $aurl = new moodle_url($url, array('action'=>'disable', 'enrol'=>$enrol));
+                $aurl = new lion_url($url, array('action'=>'disable', 'enrol'=>$enrol));
                 $hideshow = "<a href=\"$aurl\">";
                 $hideshow .= "<img src=\"" . $OUTPUT->pix_url('t/hide') . "\" class=\"iconsmall\" alt=\"$strdisable\" /></a>";
                 $enabled = true;
                 $displayname = $name;
             } else if (isset($enrols_available[$enrol])) {
-                $aurl = new moodle_url($url, array('action'=>'enable', 'enrol'=>$enrol));
+                $aurl = new lion_url($url, array('action'=>'enable', 'enrol'=>$enrol));
                 $hideshow = "<a href=\"$aurl\">";
                 $hideshow .= "<img src=\"" . $OUTPUT->pix_url('t/show') . "\" class=\"iconsmall\" alt=\"$strenable\" /></a>";
                 $enabled = false;
@@ -5493,21 +5479,21 @@ class admin_setting_manageenrols extends admin_setting {
             if ($PAGE->theme->resolve_image_location('icon', 'enrol_' . $name, false)) {
                 $icon = $OUTPUT->pix_icon('icon', '', 'enrol_' . $name, array('class' => 'icon pluginicon'));
             } else {
-                $icon = $OUTPUT->pix_icon('spacer', '', 'moodle', array('class' => 'icon pluginicon noicon'));
+                $icon = $OUTPUT->pix_icon('spacer', '', 'lion', array('class' => 'icon pluginicon noicon'));
             }
 
             // Up/down link (only if enrol is enabled).
             $updown = '';
             if ($enabled) {
                 if ($updowncount > 1) {
-                    $aurl = new moodle_url($url, array('action'=>'up', 'enrol'=>$enrol));
+                    $aurl = new lion_url($url, array('action'=>'up', 'enrol'=>$enrol));
                     $updown .= "<a href=\"$aurl\">";
                     $updown .= "<img src=\"" . $OUTPUT->pix_url('t/up') . "\" alt=\"$strup\" class=\"iconsmall\" /></a>&nbsp;";
                 } else {
                     $updown .= "<img src=\"" . $OUTPUT->pix_url('spacer') . "\" class=\"iconsmall\" alt=\"\" />&nbsp;";
                 }
                 if ($updowncount < $enrolcount) {
-                    $aurl = new moodle_url($url, array('action'=>'down', 'enrol'=>$enrol));
+                    $aurl = new lion_url($url, array('action'=>'down', 'enrol'=>$enrol));
                     $updown .= "<a href=\"$aurl\">";
                     $updown .= "<img src=\"" . $OUTPUT->pix_url('t/down') . "\" alt=\"$strdown\" class=\"iconsmall\" /></a>";
                 } else {
@@ -5533,7 +5519,7 @@ class admin_setting_manageenrols extends admin_setting {
 
             $test = '';
             if (!empty($enrols_available[$enrol]) and method_exists($enrols_available[$enrol], 'test_settings')) {
-                $testsettingsurl = new moodle_url('/enrol/test_settings.php', array('enrol'=>$enrol, 'sesskey'=>sesskey()));
+                $testsettingsurl = new lion_url('/enrol/test_settings.php', array('enrol'=>$enrol, 'sesskey'=>sesskey()));
                 $test = html_writer::link($testsettingsurl, $strtest);
             }
 
@@ -5620,7 +5606,7 @@ class admin_page_managemessageoutputs extends admin_externalpage {
      */
     public function __construct() {
         global $CFG;
-        parent::__construct('managemessageoutputs', get_string('managemessageoutputs', 'message'), new moodle_url('/admin/message.php'));
+        parent::__construct('managemessageoutputs', get_string('managemessageoutputs', 'message'), new lion_url('/admin/message.php'));
     }
 
     /**
@@ -5674,7 +5660,7 @@ class admin_page_defaultmessageoutputs extends admin_page_managemessageoutputs {
      */
     public function __construct() {
         global $CFG;
-        admin_externalpage::__construct('defaultmessageoutputs', get_string('defaultmessageoutputs', 'message'), new moodle_url('/message/defaultoutputs.php'));
+        admin_externalpage::__construct('defaultmessageoutputs', get_string('defaultmessageoutputs', 'message'), new lion_url('/message/defaultoutputs.php'));
     }
 }
 
@@ -5683,7 +5669,7 @@ class admin_page_defaultmessageoutputs extends admin_page_managemessageoutputs {
  * Manage question behaviours page
  *
  * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_page_manageqbehaviours extends admin_externalpage {
     /**
@@ -5692,7 +5678,7 @@ class admin_page_manageqbehaviours extends admin_externalpage {
     public function __construct() {
         global $CFG;
         parent::__construct('manageqbehaviours', get_string('manageqbehaviours', 'admin'),
-                new moodle_url('/admin/qbehaviours.php'));
+                new lion_url('/admin/qbehaviours.php'));
     }
 
     /**
@@ -5740,7 +5726,7 @@ class admin_page_manageqtypes extends admin_externalpage {
     public function __construct() {
         global $CFG;
         parent::__construct('manageqtypes', get_string('manageqtypes', 'admin'),
-                new moodle_url('/admin/qtypes.php'));
+                new lion_url('/admin/qtypes.php'));
     }
 
     /**
@@ -6087,7 +6073,7 @@ class admin_setting_manageauths extends admin_setting {
 
             $test = '';
             if (!empty($authplugins[$auth]) and method_exists($authplugins[$auth], 'test_settings')) {
-                $testurl = new moodle_url('/auth/test_settings.php', array('auth'=>$auth, 'sesskey'=>sesskey()));
+                $testurl = new lion_url('/auth/test_settings.php', array('auth'=>$auth, 'sesskey'=>sesskey()));
                 $test = html_writer::link($testurl, $txt->testsettings);
             }
 
@@ -6260,7 +6246,7 @@ class admin_setting_manageeditors extends admin_setting {
 
             // settings link
             if (file_exists($CFG->dirroot.'/lib/editor/'.$editor.'/settings.php')) {
-                $eurl = new moodle_url('/admin/settings.php', array('section'=>'editorsettings'.$editor));
+                $eurl = new lion_url('/admin/settings.php', array('section'=>'editorsettings'.$editor));
                 $settings = "<a href='$eurl'>{$txt->settings}</a>";
             } else {
                 $settings = '';
@@ -6470,10 +6456,10 @@ class admin_setting_manageformats extends admin_setting {
         $table->data  = array();
 
         $cnt = 0;
-        $defaultformat = get_config('moodlecourse', 'format');
-        $spacer = $OUTPUT->pix_icon('spacer', '', 'moodle', array('class' => 'iconsmall'));
+        $defaultformat = get_config('lioncourse', 'format');
+        $spacer = $OUTPUT->pix_icon('spacer', '', 'lion', array('class' => 'iconsmall'));
         foreach ($formats as $format) {
-            $url = new moodle_url('/admin/courseformats.php',
+            $url = new lion_url('/admin/courseformats.php',
                     array('sesskey' => sesskey(), 'format' => $format->name));
             $isdefault = '';
             $class = '';
@@ -6483,24 +6469,24 @@ class admin_setting_manageformats extends admin_setting {
                     $hideshow = $txt->default;
                 } else {
                     $hideshow = html_writer::link($url->out(false, array('action' => 'disable')),
-                            $OUTPUT->pix_icon('t/hide', $txt->disable, 'moodle', array('class' => 'iconsmall')));
+                            $OUTPUT->pix_icon('t/hide', $txt->disable, 'lion', array('class' => 'iconsmall')));
                 }
             } else {
                 $strformatname = $format->displayname;
                 $class = 'dimmed_text';
                 $hideshow = html_writer::link($url->out(false, array('action' => 'enable')),
-                    $OUTPUT->pix_icon('t/show', $txt->enable, 'moodle', array('class' => 'iconsmall')));
+                    $OUTPUT->pix_icon('t/show', $txt->enable, 'lion', array('class' => 'iconsmall')));
             }
             $updown = '';
             if ($cnt) {
                 $updown .= html_writer::link($url->out(false, array('action' => 'up')),
-                    $OUTPUT->pix_icon('t/up', $txt->up, 'moodle', array('class' => 'iconsmall'))). '';
+                    $OUTPUT->pix_icon('t/up', $txt->up, 'lion', array('class' => 'iconsmall'))). '';
             } else {
                 $updown .= $spacer;
             }
             if ($cnt < count($formats) - 1) {
                 $updown .= '&nbsp;'.html_writer::link($url->out(false, array('action' => 'down')),
-                    $OUTPUT->pix_icon('t/down', $txt->down, 'moodle', array('class' => 'iconsmall')));
+                    $OUTPUT->pix_icon('t/down', $txt->down, 'lion', array('class' => 'iconsmall')));
             } else {
                 $updown .= $spacer;
             }
@@ -6520,7 +6506,7 @@ class admin_setting_manageformats extends admin_setting {
             $table->data[] = $row;
         }
         $return .= html_writer::table($table);
-        $link = html_writer::link(new moodle_url('/admin/settings.php', array('section' => 'coursesettings')), new lang_string('coursesettings'));
+        $link = html_writer::link(new lion_url('/admin/settings.php', array('section' => 'coursesettings')), new lang_string('coursesettings'));
         $return .= html_writer::tag('p', get_string('manageformatsgotosettings', 'admin', $link));
         $return .= $OUTPUT->box_end();
         return highlight($query, $return);
@@ -6584,7 +6570,7 @@ class admin_page_managefilters extends admin_externalpage {
  *
  * This function must be called on each admin page before other code.
  *
- * @global moodle_page $PAGE
+ * @global lion_page $PAGE
  *
  * @param string $section name of page
  * @param string $extrabutton extra HTML that is added after the blocks editing on/off button.
@@ -6618,7 +6604,7 @@ function admin_externalpage_setup($section, $extrabutton = '', array $extraurlpa
     if (empty($extpage) or !($extpage instanceof admin_externalpage)) {
         // The requested section isn't in the admin tree
         // It could be because the user has inadequate capapbilities or because the section doesn't exist
-        if (!has_capability('moodle/site:config', context_system::instance())) {
+        if (!has_capability('lion/site:config', context_system::instance())) {
             // The requested section could depend on a different capability
             // but most likely the user has inadequate capabilities
             print_error('accessdenied', 'admin');
@@ -6678,10 +6664,10 @@ function admin_externalpage_setup($section, $extrabutton = '', array $extraurlpa
     if ($PAGE->user_allowed_editing()) {
         if ($PAGE->user_is_editing()) {
             $caption = get_string('blockseditoff');
-            $url = new moodle_url($PAGE->url, array('adminedit'=>'0', 'sesskey'=>sesskey()));
+            $url = new lion_url($PAGE->url, array('adminedit'=>'0', 'sesskey'=>sesskey()));
         } else {
             $caption = get_string('blocksediton');
-            $url = new moodle_url($PAGE->url, array('adminedit'=>'1', 'sesskey'=>sesskey()));
+            $url = new lion_url($PAGE->url, array('adminedit'=>'1', 'sesskey'=>sesskey()));
         }
         $PAGE->set_button($OUTPUT->single_button($url, $caption, 'get'));
     }
@@ -7243,12 +7229,12 @@ class admin_setting_managerepository extends admin_setting {
     }
 
     /**
-     * Helper function that generates a moodle_url object
+     * Helper function that generates a lion_url object
      * relevant to the repository
      */
 
     function repository_action_url($repository) {
-        return new moodle_url($this->baseurl, array('sesskey'=>sesskey(), 'repos'=>$repository));
+        return new lion_url($this->baseurl, array('sesskey'=>sesskey(), 'repos'=>$repository));
     }
 
     /**
@@ -7306,7 +7292,7 @@ class admin_setting_managerepository extends admin_setting {
                 $instanceoptionnames = repository::static_function($typename, 'get_instance_option_names');
 
                 if (!empty($typeoptionnames) || !empty($instanceoptionnames)) {
-                    // Calculate number of instances in order to display them for the Moodle administrator
+                    // Calculate number of instances in order to display them for the Lion administrator
                     if (!empty($instanceoptionnames)) {
                         $params = array();
                         $params['context'] = array(context_system::instance());
@@ -7515,7 +7501,7 @@ class admin_setting_enablemobileservice extends admin_setting_configcheckbox {
 
         require_once($CFG->dirroot . '/webservice/lib.php');
         $webservicemanager = new webservice();
-        $mobileservice = $webservicemanager->get_external_service_by_shortname(MOODLE_OFFICIAL_MOBILE_SERVICE);
+        $mobileservice = $webservicemanager->get_external_service_by_shortname(LION_OFFICIAL_MOBILE_SERVICE);
         if ($mobileservice->enabled and $this->is_protocol_cap_allowed()) {
             return $this->config_read($this->name); //same as returning 1
         } else {
@@ -7537,7 +7523,7 @@ class admin_setting_enablemobileservice extends admin_setting_configcheckbox {
             return '';
         }
 
-        $servicename = MOODLE_OFFICIAL_MOBILE_SERVICE;
+        $servicename = LION_OFFICIAL_MOBILE_SERVICE;
 
         require_once($CFG->dirroot . '/webservice/lib.php');
         $webservicemanager = new webservice();
@@ -7549,7 +7535,7 @@ class admin_setting_enablemobileservice extends admin_setting_configcheckbox {
              set_config('enablewebservices', true);
 
              //enable mobile service
-             $mobileservice = $webservicemanager->get_external_service_by_shortname(MOODLE_OFFICIAL_MOBILE_SERVICE);
+             $mobileservice = $webservicemanager->get_external_service_by_shortname(LION_OFFICIAL_MOBILE_SERVICE);
              $mobileservice->enabled = 1;
              $webservicemanager->update_external_service($mobileservice);
 
@@ -7577,7 +7563,7 @@ class admin_setting_enablemobileservice extends admin_setting_configcheckbox {
              //disable web service system if no other services are enabled
              $otherenabledservices = $DB->get_records_select('external_services',
                      'enabled = :enabled AND (shortname != :shortname OR shortname IS NULL)', array('enabled' => 1,
-                         'shortname' => MOODLE_OFFICIAL_MOBILE_SERVICE));
+                         'shortname' => LION_OFFICIAL_MOBILE_SERVICE));
              if (empty($otherenabledservices)) {
                  set_config('enablewebservices', false);
 
@@ -7604,7 +7590,7 @@ class admin_setting_enablemobileservice extends admin_setting_configcheckbox {
              }
 
              //disable the mobile service
-             $mobileservice = $webservicemanager->get_external_service_by_shortname(MOODLE_OFFICIAL_MOBILE_SERVICE);
+             $mobileservice = $webservicemanager->get_external_service_by_shortname(LION_OFFICIAL_MOBILE_SERVICE);
              $mobileservice->enabled = 0;
              $webservicemanager->update_external_service($mobileservice);
          }
@@ -7857,7 +7843,7 @@ class admin_setting_webservicesoverview extends admin_setting {
                 get_string('enablemobilewebservice', 'admin'),
                 get_string('configenablemobilewebservice',
                         'admin', ''), 0); //we don't want to display it but to know the ws mobile status
-        $manageserviceurl = new moodle_url("/admin/settings.php?section=mobile");
+        $manageserviceurl = new lion_url("/admin/settings.php?section=mobile");
         $wsmobileparam = new stdClass();
         $wsmobileparam->enablemobileservice = get_string('enablemobilewebservice', 'admin');
         $wsmobileparam->manageservicelink = html_writer::link($manageserviceurl,
@@ -7868,7 +7854,7 @@ class admin_setting_webservicesoverview extends admin_setting {
         $return .= $brtag . get_string('enablemobilewsoverview', 'webservice', $wsmobileparam)
                 . $brtag . $brtag;
 
-        /// One system controlling Moodle with Token
+        /// One system controlling Lion with Token
         $return .= $OUTPUT->heading(get_string('onesystemcontrolling', 'webservice'), 3, 'main');
         $table = new html_table();
         $table->head = array(get_string('step', 'webservice'), get_string('status'),
@@ -7883,7 +7869,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 1. Enable Web Services
         $row = array();
-        $url = new moodle_url("/admin/search.php?query=enablewebservices");
+        $url = new lion_url("/admin/search.php?query=enablewebservices");
         $row[0] = "1. " . html_writer::tag('a', get_string('enablews', 'webservice'),
                         array('href' => $url));
         $status = html_writer::tag('span', get_string('no'), array('class' => 'statuscritical'));
@@ -7896,7 +7882,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 2. Enable protocols
         $row = array();
-        $url = new moodle_url("/admin/settings.php?section=webserviceprotocols");
+        $url = new lion_url("/admin/settings.php?section=webserviceprotocols");
         $row[0] = "2. " . html_writer::tag('a', get_string('enableprotocols', 'webservice'),
                         array('href' => $url));
         $status = html_writer::tag('span', get_string('none'), array('class' => 'statuscritical'));
@@ -7915,7 +7901,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 3. Create user account
         $row = array();
-        $url = new moodle_url("/user/editadvanced.php?id=-1");
+        $url = new lion_url("/user/editadvanced.php?id=-1");
         $row[0] = "3. " . html_writer::tag('a', get_string('createuser', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -7924,7 +7910,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 4. Add capability to users
         $row = array();
-        $url = new moodle_url("/admin/roles/check.php?contextid=1");
+        $url = new lion_url("/admin/roles/check.php?contextid=1");
         $row[0] = "4. " . html_writer::tag('a', get_string('checkusercapability', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -7933,7 +7919,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 5. Select a web service
         $row = array();
-        $url = new moodle_url("/admin/settings.php?section=externalservices");
+        $url = new lion_url("/admin/settings.php?section=externalservices");
         $row[0] = "5. " . html_writer::tag('a', get_string('selectservice', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -7942,7 +7928,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 6. Add functions
         $row = array();
-        $url = new moodle_url("/admin/settings.php?section=externalservices");
+        $url = new lion_url("/admin/settings.php?section=externalservices");
         $row[0] = "6. " . html_writer::tag('a', get_string('addfunctions', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -7951,7 +7937,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 7. Add the specific user
         $row = array();
-        $url = new moodle_url("/admin/settings.php?section=externalservices");
+        $url = new lion_url("/admin/settings.php?section=externalservices");
         $row[0] = "7. " . html_writer::tag('a', get_string('selectspecificuser', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -7960,7 +7946,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 8. Create token for the specific user
         $row = array();
-        $url = new moodle_url("/admin/webservice/tokens.php?sesskey=" . sesskey() . "&action=create");
+        $url = new lion_url("/admin/webservice/tokens.php?sesskey=" . sesskey() . "&action=create");
         $row[0] = "8. " . html_writer::tag('a', get_string('createtokenforuser', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -7969,7 +7955,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 9. Enable the documentation
         $row = array();
-        $url = new moodle_url("/admin/search.php?query=enablewsdocumentation");
+        $url = new lion_url("/admin/search.php?query=enablewsdocumentation");
         $row[0] = "9. " . html_writer::tag('a', get_string('enabledocumentation', 'webservice'),
                         array('href' => $url));
         $status = '<span class="warning">' . get_string('no') . '</span>';
@@ -7982,7 +7968,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 10. Test the service
         $row = array();
-        $url = new moodle_url("/admin/webservice/testclient.php");
+        $url = new lion_url("/admin/webservice/testclient.php");
         $row[0] = "10. " . html_writer::tag('a', get_string('testwithtestclient', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -8007,7 +7993,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 1. Enable Web Services
         $row = array();
-        $url = new moodle_url("/admin/search.php?query=enablewebservices");
+        $url = new lion_url("/admin/search.php?query=enablewebservices");
         $row[0] = "1. " . html_writer::tag('a', get_string('enablews', 'webservice'),
                         array('href' => $url));
         $status = html_writer::tag('span', get_string('no'), array('class' => 'statuscritical'));
@@ -8020,7 +8006,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 2. Enable protocols
         $row = array();
-        $url = new moodle_url("/admin/settings.php?section=webserviceprotocols");
+        $url = new lion_url("/admin/settings.php?section=webserviceprotocols");
         $row[0] = "2. " . html_writer::tag('a', get_string('enableprotocols', 'webservice'),
                         array('href' => $url));
         $status = html_writer::tag('span', get_string('none'), array('class' => 'statuscritical'));
@@ -8040,7 +8026,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 3. Select a web service
         $row = array();
-        $url = new moodle_url("/admin/settings.php?section=externalservices");
+        $url = new lion_url("/admin/settings.php?section=externalservices");
         $row[0] = "3. " . html_writer::tag('a', get_string('selectservice', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -8049,7 +8035,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 4. Add functions
         $row = array();
-        $url = new moodle_url("/admin/settings.php?section=externalservices");
+        $url = new lion_url("/admin/settings.php?section=externalservices");
         $row[0] = "4. " . html_writer::tag('a', get_string('addfunctions', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -8058,7 +8044,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 5. Add capability to users
         $row = array();
-        $url = new moodle_url("/admin/roles/check.php?contextid=1");
+        $url = new lion_url("/admin/roles/check.php?contextid=1");
         $row[0] = "5. " . html_writer::tag('a', get_string('addcapabilitytousers', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -8067,7 +8053,7 @@ class admin_setting_webservicesoverview extends admin_setting {
 
         /// 6. Test the service
         $row = array();
-        $url = new moodle_url("/admin/webservice/testclient.php");
+        $url = new lion_url("/admin/webservice/testclient.php");
         $row[0] = "6. " . html_writer::tag('a', get_string('testwithtestclient', 'webservice'),
                         array('href' => $url));
         $row[1] = "";
@@ -8326,7 +8312,7 @@ class admin_setting_managewebservicetokens extends admin_setting {
                     $iprestriction = $token->iprestriction;
                 }
 
-                $userprofilurl = new moodle_url('/user/profile.php?id='.$token->userid);
+                $userprofilurl = new lion_url('/user/profile.php?id='.$token->userid);
                 $useratag = html_writer::start_tag('a', array('href' => $userprofilurl));
                 $useratag .= $token->firstname." ".$token->lastname;
                 $useratag .= html_writer::end_tag('a');
@@ -8503,7 +8489,7 @@ class admin_setting_configcolourpicker extends admin_setting {
     /**
      * Generates the HTML for the setting
      *
-     * @global moodle_page $PAGE
+     * @global lion_page $PAGE
      * @global core_renderer $OUTPUT
      * @param string $data
      * @param string $query
@@ -8512,7 +8498,7 @@ class admin_setting_configcolourpicker extends admin_setting {
         global $PAGE, $OUTPUT;
         $PAGE->requires->js_init_call('M.util.init_colour_picker', array($this->get_id(), $this->previewconfig));
         $content  = html_writer::start_tag('div', array('class'=>'form-colourpicker defaultsnext'));
-        $content .= html_writer::tag('div', $OUTPUT->pix_icon('i/loading', get_string('loading', 'admin'), 'moodle', array('class'=>'loadingicon')), array('class'=>'admin_colourpicker clearfix'));
+        $content .= html_writer::tag('div', $OUTPUT->pix_icon('i/loading', get_string('loading', 'admin'), 'lion', array('class'=>'loadingicon')), array('class'=>'admin_colourpicker clearfix'));
         $content .= html_writer::empty_tag('input', array('type'=>'text','id'=>$this->get_id(), 'name'=>$this->get_full_name(), 'value'=>$data, 'size'=>'12'));
         if (!empty($this->previewconfig)) {
             $content .= html_writer::empty_tag('input', array('type'=>'button','id'=>$this->get_id().'_preview', 'value'=>get_string('preview'), 'class'=>'admin_colourpicker_preview'));
@@ -8947,7 +8933,7 @@ class admin_setting_configmultiselect_modules extends admin_setting_configmultis
  * Admin setting to show if a php extension is enabled or not.
  *
  * @copyright 2013 Damyon Wiese
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_php_extension_enabled extends admin_setting {
 

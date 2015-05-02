@@ -1,34 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * More object oriented wrappers around parts of the Moodle question bank.
+ * More object oriented wrappers around parts of the Lion question bank.
  *
  * In due course, I expect that the question bank will be converted to a
  * fully object oriented structure, at which point this file can be a
  * starting point.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionbank
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(dirname(__FILE__) . '/../type/questiontypebase.php');
 
@@ -39,7 +25,7 @@ require_once(dirname(__FILE__) . '/../type/questiontypebase.php');
  * It provides functions for managing question types and question definitions.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_bank {
     // TODO: This limit can be deleted if someday we move all TEXTS to BIG ones. MDL-19603
@@ -70,7 +56,7 @@ abstract class question_bank {
 
     /**
      * @param string $qtypename a question type name, e.g. 'multichoice'.
-     * @return bool whether that question type is installed in this Moodle.
+     * @return bool whether that question type is installed in this Lion.
      */
     public static function is_qtype_installed($qtypename) {
         $plugindir = core_component::get_plugin_directory('qtype', $qtypename);
@@ -154,7 +140,7 @@ abstract class question_bank {
                 $qtypes[$plugin] = self::get_qtype($plugin);
             } catch (coding_exception $e) {
                 // Catching coding_exceptions here means that incompatible
-                // question types do not cause the rest of Moodle to break.
+                // question types do not cause the rest of Lion to break.
             }
         }
         return $qtypes;
@@ -433,7 +419,7 @@ abstract class question_bank {
  * Class for loading questions according to various criteria.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_finder implements cache_data_source {
     /** @var question_finder the singleton instance of this class. */

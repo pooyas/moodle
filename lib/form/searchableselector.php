@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * searchable select type element
@@ -21,7 +7,7 @@
  *
  * @package   core_form
  * @copyright 2009 Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once('select.php');
@@ -38,9 +24,9 @@ require_once('select.php');
  * @package   core_form
  * @category  form
  * @copyright 2009 Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_searchableselector extends MoodleQuickForm_select{
+class LionQuickForm_searchableselector extends LionQuickForm_select{
     /**
      * Constructor
      *
@@ -49,12 +35,12 @@ class MoodleQuickForm_searchableselector extends MoodleQuickForm_select{
      * @param array $options additional options.
      * @param mixed $attributes Either a typical HTML attribute string or an associative array
      */
-    function MoodleQuickForm_searchableselector($elementName=null, $elementLabel=null, $options=null, $attributes=null) {
+    function LionQuickForm_searchableselector($elementName=null, $elementLabel=null, $options=null, $attributes=null) {
         //set size default to 12
         if (empty($attributes) || empty($attributes['size'])) {
             $attributes['size'] = 12;
         }
-        parent::MoodleQuickForm_select($elementName, $elementLabel, $options, $attributes);
+        parent::LionQuickForm_select($elementName, $elementLabel, $options, $attributes);
     }
 
     /**

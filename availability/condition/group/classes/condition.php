@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Condition main class.
@@ -24,7 +10,7 @@
 
 namespace availability_group;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Condition main class.
@@ -69,7 +55,7 @@ class condition extends \core_availability\condition {
         $course = $info->get_course();
         $context = \context_course::instance($course->id);
         $allow = true;
-        if (!has_capability('moodle/site:accessallgroups', $context, $userid)) {
+        if (!has_capability('lion/site:accessallgroups', $context, $userid)) {
             // Get all groups the user belongs to.
             $groups = $info->get_modinfo()->get_groups();
             if ($this->groupid) {
@@ -214,7 +200,7 @@ class condition extends \core_availability\condition {
         }
 
         // List users who have access all groups.
-        $aagusers = $checker->get_users_by_capability('moodle/site:accessallgroups');
+        $aagusers = $checker->get_users_by_capability('lion/site:accessallgroups');
 
         // Filter the user list.
         $result = array();
@@ -254,7 +240,7 @@ class condition extends \core_availability\condition {
 
         // Get enrolled users with access all groups. These always are allowed.
         list($aagsql, $aagparams) = get_enrolled_sql(
-                $info->get_context(), 'moodle/site:accessallgroups', 0, $onlyactive);
+                $info->get_context(), 'lion/site:accessallgroups', 0, $onlyactive);
 
         // Get all enrolled users.
         list ($enrolsql, $enrolparams) =

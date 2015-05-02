@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Test factory for lib/outputfactories.php.
@@ -20,10 +6,10 @@
  * @package   core
  * @category  phpunit
  * @copyright 2014 Damyon Wiese
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/outputfactories.php');
@@ -49,7 +35,7 @@ class test_output_factory extends renderer_factory_base {
     /**
      * Not used - we want to test the autoloaded class locations - even if there are no classes yet.
      */
-    public function get_renderer(moodle_page $page, $component, $subtype = null, $target = null) {
+    public function get_renderer(lion_page $page, $component, $subtype = null, $target = null) {
         throw new coding_exception('Do not call this function, this class is for testing only.');
     }
 

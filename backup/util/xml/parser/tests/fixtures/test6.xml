@@ -1,5 +1,5 @@
 <test>
-  <MOODLE_BACKUP>
+  <LION_BACKUP>
     <COURSE>
       <FORMATDATA>
         <WEEKS>
@@ -37,8 +37,8 @@
         </SUBS>
       </SECONDGROUPED>
     </COURSE>
-  </MOODLE_BACKUP>
-  <moodle2>
+  </LION_BACKUP>
+  <lion2>
     <grouped id="this is not parsed at the moment because there are no final elements">
       <subs>
         <sub id="34">
@@ -50,11 +50,11 @@
       <prop>Go baby go</prop>
       <subs>
         <sub id="89">
-          <prop>http://moodle.org</prop>
+          <prop>http://lion.org</prop>
         </sub>
       </subs>
     </groupednonemptywithattr>
     <groupedemptywithattr attr="ay?">
     </groupedemptywithattr>
-  </moodle2>
+  </lion2>
 </test>

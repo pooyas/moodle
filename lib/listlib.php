@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Classes for displaying and editing a nested list of items.
@@ -28,10 +14,10 @@
  * @package    core
  * @subpackage lib
  * @copyright  Jamie Pratt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Clues to reading this code:
@@ -40,11 +26,11 @@ defined('MOODLE_INTERNAL') || die();
  * database - they don't update the in-memory structure, instead they trigger a
  * page reload so everything is rebuilt from scratch.
  *
- * @package moodlecore
+ * @package lioncore
  * @copyright Jamie Pratt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-abstract class moodle_list {
+abstract class lion_list {
     public $attributes;
     public $listitemclassname = 'list_item';
 
@@ -85,7 +71,7 @@ abstract class moodle_list {
      * @param string $type
      * @param string $attributes
      * @param boolean $editable
-     * @param moodle_url $pageurl url for this page
+     * @param lion_url $pageurl url for this page
      * @param integer $page if 0 no pagination. (These three params only used in top level list.)
      * @param string $pageparamname name of url param that is used for passing page no
      * @param integer $itemsperpage no of top level items.
@@ -100,7 +86,7 @@ abstract class moodle_list {
         $this->pageparamname = $pageparamname;
         $this->itemsperpage = $itemsperpage;
         if ($pageurl === null) {
-            $this->pageurl = new moodle_url($PAGE->url);
+            $this->pageurl = new lion_url($PAGE->url);
             $this->pageurl->params(array($this->pageparamname => $this->page));
         } else {
             $this->pageurl = $pageurl;
@@ -458,9 +444,9 @@ abstract class moodle_list {
 }
 
 /**
- * @package moodlecore
+ * @package lioncore
  * @copyright Jamie Pratt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class list_item {
     /** @var integer id of record, used if list is editable. */
@@ -476,10 +462,10 @@ abstract class list_item {
     public $display;
     public $icons = array();
 
-    /** @var moodle_list */
+    /** @var lion_list */
     public $parentlist;
 
-    /** @var moodle_list Set if there are any children of this listitem. */
+    /** @var lion_list Set if there are any children of this listitem. */
     public $children;
 
     /**
@@ -563,21 +549,21 @@ abstract class list_item {
             } else {
                 $action = $strmoveleft;
             }
-            $url = new moodle_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'left'=>$this->id)));
+            $url = new lion_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'left'=>$this->id)));
             $this->icons['left'] = $this->image_icon($action, $url, $leftarrow);
         } else {
             $this->icons['left'] =  $this->image_spacer();
         }
 
         if (!$first) {
-            $url = new moodle_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'moveup'=>$this->id)));
+            $url = new lion_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'moveup'=>$this->id)));
             $this->icons['up'] = $this->image_icon($strmoveup, $url, 'up');
         } else {
             $this->icons['up'] =  $this->image_spacer();
         }
 
         if (!$last) {
-            $url = new moodle_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'movedown'=>$this->id)));
+            $url = new lion_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'movedown'=>$this->id)));
             $this->icons['down'] = $this->image_icon($strmovedown, $url, 'down');
         } else {
             $this->icons['down'] =  $this->image_spacer();
@@ -585,7 +571,7 @@ abstract class list_item {
 
         if (!empty($lastitem)) {
             $makechildof = get_string('makechildof', 'question', $lastitem->name);
-            $url = new moodle_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'right'=>$this->id)));
+            $url = new lion_url($this->parentlist->pageurl, (array('sesskey'=>sesskey(), 'right'=>$this->id)));
             $this->icons['right'] = $this->image_icon($makechildof, $url, $rightarrow);
         } else {
             $this->icons['right'] =  $this->image_spacer();
@@ -604,7 +590,7 @@ abstract class list_item {
     }
 
     /**
-     * Recurse down tree creating list_items, called from moodle_list::list_from_records
+     * Recurse down tree creating list_items, called from lion_list::list_from_records
      *
      * @param array $records
      * @param array $children

@@ -9,7 +9,7 @@ $newstate = optional_param('newstate', 1, PARAM_BOOL);
 $mode = optional_param('mode', 'approval', PARAM_ALPHA);
 $hook = optional_param('hook', 'ALL', PARAM_CLEAN);
 
-$url = new moodle_url('/mod/glossary/approve.php', array('eid' => $eid, 'mode' => $mode, 'hook' => $hook, 'newstate' => $newstate));
+$url = new lion_url('/mod/glossary/approve.php', array('eid' => $eid, 'mode' => $mode, 'hook' => $hook, 'newstate' => $newstate));
 $PAGE->set_url($url);
 
 $entry = $DB->get_record('glossary_entries', array('id'=> $eid), '*', MUST_EXIST);

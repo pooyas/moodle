@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Events tests.
  *
  * @package core_tag
  * @category test
- * @copyright 2014 Mark Nelson <markn@moodle.com>
+ * @copyright 2014 Mark Nelson <markn@lion.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -87,7 +73,7 @@ class core_tag_events_testcase extends advanced_testcase {
 
         // Trigger and capture the event for setting the description of a tag.
         $sink = $this->redirectEvents();
-        tag_description_set($tag->id, 'description', FORMAT_MOODLE);
+        tag_description_set($tag->id, 'description', FORMAT_LION);
         $events = $sink->get_events();
         $event = reset($events);
 

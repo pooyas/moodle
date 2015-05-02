@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for those parts of adminlib.php that implement the admin tree
@@ -20,11 +6,11 @@
  *
  * @package     core
  * @category    phpunit
- * @copyright   2013 David Mudrak <david@moodle.com>
+ * @copyright   2013 David Mudrak <david@lion.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir.'/adminlib.php');
@@ -100,7 +86,7 @@ class core_admintree_testcase extends advanced_testcase {
      */
     public function test_add_nodes_before_invalid1() {
         $tree = new admin_root(true);
-        $tree->add('root', new admin_externalpage('foo', 'Foo', 'http://foo.bar'), array('moodle:site/config'));
+        $tree->add('root', new admin_externalpage('foo', 'Foo', 'http://foo.bar'), array('lion:site/config'));
     }
 
     /**
@@ -129,7 +115,7 @@ class core_admintree_testcase extends advanced_testcase {
         $this->assertRegexp('/class="patherror"/', $result);
 
         // Check for a file which is not executable.
-        $result = $executable->output_html($CFG->dirroot . '/filter/tex/readme_moodle.txt');
+        $result = $executable->output_html($CFG->dirroot . '/filter/tex/readme_lion.txt');
         $this->assertRegexp('/class="patherror"/', $result);
 
         // Check for an executable file.

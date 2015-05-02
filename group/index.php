@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
  * The main group management user interface.
  *
  * @copyright 2006 The Open University, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package   core_group
  */
 require_once('../config.php');
@@ -44,7 +30,7 @@ $returnurl = $CFG->wwwroot.'/group/index.php?id='.$courseid;
 
 $course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
 
-$url = new moodle_url('/group/index.php', array('id'=>$courseid));
+$url = new lion_url('/group/index.php', array('id'=>$courseid));
 if ($userid) {
     $url->param('user', $userid);
 }
@@ -57,7 +43,7 @@ $PAGE->set_url($url);
 require_login($course);
 
 $context = context_course::instance($course->id);
-require_capability('moodle/course:managegroups', $context);
+require_capability('lion/course:managegroups', $context);
 
 $PAGE->requires->js('/group/clientlib.js');
 
@@ -100,23 +86,23 @@ switch ($action) {
             print_error('errorselectsome','group',$returnurl);
         }
         $groupidlist = implode(',', $groupids);
-        redirect(new moodle_url('/group/delete.php', array('courseid'=>$courseid, 'groups'=>$groupidlist)));
+        redirect(new lion_url('/group/delete.php', array('courseid'=>$courseid, 'groups'=>$groupidlist)));
         break;
 
     case 'showcreateorphangroupform':
-        redirect(new moodle_url('/group/group.php', array('courseid'=>$courseid)));
+        redirect(new lion_url('/group/group.php', array('courseid'=>$courseid)));
         break;
 
     case 'showautocreategroupsform':
-        redirect(new moodle_url('/group/autogroup.php', array('courseid'=>$courseid)));
+        redirect(new lion_url('/group/autogroup.php', array('courseid'=>$courseid)));
         break;
 
     case 'showimportgroups':
-        redirect(new moodle_url('/group/import.php', array('id'=>$courseid)));
+        redirect(new lion_url('/group/import.php', array('id'=>$courseid)));
         break;
 
     case 'showgroupsettingsform':
-        redirect(new moodle_url('/group/group.php', array('courseid'=>$courseid, 'id'=>$groupids[0])));
+        redirect(new lion_url('/group/group.php', array('courseid'=>$courseid, 'id'=>$groupids[0])));
         break;
 
     case 'updategroups': //Currently reloading.
@@ -126,7 +112,7 @@ switch ($action) {
         break;
 
     case 'showaddmembersform':
-        redirect(new moodle_url('/group/members.php', array('group'=>$groupids[0])));
+        redirect(new lion_url('/group/members.php', array('group'=>$groupids[0])));
         break;
 
     case 'updatemembers': //Currently reloading.
@@ -190,7 +176,7 @@ if ($groups) {
                 $selectedname = $groupname;
             }
         }
-        if (!empty($group->idnumber) && !has_capability('moodle/course:changeidnumber', $context)) {
+        if (!empty($group->idnumber) && !has_capability('lion/course:changeidnumber', $context)) {
             $preventgroupremoval[$group->id] = true;
         }
 
@@ -268,7 +254,7 @@ echo $OUTPUT->footer();
 /**
  * Returns the first button action with the given prefix, taken from
  * POST or GET, otherwise returns false.
- * @see /lib/moodlelib.php function optional_param().
+ * @see /lib/lionlib.php function optional_param().
  * @param string $prefix 'act_' as in 'action'.
  * @return string The action without the prefix, or false if no action found.
  */

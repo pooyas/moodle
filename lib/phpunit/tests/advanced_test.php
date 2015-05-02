@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * PHPUnit integration tests
@@ -20,10 +6,10 @@
  * @package    core
  * @category   phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -32,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package    core
  * @category   phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_phpunit_advanced_testcase extends advanced_testcase {
 
@@ -286,7 +272,7 @@ class core_phpunit_advanced_testcase extends advanced_testcase {
         try {
             $DB->get_record('pokus', array());
             $this->fail('Exception expected when accessing non existent table');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_exception', $e);
         }
         $DB = $this->getMock(get_class($DB));
@@ -408,7 +394,7 @@ class core_phpunit_advanced_testcase extends advanced_testcase {
 
         // Any core message will do here.
         $message1 = new stdClass();
-        $message1->component         = 'moodle';
+        $message1->component         = 'lion';
         $message1->name              = 'instantmessage';
         $message1->userfrom          = $user1;
         $message1->userto            = $user2;
@@ -420,7 +406,7 @@ class core_phpunit_advanced_testcase extends advanced_testcase {
         $message1->notification      = 0;
 
         $message2 = new stdClass();
-        $message2->component         = 'moodle';
+        $message2->component         = 'lion';
         $message2->name              = 'instantmessage';
         $message2->userfrom          = $user2;
         $message2->userto            = $user1;
@@ -499,16 +485,16 @@ class core_phpunit_advanced_testcase extends advanced_testcase {
         try {
             message_send($message3);
             $this->fail('coding expcetion expected if invalid component specified');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
-        $message3->component = 'moodle';
+        $message3->component = 'lion';
         $message3->name      = 'yyyyyy';
         try {
             message_send($message3);
             $this->fail('coding expcetion expected if invalid name specified');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
@@ -531,7 +517,7 @@ class core_phpunit_advanced_testcase extends advanced_testcase {
         $this->assertEquals(1, $sink->count());
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = get_admin();
         $message->userto            = get_admin();

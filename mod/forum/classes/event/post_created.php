@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The mod_forum post created event.
  *
  * @package    mod_forum
- * @copyright  2014 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * 
  */
 
 namespace mod_forum\event;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The mod_forum post created event class.
@@ -38,9 +24,9 @@ defined('MOODLE_INTERNAL') || die();
  * }
  *
  * @package    mod_forum
- * @since      Moodle 2.7
- * @copyright  2014 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @since      Lion 2.7
+ * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * 
  */
 class post_created extends \core\event\base {
     /**
@@ -76,16 +62,16 @@ class post_created extends \core\event\base {
     /**
      * Get URL related to the action
      *
-     * @return \moodle_url
+     * @return \lion_url
      */
     public function get_url() {
         if ($this->other['forumtype'] == 'single') {
             // Single discussion forums are an exception. We show
             // the forum itself since it only has one discussion
             // thread.
-            $url = new \moodle_url('/mod/forum/view.php', array('f' => $this->other['forumid']));
+            $url = new \lion_url('/mod/forum/view.php', array('f' => $this->other['forumid']));
         } else {
-            $url = new \moodle_url('/mod/forum/discuss.php', array('d' => $this->other['discussionid']));
+            $url = new \lion_url('/mod/forum/discuss.php', array('d' => $this->other['discussionid']));
         }
         $url->set_anchor('p'.$this->objectid);
         return $url;

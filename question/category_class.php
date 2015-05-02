@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * A class for representing question categories.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // number of categories to display on page
 define('QUESTION_PAGE_LENGTH', 25);
@@ -37,10 +23,10 @@ require_once($CFG->dirroot . '/question/move_form.php');
 /**
  * Class representing a list of question categories
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
-class question_category_list extends moodle_list {
+class question_category_list extends lion_list {
     public $table = "question_categories";
     public $listitemclassname = 'question_category_list_item';
     /**
@@ -69,24 +55,24 @@ class question_category_list extends moodle_list {
 /**
  * An item in a list of question categories.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
 class question_category_list_item extends list_item {
     public function set_icon_html($first, $last, $lastitem){
         global $CFG;
         $category = $this->item;
-        $url = new moodle_url('/question/category.php', ($this->parentlist->pageurl->params() + array('edit'=>$category->id)));
+        $url = new lion_url('/question/category.php', ($this->parentlist->pageurl->params() + array('edit'=>$category->id)));
         $this->icons['edit']= $this->image_icon(get_string('editthiscategory', 'question'), $url, 'edit');
         parent::set_icon_html($first, $last, $lastitem);
         $toplevel = ($this->parentlist->parentitem === null);//this is a top level item
         if (($this->parentlist->nextlist !== null) && $last && $toplevel && (count($this->parentlist->items)>1)){
-            $url = new moodle_url($this->parentlist->pageurl, array('movedowncontext'=>$this->id, 'tocontext'=>$this->parentlist->nextlist->context->id, 'sesskey'=>sesskey()));
+            $url = new lion_url($this->parentlist->pageurl, array('movedowncontext'=>$this->id, 'tocontext'=>$this->parentlist->nextlist->context->id, 'sesskey'=>sesskey()));
             $this->icons['down'] = $this->image_icon(
                 get_string('shareincontext', 'question', $this->parentlist->nextlist->context->get_context_name()), $url, 'down');
         }
         if (($this->parentlist->lastlist !== null) && $first && $toplevel && (count($this->parentlist->items)>1)){
-            $url = new moodle_url($this->parentlist->pageurl, array('moveupcontext'=>$this->id, 'tocontext'=>$this->parentlist->lastlist->context->id, 'sesskey'=>sesskey()));
+            $url = new lion_url($this->parentlist->pageurl, array('moveupcontext'=>$this->id, 'tocontext'=>$this->parentlist->lastlist->context->id, 'sesskey'=>sesskey()));
             $this->icons['up'] = $this->image_icon(
                 get_string('shareincontext', 'question', $this->parentlist->lastlist->context->get_context_name()), $url, 'up');
         }
@@ -100,9 +86,9 @@ class question_category_list_item extends list_item {
         $editqestions = get_string('editquestions', 'question');
 
         // Each section adds html to be displayed as part of this list item.
-        $questionbankurl = new moodle_url('/question/edit.php', $this->parentlist->pageurl->params());
+        $questionbankurl = new lion_url('/question/edit.php', $this->parentlist->pageurl->params());
         $questionbankurl->param('cat', $category->id . ',' . $category->contextid);
-        $catediturl = new moodle_url($this->parentlist->pageurl, array('edit' => $this->id));
+        $catediturl = new lion_url($this->parentlist->pageurl, array('edit' => $this->id));
         $item = '';
         $item .= html_writer::tag('b', html_writer::link($catediturl,
                 format_string($category->name, true, array('context' => $this->parentlist->context)),
@@ -114,7 +100,7 @@ class question_category_list_item extends list_item {
 
         // don't allow delete if this is the last category in this context.
         if (!question_is_only_toplevel_category_in_context($category->id)) {
-            $deleteurl = new moodle_url($this->parentlist->pageurl, array('delete' => $this->id, 'sesskey' => sesskey()));
+            $deleteurl = new lion_url($this->parentlist->pageurl, array('delete' => $this->id, 'sesskey' => sesskey()));
             $item .= html_writer::link($deleteurl,
                     html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('t/delete'),
                             'class' => 'iconsmall', 'alt' => $str->delete)),
@@ -129,8 +115,8 @@ class question_category_list_item extends list_item {
 /**
  * Class representing q question category
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
 class question_category_object {
 
@@ -148,7 +134,7 @@ class question_category_object {
     public $tabsize = 3;
 
     /**
-     * @var moodle_url Object representing url for this page
+     * @var lion_url Object representing url for this page
      */
     public $pageurl;
 
@@ -386,8 +372,8 @@ class question_category_object {
             print_error('categorynamecantbeblank', 'question');
         }
         list($parentid, $contextid) = explode(',', $newparent);
-        //moodle_form makes sure select element output is legal no need for further cleaning
-        require_capability('moodle/question:managecategory', context::instance_by_id($contextid));
+        //lion_form makes sure select element output is legal no need for further cleaning
+        require_capability('lion/question:managecategory', context::instance_by_id($contextid));
 
         if ($parentid) {
             if(!($DB->get_field('question_categories', 'contextid', array('id' => $parentid)) == $contextid)) {
@@ -442,12 +428,12 @@ class question_category_object {
 
         // Check permissions.
         $fromcontext = context::instance_by_id($oldcat->contextid);
-        require_capability('moodle/question:managecategory', $fromcontext);
+        require_capability('lion/question:managecategory', $fromcontext);
 
         // If moving to another context, check permissions some more.
         if ($oldcat->contextid != $tocontextid) {
             $tocontext = context::instance_by_id($tocontextid);
-            require_capability('moodle/question:managecategory', $tocontext);
+            require_capability('lion/question:managecategory', $tocontext);
         }
 
         // Update the category record.

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This class represent the base generator class where all the needed functions to generate proper SQL are defined.
@@ -23,10 +9,10 @@
  * @package    core_ddl
  * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Abstract sql generator class, base for all db specific implementations.
@@ -34,7 +20,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package    core_ddl
  * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class sql_generator {
 
@@ -166,7 +152,7 @@ abstract class sql_generator {
     /** @var string List of reserved words (in order to quote them properly).*/
     public $reserved_words;
 
-    /** @var moodle_database The moodle_database instance.*/
+    /** @var lion_database The lion_database instance.*/
     public $mdb;
 
     /** @var Control existing temptables.*/
@@ -174,8 +160,8 @@ abstract class sql_generator {
 
     /**
      * Creates a new sql_generator.
-     * @param moodle_database $mdb The moodle_database object instance.
-     * @param moodle_temptables $temptables The optional moodle_temptables instance, null by default.
+     * @param lion_database $mdb The lion_database object instance.
+     * @param lion_temptables $temptables The optional lion_temptables instance, null by default.
      */
     public function __construct($mdb, $temptables = null) {
         $this->prefix         = $mdb->get_prefix();
@@ -226,7 +212,7 @@ abstract class sql_generator {
             $tablename = $table->getName();
         }
 
-        // get all tables in moodle database
+        // get all tables in lion database
         $tables = $this->mdb->get_tables();
         $exists = in_array($tablename, $tables);
 
@@ -482,7 +468,7 @@ abstract class sql_generator {
             // The type and length
             $field .= ' ' . $this->getTypeSQL($xmldb_field->getType(), $xmldb_field->getLength(), $xmldb_field->getDecimals());
         }
-        // note: unsigned is not supported any more since moodle 2.3, all numbers are signed
+        // note: unsigned is not supported any more since lion 2.3, all numbers are signed
         // Calculate the not null clause
         $notnull = '';
         // Only if we don't want to skip it
@@ -1075,7 +1061,7 @@ abstract class sql_generator {
         // to known which ones have been used
         static $used_names = array();
 
-        // Use standard naming. See http://docs.moodle.org/en/XMLDB_key_and_index_naming
+        // Use standard naming. See http://docs.lion.org/en/XMLDB_key_and_index_naming
         $tablearr = explode ('_', $tablename);
         foreach ($tablearr as $table) {
             $name .= substr(trim($table),0,4);
@@ -1196,8 +1182,8 @@ abstract class sql_generator {
      * MySQL's CONCAT function will be used instead.
      *
      * @param array $elements An array of elements to concatenate.
-     * @return mixed Returns the result of moodle_database::sql_concat() or false.
-     * @uses moodle_database::sql_concat()
+     * @return mixed Returns the result of lion_database::sql_concat() or false.
+     * @uses lion_database::sql_concat()
      * @uses call_user_func_array()
      */
     public function getConcatSQL($elements) {
@@ -1336,7 +1322,7 @@ abstract class sql_generator {
      * @param xmldb_field $xmldb_field The xmldb_field object instance.
      * @return array Array of SQL statements to create a field's default.
      *
-     * @todo MDL-31147 Moodle 2.1 - Drop getDropDefaultSQL()
+     * @todo MDL-31147 Lion 2.1 - Drop getDropDefaultSQL()
      */
     public abstract function getDropDefaultSQL($xmldb_table, $xmldb_field);
 

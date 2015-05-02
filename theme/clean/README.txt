@@ -4,14 +4,14 @@
 
 This document describes how to copy and customise the Clean (bootstrapbase) theme so that
 you can build on this to create a theme of your own. It assumes you have some
-understanding of how themes work within Moodle 2.5, as well as a basic understanding
+understanding of how themes work within Lion 2.5, as well as a basic understanding
 of HTML and CSS.
 
 Getting started
 ---------------
 
-From your Moodle theme directory right click on clean and then copy and paste back
-into your Moodle theme directory. You should now have a folder called Copy of clean.
+From your Lion theme directory right click on clean and then copy and paste back
+into your Lion theme directory. You should now have a folder called Copy of clean.
 If you right click this folder you are given the option to Rename it. So rename this
 folder to your chosen theme name, using only lower case letters, and if needed,
 underscores. For the purpose of this tutorial we will call the theme 'cleantheme'.
@@ -53,7 +53,7 @@ version.php
     Layout file for a three column layout (side-pre, content and side-post) and the front page.
     (Contains some elements that require renaming).
 /layout/embedded.php
-    Embedded layout file for embeded pages, like iframe/object embeded in moodleform.
+    Embedded layout file for embeded pages, like iframe/object embeded in lionform.
     (Contains some elements that require renaming).
 /layout/maintenance.php
     Maintenance layout file which does not have any blocks, links, or API calls that would lead to database or cache interaction.
@@ -82,7 +82,7 @@ Installing your theme
 ---------------------
 
 Once all the changes to the name have been made, you can safely install the theme.
-If you are already logged in just refreshing the browser should trigger your Moodle
+If you are already logged in just refreshing the browser should trigger your Lion
 site to begin the install 'Plugins Check'.
 
 If not then navigate to Administration > Notifications.
@@ -100,7 +100,7 @@ The settings page for the Clean theme can be located by navigating to:
 
 Administration > Site Administration > Appearance > Themes > Clean
 
-Moodle documentation
+Lion documentation
 --------------------
 
-Further information can be found on Moodle Docs: http://docs.moodle.org/dev/Clean_theme
+Further information can be found on Lion Docs: http://docs.lion.org/dev/Clean_theme

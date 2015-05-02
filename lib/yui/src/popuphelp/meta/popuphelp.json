@@ -1,7 +1,7 @@
 {
-  "moodle-core-popuphelp": {
+  "lion-core-popuphelp": {
     "requires": [
-        "moodle-core-tooltip"
+        "lion-core-tooltip"
     ]
   }
 }

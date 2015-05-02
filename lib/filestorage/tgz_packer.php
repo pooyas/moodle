@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Implementation of .tar.gz packer.
@@ -35,7 +21,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("$CFG->libdir/filestorage/file_packer.php");
 require_once("$CFG->libdir/filestorage/tgz_extractor.php");
@@ -55,14 +41,14 @@ class tgz_packer extends file_packer {
     const DEFAULT_TIMESTAMP = 1356998400;
 
     /**
-     * @var string Name of special archive index file added by Moodle.
+     * @var string Name of special archive index file added by Lion.
      */
     const ARCHIVE_INDEX_FILE = '.ARCHIVE_INDEX';
 
     /**
      * @var string Required text at start of archive index file before file count.
      */
-    const ARCHIVE_INDEX_COUNT_PREFIX = 'Moodle archive file index. Count: ';
+    const ARCHIVE_INDEX_COUNT_PREFIX = 'Lion archive file index. Count: ';
 
     /**
      * @var bool If true, includes .ARCHIVE_INDEX file in root of tar file.
@@ -636,7 +622,7 @@ class tgz_packer extends file_packer {
      * @param array $onlyfiles only extract files present in the array
      * @param file_progress $progress Progress indicator callback or null if not required
      * @return array list of processed files (name=>true)
-     * @throws moodle_exception If error
+     * @throws lion_exception If error
      */
     public function extract_to_pathname($archivefile, $pathname,
             array $onlyfiles = null, file_progress $progress = null) {
@@ -657,7 +643,7 @@ class tgz_packer extends file_packer {
      * @param int $userid user ID
      * @param file_progress $progress Progress indicator callback or null if not required
      * @return array list of processed files (name=>true)
-     * @throws moodle_exception If error
+     * @throws lion_exception If error
      */
     public function extract_to_storage($archivefile, $contextid,
             $component, $filearea, $itemid, $pathbase, $userid = null,

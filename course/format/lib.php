@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Base class for course format plugins
  *
  * @package    core_course
  * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Returns an instance of format class (extending format_base) for given course
@@ -52,13 +38,13 @@ function course_get_format($courseorid) {
  * Also course formats may extend class section_info and overwrite
  * format_base::build_section_cache() to return more information about sections.
  *
- * If you are upgrading from Moodle 2.3 start with copying the class format_legacy and renaming
+ * If you are upgrading from Lion 2.3 start with copying the class format_legacy and renaming
  * it to format_FORMATNAME, then move the code from your callback functions into
  * appropriate functions of the class.
  *
  * @package    core_course
  * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class format_base {
     /** @var int Id of the course in this instance (maybe 0) */
@@ -115,7 +101,7 @@ abstract class format_base {
         }
 
         // Else return default format
-        $defaultformat = get_config('moodlecourse', 'format');
+        $defaultformat = get_config('lioncourse', 'format');
         if (!in_array($defaultformat, $plugins)) {
             // when default format is not set correctly, use the first available format
             $defaultformat = reset($plugins);
@@ -274,7 +260,7 @@ abstract class format_base {
      * So if 'Return to course' does not make sense in your format your should probably return false.
      *
      * @return boolean
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     public function has_view_page() {
         return true;
@@ -333,7 +319,7 @@ abstract class format_base {
             return $sections[$sectionnum];
         }
         if ($strictness == MUST_EXIST) {
-            throw new moodle_exception('sectionnotexist');
+            throw new lion_exception('sectionnotexist');
         }
         return null;
     }
@@ -357,7 +343,7 @@ abstract class format_base {
      * Returns the information about the ajax support in the given source format
      *
      * The returned object's property (boolean)capable indicates that
-     * the course format supports Moodle course ajax features.
+     * the course format supports Lion course ajax features.
      *
      * @return stdClass
      */
@@ -392,12 +378,12 @@ abstract class format_base {
      * @param array $options options for view URL. At the moment core uses:
      *     'navigation' (bool) if true and section has no separate page, the function returns null
      *     'sr' (int) used by multipage formats to specify to which section to return
-     * @return null|moodle_url
+     * @return null|lion_url
      */
     public function get_view_url($section, $options = array()) {
         global $CFG;
         $course = $this->get_course();
-        $url = new moodle_url('/course/view.php', array('id' => $course->id));
+        $url = new lion_url('/course/view.php', array('id' => $course->id));
 
         if (array_key_exists('sr', $options)) {
             $sectionno = $options['sr'];
@@ -503,7 +489,7 @@ abstract class format_base {
      * 'label' - localised human-readable label for the edit form
      * 'element_type' - type of the form element, default 'text'
      * 'element_attributes' - additional attributes for the form element, these are 4th and further
-     *    arguments in the moodleform::addElement() method
+     *    arguments in the lionform::addElement() method
      * 'help' - string for help button. Note that if 'help' value is 'myoption' then the string with
      *    the name 'myoption_help' must exist in the language file
      * 'help_component' - language component to look for help string, by default this the component
@@ -632,7 +618,7 @@ abstract class format_base {
      *
      * This function is called from {@link course_edit_form::definition_after_data()}
      *
-     * @param MoodleQuickForm $mform form the elements are added to
+     * @param LionQuickForm $mform form the elements are added to
      * @param bool $forsection 'true' if this is a section edit form, 'false' if this is course edit form
      * @return array array of references to the added form elements
      */
@@ -688,7 +674,7 @@ abstract class format_base {
      *
      * If $data does not contain property with the option name, the option will not be updated
      *
-     * @param stdClass|array $data return value from {@link moodleform::get_data()} or array with data
+     * @param stdClass|array $data return value from {@link lionform::get_data()} or array with data
      * @param null|int null if these are options for course or section id (course_sections.id)
      *     if these are options for section
      * @return bool whether there were any changes to the options values
@@ -766,7 +752,7 @@ abstract class format_base {
      *
      * If $data does not contain property with the option name, the option will not be updated
      *
-     * @param stdClass|array $data return value from {@link moodleform::get_data()} or array with data
+     * @param stdClass|array $data return value from {@link lionform::get_data()} or array with data
      * @param stdClass $oldcourse if this function is called from {@link update_course()}
      *     this object contains information about the course before update
      * @return bool whether there were any changes to the options values
@@ -781,7 +767,7 @@ abstract class format_base {
      * Section id is expected in $data->id (or $data['id'])
      * If $data does not contain property with the option name, the option will not be updated
      *
-     * @param stdClass|array $data return value from {@link moodleform::get_data()} or array with data
+     * @param stdClass|array $data return value from {@link lionform::get_data()} or array with data
      * @return bool whether there were any changes to the options values
      */
     public function update_section_format_options($data) {
@@ -790,7 +776,7 @@ abstract class format_base {
     }
 
     /**
-     * Return an instance of moodleform to edit a specified section
+     * Return an instance of lionform to edit a specified section
      *
      * Default implementation returns instance of editsection_form that automatically adds
      * additional fields defined in {@link format_base::section_format_options()}
@@ -798,11 +784,11 @@ abstract class format_base {
      * Format plugins may extend editsection_form if they want to have custom edit section form.
      *
      * @param mixed $action the action attribute for the form. If empty defaults to auto detect the
-     *              current url. If a moodle_url object then outputs params as hidden variables.
+     *              current url. If a lion_url object then outputs params as hidden variables.
      * @param array $customdata the array with custom data to be passed to the form
      *     /course/editsection.php passes section_info object in 'cs' field
      *     for filling availability fields
-     * @return moodleform
+     * @return lionform
      */
     public function editsection_form($action, $customdata = array()) {
         global $CFG;
@@ -815,21 +801,21 @@ abstract class format_base {
     }
 
     /**
-     * Allows course format to execute code on moodle_page::set_course()
+     * Allows course format to execute code on lion_page::set_course()
      *
-     * @param moodle_page $page instance of page calling set_course
+     * @param lion_page $page instance of page calling set_course
      */
-    public function page_set_course(moodle_page $page) {
+    public function page_set_course(lion_page $page) {
     }
 
     /**
-     * Allows course format to execute code on moodle_page::set_cm()
+     * Allows course format to execute code on lion_page::set_cm()
      *
      * Current module can be accessed as $page->cm (returns instance of cm_info)
      *
-     * @param moodle_page $page instance of page calling set_cm
+     * @param lion_page $page instance of page calling set_cm
      */
-    public function page_set_cm(moodle_page $page) {
+    public function page_set_cm(lion_page $page) {
     }
 
     /**
@@ -892,10 +878,10 @@ abstract class format_base {
     /**
      * Returns instance of page renderer used by this plugin
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @return renderer_base
      */
-    public function get_renderer(moodle_page $page) {
+    public function get_renderer(lion_page $page) {
         return $page->get_renderer('format_'. $this->get_format());
     }
 
@@ -1024,7 +1010,7 @@ abstract class format_base {
  *
  * @package    core_course
  * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class format_site extends format_base {
 
@@ -1044,14 +1030,14 @@ class format_site extends format_base {
      *
      * @param int|stdClass $section
      * @param array $options
-     * @return null|moodle_url
+     * @return null|lion_url
      */
     public function get_view_url($section, $options = array()) {
-        return new moodle_url('/');
+        return new lion_url('/');
     }
 
     /**
-     * Returns the list of blocks to be automatically added on the site frontpage when moodle is installed
+     * Returns the list of blocks to be automatically added on the site frontpage when lion is installed
      *
      * @return array of default blocks, must contain two keys BLOCK_POS_LEFT and BLOCK_POS_RIGHT
      *     each of values is an array of block names (for left and right side columns)

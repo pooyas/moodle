@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for (some of) mod/assign/lib.php.
  *
  * @package    mod_assign
  * @category   phpunit
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/mod/assign/lib.php');
@@ -34,8 +20,8 @@ require_once($CFG->dirroot . '/mod/assign/tests/base_test.php');
 /**
  * Unit tests for (some of) mod/assign/lib.php.
  *
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 class mod_assign_lib_testcase extends mod_assign_base_testcase {
 
@@ -263,7 +249,7 @@ class mod_assign_lib_testcase extends mod_assign_base_testcase {
 
         $this->setUser($this->editingteachers[0]);
         $assign = $this->create_instance(array('submissiondrafts' => 1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         $submission = $assign->get_user_submission($this->students[0]->id, true);
         $submission->status = ASSIGN_SUBMISSION_STATUS_DRAFT;

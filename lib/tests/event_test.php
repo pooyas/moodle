@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Tests for event manager, base event and observers.
@@ -20,10 +6,10 @@
  * @package    core
  * @category   phpunit
  * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(__DIR__.'/fixtures/event_fixtures.php');
 
@@ -65,14 +51,14 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event->courseid = 2;
             $this->fail('Exception expected on event modification');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             $event->xxxx = 1;
             $this->fail('Exception expected on event modification');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
@@ -447,10 +433,10 @@ class core_event_testcase extends advanced_testcase {
         $event2 = \core_tests\event\unittest_executed::create(array('context'=>\context_system::instance(), 'other'=>array('sample'=>2, 'xx'=>10)));
         $event2->trigger();
         try {
-            $trans->rollback(new \moodle_exception('xxx'));
+            $trans->rollback(new \lion_exception('xxx'));
             $this->fail('Expecting exception');
-        } catch (\moodle_exception $e) {
-            $this->assertInstanceOf('moodle_exception', $e);
+        } catch (\lion_exception $e) {
+            $this->assertInstanceOf('lion_exception', $e);
         }
 
         $this->assertSame(
@@ -660,7 +646,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event->trigger();
             $this->fail('Exception expected on double trigger');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
@@ -672,7 +658,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $restored->trigger();
             $this->fail('Exception expected on triggering of restored event');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
@@ -680,7 +666,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             \core\event\manager::dispatch($event);
             $this->fail('Exception expected on manual event dispatching');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
     }
@@ -691,7 +677,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event = \core_tests\event\unittest_executed::create(array('other'=>array('sample'=>5, 'xx'=>10)));
             $this->fail('Exception expected when context and contextid missing');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
@@ -699,7 +685,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event->trigger();
             $this->fail('Exception expected when $data not valid');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('\coding_exception', $e);
         }
 
@@ -707,7 +693,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event->trigger();
             $this->fail('Exception expected when $data not valid');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('\coding_exception', $e);
         }
 
@@ -735,7 +721,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event->trigger();
             $this->fail('Exception expected when $data contains objectid but objecttable not specified');
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('\coding_exception', $e);
         }
 
@@ -769,7 +755,7 @@ class core_event_testcase extends advanced_testcase {
         $event5->trigger();
         $this->assertDebuggingCalled();
 
-        $url = new moodle_url('/admin/');
+        $url = new lion_url('/admin/');
         $event6 = \core_tests\event\problematic_event1::create(array('context'=>\context_system::instance(), 'other'=>array('a'=>$url)));
         $this->assertDebuggingNotCalled();
         $event6->trigger();
@@ -816,7 +802,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event->add_record_snapshot('course', $course1);
             $this->fail('Updating of snapshots after trigger is not ok');;
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('\coding_exception', $e);
         }
 
@@ -824,7 +810,7 @@ class core_event_testcase extends advanced_testcase {
         try {
             $event2->get_record_snapshot('course', $course1->id);
             $this->fail('Reading of snapshots from restored events is not ok');;
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->assertInstanceOf('\coding_exception', $e);
         }
     }

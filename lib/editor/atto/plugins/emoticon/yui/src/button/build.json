@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_emoticon-button",
+  "name": "lion-atto_emoticon-button",
   "builds": {
-    "moodle-atto_emoticon-button": {
+    "lion-atto_emoticon-button": {
       "jsfiles": [
         "button.js"
       ]

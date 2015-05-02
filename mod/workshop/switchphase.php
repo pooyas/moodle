@@ -1,26 +1,12 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Change the current phase of the workshop
  *
  * @package    mod_workshop
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -42,7 +28,7 @@ require_capability('mod/workshop:switchphase', $PAGE->context);
 
 if ($confirm) {
     if (!confirm_sesskey()) {
-        throw new moodle_exception('confirmsesskeybad');
+        throw new lion_exception('confirmsesskeybad');
     }
     if (!$workshop->switch_phase($phase)) {
         print_error('errorswitchingphase', 'workshop', $workshop->view_url());
@@ -60,5 +46,5 @@ $PAGE->navbar->add(get_string('switchingphase', 'workshop'));
 echo $OUTPUT->header();
 echo $OUTPUT->heading(format_string($workshop->name));
 echo $OUTPUT->confirm(get_string('switchphase' . $phase . 'info', 'workshop'),
-                        new moodle_url($PAGE->url, array('confirm' => 1)), $workshop->view_url());
+                        new lion_url($PAGE->url, array('confirm' => 1)), $workshop->view_url());
 echo $OUTPUT->footer();

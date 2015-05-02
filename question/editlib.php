@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Functions used to show question editing interface
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas and others {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * 
  */
 
 
 use core_question\bank\search\category_condition;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/questionlib.php');
 
@@ -119,7 +105,7 @@ function question_can_delete_cat($todelete) {
         print_error('cannotdeletecate', 'question');
     } else {
         $contextid = $DB->get_field('question_categories', 'contextid', array('id' => $todelete));
-        require_capability('moodle/question:managecategory', context::instance_by_id($contextid));
+        require_capability('lion/question:managecategory', context::instance_by_id($contextid));
     }
 }
 
@@ -128,8 +114,8 @@ function question_can_delete_cat($todelete) {
  * Base class for representing a column in a {@link question_bank_view}.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\column_base', 'question_bank_column_base', true);
 
@@ -137,8 +123,8 @@ class_alias('core_question\bank\column_base', 'question_bank_column_base', true)
  * A column with a checkbox for each question with name q{questionid}.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\checkbox_column', 'question_bank_checkbox_column', true);
 
@@ -146,8 +132,8 @@ class_alias('core_question\bank\checkbox_column', 'question_bank_checkbox_column
  * A column type for the name of the question type.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\question_type_column', 'question_bank_question_type_column', true);
 
@@ -156,8 +142,8 @@ class_alias('core_question\bank\question_type_column', 'question_bank_question_t
  * A column type for the name of the question name.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\question_name_column', 'question_bank_question_name_column', true);
 
@@ -166,8 +152,8 @@ class_alias('core_question\bank\question_name_column', 'question_bank_question_n
  * A column type for the name of the question creator.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\creator_name_column', 'question_bank_creator_name_column', true);
 
@@ -176,8 +162,8 @@ class_alias('core_question\bank\creator_name_column', 'question_bank_creator_nam
  * A column type for the name of the question last modifier.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\modifier_name_column', 'question_bank_modifier_name_column', true);
 
@@ -186,8 +172,8 @@ class_alias('core_question\bank\modifier_name_column', 'question_bank_modifier_n
  * A base class for actions that are an icon that lets you manipulate the question in some way.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\action_column_base', 'question_bank_action_column_base', true);
 
@@ -196,8 +182,8 @@ class_alias('core_question\bank\action_column_base', 'question_bank_action_colum
  * Base class for question bank columns that just contain an action icon.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\edit_action_column', 'question_bank_edit_action_column', true);
 
@@ -205,8 +191,8 @@ class_alias('core_question\bank\edit_action_column', 'question_bank_edit_action_
  * Question bank column for the duplicate action icon.
  *
  * @copyright  2013 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\copy_action_column', 'question_bank_copy_action_column', true);
 
@@ -214,8 +200,8 @@ class_alias('core_question\bank\copy_action_column', 'question_bank_copy_action_
  * Question bank columns for the preview action icon.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\preview_action_column', 'question_bank_preview_action_column', true);
 
@@ -224,8 +210,8 @@ class_alias('core_question\bank\preview_action_column', 'question_bank_preview_a
  * action to delete (or hide) a question, or restore a previously hidden question.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\delete_action_column', 'question_bank_delete_action_column', true);
 
@@ -233,8 +219,8 @@ class_alias('core_question\bank\delete_action_column', 'question_bank_delete_act
  * Base class for 'columns' that are actually displayed as a row following the main question row.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\row_base', 'question_bank_row_base', true);
 
@@ -242,15 +228,15 @@ class_alias('core_question\bank\row_base', 'question_bank_row_base', true);
  * A column type for the name of the question name.
  *
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\question_text_row', 'question_bank_question_text_row', true);
 
 /**
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @deprecated since Moodle 2.7 MDL-40457
+ * 
+ * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\view', 'question_bank_view', true);
 
@@ -265,7 +251,7 @@ class_alias('core_question\bank\view', 'question_bank_view', true);
 function question_edit_setup($edittab, $baseurl, $requirecmid = false, $requirecourseid = true) {
     global $DB, $PAGE;
 
-    $thispageurl = new moodle_url($baseurl);
+    $thispageurl = new lion_url($baseurl);
     $thispageurl->remove_all_params(); // We are going to explicity add back everything important - this avoids unwanted params from being retained.
 
     if ($requirecmid){
@@ -395,7 +381,7 @@ function question_get_category_id_from_pagevars(array $pagevars) {
  *      parameter read. The user_preference name is 'question_bank_' . $param.
  * @param mixed $default The default value to use, if not otherwise set.
  * @param int $type one of the PARAM_... constants.
- * @param moodle_url $thispageurl if the value has been explicitly set, we add
+ * @param lion_url $thispageurl if the value has been explicitly set, we add
  *      it to this URL.
  * @return mixed the parameter value to use.
  */
@@ -455,7 +441,7 @@ function print_choose_qtype_to_add_form($hiddenparams, array $allowedqtypes = nu
 
     if ($enablejs) {
         // Add the chooser.
-        $PAGE->requires->yui_module('moodle-question-chooser', 'M.question.init_chooser', array(array()));
+        $PAGE->requires->yui_module('lion-question-chooser', 'M.question.init_chooser', array(array()));
     }
 
     $realqtypes = array();
@@ -491,7 +477,7 @@ function create_new_question_button($categoryid, $params, $caption, $tooltip = '
     global $CFG, $PAGE, $OUTPUT;
     static $choiceformprinted = false;
     $params['category'] = $categoryid;
-    $url = new moodle_url('/question/addquestion.php', $params);
+    $url = new lion_url('/question/addquestion.php', $params);
     echo $OUTPUT->single_button($url, $caption, 'get', array('disabled'=>$disabled, 'title'=>$tooltip));
 
     if (!$choiceformprinted) {

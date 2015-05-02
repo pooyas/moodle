@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * File contains definition of class MoodleQuickForm_rubriceditor
+ * File contains definition of class LionQuickForm_rubriceditor
  *
  * @package    gradingform_rubric
  * @copyright  2011 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("HTML/QuickForm/input.php");
 
@@ -39,9 +25,9 @@ require_once("HTML/QuickForm/input.php");
  *
  * @package    gradingform_rubric
  * @copyright  2011 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_rubriceditor extends HTML_QuickForm_input {
+class LionQuickForm_rubriceditor extends HTML_QuickForm_input {
     /** @var string help message */
     public $_helpbutton = '';
     /** @var string|bool stores the result of the last validation: null - undefined, false - no errors, string - error(s) text */
@@ -60,7 +46,7 @@ class MoodleQuickForm_rubriceditor extends HTML_QuickForm_input {
      * @param string $elementLabel
      * @param array $attributes
      */
-    function MoodleQuickForm_rubriceditor($elementName=null, $elementLabel=null, $attributes=null) {
+    function LionQuickForm_rubriceditor($elementName=null, $elementLabel=null, $attributes=null) {
         parent::HTML_QuickForm_input($elementName, $elementLabel, $attributes);
     }
 

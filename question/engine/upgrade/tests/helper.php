@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains test helper code for testing the upgrade to the new
  * question engine. The acutal tests are organised by question type in files
  * like question/type/truefalse/tests/upgradelibnewqe_test.php.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once(dirname(__FILE__) . '/../upgradelib.php');
@@ -36,7 +22,7 @@ require_once(dirname(__FILE__) . '/../upgradelib.php');
  * Subclass of question_engine_attempt_upgrader to help with testing.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class test_question_engine_attempt_upgrader extends question_engine_attempt_upgrader {
     public function prevent_timeout() {
@@ -53,7 +39,7 @@ class test_question_engine_attempt_upgrader extends question_engine_attempt_upgr
  * Subclass of question_engine_upgrade_question_loader for unit testing.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class test_question_engine_upgrade_question_loader extends question_engine_upgrade_question_loader {
     public function put_question_in_cache($question) {
@@ -91,7 +77,7 @@ class test_question_engine_upgrade_question_loader extends question_engine_upgra
  * one question.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_attempt_upgrader_test_base extends advanced_testcase {
     protected $updater;

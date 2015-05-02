@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once("../../../config.php");
 require_once($CFG->libdir.'/gradelib.php');
@@ -29,7 +15,7 @@ $iid           = optional_param('iid', null, PARAM_INT);
 $importcode    = optional_param('importcode', '', PARAM_FILE);
 $forceimport   = optional_param('forceimport', false, PARAM_BOOL);
 
-$url = new moodle_url('/grade/import/csv/index.php', array('id'=>$id));
+$url = new lion_url('/grade/import/csv/index.php', array('id'=>$id));
 if ($separator !== '') {
     $url->param('separator', $separator);
 }
@@ -44,11 +30,11 @@ if (!$course = $DB->get_record('course', array('id'=>$id))) {
 
 require_login($course);
 $context = context_course::instance($id);
-require_capability('moodle/grade:import', $context);
+require_capability('lion/grade:import', $context);
 require_capability('gradeimport/csv:view', $context);
 
 $separatemode = (groups_get_course_groupmode($COURSE) == SEPARATEGROUPS and
-        !has_capability('moodle/site:accessallgroups', $context));
+        !has_capability('lion/site:accessallgroups', $context));
 $currentgroup = groups_get_course_group($course);
 
 print_grade_page_head($course->id, 'import', 'csv', get_string('importcsv', 'grades'));

@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the moodle hooks for the assign module.
+ * This file contains the lion hooks for the assign module.
  *
  * It delegates most functions to the assignment class.
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Adds an assignment instance
@@ -57,7 +43,7 @@ function assign_delete_instance($id) {
 }
 
 /**
- * This function is used by the reset_course_userdata function in moodlelib.
+ * This function is used by the reset_course_userdata function in lionlib.
  * This function will remove all assignment submissions and feedbacks in the database
  * and clean up any related data.
  *
@@ -111,7 +97,7 @@ function assign_reset_gradebook($courseid, $type='') {
 /**
  * Implementation of the function for printing the form elements that control
  * whether the course reset functionality affects the assignment.
- * @param moodleform $mform form passed by reference
+ * @param lionform $mform form passed by reference
  */
 function assign_reset_course_form_definition(&$mform) {
     $mform->addElement('header', 'assignheader', get_string('modulenameplural', 'assign'));
@@ -145,7 +131,7 @@ function assign_update_instance(stdClass $data, $form) {
 }
 
 /**
- * Return the list if Moodle features this module supports
+ * Return the list if Lion features this module supports
  *
  * @param string $feature FEATURE_xx constant for requested feature
  * @return mixed True if module supports feature, null if doesn't know
@@ -166,7 +152,7 @@ function assign_supports($feature) {
             return true;
         case FEATURE_GRADE_OUTCOMES:
             return true;
-        case FEATURE_BACKUP_MOODLE2:
+        case FEATURE_BACKUP_LION2:
             return true;
         case FEATURE_SHOW_DESCRIPTION:
             return true;
@@ -214,18 +200,18 @@ function assign_extend_settings_navigation(settings_navigation $settings, naviga
 
     // Link to gradebook.
     if (has_capability('gradereport/grader:view', $cm->context) &&
-            has_capability('moodle/grade:viewall', $cm->context)) {
-        $link = new moodle_url('/grade/report/grader/index.php', array('id' => $course->id));
+            has_capability('lion/grade:viewall', $cm->context)) {
+        $link = new lion_url('/grade/report/grader/index.php', array('id' => $course->id));
         $linkname = get_string('viewgradebook', 'assign');
         $node = $navref->add($linkname, $link, navigation_node::TYPE_SETTING);
     }
 
     // Link to download all submissions.
     if (has_any_capability(array('mod/assign:grade', 'mod/assign:viewgrades'), $context)) {
-        $link = new moodle_url('/mod/assign/view.php', array('id' => $cm->id, 'action'=>'grading'));
+        $link = new lion_url('/mod/assign/view.php', array('id' => $cm->id, 'action'=>'grading'));
         $node = $navref->add(get_string('viewgrading', 'assign'), $link, navigation_node::TYPE_SETTING);
 
-        $link = new moodle_url('/mod/assign/view.php', array('id' => $cm->id, 'action'=>'downloadall'));
+        $link = new lion_url('/mod/assign/view.php', array('id' => $cm->id, 'action'=>'downloadall'));
         $node = $navref->add(get_string('downloadall', 'assign'), $link, navigation_node::TYPE_SETTING);
     }
 
@@ -235,7 +221,7 @@ function assign_extend_settings_navigation(settings_navigation $settings, naviga
 
         if ($assignment && $assignment->blindmarking && !$assignment->revealidentities) {
             $urlparams = array('id' => $cm->id, 'action'=>'revealidentities');
-            $url = new moodle_url('/mod/assign/view.php', $urlparams);
+            $url = new lion_url('/mod/assign/view.php', $urlparams);
             $linkname = get_string('revealidentities', 'assign');
             $node = $navref->add($linkname, $url, navigation_node::TYPE_SETTING);
         }
@@ -571,7 +557,7 @@ function assign_get_grade_details_for_print_overview(&$unmarkedsubmissions, $sql
 
     if ($submissions) {
         $urlparams = array('id' => $assignment->coursemodule, 'action' => 'grading');
-        $url = new moodle_url('/mod/assign/view.php', $urlparams);
+        $url = new lion_url('/mod/assign/view.php', $urlparams);
         $gradedetails = '<div class="details">' .
                 '<a href="' . $url . '">' .
                 get_string('submissionsnotgraded', 'assign', $submissions) .
@@ -640,7 +626,7 @@ function assign_print_recent_activity($course, $viewfullnames, $timestart) {
         // only graders will see it if specified.
         if (empty($showrecentsubmissions)) {
             if (!array_key_exists($cm->id, $grader)) {
-                $grader[$cm->id] = has_capability('moodle/grade:viewall', $context);
+                $grader[$cm->id] = has_capability('lion/grade:viewall', $context);
             }
             if (!$grader[$cm->id]) {
                 continue;
@@ -650,7 +636,7 @@ function assign_print_recent_activity($course, $viewfullnames, $timestart) {
         $groupmode = groups_get_activity_groupmode($cm, $course);
 
         if ($groupmode == SEPARATEGROUPS &&
-                !has_capability('moodle/site:accessallgroups',  $context)) {
+                !has_capability('lion/site:accessallgroups',  $context)) {
             if (isguestuser()) {
                 // Shortcut - guest user does not belong into any group.
                 continue;
@@ -763,9 +749,9 @@ function assign_get_recent_mod_activity(&$activities,
 
     $groupmode       = groups_get_activity_groupmode($cm, $course);
     $cmcontext      = context_module::instance($cm->id);
-    $grader          = has_capability('moodle/grade:viewall', $cmcontext);
-    $accessallgroups = has_capability('moodle/site:accessallgroups', $cmcontext);
-    $viewfullnames   = has_capability('moodle/site:viewfullnames', $cmcontext);
+    $grader          = has_capability('lion/grade:viewall', $cmcontext);
+    $accessallgroups = has_capability('lion/site:accessallgroups', $cmcontext);
+    $viewfullnames   = has_capability('lion/site:viewfullnames', $cmcontext);
 
 
     $showrecentsubmissions = get_config('assign', 'showrecentsubmissions');
@@ -998,9 +984,9 @@ function assign_cron() {
  */
 function assign_get_extra_capabilities() {
     return array('gradereport/grader:view',
-                 'moodle/grade:viewall',
-                 'moodle/site:viewfullnames',
-                 'moodle/site:config');
+                 'lion/grade:viewall',
+                 'lion/site:viewfullnames',
+                 'lion/site:config');
 }
 
 /**
@@ -1187,7 +1173,7 @@ function assign_get_file_info($browser,
     // Need to find where this belongs to.
     $assignment = new assign($context, $cm, $course);
     if ($filearea === ASSIGN_INTROATTACHMENT_FILEAREA) {
-        if (!has_capability('moodle/course:managefiles', $context)) {
+        if (!has_capability('lion/course:managefiles', $context)) {
             // Students can not peak here!
             return null;
         }

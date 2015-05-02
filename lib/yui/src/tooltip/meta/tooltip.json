@@ -1,10 +1,10 @@
 {
-  "moodle-core-tooltip": {
+  "lion-core-tooltip": {
     "requires": [
         "base",
         "node",
         "io-base",
-        "moodle-core-notification-dialogue",
+        "lion-core-notification-dialogue",
         "json-parse",
         "widget-position",
         "widget-position-align",

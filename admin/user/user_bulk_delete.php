@@ -10,7 +10,7 @@ $confirm = optional_param('confirm', 0, PARAM_BOOL);
 
 require_login();
 admin_externalpage_setup('userbulk');
-require_capability('moodle/user:delete', context_system::instance());
+require_capability('lion/user:delete', context_system::instance());
 
 $return = $CFG->wwwroot.'/'.$CFG->admin.'/user/user_bulk.php';
 
@@ -41,7 +41,7 @@ if ($confirm and confirm_sesskey()) {
     } else {
         echo $OUTPUT->notification(get_string('changessaved'), 'notifysuccess');
     }
-    $continue = new single_button(new moodle_url($return), get_string('continue'), 'post');
+    $continue = new single_button(new lion_url($return), get_string('continue'), 'post');
     echo $OUTPUT->render($continue);
     echo $OUTPUT->box_end();
 } else {
@@ -49,8 +49,8 @@ if ($confirm and confirm_sesskey()) {
     $userlist = $DB->get_records_select_menu('user', "id $in", $params, 'fullname', 'id,'.$DB->sql_fullname().' AS fullname');
     $usernames = implode(', ', $userlist);
     echo $OUTPUT->heading(get_string('confirmation', 'admin'));
-    $formcontinue = new single_button(new moodle_url('user_bulk_delete.php', array('confirm' => 1)), get_string('yes'));
-    $formcancel = new single_button(new moodle_url('user_bulk.php'), get_string('no'), 'get');
+    $formcontinue = new single_button(new lion_url('user_bulk_delete.php', array('confirm' => 1)), get_string('yes'));
+    $formcancel = new single_button(new lion_url('user_bulk.php'), get_string('no'), 'get');
     echo $OUTPUT->confirm(get_string('deletecheckfull', '', $usernames), $formcontinue, $formcancel);
 }
 

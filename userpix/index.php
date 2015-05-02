@@ -14,7 +14,7 @@ require_login();
 
 /// Remove the following three lines if you want everyone to access it
 $syscontext = context_system::instance();
-require_capability('moodle/site:config', $syscontext);
+require_capability('lion/site:config', $syscontext);
 
 $title = get_string("users");
 $PAGE->set_context($syscontext);

@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * A page to create or edit outcome grade items
  *
  * @package   core_grades
  * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once '../../../config.php';
@@ -30,13 +16,13 @@ require_once 'outcomeitem_form.php';
 $courseid = required_param('courseid', PARAM_INT);
 $id       = optional_param('id', 0, PARAM_INT);
 
-$url = new moodle_url('/grade/edit/tree/outcomeitem.php', array('courseid'=>$courseid));
+$url = new lion_url('/grade/edit/tree/outcomeitem.php', array('courseid'=>$courseid));
 if ($id !== 0) {
     $url->param('id', $id);
 }
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('admin');
-navigation_node::override_active_url(new moodle_url('/grade/edit/tree/index.php',
+navigation_node::override_active_url(new lion_url('/grade/edit/tree/index.php',
     array('id'=>$courseid)));
 
 if (!$course = $DB->get_record('course', array('id' => $courseid))) {
@@ -45,7 +31,7 @@ if (!$course = $DB->get_record('course', array('id' => $courseid))) {
 
 require_login($course);
 $context = context_course::instance($course->id);
-require_capability('moodle/grade:manage', $context);
+require_capability('lion/grade:manage', $context);
 
 
 // default return url

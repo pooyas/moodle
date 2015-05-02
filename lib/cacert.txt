@@ -12,9 +12,9 @@ This file is by default used in all Windows installations that do not have
 any "curl.cainfo =" specified in php.ini
 
 It is also possible to force using of arbitrary CA bundle by putting it
-into $CFG->dataroot/moodleorgca.crt, this may be useful especially on
+into $CFG->dataroot/lionorgca.crt, this may be useful especially on
 non-windows servers with outdated system certificates.
 
-More information at http://docs.moodle.org/en/SSL_certificate_for_moodle.org
+More information at http://docs.lion.org/en/SSL_certificate_for_lion.org
 
 Petr Skoda (skodak)

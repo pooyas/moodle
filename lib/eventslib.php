@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions for events manipulation.
@@ -20,11 +6,11 @@
  * The public API is all at the end of this file.
  *
  * @package core
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Loads the events definitions for the component (from file). If no
@@ -32,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @access protected To be used from eventslib only
  *
- * @param string $component examples: 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component examples: 'lion', 'mod_forum', 'block_quiz_results'
  * @return array Array of capabilities or empty array if not exists
  */
 function events_load_def($component) {
@@ -94,7 +80,7 @@ function events_load_def($component) {
  *
  * @access protected To be used from eventslib only
  *
- * @param string $component examples: 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component examples: 'lion', 'mod_forum', 'block_quiz_results'
  * @return array of events
  */
 function events_get_cached($component) {
@@ -128,10 +114,10 @@ function events_get_cached($component) {
  * the database.
  *
  * @category event
- * @param string $component examples: 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component examples: 'lion', 'mod_forum', 'block_quiz_results'
  * @return boolean always returns true
  */
-function events_update_definition($component='moodle') {
+function events_update_definition($component='lion') {
     global $DB;
 
     // load event definition from events.php
@@ -197,7 +183,7 @@ function events_update_definition($component='moodle') {
  * Remove all event handlers and queued events
  *
  * @category event
- * @param string $component examples: 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component examples: 'lion', 'mod_forum', 'block_quiz_results'
  */
 function events_uninstall($component) {
     $cachedhandlers = events_get_cached($component);
@@ -211,7 +197,7 @@ function events_uninstall($component) {
  *
  * @access protected To be used from eventslib only
  *
- * @param string $component examples: 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component examples: 'lion', 'mod_forum', 'block_quiz_results'
  * @param array $cachedhandlers array of the cached events definitions that will be
  * @return int number of unused handlers that have been removed
  */
@@ -589,7 +575,7 @@ function events_trigger_legacy($eventname, $eventdata) {
  * @access public Part of the public API
  *
  * @param string $eventname name of the event
- * @param string $component component name, can be mod/data or moodle
+ * @param string $component component name, can be mod/data or lion
  * @return bool
  */
 function events_is_registered($eventname, $component) {

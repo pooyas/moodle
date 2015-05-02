@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * First step page for creating a new badge
@@ -20,7 +6,7 @@
  * @package    core
  * @subpackage badges
  * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
  */
 
@@ -60,7 +46,7 @@ if (($type == BADGE_TYPE_COURSE) && ($course = $DB->get_record('course', array('
     $PAGE->set_title($title);
 }
 
-require_capability('moodle/badges:createbadge', $PAGE->context);
+require_capability('lion/badges:createbadge', $PAGE->context);
 
 $PAGE->requires->js('/badges/backpack.js');
 $PAGE->requires->js_init_call('check_site_access', null, false);
@@ -71,7 +57,7 @@ $fordb->id = null;
 $form = new edit_details_form($PAGE->url, array('action' => 'new'));
 
 if ($form->is_cancelled()) {
-    redirect(new moodle_url('/badges/index.php', array('type' => $type, 'id' => $courseid)));
+    redirect(new lion_url('/badges/index.php', array('type' => $type, 'id' => $courseid)));
 } else if ($data = $form->get_data()) {
     // Creating new badge here.
     $now = time();
@@ -101,10 +87,10 @@ if ($form->is_cancelled()) {
     $newbadge = new badge($newid);
     badges_process_badge_image($newbadge, $form->save_temp_file('image'));
     // If a user can configure badge criteria, they will be redirected to the criteria page.
-    if (has_capability('moodle/badges:configurecriteria', $PAGE->context)) {
-        redirect(new moodle_url('/badges/criteria.php', array('id' => $newid)));
+    if (has_capability('lion/badges:configurecriteria', $PAGE->context)) {
+        redirect(new lion_url('/badges/criteria.php', array('id' => $newid)));
     }
-    redirect(new moodle_url('/badges/overview.php', array('id' => $newid)));
+    redirect(new lion_url('/badges/overview.php', array('id' => $newid)));
 }
 
 echo $OUTPUT->header();

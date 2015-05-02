@@ -131,12 +131,12 @@ if (empty($SITE->fullname)) {
     echo '</form>';
 }
 
-$PAGE->requires->yui_module('moodle-core-formchangechecker',
+$PAGE->requires->yui_module('lion-core-formchangechecker',
         'M.core_formchangechecker.init',
         array(array(
             'formid' => 'adminsettings'
         ))
 );
-$PAGE->requires->string_for_js('changesmadereallygoaway', 'moodle');
+$PAGE->requires->string_for_js('changesmadereallygoaway', 'lion');
 
 echo $OUTPUT->footer();

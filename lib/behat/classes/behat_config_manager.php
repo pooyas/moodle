@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Utils to set Behat config
@@ -20,10 +6,10 @@
  * @package    core
  * @category   test
  * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(__DIR__ . '/../lib.php');
 require_once(__DIR__ . '/behat_command.php');
@@ -33,12 +19,12 @@ require_once(__DIR__ . '/../../testing/classes/tests_finder.php');
  * Behat configuration manager
  *
  * Creates/updates Behat config files getting tests
- * and steps from Moodle codebase
+ * and steps from Lion codebase
  *
  * @package    core
  * @category   test
  * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_config_manager {
 
@@ -108,7 +94,7 @@ class behat_config_manager {
         }
 
         // Behat config file specifing the main context class,
-        // the required Behat extensions and Moodle test wwwroot.
+        // the required Behat extensions and Lion test wwwroot.
         $contents = self::get_config_file_contents(self::get_features_with_tags($features, $tags), $stepsdefinitions);
 
         // Stores the file.
@@ -153,7 +139,7 @@ class behat_config_manager {
     }
 
     /**
-     * Gets the list of Moodle steps definitions
+     * Gets the list of Lion steps definitions
      *
      * Class name as a key and the filepath as value
      *
@@ -327,7 +313,7 @@ class behat_config_manager {
 
     /**
      * Behat config file specifing the main context class,
-     * the required Behat extensions and Moodle test wwwroot.
+     * the required Behat extensions and Lion test wwwroot.
      *
      * @param array $features The system feature files
      * @param array $stepsdefinitions The system steps definitions
@@ -385,18 +371,18 @@ class behat_config_manager {
                         'goutte' => null,
                         'selenium2' => $selenium2wdhost
                     ),
-                    'Moodle\BehatExtension\Extension' => array(
+                    'Lion\BehatExtension\Extension' => array(
                         'formatters' => array(
-                            'moodle_progress' => 'Moodle\BehatExtension\Formatter\MoodleProgressFormatter',
-                            'moodle_list' => 'Moodle\BehatExtension\Formatter\MoodleListFormatter',
-                            'moodle_step_count' => 'Moodle\BehatExtension\Formatter\MoodleStepCountFormatter'
+                            'lion_progress' => 'Lion\BehatExtension\Formatter\LionProgressFormatter',
+                            'lion_list' => 'Lion\BehatExtension\Formatter\LionListFormatter',
+                            'lion_step_count' => 'Lion\BehatExtension\Formatter\LionStepCountFormatter'
                         ),
                         'features' => $features,
                         'steps_definitions' => $stepsdefinitions
                     )
                 ),
                 'formatter' => array(
-                    'name' => 'moodle_progress'
+                    'name' => 'lion_progress'
                 )
             )
         );

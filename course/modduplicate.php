@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Duplicates a given course module
@@ -23,9 +9,9 @@
  *
  * @package    core
  * @subpackage course
- * @deprecated Moodle 2.8 MDL-46428 - Now redirects to mod.php.
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @deprecated Lion 2.8 MDL-46428 - Now redirects to mod.php.
+ * @copyright  2011 David Mudrak <david@lion.com>
+ * 
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
@@ -36,10 +22,10 @@ $sectionreturn  = optional_param('sr', null, PARAM_INT);
 
 require_sesskey();
 
-debugging('Please use moodle_url(\'/course/mod.php\', array(\'duplicate\' => $cmid
+debugging('Please use lion_url(\'/course/mod.php\', array(\'duplicate\' => $cmid
     , \'id\' => $courseid, \'sesskey\' => sesskey(), \'sr\' => $sectionreturn)))
-    instead of new moodle_url(\'/course/modduplicate.php\', array(\'cmid\' => $cmid
+    instead of new lion_url(\'/course/modduplicate.php\', array(\'cmid\' => $cmid
     , \'course\' => $courseid, \'sr\' => $sectionreturn))', DEBUG_DEVELOPER);
 
-redirect(new moodle_url('/course/mod.php', array('duplicate' => $cmid, 'id' => $courseid,
+redirect(new lion_url('/course/mod.php', array('duplicate' => $cmid, 'id' => $courseid,
                                                  'sesskey' => sesskey(), 'sr' => $sectionreturn)));

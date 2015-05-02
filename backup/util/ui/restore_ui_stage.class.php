@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * restore user interface stages
@@ -23,7 +9,7 @@
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -32,11 +18,11 @@
  * This class should be extended by all restore stages (a requirement of many restore ui functions).
  * Each stage must then define two abstract methods
  *  - process : To process the stage
- *  - initialise_stage_form : To get a restore_moodleform instance for the stage
+ *  - initialise_stage_form : To get a restore_lionform instance for the stage
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class restore_ui_stage extends base_ui_stage {
     /**
@@ -97,7 +83,7 @@ abstract class restore_ui_stage extends base_ui_stage {
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class restore_ui_independent_stage {
     /**
@@ -183,7 +169,7 @@ abstract class restore_ui_independent_stage {
             $item = array('text' => strlen(decbin($stage)).'. '.get_string('restorestage'.$stage, 'backup'), 'class' => join(' ', $classes));
             if ($stage < $currentstage && $currentstage < restore_ui::STAGE_COMPLETE) {
                 // By default you can't go back to independent stages, if that changes in the future uncomment the next line.
-                // $item['link'] = new moodle_url($PAGE->url, array('restore' => $this->get_restoreid(), 'stage' => $stage));
+                // $item['link'] = new lion_url($PAGE->url, array('restore' => $this->get_restoreid(), 'stage' => $stage));
             }
             array_unshift($items, $item);
             $stage = floor($stage / 2);
@@ -220,7 +206,7 @@ abstract class restore_ui_independent_stage {
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class restore_ui_stage_confirm extends restore_ui_independent_stage implements file_progress {
 
@@ -320,7 +306,7 @@ class restore_ui_stage_confirm extends restore_ui_independent_stage implements f
 
         $this->filepath = restore_controller::get_tempdir_name($this->contextid, $USER->id);
 
-        $fb = get_file_packer('application/vnd.moodle.backup');
+        $fb = get_file_packer('application/vnd.lion.backup');
         $result = $fb->extract_to_pathname($source,
                 $CFG->tempdir . '/backup/' . $this->filepath . '/', null, $this);
 
@@ -360,8 +346,8 @@ class restore_ui_stage_confirm extends restore_ui_independent_stage implements f
      */
     public function display(core_backup_renderer $renderer) {
 
-        $prevstageurl = new moodle_url('/backup/restorefile.php', array('contextid' => $this->contextid));
-        $nextstageurl = new moodle_url('/backup/restore.php', array(
+        $prevstageurl = new lion_url('/backup/restorefile.php', array('contextid' => $this->contextid));
+        $nextstageurl = new lion_url('/backup/restore.php', array(
             'contextid' => $this->contextid,
             'filepath'  => $this->filepath,
             'stage'     => restore_ui::STAGE_DESTINATION));
@@ -372,7 +358,7 @@ class restore_ui_stage_confirm extends restore_ui_independent_stage implements f
             // Unknown format - we can't do anything here.
             return $renderer->backup_details_unknown($prevstageurl);
 
-        } else if ($format !== backup::FORMAT_MOODLE) {
+        } else if ($format !== backup::FORMAT_LION) {
             // Non-standard format to be converted.
             $details = array('format' => $format, 'type' => backup::TYPE_1COURSE); // todo type to be returned by a converter
             return $renderer->backup_details_nonstandard($nextstageurl, $details);
@@ -409,7 +395,7 @@ class restore_ui_stage_confirm extends restore_ui_independent_stage implements f
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class restore_ui_stage_destination extends restore_ui_independent_stage {
 
@@ -458,7 +444,7 @@ class restore_ui_stage_destination extends restore_ui_independent_stage {
         global $PAGE;
         $this->contextid = $contextid;
         $this->filepath = required_param('filepath', PARAM_ALPHANUM);
-        $url = new moodle_url($PAGE->url, array(
+        $url = new lion_url($PAGE->url, array(
             'filepath' => $this->filepath,
             'contextid' => $this->contextid,
             'stage' => restore_ui::STAGE_DESTINATION));
@@ -504,8 +490,8 @@ class restore_ui_stage_destination extends restore_ui_independent_stage {
 
         $format = backup_general_helper::detect_backup_format($this->filepath);
 
-        if ($format === backup::FORMAT_MOODLE) {
-            // Standard Moodle 2 format, let use get the type of the backup.
+        if ($format === backup::FORMAT_LION) {
+            // Standard Lion 2 format, let use get the type of the backup.
             $details = backup_general_helper::get_backup_information($this->filepath);
             if ($details->type === backup::TYPE_1COURSE) {
                 $wholecourse = true;
@@ -520,13 +506,13 @@ class restore_ui_stage_destination extends restore_ui_independent_stage {
             $wholecourse = true;
         }
 
-        $nextstageurl = new moodle_url('/backup/restore.php', array(
+        $nextstageurl = new lion_url('/backup/restore.php', array(
             'contextid' => $this->contextid,
             'filepath'  => $this->filepath,
             'stage'     => restore_ui::STAGE_SETTINGS));
         $context = context::instance_by_id($this->contextid);
 
-        if ($context->contextlevel == CONTEXT_COURSE and has_capability('moodle/restore:restorecourse', $context)) {
+        if ($context->contextlevel == CONTEXT_COURSE and has_capability('lion/restore:restorecourse', $context)) {
             $currentcourse = $context->instanceid;
         } else {
             $currentcourse = false;
@@ -586,7 +572,7 @@ class restore_ui_stage_destination extends restore_ui_independent_stage {
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class restore_ui_stage_settings extends restore_ui_stage {
     /**
@@ -602,10 +588,10 @@ class restore_ui_stage_settings extends restore_ui_stage {
     /**
      * Process the settings stage.
      *
-     * @param base_moodleform $form
+     * @param base_lionform $form
      * @return bool|int
      */
-    public function process(base_moodleform $form = null) {
+    public function process(base_lionform $form = null) {
         $form = $this->initialise_stage_form();
 
         if ($form->is_cancelled()) {
@@ -643,7 +629,7 @@ class restore_ui_stage_settings extends restore_ui_stage {
     /**
      * Initialise the stage form.
      *
-     * @return backup_moodleform|base_moodleform|restore_settings_form
+     * @return backup_lionform|base_lionform|restore_settings_form
      * @throws coding_exception
      */
     protected function initialise_stage_form() {
@@ -693,7 +679,7 @@ class restore_ui_stage_settings extends restore_ui_stage {
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class restore_ui_stage_schema extends restore_ui_stage {
     /**
@@ -714,10 +700,10 @@ class restore_ui_stage_schema extends restore_ui_stage {
     /**
      * Processes the schema stage
      *
-     * @param base_moodleform $form
+     * @param base_lionform $form
      * @return int The number of changes the user made
      */
-    public function process(base_moodleform $form = null) {
+    public function process(base_lionform $form = null) {
         $form = $this->initialise_stage_form();
         // Check it wasn't cancelled.
         if ($form->is_cancelled()) {
@@ -845,7 +831,7 @@ class restore_ui_stage_schema extends restore_ui_stage {
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class restore_ui_stage_review extends restore_ui_stage {
 
@@ -862,10 +848,10 @@ class restore_ui_stage_review extends restore_ui_stage {
     /**
      * Processes the confirmation stage
      *
-     * @param base_moodleform $form
+     * @param base_lionform $form
      * @return int The number of changes the user made
      */
-    public function process(base_moodleform $form = null) {
+    public function process(base_lionform $form = null) {
         $form = $this->initialise_stage_form();
         // Check it hasn't been cancelled.
         if ($form->is_cancelled()) {
@@ -936,7 +922,7 @@ class restore_ui_stage_review extends restore_ui_stage {
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class restore_ui_stage_process extends restore_ui_stage {
 
@@ -973,11 +959,11 @@ class restore_ui_stage_process extends restore_ui_stage {
      * we return true which will lead to execution of the restore and the loading
      * of the completed stage.
      *
-     * @param base_moodleform $form
+     * @param base_lionform $form
      */
-    public function process(base_moodleform $form = null) {
+    public function process(base_lionform $form = null) {
         if (optional_param('cancel', false, PARAM_BOOL)) {
-            redirect(new moodle_url('/course/view.php', array('id' => $this->get_ui()->get_controller()->get_courseid())));
+            redirect(new lion_url('/course/view.php', array('id' => $this->get_ui()->get_controller()->get_courseid())));
         }
 
         // First decide whether a substage is needed.
@@ -1034,7 +1020,7 @@ class restore_ui_stage_process extends restore_ui_stage {
 
         $html = '';
         $haserrors = false;
-        $url = new moodle_url($PAGE->url, array(
+        $url = new lion_url($PAGE->url, array(
             'restore'   => $this->get_uniqueid(),
             'stage'     => restore_ui::STAGE_PROCESS,
             'substage'  => $this->substage,
@@ -1087,7 +1073,7 @@ class restore_ui_stage_process extends restore_ui_stage {
  *
  * @package   core_backup
  * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class restore_ui_stage_complete extends restore_ui_stage_process {
 
@@ -1140,7 +1126,7 @@ class restore_ui_stage_complete extends restore_ui_stage_process {
             $html .= $renderer->notification(get_string('restorefileweremissing', 'backup'), 'notifyproblem');
         }
         $html .= $renderer->notification(get_string('restoreexecutionsuccess', 'backup'), 'notifysuccess');
-        $html .= $renderer->continue_button(new moodle_url('/course/view.php', array(
+        $html .= $renderer->continue_button(new lion_url('/course/view.php', array(
             'id' => $this->get_ui()->get_controller()->get_courseid())), 'get');
         $html .= $renderer->box_end();
 

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for lib/modinfolib.php.
@@ -22,7 +8,7 @@
  * @copyright  2012 Andrew Davis
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/modinfolib.php');
@@ -198,7 +184,7 @@ class core_modinfolib_testcase extends advanced_testcase {
         $this->assertEquals(context_module::instance($moduledb->id), $cm->context);
         $this->assertEquals($modnamessingular['assign'], $cm->modfullname);
         $this->assertEquals($modnamesplural['assign'], $cm->modplural);
-        $this->assertEquals(new moodle_url('/mod/assign/view.php', array('id' => $moduledb->id)), $cm->url);
+        $this->assertEquals(new lion_url('/mod/assign/view.php', array('id' => $moduledb->id)), $cm->url);
         $this->assertEquals($cachedcminfo->customdata, $cm->customdata);
 
         // Deprecated field.
@@ -836,7 +822,7 @@ class core_modinfolib_testcase extends advanced_testcase {
         try {
             get_course_and_cm_from_cmid($page->cmid, 'forum');
             $this->fail();
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('invalidcoursemodule', $e->errorcode);
         }
 
@@ -852,7 +838,7 @@ class core_modinfolib_testcase extends advanced_testcase {
         try {
             get_course_and_cm_from_cmid($page->cmid + 1);
             $this->fail();
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_exception', $e);
         }
 
@@ -925,7 +911,7 @@ class core_modinfolib_testcase extends advanced_testcase {
         try {
             get_course_and_cm_from_instance($page->id, 'forum');
             $this->fail();
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('dml_exception', $e);
         }
 

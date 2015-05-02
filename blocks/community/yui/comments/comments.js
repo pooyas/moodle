@@ -1,4 +1,4 @@
-YUI.add('moodle-block_community-comments', function(Y) {
+YUI.add('lion-block_community-comments', function(Y) {
 
     var COMMENTSNAME = 'blocks_community_comments';
 
@@ -93,5 +93,5 @@ YUI.add('moodle-block_community-comments', function(Y) {
     }
 
 }, '@VERSION@', {
-    requires:['base', 'moodle-core-notification']
+    requires:['base', 'lion-core-notification']
 });

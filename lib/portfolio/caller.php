@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the base classes that are extended to create portfolio export functionality.
  *
- * For places in moodle that want to
- * add export functionality to subclass from {@link http://docs.moodle.org/dev/Adding_a_Portfolio_Button_to_a_page}
+ * For places in lion that want to
+ * add export functionality to subclass from {@link http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page}
  *
  * @package core_portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>, Martin Dougiamas
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Base class for callers
  *
- * @link See http://docs.moodle.org/dev/Adding_a_Portfolio_Button_to_a_page
+ * @link See http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page
  * @see also portfolio_module_caller_base
  *
  * @package core_portfolio
@@ -87,7 +73,7 @@ abstract class portfolio_caller_base {
      * If this caller wants any additional config items,
      * they should be defined here.
      *
-     * @param moodleform $mform passed by reference, add elements to it.
+     * @param lionform $mform passed by reference, add elements to it.
      * @param portfolio_plugin_base $instance subclass of portfolio_plugin_base
      */
     public function export_config_form(&$mform, $instance) {}
@@ -104,7 +90,7 @@ abstract class portfolio_caller_base {
     }
 
     /**
-     * Just like the moodle form validation function,
+     * Just like the lion form validation function,
      * this is passed in the data array from the form
      * and if a non empty array is returned, form processing will stop.
      *
@@ -192,7 +178,7 @@ abstract class portfolio_caller_base {
      * @param string $field property's name
      * @param mixed $value property's value
      * @return bool
-     * @throws moodle_exception
+     * @throws lion_exception
      */
     public final function set($field, &$value) {
         if (property_exists($this, $field)) {
@@ -480,7 +466,7 @@ abstract class portfolio_caller_base {
     /**
      * Return the context for this export. used for $PAGE->set_context
      *
-     * @param moodle_page $PAGE global page object
+     * @param lion_page $PAGE global page object
      */
     public abstract function set_context($PAGE);
 }
@@ -491,7 +477,7 @@ abstract class portfolio_caller_base {
  * This just implements a few of the abstract functions
  * from portfolio_caller_base so that caller authors
  * don't need to.
- * {@link http://docs.moodle.org/dev/Adding_a_Portfolio_Button_to_a_page}
+ * {@link http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page}
  * @see also portfolio_caller_base
  *
  * @package core_portfolio
@@ -568,7 +554,7 @@ abstract class portfolio_module_caller_base extends portfolio_caller_base {
     /**
      * Overridden to return the course module context
      *
-     * @param moodle_page $PAGE global PAGE
+     * @param lion_page $PAGE global PAGE
      */
     public function set_context($PAGE) {
         $PAGE->set_cm($this->cm);

@@ -14,7 +14,7 @@ function glossary_show_entry_entrylist($course, $cm, $glossary, $entry, $mode=''
 
         $anchortagcontents = glossary_print_entry_concept($entry, true);
 
-        $link = new moodle_url('/mod/glossary/showentry.php', array('courseid' => $course->id,
+        $link = new lion_url('/mod/glossary/showentry.php', array('courseid' => $course->id,
                 'eid' => $entry->id, 'displayformat' => 'dictionary'));
         $anchor = html_writer::link($link, $anchortagcontents);
 

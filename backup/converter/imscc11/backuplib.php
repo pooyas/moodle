@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides {@link imscc11_export_converter} class
  *
  * @package    core
  * @subpackage backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@moodlerooms.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Darko Miletic <dmiletic@lionrooms.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/backup/converter/convertlib.php');
 
@@ -45,7 +31,7 @@ class imscc11_export_converter extends base_converter {
     public static function description() {
 
         return array(
-                'from'  => backup::FORMAT_MOODLE,
+                'from'  => backup::FORMAT_LION,
                 'to'    => backup::FORMAT_IMSCC11,
                 'cost'  => 10
         );
@@ -67,7 +53,7 @@ class imscc11_store_backup_file extends backup_execution_step {
         // Perform storage and return it (TODO: shouldn't be array but proper result object)
         // Let's send the file to file storage, everything already defined
         // First of all, get some information from the backup_controller to help us decide
-        list($dinfo, $cinfo, $sinfo) = backup_controller_dbops::get_moodle_backup_information($this->get_backupid());
+        list($dinfo, $cinfo, $sinfo) = backup_controller_dbops::get_lion_backup_information($this->get_backupid());
 
         // Extract useful information to decide
         $file      = $sinfo['filename']->value;
@@ -143,12 +129,12 @@ class imscc11_backup_convert extends backup_execution_step {
 
         if (mkdir($tempdir, $CFG->directorypermissions, true)) {
 
-            cc_convert_moodle2::convert($basepath, $tempdir);
+            cc_convert_lion2::convert($basepath, $tempdir);
             //Switch the directories
             if (empty($CFG->keeptempdirectoriesonbackup)) {
                 fulldelete($basepath);
             } else {
-                if (!rename($basepath, $basepath  . '_moodle2_source')) {
+                if (!rename($basepath, $basepath  . '_lion2_source')) {
                     throw new backup_task_exception('failed_rename_source_tempdir');
                 }
             }

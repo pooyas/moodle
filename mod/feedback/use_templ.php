@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * print the confirm dialog to use template and create new items from template
@@ -34,7 +20,7 @@ if (!$templateid) {
     redirect('edit.php?id='.$id);
 }
 
-$url = new moodle_url('/mod/feedback/use_templ.php', array('id'=>$id, 'templateid'=>$templateid));
+$url = new lion_url('/mod/feedback/use_templ.php', array('id'=>$id, 'templateid'=>$templateid));
 if ($deleteolditems !== 0) {
     $url->param('deleteolditems', $deleteolditems);
 }
@@ -80,7 +66,7 @@ if (isset($formdata->confirmadd) AND $formdata->confirmadd == 1) {
 $strfeedbacks = get_string("modulenameplural", "feedback");
 $strfeedback  = get_string("modulename", "feedback");
 
-$PAGE->navbar->add($strfeedbacks, new moodle_url('/mod/feedback/index.php', array('id'=>$course->id)));
+$PAGE->navbar->add($strfeedbacks, new lion_url('/mod/feedback/index.php', array('id'=>$course->id)));
 $PAGE->navbar->add(format_string($feedback->name));
 $PAGE->set_heading($course->fullname);
 $PAGE->set_title($feedback->name);

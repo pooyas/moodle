@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This class represent one XMLDB Field
@@ -20,10 +6,10 @@
  * @package    core_xmldb
  * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 class xmldb_field extends xmldb_object {
@@ -172,7 +158,7 @@ class xmldb_field extends xmldb_object {
 
     /**
      * Get the unsigned
-     * @deprecated since moodle 2.3
+     * @deprecated since lion 2.3
      * @return bool
      */
     public function getUnsigned() {
@@ -221,7 +207,7 @@ class xmldb_field extends xmldb_object {
 
     /**
      * Set the field unsigned
-     * @deprecated since moodle 2.3
+     * @deprecated since lion 2.3
      * @param bool $unsigned
      */
     public function setUnsigned($unsigned=true) {
@@ -667,7 +653,7 @@ class xmldb_field extends xmldb_object {
         } else {
             $result .= 'null, ';
         }
-        // Unsigned is not used any more since Moodle 2.3
+        // Unsigned is not used any more since Lion 2.3
         $result .= 'null, ';
         // Not Null
         $notnull = $this->getNotnull();

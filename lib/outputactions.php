@@ -1,23 +1,9 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Classes representing JS event handlers, used by output components.
  *
- * Please see http://docs.moodle.org/en/Developement:How_Moodle_outputs_HTML
+ * Please see http://docs.lion.org/en/Developement:How_Lion_outputs_HTML
  * for an overview.
  *
  * @package core
@@ -26,14 +12,14 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Helper class used by other components that involve an action on the page (URL or JS).
  *
  * @copyright 2009 Nicolas Connault
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package core
  * @category output
  */
@@ -83,7 +69,7 @@ class component_action {
  *
  * @copyright 2009 Nicolas Connault
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package core
  * @category output
  */
@@ -100,7 +86,7 @@ class confirm_action extends component_action {
     public function __construct($message, $callback = null, $continuelabel = null, $cancellabel = null) {
         if ($callback !== null) {
             debugging('The callback argument to new confirm_action() has been deprecated.' .
-                    ' If you need to use a callback, please write Javascript to use moodle-core-notification-confirmation ' .
+                    ' If you need to use a callback, please write Javascript to use lion-core-notification-confirmation ' .
                     'and attach to the provided events.',
                     DEBUG_DEVELOPER);
         }
@@ -116,7 +102,7 @@ class confirm_action extends component_action {
  *
  * @copyright 2009 Nicolas Connault
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package core
  * @category output
  */
@@ -149,7 +135,7 @@ class popup_action extends component_action {
      * Constructor
      *
      * @param string $event DOM event
-     * @param moodle_url|string $url A moodle_url object, required if no jsfunction is given
+     * @param lion_url|string $url A lion_url object, required if no jsfunction is given
      * @param string $name The JS function to call for the popup (default 'popup')
      * @param array  $params An array of popup parameters
      */
@@ -157,7 +143,7 @@ class popup_action extends component_action {
         global $CFG;
         $this->name = $name;
 
-        $url = new moodle_url($url);
+        $url = new lion_url($url);
 
         if ($this->name) {
             $_name = $this->name;

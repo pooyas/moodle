@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -22,7 +8,7 @@
  *
  * @package   core_form
  * @copyright 2009 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 global $CFG;
@@ -39,11 +25,11 @@ require_once($CFG->dirroot.'/repository/lib.php');
  * @package   core_form
  * @category  form
  * @copyright 2009 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @todo      MDL-29421 element Freezing
  * @todo      MDL-29426 ajax format conversion
  */
-class MoodleQuickForm_editor extends HTML_QuickForm_element {
+class LionQuickForm_editor extends HTML_QuickForm_element {
     /** @var string html for help button, if empty then no help will icon will be dispalyed. */
     public $_helpbutton = '';
 
@@ -68,7 +54,7 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
      *              or an associative array
      * @param array $options set of options to initalize filepicker
      */
-    function MoodleQuickForm_editor($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
+    function LionQuickForm_editor($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
         global $CFG, $PAGE;
 
         $options = (array)$options;
@@ -249,10 +235,10 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
     }
 
     /**
-     * @deprecated since Moodle 2.0
+     * @deprecated since Lion 2.0
      */
     function setHelpButton($_helpbuttonargs, $function='_helpbutton') {
-        throw new coding_exception('setHelpButton() can not be used any more, please see MoodleQuickForm::addHelpButton().');
+        throw new coding_exception('setHelpButton() can not be used any more, please see LionQuickForm::addHelpButton().');
     }
 
     /**
@@ -346,7 +332,7 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
             $image_options->env = 'editor';
             $image_options->itemid = $draftitemid;
 
-            // moodlemedia plugin
+            // lionmedia plugin
             $args->accepted_types = array('video', 'audio');
             $media_options = initialise_filepicker($args);
             $media_options->context = $ctx;
@@ -402,7 +388,7 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
         }
         $str .= '</div>';
 
-        // during moodle installation, user area doesn't exist
+        // during lion installation, user area doesn't exist
         // so we need to disable filepicker here.
         if (!during_initial_install() && empty($CFG->adminsetuppending)) {
             // 0 means no files, -1 unlimited
@@ -411,7 +397,7 @@ class MoodleQuickForm_editor extends HTML_QuickForm_element {
                         'value' => $draftitemid));
 
                 // used by non js editor only
-                $editorurl = new moodle_url("$CFG->wwwroot/repository/draftfiles_manager.php", array(
+                $editorurl = new lion_url("$CFG->wwwroot/repository/draftfiles_manager.php", array(
                     'action'=>'browse',
                     'env'=>'editor',
                     'itemid'=>$draftitemid,

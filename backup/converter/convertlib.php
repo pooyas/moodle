@@ -1,37 +1,23 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provides base converter classes
  *
  * @package    core
  * @subpackage backup-convert
- * @copyright  2011 Mark Nielsen <mark@moodlerooms.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Mark Nielsen <mark@lionrooms.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/backup/util/includes/convert_includes.php');
 
 /**
  * Base converter class
  *
- * All Moodle backup converters are supposed to extend this base class.
+ * All Lion backup converters are supposed to extend this base class.
  *
  * @throws convert_exception
  */
@@ -177,9 +163,9 @@ abstract class base_converter implements loggable {
     /**
      * Detects the format of the backup directory
      *
-     * Moodle 2.x format is being detected by the core itself. The converters are
+     * Lion 2.x format is being detected by the core itself. The converters are
      * therefore supposed to detect the source format. Eventually, if the target
-     * format os not {@link backup::FORMAT_MOODLE} then they should be able to
+     * format os not {@link backup::FORMAT_LION} then they should be able to
      * detect both source and target formats.
      *
      * @param string $tempdir the name of the backup directory
@@ -193,8 +179,8 @@ abstract class base_converter implements loggable {
      * Returns the basic information about the converter
      *
      * The returned array must contain the following keys:
-     * 'from' - the supported source format, eg. backup::FORMAT_MOODLE1
-     * 'to'   - the supported target format, eg. backup::FORMAT_MOODLE
+     * 'from' - the supported source format, eg. backup::FORMAT_LION1
+     * 'to'   - the supported target format, eg. backup::FORMAT_LION
      * 'cost' - the cost of the conversion, non-negative non-zero integer
      */
     public static function description() {
@@ -270,9 +256,9 @@ abstract class base_converter implements loggable {
 /**
  * General convert-related exception
  *
- * @author David Mudrak <david@moodle.com>
+ * @author David Mudrak <david@lion.com>
  */
-class convert_exception extends moodle_exception {
+class convert_exception extends lion_exception {
 
     /**
      * Constructor

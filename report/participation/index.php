@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Participation report
  *
  * @package    report
  * @subpackage participation
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 require('../../config.php');
@@ -39,7 +25,7 @@ $page       = optional_param('page', 0, PARAM_INT);                     // which
 $perpage    = optional_param('perpage', DEFAULT_PAGE_SIZE, PARAM_INT);  // how many per page
 $currentgroup = optional_param('group', null, PARAM_INT); // Get the active group.
 
-$url = new moodle_url('/report/participation/index.php', array('id'=>$id));
+$url = new lion_url('/report/participation/index.php', array('id'=>$id));
 if ($roleid !== 0) $url->param('roleid');
 if ($instanceid !== 0) $url->param('instanceid');
 if ($timefrom !== 0) $url->param('timefrom');
@@ -128,7 +114,7 @@ if ($onlyuselegacyreader) {
 // Print first controls.
 report_participation_print_filter_form($course, $timefrom, $minlog, $action, $roleid, $instanceid);
 
-$baseurl = new moodle_url('/report/participation/index.php', array(
+$baseurl = new lion_url('/report/participation/index.php', array(
     'id' => $course->id,
     'roleid' => $roleid,
     'instanceid' => $instanceid,
@@ -348,12 +334,12 @@ if (!empty($instanceid) && !empty($roleid)) {
     $table->print_html();
 
     if ($perpage == SHOW_ALL_PAGE_SIZE) {
-        $perpageurl = new moodle_url($baseurl, array('perpage' => DEFAULT_PAGE_SIZE));
+        $perpageurl = new lion_url($baseurl, array('perpage' => DEFAULT_PAGE_SIZE));
         echo html_writer::start_div('', array('id' => 'showall'));
         echo html_writer::link($perpageurl, get_string('showperpage', '', DEFAULT_PAGE_SIZE));
         echo html_writer::end_div();
     } else if ($matchcount > 0 && $perpage < $matchcount) {
-        $perpageurl = new moodle_url($baseurl, array('perpage' => SHOW_ALL_PAGE_SIZE));
+        $perpageurl = new lion_url($baseurl, array('perpage' => SHOW_ALL_PAGE_SIZE));
         echo html_writer::start_div('', array('id' => 'showall'));
         echo html_writer::link($perpageurl, get_string('showall', '', $matchcount));
         echo html_writer::end_div();

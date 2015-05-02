@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
  * The Web service script that is called from the filepicker front end
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package    repository
  * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('AJAX_SCRIPT', true);
@@ -36,7 +22,7 @@ $err = new stdClass();
 $action    = optional_param('action', '', PARAM_ALPHA);
 $repo_id   = optional_param('repo_id', 0, PARAM_INT);           // Repository ID
 $contextid = optional_param('ctx_id', SYSCONTEXTID, PARAM_INT); // Context ID
-$env       = optional_param('env', 'filepicker', PARAM_ALPHA);  // Opened in editor or moodleform
+$env       = optional_param('env', 'filepicker', PARAM_ALPHA);  // Opened in editor or lionform
 $license   = optional_param('license', $CFG->sitedefaultlicense, PARAM_TEXT);
 $author    = optional_param('author', '', PARAM_TEXT);          // File author
 $source    = optional_param('source', '', PARAM_RAW);           // File to download
@@ -141,12 +127,12 @@ switch ($action) {
                 $mimetypes[] = mimeinfo('type', $type);
             }
             if (!in_array(mimeinfo('type', $saveas_filename), $mimetypes)) {
-                throw new moodle_exception('invalidfiletype', 'repository', '', get_mimetype_description(array('filename' => $saveas_filename)));
+                throw new lion_exception('invalidfiletype', 'repository', '', get_mimetype_description(array('filename' => $saveas_filename)));
             }
         }
 
         // We have two special repository type need to deal with
-        // local and recent plugins don't added new files to moodle, just add new records to database
+        // local and recent plugins don't added new files to lion, just add new records to database
         // so we don't check user quota and maxbytes here
         $allowexternallink = (int)get_config(null, 'repositoryallowexternallinks');
         if (!empty($allowexternallink)) {
@@ -207,8 +193,8 @@ switch ($action) {
             // If file is already a reference, set $source = file source, $repo = file repository
             // note that in this case user may not have permission to access the source file directly
             // so no file_browser/file_info can be used below
-            if ($repo->has_moodle_files()) {
-                $file = repository::get_moodle_file($reference);
+            if ($repo->has_lion_files()) {
+                $file = repository::get_lion_file($reference);
                 if ($file && $file->is_external_file()) {
                     $sourcefield = $file->get_source(); // remember the original source
                     $record->source = $repo::build_source_field($sourcefield);
@@ -221,8 +207,8 @@ switch ($action) {
             }
 
             if ($usefilereference) {
-                if ($repo->has_moodle_files()) {
-                    $sourcefile = repository::get_moodle_file($reference);
+                if ($repo->has_lion_files()) {
+                    $sourcefile = repository::get_lion_file($reference);
                     $record->contenthash = $sourcefile->get_contenthash();
                     $record->filesize = $sourcefile->get_filesize();
                 }
@@ -239,17 +225,17 @@ switch ($action) {
                     $event['newfile'] = new stdClass;
                     $event['newfile']->filepath = $saveas_path;
                     $event['newfile']->filename = $unused_filename;
-                    $event['newfile']->url = moodle_url::make_draftfile_url($itemid, $saveas_path, $unused_filename)->out();
+                    $event['newfile']->url = lion_url::make_draftfile_url($itemid, $saveas_path, $unused_filename)->out();
 
                     $event['existingfile'] = new stdClass;
                     $event['existingfile']->filepath = $saveas_path;
                     $event['existingfile']->filename = $saveas_filename;
-                    $event['existingfile']->url      = moodle_url::make_draftfile_url($itemid, $saveas_path, $saveas_filename)->out();
+                    $event['existingfile']->url      = lion_url::make_draftfile_url($itemid, $saveas_path, $saveas_filename)->out();
                 } else {
 
                     $storedfile = $fs->create_file_from_reference($record, $repo_id, $reference);
                     $event = array(
-                        'url'=>moodle_url::make_draftfile_url($storedfile->get_itemid(), $storedfile->get_filepath(), $storedfile->get_filename())->out(),
+                        'url'=>lion_url::make_draftfile_url($storedfile->get_itemid(), $storedfile->get_filepath(), $storedfile->get_filename())->out(),
                         'id'=>$storedfile->get_itemid(),
                         'file'=>$storedfile->get_filename(),
                         'icon' => $OUTPUT->pix_url(file_file_icon($storedfile, 32))->out(),
@@ -262,11 +248,11 @@ switch ($action) {
                 ajax_check_captured_output();
                 echo json_encode($event);
                 die;
-            } else if ($repo->has_moodle_files()) {
-                // Some repository plugins (local, user, coursefiles, recent) are hosting moodle
+            } else if ($repo->has_lion_files()) {
+                // Some repository plugins (local, user, coursefiles, recent) are hosting lion
                 // internal files, we cannot use get_file method, so we use copy_to_area method
 
-                // If the moodle file is an alias we copy this alias, otherwise we copy the file
+                // If the lion file is an alias we copy this alias, otherwise we copy the file
                 // {@link repository::copy_to_area()}.
                 $fileinfo = $repo->copy_to_area($reference, $record, $maxbytes, $areamaxbytes);
 
@@ -274,7 +260,7 @@ switch ($action) {
                 echo json_encode($fileinfo);
                 die;
             } else {
-                // Download file to moodle.
+                // Download file to lion.
                 $downloadedfile = $repo->get_file($reference, $saveas_filename);
                 if (empty($downloadedfile['path'])) {
                     $err->error = get_string('cannotdownload', 'repository');
@@ -293,7 +279,7 @@ switch ($action) {
 
                 $info = repository::move_to_filepool($downloadedfile['path'], $record);
                 if (empty($info)) {
-                    $info['e'] = get_string('error', 'moodle');
+                    $info['e'] = get_string('error', 'lion');
                 }
             }
             ajax_check_captured_output();

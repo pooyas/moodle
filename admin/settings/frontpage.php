@@ -6,21 +6,21 @@ if (!during_initial_install()) { //do not use during installation
     $frontpagecontext = context_course::instance(SITEID);
 
     if ($hassiteconfig or has_any_capability(array(
-            'moodle/course:update',
-            'moodle/role:assign',
-            'moodle/restore:restorecourse',
-            'moodle/backup:backupcourse',
-            'moodle/course:managefiles',
-            'moodle/question:add',
-            'moodle/question:editmine',
-            'moodle/question:editall',
-            'moodle/question:viewmine',
-            'moodle/question:viewall',
-            'moodle/question:movemine',
-            'moodle/question:moveall'), $frontpagecontext)) {
+            'lion/course:update',
+            'lion/role:assign',
+            'lion/restore:restorecourse',
+            'lion/backup:backupcourse',
+            'lion/course:managefiles',
+            'lion/question:add',
+            'lion/question:editmine',
+            'lion/question:editall',
+            'lion/question:viewmine',
+            'lion/question:viewall',
+            'lion/question:movemine',
+            'lion/question:moveall'), $frontpagecontext)) {
 
         // "frontpage" settingpage
-        $temp = new admin_settingpage('frontpagesettings', new lang_string('frontpagesettings','admin'), 'moodle/course:update', false, $frontpagecontext);
+        $temp = new admin_settingpage('frontpagesettings', new lang_string('frontpagesettings','admin'), 'lion/course:update', false, $frontpagecontext);
         $temp->add(new admin_setting_sitesettext('fullname', new lang_string('fullsitename'), '', NULL)); // no default
         $temp->add(new admin_setting_sitesettext('shortname', new lang_string('shortsitename'), '', NULL)); // no default
         $temp->add(new admin_setting_special_frontpagedesc());

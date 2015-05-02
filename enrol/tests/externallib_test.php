@@ -1,20 +1,6 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -27,8 +13,8 @@ require_once($CFG->dirroot . '/enrol/externallib.php');
  * @package    core_enrol
  * @category   external
  * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.4
+ * 
+ * @since Lion 2.4
  */
 class core_enrol_externallib_testcase extends externallib_advanced_testcase {
 
@@ -48,8 +34,8 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function.
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id);
-        $this->assignUserCapability('moodle/user:viewdetails', $context->id, $roleid);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $context->id);
+        $this->assignUserCapability('lion/user:viewdetails', $context->id, $roleid);
 
         // Enrol the users in the course.
         $this->getDataGenerator()->enrol_user($user1->id, $course->id, $roleid, 'manual');
@@ -83,8 +69,8 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
         $this->assertArrayNotHasKey('email', $enrolledusers[0]);
 
         // Call without required capability.
-        $this->unassignUserCapability('moodle/course:viewparticipants', $context->id, $roleid);
-        $this->setExpectedException('moodle_exception');
+        $this->unassignUserCapability('lion/course:viewparticipants', $context->id, $roleid);
+        $this->setExpectedException('lion_exception');
         $categories = core_enrol_external::get_enrolled_users($course->id);
     }
 
@@ -105,7 +91,7 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
         $roleid = null;
         foreach ($courses as $course) {
             $context = context_course::instance($course->id);
-            $roleid = $this->assignUserCapability('moodle/course:viewparticipants',
+            $roleid = $this->assignUserCapability('lion/course:viewparticipants',
                     $context->id, $roleid);
 
             $this->getDataGenerator()->enrol_user($USER->id, $course->id, $roleid, 'manual');
@@ -134,7 +120,7 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse1';
         $coursedata['fullname'] = 'Lightwork Course 1';
         $coursedata['summary'] = 'Lightwork Course 1 description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course1  = self::getDataGenerator()->create_course($coursedata);
 
         // Create a manual enrolment record.
@@ -145,14 +131,14 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
 
         // Create the users and give them capabilities in the course context.
         $context = context_course::instance($course1->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $context->id, 3);
 
         // Create 2 students.
         $student1 = self::getDataGenerator()->create_user();
         $student2 = self::getDataGenerator()->create_user();
 
         // Give the capability to student2.
-        assign_capability('moodle/course:viewparticipants', CAP_ALLOW, 3, $context->id);
+        assign_capability('lion/course:viewparticipants', CAP_ALLOW, 3, $context->id);
         role_assign(3, $student2->id, $context->id);
         accesslib_clear_all_caches_for_unit_testing();
 
@@ -173,7 +159,7 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
         $DB->insert_record('user_enrolments', $user_enrolment_data);
 
         $params = array("coursecapabilities" => array('courseid' => $course1->id,
-            'capabilities' => array('moodle/course:viewparticipants')));
+            'capabilities' => array('lion/course:viewparticipants')));
         $options = array();
         $result = core_enrol_external::get_enrolled_users_with_capability($params, $options);
 
@@ -183,14 +169,14 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
         // Check an array containing the expected user for the course capability is returned.
         $expecteduserlist = $result[0];
         $this->assertEquals($course1->id, $expecteduserlist['courseid']);
-        $this->assertEquals('moodle/course:viewparticipants', $expecteduserlist['capability']);
+        $this->assertEquals('lion/course:viewparticipants', $expecteduserlist['capability']);
         $this->assertEquals(2, count($expecteduserlist['users']));
 
         // Now doing the query again with options.
         $params = array(
             "coursecapabilities" => array(
                 'courseid' => $course1->id,
-                'capabilities' => array('moodle/course:viewparticipants')
+                'capabilities' => array('lion/course:viewparticipants')
             )
         );
         $options = array(

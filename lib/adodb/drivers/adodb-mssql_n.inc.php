@@ -15,8 +15,8 @@
 //          Whenever there is any discrepancy between the two licenses,  //
 //          the BSD license will take precedence                         //
 //                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.com                                            //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
+//          http://lion.com                                            //
 //                                                                       //
 // Copyright (C) 2001-3001 Martin Dougiamas        http://dougiamas.com  //
 //           (C) 2001-3001 Eloy Lafuente (stronk7) http://contiento.com  //

@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Display example submission followed by its reference assessment and the user's assessment to compare them
  *
  * @package    mod_workshop
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -102,7 +88,7 @@ if ($isreviewer) {
     $assessment->title = get_string('assessmentbyyourself', 'workshop');
     if ($workshop->assessing_examples_allowed()) {
         $assessment->add_action(
-            new moodle_url($workshop->exsubmission_url($example->id), array('assess' => 'on', 'sesskey' => sesskey())),
+            new lion_url($workshop->exsubmission_url($example->id), array('assess' => 'on', 'sesskey' => sesskey())),
             get_string('reassess', 'workshop')
         );
     }

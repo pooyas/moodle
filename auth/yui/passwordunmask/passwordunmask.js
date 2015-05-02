@@ -1,4 +1,4 @@
-YUI.add('moodle-auth-passwordunmask', function(Y) {
+YUI.add('lion-auth-passwordunmask', function(Y) {
     var PASSWORDUNMASK = function() {
         PASSWORDUNMASK.superclass.constructor.apply(this, arguments);
     }

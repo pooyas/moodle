@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * prints the form to import items from xml-file
@@ -31,7 +17,7 @@ $id = required_param('id', PARAM_INT);
 $choosefile = optional_param('choosefile', false, PARAM_PATH);
 $action = optional_param('action', false, PARAM_ALPHA);
 
-$url = new moodle_url('/mod/feedback/import.php', array('id'=>$id));
+$url = new lion_url('/mod/feedback/import.php', array('id'=>$id));
 if ($choosefile !== false) {
     $url->param('choosefile', $choosefile);
 }

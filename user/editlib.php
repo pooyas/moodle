@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains function used when editing a users profile and preferences.
@@ -74,13 +60,13 @@ function useredit_update_user_preference($usernew) {
 /**
  * Updates the provided users profile picture based upon the expected fields returned from the edit or edit_advanced forms.
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param stdClass $usernew An object that contains some information about the user being updated
- * @param moodleform $userform The form that was submitted to edit the form
+ * @param lionform $userform The form that was submitted to edit the form
  * @param array $filemanageroptions
  * @return bool True if the user was updated, false if it stayed the same.
  */
-function useredit_update_picture(stdClass $usernew, moodleform $userform, $filemanageroptions = array()) {
+function useredit_update_picture(stdClass $usernew, lionform $userform, $filemanageroptions = array()) {
     global $CFG, $DB;
     require_once("$CFG->libdir/gdlib.php");
 
@@ -180,7 +166,7 @@ function useredit_update_interests($user, $interests) {
 /**
  * Powerful function that is used by edit and editadvanced to add common form elements/rules/etc.
  *
- * @param moodleform $mform
+ * @param lionform $mform
  * @param array|null $editoroptions
  * @param array|null $filemanageroptions
  */
@@ -264,11 +250,11 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     $mform->setType('description_editor', PARAM_CLEANHTML);
     $mform->addHelpButton('description_editor', 'userdescription');
 
-    $mform->addElement('header', 'moodle_userpreferences', get_string('preferences'));
+    $mform->addElement('header', 'lion_userpreferences', get_string('preferences'));
     useredit_shared_definition_preferences($user, $mform, $editoroptions, $filemanageroptions);
 
     if (empty($USER->newadminuser)) {
-        $mform->addElement('header', 'moodle_picture', get_string('pictureofuser'));
+        $mform->addElement('header', 'lion_picture', get_string('pictureofuser'));
 
         if (!empty($CFG->enablegravatar)) {
             $mform->addElement('html', html_writer::tag('p', get_string('gravatarenabled')));
@@ -290,7 +276,7 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     // Display user name fields that are not currenlty enabled here if there are any.
     $disabledusernamefields = useredit_get_disabled_name_fields($enabledusernamefields);
     if (count($disabledusernamefields) > 0) {
-        $mform->addElement('header', 'moodle_additional_names', get_string('additionalnames'));
+        $mform->addElement('header', 'lion_additional_names', get_string('additionalnames'));
         foreach ($disabledusernamefields as $allname) {
             $mform->addElement('text', $allname, get_string($allname), 'maxlength="100" size="30"');
             $mform->setType($allname, PARAM_NOTAGS);
@@ -298,13 +284,13 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
     }
 
     if (!empty($CFG->usetags) and empty($USER->newadminuser)) {
-        $mform->addElement('header', 'moodle_interests', get_string('interests'));
+        $mform->addElement('header', 'lion_interests', get_string('interests'));
         $mform->addElement('tags', 'interests', get_string('interestslist'), array('display' => 'noofficial'));
         $mform->addHelpButton('interests', 'interestslist');
     }
 
-    // Moodle optional fields.
-    $mform->addElement('header', 'moodle_optional', get_string('optional', 'form'));
+    // Lion optional fields.
+    $mform->addElement('header', 'lion_optional', get_string('optional', 'form'));
 
     $mform->addElement('text', 'url', get_string('webpage'), 'maxlength="255" size="50"');
     $mform->setType('url', PARAM_URL);
@@ -347,7 +333,7 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
  * Adds user preferences elements to user edit form.
  *
  * @param stdClass $user
- * @param moodleform $mform
+ * @param lionform $mform
  * @param array|null $editoroptions
  * @param array|null $filemanageroptions
  */

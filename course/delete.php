@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Admin-only code to delete a course utterly.
@@ -42,11 +28,11 @@ $categorycontext = context_coursecat::instance($course->category);
 $PAGE->set_url('/course/delete.php', array('id' => $id));
 $PAGE->set_context($categorycontext);
 $PAGE->set_pagelayout('admin');
-navigation_node::override_active_url(new moodle_url('/course/management.php', array('categoryid'=>$course->category)));
+navigation_node::override_active_url(new lion_url('/course/management.php', array('categoryid'=>$course->category)));
 
 $courseshortname = format_string($course->shortname, true, array('context' => $coursecontext));
 $coursefullname = format_string($course->fullname, true, array('context' => $coursecontext));
-$categoryurl = new moodle_url('/course/management.php', array('categoryid' => $course->category));
+$categoryurl = new lion_url('/course/management.php', array('categoryid' => $course->category));
 
 // Check if we've got confirmation.
 if ($delete === md5($course->timemodified)) {
@@ -75,7 +61,7 @@ $strdeletecheck = get_string("deletecheck", "", $courseshortname);
 $strdeletecoursecheck = get_string("deletecoursecheck");
 $message = "{$strdeletecoursecheck}<br /><br />{$coursefullname} ({$courseshortname})";
 
-$continueurl = new moodle_url('/course/delete.php', array('id' => $course->id, 'delete' => md5($course->timemodified)));
+$continueurl = new lion_url('/course/delete.php', array('id' => $course->id, 'delete' => md5($course->timemodified)));
 
 $PAGE->navbar->add($strdeletecheck);
 $PAGE->set_title("$SITE->shortname: $strdeletecheck");

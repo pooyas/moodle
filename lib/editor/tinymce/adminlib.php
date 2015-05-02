@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * TinyMCE admin setting stuff.
  *
  * @package   editor_tinymce
  * @copyright 2012 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -30,7 +16,7 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @package   editor_tinymce
  * @copyright 2012 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class tiynce_subplugins_settings extends admin_setting {
     public function __construct() {
@@ -142,12 +128,12 @@ class tiynce_subplugins_settings extends admin_setting {
                 $hideshow = '';
                 $displayname = html_writer::tag('span', $name, array('class'=>'error'));
             } else if ($plugininfo->is_enabled()) {
-                $url = new moodle_url('/lib/editor/tinymce/subplugins.php', array('sesskey'=>sesskey(), 'return'=>'settings', 'disable'=>$name));
+                $url = new lion_url('/lib/editor/tinymce/subplugins.php', array('sesskey'=>sesskey(), 'return'=>'settings', 'disable'=>$name));
                 $hideshow = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/hide'), 'class'=>'iconsmall', 'alt'=>$strdisable));
                 $hideshow = html_writer::link($url, $hideshow);
                 $displayname = $namestr;
             } else {
-                $url = new moodle_url('/lib/editor/tinymce/subplugins.php', array('sesskey'=>sesskey(), 'return'=>'settings', 'enable'=>$name));
+                $url = new lion_url('/lib/editor/tinymce/subplugins.php', array('sesskey'=>sesskey(), 'return'=>'settings', 'enable'=>$name));
                 $hideshow = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/show'), 'class'=>'iconsmall', 'alt'=>$strenable));
                 $hideshow = html_writer::link($url, $hideshow);
                 $displayname = $namestr;
@@ -157,7 +143,7 @@ class tiynce_subplugins_settings extends admin_setting {
             if ($PAGE->theme->resolve_image_location('icon', 'tinymce_' . $name, false)) {
                 $icon = $OUTPUT->pix_icon('icon', '', 'tinymce_' . $name, array('class' => 'icon pluginicon'));
             } else {
-                $icon = $OUTPUT->pix_icon('spacer', '', 'moodle', array('class' => 'icon pluginicon noicon'));
+                $icon = $OUTPUT->pix_icon('spacer', '', 'lion', array('class' => 'icon pluginicon noicon'));
             }
             $displayname  = $icon . ' ' . $displayname;
 

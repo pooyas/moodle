@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Steps definitions related to mod_quiz.
@@ -20,10 +6,10 @@
  * @package   mod_quiz
  * @category  test
  * @copyright 2014 Marina Glancy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/../../../../lib/behat/behat_base.php');
 require_once(__DIR__ . '/../../../../question/tests/behat/behat_question_base.php');
@@ -36,7 +22,7 @@ use Behat\Behat\Context\Step\Given as Given,
  * Steps definitions related to mod_quiz.
  *
  * @copyright 2014 Marina Glancy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_mod_quiz extends behat_question_base {
 
@@ -212,13 +198,13 @@ class behat_mod_quiz extends behat_question_base {
     }
 
     /**
-     * Click on a given link in the moodle-actionmenu that is currently open.
+     * Click on a given link in the lion-actionmenu that is currently open.
      * @Given /^I follow "(?P<link_string>(?:[^"]|\\")*)" in the open menu$/
      * @param string $linkstring the text (or id, etc.) of the link to click.
      * @return array of steps.
      */
     public function i_follow_in_the_open_menu($linkstring) {
-        $openmenuxpath = "//div[contains(@class, 'moodle-actionmenu') and contains(@class, 'show')]";
+        $openmenuxpath = "//div[contains(@class, 'lion-actionmenu') and contains(@class, 'show')]";
         return array(
             new Given('I click on "' . $linkstring . '" "link" in the "' . $openmenuxpath . '" "xpath_element"'),
         );

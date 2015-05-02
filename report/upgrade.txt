@@ -3,7 +3,7 @@ information provided here is intended especially for developers.
 
 === 2.7 ===
 * How to migrate reports accessing table 'log':
-  http://docs.moodle.org/dev/Migrating_log_access_in_reports
+  http://docs.lion.org/dev/Migrating_log_access_in_reports
 * All reports that use logstores must implement a callback report_reportname_supports_logstore($storeinstance) in lib.php of the
   report. Refer MDL-44596 for details.
 
@@ -37,4 +37,4 @@ How to migrate existing course reports (optional):
 # create db/install.php migration script - delete old settings and capabilities (see converted plugins for examples)
 # update CSS selectors
 
-See http://docs.moodle.org/dev/General_report_plugins for more details and explanation.
+See http://docs.lion.org/dev/General_report_plugins for more details and explanation.

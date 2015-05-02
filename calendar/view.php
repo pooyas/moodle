@@ -4,19 +4,19 @@
 //                                                                         //
 // NOTICE OF COPYRIGHT                                                     //
 //                                                                         //
-// Moodle - Calendar extension                                             //
+// Lion - Calendar extension                                             //
 //                                                                         //
 // Copyright (C) 2003-2004  Greek School Network            www.sch.gr     //
 //                                                                         //
 // Designed by:                                                            //
 //     Avgoustos Tsinakos (tsinakos@teikav.edu.gr)                         //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // Programming and development:                                            //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // For bugs, suggestions, etc contact:                                     //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // The current module was developed at the University of Macedonia         //
 // (www.uom.gr) under the funding of the Greek School Network (www.sch.gr) //
@@ -51,7 +51,7 @@ $mon = optional_param('cal_m', 0, PARAM_INT);
 $year = optional_param('cal_y', 0, PARAM_INT);
 $time = optional_param('time', 0, PARAM_INT);
 
-$url = new moodle_url('/calendar/view.php');
+$url = new lion_url('/calendar/view.php');
 
 if ($courseid != SITEID) {
     $url->param('course', $courseid);
@@ -82,7 +82,7 @@ if ($courseid != SITEID && !empty($courseid)) {
     $course = $DB->get_record('course', array('id' => $courseid));
     $courses = array($course->id => $course);
     $issite = false;
-    navigation_node::override_active_url(new moodle_url('/course/view.php', array('id' => $course->id)));
+    navigation_node::override_active_url(new lion_url('/course/view.php', array('id' => $course->id)));
 } else {
     $course = get_site();
     $courses = calendar_get_default_courses();
@@ -152,13 +152,13 @@ switch($view) {
 //Link to calendar export page.
 echo $OUTPUT->container_start('bottom');
 if (!empty($CFG->enablecalendarexport)) {
-    echo $OUTPUT->single_button(new moodle_url('export.php', array('course'=>$courseid)), get_string('exportcalendar', 'calendar'));
+    echo $OUTPUT->single_button(new lion_url('export.php', array('course'=>$courseid)), get_string('exportcalendar', 'calendar'));
     if (calendar_user_can_add_event($course)) {
-        echo $OUTPUT->single_button(new moodle_url('/calendar/managesubscriptions.php', array('course'=>$courseid)), get_string('managesubscriptions', 'calendar'));
+        echo $OUTPUT->single_button(new lion_url('/calendar/managesubscriptions.php', array('course'=>$courseid)), get_string('managesubscriptions', 'calendar'));
     }
     if (isloggedin()) {
         $authtoken = sha1($USER->id . $DB->get_field('user', 'password', array('id' => $USER->id)) . $CFG->calendar_exportsalt);
-        $link = new moodle_url(
+        $link = new lion_url(
             '/calendar/export_execute.php',
             array('preset_what'=>'all', 'preset_time' => 'recentupcoming', 'userid' => $USER->id, 'authtoken'=>$authtoken)
         );

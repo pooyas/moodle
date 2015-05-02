@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains tests for the question_attempt_iterator class.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once(dirname(__FILE__) . '/../lib.php');
@@ -35,7 +21,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
  * This file contains tests for the {@link question_attempt_iterator} class.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_attempt_iterator_test extends advanced_testcase {
     private $quba;
@@ -88,7 +74,7 @@ class question_attempt_iterator_test extends advanced_testcase {
     }
 
     public function test_offsetGet_before_start() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $step = $this->iterator[0];
     }
 
@@ -101,17 +87,17 @@ class question_attempt_iterator_test extends advanced_testcase {
     }
 
     public function test_offsetGet_past_end() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $step = $this->iterator[3];
     }
 
     public function test_cannot_set() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $this->iterator[0] = null;
     }
 
     public function test_cannot_unset() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         unset($this->iterator[2]);
     }
 }

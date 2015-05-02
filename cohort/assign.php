@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cohort related management functions, this file needs to be included manually.
  *
  * @package    core_cohort
  * @copyright  2010 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../config.php');
@@ -33,16 +19,16 @@ require_login();
 $cohort = $DB->get_record('cohort', array('id'=>$id), '*', MUST_EXIST);
 $context = context::instance_by_id($cohort->contextid, MUST_EXIST);
 
-require_capability('moodle/cohort:assign', $context);
+require_capability('lion/cohort:assign', $context);
 
 $PAGE->set_context($context);
 $PAGE->set_url('/cohort/assign.php', array('id'=>$id));
 $PAGE->set_pagelayout('admin');
 
 if ($returnurl) {
-    $returnurl = new moodle_url($returnurl);
+    $returnurl = new lion_url($returnurl);
 } else {
-    $returnurl = new moodle_url('/cohort/index.php', array('contextid' => $cohort->contextid));
+    $returnurl = new lion_url('/cohort/index.php', array('contextid' => $cohort->contextid));
 }
 
 if (!empty($cohort->component)) {
@@ -56,9 +42,9 @@ if (optional_param('cancel', false, PARAM_BOOL)) {
 
 if ($context->contextlevel == CONTEXT_COURSECAT) {
     $category = $DB->get_record('course_categories', array('id'=>$context->instanceid), '*', MUST_EXIST);
-    navigation_node::override_active_url(new moodle_url('/cohort/index.php', array('contextid'=>$cohort->contextid)));
+    navigation_node::override_active_url(new lion_url('/cohort/index.php', array('contextid'=>$cohort->contextid)));
 } else {
-    navigation_node::override_active_url(new moodle_url('/cohort/index.php', array()));
+    navigation_node::override_active_url(new lion_url('/cohort/index.php', array()));
 }
 $PAGE->navbar->add(get_string('assign', 'cohort'));
 

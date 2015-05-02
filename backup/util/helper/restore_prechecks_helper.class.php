@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage backup-helper
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**
@@ -95,17 +81,17 @@ abstract class restore_prechecks_helper {
             $errors[] = get_string('errorminbackup20version', 'backup', $message);
         }
 
-        // Compare Moodle's versions
-        if ($CFG->version < $controller->get_info()->moodle_version) {
+        // Compare Lion's versions
+        if ($CFG->version < $controller->get_info()->lion_version) {
             $message = new stdclass();
             $message->serverversion = $CFG->version;
             $message->serverrelease = $CFG->release;
-            $message->backupversion = $controller->get_info()->moodle_version;
-            $message->backuprelease = $controller->get_info()->moodle_release;
+            $message->backupversion = $controller->get_info()->lion_version;
+            $message->backuprelease = $controller->get_info()->lion_release;
             $warnings[] = get_string('noticenewerbackup','',$message);
         }
 
-        // The original_course_format var was introduced in Moodle 2.9.
+        // The original_course_format var was introduced in Lion 2.9.
         $originalcourseformat = null;
         if (!empty($controller->get_info()->original_course_format)) {
             $originalcourseformat = $controller->get_info()->original_course_format;
@@ -128,7 +114,7 @@ abstract class restore_prechecks_helper {
         // If restoring to different site and restoring users and backup has mnet users warn/error
         if (!$samesite && $restoreusers && $hasmnetusers) {
             // User is admin (can create users at sysctx), warn
-            if (has_capability('moodle/user:create', context_system::instance(), $controller->get_userid())) {
+            if (has_capability('lion/user:create', context_system::instance(), $controller->get_userid())) {
                 $warnings[] = get_string('mnetrestore_extusers_admin', 'admin');
             // User not admin
             } else {

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * LDAP authentication plugin tests.
@@ -29,10 +15,10 @@
  * @package    auth_ldap
  * @category   phpunit
  * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class auth_ldap_plugin_testcase extends advanced_testcase {
 
@@ -54,22 +40,22 @@ class auth_ldap_plugin_testcase extends advanced_testcase {
 
         // Make sure we can connect the server.
         $debuginfo = '';
-        if (!$connection = ldap_connect_moodle(TEST_AUTH_LDAP_HOST_URL, 3, 'rfc2307', TEST_AUTH_LDAP_BIND_DN, TEST_AUTH_LDAP_BIND_PW, LDAP_DEREF_NEVER, $debuginfo, false)) {
+        if (!$connection = ldap_connect_lion(TEST_AUTH_LDAP_HOST_URL, 3, 'rfc2307', TEST_AUTH_LDAP_BIND_DN, TEST_AUTH_LDAP_BIND_PW, LDAP_DEREF_NEVER, $debuginfo, false)) {
             $this->markTestSkipped('Can not connect to LDAP test server: '.$debuginfo);
         }
 
         $this->enable_plugin();
 
         // Create new empty test container.
-        $topdn = 'dc=moodletest,'.TEST_AUTH_LDAP_DOMAIN;
+        $topdn = 'dc=liontest,'.TEST_AUTH_LDAP_DOMAIN;
 
-        $this->recursive_delete($connection, TEST_AUTH_LDAP_DOMAIN, 'dc=moodletest');
+        $this->recursive_delete($connection, TEST_AUTH_LDAP_DOMAIN, 'dc=liontest');
 
         $o = array();
         $o['objectClass'] = array('dcObject', 'organizationalUnit');
-        $o['dc']         = 'moodletest';
-        $o['ou']         = 'MOODLETEST';
-        if (!ldap_add($connection, 'dc=moodletest,'.TEST_AUTH_LDAP_DOMAIN, $o)) {
+        $o['dc']         = 'liontest';
+        $o['ou']         = 'LIONTEST';
+        if (!ldap_add($connection, 'dc=liontest,'.TEST_AUTH_LDAP_DOMAIN, $o)) {
             $this->markTestSkipped('Can not create test LDAP container.');
         }
 
@@ -232,7 +218,7 @@ class auth_ldap_plugin_testcase extends advanced_testcase {
         $this->assertEquals(2, $DB->count_records('role_assignments', array('roleid'=>$creatorrole->id)));
 
 
-        $this->recursive_delete($connection, TEST_AUTH_LDAP_DOMAIN, 'dc=moodletest');
+        $this->recursive_delete($connection, TEST_AUTH_LDAP_DOMAIN, 'dc=liontest');
         ldap_close($connection);
     }
 
@@ -288,7 +274,7 @@ class auth_ldap_plugin_testcase extends advanced_testcase {
         // User to create.
         $user = array(
             'username' => 'usersignuptest1',
-            'password' => 'Moodle2014!',
+            'password' => 'Lion2014!',
             'idnumber' => 'idsignuptest1',
             'firstname' => 'First Name User Test 1',
             'lastname' => 'Last Name User Test 1',
@@ -319,22 +305,22 @@ class auth_ldap_plugin_testcase extends advanced_testcase {
 
         // Make sure we can connect the server.
         $debuginfo = '';
-        if (!$connection = ldap_connect_moodle(TEST_AUTH_LDAP_HOST_URL, 3, 'rfc2307', TEST_AUTH_LDAP_BIND_DN, TEST_AUTH_LDAP_BIND_PW, LDAP_DEREF_NEVER, $debuginfo, false)) {
+        if (!$connection = ldap_connect_lion(TEST_AUTH_LDAP_HOST_URL, 3, 'rfc2307', TEST_AUTH_LDAP_BIND_DN, TEST_AUTH_LDAP_BIND_PW, LDAP_DEREF_NEVER, $debuginfo, false)) {
             $this->markTestSkipped('Can not connect to LDAP test server: '.$debuginfo);
         }
 
         $this->enable_plugin();
 
         // Create new empty test container.
-        $topdn = 'dc=moodletest,'.TEST_AUTH_LDAP_DOMAIN;
+        $topdn = 'dc=liontest,'.TEST_AUTH_LDAP_DOMAIN;
 
-        $this->recursive_delete($connection, TEST_AUTH_LDAP_DOMAIN, 'dc=moodletest');
+        $this->recursive_delete($connection, TEST_AUTH_LDAP_DOMAIN, 'dc=liontest');
 
         $o = array();
         $o['objectClass'] = array('dcObject', 'organizationalUnit');
-        $o['dc']         = 'moodletest';
-        $o['ou']         = 'MOODLETEST';
-        if (!ldap_add($connection, 'dc=moodletest,'.TEST_AUTH_LDAP_DOMAIN, $o)) {
+        $o['dc']         = 'liontest';
+        $o['ou']         = 'LIONTEST';
+        if (!ldap_add($connection, 'dc=liontest,'.TEST_AUTH_LDAP_DOMAIN, $o)) {
             $this->markTestSkipped('Can not create test LDAP container.');
         }
 

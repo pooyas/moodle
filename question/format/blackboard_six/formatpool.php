@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Blackboard V5 and V6 question importer.
  *
  * @package    qformat_blackboard_six
  * @copyright  2003 Scott Elliott
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/xmlize.php');
 
@@ -31,7 +17,7 @@ require_once($CFG->libdir . '/xmlize.php');
  *
  * @package    qformat_blackboard_six
  * @copyright  2003 Scott Elliott
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qformat_blackboard_six_pool extends qformat_blackboard_six_base {
     /**
@@ -388,7 +374,7 @@ class qformat_blackboard_six_pool extends qformat_blackboard_six_base {
         } else {
             return;
         }
-        // Blackboard questions can't be imported in core Moodle without a loss in data,
+        // Blackboard questions can't be imported in core Lion without a loss in data,
         // as core match question don't allow HTML in subanswers. The contributed ddmatch
         // question type support HTML in subanswers.
         // The ddmatch question type is not part of core, so we need to check if it is defined.
@@ -415,9 +401,9 @@ class qformat_blackboard_six_pool extends qformat_blackboard_six_base {
             $question->incorrectfeedback = $this->cleaned_text_field($incorrectfeedback);
 
             $choices = $this->getpath($thisquestion,
-                    array('#', 'CHOICE'), false, false); // Blackboard "choices" are Moodle subanswers.
+                    array('#', 'CHOICE'), false, false); // Blackboard "choices" are Lion subanswers.
             $answers = $this->getpath($thisquestion,
-                    array('#', 'ANSWER'), false, false); // Blackboard "answers" are Moodle subquestions.
+                    array('#', 'ANSWER'), false, false); // Blackboard "answers" are Lion subquestions.
             $correctanswers = $this->getpath($thisquestion,
                     array('#', 'GRADABLE', 0, '#', 'CORRECTANSWER'), false, false); // Mapping between choices and answers.
             $mappings = array();

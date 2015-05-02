@@ -3,7 +3,7 @@
 require_once($CFG->libdir.'/formslib.php');
 
 
-class webservice_test_client_form extends moodleform {
+class webservice_test_client_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -28,7 +28,7 @@ class webservice_test_client_form extends moodleform {
 
 // === Test client forms ===
 
-class moodle_user_create_users_form extends moodleform {
+class lion_user_create_users_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -112,7 +112,7 @@ class moodle_user_create_users_form extends moodleform {
 }
 
 
-class moodle_user_update_users_form extends moodleform {
+class lion_user_update_users_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -206,7 +206,7 @@ class moodle_user_update_users_form extends moodleform {
 }
 
 
-class moodle_user_delete_users_form extends moodleform {
+class lion_user_delete_users_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -278,7 +278,7 @@ class moodle_user_delete_users_form extends moodleform {
 }
 
 
-class moodle_user_get_users_by_id_form extends moodleform {
+class lion_user_get_users_by_id_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -351,7 +351,7 @@ class moodle_user_get_users_by_id_form extends moodleform {
     }
 }
 
-class moodle_group_create_groups_form extends moodleform {
+class lion_group_create_groups_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -418,7 +418,7 @@ class moodle_group_create_groups_form extends moodleform {
     }
 }
 
-class moodle_group_get_groups_form extends moodleform {
+class lion_group_get_groups_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -481,7 +481,7 @@ class moodle_group_get_groups_form extends moodleform {
     }
 }
 
-class moodle_group_get_course_groups_form extends moodleform {
+class lion_group_get_course_groups_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -534,7 +534,7 @@ class moodle_group_get_course_groups_form extends moodleform {
     }
 }
 
-class moodle_group_delete_groups_form extends moodleform {
+class lion_group_delete_groups_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -599,7 +599,7 @@ class moodle_group_delete_groups_form extends moodleform {
     }
 }
 
-class moodle_group_get_groupmembers_form extends moodleform {
+class lion_group_get_groupmembers_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -662,7 +662,7 @@ class moodle_group_get_groupmembers_form extends moodleform {
     }
 }
 
-class moodle_group_add_groupmembers_form extends moodleform {
+class lion_group_add_groupmembers_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -726,7 +726,7 @@ class moodle_group_add_groupmembers_form extends moodleform {
     }
 }
 
-class moodle_group_delete_groupmembers_form extends moodleform {
+class lion_group_delete_groupmembers_form extends lionform {
     public function definition() {
         global $CFG;
 
@@ -794,10 +794,10 @@ class moodle_group_delete_groupmembers_form extends moodleform {
  * Form class for create_categories() web service function test.
  *
  * @package   core_webservice
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @copyright 2012 Fabio Souto
  */
-class core_course_create_categories_form extends moodleform {
+class core_course_create_categories_form extends lionform {
     /**
      * The form definition.
      */
@@ -878,10 +878,10 @@ class core_course_create_categories_form extends moodleform {
  * Form class for delete_categories() web service function test.
  *
  * @package   core_webservice
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @copyright 2012 Fabio Souto
  */
-class core_course_delete_categories_form extends moodleform {
+class core_course_delete_categories_form extends lionform {
     /**
      * The form definition.
      */
@@ -966,10 +966,10 @@ class core_course_delete_categories_form extends moodleform {
  * Form class for create_categories() web service function test.
  *
  * @package   core_webservice
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @copyright 2012 Fabio Souto
  */
-class core_course_update_categories_form extends moodleform {
+class core_course_update_categories_form extends lionform {
     /**
      * The form definition.
      */

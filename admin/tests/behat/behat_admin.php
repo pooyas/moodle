@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Steps definitions related with administration.
@@ -20,10 +6,10 @@
  * @package   core_admin
  * @category  test
  * @copyright 2013 David Monllaó
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/../../../lib/behat/behat_base.php');
 require_once(__DIR__ . '/../../../lib/behat/behat_field_manager.php');
@@ -38,7 +24,7 @@ use Behat\Behat\Context\Step\Given as Given,
  * @package    core_admin
  * @category   test
  * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_admin extends behat_base {
 
@@ -70,8 +56,8 @@ class behat_admin extends behat_base {
 
             $this->wait(self::TIMEOUT * 1000, self::PAGE_READY_JS);
 
-            // Admin settings does not use the same DOM structure than other moodle forms
-            // but we also need to use lib/behat/form_field/* to deal with the different moodle form elements.
+            // Admin settings does not use the same DOM structure than other lion forms
+            // but we also need to use lib/behat/form_field/* to deal with the different lion form elements.
             $exception = new ElementNotFoundException($this->getSession(), '"' . $label . '" administration setting ');
 
             // The argument should be converted to an xpath literal.

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -21,7 +7,7 @@
  * @package    core_notes
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("$CFG->libdir/externallib.php");
@@ -32,8 +18,8 @@ require_once("$CFG->libdir/externallib.php");
  * @package    core_notes
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
 class core_notes_external extends external_api {
 
@@ -41,7 +27,7 @@ class core_notes_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_notes_parameters() {
         return new external_function_parameters(
@@ -51,7 +37,7 @@ class core_notes_external extends external_api {
                         array(
                             'userid' => new external_value(PARAM_INT, 'id of the user the note is about'),
                             'publishstate' => new external_value(PARAM_ALPHA, '\'personal\', \'course\' or \'site\''),
-                            'courseid' => new external_value(PARAM_INT, 'course id of the note (in Moodle a note can only be created into a course, even for site and personal notes)'),
+                            'courseid' => new external_value(PARAM_INT, 'course id of the note (in Lion a note can only be created into a course, even for site and personal notes)'),
                             'text' => new external_value(PARAM_RAW, 'the text of the message - text or HTML'),
                             'format' => new external_format_value('text', VALUE_DEFAULT),
                             'clientnoteid' => new external_value(PARAM_ALPHANUMEXT, 'your own client id for the note. If this id is provided, the fail message id will be returned to you', VALUE_OPTIONAL),
@@ -69,7 +55,7 @@ class core_notes_external extends external_api {
      *
      * @param array $notes  An array of notes to create.
      * @return array (success infos and fail infos)
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_notes($notes = array()) {
         global $CFG, $DB;
@@ -79,7 +65,7 @@ class core_notes_external extends external_api {
 
         // Check if note system is enabled.
         if (!$CFG->enablenotes) {
-            throw new moodle_exception('notesdisabled', 'notes');
+            throw new lion_exception('notesdisabled', 'notes');
         }
 
         // Retrieve all courses.
@@ -111,7 +97,7 @@ class core_notes_external extends external_api {
                 // Ensure the current user is allowed to run this function.
                 $context = context_course::instance($note['courseid']);
                 self::validate_context($context);
-                require_capability('moodle/notes:manage', $context);
+                require_capability('lion/notes:manage', $context);
             }
 
             // Check the user exists.
@@ -169,7 +155,7 @@ class core_notes_external extends external_api {
             } else {
                 // WARNINGS: for backward compatibility we return this errormessage.
                 //          We should have thrown exceptions as these errors prevent results to be returned.
-                // See http://docs.moodle.org/dev/Errors_handling_in_web_services#When_to_send_a_warning_on_the_server_side .
+                // See http://docs.lion.org/dev/Errors_handling_in_web_services#When_to_send_a_warning_on_the_server_side .
                 $resultnote['noteid'] = -1;
                 $resultnote['errormessage'] = $errormessage;
             }
@@ -184,7 +170,7 @@ class core_notes_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_notes_returns() {
         return new external_multiple_structure(
@@ -202,7 +188,7 @@ class core_notes_external extends external_api {
      * Returns description of delete_notes parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function delete_notes_parameters() {
         return new external_function_parameters(
@@ -220,7 +206,7 @@ class core_notes_external extends external_api {
      *
      * @param array $notes An array of ids for the notes to delete.
      * @return null
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function delete_notes($notes = array()) {
         global $CFG;
@@ -230,7 +216,7 @@ class core_notes_external extends external_api {
 
         // Check if note system is enabled.
         if (!$CFG->enablenotes) {
-            throw new moodle_exception('notesdisabled', 'notes');
+            throw new lion_exception('notesdisabled', 'notes');
         }
         $warnings = array();
         foreach ($params['notes'] as $noteid) {
@@ -239,7 +225,7 @@ class core_notes_external extends external_api {
                 // Ensure the current user is allowed to run this function.
                 $context = context_course::instance($note->courseid);
                 self::validate_context($context);
-                require_capability('moodle/notes:manage', $context);
+                require_capability('lion/notes:manage', $context);
                 if (!note_delete($note)) {
                     $warnings[] = array(array('item' => 'note',
                                               'itemid' => $noteid,
@@ -257,7 +243,7 @@ class core_notes_external extends external_api {
      * Returns description of delete_notes result value.
      *
      * @return external_description
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function delete_notes_returns() {
         return  new external_warnings('item is always \'note\'',
@@ -272,7 +258,7 @@ class core_notes_external extends external_api {
      * Returns description of get_notes parameters.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_notes_parameters() {
         return new external_function_parameters(
@@ -289,7 +275,7 @@ class core_notes_external extends external_api {
      *
      * @param array $notes An array of ids for the notes to retrieve.
      * @return null
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_notes($notes) {
         global $CFG;
@@ -298,7 +284,7 @@ class core_notes_external extends external_api {
         $params = self::validate_parameters(self::get_notes_parameters(), array('notes' => $notes));
         // Check if note system is enabled.
         if (!$CFG->enablenotes) {
-            throw new moodle_exception('notesdisabled', 'notes');
+            throw new lion_exception('notesdisabled', 'notes');
         }
         $resultnotes = array();
         foreach ($params['notes'] as $noteid) {
@@ -309,7 +295,7 @@ class core_notes_external extends external_api {
                 // Ensure the current user is allowed to run this function.
                 $context = context_course::instance($note->courseid);
                 self::validate_context($context);
-                require_capability('moodle/notes:view', $context);
+                require_capability('lion/notes:view', $context);
                 list($gotnote['text'], $gotnote['format']) = external_format_text($note->content,
                                                                                   $note->format,
                                                                                   $context->id,
@@ -335,7 +321,7 @@ class core_notes_external extends external_api {
      * Returns description of get_notes result value.
      *
      * @return external_description
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function get_notes_returns() {
         return new external_single_structure(
@@ -365,7 +351,7 @@ class core_notes_external extends external_api {
      * Returns description of update_notes parameters.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function update_notes_parameters() {
         return new external_function_parameters(
@@ -389,7 +375,7 @@ class core_notes_external extends external_api {
      *
      * @param array $notes An array of ids for the notes to update.
      * @return array fail infos.
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function update_notes($notes = array()) {
         global $CFG, $DB;
@@ -399,7 +385,7 @@ class core_notes_external extends external_api {
 
         // Check if note system is enabled.
         if (!$CFG->enablenotes) {
-            throw new moodle_exception('notesdisabled', 'notes');
+            throw new lion_exception('notesdisabled', 'notes');
         }
 
         $warnings = array();
@@ -409,7 +395,7 @@ class core_notes_external extends external_api {
                 // Ensure the current user is allowed to run this function.
                 $context = context_course::instance($notedetails->courseid);
                 self::validate_context($context);
-                require_capability('moodle/notes:manage', $context);
+                require_capability('lion/notes:manage', $context);
 
                 $dbnote = new stdClass;
                 $dbnote->id = $note['id'];
@@ -454,7 +440,7 @@ class core_notes_external extends external_api {
      * Returns description of update_notes result value.
      *
      * @return external_description
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public static function update_notes_returns() {
         return new external_warnings('item is always \'note\'',
@@ -470,19 +456,19 @@ class core_notes_external extends external_api {
  *
  * @package    core_notes
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.1
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+ * 
+ * @since Lion 2.1
+ * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_notes_external
  */
-class moodle_notes_external extends external_api {
+class lion_notes_external extends external_api {
 
     /**
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_notes_external::create_notes_parameters()
      */
     public static function create_notes_parameters() {
@@ -496,8 +482,8 @@ class moodle_notes_external extends external_api {
      *
      * @param array $notes  An array of notes to create.
      * @return array (success infos and fail infos)
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_notes_external::create_notes()
      */
     public static function create_notes($notes = array()) {
@@ -508,8 +494,8 @@ class moodle_notes_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.1
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_notes_external::create_notes_returns()
      */
     public static function create_notes_returns() {

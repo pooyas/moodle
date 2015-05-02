@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
  * Blog entry edit page
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage blog
  * @copyright  2009 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 require_once(dirname(dirname(__FILE__)).'/config.php');
 require_once('lib.php');
@@ -62,7 +48,7 @@ if (isguestuser()) {
     print_error('noguestentry', 'blog');
 }
 
-$returnurl = new moodle_url('/blog/index.php');
+$returnurl = new lion_url('/blog/index.php');
 
 if (!empty($courseid) && empty($modid)) {
     $returnurl->param('courseid', $courseid);
@@ -77,7 +63,7 @@ if (!empty($modid)) {
 
 $blogheaders = blog_get_headers();
 
-if (!has_capability('moodle/blog:create', $sitecontext) && !has_capability('moodle/blog:manageentries', $sitecontext)) {
+if (!has_capability('lion/blog:create', $sitecontext) && !has_capability('lion/blog:manageentries', $sitecontext)) {
     print_error('cannoteditentryorblog');
 }
 
@@ -95,7 +81,7 @@ if ($id) {
     $entry->summary      = clean_text($entry->summary, $entry->format);
 
 } else {
-    if (!has_capability('moodle/blog:create', $sitecontext)) {
+    if (!has_capability('lion/blog:create', $sitecontext)) {
         print_error('noentry', 'blog'); // The capability "manageentries" is not enough for adding.
     }
     $entry  = new stdClass();
@@ -135,8 +121,8 @@ if ($action === 'delete') {
 
         echo '<br />';
         echo $OUTPUT->confirm(get_string('blogdeleteconfirm', 'blog'),
-                              new moodle_url('edit.php', $optionsyes),
-                              new moodle_url('index.php', $optionsno));
+                              new lion_url('edit.php', $optionsyes),
+                              new lion_url('index.php', $optionsno));
         echo $OUTPUT->footer();
         die;
     }

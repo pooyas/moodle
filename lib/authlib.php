@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Multiple plugin authentication Support library
@@ -23,10 +9,10 @@
  * @package    core
  * @subpackage auth
  * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Returned when the login was successful.
@@ -83,7 +69,7 @@ define('AUTH_LOGIN_UNAUTHORISED', 5);
  * Abstract authentication plugin.
  *
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package moodlecore
+ * @package lioncore
  */
 class auth_plugin_base {
 
@@ -124,14 +110,14 @@ class auth_plugin_base {
     );
 
     /**
-     * Moodle custom fields to sync with.
+     * Lion custom fields to sync with.
      * @var array()
      */
     var $customfields = null;
 
     /**
      * This is the primary method that is used by the authenticate_user_login()
-     * function in moodlelib.php.
+     * function in lionlib.php.
      *
      * This method should return a boolean indicating
      * whether or not the username and password authenticate successfully.
@@ -168,7 +154,7 @@ class auth_plugin_base {
      * If you are using a plugin config variable in this method, please make sure it is set before using it,
      * as this method can be called even if the plugin is disabled, in which case the config values won't be set.
      *
-     * @return moodle_url url of the profile page or null if standard used
+     * @return lion_url url of the profile page or null if standard used
      */
     function change_password_url() {
         //override if needed
@@ -193,7 +179,7 @@ class auth_plugin_base {
      * This method is used if can_edit_profile() returns true.
      * This method is called only when user is logged in, it may use global $USER.
      *
-     * @return moodle_url url of the profile page or null if standard used
+     * @return lion_url url of the profile page or null if standard used
      */
     function edit_profile_url() {
         //override if needed
@@ -203,7 +189,7 @@ class auth_plugin_base {
     /**
      * Returns true if this authentication plugin is "internal".
      *
-     * Internal plugins use password hashes from Moodle user table for authentication.
+     * Internal plugins use password hashes from Lion user table for authentication.
      *
      * @return bool
      */
@@ -213,7 +199,7 @@ class auth_plugin_base {
     }
 
     /**
-     * Indicates if password hashes should be stored in local moodle database.
+     * Indicates if password hashes should be stored in local lion database.
      * @return bool true means md5 password hash stored in user table, false means flag 'not_cached' stored there instead
      */
     function prevent_local_passwords() {
@@ -221,7 +207,7 @@ class auth_plugin_base {
     }
 
     /**
-     * Indicates if moodle should automatically update internal user
+     * Indicates if lion should automatically update internal user
      * records with data from external sources using the information
      * from get_userinfo() method.
      *
@@ -234,7 +220,7 @@ class auth_plugin_base {
     /**
      * Updates the user's password.
      *
-     * In previous versions of Moodle, the function
+     * In previous versions of Lion, the function
      * auth_user_update_password accepted a username as the first parameter. The
      * revised function expects a user object.
      *
@@ -311,7 +297,7 @@ class auth_plugin_base {
     /**
      * Return a form to capture user details for account creation.
      * This is used in /login/signup.php.
-     * @return moodle_form A form which edits a record from the user table.
+     * @return lion_form A form which edits a record from the user table.
      */
     function signup_form() {
         global $CFG;
@@ -376,7 +362,7 @@ class auth_plugin_base {
     /**
      * Read user information from external database and returns it as array().
      * Function should return all information available. If you are saving
-     * this information to moodle user-table you should honour synchronisation flags
+     * this information to lion user-table you should honour synchronisation flags
      *
      * @param string $username username
      *
@@ -524,7 +510,7 @@ class auth_plugin_base {
      * authentication method manually is allowed.
      *
      * @return bool
-     * @since Moodle 2.6
+     * @since Lion 2.6
      */
     function can_be_manually_set() {
         // Override if needed.
@@ -576,7 +562,7 @@ class auth_plugin_base {
     /**
      * Post logout hook.
      *
-     * This method is used after moodle logout by auth classes to execute server logout.
+     * This method is used after lion logout by auth classes to execute server logout.
      *
      * @param stdClass $user clone of USER object before the user session was terminated
      */

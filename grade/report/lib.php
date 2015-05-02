@@ -1,33 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * File containing the grade_report class
  *
  * @package   core_grades
- * @copyright 2007 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2007 Lion Pty Ltd (http://lion.com)
+ * 
  */
 
 require_once($CFG->libdir.'/gradelib.php');
 
 /**
  * An abstract class containing variables and methods used by all or most reports.
- * @copyright 2007 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2007 Lion Pty Ltd (http://lion.com)
+ * 
  */
 abstract class grade_report {
     /**
@@ -338,7 +324,7 @@ abstract class grade_report {
 
             $defaultgradeshowactiveenrol = !empty($CFG->grade_report_showonlyactiveenrol);
             $showonlyactiveenrol = get_user_preferences('grade_report_showonlyactiveenrol', $defaultgradeshowactiveenrol);
-            $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('moodle/course:viewsuspendedusers', $coursecontext);
+            $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('lion/course:viewsuspendedusers', $coursecontext);
 
             if ($showonlyactiveenrol) {
                 $useractiveenrolments = get_enrolled_users($coursecontext, '', 0, 'u.id',  null, 0, 0, true);
@@ -362,7 +348,7 @@ abstract class grade_report {
             $this->currentgroup = groups_get_course_group($this->course, true);
             $this->group_selector = groups_print_course_menu($this->course, $this->pbarurl, true);
 
-            if ($this->groupmode == SEPARATEGROUPS and !$this->currentgroup and !has_capability('moodle/site:accessallgroups', $this->context)) {
+            if ($this->groupmode == SEPARATEGROUPS and !$this->currentgroup and !has_capability('lion/site:accessallgroups', $this->context)) {
                 $this->currentgroup = -2; // means can not access any groups at all
             }
 
@@ -397,7 +383,7 @@ abstract class grade_report {
     /**
      * Returns an arrow icon inside an <a> tag, for the purpose of sorting a column.
      * @param string $direction
-     * @param moodle_url $sortlink
+     * @param lion_url $sortlink
      */
     protected function get_sort_arrow($direction='move', $sortlink=null) {
         global $OUTPUT;
@@ -547,7 +533,7 @@ abstract class grade_report {
 
     /**
      * Optionally blank out course/category totals if they contain any hidden items
-     * @deprecated since Moodle 2.8 - Call blank_hidden_total_and_adjust_bounds instead.
+     * @deprecated since Lion 2.8 - Call blank_hidden_total_and_adjust_bounds instead.
      * @param string $courseid the course id
      * @param string $course_item an instance of grade_item
      * @param string $finalgrade the grade for the course_item

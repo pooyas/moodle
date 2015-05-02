@@ -12,7 +12,7 @@
 
         // Send the message and redirect.
         $eventdata = new stdClass();
-        $eventdata->component        = 'moodle';
+        $eventdata->component        = 'lion';
         $eventdata->name             = 'errors';
         $eventdata->userfrom          = $USER;
         $eventdata->userto            = core_user::get_support_user();

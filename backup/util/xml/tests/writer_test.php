@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package   core_backup
  * @category  phpunit
  * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include all the needed stuff
 global $CFG;
@@ -124,7 +110,7 @@ class xml_writer_testcase extends basic_testcase {
         $xw = new mock_xml_writer($xo);
         $xw->start();
         try {
-            $xw->set_nonamespace_schema('http://moodle.org');
+            $xw->set_nonamespace_schema('http://lion.org');
             $this->assertTrue(false, 'xml_writer_exception expected');
         } catch (exception $e) {
             $this->assertTrue($e instanceof xml_writer_exception);
@@ -150,7 +136,7 @@ class xml_writer_testcase extends basic_testcase {
         $xo = new memory_xml_output();
         $xw = new mock_xml_writer($xo);
         $xw->set_prologue('CLEARLY WRONG PROLOGUE');
-        $xw->set_nonamespace_schema('http://moodle.org/littleschema');
+        $xw->set_nonamespace_schema('http://lion.org/littleschema');
         $xw->start();
         $xw->full_tag('TEST', 'Hello World!', array('id' => 1));
         $xw->stop();
@@ -159,7 +145,7 @@ class xml_writer_testcase extends basic_testcase {
         $this->assertEquals(strpos($result, 'WRONG'), 8);
         $this->assertEquals(strpos($result, '<TEST id="1"'), 22);
         $this->assertEquals(strpos($result, 'xmlns:xsi='), 39);
-        $this->assertEquals(strpos($result, 'http://moodle.org/littleschema'), 128);
+        $this->assertEquals(strpos($result, 'http://lion.org/littleschema'), 128);
         $this->assertEquals(strpos($result, 'Hello World'), 160);
         $this->assertFalse(strpos($result, $xw->get_default_prologue()));
 

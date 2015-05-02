@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -21,7 +7,7 @@
  * @package    core_group
  * @category   external
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("$CFG->libdir/externallib.php");
@@ -32,8 +18,8 @@ require_once("$CFG->libdir/externallib.php");
  * @package    core_group
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
 class core_group_external extends external_api {
 
@@ -41,7 +27,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_groups_parameters() {
         return new external_function_parameters(
@@ -66,7 +52,7 @@ class core_group_external extends external_api {
      *
      * @param array $groups array of group description arrays (with keys groupname and courseid)
      * @return array of newly created groups
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_groups($groups) {
         global $CFG, $DB;
@@ -96,9 +82,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             // Validate format.
             $group->descriptionformat = external_validate_format($group->descriptionformat);
@@ -120,7 +106,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function create_groups_returns() {
         return new external_multiple_structure(
@@ -141,7 +127,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_groups_parameters() {
         return new external_function_parameters(
@@ -157,7 +143,7 @@ class core_group_external extends external_api {
      *
      * @param array $groupids arrays of group ids
      * @return array of group objects (id, courseid, name, enrolmentkey)
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_groups($groupids) {
         $params = self::validate_parameters(self::get_groups_parameters(), array('groupids'=>$groupids));
@@ -175,9 +161,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             list($group->description, $group->descriptionformat) =
                 external_format_text($group->description, $group->descriptionformat,
@@ -193,7 +179,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_groups_returns() {
         return new external_multiple_structure(
@@ -214,7 +200,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_course_groups_parameters() {
         return new external_function_parameters(
@@ -229,7 +215,7 @@ class core_group_external extends external_api {
      *
      * @param int $courseid id of course
      * @return array of group objects (id, courseid, name, enrolmentkey)
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_course_groups($courseid) {
         $params = self::validate_parameters(self::get_course_groups_parameters(), array('courseid'=>$courseid));
@@ -242,9 +228,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $params['courseid'];
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
         }
-        require_capability('moodle/course:managegroups', $context);
+        require_capability('lion/course:managegroups', $context);
 
         $gs = groups_get_all_groups($params['courseid'], 0, 0,
             'g.id, g.courseid, g.name, g.description, g.descriptionformat, g.enrolmentkey');
@@ -264,7 +250,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_course_groups_returns() {
         return new external_multiple_structure(
@@ -285,7 +271,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_groups_parameters() {
         return new external_function_parameters(
@@ -299,7 +285,7 @@ class core_group_external extends external_api {
      * Delete groups
      *
      * @param array $groupids array of group ids
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_groups($groupids) {
         global $CFG, $DB;
@@ -325,9 +311,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             groups_delete_group($group);
         }
@@ -339,7 +325,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_groups_returns() {
         return null;
@@ -350,7 +336,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_group_members_parameters() {
         return new external_function_parameters(
@@ -365,7 +351,7 @@ class core_group_external extends external_api {
      *
      * @param array $groupids array of group ids
      * @return array with  group id keys containing arrays of user ids
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_group_members($groupids) {
         $members = array();
@@ -383,9 +369,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             $groupmembers = groups_get_members($group->id, 'u.id', 'lastname ASC, firstname ASC');
 
@@ -399,7 +385,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function get_group_members_returns() {
         return new external_multiple_structure(
@@ -417,7 +403,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function add_group_members_parameters() {
         return new external_function_parameters(
@@ -438,7 +424,7 @@ class core_group_external extends external_api {
      * Add group members
      *
      * @param array $members of arrays with keys userid, groupid
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function add_group_members($members) {
         global $CFG, $DB;
@@ -463,9 +449,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             // now make sure user is enrolled in course - this is mandatory requirement,
             // unfortunately this is slow
@@ -483,7 +469,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function add_group_members_returns() {
         return null;
@@ -494,7 +480,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_group_members_parameters() {
         return new external_function_parameters(
@@ -515,7 +501,7 @@ class core_group_external extends external_api {
      * Delete group members
      *
      * @param array $members of arrays with keys userid, groupid
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_group_members($members) {
         global $CFG, $DB;
@@ -541,12 +527,12 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             if (!groups_remove_member_allowed($group, $user)) {
-                throw new moodle_exception('errorremovenotpermitted', 'group', '', fullname($user));
+                throw new lion_exception('errorremovenotpermitted', 'group', '', fullname($user));
             }
             groups_remove_member($group, $user);
         }
@@ -558,7 +544,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function delete_group_members_returns() {
         return null;
@@ -568,7 +554,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function create_groupings_parameters() {
         return new external_function_parameters(
@@ -592,7 +578,7 @@ class core_group_external extends external_api {
      *
      * @param array $groupings array of grouping description arrays (with keys groupname and courseid)
      * @return array of newly created groupings
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function create_groupings($groupings) {
         global $CFG, $DB;
@@ -622,9 +608,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $grouping->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             $grouping->descriptionformat = external_validate_format($grouping->descriptionformat);
 
@@ -642,7 +628,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function create_groupings_returns() {
         return new external_multiple_structure(
@@ -662,7 +648,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function update_groupings_parameters() {
         return new external_function_parameters(
@@ -686,7 +672,7 @@ class core_group_external extends external_api {
      *
      * @param array $groupings array of grouping description arrays (with keys groupname and courseid)
      * @return array of newly updated groupings
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function update_groupings($groupings) {
         global $CFG, $DB;
@@ -723,9 +709,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $grouping->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             // We must force allways FORMAT_HTML.
             $grouping->descriptionformat = external_validate_format($grouping->descriptionformat);
@@ -743,7 +729,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function update_groupings_returns() {
         return null;
@@ -753,7 +739,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function get_groupings_parameters() {
         return new external_function_parameters(
@@ -771,7 +757,7 @@ class core_group_external extends external_api {
      * @param array $groupingids arrays of grouping ids
      * @param boolean $returngroups return the associated groups if true. The default is false.
      * @return array of grouping objects (id, courseid, name)
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function get_groupings($groupingids, $returngroups = false) {
         global $CFG, $DB;
@@ -795,9 +781,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $grouping->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             list($grouping->description, $grouping->descriptionformat) =
                 external_format_text($grouping->description, $grouping->descriptionformat,
@@ -836,7 +822,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function get_groupings_returns() {
         return new external_multiple_structure(
@@ -868,7 +854,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function get_course_groupings_parameters() {
         return new external_function_parameters(
@@ -883,7 +869,7 @@ class core_group_external extends external_api {
      *
      * @param int $courseid id of course
      * @return array of grouping objects (id, courseid, name, enrolmentkey)
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function get_course_groupings($courseid) {
         global $CFG;
@@ -901,9 +887,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $params['courseid'];
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
         }
-        require_capability('moodle/course:managegroups', $context);
+        require_capability('lion/course:managegroups', $context);
 
         $gs = groups_get_all_groupings($params['courseid']);
 
@@ -922,7 +908,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function get_course_groupings_returns() {
         return new external_multiple_structure(
@@ -942,7 +928,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function delete_groupings_parameters() {
         return new external_function_parameters(
@@ -957,7 +943,7 @@ class core_group_external extends external_api {
      *
      * @param array $groupingids array of grouping ids
      * @return void
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function delete_groupings($groupingids) {
         global $CFG, $DB;
@@ -982,9 +968,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $grouping->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             groups_delete_grouping($grouping);
         }
@@ -996,7 +982,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function delete_groupings_returns() {
         return null;
@@ -1006,7 +992,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function assign_grouping_parameters() {
         return new external_function_parameters(
@@ -1028,7 +1014,7 @@ class core_group_external extends external_api {
      *
      * @param array $assignments of arrays with keys groupid, groupingid
      * @return void
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function assign_grouping($assignments) {
         global $CFG, $DB;
@@ -1058,9 +1044,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             groups_assign_grouping($groupingid, $groupid);
         }
@@ -1072,7 +1058,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function assign_grouping_returns() {
         return null;
@@ -1082,7 +1068,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function unassign_grouping_parameters() {
         return new external_function_parameters(
@@ -1104,7 +1090,7 @@ class core_group_external extends external_api {
      *
      * @param array $unassignments of arrays with keys groupid, groupingid
      * @return void
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function unassign_grouping($unassignments) {
         global $CFG, $DB;
@@ -1134,9 +1120,9 @@ class core_group_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $group->courseid;
-                throw new moodle_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid' , 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:managegroups', $context);
+            require_capability('lion/course:managegroups', $context);
 
             groups_unassign_grouping($groupingid, $groupid);
         }
@@ -1148,7 +1134,7 @@ class core_group_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.3
+     * @since Lion 2.3
      */
     public static function unassign_grouping_returns() {
         return null;
@@ -1158,7 +1144,7 @@ class core_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.9
+     * @since Lion 2.9
      */
     public static function get_course_user_groups_parameters() {
         return new external_function_parameters(
@@ -1173,12 +1159,12 @@ class core_group_external extends external_api {
     /**
      * Get all groups in the specified course for the specified user.
      *
-     * @throws moodle_exception
+     * @throws lion_exception
      * @param int $courseid id of course.
      * @param int $userid id of user.
      * @param int $groupingid optional returns only groups in the specified grouping.
      * @return array of group objects (id, name, description, format) and possible warnings.
-     * @since Moodle 2.9
+     * @since Lion 2.9
      */
     public static function get_course_user_groups($courseid, $userid, $groupingid = 0) {
         global $USER;
@@ -1206,8 +1192,8 @@ class core_group_external extends external_api {
 
          // Check if we have permissions for retrieve the information.
         if ($user->id != $USER->id) {
-            if (!has_capability('moodle/course:managegroups', $context)) {
-                throw new moodle_exception('accessdenied', 'admin');
+            if (!has_capability('lion/course:managegroups', $context)) {
+                throw new lion_exception('accessdenied', 'admin');
             }
             // Validate if the user is enrolled in the course.
             if (!is_enrolled($context, $user->id)) {
@@ -1243,7 +1229,7 @@ class core_group_external extends external_api {
      * Returns description of method result value.
      *
      * @return external_description A single structure containing groups and possible warnings.
-     * @since Moodle 2.9
+     * @since Lion 2.9
      */
     public static function get_course_user_groups_returns() {
         return new external_single_structure(
@@ -1270,19 +1256,19 @@ class core_group_external extends external_api {
  *
  * @package    core_group
  * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+ * 
+ * @since Lion 2.0
+ * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_group_external
  */
-class moodle_group_external extends external_api {
+class lion_group_external extends external_api {
 
     /**
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::create_groups_parameters()
      */
     public static function create_groups_parameters() {
@@ -1294,8 +1280,8 @@ class moodle_group_external extends external_api {
      *
      * @param array $groups array of group description arrays (with keys groupname and courseid)
      * @return array of newly created groups
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see use core_group_external::create_groups()
      */
     public static function create_groups($groups) {
@@ -1306,8 +1292,8 @@ class moodle_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::create_groups_returns()
      */
     public static function create_groups_returns() {
@@ -1327,8 +1313,8 @@ class moodle_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_groups_parameters()
      */
     public static function get_groups_parameters() {
@@ -1340,8 +1326,8 @@ class moodle_group_external extends external_api {
      *
      * @param array $groupids arrays of group ids
      * @return array of group objects (id, courseid, name, enrolmentkey)
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_groups()
      */
     public static function get_groups($groupids) {
@@ -1352,8 +1338,8 @@ class moodle_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_groups_returns()
      */
     public static function get_groups_returns() {
@@ -1373,8 +1359,8 @@ class moodle_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_course_groups_parameters()
      */
     public static function get_course_groups_parameters() {
@@ -1386,8 +1372,8 @@ class moodle_group_external extends external_api {
      *
      * @param int $courseid id of course
      * @return array of group objects (id, courseid, name, enrolmentkey)
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_course_groups()
      */
     public static function get_course_groups($courseid) {
@@ -1398,8 +1384,8 @@ class moodle_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_course_groups_returns()
      */
     public static function get_course_groups_returns() {
@@ -1419,8 +1405,8 @@ class moodle_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::delete_group_members_parameters()
      */
     public static function delete_groups_parameters() {
@@ -1431,8 +1417,8 @@ class moodle_group_external extends external_api {
      * Delete groups
      *
      * @param array $groupids array of group ids
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::delete_groups()
      */
     public static function delete_groups($groupids) {
@@ -1443,8 +1429,8 @@ class moodle_group_external extends external_api {
      * Returns description of method result value
      *
      * @return null
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::delete_group_members_returns()
      */
     public static function delete_groups_returns() {
@@ -1464,8 +1450,8 @@ class moodle_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_group_members_parameters()
      */
     public static function get_groupmembers_parameters() {
@@ -1477,8 +1463,8 @@ class moodle_group_external extends external_api {
      *
      * @param array $groupids array of group ids
      * @return array with  group id keys containing arrays of user ids
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_group_members()
      */
     public static function get_groupmembers($groupids) {
@@ -1489,8 +1475,8 @@ class moodle_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::get_group_members_returns()
      */
     public static function get_groupmembers_returns() {
@@ -1510,8 +1496,8 @@ class moodle_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::add_group_members_parameters()
      */
     public static function add_groupmembers_parameters() {
@@ -1522,8 +1508,8 @@ class moodle_group_external extends external_api {
      * Add group members
      *
      * @param array $members of arrays with keys userid, groupid
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see use core_group_external::add_group_members()
      */
     public static function add_groupmembers($members) {
@@ -1534,8 +1520,8 @@ class moodle_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::add_group_members_returns()
      */
     public static function add_groupmembers_returns() {
@@ -1555,8 +1541,8 @@ class moodle_group_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::delete_group_members_parameters()
      */
     public static function delete_groupmembers_parameters() {
@@ -1567,8 +1553,8 @@ class moodle_group_external extends external_api {
      * Delete group members
      *
      * @param array $members of arrays with keys userid, groupid
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::delete_group_members()
      */
     public static function delete_groupmembers($members) {
@@ -1579,8 +1565,8 @@ class moodle_group_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_group_external::delete_group_members_returns()
      */
     public static function delete_groupmembers_returns() {

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The forum module mail generation tests.
@@ -20,10 +6,10 @@
  * @package    mod_forum
  * @category   external
  * @copyright  2013 Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -85,7 +71,7 @@ class mod_forum_mail_testcase extends advanced_testcase {
         $CFG->messageinbound_enabled = true;
 
         // Must be no longer than 15 characters.
-        $CFG->messageinbound_mailbox = 'moodlemoodle123';
+        $CFG->messageinbound_mailbox = 'lionlion123';
 
         $record = $DB->get_record('messageinbound_handlers', array('classname' => '\mod_forum\message\inbound\reply_handler'));
         $record->enabled = true;
@@ -315,7 +301,7 @@ class mod_forum_mail_testcase extends advanced_testcase {
         // A user with the manageactivities capability within the course can subscribe.
         $expected = 1;
         $roleids = $DB->get_records_menu('role', null, '', 'shortname, id');
-        assign_capability('moodle/course:manageactivities', CAP_ALLOW, $roleids['student'], context_course::instance($course->id));
+        assign_capability('lion/course:manageactivities', CAP_ALLOW, $roleids['student'], context_course::instance($course->id));
         \mod_forum\subscriptions::subscribe_user($recipient->id, $forum);
 
         $this->assertEquals($expected, $DB->count_records('forum_subscriptions', array(
@@ -805,7 +791,7 @@ class mod_forum_mail_testcase extends advanced_testcase {
         $this->assertEquals($expectedcount, count($messages));
 
         foreach ($messages as $message) {
-            $this->assertRegExp('/Reply-To: moodlemoodle123\+[^@]*@example.com/', $message->header);
+            $this->assertRegExp('/Reply-To: lionlion123\+[^@]*@example.com/', $message->header);
         }
     }
 

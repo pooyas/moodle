@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * ODS file writer.
@@ -22,10 +8,10 @@
  *
  * @package   core
  * @copyright 2006 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -33,9 +19,9 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @package   core
  * @copyright 2006 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleODSWorkbook {
+class LionODSWorkbook {
     protected $worksheets = array();
     protected $filename;
 
@@ -44,35 +30,35 @@ class MoodleODSWorkbook {
     }
 
     /**
-     * Create one Moodle Worksheet.
+     * Create one Lion Worksheet.
      *
      * @param string $name Name of the sheet
-     * @return MoodleODSWorksheet
+     * @return LionODSWorksheet
      */
     public function add_worksheet($name = '') {
-        $ws = new MoodleODSWorksheet($name, $this->worksheets);
+        $ws = new LionODSWorksheet($name, $this->worksheets);
         $this->worksheets[] = $ws;
         return $ws;
     }
 
     /**
-     * Create one Moodle Format.
+     * Create one Lion Format.
      *
      * @param array $properties array of properties [name]=value;
      *                          valid names are set_XXXX existing
      *                          functions without the set_ part
      *                          i.e: [bold]=1 for set_bold(1)...Optional!
-     * @return MoodleODSFormat
+     * @return LionODSFormat
      */
     public function add_format($properties = array()) {
-        return new MoodleODSFormat($properties);
+        return new LionODSFormat($properties);
     }
 
     /**
-     * Close the Moodle Workbook.
+     * Close the Lion Workbook.
      */
     public function close() {
-        $writer = new MoodleODSWriter($this->worksheets);
+        $writer = new LionODSWriter($this->worksheets);
         $contents = $writer->get_file_content();
 
         send_file($contents, $this->filename, 0, 0, true, true, $writer->get_ods_mimetype());
@@ -94,9 +80,9 @@ class MoodleODSWorkbook {
  *
  * @package   core
  * @copyright 2013 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleODSCell {
+class LionODSCell {
     public $value;
     public $type;
     public $format;
@@ -109,9 +95,9 @@ class MoodleODSCell {
  *
  * @package   core
  * @copyright 2006 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleODSWorksheet {
+class LionODSWorksheet {
     public $data = array();
     public $columns = array();
     public $rows = array();
@@ -119,7 +105,7 @@ class MoodleODSWorksheet {
     public $name;
 
     /**
-     * Constructs one Moodle Worksheet.
+     * Constructs one Lion Worksheet.
      *
      * @param string $name The name of the file
      * @param array $worksheets existing worksheets
@@ -146,10 +132,10 @@ class MoodleODSWorksheet {
      */
     public function write_string($row, $col, $str, $format = null) {
         if (!isset($this->data[$row][$col])) {
-            $this->data[$row][$col] = new MoodleODSCell();
+            $this->data[$row][$col] = new LionODSCell();
         }
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         $this->data[$row][$col]->value = $str;
         $this->data[$row][$col]->type = 'string';
@@ -167,10 +153,10 @@ class MoodleODSWorksheet {
      */
     public function write_number($row, $col, $num, $format = null) {
         if (!isset($this->data[$row][$col])) {
-            $this->data[$row][$col] = new MoodleODSCell();
+            $this->data[$row][$col] = new LionODSCell();
         }
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         $this->data[$row][$col]->value = $num;
         $this->data[$row][$col]->type = 'float';
@@ -188,10 +174,10 @@ class MoodleODSWorksheet {
      */
     public function write_url($row, $col, $url, $format = null) {
         if (!isset($this->data[$row][$col])) {
-            $this->data[$row][$col] = new MoodleODSCell();
+            $this->data[$row][$col] = new LionODSCell();
         }
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         $this->data[$row][$col]->value = $url;
         $this->data[$row][$col]->type = 'string';
@@ -209,10 +195,10 @@ class MoodleODSWorksheet {
      */
     public function write_date($row, $col, $date, $format = null) {
         if (!isset($this->data[$row][$col])) {
-            $this->data[$row][$col] = new MoodleODSCell();
+            $this->data[$row][$col] = new LionODSCell();
         }
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         $this->data[$row][$col]->value = $date;
         $this->data[$row][$col]->type = 'date';
@@ -230,10 +216,10 @@ class MoodleODSWorksheet {
      */
     public function write_formula($row, $col, $formula, $format = null) {
         if (!isset($this->data[$row][$col])) {
-            $this->data[$row][$col] = new MoodleODSCell();
+            $this->data[$row][$col] = new LionODSCell();
         }
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         $this->data[$row][$col]->formula = $formula;
         $this->data[$row][$col]->format = $format;
@@ -250,7 +236,7 @@ class MoodleODSWorksheet {
      */
     public function write_blank($row, $col, $format = null) {
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         $this->write_string($row, $col, '', $format);
     }
@@ -304,7 +290,7 @@ class MoodleODSWorksheet {
      */
     public function set_row($row, $height, $format = null, $hidden = false, $level = 0) {
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         if ($level < 0) {
             $level = 0;
@@ -334,7 +320,7 @@ class MoodleODSWorksheet {
      */
     public function set_column($firstcol, $lastcol, $width, $format = null, $hidden = false, $level = 0) {
         if (is_array($format)) {
-            $format = new MoodleODSFormat($format);
+            $format = new LionODSFormat($format);
         }
         if ($level < 0) {
             $level = 0;
@@ -397,7 +383,7 @@ class MoodleODSWorksheet {
         }
 
         if (!isset($this->data[$first_row][$first_col])) {
-            $this->data[$first_row][$first_col] = new MoodleODSCell();
+            $this->data[$first_row][$first_col] = new LionODSCell();
         }
 
         $this->data[$first_row][$first_col]->merge = array('rows'=>($last_row-$first_row+1), 'columns'=>($last_col-$first_col+1));
@@ -410,14 +396,14 @@ class MoodleODSWorksheet {
  *
  * @package   core
  * @copyright 2006 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleODSFormat {
+class LionODSFormat {
     public $id;
     public $properties = array();
 
     /**
-     * Constructs one Moodle Format.
+     * Constructs one Lion Format.
      *
      * @param array $properties
      */
@@ -816,9 +802,9 @@ class MoodleODSFormat {
  *
  * @package   core
  * @copyright 2013 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleODSWriter {
+class LionODSWriter {
     protected $worksheets;
 
     public function __construct(array $worksheets) {
@@ -1285,7 +1271,7 @@ class MoodleODSWriter {
                       xmlns:ooo="http://openoffice.org/2004/office" xmlns:grddl="http://www.w3.org/2003/g/data-view#"
                       office:version="1.2">
     <office:meta>
-        <meta:generator>Moodle '.$CFG->release.'</meta:generator>
+        <meta:generator>Lion '.$CFG->release.'</meta:generator>
         <meta:initial-creator>'.fullname($USER, true).'</meta:initial-creator>
         <meta:creation-date>'.strftime('%Y-%m-%dT%H:%M:%S').'</meta:creation-date>
         <meta:document-statistic meta:table-count="1" meta:cell-count="0" meta:object-count="0"/>

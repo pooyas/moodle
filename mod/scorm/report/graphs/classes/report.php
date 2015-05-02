@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Core Report class of graphs reporting plugin
  *
  * @package    scormreport_graphs
  * @copyright  2012 Ankit Kumar Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 namespace scormreport_graphs;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 /**
  * Main class to control the graphs reporting
  *
  * @package    scormreport_graphs
  * @copyright  2012 Ankit Kumar Agarwal
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 class report extends \mod_scorm\report {
@@ -45,13 +31,13 @@ class report extends \mod_scorm\report {
         global $DB, $OUTPUT, $PAGE;
 
         if ($groupmode = groups_get_activity_groupmode($cm)) {   // Groups are being used.
-            groups_print_activity_menu($cm, new \moodle_url($PAGE->url));
+            groups_print_activity_menu($cm, new \lion_url($PAGE->url));
         }
 
         if ($scoes = $DB->get_records('scorm_scoes', array("scorm" => $scorm->id), 'sortorder, id')) {
             foreach ($scoes as $sco) {
                 if ($sco->launch != '') {
-                    $imageurl = new \moodle_url('/mod/scorm/report/graphs/graph.php',
+                    $imageurl = new \lion_url('/mod/scorm/report/graphs/graph.php',
                             array('scoid' => $sco->id));
                     $graphname = $sco->title;
                     echo $OUTPUT->heading($graphname, 3);

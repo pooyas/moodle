@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Report of unsupported role assignments,
@@ -21,7 +7,7 @@
  * @package    tool
  * @subpackage unsuproles
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(__FILE__) . '/../../../config.php');
@@ -60,7 +46,7 @@ if ($action === 'delete') {
     }
     //show confirmation
     echo $OUTPUT->header();
-    $yesurl = new moodle_url($PAGE->url, array('roleid'=>$roleid, 'contextlevel'=>$contextlevel, 'action'=>'delete', 'confirm'=>1, 'sesskey'=>sesskey()));
+    $yesurl = new lion_url($PAGE->url, array('roleid'=>$roleid, 'contextlevel'=>$contextlevel, 'action'=>'delete', 'confirm'=>1, 'sesskey'=>sesskey()));
     $levelname = context_helper::get_level_name($contextlevel);
     $rolename = format_string($role->name);
     $message = get_string('confirmdelete', 'tool_unsuproles', array('level'=>$levelname, 'role'=>$rolename));
@@ -101,9 +87,9 @@ if (!$problems) {
         //TODO: show list of users if count low
         $count = $problem->racount;
         $edit = array();
-        $aurl = new moodle_url('/admin/roles/define.php', array('roleid'=>$problem->roleid, 'action'=>'edit'));
+        $aurl = new lion_url('/admin/roles/define.php', array('roleid'=>$problem->roleid, 'action'=>'edit'));
         $edit[] = html_writer::link($aurl, html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/edit'), 'alt'=>get_string('edit'), 'class'=>'smallicon')));
-        $aurl = new moodle_url($PAGE->url, array('roleid'=>$problem->roleid, 'contextlevel'=>$problem->contextlevel, 'action'=>'delete'));
+        $aurl = new lion_url($PAGE->url, array('roleid'=>$problem->roleid, 'contextlevel'=>$problem->contextlevel, 'action'=>'delete'));
         $edit[] = html_writer::link($aurl, html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/delete'), 'alt'=>get_string('delete'), 'class'=>'smallicon')));
         $data[] = array($levelname, $rolename, $count, implode('&nbsp;', $edit));
     }

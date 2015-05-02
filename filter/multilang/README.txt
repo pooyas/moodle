@@ -37,7 +37,7 @@ One example in action:
 
 
 Ciao, Eloy :-)
-stronk7@moodle.org
+stronk7@lion.org
 2005-11-16
 
 Syntax was changed in 1.8, the conversion of existing text is done from admin/multilangupgrade.php

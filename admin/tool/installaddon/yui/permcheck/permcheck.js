@@ -1,10 +1,10 @@
 /**
  * Check for write permission for the selected plugin type
  *
- * @module      moodle-tool_installaddon-permcheck
- * @author      David Mudrak <david@moodle.com>
+ * @module      lion-tool_installaddon-permcheck
+ * @author      David Mudrak <david@lion.com>
  */
-YUI.add('moodle-tool_installaddon-permcheck', function(Y) {
+YUI.add('lion-tool_installaddon-permcheck', function(Y) {
 
     M.tool_installaddon = M.tool_installaddon || {};
 
@@ -44,7 +44,7 @@ YUI.add('moodle-tool_installaddon-permcheck', function(Y) {
             if (plugintype == '') {
                 return;
             }
-            Y.log('Selected plugin type: ' + plugintype, 'debug', 'moodle-tool_installaddon-permcheck');
+            Y.log('Selected plugin type: ' + plugintype, 'debug', 'lion-tool_installaddon-permcheck');
             Y.io(this.config.permcheckurl, {
                 'method' : 'GET',
                 'data' : {
@@ -61,24 +61,24 @@ YUI.add('moodle-tool_installaddon-permcheck', function(Y) {
                         try {
                             response = Y.JSON.parse(outcome.responseText);
                             if (response.error) {
-                                Y.log(response.error, 'error', 'moodle-tool_installaddon-permcheck');
+                                Y.log(response.error, 'error', 'lion-tool_installaddon-permcheck');
                                 this.showresult(M.util.get_string('permcheckerror', 'tool_installaddon', response), 'error');
                             } else if (response.path && response.writable == 1) {
                                 this.showresult(M.util.get_string('permcheckresultyes', 'tool_installaddon', response), 'success');
                             } else if (response.path && response.writable == 0) {
                                 this.showresult(M.util.get_string('permcheckresultno', 'tool_installaddon', response), 'error');
                             } else {
-                                Y.log(response, 'debug', 'moodle-tool_installaddon-permcheck');
+                                Y.log(response, 'debug', 'lion-tool_installaddon-permcheck');
                                 this.showresult(M.util.get_string('permcheckerror', 'tool_installaddon', response), 'error');
                             }
 
                         } catch (e) {
-                            Y.log(e, 'error', 'moodle-tool_installaddon-permcheck');
+                            Y.log(e, 'error', 'lion-tool_installaddon-permcheck');
                             this.showresult(M.util.get_string('permcheckerror', 'tool_installaddon'), 'error');
                         }
                     },
                     'failure': function(transid, outcome, args) {
-                        Y.log(outcome.statusText, 'error', 'moodle-tool_installaddon-permcheck');
+                        Y.log(outcome.statusText, 'error', 'lion-tool_installaddon-permcheck');
                         this.showresult(M.util.get_string('permcheckerror', 'tool_installaddon'));
                     }
                 }

@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This script creates config.php file during installation.
@@ -21,7 +7,7 @@
  * @package    core
  * @subpackage install
  * @copyright  2009 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 if (isset($_REQUEST['lang'])) {
@@ -64,15 +50,15 @@ if (function_exists('date_default_timezone_set') and function_exists('date_defau
 if (version_compare(phpversion(), '5.4.4') < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN not move it after installib
-    echo "Moodle 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).<br />";
-    echo "Please upgrade your server software or install older Moodle version.";
+    echo "Lion 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).<br />";
+    echo "Please upgrade your server software or install older Lion version.";
     die;
 }
 
 // make sure iconv is available and actually works
 if (!function_exists('iconv')) {
     // this should not happen, this must be very borked install
-    echo 'Moodle requires the iconv PHP extension. Please install or enable the iconv extension.';
+    echo 'Lion requires the iconv PHP extension. Please install or enable the iconv extension.';
     die();
 }
 
@@ -83,13 +69,13 @@ if (PHP_INT_SIZE > 4) {
     // 32bit PHP
     $minrequiredmemory = '40M';
 }
-// increase or decrease available memory - we need to make sure moodle
+// increase or decrease available memory - we need to make sure lion
 // installs even with low memory, otherwise developers would overlook
 // sudden increases of memory needs ;-)
 @ini_set('memory_limit', $minrequiredmemory);
 
-/** Used by library scripts to check they are being called by Moodle */
-define('MOODLE_INTERNAL', true);
+/** Used by library scripts to check they are being called by Lion */
+define('LION_INTERNAL', true);
 
 require_once(__DIR__.'/lib/classes/component.php');
 require_once(__DIR__.'/lib/installlib.php');
@@ -147,7 +133,7 @@ if (!empty($_POST)) {
     $config->dbhost   = empty($distro->dbhost) ? 'localhost' : $distro->dbhost; // let distros set dbhost
     $config->dbuser   = empty($distro->dbuser) ? '' : $distro->dbuser; // let distros set dbuser
     $config->dbpass   = '';
-    $config->dbname   = 'moodle';
+    $config->dbname   = 'lion';
     $config->prefix   = 'mdl_';
     $config->dbport   = empty($distro->dbport) ? '' : $distro->dbport;
     $config->dbsocket = empty($distro->dbsocket) ? '' : $distro->dbsocket;
@@ -157,7 +143,7 @@ if (!empty($_POST)) {
     $config->dataroot = empty($distro->dataroot) ? null  : $distro->dataroot; // initialised later after including libs or by distro
 }
 
-// Fake some settings so that we can use selected functions from moodlelib.php, weblib.php and filelib.php.
+// Fake some settings so that we can use selected functions from lionlib.php, weblib.php and filelib.php.
 global $CFG;
 $CFG = new stdClass();
 $CFG->lang                 = $config->lang;
@@ -170,7 +156,7 @@ $CFG->tempdir              = $CFG->dataroot.'/temp';
 $CFG->cachedir             = $CFG->dataroot.'/cache';
 $CFG->localcachedir        = $CFG->dataroot.'/localcache';
 $CFG->admin                = $config->admin;
-$CFG->docroot              = 'http://docs.moodle.org';
+$CFG->docroot              = 'http://docs.lion.org';
 $CFG->langotherroot        = $CFG->dataroot.'/lang';
 $CFG->langlocalroot        = $CFG->dataroot.'/lang';
 $CFG->directorypermissions = isset($distro->directorypermissions) ? $distro->directorypermissions : 00777; // let distros set dir permissions
@@ -191,7 +177,7 @@ $memlimit = @ini_get('memory_limit');
 if (!empty($memlimit) and $memlimit != -1) {
     if (get_real_size($memlimit) < get_real_size($minrequiredmemory)) {
         // do NOT localise - lang strings would not work here and we CAN not move it to later place
-        echo "Moodle requires at least {$minrequiredmemory}B of PHP memory.<br />";
+        echo "Lion requires at least {$minrequiredmemory}B of PHP memory.<br />";
         echo "Please contact server administrator to fix PHP.ini memory settings.";
         die;
     }
@@ -205,7 +191,7 @@ require_once($CFG->libdir.'/classes/string_manager_standard.php');
 require_once($CFG->libdir.'/weblib.php');
 require_once($CFG->libdir.'/outputlib.php');
 require_once($CFG->libdir.'/dmllib.php');
-require_once($CFG->libdir.'/moodlelib.php');
+require_once($CFG->libdir.'/lionlib.php');
 require_once($CFG->libdir .'/pagelib.php');
 require_once($CFG->libdir.'/deprecatedlib.php');
 require_once($CFG->libdir.'/adminlib.php');
@@ -213,10 +199,10 @@ require_once($CFG->libdir.'/environmentlib.php');
 require_once($CFG->libdir.'/componentlib.class.php');
 require_once($CFG->dirroot.'/cache/lib.php');
 
-//point pear include path to moodles lib/pear so that includes and requires will search there for files before anywhere else
+//point pear include path to lions lib/pear so that includes and requires will search there for files before anywhere else
 //the problem is that we need specific version of quickforms and hacked excel files :-(
 ini_set('include_path', $CFG->libdir.'/pear' . PATH_SEPARATOR . ini_get('include_path'));
-//point zend include path to moodles lib/zend so that includes and requires will search there for files before anywhere else
+//point zend include path to lions lib/zend so that includes and requires will search there for files before anywhere else
 ini_set('include_path', $CFG->libdir.'/zend' . PATH_SEPARATOR . ini_get('include_path'));
 
 // Register our classloader, in theory somebody might want to replace it to load other hacked core classes.
@@ -253,7 +239,7 @@ if (isset($_GET['help'])) {
 
 //first time here? find out suitable dataroot
 if (is_null($CFG->dataroot)) {
-    $CFG->dataroot = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'moodledata';
+    $CFG->dataroot = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'liondata';
 
     $i = 0; //safety check - dirname might return some unexpected results
     while(is_dataroot_insecure()) {
@@ -263,7 +249,7 @@ if (is_null($CFG->dataroot)) {
             $CFG->dataroot = ''; //can not find secure location for dataroot
             break;
         }
-        $CFG->dataroot = dirname($parrent).DIRECTORY_SEPARATOR.'moodledata';
+        $CFG->dataroot = dirname($parrent).DIRECTORY_SEPARATOR.'liondata';
     }
     $config->dataroot = $CFG->dataroot;
     $config->stage    = INSTALL_WELCOME;
@@ -282,7 +268,7 @@ if ($config->stage > INSTALL_SAVE) {
 if ($config->stage == INSTALL_SAVE) {
     $CFG->early_install_lang = false;
 
-    $database = moodle_database::get_driver_instance($config->dbtype, 'native');
+    $database = lion_database::get_driver_instance($config->dbtype, 'native');
     if (!$database->driver_installed()) {
         $config->stage = INSTALL_DATABASETYPE;
     } else {
@@ -418,7 +404,7 @@ if ($config->stage == INSTALL_DOWNLOADLANG) {
 if ($config->stage == INSTALL_DATABASE) {
     $CFG->early_install_lang = false;
 
-    $database = moodle_database::get_driver_instance($config->dbtype, 'native');
+    $database = lion_database::get_driver_instance($config->dbtype, 'native');
 
     $sub = '<h3>'.$database->get_name().'</h3>'.$database->get_configuration_help();
 
@@ -484,12 +470,12 @@ if ($config->stage == INSTALL_DATABASETYPE) {
                                   get_string('databasetypehead', 'install'),
                                   get_string('databasetypesub', 'install'));
 
-    $databases = array('mysqli' => moodle_database::get_driver_instance('mysqli', 'native'),
-                       'mariadb'=> moodle_database::get_driver_instance('mariadb', 'native'),
-                       'pgsql'  => moodle_database::get_driver_instance('pgsql',  'native'),
-                       'oci'    => moodle_database::get_driver_instance('oci',    'native'),
-                       'sqlsrv' => moodle_database::get_driver_instance('sqlsrv', 'native'), // MS SQL*Server PHP driver
-                       'mssql'  => moodle_database::get_driver_instance('mssql',  'native'), // FreeTDS driver
+    $databases = array('mysqli' => lion_database::get_driver_instance('mysqli', 'native'),
+                       'mariadb'=> lion_database::get_driver_instance('mariadb', 'native'),
+                       'pgsql'  => lion_database::get_driver_instance('pgsql',  'native'),
+                       'oci'    => lion_database::get_driver_instance('oci',    'native'),
+                       'sqlsrv' => lion_database::get_driver_instance('sqlsrv', 'native'), // MS SQL*Server PHP driver
+                       'mssql'  => lion_database::get_driver_instance('mssql',  'native'), // FreeTDS driver
                       );
 
     echo '<div class="userinput">';

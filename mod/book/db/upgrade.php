@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Book module upgrade code
  *
  * @package    mod_book
  * @copyright  2009-2011 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Book module upgrade task
@@ -34,21 +20,21 @@ function xmldb_book_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-    // Moodle v2.2.0 release upgrade line
+    // Lion v2.2.0 release upgrade line
     // Put any upgrade step following this
 
-    // Moodle v2.3.0 release upgrade line
+    // Lion v2.3.0 release upgrade line
     // Put any upgrade step following this
 
     // Note: The next steps (up to 2012090408 included, are a "replay" of old upgrade steps,
-    // because some sites updated to Moodle 2.3 didn't have the latest contrib mod_book
+    // because some sites updated to Lion 2.3 didn't have the latest contrib mod_book
     // installed, so some required changes were missing.
     //
     // All the steps are run conditionally so sites upgraded from latest contrib mod_book or
     // new (2.3 and upwards) sites won't get affected.
     //
-    // Warn: It will be safe to delete these steps once Moodle 2.5 (not 2.4!) is declared as minimum
-    // requirement (environment.xml) in some future Moodle 2.x version. Never, never, before!
+    // Warn: It will be safe to delete these steps once Lion 2.5 (not 2.4!) is declared as minimum
+    // requirement (environment.xml) in some future Lion 2.x version. Never, never, before!
     //
     // See MDL-35297 and commit msg for more information.
 
@@ -77,7 +63,7 @@ function xmldb_book_upgrade($oldversion) {
             // Conditionally migrate to html format in intro
             // Si está activo el htmleditor!!!!!
             if ($CFG->texteditors !== 'textarea') {
-                $rs = $DB->get_recordset('book', array('introformat'=>FORMAT_MOODLE), '', 'id,intro,introformat');
+                $rs = $DB->get_recordset('book', array('introformat'=>FORMAT_LION), '', 'id,intro,introformat');
                 foreach ($rs as $b) {
                     $b->intro       = text_to_html($b->intro, false, false, true);
                     $b->introformat = FORMAT_HTML;
@@ -190,21 +176,21 @@ function xmldb_book_upgrade($oldversion) {
     }
     // End of MDL-35297 "replayed" steps.
 
-    // Moodle v2.4.0 release upgrade line
+    // Lion v2.4.0 release upgrade line
     // Put any upgrade step following this
 
 
-    // Moodle v2.5.0 release upgrade line.
+    // Lion v2.5.0 release upgrade line.
     // Put any upgrade step following this.
 
 
-    // Moodle v2.6.0 release upgrade line.
+    // Lion v2.6.0 release upgrade line.
     // Put any upgrade step following this.
 
-    // Moodle v2.7.0 release upgrade line.
+    // Lion v2.7.0 release upgrade line.
     // Put any upgrade step following this.
 
-    // Moodle v2.8.0 release upgrade line.
+    // Lion v2.8.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2014111800) {

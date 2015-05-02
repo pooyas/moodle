@@ -1,7 +1,7 @@
 {
-    "name": "moodle-course-dragdrop",
+    "name": "lion-course-dragdrop",
     "builds": {
-        "moodle-course-dragdrop": {
+        "lion-course-dragdrop": {
             "jsfiles": [
                 "dragdrop.js",
                 "section.js",

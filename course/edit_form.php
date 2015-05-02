@@ -1,6 +1,6 @@
 <?php
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/completionlib.php');
@@ -9,7 +9,7 @@ require_once($CFG->libdir. '/coursecatlib.php');
 /**
  * The form for handling editing a course.
  */
-class course_edit_form extends moodleform {
+class course_edit_form extends lionform {
     protected $course;
     protected $context;
 
@@ -20,7 +20,7 @@ class course_edit_form extends moodleform {
         global $CFG, $PAGE;
 
         $mform    = $this->_form;
-        $PAGE->requires->yui_module('moodle-course-formatchooser', 'M.course.init_formatchooser',
+        $PAGE->requires->yui_module('lion-course-formatchooser', 'M.course.init_formatchooser',
                 array(array('formid' => $mform->getAttribute('id'))));
 
         $course        = $this->_customdata['course']; // this contains the data of this form
@@ -40,7 +40,7 @@ class course_edit_form extends moodleform {
             $context = $categorycontext;
         }
 
-        $courseconfig = get_config('moodlecourse');
+        $courseconfig = get_config('lioncourse');
 
         $this->course  = $course;
         $this->context = $context;
@@ -60,7 +60,7 @@ class course_edit_form extends moodleform {
         $mform->addHelpButton('fullname', 'fullnamecourse');
         $mform->addRule('fullname', get_string('missingfullname'), 'required', null, 'client');
         $mform->setType('fullname', PARAM_TEXT);
-        if (!empty($course->id) and !has_capability('moodle/course:changefullname', $coursecontext)) {
+        if (!empty($course->id) and !has_capability('lion/course:changefullname', $coursecontext)) {
             $mform->hardFreeze('fullname');
             $mform->setConstant('fullname', $course->fullname);
         }
@@ -69,15 +69,15 @@ class course_edit_form extends moodleform {
         $mform->addHelpButton('shortname', 'shortnamecourse');
         $mform->addRule('shortname', get_string('missingshortname'), 'required', null, 'client');
         $mform->setType('shortname', PARAM_TEXT);
-        if (!empty($course->id) and !has_capability('moodle/course:changeshortname', $coursecontext)) {
+        if (!empty($course->id) and !has_capability('lion/course:changeshortname', $coursecontext)) {
             $mform->hardFreeze('shortname');
             $mform->setConstant('shortname', $course->shortname);
         }
 
         // Verify permissions to change course category or keep current.
         if (empty($course->id)) {
-            if (has_capability('moodle/course:create', $categorycontext)) {
-                $displaylist = coursecat::make_categories_list('moodle/course:create');
+            if (has_capability('lion/course:create', $categorycontext)) {
+                $displaylist = coursecat::make_categories_list('lion/course:create');
                 $mform->addElement('select', 'category', get_string('coursecategory'), $displaylist);
                 $mform->addHelpButton('category', 'coursecategory');
                 $mform->setDefault('category', $category->id);
@@ -87,8 +87,8 @@ class course_edit_form extends moodleform {
                 $mform->setConstant('category', $category->id);
             }
         } else {
-            if (has_capability('moodle/course:changecategory', $coursecontext)) {
-                $displaylist = coursecat::make_categories_list('moodle/course:create');
+            if (has_capability('lion/course:changecategory', $coursecontext)) {
+                $displaylist = coursecat::make_categories_list('lion/course:create');
                 if (!isset($displaylist[$course->category])) {
                     //always keep current
                     $displaylist[$course->category] = coursecat::get($course->category, MUST_EXIST, true)->get_formatted_name();
@@ -110,12 +110,12 @@ class course_edit_form extends moodleform {
         $mform->addHelpButton('visible', 'visible');
         $mform->setDefault('visible', $courseconfig->visible);
         if (!empty($course->id)) {
-            if (!has_capability('moodle/course:visibility', $coursecontext)) {
+            if (!has_capability('lion/course:visibility', $coursecontext)) {
                 $mform->hardFreeze('visible');
                 $mform->setConstant('visible', $course->visible);
             }
         } else {
-            if (!guess_if_creator_will_have_course_capability('moodle/course:visibility', $categorycontext)) {
+            if (!guess_if_creator_will_have_course_capability('lion/course:visibility', $categorycontext)) {
                 $mform->hardFreeze('visible');
                 $mform->setConstant('visible', $courseconfig->visible);
             }
@@ -128,7 +128,7 @@ class course_edit_form extends moodleform {
         $mform->addElement('text','idnumber', get_string('idnumbercourse'),'maxlength="100"  size="10"');
         $mform->addHelpButton('idnumber', 'idnumbercourse');
         $mform->setType('idnumber', PARAM_RAW);
-        if (!empty($course->id) and !has_capability('moodle/course:changeidnumber', $coursecontext)) {
+        if (!empty($course->id) and !has_capability('lion/course:changeidnumber', $coursecontext)) {
             $mform->hardFreeze('idnumber');
             $mform->setConstants('idnumber', $course->idnumber);
         }
@@ -148,7 +148,7 @@ class course_edit_form extends moodleform {
             $summaryfields .= ',overviewfiles_filemanager';
         }
 
-        if (!empty($course->id) and !has_capability('moodle/course:changesummary', $coursecontext)) {
+        if (!empty($course->id) and !has_capability('lion/course:changesummary', $coursecontext)) {
             // Remove the description header it does not contain anything any more.
             $mform->removeElement('descriptionhdr');
             $mform->hardFreeze($summaryfields);
@@ -166,7 +166,7 @@ class course_edit_form extends moodleform {
             $course->format = course_get_format($course)->get_format(); // replace with default if not found
             if (!in_array($course->format, $courseformats)) {
                 // this format is disabled. Still display it in the dropdown
-                $formcourseformats[$course->format] = get_string('withdisablednote', 'moodle',
+                $formcourseformats[$course->format] = get_string('withdisablednote', 'lion',
                         get_string('pluginname', 'format_'.$course->format));
             }
         }

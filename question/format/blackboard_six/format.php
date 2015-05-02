@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Blackboard V5 and V6 question importer.
  *
  * @package    qformat_blackboard_six
  * @copyright  2005 Michael Penney
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/xmlize.php');
 require_once($CFG->dirroot . '/question/format/blackboard_six/formatbase.php');
@@ -34,7 +20,7 @@ require_once($CFG->dirroot . '/question/format/blackboard_six/formatpool.php');
  *
  * @package    qformat_blackboard_six
  * @copyright  2005 Michael Penney
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qformat_blackboard_six_file {
     /** @var int type of file being imported, one of the constants FILETYPE_QTI or FILETYPE_POOL. */
@@ -50,7 +36,7 @@ class qformat_blackboard_six_file {
  *
  * @package    qformat_blackboard_six
  * @copyright  2005 Michael Penney
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qformat_blackboard_six extends qformat_blackboard_six_base {
     /** @var int Blackboard assessment qti files were always imported by the blackboard_six plugin. */

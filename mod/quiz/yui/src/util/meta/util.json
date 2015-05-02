@@ -1,24 +1,24 @@
 {
-  "moodle-mod_quiz-util": {
+  "lion-mod_quiz-util": {
     "requires": [
         "node"
     ],
     "use": [
-        "moodle-mod_quiz-util-base"
+        "lion-mod_quiz-util-base"
     ],
     "submodules": {
-        "moodle-mod_quiz-util-base": {
+        "lion-mod_quiz-util-base": {
         },
-        "moodle-mod_quiz-util-slot": {
+        "lion-mod_quiz-util-slot": {
             "requires": [
                 "node",
-                "moodle-mod_quiz-util-base"
+                "lion-mod_quiz-util-base"
             ]
         },
-        "moodle-mod_quiz-util-page": {
+        "lion-mod_quiz-util-page": {
             "requires": [
                 "node",
-                "moodle-mod_quiz-util-base"
+                "lion-mod_quiz-util-base"
             ]
         }
     }

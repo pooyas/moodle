@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_subscript-button",
+    "name": "lion-atto_subscript-button",
     "builds": {
-        "moodle-atto_subscript-button": {
+        "lion-atto_subscript-button": {
             "jsfiles": [
                 "button.js"
             ]

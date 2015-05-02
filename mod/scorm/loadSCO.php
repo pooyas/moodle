@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once('../../config.php');
 require_once($CFG->dirroot.'/mod/scorm/locallib.php');
@@ -149,8 +135,8 @@ if (scorm_external_link($sco->launch)) {
     // This SCORM content sits in a repository that allows relative links.
     $result = "$CFG->wwwroot/pluginfile.php/$context->id/mod_scorm/imsmanifest/$scorm->revision/$launcher";
 } else if ($scorm->scormtype === SCORM_TYPE_LOCAL or $scorm->scormtype === SCORM_TYPE_LOCALSYNC) {
-    // Note: do not convert this to use get_file_url() or moodle_url()
-    // SCORM does not work without slasharguments and moodle_url() encodes querystring vars.
+    // Note: do not convert this to use get_file_url() or lion_url()
+    // SCORM does not work without slasharguments and lion_url() encodes querystring vars.
     $result = "$CFG->wwwroot/pluginfile.php/$context->id/mod_scorm/content/$scorm->revision/$launcher";
 }
 
@@ -228,7 +214,7 @@ echo html_writer::tag('title', 'LoadSCO');
         else {
             document.body.innerHTML = "<p><?php echo get_string('activityloading', 'scorm');?>" +
                                         "<span id='countdown'><?php echo $delayseconds ?></span> " +
-                                        "<?php echo get_string('numseconds', 'moodle', '');?>. &nbsp; " +
+                                        "<?php echo get_string('numseconds', 'lion', '');?>. &nbsp; " +
                                         "<img src='<?php echo $OUTPUT->pix_url('wait', 'scorm') ?>'></p>";
             var e = document.getElementById("countdown");
             var cSeconds = parseInt(e.innerHTML);

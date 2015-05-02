@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_accessibilityhelper-button",
+  "name": "lion-atto_accessibilityhelper-button",
   "builds": {
-    "moodle-atto_accessibilityhelper-button": {
+    "lion-atto_accessibilityhelper-button": {
       "jsfiles": [
         "button.js"
       ]

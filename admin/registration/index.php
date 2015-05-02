@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /*
- * @package    moodle
+ * @package    lion
  * @subpackage registration
  * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
  * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  *
- * On this page the administrator selects which hub he wants to register (except for moodle.net)
- * Admins can register with moodle.net via the site admin menu "Registration" link.
- * On this page the administrator can also unregister from any hubs including moodle.net.
+ * On this page the administrator selects which hub he wants to register (except for lion.net)
+ * Admins can register with lion.net via the site admin menu "Registration" link.
+ * On this page the administrator can also unregister from any hubs including lion.net.
  */
 
 require('../../config.php');
@@ -148,10 +134,10 @@ if (empty($cancel) and $unregistration and !$confirm) {
 
     $siteunregistrationform->display();
 } else {
-    $registeredonmoodleorg = false;
-    $moodleorghub = $registrationmanager->get_registeredhub(HUB_MOODLEORGHUBURL);
-    if (!empty($moodleorghub)) {
-        $registeredonmoodleorg = true;
+    $registeredonlionorg = false;
+    $lionorghub = $registrationmanager->get_registeredhub(HUB_LIONORGHUBURL);
+    if (!empty($lionorghub)) {
+        $registeredonlionorg = true;
     }
 
     // load the hub selector form
@@ -174,18 +160,18 @@ if (empty($cancel) and $unregistration and !$confirm) {
         $hubname = optional_param(clean_param($registeringhuburl, PARAM_ALPHANUMEXT), '', PARAM_TEXT);
         $params = array('sesskey' => sesskey(), 'huburl' => $registeringhuburl,
             'password' => $password, 'hubname' => $hubname);
-        redirect(new moodle_url($CFG->wwwroot . "/" . $CFG->admin . "/registration/register.php",
+        redirect(new lion_url($CFG->wwwroot . "/" . $CFG->admin . "/registration/register.php",
                         $params));
     }
 
     echo $OUTPUT->header();
 
-    //check if the site is registered on Moodle.org and display a message about registering on MOOCH
-    $registered = $DB->count_records('registration_hubs', array('huburl' => HUB_MOODLEORGHUBURL, 'confirmed' => 1));
+    //check if the site is registered on Lion.org and display a message about registering on MOOCH
+    $registered = $DB->count_records('registration_hubs', array('huburl' => HUB_LIONORGHUBURL, 'confirmed' => 1));
     if (empty($registered)) {
         $warningmsg = get_string('registermoochtips', 'hub');
-        $warningmsg .= $renderer->single_button(new moodle_url('register.php', array('huburl' => HUB_MOODLEORGHUBURL
-                    , 'hubname' => 'Moodle.org')), get_string('register', 'admin'));
+        $warningmsg .= $renderer->single_button(new lion_url('register.php', array('huburl' => HUB_LIONORGHUBURL
+                    , 'hubname' => 'Lion.org')), get_string('register', 'admin'));
         echo $renderer->box($warningmsg, 'buttons mdl-align generalbox adminwarning');
     }
 

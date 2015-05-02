@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Ajax point of entry for messaging API.
  *
  * @package    core_message
  * @copyright  2015 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('AJAX_SCRIPT', true);
@@ -36,7 +22,7 @@ if (isguestuser()) {
 
 // Messaging needs to be enabled.
 if (empty($CFG->messaging)) {
-    throw new moodle_exception('disabled', 'core_message');
+    throw new lion_exception('disabled', 'core_message');
 }
 
 require_sesskey();
@@ -48,7 +34,7 @@ switch ($action) {
     // Sending a message.
     case 'sendmessage':
 
-        require_capability('moodle/site:sendmessage', context_system::instance());
+        require_capability('lion/site:sendmessage', context_system::instance());
 
         $userid = required_param('userid', PARAM_INT);
         if (empty($userid) || isguestuser($userid) || $userid == $USER->id) {
@@ -58,10 +44,10 @@ switch ($action) {
 
         $message = required_param('message', PARAM_RAW);
         $user2 = core_user::get_user($userid);
-        $messageid = message_post_message($USER, $user2, $message, FORMAT_MOODLE);
+        $messageid = message_post_message($USER, $user2, $message, FORMAT_LION);
 
         if (!$messageid) {
-            throw new moodle_exception('errorwhilesendingmessage', 'core_message');
+            throw new lion_exception('errorwhilesendingmessage', 'core_message');
         }
 
         $response = array();

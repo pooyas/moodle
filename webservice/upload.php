@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -30,8 +16,8 @@
  *              For private files, this is ignored.
  *
  * @package    core_webservice
- * @copyright  2011 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 
 /**
@@ -40,9 +26,9 @@
 define('AJAX_SCRIPT', true);
 
 /**
- * NO_MOODLE_COOKIES - we don't want any cookie
+ * NO_LION_COOKIES - we don't want any cookie
  */
-define('NO_MOODLE_COOKIES', true);
+define('NO_LION_COOKIES', true);
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once($CFG->dirroot . '/webservice/lib.php');
@@ -66,7 +52,7 @@ if ($fileuploaddisabled) {
 
 // check the user can manage his own files (can upload)
 $context = context_user::instance($USER->id);
-require_capability('moodle/user:manageownfiles', $context);
+require_capability('lion/user:manageownfiles', $context);
 
 if ($filearea !== 'private' and $filearea !== 'draft') {
     // Do not dare to allow more areas here!
@@ -82,28 +68,28 @@ foreach ($_FILES as $fieldname=>$uploaded_file) {
     if (!empty($_FILES[$fieldname]['error'])) {
         switch ($_FILES[$fieldname]['error']) {
         case UPLOAD_ERR_INI_SIZE:
-            throw new moodle_exception('upload_error_ini_size', 'repository_upload');
+            throw new lion_exception('upload_error_ini_size', 'repository_upload');
             break;
         case UPLOAD_ERR_FORM_SIZE:
-            throw new moodle_exception('upload_error_form_size', 'repository_upload');
+            throw new lion_exception('upload_error_form_size', 'repository_upload');
             break;
         case UPLOAD_ERR_PARTIAL:
-            throw new moodle_exception('upload_error_partial', 'repository_upload');
+            throw new lion_exception('upload_error_partial', 'repository_upload');
             break;
         case UPLOAD_ERR_NO_FILE:
-            throw new moodle_exception('upload_error_no_file', 'repository_upload');
+            throw new lion_exception('upload_error_no_file', 'repository_upload');
             break;
         case UPLOAD_ERR_NO_TMP_DIR:
-            throw new moodle_exception('upload_error_no_tmp_dir', 'repository_upload');
+            throw new lion_exception('upload_error_no_tmp_dir', 'repository_upload');
             break;
         case UPLOAD_ERR_CANT_WRITE:
-            throw new moodle_exception('upload_error_cant_write', 'repository_upload');
+            throw new lion_exception('upload_error_cant_write', 'repository_upload');
             break;
         case UPLOAD_ERR_EXTENSION:
-            throw new moodle_exception('upload_error_extension', 'repository_upload');
+            throw new lion_exception('upload_error_extension', 'repository_upload');
             break;
         default:
-            throw new moodle_exception('nofile');
+            throw new lion_exception('nofile');
         }
     }
     $file = new stdClass();
@@ -133,7 +119,7 @@ $maxareabytes = FILE_AREA_MAX_BYTES_UNLIMITED;
 $maxupload = get_user_max_upload_file_size($context, $CFG->maxbytes);
 if ($filearea == 'private') {
     // Private files area is limited by $CFG->userquota.
-    if (!has_capability('moodle/user:ignoreuserquota', $context)) {
+    if (!has_capability('lion/user:ignoreuserquota', $context)) {
         $maxareabytes = $CFG->userquota;
     }
 

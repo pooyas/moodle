@@ -22,15 +22,15 @@ information provided here is intended especially for theme designer.
 * Themes with non-fixed headers must have the .navbar class in their navbar in order for floating headers in the grader report to work - see MDL-46658.
 * To accomodate the new gradebook, use of overflow: hidden or overflow-x: hidden CSS rules on DOM elements containing the
   #user-grades table, visible at [Course administration -> Grades] is not recommended. Please use overflow: auto or
-  overflow: scroll instead, as this will handle medium to large courses with multiple activities better (more information available at https://docs.moodle.org/dev/Theme_upgrade_notes ).
-* The new user menu can be added to themes by calling $OUTPUT->user_menu(); we recommend doing so in a backwards-compatible way (see https://docs.moodle.org/dev/Theme_upgrade_notes for more information).
+  overflow: scroll instead, as this will handle medium to large courses with multiple activities better (more information available at https://docs.lion.org/dev/Theme_upgrade_notes ).
+* The new user menu can be added to themes by calling $OUTPUT->user_menu(); we recommend doing so in a backwards-compatible way (see https://docs.lion.org/dev/Theme_upgrade_notes for more information).
 
 === 2.7 ===
 
 * CSS related functions in theme class and csslib.php were refactored, addons that are
   using this private API need to be updated
 * Please update your css to use 'tr:nth-of-type(odd/even)' instead of '.r0/.r1' to apply tr specific css for various tables.
-  These classes are deprecated now and will be removed in Moodle 2.9. This has done to better support styling tables that will be altered by JavaScript.
+  These classes are deprecated now and will be removed in Lion 2.9. This has done to better support styling tables that will be altered by JavaScript.
   Here is an example to update your css:
   Old code:
     table.generaltable .r0 {background-color: #F0F0F0;}
@@ -43,7 +43,7 @@ Removed themes:
 * afterburner, anomaly, arialist, binarius, boxxie, brick, formal_white, formfactor, fusion, leatherbound,
   magazine, nimble, nonzero, overlay, serenity, sky_high, splash, standard and standardold have been removed.
   During the upgrade process the themes will be uninstalled and all their settings will be deleted.
-  If you wish to keep your theme and its settings, download it from moodle.org and put it back in
+  If you wish to keep your theme and its settings, download it from lion.org and put it back in
   the theme/ directory BEFORE UPGRADING.
 
 Notes:
@@ -57,10 +57,10 @@ Removed themes:
   "My Mobile" theme and its extending themes will fallback to the mobile friendly "Clean" theme.
   If you wish to keep "My Mobile" theme and its settings, BEFORE UPGRADING you can copy the files from the
   unmaintained plugin into theme/mymobile.
-  The unmaintained plugin can be downloaded at https://moodle.org/plugins/pluginversion.php?id=4563
+  The unmaintained plugin can be downloaded at https://lion.org/plugins/pluginversion.php?id=4563
 Notes:
-* There have been several changes made to the classes used on headings throughout Moodle.
-  This was done as per the Moodle HTML guidelines. h1 and h2 elements should have no classes, h3 and lower headings
+* There have been several changes made to the classes used on headings throughout Lion.
+  This was done as per the Lion HTML guidelines. h1 and h2 elements should have no classes, h3 and lower headings
   may have descriptive classes only (any classes must properly describe the relation between the header and its content).
 * The parameters value for the following functions have been modified: core_renderer::heading() and core_renderer::heading_with_help().
   This means that headings using the default options will no longer have the class "main" which was the previous default.
@@ -129,7 +129,7 @@ Optional changes:
     that ensure drag and drop of blocks will work no matter what block regions or how many you have.
   - $OUTPUT->page_heading() returns the page heading. Replaces $PAGE->heading.
   - $OUTPUT->page_heading_button() returns the button to display with the heading. Replaces $page->button.
-  - $OUTPUT->page_doc_link() returns the link to moodle docs for the page. Replaces page_doc_link().
+  - $OUTPUT->page_doc_link() returns the link to lion docs for the page. Replaces page_doc_link().
   - $OUTPUT->page_heading_menu() returns the heading menu for the page. Replaces $PAGE->headingmenu.
   - $OUTPUT->page_title() Returns the title to use for the head section.
   - $OUTPUT->favicon() returns the URL to the favicon.
@@ -146,7 +146,7 @@ required changes:
 * Significant changes in rendering of courses and categories listings, lots of CSS classes changed,
   several functions such as print_courses(), print_whole_category_list(), print_category_info()
   are moved to course renderer.
-  See http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+  See http://docs.lion.org/dev/Courses_lists_upgrade_to_2.5
 
 DOM changes:
 * changed the h1 title in the help popup to a h2.

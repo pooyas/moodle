@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for /lib/filelib.php.
@@ -20,10 +6,10 @@
  * @package   core_files
  * @category  phpunit
  * @copyright 2009 Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/filelib.php');
@@ -465,7 +451,7 @@ class core_filelib_testcase extends advanced_testcase {
 
         // Test post request.
         $curl = new curl();
-        $contents = $curl->post($testurl, 'data=moodletest');
+        $contents = $curl->post($testurl, 'data=liontest');
         $response = $curl->getResponse();
         $this->assertSame('200 OK', reset($response));
         $this->assertSame(0, $curl->get_errno());
@@ -474,7 +460,7 @@ class core_filelib_testcase extends advanced_testcase {
         // Test 100 requests.
         $curl = new curl();
         $curl->setHeader('Expect: 100-continue');
-        $contents = $curl->post($testurl, 'data=moodletest');
+        $contents = $curl->post($testurl, 'data=liontest');
         $response = $curl->getResponse();
         $this->assertSame('200 OK', reset($response));
         $this->assertSame(0, $curl->get_errno());
@@ -494,7 +480,7 @@ class core_filelib_testcase extends advanced_testcase {
             'filepath' => '/',
             'filename' => 'test.txt'
         );
-        $teststring = 'moodletest';
+        $teststring = 'liontest';
         $testfile = $fs->create_file_from_string($filerecord, $teststring);
 
         // Test post with file.
@@ -547,7 +533,7 @@ class core_filelib_testcase extends advanced_testcase {
      * Testing prepare draft area
      *
      * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
-     * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+     * 
      */
     public function test_prepare_draft_area() {
         global $USER, $DB;
@@ -658,7 +644,7 @@ class core_filelib_testcase extends advanced_testcase {
      * Testing deleting original files.
      *
      * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
-     * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+     * 
      */
     public function test_delete_original_file_from_draft() {
         global $USER, $DB;
@@ -721,7 +707,7 @@ class core_filelib_testcase extends advanced_testcase {
         // Save changed file.
         file_save_draft_area_files($draftitemid, $usercontext->id, 'user', 'private', 0);
 
-        // The file reference should be a regular moodle file now.
+        // The file reference should be a regular lion file now.
         $fileref = $fs->get_file($syscontext->id, 'core', 'phpunit', 0, '/', 'test.txt');
         $this->assertFalse($fileref->is_external_file());
         $this->assertSame($contenthash, $fileref->get_contenthash());
@@ -753,7 +739,7 @@ Cache-Control: private, max-age=15, no-transform
 ETag: "4d69af5d8ba873ea9192c489e151bd7b"
 Content-Type: text/html
 Date: Thu, 08 Dec 2011 14:44:53 GMT
-Set-Cookie: BBC-UID=c4de2e109c8df6a51de627cee11b214bd4fb6054a030222488317afb31b343360MoodleBot/1.0; expires=Mon, 07-Dec-15 14:44:53 GMT; path=/; domain=bbc.co.uk
+Set-Cookie: BBC-UID=c4de2e109c8df6a51de627cee11b214bd4fb6054a030222488317afb31b343360LionBot/1.0; expires=Mon, 07-Dec-15 14:44:53 GMT; path=/; domain=bbc.co.uk
 X-Cache-Action: MISS
 X-Cache-Age: 0
 Vary: Cookie,X-Country,X-Ip-is-uk-combined,X-Ip-is-advertise-combined,X-Ip_is_uk_combined,X-Ip_is_advertise_combined, X-GeoIP
@@ -769,7 +755,7 @@ Cache-Control: private, max-age=15, no-transform
 ETag: "4d69af5d8ba873ea9192c489e151bd7b"
 Content-Type: text/html
 Date: Thu, 08 Dec 2011 14:44:53 GMT
-Set-Cookie: BBC-UID=c4de2e109c8df6a51de627cee11b214bd4fb6054a030222488317afb31b343360MoodleBot/1.0; expires=Mon, 07-Dec-15 14:44:53 GMT; path=/; domain=bbc.co.uk
+Set-Cookie: BBC-UID=c4de2e109c8df6a51de627cee11b214bd4fb6054a030222488317afb31b343360LionBot/1.0; expires=Mon, 07-Dec-15 14:44:53 GMT; path=/; domain=bbc.co.uk
 X-Cache-Action: MISS
 X-Cache-Age: 0
 Vary: Cookie,X-Country,X-Ip-is-uk-combined,X-Ip-is-advertise-combined,X-Ip_is_uk_combined,X-Ip_is_advertise_combined, X-GeoIP

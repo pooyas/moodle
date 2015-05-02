@@ -10,7 +10,7 @@
 
     $context = context_system::instance();
 
-    require_capability('moodle/site:config', $context, $USER->id, true, "nopermissions");
+    require_capability('lion/site:config', $context, $USER->id, true, "nopermissions");
 
     if (!extension_loaded('openssl')) {
         echo $OUTPUT->header();

@@ -1,7 +1,7 @@
 GLOSSARY FORMAT PLUGINS
 -----------------------
 
-Starting with Moodle 1.4, the glossary module supports a plugin
+Starting with Lion 1.4, the glossary module supports a plugin
 architecture to create your own formats. This plugin system allows
 you to "invent" your own presentations for your glossary data. :-)
 
@@ -19,7 +19,7 @@ Please, follow these STEPS:
    to THENAME_format.php
 5.-Edit the THENAME_format.php file. Change every ocurrence of TEMPLATE to
    THENAME.
-6.-Login into Moodle. Go to any glossary in your site.
+6.-Login into Lion. Go to any glossary in your site.
 7.-Edit (configure) your glossary. In the Format popup you'll see a new
    entry. It will be showed as "displayformatTHENAME". Select it and view
    your glossary.
@@ -31,10 +31,10 @@ Please, follow these STEPS:
    file (where XX is your language) and create a new displayformatTHENAME
    string.
 10.-Enjoy!! (and don't forget to send your amazing glossary formats to
-   the Glossary forum on http://moodle.org. They will be welcome!! ;-)
+   the Glossary forum on http://lion.org. They will be welcome!! ;-)
 
 To talk about Glossary formats, go to:
-    http://moodle.org/mod/forum/view.php?id=742
+    http://lion.org/mod/forum/view.php?id=742
 
 Eloy (stronk7)
 08/02/2004 (MM/DD/YYYY) :-D

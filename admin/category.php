@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file is used to display a categories sub categories, external pages, and settings.
  *
- * @since      Moodle 2.3
+ * @since      Lion 2.3
  * @package    admin
  * @copyright  2011 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once('../config.php');
@@ -95,7 +81,7 @@ foreach ($settingspage->children as $childpage) {
     if ($childpage instanceof admin_externalpage) {
         $outputhtml .= $OUTPUT->heading(html_writer::link($childpage->url, $childpage->visiblename), 3);
     } else if ($childpage instanceof admin_settingpage) {
-        $outputhtml .= $OUTPUT->heading(html_writer::link(new moodle_url('/'.$CFG->admin.'/settings.php', array('section' => $childpage->name)), $childpage->visiblename), 3);
+        $outputhtml .= $OUTPUT->heading(html_writer::link(new lion_url('/'.$CFG->admin.'/settings.php', array('section' => $childpage->name)), $childpage->visiblename), 3);
         // If its a settings page and has settings lets display them.
         if (!empty($childpage->settings)) {
             $outputhtml .= html_writer::start_tag('fieldset', array('class' => 'adminsettings'));
@@ -115,7 +101,7 @@ foreach ($settingspage->children as $childpage) {
             $outputhtml .= html_writer::end_tag('fieldset');
         }
     } else if ($childpage instanceof admin_category) {
-        $outputhtml .= $OUTPUT->heading(html_writer::link(new moodle_url('/'.$CFG->admin.'/category.php', array('category' => $childpage->name)), get_string('admincategory', 'admin', $childpage->visiblename)), 3);
+        $outputhtml .= $OUTPUT->heading(html_writer::link(new lion_url('/'.$CFG->admin.'/category.php', array('category' => $childpage->name)), get_string('admincategory', 'admin', $childpage->visiblename)), 3);
     }
 }
 if ($savebutton) {
@@ -147,7 +133,7 @@ echo $OUTPUT->heading(get_string('admincategory', 'admin', $visiblename), 2);
 
 echo html_writer::start_tag('form', array('action' => '', 'method' => 'post', 'id' => 'adminsettings'));
 echo html_writer::start_tag('div');
-echo html_writer::input_hidden_params(new moodle_url($PAGE->url, array('sesskey' => sesskey(), 'return' => $return)));
+echo html_writer::input_hidden_params(new lion_url($PAGE->url, array('sesskey' => sesskey(), 'return' => $return)));
 echo html_writer::end_tag('div');
 echo html_writer::start_tag('fieldset');
 echo html_writer::tag('div', '<!-- -->', array('class' => 'clearer'));

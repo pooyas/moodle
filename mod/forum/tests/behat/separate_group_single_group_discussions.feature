@@ -69,7 +69,7 @@ Feature: Posting to groups in a separate group discussion when restricted to gro
   Scenario: Teacher in all groups but without accessallgroups can post in either group but not to All Participants
     And I log in as "admin"
     And I set the following system permissions of "Non-editing teacher" role:
-      | moodle/site:accessallgroups | Prohibit |
+      | lion/site:accessallgroups | Prohibit |
     And I log out
     Given I log in as "teacher1"
     And I follow "Course 1"

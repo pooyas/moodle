@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Implements the XML-RPC methods this plugin publishes to MNet peers
  *
  * This file must be named enrol.php because current MNet framework has the
  * filename hardcoded in XML-RPC path and we want to be compatible with
- * Moodle 1.x MNet clients. There is a proposal in MDL-21993 to allow
+ * Lion 1.x MNet clients. There is a proposal in MDL-21993 to allow
  * map XMP-RPC calls to whatever file, function, class or methods. Once this
  * is fixed, this file will be probably renamed to mnetlib.php (which could
  * be a common name of a plugin library containing functions/methods callable
  * via MNet framework.
  *
  * @package    enrol_mnet
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2010 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * MNet server-side methods that are part of mnetservice_enrol
@@ -38,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
  * The weird name of the class tries to follow a pattern
  * {plugintype}_{pluginnname}_mnetservice_{servicename}
  *
- * Class methods are compatible with API 1 of the service used by Moodle 1.x
+ * Class methods are compatible with API 1 of the service used by Lion 1.x
  * and 2.0 peers. The API version might become a part of class name but it is
  * not neccessary due to how xml-rcp methods are/will be mapped to php methods.
  */
@@ -47,7 +33,7 @@ class enrol_mnet_mnetservice_enrol {
     /**
      * Returns list of courses that we offer to the caller for remote enrolment of their users
      *
-     * Since Moodle 2.0, courses are made available for MNet peers by creating an instance
+     * Since Lion 2.0, courses are made available for MNet peers by creating an instance
      * of enrol_mnet plugin for the course. Hidden courses are not returned. If there are two
      * instances - one specific for the host and one for 'All hosts', the setting of the specific
      * one is used. The id of the peer is kept in customint1, no other custom fields are used.
@@ -98,7 +84,7 @@ class enrol_mnet_mnetservice_enrol {
     }
 
     /**
-     * This method has never been implemented in Moodle MNet API
+     * This method has never been implemented in Lion MNet API
      *
      * @uses mnet_remote_client Callable via XML-RPC only
      * @return array empty array
@@ -140,7 +126,7 @@ class enrol_mnet_mnetservice_enrol {
 
         if ($user === false) {
             // here we could check the setting if the enrol_mnet is allowed to auto-register
-            // users {@link http://tracker.moodle.org/browse/MDL-21327}
+            // users {@link http://tracker.lion.org/browse/MDL-21327}
             $user = mnet_strip_user((object)$userdata, mnet_fields_to_import($client));
             $user->mnethostid = $client->id;
             $user->auth = 'mnet';
@@ -301,7 +287,7 @@ class enrol_mnet_mnetservice_enrol {
      * their admin or locally. Once the course is available for remote enrolments, we
      * will tell them everything about their users.
      *
-     * In Moodle 1.x the returned array used to be indexed by username. The side effect
+     * In Lion 1.x the returned array used to be indexed by username. The side effect
      * of MDL-19219 fix is that we do not need to use such index and therefore we can
      * return all enrolment records. MNet clients 1.x will only use the last record for
      * the student, if she is enrolled via multiple plugins.

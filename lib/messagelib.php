@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Functions for interacting with the message system
  *
  * @package   core_message
  * @copyright 2008 Luis Rodrigues and Martin Dougiamas
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(dirname(dirname(__FILE__)) . '/message/lib.php');
 
@@ -38,7 +24,7 @@ require_once(dirname(dirname(__FILE__)) . '/message/lib.php');
  *  userto object|int the message recipient
  *  subject string the message subject
  *  fullmessage string the full message in a given format
- *  fullmessageformat int the format if the full message (FORMAT_MOODLE, FORMAT_HTML, ..)
+ *  fullmessageformat int the format if the full message (FORMAT_LION, FORMAT_HTML, ..)
  *  fullmessagehtml string the full version (the message processor will choose with one to use)
  *  smallmessage string the small version of the message
  *
@@ -233,10 +219,10 @@ function message_send($eventdata) {
 /**
  * Updates the message_providers table with the current set of message providers
  *
- * @param string $component For example 'moodle', 'mod_forum' or 'block_quiz_results'
+ * @param string $component For example 'lion', 'mod_forum' or 'block_quiz_results'
  * @return boolean True on success
  */
-function message_update_providers($component='moodle') {
+function message_update_providers($component='lion') {
     global $DB;
 
     // load message providers from files
@@ -319,7 +305,7 @@ function message_update_processors($processorname) {
 /**
  * Setting default messaging preferences for particular message provider
  *
- * @param  string $component   The name of component (e.g. moodle, mod_forum, etc.)
+ * @param  string $component   The name of component (e.g. lion, mod_forum, etc.)
  * @param  string $messagename The name of message provider
  * @param  array  $fileprovider The value of $messagename key in the array defined in plugin messages.php
  * @param  string $processorname The optional name of message processor
@@ -501,7 +487,7 @@ function message_get_providers_for_user($userid) {
  * This is an internal function used within messagelib.php
  *
  * @see message_update_providers()
- * @param string $component A moodle component like 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component A lion component like 'lion', 'mod_forum', 'block_quiz_results'
  * @return array An array of message providers
  */
 function message_get_providers_from_db($component) {
@@ -518,7 +504,7 @@ function message_get_providers_from_db($component) {
  *
  * @see message_update_providers()
  * @see message_update_processors()
- * @param string $component A moodle component like 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component A lion component like 'lion', 'mod_forum', 'block_quiz_results'
  * @return array An array of message providers or empty array if not exists
  */
 function message_get_providers_from_file($component) {
@@ -545,7 +531,7 @@ function message_get_providers_from_file($component) {
 /**
  * Remove all message providers for particular component and corresponding settings
  *
- * @param string $component A moodle component like 'moodle', 'mod_forum', 'block_quiz_results'
+ * @param string $component A lion component like 'lion', 'mod_forum', 'block_quiz_results'
  * @return void
  */
 function message_provider_uninstall($component) {

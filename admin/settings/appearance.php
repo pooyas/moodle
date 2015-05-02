@@ -3,8 +3,8 @@
 // This file defines settingpages and externalpages under the "appearance" category
 
 $capabilities = array(
-    'moodle/my:configsyspages',
-    'moodle/tag:manage'
+    'lion/my:configsyspages',
+    'lion/tag:manage'
 );
 
 if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) { // speedup for non-admins, add all caps used on this page
@@ -28,7 +28,7 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) { // sp
         new lang_string('customusermenuitems', 'admin'),
         new lang_string('configcustomusermenuitems', 'admin'),
         'messages,message|/message/index.php|message
-myfiles,moodle|/user/files.php|download
+myfiles,lion|/user/files.php|download
 mybadges,badges|/badges/mybadges.php|award',
         PARAM_TEXT,
         '50',
@@ -117,7 +117,7 @@ mybadges,badges|/badges/mybadges.php|award',
     $ADMIN->add('appearance', $temp);
 
     // blog
-    $temp = new admin_settingpage('blog', new lang_string('blog','blog'), 'moodle/site:config', empty($CFG->enableblogs));
+    $temp = new admin_settingpage('blog', new lang_string('blog','blog'), 'lion/site:config', empty($CFG->enableblogs));
     $temp->add(new admin_setting_configcheckbox('useblogassociations', new lang_string('useblogassociations', 'blog'), new lang_string('configuseblogassociations','blog'), 1));
     $temp->add(new admin_setting_bloglevel('bloglevel', new lang_string('bloglevel', 'admin'), new lang_string('configbloglevel', 'admin'), 4, array(BLOG_GLOBAL_LEVEL => new lang_string('worldblogs','blog'),
                                                                                                                                            BLOG_SITE_LEVEL => new lang_string('siteblogs','blog'),
@@ -137,11 +137,11 @@ mybadges,badges|/badges/mybadges.php|award',
     $temp = new admin_settingpage('navigation', new lang_string('navigation'));
     $choices = array(
         HOMEPAGE_SITE => new lang_string('site'),
-        HOMEPAGE_MY => new lang_string('mymoodle', 'admin'),
+        HOMEPAGE_MY => new lang_string('mylion', 'admin'),
         HOMEPAGE_USER => new lang_string('userpreference', 'admin')
     );
     $temp->add(new admin_setting_configselect('defaulthomepage', new lang_string('defaulthomepage', 'admin'), new lang_string('configdefaulthomepage', 'admin'), HOMEPAGE_SITE, $choices));
-    $temp->add(new admin_setting_configcheckbox('allowguestmymoodle', new lang_string('allowguestmymoodle', 'admin'), new lang_string('configallowguestmymoodle', 'admin'), 1));
+    $temp->add(new admin_setting_configcheckbox('allowguestmylion', new lang_string('allowguestmylion', 'admin'), new lang_string('configallowguestmylion', 'admin'), 1));
     $temp->add(new admin_setting_configcheckbox('navshowfullcoursenames', new lang_string('navshowfullcoursenames', 'admin'), new lang_string('navshowfullcoursenames_help', 'admin'), 0));
     $temp->add(new admin_setting_configcheckbox('navshowcategories', new lang_string('navshowcategories', 'admin'), new lang_string('confignavshowcategories', 'admin'), 1));
     $temp->add(new admin_setting_configcheckbox('navshowmycoursecategories', new lang_string('navshowmycoursecategories', 'admin'), new lang_string('navshowmycoursecategories_help', 'admin'), 0));
@@ -169,7 +169,7 @@ mybadges,badges|/badges/mybadges.php|award',
     $temp->add(new admin_setting_emoticons());
     $ADMIN->add('appearance', $temp);
     $ADMIN->add('appearance', new admin_externalpage('resetemoticons', new lang_string('emoticonsreset', 'admin'),
-        new moodle_url('/admin/resetemoticons.php'), 'moodle/site:config', true));
+        new lion_url('/admin/resetemoticons.php'), 'lion/site:config', true));
 
 
     // The "media" subpage.
@@ -215,8 +215,8 @@ mybadges,badges|/badges/mybadges.php|award',
 
 
     // "documentation" settingpage
-    $temp = new admin_settingpage('documentation', new lang_string('moodledocs'));
-    $temp->add(new admin_setting_configtext('docroot', new lang_string('docroot', 'admin'), new lang_string('configdocroot', 'admin'), 'http://docs.moodle.org', PARAM_URL));
+    $temp = new admin_settingpage('documentation', new lang_string('liondocs'));
+    $temp->add(new admin_setting_configtext('docroot', new lang_string('docroot', 'admin'), new lang_string('configdocroot', 'admin'), 'http://docs.lion.org', PARAM_URL));
     $ltemp = array('' => get_string('forceno'));
     $ltemp += get_string_manager()->get_list_of_translations(true);
     $temp->add(new admin_setting_configselect('doclang', get_string('doclang', 'admin'), get_string('configdoclang', 'admin'), '', $ltemp));
@@ -224,11 +224,11 @@ mybadges,badges|/badges/mybadges.php|award',
     $ADMIN->add('appearance', $temp);
 
     $temp = new admin_externalpage('mypage', new lang_string('mypage', 'admin'), $CFG->wwwroot . '/my/indexsys.php',
-            'moodle/my:configsyspages');
+            'lion/my:configsyspages');
     $ADMIN->add('appearance', $temp);
 
     $temp = new admin_externalpage('profilepage', new lang_string('myprofile', 'admin'), $CFG->wwwroot . '/user/profilesys.php',
-            'moodle/my:configsyspages');
+            'lion/my:configsyspages');
     $ADMIN->add('appearance', $temp);
 
     // coursecontact is the person responsible for course - usually manages enrolments, receives notification, etc.
@@ -257,7 +257,7 @@ mybadges,badges|/badges/mybadges.php|award',
     $ADMIN->add('appearance', $temp);
 
     // link to tag management interface
-    $ADMIN->add('appearance', new admin_externalpage('managetags', new lang_string('managetags', 'tag'), $CFG->wwwroot.'/tag/manage.php', 'moodle/tag:manage'));
+    $ADMIN->add('appearance', new admin_externalpage('managetags', new lang_string('managetags', 'tag'), $CFG->wwwroot.'/tag/manage.php', 'lion/tag:manage'));
 
     $temp = new admin_settingpage('additionalhtml', new lang_string('additionalhtml', 'admin'));
     $temp->add(new admin_setting_heading('additionalhtml_heading', new lang_string('additionalhtml_heading', 'admin'), new lang_string('additionalhtml_desc', 'admin')));

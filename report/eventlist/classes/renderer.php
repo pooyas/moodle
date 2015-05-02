@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Event report renderer.
  *
  * @package    report_eventlist
- * @copyright  2014 Adrian Greeve <adrian@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Renderer for event report.
  *
  * @package    report_eventlist
- * @copyright  2014 Adrian Greeve <adrian@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * 
  */
 class report_eventlist_renderer extends plugin_renderer_base {
 
@@ -55,7 +41,7 @@ class report_eventlist_renderer extends plugin_renderer_base {
         $html .= ob_get_contents();
         ob_end_clean();
 
-        $PAGE->requires->yui_module('moodle-report_eventlist-eventfilter', 'Y.M.report_eventlist.EventFilter.init',
+        $PAGE->requires->yui_module('lion-report_eventlist-eventfilter', 'Y.M.report_eventlist.EventFilter.init',
                 array(array('tabledata' => $tabledata)));
         $PAGE->requires->strings_for_js(array(
             'eventname',
@@ -115,7 +101,7 @@ class report_eventlist_renderer extends plugin_renderer_base {
         }
 
         if (isset($eventinformation['parentclass'])) {
-            $url = new moodle_url('eventdetail.php', array('eventname' => $eventinformation['parentclass']));
+            $url = new lion_url('eventdetail.php', array('eventname' => $eventinformation['parentclass']));
             $html .= html_writer::tag('dt', get_string('parentevent', 'report_eventlist'));
             $html .= html_writer::tag('dd', html_writer::link($url, $eventinformation['parentclass']));
         }

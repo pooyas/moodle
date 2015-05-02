@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Manage user profile fields.
@@ -85,8 +71,8 @@ switch ($action) {
         $PAGE->navbar->add($strheading);
         echo $OUTPUT->header();
         echo $OUTPUT->heading($strheading);
-        $formcontinue = new single_button(new moodle_url($redirect, $optionsyes), get_string('yes'), 'post');
-        $formcancel = new single_button(new moodle_url($redirect), get_string('no'), 'get');
+        $formcontinue = new single_button(new lion_url($redirect, $optionsyes), get_string('yes'), 'post');
+        $formcancel = new single_button(new lion_url($redirect), get_string('no'), 'get');
         echo $OUTPUT->confirm(get_string('profileconfirmfielddeletion', 'admin', $datacount), $formcontinue, $formcancel);
         echo $OUTPUT->footer();
         die;
@@ -152,7 +138,7 @@ echo '<div class="profileeditor">';
 
 // Create a new field link.
 $options = profile_list_datatypes();
-$popupurl = new moodle_url('/user/profile/index.php?id=0&action=editfield');
+$popupurl = new lion_url('/user/profile/index.php?id=0&action=editfield');
 echo $OUTPUT->single_select($popupurl, 'datatype', $options, '', array('' => $strcreatefield), 'newfieldform');
 
 // Add a div with a class so themers can hide, style or reposition the text.
@@ -162,7 +148,7 @@ html_writer::end_tag('div');
 
 // Create a new category link.
 $options = array('action' => 'editcategory');
-echo $OUTPUT->single_button(new moodle_url('index.php', $options), get_string('profilecreatecategory', 'admin'));
+echo $OUTPUT->single_button(new lion_url('index.php', $options), get_string('profilecreatecategory', 'admin'));
 
 echo '</div>';
 

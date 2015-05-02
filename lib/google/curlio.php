@@ -1,34 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the class moodle_google_curlio.
+ * This file contains the class lion_google_curlio.
  *
  * @package core_google
  * @copyright 2013 Frédéric Massart
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->libdir . '/filelib.php');
 require_once($CFG->libdir . '/google/Google/IO/Curl.php');
 require_once($CFG->libdir . '/google/Google/IO/Exception.php');
 
 /**
- * Class moodle_google_curlio.
+ * Class lion_google_curlio.
  *
  * The initial purpose of this class is to add support for our
  * class curl in Google_IO_Curl. It mostly entirely overrides it.
@@ -37,7 +23,7 @@ require_once($CFG->libdir . '/google/Google/IO/Exception.php');
  * @copyright 2013 Frédéric Massart
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 */
-class moodle_google_curlio extends Google_IO_Curl {
+class lion_google_curlio extends Google_IO_Curl {
 
     /** @var array associate array of constant value and their name. */
     private static $constants = null;
@@ -78,7 +64,7 @@ class moodle_google_curlio extends Google_IO_Curl {
     /**
      * Execute an API request.
      *
-     * This is a copy/paste from the parent class that uses Moodle's implementation
+     * This is a copy/paste from the parent class that uses Lion's implementation
      * of curl. Portions have been removed or altered.
      *
      * @param Google_Http_Request $request the http request to be executed
@@ -187,7 +173,7 @@ class moodle_google_curlio extends Google_IO_Curl {
      * @param int $constant value of a CURL constant.
      * @return string name of the constant if found, or throws exception.
      * @throws coding_exception when the constant is not found.
-     * @since Moodle 2.5
+     * @since Lion 2.5
      */
     public function get_option_name_from_constant($constant) {
         if (is_null(self::$constants)) {

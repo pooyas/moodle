@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains functions used by the log reports
@@ -21,10 +7,10 @@
  *
  * @package    report_log
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 if (!defined('REPORT_LOG_MAX_DISPLAY')) {
     define('REPORT_LOG_MAX_DISPLAY', 150); // days
@@ -57,7 +43,7 @@ function report_log_print_graph($course, $userid, $type, $date=0, $logreader='')
         return array();
     }
 
-    $url = new moodle_url('/report/log/graph.php', array('id' => $course->id, 'user' => $userid, 'type' => $type,
+    $url = new lion_url('/report/log/graph.php', array('id' => $course->id, 'user' => $userid, 'type' => $type,
         'date' => $date, 'logreader' => $logreader));
     echo html_writer::empty_tag('img', array('src' => $url, 'alt' => ''));
 }
@@ -173,7 +159,7 @@ function report_log_userday($userid, $courseid, $daystart, $logreader = '') {
  * @global stdClass $USER
  * @global stdClass $CFG
  * @global stdClass $SITE
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @global core_renderer $OUTPUT
  * @global stdClass $SESSION
  * @uses CONTEXT_SYSTEM
@@ -220,7 +206,7 @@ function report_log_print_mnet_selector_form($hostid, $course, $selecteduser=0, 
         $context = context_course::instance($course->id);
 
         /// Setup for group handling.
-        if ($course->groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+        if ($course->groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
             $selectedgroup = -1;
             $showgroups = false;
         } else if ($course->groupmode) {
@@ -273,7 +259,7 @@ function report_log_print_mnet_selector_form($hostid, $course, $selecteduser=0, 
     if ($showusers) {
         if ($courseusers) {
             foreach ($courseusers as $courseuser) {
-                $users[$courseuser->id] = fullname($courseuser, has_capability('moodle/site:viewfullnames', $context));
+                $users[$courseuser->id] = fullname($courseuser, has_capability('lion/site:viewfullnames', $context));
             }
         }
         $users[$CFG->siteguest] = get_string('guestuser');
@@ -445,7 +431,7 @@ function report_log_print_mnet_selector_form($hostid, $course, $selecteduser=0, 
             $a = new stdClass();
             $a->url = "$CFG->wwwroot/report/log/index.php?chooselog=0&group=$selectedgroup&user=$selecteduser"
                 ."&id=$course->id&date=$selecteddate&modid=$selectedactivity&showcourses=1&showusers=$showusers";
-            print_string('logtoomanycourses','moodle',$a);
+            print_string('logtoomanycourses','lion',$a);
         }
     }
 
@@ -480,7 +466,7 @@ function report_log_print_mnet_selector_form($hostid, $course, $selecteduser=0, 
         $a = new stdClass();
         $a->url = "$CFG->wwwroot/report/log/index.php?chooselog=0&group=$selectedgroup&user=$selecteduser"
             ."&id=$course->id&date=$selecteddate&modid=$selectedactivity&showusers=1&showcourses=$showcourses";
-        print_string('logtoomanyusers','moodle',$a);
+        print_string('logtoomanyusers','lion',$a);
     }
 
     echo html_writer::label(get_string('date'), 'menudate', false, array('class' => 'accesshide'));

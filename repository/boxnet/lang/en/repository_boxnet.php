@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'repository_boxnet', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'repository_boxnet', language 'en', branch 'LION_20_STABLE'
  *
  * @package   repository_boxnet
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 $string['apikey'] = 'API key';
-$string['apiv1migration_message_content'] = 'As part of the recent Moodle upgrade (2.6, 2.5.3, 2.4.7), the Box repository plugin has been disabled. To re-enable it, you need to re-configure it as described in the documentation {$a->docsurl}.';
+$string['apiv1migration_message_content'] = 'As part of the recent Lion upgrade (2.6, 2.5.3, 2.4.7), the Box repository plugin has been disabled. To re-enable it, you need to re-configure it as described in the documentation {$a->docsurl}.';
 $string['apiv1migration_message_small'] = 'This plugin has been disabled, as it requires configuration as described in the documentation Box APIv1 migration.';
 $string['apiv1migration_message_subject'] = 'Important information regarding Box repository plugin';
 $string['boxnet:view'] = 'View Box repository';
@@ -33,7 +19,7 @@ $string['clientid'] = 'Client ID';
 $string['clientsecret'] = 'Client secret';
 $string['configplugin'] = 'Box configuration';
 $string['filesourceinfo'] = 'Box ({$a->fullname}): {$a->filename}';
-$string['information'] = 'Get a client ID and secret from the <a href="https://app.box.com/developers/services">Box developer page</a> for your Moodle site.';
+$string['information'] = 'Get a client ID and secret from the <a href="https://app.box.com/developers/services">Box developer page</a> for your Lion site.';
 $string['invalidpassword'] = 'Invalid password';
 $string['migrationadvised'] = 'It appears that you were using Box with the API version 1, have you run the <a href="{$a}">migration tool</a> to convert the old references?';
 $string['migrationinfo'] = '<p>As part of the migration to the new API provided by Box, your file references have to be migrated. Unfortunately the reference system is not compatible with the API v2, so we are going to download them and convert them to real files.</p>

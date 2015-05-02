@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External course participation api.
@@ -23,10 +9,10 @@
  * @package    enrol_manual
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("$CFG->libdir/externallib.php");
 
@@ -36,8 +22,8 @@ require_once("$CFG->libdir/externallib.php");
  * @package    enrol_manual
  * @category   external
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
+ * 
+ * @since Lion 2.2
  */
 class enrol_manual_external extends external_api {
 
@@ -45,7 +31,7 @@ class enrol_manual_external extends external_api {
      * Returns description of method parameters.
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function enrol_users_parameters() {
         return new external_function_parameters(
@@ -71,7 +57,7 @@ class enrol_manual_external extends external_api {
      *
      * Function throw an exception at the first error encountered.
      * @param array $enrolments  An array of user enrolment
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function enrol_users($enrolments) {
         global $DB, $CFG;
@@ -87,7 +73,7 @@ class enrol_manual_external extends external_api {
         // Retrieve the manual enrolment plugin.
         $enrol = enrol_get_plugin('manual');
         if (empty($enrol)) {
-            throw new moodle_exception('manualpluginnotinstalled', 'enrol_manual');
+            throw new lion_exception('manualpluginnotinstalled', 'enrol_manual');
         }
 
         foreach ($params['enrolments'] as $enrolment) {
@@ -105,7 +91,7 @@ class enrol_manual_external extends external_api {
                 $errorparams->roleid = $enrolment['roleid'];
                 $errorparams->courseid = $enrolment['courseid'];
                 $errorparams->userid = $enrolment['userid'];
-                throw new moodle_exception('wsusercannotassign', 'enrol_manual', '', $errorparams);
+                throw new lion_exception('wsusercannotassign', 'enrol_manual', '', $errorparams);
             }
 
             // Check manual enrolment plugin instance is enabled/exist.
@@ -120,7 +106,7 @@ class enrol_manual_external extends external_api {
             if (empty($instance)) {
               $errorparams = new stdClass();
               $errorparams->courseid = $enrolment['courseid'];
-              throw new moodle_exception('wsnoinstance', 'enrol_manual', $errorparams);
+              throw new lion_exception('wsnoinstance', 'enrol_manual', $errorparams);
             }
 
             // Check that the plugin accept enrolment (it should always the case, it's hard coded in the plugin).
@@ -129,7 +115,7 @@ class enrol_manual_external extends external_api {
                 $errorparams->roleid = $enrolment['roleid'];
                 $errorparams->courseid = $enrolment['courseid'];
                 $errorparams->userid = $enrolment['userid'];
-                throw new moodle_exception('wscannotenrol', 'enrol_manual', '', $errorparams);
+                throw new lion_exception('wscannotenrol', 'enrol_manual', '', $errorparams);
             }
 
             // Finally proceed the enrolment.
@@ -150,7 +136,7 @@ class enrol_manual_external extends external_api {
      * Returns description of method result value.
      *
      * @return null
-     * @since Moodle 2.2
+     * @since Lion 2.2
      */
     public static function enrol_users_returns() {
         return null;
@@ -163,19 +149,19 @@ class enrol_manual_external extends external_api {
  *
  * @package    enrol_manual
  * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+ * 
+ * @since Lion 2.0
+ * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see enrol_manual_external
  */
-class moodle_enrol_manual_external extends external_api {
+class lion_enrol_manual_external extends external_api {
 
     /**
      * Returns description of method parameters.
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see enrol_manual_external::enrol_users_parameters()
      */
     public static function manual_enrol_users_parameters() {
@@ -187,8 +173,8 @@ class moodle_enrol_manual_external extends external_api {
      * Function throw an exception at the first error encountered.
      *
      * @param array $enrolments  An array of user enrolment
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see enrol_manual_external::enrol_users()
      */
     public static function manual_enrol_users($enrolments) {
@@ -199,8 +185,8 @@ class moodle_enrol_manual_external extends external_api {
      * Returns description of method result value.
      *
      * @return nul
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @since Lion 2.0
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see enrol_manual_external::enrol_users_returns()
      */
     public static function manual_enrol_users_returns() {

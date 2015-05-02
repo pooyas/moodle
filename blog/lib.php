@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Core global functions for Blog.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage blog
  * @copyright  2009 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /*
  * Library of functions and constants for blog
@@ -33,8 +19,8 @@ require_once($CFG->dirroot.'/tag/lib.php');
 
 /**
  * User can edit a blog entry if this is their own blog entry and they have
- * the capability moodle/blog:create, or if they have the capability
- * moodle/blog:manageentries.
+ * the capability lion/blog:create, or if they have the capability
+ * lion/blog:manageentries.
  *
  * This also applies to deleting of entries.
  */
@@ -43,11 +29,11 @@ function blog_user_can_edit_entry($blogentry) {
 
     $sitecontext = context_system::instance();
 
-    if (has_capability('moodle/blog:manageentries', $sitecontext)) {
+    if (has_capability('lion/blog:manageentries', $sitecontext)) {
         return true; // Can edit any blog entry.
     }
 
-    if ($blogentry->userid == $USER->id && has_capability('moodle/blog:create', $sitecontext)) {
+    if ($blogentry->userid == $USER->id && has_capability('lion/blog:create', $sitecontext)) {
         return true; // Can edit own when having blog:create capability.
     }
 
@@ -72,12 +58,12 @@ function blog_user_can_view_user_entry($targetuserid, $blogentry=null) {
     }
 
     $sitecontext = context_system::instance();
-    if (has_capability('moodle/blog:manageentries', $sitecontext)) {
+    if (has_capability('lion/blog:manageentries', $sitecontext)) {
         return true; // Can manage all entries.
     }
 
     // If blog is in draft state, then make sure user have proper capability.
-    if ($blogentry && $blogentry->publishstate == 'draft' && !has_capability('moodle/blog:viewdrafts', $sitecontext)) {
+    if ($blogentry && $blogentry->publishstate == 'draft' && !has_capability('lion/blog:viewdrafts', $sitecontext)) {
         return false;  // Can not view draft of others.
     }
 
@@ -103,7 +89,7 @@ function blog_user_can_view_user_entry($targetuserid, $blogentry=null) {
         default:
             // If user is viewing other user blog, then user should have user:readuserblogs capability.
             $personalcontext = context_user::instance($targetuserid);
-            return has_capability('moodle/user:readuserblogs', $personalcontext);
+            return has_capability('lion/user:readuserblogs', $personalcontext);
         break;
 
     }
@@ -138,7 +124,7 @@ function blog_remove_associations_for_course($courseid) {
 
 /**
  * Given a record in the {blog_external} table, checks the blog's URL
- * for new entries not yet copied into Moodle.
+ * for new entries not yet copied into Lion.
  * Also attempts to identify and remove deleted blog entries
  *
  * @param object $externalblog
@@ -146,9 +132,9 @@ function blog_remove_associations_for_course($courseid) {
  */
 function blog_sync_external_entries($externalblog) {
     global $CFG, $DB;
-    require_once($CFG->libdir . '/simplepie/moodle_simplepie.php');
+    require_once($CFG->libdir . '/simplepie/lion_simplepie.php');
 
-    $rss = new moodle_simplepie();
+    $rss = new lion_simplepie();
     $rssfile = $rss->registry->create('File', array($externalblog->url));
     $filetest = $rss->registry->create('Locator', array($rssfile));
 
@@ -291,7 +277,7 @@ function blog_sync_external_entries($externalblog) {
  */
 function blog_delete_external_entries($externalblog) {
     global $DB;
-    require_capability('moodle/blog:manageexternal', context_system::instance());
+    require_capability('lion/blog:manageexternal', context_system::instance());
     $DB->delete_records_select('post',
                                "module='blog_external' AND " . $DB->sql_compare_text('content') . " = ?",
                                array($externalblog->id));
@@ -316,11 +302,11 @@ function blog_is_enabled_for_user() {
  * -  User specific options {@see blog_get_options_for_user}
  * -  General options (BLOG_LEVEL_GLOBAL)
  *
- * @param moodle_page $page The page to load for (normally $PAGE)
+ * @param lion_page $page The page to load for (normally $PAGE)
  * @param stdClass $userid Load for a specific user
  * @return array An array of options organised by type.
  */
-function blog_get_all_options(moodle_page $page, stdClass $userid = null) {
+function blog_get_all_options(lion_page $page, stdClass $userid = null) {
     global $CFG, $DB, $USER;
 
     $options = array();
@@ -361,11 +347,11 @@ function blog_get_all_options(moodle_page $page, stdClass $userid = null) {
     // If blog level is global then display a link to view all site entries.
     if (!empty($CFG->enableblogs)
         && $CFG->bloglevel >= BLOG_GLOBAL_LEVEL
-        && has_capability('moodle/blog:view', context_system::instance())) {
+        && has_capability('lion/blog:view', context_system::instance())) {
 
         $options[CONTEXT_SYSTEM] = array('viewsite' => array(
             'string' => get_string('viewsiteentries', 'blog'),
-            'link' => new moodle_url('/blog/index.php')
+            'link' => new lion_url('/blog/index.php')
         ));
     }
 
@@ -407,13 +393,13 @@ function blog_get_options_for_user(stdClass $user=null) {
     }
 
     $sitecontext = context_system::instance();
-    $canview = has_capability('moodle/blog:view', $sitecontext);
+    $canview = has_capability('lion/blog:view', $sitecontext);
 
     if (!$iscurrentuser && $canview && ($CFG->bloglevel >= BLOG_SITE_LEVEL)) {
         // Not the current user, but we can view and its blogs are enabled for SITE or GLOBAL.
         $options['userentries'] = array(
             'string' => get_string('viewuserentries', 'blog', fullname($user)),
-            'link' => new moodle_url('/blog/index.php', array('userid'=>$user->id))
+            'link' => new lion_url('/blog/index.php', array('userid'=>$user->id))
         );
     } else {
         // It's the current user.
@@ -421,21 +407,21 @@ function blog_get_options_for_user(stdClass $user=null) {
             // We can view our own blogs .... BIG surprise.
             $options['view'] = array(
                 'string' => get_string('viewallmyentries', 'blog'),
-                'link' => new moodle_url('/blog/index.php', array('userid'=>$USER->id))
+                'link' => new lion_url('/blog/index.php', array('userid'=>$USER->id))
             );
         }
-        if (has_capability('moodle/blog:create', $sitecontext)) {
+        if (has_capability('lion/blog:create', $sitecontext)) {
             // We can add to our own blog.
             $options['add'] = array(
                 'string' => get_string('addnewentry', 'blog'),
-                'link' => new moodle_url('/blog/edit.php', array('action'=>'add'))
+                'link' => new lion_url('/blog/edit.php', array('action'=>'add'))
             );
         }
     }
     if ($canview && $CFG->enablerssfeeds) {
         $options['rss'] = array(
             'string' => get_string('rssfeed', 'blog'),
-            'link' => new moodle_url(rss_get_url($sitecontext->id, $USER->id, 'blog', 'user/'.$user->id))
+            'link' => new lion_url(rss_get_url($sitecontext->id, $USER->id, 'blog', 'user/'.$user->id))
         );
     }
 
@@ -479,34 +465,34 @@ function blog_get_options_for_course(stdClass $course, stdClass $user=null) {
         return $courseoptions[$key];
     }
 
-    if (has_capability('moodle/blog:view', $sitecontext)) {
+    if (has_capability('lion/blog:view', $sitecontext)) {
         // We can view!
         if ($CFG->bloglevel >= BLOG_SITE_LEVEL) {
             // View entries about this course.
             $options['courseview'] = array(
                 'string' => get_string('viewcourseblogs', 'blog'),
-                'link' => new moodle_url('/blog/index.php', array('courseid' => $course->id))
+                'link' => new lion_url('/blog/index.php', array('courseid' => $course->id))
             );
         }
         // View MY entries about this course.
         $options['courseviewmine'] = array(
             'string' => get_string('viewmyentriesaboutcourse', 'blog'),
-            'link' => new moodle_url('/blog/index.php', array('courseid' => $course->id, 'userid' => $USER->id))
+            'link' => new lion_url('/blog/index.php', array('courseid' => $course->id, 'userid' => $USER->id))
         );
         if (!empty($user) && ($CFG->bloglevel >= BLOG_SITE_LEVEL)) {
             // View the provided users entries about this course.
             $options['courseviewuser'] = array(
                 'string' => get_string('viewentriesbyuseraboutcourse', 'blog', fullname($user)),
-                'link' => new moodle_url('/blog/index.php', array('courseid' => $course->id, 'userid' => $user->id))
+                'link' => new lion_url('/blog/index.php', array('courseid' => $course->id, 'userid' => $user->id))
             );
         }
     }
 
-    if (has_capability('moodle/blog:create', $sitecontext)) {
+    if (has_capability('lion/blog:create', $sitecontext)) {
         // We can blog about this course.
         $options['courseadd'] = array(
             'string' => get_string('blogaboutthiscourse', 'blog'),
-            'link' => new moodle_url('/blog/edit.php', array('action' => 'add', 'courseid' => $course->id))
+            'link' => new lion_url('/blog/edit.php', array('action' => 'add', 'courseid' => $course->id))
         );
     }
 
@@ -549,7 +535,7 @@ function blog_get_options_for_module($module, $user=null) {
         return $moduleoptions[$key];
     }
 
-    if (has_capability('moodle/blog:view', $sitecontext)) {
+    if (has_capability('lion/blog:view', $sitecontext)) {
         // Save correct module name for later usage.
         $modulename = get_string('modulename', $module->modname);
 
@@ -560,13 +546,13 @@ function blog_get_options_for_module($module, $user=null) {
             $a->type = $modulename;
             $options['moduleview'] = array(
                 'string' => get_string('viewallmodentries', 'blog', $a),
-                'link' => new moodle_url('/blog/index.php', array('modid'=>$module->id))
+                'link' => new lion_url('/blog/index.php', array('modid'=>$module->id))
             );
         }
         // View MY entries about this module.
         $options['moduleviewmine'] = array(
             'string' => get_string('viewmyentriesaboutmodule', 'blog', $modulename),
-            'link' => new moodle_url('/blog/index.php', array('modid'=>$module->id, 'userid'=>$USER->id))
+            'link' => new lion_url('/blog/index.php', array('modid'=>$module->id, 'userid'=>$USER->id))
         );
         if (!empty($user) && ($CFG->bloglevel >= BLOG_SITE_LEVEL)) {
             // View the given users entries about this module.
@@ -575,16 +561,16 @@ function blog_get_options_for_module($module, $user=null) {
             $a->user = fullname($user);
             $options['moduleviewuser'] = array(
                 'string' => get_string('blogentriesbyuseraboutmodule', 'blog', $a),
-                'link' => new moodle_url('/blog/index.php', array('modid'=>$module->id, 'userid'=>$user->id))
+                'link' => new lion_url('/blog/index.php', array('modid'=>$module->id, 'userid'=>$user->id))
             );
         }
     }
 
-    if (has_capability('moodle/blog:create', $sitecontext)) {
+    if (has_capability('lion/blog:create', $sitecontext)) {
         // The user can blog about this module.
         $options['moduleadd'] = array(
             'string' => get_string('blogaboutthismodule', 'blog', $modulename),
-            'link' => new moodle_url('/blog/edit.php', array('action'=>'add', 'modid'=>$module->id))
+            'link' => new lion_url('/blog/edit.php', array('action'=>'add', 'modid'=>$module->id))
         );
     }
     // Cache the options.
@@ -602,7 +588,7 @@ function blog_get_options_for_module($module, $user=null) {
  * 1. heading: The heading displayed above the blog entries
  * 2. stradd:  The text to be used as the "Add entry" link
  * 3. strview: The text to be used as the "View entries" link
- * 4. url:     The moodle_url object used as the base for add and view links
+ * 4. url:     The lion_url object used as the base for add and view links
  * 5. filters: An array of parameters used to filter blog listings. Used by index.php and the Recent blogs block
  *
  * All other variables are set directly in $PAGE
@@ -638,7 +624,7 @@ function blog_get_headers($courseid=null, $groupid=null, $userid=null, $tagid=nu
 
     $headers = array('title' => '', 'heading' => '', 'cm' => null, 'filters' => array());
 
-    $blogurl = new moodle_url('/blog/index.php');
+    $blogurl = new lion_url('/blog/index.php');
 
     $headers['stradd'] = get_string('addnewentry', 'blog');
     $headers['strview'] = null;
@@ -1007,7 +993,7 @@ function blog_comment_validate($comment_param) {
 
     // Validate if user has blog view permission.
     $sitecontext = context_system::instance();
-    return has_capability('moodle/blog:view', $sitecontext) &&
+    return has_capability('lion/blog:view', $sitecontext) &&
             blog_user_can_view_user_entry($blogentry->userid, $blogentry);
 }
 

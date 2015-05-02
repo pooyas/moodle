@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Blog Menu Block page.
  *
  * @package    block_blog_menu
  * @copyright  2009 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The blog menu block class
@@ -97,12 +83,12 @@ class block_blog_menu extends block_base {
         $this->content->text = html_writer::alist($menulist, array('class'=>'list'));
 
         // Prepare the footer for this block
-        if (has_capability('moodle/blog:search', context_system::instance())) {
+        if (has_capability('lion/blog:search', context_system::instance())) {
             // Full-text search field
             $form  = html_writer::tag('label', get_string('search', 'admin'), array('for'=>'blogsearchquery', 'class'=>'accesshide'));
             $form .= html_writer::empty_tag('input', array('id'=>'blogsearchquery', 'type'=>'text', 'name'=>'search'));
             $form .= html_writer::empty_tag('input', array('type'=>'submit', 'value'=>get_string('search')));
-            $this->content->footer = html_writer::tag('form', html_writer::tag('div', $form), array('class'=>'blogsearchform', 'method'=>'get', 'action'=>new moodle_url('/blog/index.php')));
+            $this->content->footer = html_writer::tag('form', html_writer::tag('div', $form), array('class'=>'blogsearchform', 'method'=>'get', 'action'=>new lion_url('/blog/index.php')));
         } else {
             // No footer to display
             $this->content->footer = '';

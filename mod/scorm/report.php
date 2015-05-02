@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 // This script uses installed report plugins to print scorm reports.
 
@@ -39,7 +25,7 @@ $scorm = $DB->get_record('scorm', array('id' => $cm->instance), '*', MUST_EXIST)
 $contextmodule = context_module::instance($cm->id);
 $reportlist = scorm_report_list($contextmodule);
 
-$url = new moodle_url('/mod/scorm/report.php');
+$url = new lion_url('/mod/scorm/report.php');
 
 $url->param('id', $id);
 if (empty($mode)) {
@@ -83,7 +69,7 @@ if (empty($noheader)) {
 
     $PAGE->set_title("$course->shortname: ".format_string($scorm->name));
     $PAGE->set_heading($course->fullname);
-    $PAGE->navbar->add($strreport, new moodle_url('/mod/scorm/report.php', array('id' => $cm->id)));
+    $PAGE->navbar->add($strreport, new lion_url('/mod/scorm/report.php', array('id' => $cm->id)));
 
     echo $OUTPUT->header();
     echo $OUTPUT->heading(format_string($scorm->name));

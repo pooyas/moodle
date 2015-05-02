@@ -10,7 +10,7 @@ This files describes API changes in the lesson code.
   lesson_page_type_cluster class that previously had no update function).
 * A fourth parameter (format) has been added to the add_answer() function
   located as part of the lesson_add_page_form_base class. If specified with a value of 'LESSON_ANSWER_HTML'
-  then a rich html editor is generated. Otherwise an editor is created with Moodle Auto Format
+  then a rich html editor is generated. Otherwise an editor is created with Lion Auto Format
 * removedoublecr() and importmodifiedaikenstyle() are now deprecated.
 * Added support for groups and groupings. If enabled, this allows the Report and
   Grade Essay view to be filtered by a group

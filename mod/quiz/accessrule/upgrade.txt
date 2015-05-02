@@ -1,6 +1,6 @@
 This files describes API changes for quiz access rule plugins.
 
-Overview of this plugin type at http://docs.moodle.org/dev/Quiz_access_rules
+Overview of this plugin type at http://docs.lion.org/dev/Quiz_access_rules
 
 === 2.8, 2.7.1, 2.6.4 and 2.5.7 ===
 
@@ -22,4 +22,4 @@ function quizaccess_mypluginname_cron() {};
 
 === 2.2 ===
 
-* This plugin type was new in Moodle 2.2!
+* This plugin type was new in Lion 2.2!

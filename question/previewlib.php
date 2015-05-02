@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library functions used by question/preview.php.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php');
 
@@ -33,9 +19,9 @@ require_once($CFG->libdir . '/formslib.php');
  * Settings form for the preview options.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class preview_options_form extends moodleform {
+class preview_options_form extends lionform {
     public function definition() {
         $mform = $this->_form;
 
@@ -104,7 +90,7 @@ class preview_options_form extends moodleform {
  * Setting default, getting and setting user preferences in question preview options.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_preview_options extends question_display_options {
     /** @var string the behaviour to use for this preview. */
@@ -285,13 +271,13 @@ function question_preview_action_url($questionid, $qubaid,
         $params['courseid'] = $context->instanceid;
     }
     $params = array_merge($params, $options->get_url_params());
-    return new moodle_url('/question/preview.php', $params);
+    return new lion_url('/question/preview.php', $params);
 }
 
 /**
  * The the URL to use for actions relating to this preview.
  * @param int $questionid the question being previewed.
- * @param context $context the current moodle context.
+ * @param context $context the current lion context.
  * @param int $previewid optional previewid to sign post saved previewed answers.
  */
 function question_preview_form_url($questionid, $context, $previewid = null) {
@@ -306,7 +292,7 @@ function question_preview_form_url($questionid, $context, $previewid = null) {
     if ($previewid) {
         $params['previewid'] = $previewid;
     }
-    return new moodle_url('/question/preview.php', $params);
+    return new lion_url('/question/preview.php', $params);
 }
 
 /**

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Renderer outputting the quiz editing UI.
@@ -23,7 +9,7 @@
  */
 
 namespace mod_quiz\output;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 use \mod_quiz\structure;
 use \html_writer;
@@ -33,7 +19,7 @@ use \html_writer;
  *
  * @copyright 2013 The Open University.
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.7
+ * @since Lion 2.7
  */
 class edit_renderer extends \plugin_renderer_base {
 
@@ -43,12 +29,12 @@ class edit_renderer extends \plugin_renderer_base {
      * @param \quiz $quizobj object containing all the quiz settings information.
      * @param structure $structure object containing the structure of the quiz.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @param array $pagevars the variables from {@link question_edit_setup()}.
      * @return string HTML to output.
      */
     public function edit_page(\quiz $quizobj, structure $structure,
-            \question_edit_contexts $contexts, \moodle_url $pageurl, array $pagevars) {
+            \question_edit_contexts $contexts, \lion_url $pageurl, array $pagevars) {
         $output = '';
 
         // Page title.
@@ -90,19 +76,19 @@ class edit_renderer extends \plugin_renderer_base {
             $popups = '';
 
             $popups .= $this->question_bank_loading();
-            $this->page->requires->yui_module('moodle-mod_quiz-quizquestionbank',
+            $this->page->requires->yui_module('lion-mod_quiz-quizquestionbank',
                     'M.mod_quiz.quizquestionbank.init',
                     array('class' => 'questionbank', 'cmid' => $structure->get_cmid()));
 
             $popups .= $this->random_question_form($pageurl, $contexts, $pagevars);
-            $this->page->requires->yui_module('moodle-mod_quiz-randomquestion',
+            $this->page->requires->yui_module('lion-mod_quiz-randomquestion',
                     'M.mod_quiz.randomquestion.init');
 
             $output .= html_writer::div($popups, 'mod_quiz_edit_forms');
 
             // Include the question chooser.
             $output .= $this->question_chooser();
-            $this->page->requires->yui_module('moodle-mod_quiz-questionchooser', 'M.mod_quiz.init_questionchooser');
+            $this->page->requires->yui_module('lion-mod_quiz-questionchooser', 'M.mod_quiz.init_questionchooser');
         }
 
         return $output;
@@ -152,10 +138,10 @@ class edit_renderer extends \plugin_renderer_base {
      * Render the form for setting a quiz' overall grade
      *
      * @param structure $structure the quiz structure.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
-    public function maximum_grade_input($structure, \moodle_url $pageurl) {
+    public function maximum_grade_input($structure, \lion_url $pageurl) {
         $output = '';
         $output .= html_writer::start_div('maxgrade');
         $output .= html_writer::start_tag('form', array('method' => 'post', 'action' => 'edit.php',
@@ -179,10 +165,10 @@ class edit_renderer extends \plugin_renderer_base {
     /**
      * Return the repaginate button
      * @param structure $structure the structure of the quiz being edited.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
-    protected function repaginate_button(structure $structure, \moodle_url $pageurl) {
+    protected function repaginate_button(structure $structure, \lion_url $pageurl) {
 
         $header = html_writer::tag('span', get_string('repaginatecommand', 'quiz'), array('class' => 'repaginatecommand'));
         $form = $this->repaginate_form($structure, $pageurl);
@@ -202,7 +188,7 @@ class edit_renderer extends \plugin_renderer_base {
         if (!$structure->can_be_repaginated()) {
             $buttonoptions['disabled'] = 'disabled';
         } else {
-            $this->page->requires->yui_module('moodle-mod_quiz-repaginate', 'M.mod_quiz.repaginate.init');
+            $this->page->requires->yui_module('lion-mod_quiz-repaginate', 'M.mod_quiz.repaginate.init');
         }
 
         return html_writer::tag('div',
@@ -212,10 +198,10 @@ class edit_renderer extends \plugin_renderer_base {
     /**
      * Return the repaginate form
      * @param structure $structure the structure of the quiz being edited.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
-    protected function repaginate_form(structure $structure, \moodle_url $pageurl) {
+    protected function repaginate_form(structure $structure, \lion_url $pageurl) {
         $perpage = array();
         $perpage[0] = get_string('allinone', 'quiz');
         for ($i = 1; $i <= 50; ++$i) {
@@ -334,7 +320,7 @@ class edit_renderer extends \plugin_renderer_base {
      * @param \stdClass $section information about the section.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
     public function questions_in_section(structure $structure, $section,
@@ -354,7 +340,7 @@ class edit_renderer extends \plugin_renderer_base {
      * @param int $slot which slot we are outputting.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
     public function question_row(structure $structure, $slot, $contexts, $pagevars, $pageurl) {
@@ -387,7 +373,7 @@ class edit_renderer extends \plugin_renderer_base {
      * @param int $slot the first slot on the page we are outputting.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
     public function page_row(structure $structure, $slot, $contexts, $pagevars, $pageurl) {
@@ -419,12 +405,12 @@ class edit_renderer extends \plugin_renderer_base {
      * Returns the add menu that is output once per page.
      * @param structure $structure object containing the structure of the quiz.
      * @param int $page the page number that this menu will add to.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
      * @return string HTML to output.
      */
-    public function add_menu_actions(structure $structure, $page, \moodle_url $pageurl,
+    public function add_menu_actions(structure $structure, $page, \lion_url $pageurl,
             \question_edit_contexts $contexts, array $pagevars) {
 
         $actions = $this->edit_menu_actions($structure, $page, $pageurl, $pagevars);
@@ -463,12 +449,12 @@ class edit_renderer extends \plugin_renderer_base {
      * Returns the list of actions to go in the add menu.
      * @param structure $structure object containing the structure of the quiz.
      * @param int $page the page number that this menu will add to.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
      * @return array the actions.
      */
     public function edit_menu_actions(structure $structure, $page,
-            \moodle_url $pageurl, array $pagevars) {
+            \lion_url $pageurl, array $pagevars) {
         $questioncategoryid = question_get_category_id_from_pagevars($pagevars);
         static $str;
         if (!isset($str)) {
@@ -480,29 +466,29 @@ class edit_renderer extends \plugin_renderer_base {
         $actions = array();
 
         // Add a new question to the quiz.
-        $returnurl = new \moodle_url($pageurl, array('addonpage' => $page));
+        $returnurl = new \lion_url($pageurl, array('addonpage' => $page));
         $params = array('returnurl' => $returnurl->out_as_local_url(false),
                 'cmid' => $structure->get_cmid(), 'category' => $questioncategoryid,
                 'addonpage' => $page, 'appendqnumstring' => 'addquestion');
 
         $actions['addaquestion'] = new \action_menu_link_secondary(
-            new \moodle_url('/question/addquestion.php', $params),
-            new \pix_icon('t/add', $str->addaquestion, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+            new \lion_url('/question/addquestion.php', $params),
+            new \pix_icon('t/add', $str->addaquestion, 'lion', array('class' => 'iconsmall', 'title' => '')),
             $str->addaquestion, array('class' => 'cm-edit-action addquestion', 'data-action' => 'addquestion')
         );
 
         // Call question bank.
-        $icon = new \pix_icon('t/add', $str->questionbank, 'moodle', array('class' => 'iconsmall', 'title' => ''));
+        $icon = new \pix_icon('t/add', $str->questionbank, 'lion', array('class' => 'iconsmall', 'title' => ''));
         $title = get_string('addquestionfrombanktopage', 'quiz', $page);
         $attributes = array('class' => 'cm-edit-action questionbank',
                 'data-header' => $title, 'data-action' => 'questionbank', 'data-addonpage' => $page);
         $actions['questionbank'] = new \action_menu_link_secondary($pageurl, $icon, $str->questionbank, $attributes);
 
         // Add a random question.
-        $returnurl = new \moodle_url('/mod/quiz/edit.php', array('cmid' => $structure->get_cmid(), 'data-addonpage' => $page));
+        $returnurl = new \lion_url('/mod/quiz/edit.php', array('cmid' => $structure->get_cmid(), 'data-addonpage' => $page));
         $params = array('returnurl' => $returnurl, 'cmid' => $structure->get_cmid(), 'appendqnumstring' => 'addarandomquestion');
-        $url = new \moodle_url('/mod/quiz/addrandom.php', $params);
-        $icon = new \pix_icon('t/add', $str->addarandomquestion, 'moodle', array('class' => 'iconsmall', 'title' => ''));
+        $url = new \lion_url('/mod/quiz/addrandom.php', $params);
+        $icon = new \pix_icon('t/add', $str->addarandomquestion, 'lion', array('class' => 'iconsmall', 'title' => ''));
         $attributes = array('class' => 'cm-edit-action addarandomquestion', 'data-action' => 'addarandomquestion');
         $title = get_string('addrandomquestiontopage', 'quiz', $page);
         $attributes = array_merge(array('data-header' => $title, 'data-addonpage' => $page), $attributes);
@@ -516,11 +502,11 @@ class edit_renderer extends \plugin_renderer_base {
      *
      * @param structure $structure object containing the structure of the quiz.
      * @param int $page the page number that this menu will add to.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
      * @return string HTML to output.
      */
-    protected function add_question_form(structure $structure, $page, \moodle_url $pageurl, array $pagevars) {
+    protected function add_question_form(structure $structure, $page, \lion_url $pageurl, array $pagevars) {
 
         $questioncategoryid = question_get_category_id_from_pagevars($pagevars);
 
@@ -536,7 +522,7 @@ class edit_renderer extends \plugin_renderer_base {
 
         return html_writer::tag('form', html_writer::div($output),
                 array('class' => 'addnewquestion', 'method' => 'post',
-                        'action' => new \moodle_url('/question/addquestion.php')));
+                        'action' => new \lion_url('/question/addquestion.php')));
     }
 
     /**
@@ -544,10 +530,10 @@ class edit_renderer extends \plugin_renderer_base {
      *
      * @param structure $structure object containing the structure of the quiz.
      * @param int $slot the first slot on the page we are outputting.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
-    public function question(structure $structure, $slot, \moodle_url $pageurl) {
+    public function question(structure $structure, $slot, \lion_url $pageurl) {
         $output = '';
         $output .= html_writer::start_tag('div');
 
@@ -602,8 +588,8 @@ class edit_renderer extends \plugin_renderer_base {
      * @return string The markup for the move action.
      */
     public function question_move_icon(structure $structure, $slot) {
-        return html_writer::link(new \moodle_url('#'),
-            $this->pix_icon('i/dragdrop', get_string('move'), 'moodle', array('class' => 'iconsmall', 'title' => '')),
+        return html_writer::link(new \lion_url('#'),
+            $this->pix_icon('i/dragdrop', get_string('move'), 'lion', array('class' => 'iconsmall', 'title' => '')),
             array('class' => 'editing_move', 'data-action' => 'move')
         );
     }
@@ -653,11 +639,11 @@ class edit_renderer extends \plugin_renderer_base {
      *
      * @param structure $structure object containing the structure of the quiz.
      * @param int $slot the first slot on the page we are outputting.
-     * @param \moodle_url $pageurl the canonical URL of the edit page.
+     * @param \lion_url $pageurl the canonical URL of the edit page.
      * @return string HTML to output.
      */
     public function question_remove_icon(structure $structure, $slot, $pageurl) {
-        $url = new \moodle_url($pageurl, array('sesskey' => sesskey(), 'remove' => $slot));
+        $url = new \lion_url($pageurl, array('sesskey' => sesskey(), 'remove' => $slot));
         $strdelete = get_string('delete');
 
         $image = $this->pix_icon('t/delete', $strdelete);
@@ -675,7 +661,7 @@ class edit_renderer extends \plugin_renderer_base {
      */
     public function page_split_join_button($structure, $slot) {
         $insertpagebreak = !$structure->is_last_slot_on_page($slot);
-        $url = new \moodle_url('repaginate.php', array('quizid' => $structure->get_quizid(),
+        $url = new \lion_url('repaginate.php', array('quizid' => $structure->get_quizid(),
                 'slot' => $slot, 'repag' => $insertpagebreak ? 2 : 1, 'sesskey' => sesskey()));
 
         if ($insertpagebreak) {
@@ -714,12 +700,12 @@ class edit_renderer extends \plugin_renderer_base {
         if ($structure->is_question_dependent_on_previous_slot($slot)) {
             $title = get_string('questiondependencyremove', 'quiz', $a);
             $image = $this->pix_icon('t/locked', get_string('questiondependsonprevious', 'quiz'),
-                    'moodle', array('title' => ''));
+                    'lion', array('title' => ''));
             $action = 'removedependency';
         } else {
             $title = get_string('questiondependencyadd', 'quiz', $a);
             $image = $this->pix_icon('t/unlocked', get_string('questiondependencyfree', 'quiz'),
-                    'moodle', array('title' => ''));
+                    'lion', array('title' => ''));
             $action = 'adddependency';
         }
 
@@ -745,14 +731,14 @@ class edit_renderer extends \plugin_renderer_base {
      *
      * @param structure $structure object containing the structure of the quiz.
      * @param int $slot which slot we are outputting.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
     public function question_name(structure $structure, $slot, $pageurl) {
         $output = '';
 
         $question = $structure->get_question_in_slot($slot);
-        $editurl = new \moodle_url('/question/question.php', array(
+        $editurl = new \lion_url('/question/question.php', array(
                 'returnurl' => $pageurl->out_as_local_url(),
                 'cmid' => $structure->get_cmid(), 'id' => $question->id));
 
@@ -764,7 +750,7 @@ class edit_renderer extends \plugin_renderer_base {
         $icon = $this->pix_icon('icon', $namestr, $qtype->plugin_name(), array('title' => $namestr,
                 'class' => 'icon activityicon', 'alt' => ' ', 'role' => 'presentation'));
 
-        $editicon = $this->pix_icon('t/edit', '', 'moodle', array('title' => ''));
+        $editicon = $this->pix_icon('t/edit', '', 'lion', array('title' => ''));
 
         // Need plain question name without html tags for link title.
         $title = shorten_text(format_string($question->name), 100);
@@ -783,13 +769,13 @@ class edit_renderer extends \plugin_renderer_base {
      *
      * @param structure $structure object containing the structure of the quiz.
      * @param int $slot which slot we are outputting.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML to output.
      */
     public function random_question(structure $structure, $slot, $pageurl) {
 
         $question = $structure->get_question_in_slot($slot);
-        $editurl = new \moodle_url('/question/question.php', array(
+        $editurl = new \lion_url('/question/question.php', array(
                 'returnurl' => $pageurl->out_as_local_url(),
                 'cmid' => $structure->get_cmid(), 'id' => $question->id));
 
@@ -803,11 +789,11 @@ class edit_renderer extends \plugin_renderer_base {
         $icon = $this->pix_icon('icon', $namestr, $qtype->plugin_name(), array('title' => $namestr,
                 'class' => 'icon activityicon', 'alt' => ' ', 'role' => 'presentation'));
 
-        $editicon = $this->pix_icon('t/edit', $configuretitle, 'moodle', array('title' => ''));
+        $editicon = $this->pix_icon('t/edit', $configuretitle, 'lion', array('title' => ''));
 
         // If this is a random question, display a link to show the questions
         // selected from in the question bank.
-        $qbankurl = new \moodle_url('/question/edit.php', array(
+        $qbankurl = new \lion_url('/question/edit.php', array(
                 'cmid' => $structure->get_cmid(),
                 'cat' => $question->category . ',' . $question->contextid,
                 'recurse' => !empty($question->questiontext)));
@@ -831,7 +817,7 @@ class edit_renderer extends \plugin_renderer_base {
                     'instancemaxmark decimalplaces_' . $structure->get_decimal_places_for_question_marks());
 
             $output .= html_writer::span(
-                    $this->pix_icon('spacer', '', 'moodle', array('class' => 'editicon visibleifjs', 'title' => '')),
+                    $this->pix_icon('spacer', '', 'lion', array('class' => 'editicon visibleifjs', 'title' => '')),
                     'editing_maxmark');
             return html_writer::span($output, 'instancemaxmarkcontainer infoitem');
         }
@@ -842,8 +828,8 @@ class edit_renderer extends \plugin_renderer_base {
 
         $output .= html_writer::span(
             html_writer::link(
-                new \moodle_url('#'),
-                $this->pix_icon('t/editstring', '', 'moodle', array('class' => 'editicon visibleifjs', 'title' => '')),
+                new \lion_url('#'),
+                $this->pix_icon('t/editstring', '', 'lion', array('class' => 'editicon visibleifjs', 'title' => '')),
                 array(
                     'class' => 'editing_maxmark',
                     'data-action' => 'editmaxmark',
@@ -877,17 +863,17 @@ class edit_renderer extends \plugin_renderer_base {
 
     /**
      * Return random question form.
-     * @param \moodle_url $thispageurl the canonical URL of this page.
+     * @param \lion_url $thispageurl the canonical URL of this page.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
      * @return string HTML to output.
      */
-    protected function random_question_form(\moodle_url $thispageurl, \question_edit_contexts $contexts, array $pagevars) {
+    protected function random_question_form(\lion_url $thispageurl, \question_edit_contexts $contexts, array $pagevars) {
 
-        if (!$contexts->have_cap('moodle/question:useall')) {
+        if (!$contexts->have_cap('lion/question:useall')) {
             return '';
         }
-        $randomform = new \quiz_add_random_form(new \moodle_url('/mod/quiz/addrandom.php'),
+        $randomform = new \quiz_add_random_form(new \lion_url('/mod/quiz/addrandom.php'),
                                  array('contexts' => $contexts, 'cat' => $pagevars['cat']));
         $randomform->set_data(array(
                 'category' => $pagevars['cat'],
@@ -905,11 +891,11 @@ class edit_renderer extends \plugin_renderer_base {
      * @param structure $structure object containing the structure of the quiz.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return bool Always returns true
      */
     protected function initialise_editing_javascript(structure $structure,
-            \question_edit_contexts $contexts, array $pagevars, \moodle_url $pageurl) {
+            \question_edit_contexts $contexts, array $pagevars, \lion_url $pageurl) {
 
         $config = new \stdClass();
         $config->resourceurl = '/mod/quiz/edit_rest.php';
@@ -919,7 +905,7 @@ class edit_renderer extends \plugin_renderer_base {
         $config->pagehtml = $this->new_page_template($structure, $contexts, $pagevars, $pageurl);
         $config->addpageiconhtml = $this->add_page_icon_template($structure);
 
-        $this->page->requires->yui_module('moodle-mod_quiz-toolboxes',
+        $this->page->requires->yui_module('lion-mod_quiz-toolboxes',
                 'M.mod_quiz.init_resource_toolbox',
                 array(array(
                         'courseid' => $structure->get_courseid(),
@@ -931,7 +917,7 @@ class edit_renderer extends \plugin_renderer_base {
         unset($config->pagehtml);
         unset($config->addpageiconhtml);
 
-        $this->page->requires->yui_module('moodle-mod_quiz-toolboxes',
+        $this->page->requires->yui_module('lion-mod_quiz-toolboxes',
                 'M.mod_quiz.init_section_toolbox',
                 array(array(
                         'courseid' => $structure,
@@ -941,7 +927,7 @@ class edit_renderer extends \plugin_renderer_base {
                 ))
         );
 
-        $this->page->requires->yui_module('moodle-mod_quiz-dragdrop', 'M.mod_quiz.init_section_dragdrop',
+        $this->page->requires->yui_module('lion-mod_quiz-dragdrop', 'M.mod_quiz.init_section_dragdrop',
                 array(array(
                         'courseid' => $structure,
                         'quizid' => $structure->get_quizid(),
@@ -949,7 +935,7 @@ class edit_renderer extends \plugin_renderer_base {
                         'config' => $config,
                 )), null, true);
 
-        $this->page->requires->yui_module('moodle-mod_quiz-dragdrop', 'M.mod_quiz.init_resource_dragdrop',
+        $this->page->requires->yui_module('lion-mod_quiz-dragdrop', 'M.mod_quiz.init_resource_dragdrop',
                 array(array(
                         'courseid' => $structure,
                         'quizid' => $structure->get_quizid(),
@@ -977,7 +963,7 @@ class edit_renderer extends \plugin_renderer_base {
                 'selectall',
                 'show',
                 'tocontent',
-        ), 'moodle');
+        ), 'lion');
 
         $this->page->requires->strings_for_js(array(
                 'addpagebreak',
@@ -1005,11 +991,11 @@ class edit_renderer extends \plugin_renderer_base {
      * @param structure $structure object containing the structure of the quiz.
      * @param \question_edit_contexts $contexts the relevant question bank contexts.
      * @param array $pagevars the variables from {@link \question_edit_setup()}.
-     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param \lion_url $pageurl the canonical URL of this page.
      * @return string HTML for a new page.
      */
     protected function new_page_template(structure $structure,
-            \question_edit_contexts $contexts, array $pagevars, \moodle_url $pageurl) {
+            \question_edit_contexts $contexts, array $pagevars, \lion_url $pageurl) {
         if (!$structure->has_questions()) {
             return '';
         }

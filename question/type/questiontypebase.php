@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The default questiontype class.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questiontypes
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/question/engine/lib.php');
 
 
 /**
- * This is the base class for Moodle question types.
+ * This is the base class for Lion question types.
  *
  * There are detailed comments on each method, explaining what the method is
  * for, and the circumstances under which you might need to override it.
@@ -42,8 +28,8 @@ require_once($CFG->dirroot . '/question/engine/lib.php');
  * interface to meet their needs, rather the freeze the API prematurely and
  * condem everyone to working round a clunky interface for ever afterwards.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * 
  */
 class question_type {
     protected $fileoptions = array(
@@ -919,7 +905,7 @@ class question_type {
      * @param object $questiondata the question data loaded from the database.
      * @param bool $forceplaintextanswers most qtypes assume that answers are
      *      FORMAT_PLAIN, and dont use the answerformat DB column (it contains
-     *      the default 0 = FORMAT_MOODLE). Therefore, by default this method
+     *      the default 0 = FORMAT_LION). Therefore, by default this method
      *      ingores answerformat. Pass false here to use answerformat. For example
      *      multichoice does this.
      */
@@ -1089,7 +1075,7 @@ class question_type {
     // IMPORT/EXPORT FUNCTIONS --------------------------------- .
 
     /*
-     * Imports question from the Moodle XML format
+     * Imports question from the Lion XML format
      *
      * Imports question using information from extra_question_fields function
      * If some of you fields contains id's you'll need to reimplement this
@@ -1142,7 +1128,7 @@ class question_type {
     }
 
     /*
-     * Export question to the Moodle XML format
+     * Export question to the Lion XML format
      *
      * Export question using information from extra_question_fields function
      * If some of you fields contains id's you'll need to reimplement this
@@ -1426,7 +1412,7 @@ class question_type {
  * {@link question_type::get_possible_responses()}.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_possible_response {
     /**

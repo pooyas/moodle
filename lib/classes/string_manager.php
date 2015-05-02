@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * String manager interface.
  *
  * @package    core
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Interface for string manager
@@ -32,7 +18,7 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @package    core
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface core_string_manager {
     /**
@@ -42,7 +28,7 @@ interface core_string_manager {
      * @param string $component The module the string is associated with
      * @param string|object|array $a An object, string or number that can be used
      *      within translation strings
-     * @param string $lang moodle translation language, null means use current
+     * @param string $lang lion translation language, null means use current
      * @return string The String !
      */
     public function get_string($identifier, $component = '', $a = null, $lang = null);
@@ -75,7 +61,7 @@ interface core_string_manager {
     /**
      * Returns a localised list of all country names, sorted by country keys.
      * @param bool $returnall return all or just enabled
-     * @param string $lang moodle translation language, null means use current
+     * @param string $lang lion translation language, null means use current
      * @return array two-letter country code => translated name.
      */
     public function get_list_of_countries($returnall = false, $lang = null);
@@ -83,7 +69,7 @@ interface core_string_manager {
     /**
      * Returns a localised list of languages, sorted by code keys.
      *
-     * @param string $lang moodle translation language, null means use current
+     * @param string $lang lion translation language, null means use current
      * @param string $standard language list standard
      *                     iso6392: three-letter language code (ISO 639-2/T) => translated name.
      * @return array language code => translated name
@@ -93,7 +79,7 @@ interface core_string_manager {
     /**
      * Checks if the translation exists for the language
      *
-     * @param string $lang moodle translation language code
+     * @param string $lang lion translation language code
      * @param bool $includeall include also disabled translations
      * @return bool true if exists
      */
@@ -102,14 +88,14 @@ interface core_string_manager {
     /**
      * Returns localised list of installed translations
      * @param bool $returnall return all or just enabled
-     * @return array moodle translation code => localised translation name
+     * @return array lion translation code => localised translation name
      */
     public function get_list_of_translations($returnall = false);
 
     /**
      * Returns localised list of currencies.
      *
-     * @param string $lang moodle translation language, null means use current
+     * @param string $lang lion translation language, null means use current
      * @return array currency code => localised currency name
      */
     public function get_list_of_currencies($lang = null);

@@ -124,7 +124,7 @@ class portfolio_plugin_boxnet extends portfolio_plugin_push_base {
             return false;
         }
         if (empty($this->boxclient)) {
-            $returnurl = new moodle_url('/portfolio/add.php', array('postcontrol' => 1, 'type' => 'boxnet',
+            $returnurl = new lion_url('/portfolio/add.php', array('postcontrol' => 1, 'type' => 'boxnet',
                 'sesskey' => sesskey()));
             $this->boxclient = new boxnet_client($this->get_config('clientid'), $this->get_config('clientsecret'), $returnurl, '');
         }

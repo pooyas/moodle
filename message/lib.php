@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library functions for messaging
  *
  * @package   core_message
  * @copyright 2008 Luis Rodrigues
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once($CFG->libdir.'/eventslib.php');
@@ -124,7 +110,7 @@ function message_print_contact_selector($countunreadtotal, $viewing, $user1, $us
 
         if (!empty($courseidtoshow)
             && array_key_exists($courseidtoshow, $coursecontexts)
-            && has_capability('moodle/course:viewparticipants', $coursecontexts[$courseidtoshow])) {
+            && has_capability('lion/course:viewparticipants', $coursecontexts[$courseidtoshow])) {
 
             message_print_participants($coursecontexts[$courseidtoshow], $courseidtoshow, $PAGE->url, $showactionlinks, null, $page, $user2);
         }
@@ -530,7 +516,7 @@ function message_print_usergroup_selector($viewing, $courses, $coursecontexts, $
         $courses_options = array();
 
         foreach($courses as $course) {
-            if (has_capability('moodle/course:viewparticipants', $coursecontexts[$course->id])) {
+            if (has_capability('lion/course:viewparticipants', $coursecontexts[$course->id])) {
                 //Not using short_text() as we want the end of the course name. Not the beginning.
                 $shortname = format_string($course->shortname, true, array('context' => $coursecontexts[$course->id]));
                 if (core_text::strlen($shortname) > MESSAGE_MAX_COURSE_NAME_LENGTH) {
@@ -577,11 +563,11 @@ function message_get_course_contexts($courses) {
 /**
  * strip off action parameters like 'removecontact'
  *
- * @param moodle_url/string $moodleurl a URL. Typically the current page URL.
+ * @param lion_url/string $lionurl a URL. Typically the current page URL.
  * @return string the URL minus parameters that perform actions (like adding/removing/blocking a contact).
  */
-function message_remove_url_params($moodleurl) {
-    $newurl = new moodle_url($moodleurl);
+function message_remove_url_params($lionurl) {
+    $newurl = new lion_url($lionurl);
     $newurl->remove_params('addcontact','removecontact','blockcontact','unblockcontact');
     return $newurl->out();
 }
@@ -848,7 +834,7 @@ function message_print_recent_conversations($user1 = null, $showicontext = false
 
     // Attach context url information to create the "View this conversation" type links
     foreach($conversations as $conversation) {
-        $conversation->contexturl = new moodle_url("/message/index.php?user1={$user1->id}&user2={$conversation->id}");
+        $conversation->contexturl = new lion_url("/message/index.php?user1={$user1->id}&user2={$conversation->id}");
         $conversation->contexturlname = get_string('thisconversation', 'message');
     }
 
@@ -936,7 +922,7 @@ function message_print_recent_messages_table($messages, $user = null, $showother
 
             echo html_writer::start_tag('span', array('class' => 'contact'));
 
-            $link = new moodle_url("/message/index.php?user1={$user->id}&user2=$message->id");
+            $link = new lion_url("/message/index.php?user1={$user->id}&user2=$message->id");
             $action = null;
             echo $OUTPUT->action_link($link, fullname($message), $action, array('title' => get_string('sendmessageto', 'message', fullname($message))));
 
@@ -988,7 +974,7 @@ function message_format_message_text($message, $forcetexttohtml = false) {
             $messagetext = $message->fullmessagehtml;
         } else {
             $messagetext = $message->fullmessage;
-            $format = FORMAT_MOODLE;
+            $format = FORMAT_LION;
         }
 
     } else {
@@ -1003,7 +989,7 @@ function message_format_message_text($message, $forcetexttohtml = false) {
     if ($forcetexttohtml) {
         // This is a crazy hack, why not set proper format when creating the notifications?
         if ($format === FORMAT_PLAIN) {
-            $format = FORMAT_MOODLE;
+            $format = FORMAT_LION;
         }
     }
     return format_text($messagetext, $format, $options);
@@ -1225,7 +1211,7 @@ function message_print_search_results($frm, $showicontext=false, $currentuser=nu
 
                 echo html_writer::start_tag('td',array('class' => 'contact'));
                 $action = null;
-                $link = new moodle_url("/message/index.php?id=$user->id");
+                $link = new lion_url("/message/index.php?id=$user->id");
                 echo $OUTPUT->action_link($link, fullname($user), $action, array('title' => get_string('sendmessageto', 'message', fullname($user))));
                 echo html_writer::end_tag('td');
 
@@ -1444,7 +1430,7 @@ function message_print_user ($user=false, $iscontact=false, $isblocked=false, $i
     } else {
         echo $OUTPUT->user_picture($user, $userpictureparams);
 
-        $link = new moodle_url("/message/index.php?id=$user->id");
+        $link = new lion_url("/message/index.php?id=$user->id");
         echo $OUTPUT->action_link($link, fullname($user), null, array('title' =>
                 get_string('sendmessageto', 'message', fullname($user))));
 
@@ -1585,7 +1571,7 @@ function message_history_link($userid1, $userid2, $return=false, $keywords='', $
             'scrollbars' => true,
             'resizable' => true);
 
-    $link = new moodle_url('/message/index.php?history='.MESSAGE_HISTORY_ALL."&user1=$userid1&user2=$userid2$keywords$position");
+    $link = new lion_url('/message/index.php?history='.MESSAGE_HISTORY_ALL."&user1=$userid1&user2=$userid2$keywords$position");
     if ($PAGE->url && $PAGE->url->get_param('viewing')) {
         $link->param('viewing', $PAGE->url->get_param('viewing'));
     }
@@ -1713,7 +1699,7 @@ function message_search($searchterms, $fromme=true, $tome=true, $courseid='none'
     global $CFG, $USER, $DB;
 
     // If user is searching all messages check they are allowed to before doing anything else.
-    if ($courseid == SITEID && !has_capability('moodle/site:readallmessages', context_system::instance())) {
+    if ($courseid == SITEID && !has_capability('lion/site:readallmessages', context_system::instance())) {
         print_error('accessdenied','admin');
     }
 
@@ -2180,7 +2166,7 @@ function message_post_message($userfrom, $userto, $message, $format) {
     global $SITE, $CFG, $USER;
 
     $eventdata = new stdClass();
-    $eventdata->component        = 'moodle';
+    $eventdata->component        = 'lion';
     $eventdata->name             = 'instantmessage';
     $eventdata->userfrom         = $userfrom;
     $eventdata->userto           = $userto;
@@ -2272,10 +2258,10 @@ function message_print_contactlist_user($contact, $incontactlist = true, $isbloc
 
     $link = $action = null;
     if (!empty($selectcontacturl)) {
-        $link = new moodle_url($selectcontacturl.'&user2='.$contact->id);
+        $link = new lion_url($selectcontacturl.'&user2='.$contact->id);
     } else {
         //can $selectcontacturl be removed and maybe the be removed and hardcoded?
-        $link = new moodle_url("/message/index.php?id=$contact->id");
+        $link = new lion_url("/message/index.php?id=$contact->id");
         $action = new popup_action('click', $link, "message_$contact->id", $popupoptions);
     }
 
@@ -2687,7 +2673,7 @@ function message_messenger_requirejs() {
     }
 
     $PAGE->requires->yui_module(
-        array('moodle-core_message-messenger'),
+        array('lion-core_message-messenger'),
         'Y.M.core_message.messenger.init',
         array(array())
     );

@@ -1,6 +1,6 @@
 This files describes API changes for quiz report plugins.
 
-Overview of this plugin type at http://docs.moodle.org/dev/Quiz_reports
+Overview of this plugin type at http://docs.lion.org/dev/Quiz_reports
 === 2.6 ===
 
 * Improving the display page and heading levels to have a proper nesting.

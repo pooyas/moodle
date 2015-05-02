@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * PHPunit tests for the cache API and in particular things in locallib.php
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include the necessary evils.
 global $CFG;
@@ -38,7 +24,7 @@ require_once($CFG->dirroot.'/cache/tests/fixtures/lib.php');
  * PHPunit tests for the cache API and in particular the cache_administration_helper
  *
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_cache_administration_helper_testcase extends advanced_testcase {
 
@@ -150,12 +136,12 @@ class core_cache_administration_helper_testcase extends advanced_testcase {
      */
     public function test_get_add_store_form() {
         $form = cache_administration_helper::get_add_store_form('file');
-        $this->assertInstanceOf('moodleform', $form);
+        $this->assertInstanceOf('lionform', $form);
 
         try {
             $form = cache_administration_helper::get_add_store_form('somethingstupid');
             $this->fail('You should not be able to create an add form for a store plugin that does not exist.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e, 'Needs to be: ' .get_class($e)." ::: ".$e->getMessage());
         }
     }
@@ -168,19 +154,19 @@ class core_cache_administration_helper_testcase extends advanced_testcase {
         $this->assertTrue($config->add_store_instance('test_get_edit_store_form', 'file'));
 
         $form = cache_administration_helper::get_edit_store_form('file', 'test_get_edit_store_form');
-        $this->assertInstanceOf('moodleform', $form);
+        $this->assertInstanceOf('lionform', $form);
 
         try {
             $form = cache_administration_helper::get_edit_store_form('somethingstupid', 'moron');
             $this->fail('You should not be able to create an edit form for a store plugin that does not exist.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
 
         try {
             $form = cache_administration_helper::get_edit_store_form('file', 'blisters');
             $this->fail('You should not be able to create an edit form for a store plugin that does not exist.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
     }

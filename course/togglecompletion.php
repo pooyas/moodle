@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Toggles the manual completion flag for a particular activity or course completion
@@ -44,7 +30,7 @@ if (!$cmid && !$courseid) {
 
 // Process self completion
 if ($courseid) {
-    $PAGE->set_url(new moodle_url('/course/togglecompletion.php', array('course'=>$courseid)));
+    $PAGE->set_url(new lion_url('/course/togglecompletion.php', array('course'=>$courseid)));
 
     // Check user is logged in
     $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
@@ -55,9 +41,9 @@ if ($courseid) {
     $trackeduser = ($user ? $user : $USER->id);
 
     if (!$completion->is_enabled()) {
-        throw new moodle_exception('completionnotenabled', 'completion');
+        throw new lion_exception('completionnotenabled', 'completion');
     } else if (!$completion->is_tracked_user($trackeduser)) {
-        throw new moodle_exception('nottracked', 'completion');
+        throw new lion_exception('nottracked', 'completion');
     }
 
     if ($user && $rolec) {
@@ -110,8 +96,8 @@ if ($courseid) {
         $PAGE->set_heading($course->fullname);
         $PAGE->navbar->add($strconfirm);
         echo $OUTPUT->header();
-        $buttoncontinue = new single_button(new moodle_url('/course/togglecompletion.php', array('course'=>$courseid, 'confirm'=>1, 'sesskey'=>sesskey())), get_string('yes'), 'post');
-        $buttoncancel   = new single_button(new moodle_url('/course/view.php', array('id'=>$courseid)), get_string('no'), 'get');
+        $buttoncontinue = new single_button(new lion_url('/course/togglecompletion.php', array('course'=>$courseid, 'confirm'=>1, 'sesskey'=>sesskey())), get_string('yes'), 'post');
+        $buttoncancel   = new single_button(new lion_url('/course/view.php', array('id'=>$courseid)), get_string('no'), 'get');
         echo $OUTPUT->confirm($strconfirm, $buttoncontinue, $buttoncancel);
         echo $OUTPUT->footer();
         exit;
@@ -146,7 +132,7 @@ if (isguestuser() or !confirm_sesskey()) {
 // Set up completion object and check it is enabled.
 $completion = new completion_info($course);
 if (!$completion->is_enabled()) {
-    throw new moodle_exception('completionnotenabled', 'completion');
+    throw new lion_exception('completionnotenabled', 'completion');
 }
 
 // NOTE: All users are allowed to toggle their completion state, including

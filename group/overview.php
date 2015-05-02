@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
  * Print an overview of groupings & group membership
  *
  * @copyright  Matt Clarkson mattc@catalyst.net.nz
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package    core_group
  */
 
@@ -37,7 +23,7 @@ if (!$course = $DB->get_record('course', array('id'=>$courseid))) {
     print_error('invalidcourse');
 }
 
-$url = new moodle_url('/group/overview.php', array('id'=>$courseid));
+$url = new lion_url('/group/overview.php', array('id'=>$courseid));
 if ($groupid !== 0) {
     $url->param('group', $groupid);
 }
@@ -50,7 +36,7 @@ $PAGE->set_url($url);
 require_login($course);
 
 $context = context_course::instance($courseid);
-require_capability('moodle/course:managegroups', $context);
+require_capability('lion/course:managegroups', $context);
 
 $strgroups           = get_string('groups');
 $strparticipants     = get_string('participants');
@@ -119,7 +105,7 @@ foreach ($rs as $row) {
 }
 $rs->close();
 
-navigation_node::override_active_url(new moodle_url('/group/index.php', array('id'=>$courseid)));
+navigation_node::override_active_url(new lion_url('/group/index.php', array('id'=>$courseid)));
 $PAGE->navbar->add(get_string('overview', 'group'));
 
 /// Print header
@@ -142,7 +128,7 @@ $options[0] = get_string('all');
 foreach ($groupings as $grouping) {
     $options[$grouping->id] = strip_tags($grouping->formattedname);
 }
-$popupurl = new moodle_url($rooturl.'&group='.$groupid);
+$popupurl = new lion_url($rooturl.'&group='.$groupid);
 $select = new single_select($popupurl, 'grouping', $options, $groupingid, array());
 $select->label = $strgrouping;
 $select->formid = 'selectgrouping';
@@ -153,7 +139,7 @@ $options[0] = get_string('all');
 foreach ($groups as $group) {
     $options[$group->id] = strip_tags(format_string($group->name));
 }
-$popupurl = new moodle_url($rooturl.'&grouping='.$groupingid);
+$popupurl = new lion_url($rooturl.'&grouping='.$groupingid);
 $select = new single_select($popupurl, 'group', $options, $groupid, array());
 $select->label = $strgroup;
 $select->formid = 'selectgroup';
@@ -215,7 +201,7 @@ foreach ($members as $gpgid=>$groupdata) {
 }
 
 if (count($hoverevents)>0) {
-    $PAGE->requires->string_for_js('description', 'moodle');
+    $PAGE->requires->string_for_js('description', 'lion');
     $PAGE->requires->js_init_call('M.core_group.init_hover_events', array($hoverevents));
 }
 

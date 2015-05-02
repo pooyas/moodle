@@ -456,7 +456,7 @@
 					</mx:HBox>
 				</mx:Panel>
 			</mx:TabNavigator>
-			<mx:Panel label="Service Browser" width="100%" height="100%" layout="vertical" title="Moodle AMF Service Browser" enabled="false" id="panelDebug">
+			<mx:Panel label="Service Browser" width="100%" height="100%" layout="vertical" title="Lion AMF Service Browser" enabled="false" id="panelDebug">
 				<mx:HBox width="100%">
 					<mx:Label text="Func "/>
 					<mx:ComboBox id="func" change="reloadArgs()">

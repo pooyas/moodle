@@ -1,10 +1,10 @@
 {
-  "moodle-availability_grouping-form": {
+  "lion-availability_grouping-form": {
     "requires": [
         "base",
         "node",
         "event",
-        "moodle-core_availability-form"
+        "lion-core_availability-form"
     ]
   }
 }

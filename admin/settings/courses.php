@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file defines settingpages and externalpages under the "courses" category
@@ -23,30 +9,30 @@
  */
 
 $capabilities = array(
-    'moodle/backup:backupcourse',
-    'moodle/category:manage',
-    'moodle/course:create',
-    'moodle/site:approvecourse',
-    'moodle/restore:restorecourse'
+    'lion/backup:backupcourse',
+    'lion/category:manage',
+    'lion/course:create',
+    'lion/site:approvecourse',
+    'lion/restore:restorecourse'
 );
 if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     // Speedup for non-admins, add all caps used on this page.
     $ADMIN->add('courses',
         new admin_externalpage('coursemgmt', new lang_string('coursemgmt', 'admin'),
             $CFG->wwwroot . '/course/management.php',
-            array('moodle/category:manage', 'moodle/course:create')
+            array('lion/category:manage', 'lion/course:create')
         )
     );
     $ADMIN->add('courses',
         new admin_externalpage('addcategory', new lang_string('addcategory', 'admin'),
-            new moodle_url('/course/editcategory.php', array('parent' => 0)),
-            array('moodle/category:manage')
+            new lion_url('/course/editcategory.php', array('parent' => 0)),
+            array('lion/category:manage')
         )
     );
     $ADMIN->add('courses',
         new admin_externalpage('restorecourse', new lang_string('restorecourse', 'admin'),
-            new moodle_url('/backup/restorefile.php', array('contextid' => context_system::instance()->id)),
-            array('moodle/course:create')
+            new lion_url('/backup/restorefile.php', array('contextid' => context_system::instance()->id)),
+            array('lion/course:create')
         )
     );
 
@@ -60,7 +46,7 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     $choices = array();
     $choices['0'] = new lang_string('hide');
     $choices['1'] = new lang_string('show');
-    $temp->add(new admin_setting_configselect('moodlecourse/visible', new lang_string('visible'), new lang_string('visible_help'),
+    $temp->add(new admin_setting_configselect('lioncourse/visible', new lang_string('visible'), new lang_string('visible_help'),
         1, $choices));
 
     // Course format.
@@ -71,25 +57,25 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     foreach ($courseformats as $courseformat) {
         $formcourseformats[$courseformat] = new lang_string('pluginname', "format_$courseformat");
     }
-    $temp->add(new admin_setting_configselect('moodlecourse/format', new lang_string('format'), new lang_string('coursehelpformat'),
+    $temp->add(new admin_setting_configselect('lioncourse/format', new lang_string('format'), new lang_string('coursehelpformat'),
         'weeks',$formcourseformats));
 
-    $temp->add(new admin_setting_configtext('moodlecourse/maxsections', new lang_string('maxnumberweeks'),
+    $temp->add(new admin_setting_configtext('lioncourse/maxsections', new lang_string('maxnumberweeks'),
         new lang_string('maxnumberweeks_desc'), 52));
 
-    $temp->add(new admin_settings_num_course_sections('moodlecourse/numsections', new lang_string('numberweeks'),
+    $temp->add(new admin_settings_num_course_sections('lioncourse/numsections', new lang_string('numberweeks'),
         new lang_string('coursehelpnumberweeks'), 10));
 
     $choices = array();
     $choices['0'] = new lang_string('hiddensectionscollapsed');
     $choices['1'] = new lang_string('hiddensectionsinvisible');
-    $temp->add(new admin_setting_configselect('moodlecourse/hiddensections', new lang_string('hiddensections'),
+    $temp->add(new admin_setting_configselect('lioncourse/hiddensections', new lang_string('hiddensections'),
         new lang_string('coursehelphiddensections'), 0, $choices));
 
     $choices = array();
     $choices[COURSE_DISPLAY_SINGLEPAGE] = new lang_string('coursedisplay_single');
     $choices[COURSE_DISPLAY_MULTIPAGE] = new lang_string('coursedisplay_multi');
-    $temp->add(new admin_setting_configselect('moodlecourse/coursedisplay', new lang_string('coursedisplay'),
+    $temp->add(new admin_setting_configselect('lioncourse/coursedisplay', new lang_string('coursedisplay'),
         new lang_string('coursedisplay_help'), COURSE_DISPLAY_SINGLEPAGE, $choices));
 
     // Appearance.
@@ -98,15 +84,15 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     $languages = array();
     $languages[''] = new lang_string('forceno');
     $languages += get_string_manager()->get_list_of_translations();
-    $temp->add(new admin_setting_configselect('moodlecourse/lang', new lang_string('forcelanguage'), '', key($languages),
+    $temp->add(new admin_setting_configselect('lioncourse/lang', new lang_string('forcelanguage'), '', key($languages),
         $languages));
 
     $options = range(0, 10);
-    $temp->add(new admin_setting_configselect('moodlecourse/newsitems', new lang_string('newsitemsnumber'),
+    $temp->add(new admin_setting_configselect('lioncourse/newsitems', new lang_string('newsitemsnumber'),
         new lang_string('coursehelpnewsitemsnumber'), 5, $options));
-    $temp->add(new admin_setting_configselect('moodlecourse/showgrades', new lang_string('showgrades'),
+    $temp->add(new admin_setting_configselect('lioncourse/showgrades', new lang_string('showgrades'),
         new lang_string('coursehelpshowgrades'), 1, array(0 => new lang_string('no'), 1 => new lang_string('yes'))));
-    $temp->add(new admin_setting_configselect('moodlecourse/showreports', new lang_string('showreports'), '', 0,
+    $temp->add(new admin_setting_configselect('lioncourse/showreports', new lang_string('showreports'), '', 0,
         array(0 => new lang_string('no'), 1 => new lang_string('yes'))));
 
     // Files and uploads.
@@ -114,22 +100,22 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
 
     if (!empty($CFG->legacyfilesinnewcourses)) {
         $choices = array('0'=>new lang_string('no'), '2'=>new lang_string('yes'));
-        $temp->add(new admin_setting_configselect('moodlecourse/legacyfiles', new lang_string('courselegacyfiles'),
+        $temp->add(new admin_setting_configselect('lioncourse/legacyfiles', new lang_string('courselegacyfiles'),
             new lang_string('courselegacyfiles_help'), key($choices), $choices));
     }
 
-    $currentmaxbytes = get_config('moodlecourse', 'maxbytes');
+    $currentmaxbytes = get_config('lioncourse', 'maxbytes');
     if (isset($CFG->maxbytes)) {
         $choices = get_max_upload_sizes($CFG->maxbytes, 0, 0, $currentmaxbytes);
     } else {
         $choices = get_max_upload_sizes(0, 0, 0, $currentmaxbytes);
     }
-    $temp->add(new admin_setting_configselect('moodlecourse/maxbytes', new lang_string('maximumupload'),
+    $temp->add(new admin_setting_configselect('lioncourse/maxbytes', new lang_string('maximumupload'),
         new lang_string('coursehelpmaximumupload'), key($choices), $choices));
 
     // Completion tracking.
     $temp->add(new admin_setting_heading('progress', new lang_string('completion','completion'), ''));
-    $temp->add(new admin_setting_configselect('moodlecourse/enablecompletion', new lang_string('completion', 'completion'),
+    $temp->add(new admin_setting_configselect('lioncourse/enablecompletion', new lang_string('completion', 'completion'),
         new lang_string('enablecompletion_help', 'completion'), 0, array(0 => new lang_string('no'), 1 => new lang_string('yes'))));
 
     // Groups.
@@ -138,8 +124,8 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     $choices[NOGROUPS] = new lang_string('groupsnone', 'group');
     $choices[SEPARATEGROUPS] = new lang_string('groupsseparate', 'group');
     $choices[VISIBLEGROUPS] = new lang_string('groupsvisible', 'group');
-    $temp->add(new admin_setting_configselect('moodlecourse/groupmode', new lang_string('groupmode'), '', key($choices),$choices));
-    $temp->add(new admin_setting_configselect('moodlecourse/groupmodeforce', new lang_string('force'), new lang_string('coursehelpforce'), 0,array(0 => new lang_string('no'), 1 => new lang_string('yes'))));
+    $temp->add(new admin_setting_configselect('lioncourse/groupmode', new lang_string('groupmode'), '', key($choices),$choices));
+    $temp->add(new admin_setting_configselect('lioncourse/groupmodeforce', new lang_string('force'), new lang_string('coursehelpforce'), 0,array(0 => new lang_string('no'), 1 => new lang_string('yes'))));
 
     $ADMIN->add('courses', $temp);
 
@@ -149,20 +135,20 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     $temp->add(new admin_setting_configcheckbox('enablecourserequests', new lang_string('enablecourserequests', 'admin'), new lang_string('configenablecourserequests', 'admin'), 0));
     $temp->add(new admin_settings_coursecat_select('defaultrequestcategory', new lang_string('defaultrequestcategory', 'admin'), new lang_string('configdefaultrequestcategory', 'admin'), 1));
     $temp->add(new admin_setting_configcheckbox('requestcategoryselection', new lang_string('requestcategoryselection', 'admin'), new lang_string('configrequestcategoryselection', 'admin'), 0));
-    $temp->add(new admin_setting_users_with_capability('courserequestnotify', new lang_string('courserequestnotify', 'admin'), new lang_string('configcourserequestnotify2', 'admin'), array(), 'moodle/site:approvecourse'));
+    $temp->add(new admin_setting_users_with_capability('courserequestnotify', new lang_string('courserequestnotify', 'admin'), new lang_string('configcourserequestnotify2', 'admin'), array(), 'lion/site:approvecourse'));
     $ADMIN->add('courses', $temp);
 
     // Pending course requests.
     if (!empty($CFG->enablecourserequests)) {
         $ADMIN->add('courses', new admin_externalpage('coursespending', new lang_string('pendingrequests'),
-                $CFG->wwwroot . '/course/pending.php', array('moodle/site:approvecourse')));
+                $CFG->wwwroot . '/course/pending.php', array('lion/site:approvecourse')));
     }
 
     // Add a category for backups.
     $ADMIN->add('courses', new admin_category('backups', new lang_string('backups','admin')));
 
     // Create a page for general backups configuration and defaults.
-    $temp = new admin_settingpage('backupgeneralsettings', new lang_string('generalbackdefaults', 'backup'), 'moodle/backup:backupcourse');
+    $temp = new admin_settingpage('backupgeneralsettings', new lang_string('generalbackdefaults', 'backup'), 'lion/backup:backupcourse');
 
     // General configuration section.
     $temp->add(new admin_setting_configselect('backup/loglifetime', new lang_string('loglifetime', 'backup'), new lang_string('configloglifetime', 'backup'), 30, array(
@@ -203,12 +189,12 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     $ADMIN->add('backups', $temp);
 
     // Create a page for general import configuration and defaults.
-    $temp = new admin_settingpage('importgeneralsettings', new lang_string('importgeneralsettings', 'backup'), 'moodle/backup:backupcourse');
+    $temp = new admin_settingpage('importgeneralsettings', new lang_string('importgeneralsettings', 'backup'), 'lion/backup:backupcourse');
     $temp->add(new admin_setting_configtext('backup/import_general_maxresults', new lang_string('importgeneralmaxresults', 'backup'), new lang_string('importgeneralmaxresults_desc', 'backup'), 10));
     $ADMIN->add('backups', $temp);
 
     // Create a page for automated backups configuration and defaults.
-    $temp = new admin_settingpage('automated', new lang_string('automatedsetup','backup'), 'moodle/backup:backupcourse');
+    $temp = new admin_settingpage('automated', new lang_string('automatedsetup','backup'), 'lion/backup:backupcourse');
 
     // Automated configuration section.
     $temp->add(new admin_setting_configselect('backup/backup_auto_active', new lang_string('active'),  new lang_string('autoactivedescription', 'backup'), 0, array(

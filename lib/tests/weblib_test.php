@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Weblib tests.
@@ -24,7 +10,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 class core_weblib_testcase extends advanced_testcase {
@@ -168,119 +154,119 @@ class core_weblib_testcase extends advanced_testcase {
     }
 
     /**
-     * Test basic moodle_url construction.
+     * Test basic lion_url construction.
      */
-    public function test_moodle_url_constructor() {
+    public function test_lion_url_constructor() {
         global $CFG;
 
-        $url = new moodle_url('/index.php');
+        $url = new lion_url('/index.php');
         $this->assertSame($CFG->wwwroot.'/index.php', $url->out());
 
-        $url = new moodle_url('/index.php', array());
+        $url = new lion_url('/index.php', array());
         $this->assertSame($CFG->wwwroot.'/index.php', $url->out());
 
-        $url = new moodle_url('/index.php', array('id' => 2));
+        $url = new lion_url('/index.php', array('id' => 2));
         $this->assertSame($CFG->wwwroot.'/index.php?id=2', $url->out());
 
-        $url = new moodle_url('/index.php', array('id' => 'two'));
+        $url = new lion_url('/index.php', array('id' => 'two'));
         $this->assertSame($CFG->wwwroot.'/index.php?id=two', $url->out());
 
-        $url = new moodle_url('/index.php', array('id' => 1, 'cid' => '2'));
+        $url = new lion_url('/index.php', array('id' => 1, 'cid' => '2'));
         $this->assertSame($CFG->wwwroot.'/index.php?id=1&amp;cid=2', $url->out());
         $this->assertSame($CFG->wwwroot.'/index.php?id=1&cid=2', $url->out(false));
 
-        $url = new moodle_url('/index.php', null, 'test');
+        $url = new lion_url('/index.php', null, 'test');
         $this->assertSame($CFG->wwwroot.'/index.php#test', $url->out());
 
-        $url = new moodle_url('/index.php', array('id' => 2), 'test');
+        $url = new lion_url('/index.php', array('id' => 2), 'test');
         $this->assertSame($CFG->wwwroot.'/index.php?id=2#test', $url->out());
     }
 
     /**
-     * Tests moodle_url::get_path().
+     * Tests lion_url::get_path().
      */
-    public function test_moodle_url_get_path() {
-        $url = new moodle_url('http://www.example.org:447/my/file/is/here.txt?really=1');
+    public function test_lion_url_get_path() {
+        $url = new lion_url('http://www.example.org:447/my/file/is/here.txt?really=1');
         $this->assertSame('/my/file/is/here.txt', $url->get_path());
 
-        $url = new moodle_url('http://www.example.org/');
+        $url = new lion_url('http://www.example.org/');
         $this->assertSame('/', $url->get_path());
 
-        $url = new moodle_url('http://www.example.org/pluginfile.php/slash/arguments');
+        $url = new lion_url('http://www.example.org/pluginfile.php/slash/arguments');
         $this->assertSame('/pluginfile.php/slash/arguments', $url->get_path());
         $this->assertSame('/pluginfile.php', $url->get_path(false));
     }
 
-    public function test_moodle_url_round_trip() {
-        $strurl = 'http://moodle.org/course/view.php?id=5';
-        $url = new moodle_url($strurl);
+    public function test_lion_url_round_trip() {
+        $strurl = 'http://lion.org/course/view.php?id=5';
+        $url = new lion_url($strurl);
         $this->assertSame($strurl, $url->out(false));
 
-        $strurl = 'http://moodle.org/user/index.php?contextid=53&sifirst=M&silast=D';
-        $url = new moodle_url($strurl);
+        $strurl = 'http://lion.org/user/index.php?contextid=53&sifirst=M&silast=D';
+        $url = new lion_url($strurl);
         $this->assertSame($strurl, $url->out(false));
     }
 
     /**
-     * Test Moodle URL objects created with a param with empty value.
+     * Test Lion URL objects created with a param with empty value.
      */
-    public function test_moodle_url_empty_param_values() {
-        $strurl = 'http://moodle.org/course/view.php?id=0';
-        $url = new moodle_url($strurl, array('id' => 0));
+    public function test_lion_url_empty_param_values() {
+        $strurl = 'http://lion.org/course/view.php?id=0';
+        $url = new lion_url($strurl, array('id' => 0));
         $this->assertSame($strurl, $url->out(false));
 
-        $strurl = 'http://moodle.org/course/view.php?id';
-        $url = new moodle_url($strurl, array('id' => false));
+        $strurl = 'http://lion.org/course/view.php?id';
+        $url = new lion_url($strurl, array('id' => false));
         $this->assertSame($strurl, $url->out(false));
 
-        $strurl = 'http://moodle.org/course/view.php?id';
-        $url = new moodle_url($strurl, array('id' => null));
+        $strurl = 'http://lion.org/course/view.php?id';
+        $url = new lion_url($strurl, array('id' => null));
         $this->assertSame($strurl, $url->out(false));
 
-        $strurl = 'http://moodle.org/course/view.php?id';
-        $url = new moodle_url($strurl, array('id' => ''));
+        $strurl = 'http://lion.org/course/view.php?id';
+        $url = new lion_url($strurl, array('id' => ''));
         $this->assertSame($strurl, $url->out(false));
 
-        $strurl = 'http://moodle.org/course/view.php?id';
-        $url = new moodle_url($strurl);
+        $strurl = 'http://lion.org/course/view.php?id';
+        $url = new lion_url($strurl);
         $this->assertSame($strurl, $url->out(false));
     }
 
-    public function test_moodle_url_round_trip_array_params() {
+    public function test_lion_url_round_trip_array_params() {
         $strurl = 'http://example.com/?a%5B1%5D=1&a%5B2%5D=2';
-        $url = new moodle_url($strurl);
+        $url = new lion_url($strurl);
         $this->assertSame($strurl, $url->out(false));
 
-        $url = new moodle_url('http://example.com/?a[1]=1&a[2]=2');
+        $url = new lion_url('http://example.com/?a[1]=1&a[2]=2');
         $this->assertSame($strurl, $url->out(false));
 
         // For un-keyed array params, we expect 0..n keys to be returned.
         $strurl = 'http://example.com/?a%5B0%5D=0&a%5B1%5D=1';
-        $url = new moodle_url('http://example.com/?a[]=0&a[]=1');
+        $url = new lion_url('http://example.com/?a[]=0&a[]=1');
         $this->assertSame($strurl, $url->out(false));
     }
 
     public function test_compare_url() {
-        $url1 = new moodle_url('index.php', array('var1' => 1, 'var2' => 2));
-        $url2 = new moodle_url('index2.php', array('var1' => 1, 'var2' => 2, 'var3' => 3));
+        $url1 = new lion_url('index.php', array('var1' => 1, 'var2' => 2));
+        $url2 = new lion_url('index2.php', array('var1' => 1, 'var2' => 2, 'var3' => 3));
 
         $this->assertFalse($url1->compare($url2, URL_MATCH_BASE));
         $this->assertFalse($url1->compare($url2, URL_MATCH_PARAMS));
         $this->assertFalse($url1->compare($url2, URL_MATCH_EXACT));
 
-        $url2 = new moodle_url('index.php', array('var1' => 1, 'var3' => 3));
+        $url2 = new lion_url('index.php', array('var1' => 1, 'var3' => 3));
 
         $this->assertTrue($url1->compare($url2, URL_MATCH_BASE));
         $this->assertFalse($url1->compare($url2, URL_MATCH_PARAMS));
         $this->assertFalse($url1->compare($url2, URL_MATCH_EXACT));
 
-        $url2 = new moodle_url('index.php', array('var1' => 1, 'var2' => 2, 'var3' => 3));
+        $url2 = new lion_url('index.php', array('var1' => 1, 'var2' => 2, 'var3' => 3));
 
         $this->assertTrue($url1->compare($url2, URL_MATCH_BASE));
         $this->assertTrue($url1->compare($url2, URL_MATCH_PARAMS));
         $this->assertFalse($url1->compare($url2, URL_MATCH_EXACT));
 
-        $url2 = new moodle_url('index.php', array('var2' => 2, 'var1' => 1));
+        $url2 = new lion_url('index.php', array('var2' => 2, 'var1' => 1));
 
         $this->assertTrue($url1->compare($url2, URL_MATCH_BASE));
         $this->assertTrue($url1->compare($url2, URL_MATCH_PARAMS));
@@ -300,20 +286,20 @@ class core_weblib_testcase extends advanced_testcase {
     public function test_out_as_local_url() {
         global $CFG;
         // Test http url.
-        $url1 = new moodle_url('/lib/tests/weblib_test.php');
+        $url1 = new lion_url('/lib/tests/weblib_test.php');
         $this->assertSame('/lib/tests/weblib_test.php', $url1->out_as_local_url());
 
         // Test https url.
         $httpswwwroot = str_replace("http://", "https://", $CFG->wwwroot);
-        $url2 = new moodle_url($httpswwwroot.'/login/profile.php');
+        $url2 = new lion_url($httpswwwroot.'/login/profile.php');
         $this->assertSame('/login/profile.php', $url2->out_as_local_url());
 
         // Test http url matching wwwroot.
-        $url3 = new moodle_url($CFG->wwwroot);
+        $url3 = new lion_url($CFG->wwwroot);
         $this->assertSame('', $url3->out_as_local_url());
 
         // Test http url matching wwwroot ending with slash (/).
-        $url3 = new moodle_url($CFG->wwwroot.'/');
+        $url3 = new lion_url($CFG->wwwroot.'/');
         $this->assertSame('/', $url3->out_as_local_url());
     }
 
@@ -322,7 +308,7 @@ class core_weblib_testcase extends advanced_testcase {
      * @return void
      */
     public function test_out_as_local_url_error() {
-        $url2 = new moodle_url('http://www.google.com/lib/tests/weblib_test.php');
+        $url2 = new lion_url('http://www.google.com/lib/tests/weblib_test.php');
         $url2->out_as_local_url();
     }
 
@@ -336,7 +322,7 @@ class core_weblib_testcase extends advanced_testcase {
         global $CFG;
 
         $modifiedurl = $CFG->wwwroot.'1';
-        $url3 = new moodle_url($modifiedurl.'/login/profile.php');
+        $url3 = new lion_url($modifiedurl.'/login/profile.php');
         $url3->out_as_local_url();
     }
 
@@ -346,37 +332,37 @@ class core_weblib_testcase extends advanced_testcase {
      * @expectedException coding_exception
      */
     public function test_https_out_as_local_url_error() {
-        $url4 = new moodle_url('https://www.google.com/lib/tests/weblib_test.php');
+        $url4 = new lion_url('https://www.google.com/lib/tests/weblib_test.php');
         $url4->out_as_local_url();
     }
 
-    public function test_moodle_url_get_scheme() {
+    public function test_lion_url_get_scheme() {
         // Should return the scheme only.
-        $url = new moodle_url('http://www.example.org:447/my/file/is/here.txt?really=1');
+        $url = new lion_url('http://www.example.org:447/my/file/is/here.txt?really=1');
         $this->assertSame('http', $url->get_scheme());
 
         // Should work for secure URLs.
-        $url = new moodle_url('https://www.example.org:447/my/file/is/here.txt?really=1');
+        $url = new lion_url('https://www.example.org:447/my/file/is/here.txt?really=1');
         $this->assertSame('https', $url->get_scheme());
 
         // Should return an empty string if no scheme is specified.
-        $url = new moodle_url('www.example.org:447/my/file/is/here.txt?really=1');
+        $url = new lion_url('www.example.org:447/my/file/is/here.txt?really=1');
         $this->assertSame('', $url->get_scheme());
     }
 
-    public function test_moodle_url_get_host() {
+    public function test_lion_url_get_host() {
         // Should return the host part only.
-        $url = new moodle_url('http://www.example.org:447/my/file/is/here.txt?really=1');
+        $url = new lion_url('http://www.example.org:447/my/file/is/here.txt?really=1');
         $this->assertSame('www.example.org', $url->get_host());
     }
 
-    public function test_moodle_url_get_port() {
+    public function test_lion_url_get_port() {
         // Should return the port if one provided.
-        $url = new moodle_url('http://www.example.org:447/my/file/is/here.txt?really=1');
+        $url = new lion_url('http://www.example.org:447/my/file/is/here.txt?really=1');
         $this->assertSame(447, $url->get_port());
 
         // Should return an empty string if port not specified.
-        $url = new moodle_url('http://www.example.org/some/path/here.php');
+        $url = new lion_url('http://www.example.org/some/path/here.php');
         $this->assertSame('', $url->get_port());
     }
 
@@ -384,7 +370,7 @@ class core_weblib_testcase extends advanced_testcase {
         $text = "lala <applet>xx</applet>";
         $this->assertSame($text, clean_text($text, FORMAT_PLAIN));
         $this->assertSame('lala xx', clean_text($text, FORMAT_MARKDOWN));
-        $this->assertSame('lala xx', clean_text($text, FORMAT_MOODLE));
+        $this->assertSame('lala xx', clean_text($text, FORMAT_LION));
         $this->assertSame('lala xx', clean_text($text, FORMAT_HTML));
     }
 
@@ -392,7 +378,7 @@ class core_weblib_testcase extends advanced_testcase {
         global $PAGE, $FULLME, $CFG;
         $this->resetAfterTest();
 
-        $PAGE = new moodle_page();
+        $PAGE = new lion_page();
 
         $FULLME = $CFG->wwwroot.'/course/view.php?id=1&xx=yy';
         $this->assertSame($FULLME, qualified_me());
@@ -533,36 +519,36 @@ class core_weblib_testcase extends advanced_testcase {
         $source = <<<SOURCE
 Hello!
 
-I'm writing to you from the Moodle Majlis in Muscat, Oman, where we just had several days of Moodle community goodness.
+I'm writing to you from the Lion Majlis in Muscat, Oman, where we just had several days of Lion community goodness.
 
-URL outside a tag: https://moodle.org/logo/logo-240x60.gif
+URL outside a tag: https://lion.org/logo/logo-240x60.gif
 Plugin url outside a tag: @@PLUGINFILE@@/logo-240x60.gif
 
-External link 1:<img src='https://moodle.org/logo/logo-240x60.gif' alt='Moodle'/>
-External link 2:<img alt="Moodle" src="https://moodle.org/logo/logo-240x60.gif"/>
-Internal link 1:<img src='@@PLUGINFILE@@/logo-240x60.gif' alt='Moodle'/>
-Internal link 2:<img alt="Moodle" src="@@PLUGINFILE@@logo-240x60.gif"/>
+External link 1:<img src='https://lion.org/logo/logo-240x60.gif' alt='Lion'/>
+External link 2:<img alt="Lion" src="https://lion.org/logo/logo-240x60.gif"/>
+Internal link 1:<img src='@@PLUGINFILE@@/logo-240x60.gif' alt='Lion'/>
+Internal link 2:<img alt="Lion" src="@@PLUGINFILE@@logo-240x60.gif"/>
 Anchor link 1:<a href="@@PLUGINFILE@@logo-240x60.gif" alt="bananas">Link text</a>
 Anchor link 2:<a title="bananas" href="../logo-240x60.gif">Link text</a>
-Anchor + ext. img:<a title="bananas" href="../logo-240x60.gif"><img alt="Moodle" src="@@PLUGINFILE@@logo-240x60.gif"/></a>
-Ext. anchor + img:<a href="@@PLUGINFILE@@logo-240x60.gif"><img alt="Moodle" src="https://moodle.org/logo/logo-240x60.gif"/></a>
+Anchor + ext. img:<a title="bananas" href="../logo-240x60.gif"><img alt="Lion" src="@@PLUGINFILE@@logo-240x60.gif"/></a>
+Ext. anchor + img:<a href="@@PLUGINFILE@@logo-240x60.gif"><img alt="Lion" src="https://lion.org/logo/logo-240x60.gif"/></a>
 SOURCE;
         $expected = <<<EXPECTED
 Hello!
 
-I'm writing to you from the Moodle Majlis in Muscat, Oman, where we just had several days of Moodle community goodness.
+I'm writing to you from the Lion Majlis in Muscat, Oman, where we just had several days of Lion community goodness.
 
-URL outside a tag: https://moodle.org/logo/logo-240x60.gif
+URL outside a tag: https://lion.org/logo/logo-240x60.gif
 Plugin url outside a tag: @@PLUGINFILE@@/logo-240x60.gif
 
-External link 1:<img src="https://moodle.org/logo/logo-240x60.gif" alt="Moodle" />
-External link 2:<img alt="Moodle" src="https://moodle.org/logo/logo-240x60.gif" />
+External link 1:<img src="https://lion.org/logo/logo-240x60.gif" alt="Lion" />
+External link 2:<img alt="Lion" src="https://lion.org/logo/logo-240x60.gif" />
 Internal link 1:
 Internal link 2:
 Anchor link 1:Link text
 Anchor link 2:<a title="bananas" href="../logo-240x60.gif">Link text</a>
 Anchor + ext. img:<a title="bananas" href="../logo-240x60.gif"></a>
-Ext. anchor + img:<img alt="Moodle" src="https://moodle.org/logo/logo-240x60.gif" />
+Ext. anchor + img:<img alt="Lion" src="https://lion.org/logo/logo-240x60.gif" />
 EXPECTED;
         $this->assertSame($expected, strip_pluginfile_content($source));
     }

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Utility class.
@@ -20,7 +6,7 @@
  * @package    core
  * @category   phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(__DIR__.'/../../testing/classes/util.php');
@@ -31,7 +17,7 @@ require_once(__DIR__.'/../../testing/classes/util.php');
  * @package    core
  * @category   phpunit
  * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class phpunit_util extends testing_util {
     /**
@@ -45,13 +31,13 @@ class phpunit_util extends testing_util {
     /** @var array list of debugging messages triggered during the last test execution */
     protected static $debuggings = array();
 
-    /** @var phpunit_message_sink alternative target for moodle messaging */
+    /** @var phpunit_message_sink alternative target for lion messaging */
     protected static $messagesink = null;
 
     /** @var phpunit_phpmailer_sink alternative target for phpmailer messaging */
     protected static $phpmailersink = null;
 
-    /** @var phpunit_message_sink alternative target for moodle messaging */
+    /** @var phpunit_message_sink alternative target for lion messaging */
     protected static $eventsink = null;
 
     /**
@@ -188,7 +174,7 @@ class phpunit_util extends testing_util {
 
         // reinitialise following globals
         $OUTPUT = new bootstrap_renderer();
-        $PAGE = new moodle_page();
+        $PAGE = new lion_page();
         $FULLME = null;
         $ME = null;
         $SCRIPT = null;
@@ -295,12 +281,12 @@ class phpunit_util extends testing_util {
     }
 
     /**
-     * Print some Moodle related info to console.
+     * Print some Lion related info to console.
      * @internal
      * @static
      * @return void
      */
-    public static function bootstrap_moodle_info() {
+    public static function bootstrap_lion_info() {
         echo self::get_site_info();
     }
 
@@ -400,9 +386,9 @@ class phpunit_util extends testing_util {
         if ($DB->get_tables()) {
             list($errorcode, $message) = phpunit_util::testing_ready_problem();
             if ($errorcode) {
-                phpunit_bootstrap_error(PHPUNIT_EXITCODE_REINSTALL, 'Database tables already present, Moodle PHPUnit test environment can not be initialised');
+                phpunit_bootstrap_error(PHPUNIT_EXITCODE_REINSTALL, 'Database tables already present, Lion PHPUnit test environment can not be initialised');
             } else {
-                phpunit_bootstrap_error(0, 'Moodle PHPUnit test environment is already initialised');
+                phpunit_bootstrap_error(0, 'Lion PHPUnit test environment is already initialised');
             }
         }
 
@@ -704,7 +690,7 @@ class phpunit_util extends testing_util {
     /**
      * Are messages for phpmailer redirected to some sink?
      *
-     * Note: to be called from moodle_phpmailer.php only!
+     * Note: to be called from lion_phpmailer.php only!
      *
      * @return bool
      */

@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Standard library of functions and constants for lesson
  *
  * @package mod_lesson
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  **/
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /* Do not include any libraries here! */
 
@@ -237,7 +223,7 @@ function lesson_user_complete($course, $user, $mod, $lesson) {
 }
 
 /**
- * Prints lesson summaries on MyMoodle Page
+ * Prints lesson summaries on MyLion Page
  *
  * Prints lesson name, due date and attempt information on
  * lessons that have a deadline that has not already passed
@@ -306,7 +292,7 @@ function lesson_print_overview($courses, &$htmlarray) {
 }
 
 /**
- * Function to be run periodically according to the moodle cron
+ * Function to be run periodically according to the lion cron
  * This function searches for things that need to be done, such
  * as sending out mail, toggling flags etc ...
  * @global stdClass
@@ -724,7 +710,7 @@ function lesson_reset_userdata($data) {
  * @return array
  */
 function lesson_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -753,7 +739,7 @@ function lesson_supports($feature) {
             return true;
         case FEATURE_GRADE_OUTCOMES:
             return true;
-        case FEATURE_BACKUP_MOODLE2:
+        case FEATURE_BACKUP_LION2:
             return true;
         case FEATURE_SHOW_DESCRIPTION:
             return true;
@@ -821,30 +807,30 @@ function lesson_extend_settings_navigation($settings, $lessonnode) {
     global $PAGE, $DB;
 
     if (has_capability('mod/lesson:edit', $PAGE->cm->context)) {
-        $url = new moodle_url('/mod/lesson/view.php', array('id' => $PAGE->cm->id));
+        $url = new lion_url('/mod/lesson/view.php', array('id' => $PAGE->cm->id));
         $lessonnode->add(get_string('preview', 'lesson'), $url);
         $editnode = $lessonnode->add(get_string('edit', 'lesson'));
-        $url = new moodle_url('/mod/lesson/edit.php', array('id' => $PAGE->cm->id, 'mode' => 'collapsed'));
+        $url = new lion_url('/mod/lesson/edit.php', array('id' => $PAGE->cm->id, 'mode' => 'collapsed'));
         $editnode->add(get_string('collapsed', 'lesson'), $url);
-        $url = new moodle_url('/mod/lesson/edit.php', array('id' => $PAGE->cm->id, 'mode' => 'full'));
+        $url = new lion_url('/mod/lesson/edit.php', array('id' => $PAGE->cm->id, 'mode' => 'full'));
         $editnode->add(get_string('full', 'lesson'), $url);
     }
 
     if (has_capability('mod/lesson:viewreports', $PAGE->cm->context)) {
         $reportsnode = $lessonnode->add(get_string('reports', 'lesson'));
-        $url = new moodle_url('/mod/lesson/report.php', array('id'=>$PAGE->cm->id, 'action'=>'reportoverview'));
+        $url = new lion_url('/mod/lesson/report.php', array('id'=>$PAGE->cm->id, 'action'=>'reportoverview'));
         $reportsnode->add(get_string('overview', 'lesson'), $url);
-        $url = new moodle_url('/mod/lesson/report.php', array('id'=>$PAGE->cm->id, 'action'=>'reportdetail'));
+        $url = new lion_url('/mod/lesson/report.php', array('id'=>$PAGE->cm->id, 'action'=>'reportdetail'));
         $reportsnode->add(get_string('detailedstats', 'lesson'), $url);
     }
 
     if (has_capability('mod/lesson:grade', $PAGE->cm->context)) {
-        $url = new moodle_url('/mod/lesson/essay.php', array('id'=>$PAGE->cm->id));
+        $url = new lion_url('/mod/lesson/essay.php', array('id'=>$PAGE->cm->id));
         $lessonnode->add(get_string('manualgrading', 'lesson'), $url);
     }
 
     if ($PAGE->activityrecord->highscores) {
-        $url = new moodle_url('/mod/lesson/highscores.php', array('id'=>$PAGE->cm->id));
+        $url = new lion_url('/mod/lesson/highscores.php', array('id'=>$PAGE->cm->id));
         $lessonnode->add(get_string('highscores', 'lesson'), $url);
     }
 }
@@ -996,7 +982,7 @@ function lesson_get_file_areas() {
 function lesson_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $itemid, $filepath, $filename) {
     global $CFG, $DB;
 
-    if (!has_capability('moodle/course:managefiles', $context)) {
+    if (!has_capability('lion/course:managefiles', $context)) {
         // No peaking here for students!
         return null;
     }

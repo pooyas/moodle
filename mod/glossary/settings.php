@@ -1,6 +1,6 @@
 <?php
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
     require_once($CFG->dirroot.'/mod/glossary/lib.php');

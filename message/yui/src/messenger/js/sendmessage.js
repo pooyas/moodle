@@ -1,25 +1,11 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Send message dialog.
  *
- * @module     moodle-core_message-messenger
+ * @module     lion-core_message-messenger
  * @package    core_message
  * @copyright  2015 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 CSSR.SENDMSGDIALOG = {
@@ -94,7 +80,7 @@ Y.namespace('M.core_message.messenger').sendMessage = Y.extend(SENDMSGDIALOG, M.
                 CSSR: CSSR.SENDMSGDIALOG,
                 id: Y.guid(),
                 labelStr: M.util.get_string('messagetosend', 'core_message'),
-                loadingIcon: M.util.image_url('i/loading', 'moodle'),
+                loadingIcon: M.util.image_url('i/loading', 'lion'),
                 sendStr: M.util.get_string('sendmessage', 'core_message'),
                 viewHistoryStr: M.util.get_string('viewconversation', 'core_message')
             })
@@ -102,7 +88,7 @@ Y.namespace('M.core_message.messenger').sendMessage = Y.extend(SENDMSGDIALOG, M.
         this.setStdModContent(Y.WidgetStdMod.BODY, content, Y.WidgetStdMod.REPLACE);
 
         // Use standard dialogue class name. This removes the default styling of the footer.
-        this._bb.one('.moodle-dialogue-wrap').addClass('moodle-dialogue-content');
+        this._bb.one('.lion-dialogue-wrap').addClass('lion-dialogue-content');
 
         // Set the events listeners.
         this._setEvents();
@@ -161,7 +147,7 @@ Y.namespace('M.core_message.messenger').sendMessage = Y.extend(SENDMSGDIALOG, M.
             },
             on: {
                 start: function() {
-                    var img = '<img alt="" role="presentation" src="' + M.util.image_url('i/loading_small', 'moodle') + '">';
+                    var img = '<img alt="" role="presentation" src="' + M.util.image_url('i/loading_small', 'lion') + '">';
                     this.setSendLock(true);
                     this.showNotice(img + ' ' + M.util.get_string('sendingmessage', 'core_message'));
                 },

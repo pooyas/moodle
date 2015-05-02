@@ -1,13 +1,13 @@
 /**
  * A module to manage ajax requests.
  *
- * @module moodle-report_loglive-fetchlogs
+ * @module lion-report_loglive-fetchlogs
  */
 
 /**
  * A module to manage ajax requests.
  *
- * @class moodle-report_loglive.fetchlogs
+ * @class lion-report_loglive.fetchlogs
  * @extends Base
  * @constructor
  */
@@ -115,13 +115,13 @@ Y.extend(FetchLogs, Y.Base, {
         try {
             responseobject = Y.JSON.parse(response.responseText);
             if (responseobject.error) {
-                Y.use('moodle-core-notification-ajaxexception', function() {
+                Y.use('lion-core-notification-ajaxexception', function() {
                     return new M.core.ajaxException(responseobject);
                 });
                 return this;
             }
         } catch (error) {
-            Y.use('moodle-core-notification-exception', function() {
+            Y.use('lion-core-notification-exception', function() {
                 return new M.core.exception(error);
             });
             return this;

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Output rendering for the plugin.
@@ -22,13 +8,13 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Implements the plugin renderer
  *
  * @copyright 2014 Andrew Nicols
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class tool_messageinbound_renderer extends plugin_renderer_base {
 
@@ -73,13 +59,13 @@ class tool_messageinbound_renderer extends plugin_renderer_base {
         $descriptionoptions->newlines = false;
         $descriptionoptions->overflowdiv = true;
 
-        $editurlbase = new moodle_url('/admin/tool/messageinbound/index.php');
+        $editurlbase = new lion_url('/admin/tool/messageinbound/index.php');
         foreach ($handlers as $handler) {
             $handlername = new html_table_cell($handler->name . "\n" .
                     html_writer::tag('span', $handler->classname, array('class' => 'handler-function')));
             $handlername->header = true;
 
-            $editurl = new moodle_url($editurlbase, array('classname' => $handler->classname));
+            $editurl = new lion_url($editurlbase, array('classname' => $handler->classname));
             $editlink = $this->action_icon($editurl, new pix_icon('t/edit',
                     get_string('edithandler', 'tool_messageinbound', $handler->classname)));
 

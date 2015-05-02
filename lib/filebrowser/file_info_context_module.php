@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,17 +6,17 @@
  *
  * @package    core_files
  * @copyright  2008 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Represents a module context in the tree navigated by {@link file_browser}.
  *
  * @package    core_files
  * @copyright  2008 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class file_info_context_module extends file_info {
     /** @var stdClass Course object */
@@ -95,7 +81,7 @@ class file_info_context_module extends file_info {
         }
 
         $coursecontext = $this->context->get_course_context(true);
-        if (!$this->course->visible and !has_capability('moodle/course:viewhiddencourses', $coursecontext)) {
+        if (!$this->course->visible and !has_capability('lion/course:viewhiddencourses', $coursecontext)) {
             return null;
         }
 
@@ -144,7 +130,7 @@ class file_info_context_module extends file_info {
     protected function get_area_intro($itemid, $filepath, $filename) {
         global $CFG;
 
-        if (!plugin_supports('mod', $this->modname, FEATURE_MOD_INTRO, true) or !has_capability('moodle/course:managefiles', $this->context)) {
+        if (!plugin_supports('mod', $this->modname, FEATURE_MOD_INTRO, true) or !has_capability('lion/course:managefiles', $this->context)) {
             return null;
         }
 
@@ -176,7 +162,7 @@ class file_info_context_module extends file_info {
     protected function get_area_backup($itemid, $filepath, $filename) {
         global $CFG;
 
-        if (!has_capability('moodle/backup:backupactivity', $this->context)) {
+        if (!has_capability('lion/backup:backupactivity', $this->context)) {
             return null;
         }
 
@@ -193,8 +179,8 @@ class file_info_context_module extends file_info {
             }
         }
 
-        $downloadable = has_capability('moodle/backup:downloadfile', $this->context);
-        $uploadable   = has_capability('moodle/restore:uploadfile', $this->context);
+        $downloadable = has_capability('lion/backup:downloadfile', $this->context);
+        $uploadable   = has_capability('lion/restore:uploadfile', $this->context);
 
         $urlbase = $CFG->wwwroot.'/pluginfile.php';
         return new file_info_stored($this->browser, $this->context, $storedfile, $urlbase, get_string('activitybackup', 'repository'), false, $downloadable, $uploadable, false);

@@ -1,24 +1,10 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package   mod_forum
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 require_once(dirname(__FILE__) . '/../../config.php');
@@ -29,7 +15,7 @@ require_once($CFG->libdir . '/rsslib.php');
 $id = optional_param('id', 0, PARAM_INT);                   // Course id
 $subscribe = optional_param('subscribe', null, PARAM_INT);  // Subscribe/Unsubscribe all forums
 
-$url = new moodle_url('/mod/forum/index.php', array('id'=>$id));
+$url = new lion_url('/mod/forum/index.php', array('id'=>$id));
 if ($subscribe !== null) {
     require_sesskey();
     $url->param('subscribe', $subscribe);
@@ -79,7 +65,7 @@ $searchform = forum_search_form($course);
 
 // Retrieve the list of forum digest options for later.
 $digestoptions = forum_get_user_digest_options();
-$digestoptions_selector = new single_select(new moodle_url('/mod/forum/maildigest.php',
+$digestoptions_selector = new single_select(new lion_url('/mod/forum/maildigest.php',
     array(
         'backtoindex' => 1,
     )),
@@ -175,7 +161,7 @@ foreach ($modinfo->get_instances_of('forum') as $forumid=>$cm) {
 if (!is_null($subscribe)) {
     if (isguestuser() or !$can_subscribe) {
         // there should not be any links leading to this place, just redirect
-        redirect(new moodle_url('/mod/forum/index.php', array('id' => $id)), get_string('subscribeenrolledonly', 'forum'));
+        redirect(new lion_url('/mod/forum/index.php', array('id' => $id)), get_string('subscribeenrolledonly', 'forum'));
     }
     // Can proceed now, the user is not guest and is enrolled
     foreach ($modinfo->get_instances_of('forum') as $forumid=>$cm) {
@@ -193,7 +179,7 @@ if (!is_null($subscribe)) {
         }
         if (!\mod_forum\subscriptions::is_forcesubscribed($forum)) {
             $subscribed = \mod_forum\subscriptions::is_subscribed($USER->id, $forum, null, $cm);
-            $canmanageactivities = has_capability('moodle/course:manageactivities', $coursecontext, $USER->id);
+            $canmanageactivities = has_capability('lion/course:manageactivities', $coursecontext, $USER->id);
             if (($canmanageactivities || \mod_forum\subscriptions::is_subscribable($forum)) && $subscribe && !$subscribed && $cansub) {
                 \mod_forum\subscriptions::subscribe_user($USER->id, $forum, $modcontext, true);
             } else if (!$subscribe && $subscribed) {
@@ -240,7 +226,7 @@ if ($generalforums) {
                 } else if ($forum->trackingtype === FORUM_TRACKING_OFF || ($USER->trackforums == 0)) {
                     $trackedlink = '-';
                 } else {
-                    $aurl = new moodle_url('/mod/forum/settracking.php', array(
+                    $aurl = new lion_url('/mod/forum/settracking.php', array(
                             'id' => $forum->id,
                             'sesskey' => sesskey(),
                         ));
@@ -378,7 +364,7 @@ if ($course->id != SITEID) {    // Only real courses have learning forums
                     } else if ($forum->trackingtype === FORUM_TRACKING_OFF || ($USER->trackforums == 0)) {
                         $trackedlink = '-';
                     } else {
-                        $aurl = new moodle_url('/mod/forum/settracking.php', array('id'=>$forum->id));
+                        $aurl = new lion_url('/mod/forum/settracking.php', array('id'=>$forum->id));
                         if (!isset($untracked[$forum->id])) {
                             $trackedlink = $OUTPUT->single_button($aurl, $stryes, 'post', array('title'=>$strnotrackforum));
                         } else {
@@ -463,11 +449,11 @@ echo $OUTPUT->header();
 if (!isguestuser() && isloggedin() && $can_subscribe) {
     echo $OUTPUT->box_start('subscription');
     echo html_writer::tag('div',
-        html_writer::link(new moodle_url('/mod/forum/index.php', array('id'=>$course->id, 'subscribe'=>1, 'sesskey'=>sesskey())),
+        html_writer::link(new lion_url('/mod/forum/index.php', array('id'=>$course->id, 'subscribe'=>1, 'sesskey'=>sesskey())),
             get_string('allsubscribe', 'forum')),
         array('class'=>'helplink'));
     echo html_writer::tag('div',
-        html_writer::link(new moodle_url('/mod/forum/index.php', array('id'=>$course->id, 'subscribe'=>0, 'sesskey'=>sesskey())),
+        html_writer::link(new lion_url('/mod/forum/index.php', array('id'=>$course->id, 'subscribe'=>0, 'sesskey'=>sesskey())),
             get_string('allunsubscribe', 'forum')),
         array('class'=>'helplink'));
     echo $OUTPUT->box_end();

@@ -1,14 +1,14 @@
 {
-    "moodle-mod_quiz-toolboxes": {
+    "lion-mod_quiz-toolboxes": {
         "requires": [
             "base",
             "node",
             "event",
             "event-key",
             "io",
-            "moodle-mod_quiz-quizbase",
-            "moodle-mod_quiz-util-slot",
-            "moodle-core-notification-ajaxexception"
+            "lion-mod_quiz-quizbase",
+            "lion-mod_quiz-util-slot",
+            "lion-core-notification-ajaxexception"
         ]
     }
 }

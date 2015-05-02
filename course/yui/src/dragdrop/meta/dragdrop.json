@@ -1,5 +1,5 @@
 {
-    "moodle-course-dragdrop": {
+    "lion-course-dragdrop": {
         "requires": [
             "base",
             "node",
@@ -7,10 +7,10 @@
             "dom",
             "dd",
             "dd-scroll",
-            "moodle-core-dragdrop",
-            "moodle-core-notification",
-            "moodle-course-coursebase",
-            "moodle-course-util"
+            "lion-core-dragdrop",
+            "lion-core-notification",
+            "lion-course-coursebase",
+            "lion-course-util"
         ]
     }
 }

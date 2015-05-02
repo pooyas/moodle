@@ -1,7 +1,7 @@
 {
-    "name": "moodle-course-coursebase",
+    "name": "lion-course-coursebase",
     "builds": {
-        "moodle-course-coursebase": {
+        "lion-course-coursebase": {
             "jsfiles": [
                 "coursebase.js"
             ]

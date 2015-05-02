@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains helper classes for testing the question engine.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once(__DIR__ . '/../lib.php');
@@ -35,7 +21,7 @@ require_once($CFG->dirroot . '/lib/phpunit/lib.php');
  * Makes some protected methods of question_attempt public to facilitate testing.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class testable_question_attempt extends question_attempt {
     public function add_step(question_attempt_step $step) {
@@ -58,7 +44,7 @@ class testable_question_attempt extends question_attempt {
  * behaviour can be verified.
  *
  * @copyright  2012 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class testable_question_engine_unit_of_work extends question_engine_unit_of_work {
     public function get_modified() {
@@ -91,7 +77,7 @@ class testable_question_engine_unit_of_work extends question_engine_unit_of_work
  * Base class for question type test helpers.
  *
  * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_test_helper {
     /**
@@ -105,7 +91,7 @@ abstract class question_test_helper {
      * Set up a form to create a question in $cat. This method also sets cat and contextid on $questiondata object.
      * @param object $cat the category
      * @param object $questiondata form initialisation requires question data.
-     * @return moodleform
+     * @return lionform
      */
     public static function get_question_editing_form($cat, $questiondata) {
         $catcontext = context::instance_by_id($cat->contextid, MUST_EXIST);
@@ -130,7 +116,7 @@ abstract class question_test_helper {
  * testing.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class test_question_maker {
     const STANDARD_OVERALL_CORRECT_FEEDBACK = 'Well done!';
@@ -409,9 +395,9 @@ class test_question_maker {
         $essay->attachments = 0;
         $essay->attachmentsrequired = 0;
         $essay->responsetemplate = '';
-        $essay->responsetemplateformat = FORMAT_MOODLE;
+        $essay->responsetemplateformat = FORMAT_LION;
         $essay->graderinfo = '';
-        $essay->graderinfoformat = FORMAT_MOODLE;
+        $essay->graderinfoformat = FORMAT_LION;
 
         return $essay;
     }
@@ -451,7 +437,7 @@ class test_question_maker {
  * Helper for tests that need to simulate records loaded from the database.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class testing_db_record_builder {
     public static function build_db_records(array $table) {
@@ -477,7 +463,7 @@ abstract class testing_db_record_builder {
  * database.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class data_loading_method_test_base extends advanced_testcase {
     public function build_db_records(array $table) {
@@ -677,7 +663,7 @@ class question_no_pattern_expectation {
  * interactions under the control of a particular behaviour.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class qbehaviour_walkthrough_test_base extends question_testcase {
     /** @var question_display_options */
@@ -754,11 +740,11 @@ abstract class qbehaviour_walkthrough_test_base extends question_testcase {
         $this->quba->manual_grade($this->slot, $comment, $mark, $commentformat);
     }
 
-    protected function save_quba(moodle_database $db = null) {
+    protected function save_quba(lion_database $db = null) {
         question_engine::save_questions_usage_by_activity($this->quba, $db);
     }
 
-    protected function load_quba(moodle_database $db = null) {
+    protected function load_quba(lion_database $db = null) {
         $this->quba = question_engine::load_questions_usage_by_activity($this->quba->get_id(), $db);
     }
 
@@ -1156,7 +1142,7 @@ abstract class qbehaviour_walkthrough_test_base extends question_testcase {
 }
 
 /**
- * Simple class that implements the {@link moodle_recordset} API based on an
+ * Simple class that implements the {@link lion_recordset} API based on an
  * array of test data.
  *
  *  See the {@link question_attempt_step_db_test} class in
@@ -1164,9 +1150,9 @@ abstract class qbehaviour_walkthrough_test_base extends question_testcase {
  *  this is used.
  *
  * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class question_test_recordset extends moodle_recordset {
+class question_test_recordset extends lion_recordset {
     protected $records;
 
     /**

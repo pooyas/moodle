@@ -40,7 +40,7 @@
  * See:  http://www.opensource.org/licenses/bsd-license.php
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Combine a base URL and a relative URL to produce a new

@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Classes to enforce the various access rules that can apply to a quiz.
  *
  * @package   mod_quiz
  * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -31,8 +17,8 @@ defined('MOODLE_INTERNAL') || die();
  * quiz, with convinient methods for seeing whether access is allowed.
  *
  * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.2
+ * 
+ * @since     Lion 2.2
  */
 class quiz_access_manager {
     /** @var quiz the quiz settings object. */
@@ -100,10 +86,10 @@ class quiz_access_manager {
      * settings are stored in the quiz table.
      *
      * @param mod_quiz_mod_form $quizform the quiz settings form that is being built.
-     * @param MoodleQuickForm $mform the wrapped MoodleQuickForm.
+     * @param LionQuickForm $mform the wrapped LionQuickForm.
      */
     public static function add_settings_form_fields(
-            mod_quiz_mod_form $quizform, MoodleQuickForm $mform) {
+            mod_quiz_mod_form $quizform, LionQuickForm $mform) {
 
         foreach (self::get_rule_classes() as $rule) {
             $rule::add_settings_form_fields($quizform, $mform);
@@ -165,7 +151,7 @@ class quiz_access_manager {
      *
      * @param object $quiz the data from the database, including $quiz->id
      *      which is the id of the quiz being deleted.
-     * @since Moodle 2.7.1, 2.6.4, 2.5.7
+     * @since Lion 2.7.1, 2.6.4, 2.5.7
      */
     public static function delete_settings($quiz) {
 
@@ -362,12 +348,12 @@ class quiz_access_manager {
 
     /**
      * Build the form required to do the pre-flight checks.
-     * @param moodle_url $url the form action URL.
+     * @param lion_url $url the form action URL.
      * @param int|null $attemptid the id of the current attempt, if there is one,
      *      otherwise null.
      * @return mod_quiz_preflight_check_form the form.
      */
-    public function get_preflight_check_form(moodle_url $url, $attemptid) {
+    public function get_preflight_check_form(lion_url $url, $attemptid) {
         return new mod_quiz_preflight_check_form($url->out_omit_querystring(),
                 array('rules' => $this->rules, 'quizobj' => $this->quizobj,
                       'attemptid' => $attemptid, 'hidden' => $url->params()));
@@ -418,7 +404,7 @@ class quiz_access_manager {
      * Sets up the attempt (review or summary) page with any properties required
      * by the access rules.
      *
-     * @param moodle_page $page the page object to initialise.
+     * @param lion_page $page the page object to initialise.
      */
     public function setup_attempt_page($page) {
         foreach ($this->rules as $rule) {

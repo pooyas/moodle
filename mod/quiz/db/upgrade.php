@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Upgrade script for the quiz module.
  *
  * @package    mod_quiz
  * @copyright  2006 Eloy Lafuente (stronk7)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -35,7 +21,7 @@ function xmldb_quiz_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-    // Moodle v2.2.0 release upgrade line.
+    // Lion v2.2.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2011120700) {
@@ -326,7 +312,7 @@ function xmldb_quiz_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2012040206, 'quiz');
     }
 
-    // Moodle v2.3.0 release upgrade line
+    // Lion v2.3.0 release upgrade line
     // Put any upgrade step following this
 
     if ($oldversion < 2012061702) {
@@ -391,7 +377,7 @@ function xmldb_quiz_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2012100801, 'quiz');
     }
 
-    // Moodle v2.4.0 release upgrade line
+    // Lion v2.4.0 release upgrade line
     // Put any upgrade step following this
 
     if ($oldversion < 2013031900) {
@@ -402,11 +388,11 @@ function xmldb_quiz_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2013031900, 'quiz');
     }
 
-    // Moodle v2.5.0 release upgrade line.
+    // Lion v2.5.0 release upgrade line.
     // Put any upgrade step following this.
 
 
-    // Moodle v2.6.0 release upgrade line.
+    // Lion v2.6.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2014011300) {
@@ -713,7 +699,7 @@ function xmldb_quiz_upgrade($oldversion) {
         if ($DB->record_exists_select('quiz_slots', 'slot IS NULL OR page IS NULL')) {
             throw new coding_exception('Something went wrong in the quiz upgrade step for MDL-43749. ' .
                     'Some quiz_slots still contain NULLs which will break the NOT NULL constraints we need to add. ' .
-                    'Please report this problem at http://tracker.moodle.org/ so that it can be investigated. Thank you.');
+                    'Please report this problem at http://tracker.lion.org/ so that it can be investigated. Thank you.');
         }
     }
 
@@ -773,7 +759,7 @@ function xmldb_quiz_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014022008, 'quiz');
     }
 
-    // Moodle v2.7.0 release upgrade line.
+    // Lion v2.7.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2014052800) {
@@ -804,7 +790,7 @@ function xmldb_quiz_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014052801, 'quiz');
     }
 
-    // Moodle v2.8.0 release upgrade line.
+    // Lion v2.8.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2015030500) {

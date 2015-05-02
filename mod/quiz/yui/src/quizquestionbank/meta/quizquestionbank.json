@@ -1,5 +1,5 @@
 {
-    "moodle-mod_quiz-quizquestionbank": {
+    "lion-mod_quiz-quizquestionbank": {
         "requires": [
             "base",
             "event",
@@ -7,8 +7,8 @@
             "io",
             "io-form",
             "yui-later",
-            "moodle-question-qbankmanager",
-            "moodle-core-notification-dialogue"
+            "lion-question-qbankmanager",
+            "lion-core-notification-dialogue"
         ]
     }
 }

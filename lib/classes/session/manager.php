@@ -1,43 +1,29 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Session manager class.
  *
  * @package    core
  * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 namespace core\session;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Session manager, this is the public Moodle API for sessions.
+ * Session manager, this is the public Lion API for sessions.
  *
  * Following PHP functions MUST NOT be used directly:
  * - session_start() - not necessary, lib/setup.php starts session automatically,
- *   use define('NO_MOODLE_COOKIE', true) if session not necessary.
+ *   use define('NO_LION_COOKIE', true) if session not necessary.
  * - session_write_close() - use \core\session\manager::write_close() instead.
  * - session_destroy() - use require_logout() instead.
  *
  * @package    core
  * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class manager {
     /** @var handler $handler active session handler instance */
@@ -63,7 +49,7 @@ class manager {
 
         // Init the session handler only if everything initialised properly in lib/setup.php file
         // and the session is actually required.
-        if (empty($DB) or empty($CFG->version) or !defined('NO_MOODLE_COOKIES') or NO_MOODLE_COOKIES or CLI_SCRIPT) {
+        if (empty($DB) or empty($CFG->version) or !defined('NO_LION_COOKIES') or NO_LION_COOKIES or CLI_SCRIPT) {
             self::$sessionactive = false;
             self::init_empty_session();
             return;
@@ -192,7 +178,7 @@ class manager {
         if (!isset($CFG->sessioncookie)) {
             $CFG->sessioncookie = '';
         }
-        $sessionname = 'MoodleSession'.$CFG->sessioncookie;
+        $sessionname = 'LionSession'.$CFG->sessioncookie;
 
         // Make sure cookie domain makes sense for this wwwroot.
         if (!isset($CFG->sessioncookiedomain)) {
@@ -248,9 +234,9 @@ class manager {
         ini_set('session.use_only_cookies', '1');
         ini_set('session.hash_function', '0');        // For now MD5 - we do not have room for sha-1 in sessions table.
         ini_set('session.use_strict_mode', '0');      // We have custom protection in session init.
-        ini_set('session.serialize_handler', 'php');  // We can move to 'php_serialize' after we require PHP 5.5.4 form Moodle.
+        ini_set('session.serialize_handler', 'php');  // We can move to 'php_serialize' after we require PHP 5.5.4 form Lion.
 
-        // Moodle does normal session timeouts, this is for leftovers only.
+        // Lion does normal session timeouts, this is for leftovers only.
         ini_set('session.gc_probability', 1);
         ini_set('session.gc_divisor', 1000);
         ini_set('session.gc_maxlifetime', 60*60*24*4);
@@ -874,9 +860,9 @@ class manager {
         }
 
         // Add the session keepalive script to the list of page output requirements.
-        $sessionkeepaliveurl = new \moodle_url('/lib/sessionkeepalive_ajax.php');
+        $sessionkeepaliveurl = new \lion_url('/lib/sessionkeepalive_ajax.php');
         $PAGE->requires->string_for_js($identifier, $component);
-        $PAGE->requires->yui_module('moodle-core-checknet', 'M.core.checknet.init', array(array(
+        $PAGE->requires->yui_module('lion-core-checknet', 'M.core.checknet.init', array(array(
             // The JS config takes this is milliseconds rather than seconds.
             'frequency' => $frequency * 1000,
             'message' => array($identifier, $component),

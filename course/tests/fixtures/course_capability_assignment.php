@@ -5,7 +5,7 @@
  *
  * @package    core_course
  * @copyright  2013 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class course_capability_assignment {
     /**

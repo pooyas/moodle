@@ -1,23 +1,9 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Fetches language packages from download.moodle.org server
+ * Fetches language packages from download.lion.org server
  *
- * Language packages are available at https://download.moodle.org/langpack/
+ * Language packages are available at https://download.lion.org/langpack/
  * in ZIP format together with a file languages.md5 containing their hashes
  * and meta info.
  * Locally, language packs are saved into $CFG->dataroot/lang/
@@ -25,7 +11,7 @@
  * @package    tool
  * @subpackage langimport
  * @copyright  2005 Yu Zhang
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require(__DIR__.'/../../../config.php');
@@ -34,7 +20,7 @@ require_once($CFG->libdir.'/adminlib.php');
 admin_externalpage_setup('toollangimport');
 
 if (empty($CFG->langotherroot)) {
-    throw new moodle_exception('missingcfglangotherroot', 'tool_langimport');
+    throw new lion_exception('missingcfglangotherroot', 'tool_langimport');
 }
 
 $mode          = optional_param('mode', 0, PARAM_INT);              // action
@@ -52,7 +38,7 @@ if ($purgecaches) {
 if (!empty($CFG->skiplangupgrade)) {
     echo $OUTPUT->header();
     echo $OUTPUT->box(get_string('langimportdisabled', 'tool_langimport'));
-    echo $OUTPUT->single_button(new moodle_url($PAGE->url, array('purgecaches' => 1)), get_string('purgestringcaches', 'tool_langimport'));
+    echo $OUTPUT->single_button(new lion_url($PAGE->url, array('purgecaches' => 1)), get_string('purgestringcaches', 'tool_langimport'));
     echo $OUTPUT->footer();
     die;
 }
@@ -152,7 +138,7 @@ echo html_writer::start_tag('table');
 echo html_writer::start_tag('tr');
 
 // list of installed languages
-$url = new moodle_url('/admin/tool/langimport/index.php', array('mode' => DELETION_OF_SELECTED_LANG));
+$url = new lion_url('/admin/tool/langimport/index.php', array('mode' => DELETION_OF_SELECTED_LANG));
 echo html_writer::start_tag('td', array('valign' => 'top'));
 echo html_writer::start_tag('form', array('id' => 'uninstallform', 'action' => $url->out(), 'method' => 'post'));
 echo html_writer::start_tag('fieldset');
@@ -165,7 +151,7 @@ echo html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_st
 echo html_writer::end_tag('fieldset');
 echo html_writer::end_tag('form');
 if ($remote) {
-    $url = new moodle_url('/admin/tool/langimport/index.php', array('mode' => UPDATE_ALL_LANG));
+    $url = new lion_url('/admin/tool/langimport/index.php', array('mode' => UPDATE_ALL_LANG));
     echo html_writer::start_tag('form', array('id' => 'updateform', 'action' => $url->out(), 'method' => 'post'));
     echo html_writer::tag('fieldset', html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('updatelangs','tool_langimport'))));
     echo html_writer::end_tag('form');
@@ -181,7 +167,7 @@ foreach ($availablelangs as $alang) {
 }
 if (!empty($options)) {
     echo html_writer::start_tag('td', array('valign' => 'top'));
-    $url = new moodle_url('/admin/tool/langimport/index.php', array('mode' => INSTALLATION_OF_SELECTED_LANG));
+    $url = new lion_url('/admin/tool/langimport/index.php', array('mode' => INSTALLATION_OF_SELECTED_LANG));
     echo html_writer::start_tag('form', array('id' => 'installform', 'action' => $url->out(), 'method' => 'post'));
     echo html_writer::start_tag('fieldset');
     echo html_writer::label(get_string('availablelangs','install'), 'menupack');

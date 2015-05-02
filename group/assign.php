@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Add/remove group from grouping.
  *
  * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package   core_group
  */
 
@@ -41,7 +27,7 @@ $courseid = $course->id;
 
 require_login($course);
 $context = context_course::instance($courseid);
-require_capability('moodle/course:managegroups', $context);
+require_capability('lion/course:managegroups', $context);
 
 $returnurl = $CFG->wwwroot.'/group/groupings.php?id='.$courseid;
 
@@ -121,11 +107,11 @@ $straddgroupstogroupings = get_string('addgroupstogroupings', 'group');
 
 $groupingname = format_string($grouping->name);
 
-navigation_node::override_active_url(new moodle_url('/group/index.php', array('id'=>$course->id)));
+navigation_node::override_active_url(new lion_url('/group/index.php', array('id'=>$course->id)));
 $PAGE->set_pagelayout('admin');
 
-$PAGE->navbar->add($strparticipants, new moodle_url('/user/index.php', array('id'=>$courseid)));
-$PAGE->navbar->add($strgroups, new moodle_url('/group/index.php', array('id'=>$courseid)));
+$PAGE->navbar->add($strparticipants, new lion_url('/user/index.php', array('id'=>$courseid)));
+$PAGE->navbar->add($strgroups, new lion_url('/group/index.php', array('id'=>$courseid)));
 $PAGE->navbar->add($straddgroupstogroupings);
 
 /// Print header

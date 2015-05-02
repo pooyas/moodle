@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Lets the user edit role definitions.
@@ -25,7 +11,7 @@
  *
  * @package    core_role
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(__FILE__) . '/../../config.php');
@@ -33,7 +19,7 @@ require_once($CFG->libdir.'/adminlib.php');
 
 $action = required_param('action', PARAM_ALPHA);
 if (!in_array($action, array('add', 'export', 'edit', 'reset', 'view'))) {
-    throw new moodle_exception('invalidaccess');
+    throw new lion_exception('invalidaccess');
 }
 if ($action != 'add') {
     $roleid = required_param('roleid', PARAM_INT);
@@ -44,19 +30,19 @@ $resettype = optional_param('resettype', '', PARAM_RAW);
 $return = optional_param('return', 'manage', PARAM_ALPHA);
 
 // Get the base URL for this and related pages into a convenient variable.
-$baseurl = new moodle_url('/admin/roles/define.php', array('action'=>$action, 'roleid'=>$roleid));
-$manageurl = new moodle_url('/admin/roles/manage.php');
+$baseurl = new lion_url('/admin/roles/define.php', array('action'=>$action, 'roleid'=>$roleid));
+$manageurl = new lion_url('/admin/roles/manage.php');
 if ($return === 'manage') {
     $returnurl = $manageurl;
 } else {
-    $returnurl = new moodle_url('/admin/roles/define.php', array('action'=>'view', 'roleid'=>$roleid));;
+    $returnurl = new lion_url('/admin/roles/define.php', array('action'=>'view', 'roleid'=>$roleid));;
 }
 
 // Check access permissions.
 $systemcontext = context_system::instance();
 require_login();
-require_capability('moodle/role:manage', $systemcontext);
-admin_externalpage_setup('defineroles', '', array('action' => $action, 'roleid' => $roleid), new moodle_url('/admin/roles/define.php'));
+require_capability('lion/role:manage', $systemcontext);
+admin_externalpage_setup('defineroles', '', array('action' => $action, 'roleid' => $roleid), new lion_url('/admin/roles/define.php'));
 
 // Export role.
 if ($action === 'export') {
@@ -212,7 +198,7 @@ if (optional_param('savechanges', false, PARAM_BOOL) && confirm_sesskey() && $de
     $event->trigger();
 
     if ($action === 'add') {
-        redirect(new moodle_url('/admin/roles/define.php', array('action'=>'view', 'roleid'=>$definitiontable->get_role_id())));
+        redirect(new lion_url('/admin/roles/define.php', array('action'=>'view', 'roleid'=>$definitiontable->get_role_id())));
     } else {
         redirect($returnurl);
     }
@@ -236,12 +222,12 @@ if ($action === 'add') {
 // On the view page, show some extra controls at the top.
 if ($action === 'view') {
     echo $OUTPUT->container_start('buttons');
-    $url = new moodle_url('/admin/roles/define.php', array('action'=>'edit', 'roleid'=>$roleid, 'return'=>'define'));
-    echo $OUTPUT->single_button(new moodle_url($url), get_string('edit'));
-    $url = new moodle_url('/admin/roles/define.php', array('action'=>'reset', 'roleid'=>$roleid, 'return'=>'define'));
-    echo $OUTPUT->single_button(new moodle_url($url), get_string('resetrole', 'core_role'));
-    $url = new moodle_url('/admin/roles/define.php', array('action'=>'export', 'roleid'=>$roleid));
-    echo $OUTPUT->single_button(new moodle_url($url), get_string('export', 'core_role'));
+    $url = new lion_url('/admin/roles/define.php', array('action'=>'edit', 'roleid'=>$roleid, 'return'=>'define'));
+    echo $OUTPUT->single_button(new lion_url($url), get_string('edit'));
+    $url = new lion_url('/admin/roles/define.php', array('action'=>'reset', 'roleid'=>$roleid, 'return'=>'define'));
+    echo $OUTPUT->single_button(new lion_url($url), get_string('resetrole', 'core_role'));
+    $url = new lion_url('/admin/roles/define.php', array('action'=>'export', 'roleid'=>$roleid));
+    echo $OUTPUT->single_button(new lion_url($url), get_string('export', 'core_role'));
     echo $OUTPUT->single_button($manageurl, get_string('listallroles', 'core_role'));
     echo $OUTPUT->container_end();
 }

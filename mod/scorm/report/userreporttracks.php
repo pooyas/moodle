@@ -1,24 +1,24 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This page displays the user data from a single attempt
  *
  * @package mod_scorm
- * @copyright 1999 onwards Martin Dougiamas {@link http://moodle.com}
+ * @copyright 1999 onwards Martin Dougiamas {@link http://lion.com}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -33,7 +33,7 @@ $attempt = optional_param('attempt', 1, PARAM_INT); // attempt number.
 $download = optional_param('download', '', PARAM_ALPHA);
 
 // Building the url to use for links.+ data details buildup.
-$url = new moodle_url('/mod/scorm/report/userreporttracks.php', array('id' => $id,
+$url = new lion_url('/mod/scorm/report/userreporttracks.php', array('id' => $id,
     'user' => $userid,
     'attempt' => $attempt,
     'scoid' => $scoid));
@@ -67,9 +67,9 @@ $strattempt = get_string('attempt', 'scorm');
 
 $PAGE->set_title("$course->shortname: ".format_string($scorm->name));
 $PAGE->set_heading($course->fullname);
-$PAGE->navbar->add($strreport, new moodle_url('/mod/scorm/report.php', array('id' => $cm->id)));
+$PAGE->navbar->add($strreport, new lion_url('/mod/scorm/report.php', array('id' => $cm->id)));
 $PAGE->navbar->add("$strattempt $attempt - ".fullname($user),
-    new moodle_url('/mod/scorm/report/userreport.php', array('id' => $id, 'user' => $userid, 'attempt' => $attempt)));
+    new lion_url('/mod/scorm/report/userreport.php', array('id' => $id, 'user' => $userid, 'attempt' => $attempt)));
 $PAGE->navbar->add($selsco->title . ' - '. get_string('details', 'scorm'));
 
 if ($trackdata = scorm_get_tracks($selsco->id, $userid, $attempt)) {

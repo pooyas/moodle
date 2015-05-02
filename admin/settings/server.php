@@ -55,17 +55,17 @@ $ADMIN->add('server', $temp);
 
 
 // "stats" settingpage
-$temp = new admin_settingpage('stats', new lang_string('stats'), 'moodle/site:config', empty($CFG->enablestats));
+$temp = new admin_settingpage('stats', new lang_string('stats'), 'lion/site:config', empty($CFG->enablestats));
 $temp->add(new admin_setting_configselect('statsfirstrun', new lang_string('statsfirstrun', 'admin'), new lang_string('configstatsfirstrun', 'admin'), 'none', array('none' => new lang_string('none'),
-                                                                                                                                                           60*60*24*7 => new lang_string('numweeks','moodle',1),
-                                                                                                                                                           60*60*24*14 => new lang_string('numweeks','moodle',2),
-                                                                                                                                                           60*60*24*21 => new lang_string('numweeks','moodle',3),
-                                                                                                                                                           60*60*24*28 => new lang_string('nummonths','moodle',1),
-                                                                                                                                                           60*60*24*56 => new lang_string('nummonths','moodle',2),
-                                                                                                                                                           60*60*24*84 => new lang_string('nummonths','moodle',3),
-                                                                                                                                                           60*60*24*112 => new lang_string('nummonths','moodle',4),
-                                                                                                                                                           60*60*24*140 => new lang_string('nummonths','moodle',5),
-                                                                                                                                                           60*60*24*168 => new lang_string('nummonths','moodle',6),
+                                                                                                                                                           60*60*24*7 => new lang_string('numweeks','lion',1),
+                                                                                                                                                           60*60*24*14 => new lang_string('numweeks','lion',2),
+                                                                                                                                                           60*60*24*21 => new lang_string('numweeks','lion',3),
+                                                                                                                                                           60*60*24*28 => new lang_string('nummonths','lion',1),
+                                                                                                                                                           60*60*24*56 => new lang_string('nummonths','lion',2),
+                                                                                                                                                           60*60*24*84 => new lang_string('nummonths','lion',3),
+                                                                                                                                                           60*60*24*112 => new lang_string('nummonths','lion',4),
+                                                                                                                                                           60*60*24*140 => new lang_string('nummonths','lion',5),
+                                                                                                                                                           60*60*24*168 => new lang_string('nummonths','lion',6),
                                                                                                                                                            'all' => new lang_string('all') )));
 $temp->add(new admin_setting_configselect('statsmaxruntime', new lang_string('statsmaxruntime', 'admin'), new lang_string('configstatsmaxruntime3', 'admin'), 0, array(0 => new lang_string('untilcomplete'),
                                                                                                                                                             60*30 => '10 '.new lang_string('minutes'),

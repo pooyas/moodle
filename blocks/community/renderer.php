@@ -2,37 +2,37 @@
 
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /**
  * Block community renderer.
  * @package   block_community
- * @copyright 2010 Moodle Pty Ltd (http://moodle.com)
+ * @copyright 2010 Lion Pty Ltd (http://lion.com)
  * @author    Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class block_community_renderer extends plugin_renderer_base {
 
     public function restore_confirmation_box($filename, $context) {
-        $restoreurl = new moodle_url('/backup/restore.php',
+        $restoreurl = new lion_url('/backup/restore.php',
                         array('filename' => $filename . ".mbz", 'contextid' => $context->id));
-        $searchurl = new moodle_url('/blocks/community/communitycourse.php',
+        $searchurl = new lion_url('/blocks/community/communitycourse.php',
                         array('add' => 1, 'courseid' => $context->instanceid,
                             'cancelrestore' => 1, 'sesskey' => sesskey(),
                             'filename' => $filename));
@@ -46,10 +46,10 @@ class block_community_renderer extends plugin_renderer_base {
 
     /**
      * Display remove community success message and a button to be redirected to te referer page
-     * @param moodle_url $url the page to be redirected to
+     * @param lion_url $url the page to be redirected to
      * @return string html
      */
-    public function remove_success(moodle_url $url) {
+    public function remove_success(lion_url $url) {
         $html = $this->output->notification(get_string('communityremoved', 'hub'),
                     'notifysuccess');
         $continuebutton = new single_button($url,
@@ -61,10 +61,10 @@ class block_community_renderer extends plugin_renderer_base {
 
     /**
      * Display add community course success message and a button to be redirected to te referer page
-     * @param moodle_url $url the page to be redirected to
+     * @param lion_url $url the page to be redirected to
      * @return string html
      */
-    public function save_link_success(moodle_url $url) {
+    public function save_link_success(lion_url $url) {
         $html = $this->output->notification(get_string('addedtoblock', 'block_community'),
                     'notifysuccess');
         $continuebutton = new single_button($url,
@@ -81,7 +81,7 @@ class block_community_renderer extends plugin_renderer_base {
      */
     public function next_button($data) {
         $nextlink = html_writer::tag('a', get_string('next', 'block_community'),
-                array('href' => new moodle_url('', $data)));
+                array('href' => new lion_url('', $data)));
         return html_writer::tag('div', $nextlink, array( 'class' => 'nextlink'));
     }
 
@@ -109,10 +109,10 @@ class block_community_renderer extends plugin_renderer_base {
 
                 //create visit link html
                 if (!empty($course->courseurl)) {
-                    $courseurl = new moodle_url($course->courseurl);
+                    $courseurl = new lion_url($course->courseurl);
                     $linktext = get_string('visitsite', 'block_community');
                 } else {
-                    $courseurl = new moodle_url($course->demourl);
+                    $courseurl = new lion_url($course->demourl);
                     $linktext = get_string('visitdemo', 'block_community');
                 }
 
@@ -129,7 +129,7 @@ class block_community_renderer extends plugin_renderer_base {
                 // create screenshots html
                 $screenshothtml = '';
                 if (!empty($course->screenshots)) {
-                    $baseurl = new moodle_url($huburl . '/local/hub/webservice/download.php',
+                    $baseurl = new lion_url($huburl . '/local/hub/webservice/download.php',
                                     array('courseid' => $course->id,
                                         'filetype' => HUB_SCREENSHOT_FILE_TYPE));
                     $screenshothtml = html_writer::empty_tag('img',
@@ -257,7 +257,7 @@ class block_community_renderer extends plugin_renderer_base {
                         'coursefullname' => $course->fullname, 'courseurl' => $courseurl,
                         'coursedescription' => $course->description,
                         'courseid' => $contextcourseid);
-                    $addurl = new moodle_url("/blocks/community/communitycourse.php", $params);
+                    $addurl = new lion_url("/blocks/community/communitycourse.php", $params);
                     $addbuttonhtml = html_writer::tag('a',
                                     get_string('addtocommunityblock', 'block_community'),
                                     array('href' => $addurl, 'class' => 'centeredbutton, hubcoursedownload'));
@@ -267,10 +267,10 @@ class block_community_renderer extends plugin_renderer_base {
                 $downloadbuttonhtml = "";
                 if (!$course->enrollable) {
                     $params = array('sesskey' => sesskey(), 'download' => 1, 'confirmed' => 1,
-                        'remotemoodleurl' => $CFG->wwwroot, 'courseid' => $contextcourseid,
+                        'remotelionurl' => $CFG->wwwroot, 'courseid' => $contextcourseid,
                         'downloadcourseid' => $course->id, 'huburl' => $huburl,
                         'coursefullname' => $course->fullname, 'backupsize' => $course->backupsize);
-                    $downloadurl = new moodle_url("/blocks/community/communitycourse.php", $params);
+                    $downloadurl = new lion_url("/blocks/community/communitycourse.php", $params);
                     $downloadbuttonhtml = html_writer::tag('a', get_string('install', 'block_community'),
                                     array('href' => $downloadurl, 'class' => 'centeredbutton, hubcoursedownload'));
                 }
@@ -339,7 +339,7 @@ class block_community_renderer extends plugin_renderer_base {
                 //link rate and comment
                 $rateandcomment = html_writer::tag('div',
                                 html_writer::tag('a', get_string('rateandcomment', 'block_community'),
-                                        array('href' => new moodle_url($huburl,
+                                        array('href' => new lion_url($huburl,
                                                     array('courseid' => $course->id, 'mustbelogged' => true)),
                                             'onclick' => 'this.target="_blank"')),
                                 array('class' => 'hubrateandcomment'));

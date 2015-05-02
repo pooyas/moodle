@@ -2,7 +2,7 @@
 Feature: Verify that all form fields values can be get and set
   In order to use behat steps definitions
   As a test writer
-  I need to verify it all works in real moodle forms
+  I need to verify it all works in real lion forms
 
   Background:
     Given the following "courses" exist:

@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * formslib.php - library of classes for creating forms in Moodle, based on PEAR QuickForms.
+ * formslib.php - library of classes for creating forms in Lion, based on PEAR QuickForms.
  *
  * To use formslib then you will want to create a new file purpose_form.php eg. edit_form.php
  * and you want to name your class something like {modulename}_{purpose}_form. Your class will
- * extend moodleform overriding abstract classes definition and optionally defintion_after_data
+ * extend lionform overriding abstract classes definition and optionally defintion_after_data
  * and validation.
  *
  * See examples of use of this library in course/edit.php and course/edit_form.php
@@ -32,10 +18,10 @@
  *
  * @package   core_form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** setup.php includes our hacked pear libs first */
 require_once 'HTML/QuickForm.php';
@@ -71,13 +57,13 @@ if ($CFG->debugdeveloper) {
  * Initalize javascript for date type form element
  *
  * @staticvar bool $done make sure it gets initalize once.
- * @global moodle_page $PAGE
+ * @global lion_page $PAGE
  */
 function form_init_date_js() {
     global $PAGE;
     static $done = false;
     if (!$done) {
-        $module   = 'moodle-form-dateselector';
+        $module   = 'lion-form-dateselector';
         $function = 'M.form.dateselector.init_date_selectors';
         $config = array(array(
             'firstdayofweek'    => get_string('firstdayofweek', 'langconfig'),
@@ -107,24 +93,24 @@ function form_init_date_js() {
 }
 
 /**
- * Wrapper that separates quickforms syntax from moodle code
+ * Wrapper that separates quickforms syntax from lion code
  *
- * Moodle specific wrapper that separates quickforms syntax from moodle code. You won't directly
+ * Lion specific wrapper that separates quickforms syntax from lion code. You won't directly
  * use this class you should write a class definition which extends this class or a more specific
- * subclass such a moodleform_mod for each form you want to display and/or process with formslib.
+ * subclass such a lionform_mod for each form you want to display and/or process with formslib.
  *
  * You will write your own definition() method which performs the form set up.
  *
  * @package   core_form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @todo      MDL-19380 rethink the file scanning
  */
-abstract class moodleform {
+abstract class lionform {
     /** @var string name of the form */
     protected $_formname;       // form name
 
-    /** @var MoodleQuickForm quickform object definition */
+    /** @var LionQuickForm quickform object definition */
     protected $_form;
 
     /** @var array globals workaround */
@@ -141,11 +127,11 @@ abstract class moodleform {
      * you have specified in definition using addRule
      *
      * The name of the form (id attribute of the form) is automatically generated depending on
-     * the name you gave the class extending moodleform. You should call your class something
+     * the name you gave the class extending lionform. You should call your class something
      * like
      *
      * @param mixed $action the action attribute for the form. If empty defaults to auto detect the
-     *              current url. If a moodle_url object then outputs params as hidden variables.
+     *              current url. If a lion_url object then outputs params as hidden variables.
      * @param mixed $customdata if your form defintion method needs access to data such as $course
      *              $cm, etc. to construct the form definition then pass it in this array. You can
      *              use globals for somethings.
@@ -156,9 +142,9 @@ abstract class moodleform {
      * @param mixed $attributes you can pass a string of html attributes here or an array.
      * @param bool $editable
      */
-    function moodleform($action=null, $customdata=null, $method='post', $target='', $attributes=null, $editable=true) {
+    function lionform($action=null, $customdata=null, $method='post', $target='', $attributes=null, $editable=true) {
         global $CFG, $FULLME;
-        // no standard mform in moodle should allow autocomplete with the exception of user signup
+        // no standard mform in lion should allow autocomplete with the exception of user signup
         if (empty($attributes)) {
             $attributes = array('autocomplete'=>'off');
         } else if (is_array($attributes)) {
@@ -183,7 +169,7 @@ abstract class moodleform {
         $this->_customdata = $customdata;
         $this->_formname = $this->get_form_identifier();
 
-        $this->_form = new MoodleQuickForm($this->_formname, $method, $action, $target, $attributes);
+        $this->_form = new LionQuickForm($this->_formname, $method, $action, $target, $attributes);
         if (!$editable){
             $this->_form->hardFreeze();
         }
@@ -546,20 +532,20 @@ abstract class moodleform {
             }
 
             $data = $mform->exportValues();
-            $moodle_val = $this->validation($data, $files);
-            if ((is_array($moodle_val) && count($moodle_val)!==0)) {
+            $lion_val = $this->validation($data, $files);
+            if ((is_array($lion_val) && count($lion_val)!==0)) {
                 // non-empty array means errors
-                foreach ($moodle_val as $element=>$msg) {
+                foreach ($lion_val as $element=>$msg) {
                     $mform->setElementError($element, $msg);
                 }
-                $moodle_val = false;
+                $lion_val = false;
 
             } else {
                 // anything else means validation ok
-                $moodle_val = true;
+                $lion_val = true;
             }
 
-            $validated = ($internal_val and $moodle_val and $file_val);
+            $validated = ($internal_val and $lion_val and $file_val);
         }
         return $validated;
     }
@@ -632,10 +618,10 @@ abstract class moodleform {
     /**
      * Save verified uploaded files into directory. Upload process can be customised from definition()
      *
-     * @deprecated since Moodle 2.0
+     * @deprecated since Lion 2.0
      * @todo MDL-31294 remove this api
-     * @see moodleform::save_stored_file()
-     * @see moodleform::save_file()
+     * @see lionform::save_stored_file()
+     * @see lionform::save_file()
      * @param string $destination path where file should be stored
      * @return bool Always false
      */
@@ -671,7 +657,7 @@ abstract class moodleform {
 
         $element = $this->_form->getElement($elname);
 
-        if ($element instanceof MoodleQuickForm_filepicker || $element instanceof MoodleQuickForm_filemanager) {
+        if ($element instanceof LionQuickForm_filepicker || $element instanceof LionQuickForm_filemanager) {
             $values = $this->_form->exportValues($elname);
             if (empty($values[$elname])) {
                 return false;
@@ -719,7 +705,7 @@ abstract class moodleform {
 
         $element = $this->_form->getElement($elname);
 
-        if ($element instanceof MoodleQuickForm_filepicker || $element instanceof MoodleQuickForm_filemanager) {
+        if ($element instanceof LionQuickForm_filepicker || $element instanceof LionQuickForm_filemanager) {
             $values = $this->_form->exportValues($elname);
             if (empty($values[$elname])) {
                 return false;
@@ -768,7 +754,7 @@ abstract class moodleform {
 
     /**
      * Get draft files of a form element
-     * This is a protected method which will be used only inside moodleforms
+     * This is a protected method which will be used only inside lionforms
      *
      * @param string $elname name of element
      * @return array|bool|null
@@ -782,7 +768,7 @@ abstract class moodleform {
 
         $element = $this->_form->getElement($elname);
 
-        if ($element instanceof MoodleQuickForm_filepicker || $element instanceof MoodleQuickForm_filemanager) {
+        if ($element instanceof LionQuickForm_filepicker || $element instanceof LionQuickForm_filemanager) {
             $values = $this->_form->exportValues($elname);
             if (empty($values[$elname])) {
                 return false;
@@ -827,7 +813,7 @@ abstract class moodleform {
         $element = $this->_form->getElement($elname);
         $fs = get_file_storage();
 
-        if ($element instanceof MoodleQuickForm_filepicker) {
+        if ($element instanceof LionQuickForm_filepicker) {
             $values = $this->_form->exportValues($elname);
             if (empty($values[$elname])) {
                 return false;
@@ -888,7 +874,7 @@ abstract class moodleform {
 
         $element = $this->_form->getElement($elname);
 
-        if ($element instanceof MoodleQuickForm_filepicker || $element instanceof MoodleQuickForm_filemanager) {
+        if ($element instanceof LionQuickForm_filepicker || $element instanceof LionQuickForm_filemanager) {
             $values = $this->_form->exportValues($elname);
             if (empty($values[$elname])) {
                 return false;
@@ -1147,7 +1133,7 @@ abstract class moodleform {
         // set checkbox state depending on orignal/submitted value by controoler button
         if (!is_null($contollerbutton) || is_null($selectvalue)) {
             foreach ($mform->_elements as $element) {
-                if (($element instanceof MoodleQuickForm_advcheckbox) &&
+                if (($element instanceof LionQuickForm_advcheckbox) &&
                         $element->getAttribute('class') == $checkboxgroupclass &&
                         !$element->isFrozen()) {
                     $mform->setConstants(array($element->getName() => $newselectvalue));
@@ -1159,7 +1145,7 @@ abstract class moodleform {
         $mform->setType($checkboxcontrollerparam, PARAM_INT);
         $mform->setConstants(array($checkboxcontrollerparam => $newselectvalue));
 
-        $PAGE->requires->yui_module('moodle-form-checkboxcontroller', 'M.form.checkboxcontroller',
+        $PAGE->requires->yui_module('lion-form-checkboxcontroller', 'M.form.checkboxcontroller',
                 array(
                     array('groupid' => $groupid,
                         'checkboxclass' => $checkboxgroupclass,
@@ -1169,7 +1155,7 @@ abstract class moodleform {
                 );
 
         require_once("$CFG->libdir/form/submit.php");
-        $submitlink = new MoodleQuickForm_submit($checkboxcontrollername, $attributes);
+        $submitlink = new LionQuickForm_submit($checkboxcontrollername, $attributes);
         $mform->addElement($submitlink);
         $mform->registerNoSubmitButton($checkboxcontrollername);
         $mform->setDefault($checkboxcontrollername, $text);
@@ -1216,7 +1202,7 @@ abstract class moodleform {
      *                      $enhancement = 'smartselect';
      *                      $options = array('selectablecategories' => true|false)
      *
-     * @since Moodle 2.0
+     * @since Lion 2.0
      * @param string|element $element form element for which Javascript needs to be initalized
      * @param string $enhancement which init function should be called
      * @param array $options options passed to javascript
@@ -1236,7 +1222,7 @@ abstract class moodleform {
                     if (is_array($string)) {
                         call_user_method_array('string_for_js', $PAGE->requires, $string);
                     } else {
-                        $PAGE->requires->string_for_js($string, 'moodle');
+                        $PAGE->requires->string_for_js($string, 'lion');
                     }
                 }
             }
@@ -1350,19 +1336,19 @@ abstract class moodleform {
 }
 
 /**
- * MoodleQuickForm implementation
+ * LionQuickForm implementation
  *
  * You never extend this class directly. The class methods of this class are available from
- * the private $this->_form property on moodleform and its children. You generally only
- * call methods on this class from within abstract methods that you override on moodleform such
+ * the private $this->_form property on lionform and its children. You generally only
+ * call methods on this class from within abstract methods that you override on lionform such
  * as definition and definition_after_data
  *
  * @package   core_form
  * @category  form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
+class LionQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
     /** @var array type (PARAM_INT, PARAM_TEXT etc) of element value */
     var $_types = array();
 
@@ -1405,7 +1391,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
     var $_formName = '';
 
     /**
-     * String with the html for hidden params passed in as part of a moodle_url
+     * String with the html for hidden params passed in as part of a lion_url
      * object for the action. Output in the form.
      * @var string
      */
@@ -1417,11 +1403,11 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
      * @staticvar int $formcounter counts number of forms
      * @param string $formName Form's name.
      * @param string $method Form's method defaults to 'POST'
-     * @param string|moodle_url $action Form's action
+     * @param string|lion_url $action Form's action
      * @param string $target (optional)Form's target defaults to none
      * @param mixed $attributes (optional)Extra attributes for <form> tag
      */
-    function MoodleQuickForm($formName, $method, $action, $target='', $attributes=null){
+    function LionQuickForm($formName, $method, $action, $target='', $attributes=null){
         global $CFG, $OUTPUT;
 
         static $formcounter = 1;
@@ -1429,7 +1415,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
         HTML_Common::HTML_Common($attributes);
         $target = empty($target) ? array() : array('target' => $target);
         $this->_formName = $formName;
-        if (is_a($action, 'moodle_url')){
+        if (is_a($action, 'lion_url')){
             $this->_pageparams = html_writer::input_hidden_params($action);
             $action = $action->out_omit_querystring();
         } else {
@@ -1443,7 +1429,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
         $formcounter++;
         $this->updateAttributes($attributes);
 
-        // This is custom stuff for Moodle :
+        // This is custom stuff for Lion :
         $oldclass=   $this->getAttribute('class');
         if (!empty($oldclass)){
             $this->updateAttributes(array('class'=>$oldclass.' mform'));
@@ -1538,7 +1524,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
      * This function has been deprecated. Show advanced has been replaced by
      * "Show more.../Show less..." in the shortforms javascript module.
      *
-     * @deprecated since Moodle 2.5
+     * @deprecated since Lion 2.5
      * @param bool $showadvancedNow if true will show advanced elements.
       */
     function setShowAdvanced($showadvancedNow = null){
@@ -1549,7 +1535,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
      * This function has been deprecated. Show advanced has been replaced by
      * "Show more.../Show less..." in the shortforms javascript module.
      *
-     * @deprecated since Moodle 2.5
+     * @deprecated since Lion 2.5
      * @return bool (Always false)
       */
     function getShowAdvanced(){
@@ -1712,7 +1698,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
      *
      * @param string $elementname
      * @param int $paramtype defines type of data contained in element. Use the constants PARAM_*.
-     *        {@link lib/moodlelib.php} for defined parameter types
+     *        {@link lib/lionlib.php} for defined parameter types
      */
     function setType($elementname, $paramtype) {
         $this->_types[$elementname] = $paramtype;
@@ -1722,7 +1708,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
      * This can be used to set several types at once.
      *
      * @param array $paramtypes types of parameters.
-     * @see MoodleQuickForm::setType
+     * @see LionQuickForm::setType
      */
     function setTypes($paramtypes) {
         $this->_types = $paramtypes + $this->_types;
@@ -1798,7 +1784,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
         } else if (!is_array($type) && is_array($value)) {
             $value = clean_param_array($value, $type, true);
         } else {
-            throw new coding_exception('Unexpected type or value received in MoodleQuickForm::getCleanedValue()');
+            throw new coding_exception('Unexpected type or value received in LionQuickForm::getCleanedValue()');
         }
         return $value;
     }
@@ -1856,7 +1842,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
 
     /**
      * Initializes a default form value. Used to specify the default for a new entry where
-     * no data is loaded in using moodleform::set_data()
+     * no data is loaded in using lionform::set_data()
      *
      * note: $slashed param removed
      *
@@ -1881,14 +1867,14 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
      *   1/ get_string($identifier, $component) - the title of the help page
      *   2/ get_string($identifier.'_help', $component) - the actual help page text
      *
-     * @since Moodle 2.0
+     * @since Lion 2.0
      * @param string $elementname name of the element to add the item to
      * @param string $identifier help string identifier without _help suffix
      * @param string $component component name to look the help string in
      * @param string $linktext optional text to display next to the icon
      * @param bool $suppresscheck set to true if the element may not exist
      */
-    function addHelpButton($elementname, $identifier, $component = 'moodle', $linktext = '', $suppresscheck = false) {
+    function addHelpButton($elementname, $identifier, $component = 'lion', $linktext = '', $suppresscheck = false) {
         global $OUTPUT;
         if (array_key_exists($elementname, $this->_elementIndex)) {
             $element = $this->_elements[$this->_elementIndex[$elementname]];
@@ -2114,7 +2100,7 @@ class MoodleQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
                     $fullelementname = $elementName;
                     if ($element->getType() == 'editor') {
                         $fullelementname .= '[text]';
-                        //Add format to rule as moodleform check which format is supported by browser
+                        //Add format to rule as lionform check which format is supported by browser
                         //it is not set anywhere... So small hack to make sure we pass it down to quickform
                         if (is_null($rule['format'])) {
                             $rule['format'] = $element->getFormat();
@@ -2515,18 +2501,18 @@ function validate_' . $this->_formName . '(frm) {
 }
 
 /**
- * MoodleQuickForm renderer
+ * LionQuickForm renderer
  *
- * A renderer for MoodleQuickForm that only uses XHTML and CSS and no
+ * A renderer for LionQuickForm that only uses XHTML and CSS and no
  * table tags, extends PEAR class HTML_QuickForm_Renderer_Tableless
  *
  * Stylesheet is part of standard theme and should be automatically included.
  *
  * @package   core_form
  * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
+class LionQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
 
     /** @var array Element template array */
     var $_elementTemplates;
@@ -2585,7 +2571,7 @@ class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
     /**
      * Constructor
      */
-    function MoodleQuickForm_Renderer(){
+    function LionQuickForm_Renderer(){
         // switch next two lines for ol li containers for form items.
         //        $this->_elementTemplates=array('default'=>"\n\t\t".'<li class="fitem"><label>{label}{help}<!-- BEGIN required -->{req}<!-- END required --></label><div class="qfelement<!-- BEGIN error --> error<!-- END error --> {type}"><!-- BEGIN error --><span class="error">{error}</span><br /><!-- END error -->{element}</div></li>');
         $this->_elementTemplates = array(
@@ -2625,7 +2611,7 @@ class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
     /**
      * What to do when starting the form
      *
-     * @param MoodleQuickForm $form reference of the form
+     * @param LionQuickForm $form reference of the form
      */
     function startForm(&$form){
         global $PAGE;
@@ -2643,25 +2629,25 @@ class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
         }
 
         if ($form->is_form_change_checker_enabled()) {
-            $PAGE->requires->yui_module('moodle-core-formchangechecker',
+            $PAGE->requires->yui_module('lion-core-formchangechecker',
                     'M.core_formchangechecker.init',
                     array(array(
                         'formid' => $formid
                     ))
             );
-            $PAGE->requires->string_for_js('changesmadereallygoaway', 'moodle');
+            $PAGE->requires->string_for_js('changesmadereallygoaway', 'lion');
         }
         if (!empty($this->_collapsibleElements)) {
             if (count($this->_collapsibleElements) > 1) {
                 $this->_collapseButtons = $this->_collapseButtonsTemplate;
                 $this->_collapseButtons = str_replace('{strexpandall}', get_string('expandall'), $this->_collapseButtons);
-                $PAGE->requires->strings_for_js(array('collapseall', 'expandall'), 'moodle');
+                $PAGE->requires->strings_for_js(array('collapseall', 'expandall'), 'lion');
             }
-            $PAGE->requires->yui_module('moodle-form-shortforms', 'M.form.shortforms', array(array('formid' => $formid)));
+            $PAGE->requires->yui_module('lion-form-shortforms', 'M.form.shortforms', array(array('formid' => $formid)));
         }
         if (!empty($this->_advancedElements)){
             $PAGE->requires->strings_for_js(array('showmore', 'showless'), 'form');
-            $PAGE->requires->yui_module('moodle-form-showadvanced', 'M.form.showadvanced', array(array('formid' => $formid)));
+            $PAGE->requires->yui_module('lion-form-showadvanced', 'M.form.showadvanced', array(array('formid' => $formid)));
         }
     }
 
@@ -2779,8 +2765,8 @@ class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
      * Called when visiting a form, after processing all form elements
      * Adds required note, form attributes, validation javascript and form content.
      *
-     * @global moodle_page $PAGE
-     * @param moodleform $form Passed by reference
+     * @global lion_page $PAGE
+     * @param lionform $form Passed by reference
      */
     function finishForm(&$form){
         global $PAGE;
@@ -2792,7 +2778,7 @@ class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
         if (!$form->isFrozen()) {
             $args = $form->getLockOptionObject();
             if (count($args[1]) > 0) {
-                $PAGE->requires->js_init_call('M.form.initFormDependencies', $args, true, moodleform::get_js_module());
+                $PAGE->requires->js_init_call('M.form.initFormDependencies', $args, true, lionform::get_js_module());
             }
         }
     }
@@ -2800,7 +2786,7 @@ class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
     * Called when visiting a header element
     *
     * @param HTML_QuickForm_header $header An HTML_QuickForm_header element being visited
-    * @global moodle_page $PAGE
+    * @global lion_page $PAGE
     */
     function renderHeader(&$header) {
         global $PAGE;
@@ -2861,9 +2847,9 @@ class MoodleQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
  * @package   core_form
  * @category  form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_Rule_Required extends HTML_QuickForm_Rule {
+class LionQuickForm_Rule_Required extends HTML_QuickForm_Rule {
     /**
      * Checks if an element is not empty.
      * This is a server-side validation, it works for both text fields and editor fields
@@ -2919,44 +2905,44 @@ class MoodleQuickForm_Rule_Required extends HTML_QuickForm_Rule {
  * @global object $GLOBALS['_HTML_QuickForm_default_renderer']
  * @name $_HTML_QuickForm_default_renderer
  */
-$GLOBALS['_HTML_QuickForm_default_renderer'] = new MoodleQuickForm_Renderer();
+$GLOBALS['_HTML_QuickForm_default_renderer'] = new LionQuickForm_Renderer();
 
 /** Please keep this list in alphabetical order. */
-MoodleQuickForm::registerElementType('advcheckbox', "$CFG->libdir/form/advcheckbox.php", 'MoodleQuickForm_advcheckbox');
-MoodleQuickForm::registerElementType('button', "$CFG->libdir/form/button.php", 'MoodleQuickForm_button');
-MoodleQuickForm::registerElementType('cancel', "$CFG->libdir/form/cancel.php", 'MoodleQuickForm_cancel');
-MoodleQuickForm::registerElementType('searchableselector', "$CFG->libdir/form/searchableselector.php", 'MoodleQuickForm_searchableselector');
-MoodleQuickForm::registerElementType('checkbox', "$CFG->libdir/form/checkbox.php", 'MoodleQuickForm_checkbox');
-MoodleQuickForm::registerElementType('date_selector', "$CFG->libdir/form/dateselector.php", 'MoodleQuickForm_date_selector');
-MoodleQuickForm::registerElementType('date_time_selector', "$CFG->libdir/form/datetimeselector.php", 'MoodleQuickForm_date_time_selector');
-MoodleQuickForm::registerElementType('duration', "$CFG->libdir/form/duration.php", 'MoodleQuickForm_duration');
-MoodleQuickForm::registerElementType('editor', "$CFG->libdir/form/editor.php", 'MoodleQuickForm_editor');
-MoodleQuickForm::registerElementType('filemanager', "$CFG->libdir/form/filemanager.php", 'MoodleQuickForm_filemanager');
-MoodleQuickForm::registerElementType('filepicker', "$CFG->libdir/form/filepicker.php", 'MoodleQuickForm_filepicker');
-MoodleQuickForm::registerElementType('grading', "$CFG->libdir/form/grading.php", 'MoodleQuickForm_grading');
-MoodleQuickForm::registerElementType('group', "$CFG->libdir/form/group.php", 'MoodleQuickForm_group');
-MoodleQuickForm::registerElementType('header', "$CFG->libdir/form/header.php", 'MoodleQuickForm_header');
-MoodleQuickForm::registerElementType('hidden', "$CFG->libdir/form/hidden.php", 'MoodleQuickForm_hidden');
-MoodleQuickForm::registerElementType('htmleditor', "$CFG->libdir/form/htmleditor.php", 'MoodleQuickForm_htmleditor');
-MoodleQuickForm::registerElementType('listing', "$CFG->libdir/form/listing.php", 'MoodleQuickForm_listing');
-MoodleQuickForm::registerElementType('modgrade', "$CFG->libdir/form/modgrade.php", 'MoodleQuickForm_modgrade');
-MoodleQuickForm::registerElementType('modvisible', "$CFG->libdir/form/modvisible.php", 'MoodleQuickForm_modvisible');
-MoodleQuickForm::registerElementType('password', "$CFG->libdir/form/password.php", 'MoodleQuickForm_password');
-MoodleQuickForm::registerElementType('passwordunmask', "$CFG->libdir/form/passwordunmask.php", 'MoodleQuickForm_passwordunmask');
-MoodleQuickForm::registerElementType('questioncategory', "$CFG->libdir/form/questioncategory.php", 'MoodleQuickForm_questioncategory');
-MoodleQuickForm::registerElementType('radio', "$CFG->libdir/form/radio.php", 'MoodleQuickForm_radio');
-MoodleQuickForm::registerElementType('recaptcha', "$CFG->libdir/form/recaptcha.php", 'MoodleQuickForm_recaptcha');
-MoodleQuickForm::registerElementType('select', "$CFG->libdir/form/select.php", 'MoodleQuickForm_select');
-MoodleQuickForm::registerElementType('selectgroups', "$CFG->libdir/form/selectgroups.php", 'MoodleQuickForm_selectgroups');
-MoodleQuickForm::registerElementType('selectwithlink', "$CFG->libdir/form/selectwithlink.php", 'MoodleQuickForm_selectwithlink');
-MoodleQuickForm::registerElementType('selectyesno', "$CFG->libdir/form/selectyesno.php", 'MoodleQuickForm_selectyesno');
-MoodleQuickForm::registerElementType('static', "$CFG->libdir/form/static.php", 'MoodleQuickForm_static');
-MoodleQuickForm::registerElementType('submit', "$CFG->libdir/form/submit.php", 'MoodleQuickForm_submit');
-MoodleQuickForm::registerElementType('submitlink', "$CFG->libdir/form/submitlink.php", 'MoodleQuickForm_submitlink');
-MoodleQuickForm::registerElementType('tags', "$CFG->libdir/form/tags.php", 'MoodleQuickForm_tags');
-MoodleQuickForm::registerElementType('text', "$CFG->libdir/form/text.php", 'MoodleQuickForm_text');
-MoodleQuickForm::registerElementType('textarea', "$CFG->libdir/form/textarea.php", 'MoodleQuickForm_textarea');
-MoodleQuickForm::registerElementType('url', "$CFG->libdir/form/url.php", 'MoodleQuickForm_url');
-MoodleQuickForm::registerElementType('warning', "$CFG->libdir/form/warning.php", 'MoodleQuickForm_warning');
+LionQuickForm::registerElementType('advcheckbox', "$CFG->libdir/form/advcheckbox.php", 'LionQuickForm_advcheckbox');
+LionQuickForm::registerElementType('button', "$CFG->libdir/form/button.php", 'LionQuickForm_button');
+LionQuickForm::registerElementType('cancel', "$CFG->libdir/form/cancel.php", 'LionQuickForm_cancel');
+LionQuickForm::registerElementType('searchableselector', "$CFG->libdir/form/searchableselector.php", 'LionQuickForm_searchableselector');
+LionQuickForm::registerElementType('checkbox', "$CFG->libdir/form/checkbox.php", 'LionQuickForm_checkbox');
+LionQuickForm::registerElementType('date_selector', "$CFG->libdir/form/dateselector.php", 'LionQuickForm_date_selector');
+LionQuickForm::registerElementType('date_time_selector', "$CFG->libdir/form/datetimeselector.php", 'LionQuickForm_date_time_selector');
+LionQuickForm::registerElementType('duration', "$CFG->libdir/form/duration.php", 'LionQuickForm_duration');
+LionQuickForm::registerElementType('editor', "$CFG->libdir/form/editor.php", 'LionQuickForm_editor');
+LionQuickForm::registerElementType('filemanager', "$CFG->libdir/form/filemanager.php", 'LionQuickForm_filemanager');
+LionQuickForm::registerElementType('filepicker', "$CFG->libdir/form/filepicker.php", 'LionQuickForm_filepicker');
+LionQuickForm::registerElementType('grading', "$CFG->libdir/form/grading.php", 'LionQuickForm_grading');
+LionQuickForm::registerElementType('group', "$CFG->libdir/form/group.php", 'LionQuickForm_group');
+LionQuickForm::registerElementType('header', "$CFG->libdir/form/header.php", 'LionQuickForm_header');
+LionQuickForm::registerElementType('hidden', "$CFG->libdir/form/hidden.php", 'LionQuickForm_hidden');
+LionQuickForm::registerElementType('htmleditor', "$CFG->libdir/form/htmleditor.php", 'LionQuickForm_htmleditor');
+LionQuickForm::registerElementType('listing', "$CFG->libdir/form/listing.php", 'LionQuickForm_listing');
+LionQuickForm::registerElementType('modgrade', "$CFG->libdir/form/modgrade.php", 'LionQuickForm_modgrade');
+LionQuickForm::registerElementType('modvisible', "$CFG->libdir/form/modvisible.php", 'LionQuickForm_modvisible');
+LionQuickForm::registerElementType('password', "$CFG->libdir/form/password.php", 'LionQuickForm_password');
+LionQuickForm::registerElementType('passwordunmask', "$CFG->libdir/form/passwordunmask.php", 'LionQuickForm_passwordunmask');
+LionQuickForm::registerElementType('questioncategory', "$CFG->libdir/form/questioncategory.php", 'LionQuickForm_questioncategory');
+LionQuickForm::registerElementType('radio', "$CFG->libdir/form/radio.php", 'LionQuickForm_radio');
+LionQuickForm::registerElementType('recaptcha', "$CFG->libdir/form/recaptcha.php", 'LionQuickForm_recaptcha');
+LionQuickForm::registerElementType('select', "$CFG->libdir/form/select.php", 'LionQuickForm_select');
+LionQuickForm::registerElementType('selectgroups', "$CFG->libdir/form/selectgroups.php", 'LionQuickForm_selectgroups');
+LionQuickForm::registerElementType('selectwithlink', "$CFG->libdir/form/selectwithlink.php", 'LionQuickForm_selectwithlink');
+LionQuickForm::registerElementType('selectyesno', "$CFG->libdir/form/selectyesno.php", 'LionQuickForm_selectyesno');
+LionQuickForm::registerElementType('static', "$CFG->libdir/form/static.php", 'LionQuickForm_static');
+LionQuickForm::registerElementType('submit', "$CFG->libdir/form/submit.php", 'LionQuickForm_submit');
+LionQuickForm::registerElementType('submitlink', "$CFG->libdir/form/submitlink.php", 'LionQuickForm_submitlink');
+LionQuickForm::registerElementType('tags', "$CFG->libdir/form/tags.php", 'LionQuickForm_tags');
+LionQuickForm::registerElementType('text', "$CFG->libdir/form/text.php", 'LionQuickForm_text');
+LionQuickForm::registerElementType('textarea', "$CFG->libdir/form/textarea.php", 'LionQuickForm_textarea');
+LionQuickForm::registerElementType('url', "$CFG->libdir/form/url.php", 'LionQuickForm_url');
+LionQuickForm::registerElementType('warning', "$CFG->libdir/form/warning.php", 'LionQuickForm_warning');
 
-MoodleQuickForm::registerRule('required', null, 'MoodleQuickForm_Rule_Required', "$CFG->libdir/formslib.php");
+LionQuickForm::registerRule('required', null, 'LionQuickForm_Rule_Required', "$CFG->libdir/formslib.php");

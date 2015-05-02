@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Renderers for outputting blog data
@@ -20,10 +6,10 @@
  * @package    core_blog
  * @subpackage blog
  * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Blog renderer
@@ -63,16 +49,16 @@ class core_blog_renderer extends plugin_renderer_base {
         $o .= $this->output->container_start('topic starter header clearfix');
 
         // Title.
-        $titlelink = html_writer::link(new moodle_url('/blog/index.php',
+        $titlelink = html_writer::link(new lion_url('/blog/index.php',
                                                        array('entryid' => $entry->id)),
                                                        format_string($entry->subject));
         $o .= $this->output->container($titlelink, 'subject');
 
         // Post by.
         $by = new stdClass();
-        $fullname = fullname($entry->renderable->user, has_capability('moodle/site:viewfullnames', $syscontext));
+        $fullname = fullname($entry->renderable->user, has_capability('lion/site:viewfullnames', $syscontext));
         $userurlparams = array('id' => $entry->renderable->user->id, 'course' => $this->page->course->id);
-        $by->name = html_writer::link(new moodle_url('/user/view.php', $userurlparams), $fullname);
+        $by->name = html_writer::link(new lion_url('/user/view.php', $userurlparams), $fullname);
 
         $by->date = userdate($entry->created);
         $o .= $this->output->container(get_string('bynameondate', 'forum', $by), 'author');
@@ -193,16 +179,16 @@ class core_blog_renderer extends plugin_renderer_base {
 
             // External blog entries should not be edited.
             if (empty($entry->uniquehash)) {
-                $o .= html_writer::link(new moodle_url('/blog/edit.php',
+                $o .= html_writer::link(new lion_url('/blog/edit.php',
                                                         array('action' => 'edit', 'entryid' => $entry->id)),
                                                         $stredit) . ' | ';
             }
-            $o .= html_writer::link(new moodle_url('/blog/edit.php',
+            $o .= html_writer::link(new lion_url('/blog/edit.php',
                                                     array('action' => 'delete', 'entryid' => $entry->id)),
                                                     $strdelete) . ' | ';
         }
 
-        $entryurl = new moodle_url('/blog/index.php', array('entryid' => $entry->id));
+        $entryurl = new lion_url('/blog/index.php', array('entryid' => $entry->id));
         $o .= html_writer::link($entryurl, get_string('permalink', 'blog'));
 
         $o .= $this->output->container_end();
@@ -248,7 +234,7 @@ class core_blog_renderer extends plugin_renderer_base {
         } else {
             $image = $this->output->pix_icon(file_file_icon($attachment->file),
                                              $attachment->filename,
-                                             'moodle',
+                                             'lion',
                                              array('class' => 'icon'));
             $o = html_writer::link($attachment->url, $image);
             $o .= format_text(html_writer::link($attachment->url, $attachment->filename),

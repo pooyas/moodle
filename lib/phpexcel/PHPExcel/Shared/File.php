@@ -134,7 +134,7 @@ class PHPExcel_Shared_File
 	 */
 	public static function sys_get_temp_dir()
 	{
-        // Moodle hack!
+        // Lion hack!
         if (function_exists('make_temp_directory')) {
             $temp = make_temp_directory('phpexcel');
             return realpath(dirname($temp));

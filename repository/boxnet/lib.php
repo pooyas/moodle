@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This plugin is used to access box.net repository
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package    repository_boxnet
  * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 require_once($CFG->dirroot . '/repository/lib.php');
 require_once($CFG->libdir . '/boxlib.php');
@@ -28,10 +14,10 @@ require_once($CFG->libdir . '/boxlib.php');
 /**
  * repository_boxnet class implements box.net client
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package    repository_boxnet
  * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class repository_boxnet extends repository {
 
@@ -65,7 +51,7 @@ class repository_boxnet extends repository {
 
         $clientid = get_config('boxnet', 'clientid');
         $clientsecret = get_config('boxnet', 'clientsecret');
-        $returnurl = new moodle_url('/repository/repository_callback.php');
+        $returnurl = new lion_url('/repository/repository_callback.php');
         $returnurl->param('callback', 'yes');
         $returnurl->param('repo_id', $this->id);
         $returnurl->param('sesskey', sesskey());
@@ -194,11 +180,11 @@ class repository_boxnet extends repository {
                 'timeout' => $CFG->repositorygetfiletimeout, 'followlocation' => true));
             $info = $c->get_info();
             if ($result !== true || !isset($info['http_code']) || $info['http_code'] != 200) {
-                throw new moodle_exception('errorwhiledownload', 'repository', '', $result);
+                throw new lion_exception('errorwhiledownload', 'repository', '', $result);
             }
         } else {
             if (!$this->boxnetclient->download_file($ref->fileid, $path)) {
-                throw new moodle_exception('cannotdownload', 'repository');
+                throw new lion_exception('cannotdownload', 'repository');
             }
         }
         return array('path' => $path);
@@ -309,9 +295,9 @@ class repository_boxnet extends repository {
     }
 
     /**
-     * Add Plugin settings input to Moodle form
+     * Add Plugin settings input to Lion form
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      * @param string $classname
      */
     public static function type_config_form($mform, $classname = 'repository') {
@@ -339,7 +325,7 @@ class repository_boxnet extends repository {
         }
 
         if (get_config('boxnet', 'api_key')) {
-            $url = new moodle_url('/repository/boxnet/migrationv1.php');
+            $url = new lion_url('/repository/boxnet/migrationv1.php');
             $url = $url->out();
             $mform->addElement('static', null, '', get_string('migrationadvised', 'repository_boxnet', $url));
         }
@@ -393,7 +379,7 @@ class repository_boxnet extends repository {
         if (optional_param('usefilereference', false, PARAM_BOOL)) {
             try {
                 $shareinfo = $this->boxnetclient->share_file($reference->fileid);
-            } catch (moodle_exception $e) {
+            } catch (lion_exception $e) {
                 throw new repository_exception('cannotcreatereference', 'repository_boxnet');
             }
             $reference->downloadurl = $shareinfo->download_url;

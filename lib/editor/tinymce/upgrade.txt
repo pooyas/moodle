@@ -23,10 +23,10 @@ This plugin will be automatically added to existing toolbars by replacing the mi
 
 new features:
 
-* subplugin support - see http://docs.moodle.org/dev/TinyMCE_plugins
+* subplugin support - see http://docs.lion.org/dev/TinyMCE_plugins
 
 
 changes:
 
-* Editor directory exception was removed from Moodle JS loader, use moodle_url instance
+* Editor directory exception was removed from Lion JS loader, use lion_url instance
   if you want to prevent standard caching.

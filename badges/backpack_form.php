@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Form class for mybackpack.php
@@ -20,11 +6,11 @@
  * @package    core
  * @subpackage badges
  * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php');
 require_once($CFG->libdir . '/badgeslib.php');
@@ -33,7 +19,7 @@ require_once($CFG->libdir . '/badgeslib.php');
  * Form to edit backpack initial details.
  *
  */
-class edit_backpack_form extends moodleform {
+class edit_backpack_form extends lionform {
 
     /**
      * Defines the form
@@ -57,7 +43,7 @@ class edit_backpack_form extends moodleform {
         $mform->addElement('static', 'persona', '', $personadiv);
         $mform->addHelpButton('persona', 'personaconnection', 'badges');
 
-        $PAGE->requires->js(new moodle_url('https://login.persona.org/include.js'));
+        $PAGE->requires->js(new lion_url('https://login.persona.org/include.js'));
         $PAGE->requires->js('/badges/backpack.js');
         $PAGE->requires->js_init_call('badges_init_persona_login_button', null, false);
         $PAGE->requires->strings_for_js(array('error:backpackloginfailed', 'signinwithyouremail',
@@ -96,7 +82,7 @@ class edit_backpack_form extends moodleform {
  * Form to select backpack collections.
  *
  */
-class edit_collections_form extends moodleform {
+class edit_collections_form extends lionform {
 
     /**
      * Defines the form

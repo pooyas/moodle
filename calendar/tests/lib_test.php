@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Calendar lib unit tests
  *
  * @package    core_calendar
- * @copyright  2013 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2013 Dan Poltawski <dan@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 global $CFG;
 require_once($CFG->dirroot . '/calendar/lib.php');
 
@@ -30,8 +16,8 @@ require_once($CFG->dirroot . '/calendar/lib.php');
  * Unit tests for calendar lib
  *
  * @package    core_calendar
- * @copyright  2013 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2013 Dan Poltawski <dan@lion.com>
+ * 
  */
 class core_calendar_lib_testcase extends advanced_testcase {
 
@@ -78,12 +64,12 @@ class core_calendar_lib_testcase extends advanced_testcase {
         global $CFG;
         require_once($CFG->dirroot . '/lib/cronlib.php');
 
-        // Moodle ICal URL (moodle.org events).
+        // Lion ICal URL (lion.org events).
         $presetwhat = 'all';
         $presettime = 'recentupcoming';
         $userid = 1;
         $authtoken = 'a8bcfee2fb868a05357f650bd65dc0699b026524';
-        $subscriptionurl = 'https://moodle.org/calendar/export_execute.php'
+        $subscriptionurl = 'https://lion.org/calendar/export_execute.php'
                 . '?preset_what='.$presetwhat.'&preset_time='.$presettime.'&userid='.$userid.'&authtoken='.$authtoken;
 
         $subscription = new stdClass();

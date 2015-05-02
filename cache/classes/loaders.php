@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cache loaders
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are required in order to use caching.
  *
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The main cache class.
@@ -38,7 +24,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache implements cache_loader {
 
@@ -486,10 +472,10 @@ class cache implements cache_loader {
      *
      * <code>
      * // This code will add four entries to the cache, one for each url.
-     * $cache->set('main', 'http://moodle.org');
-     * $cache->set('docs', 'http://docs.moodle.org');
-     * $cache->set('tracker', 'http://tracker.moodle.org');
-     * $cache->set('qa', 'http://qa.moodle.net');
+     * $cache->set('main', 'http://lion.org');
+     * $cache->set('docs', 'http://docs.lion.org');
+     * $cache->set('tracker', 'http://tracker.lion.org');
+     * $cache->set('qa', 'http://qa.lion.net');
      * </code>
      *
      * @param string|int $key The key for the data being requested.
@@ -606,10 +592,10 @@ class cache implements cache_loader {
      * <code>
      * // This code will add four entries to the cache, one for each url.
      * $cache->set_many(array(
-     *     'main' => 'http://moodle.org',
-     *     'docs' => 'http://docs.moodle.org',
-     *     'tracker' => 'http://tracker.moodle.org',
-     *     'qa' => ''http://qa.moodle.net'
+     *     'main' => 'http://lion.org',
+     *     'docs' => 'http://docs.lion.org',
+     *     'tracker' => 'http://tracker.lion.org',
+     *     'qa' => ''http://qa.lion.net'
      * ));
      * </code>
      *
@@ -892,7 +878,7 @@ class cache implements cache_loader {
     /**
      * Returns the loader associated with this instance.
      *
-     * @since Moodle 2.4.4
+     * @since Lion 2.4.4
      * @return cache|false
      */
     protected function get_loader() {
@@ -902,7 +888,7 @@ class cache implements cache_loader {
     /**
      * Returns the data source associated with this cache.
      *
-     * @since Moodle 2.4.4
+     * @since Lion 2.4.4
      * @return cache_data_source|false
      */
     protected function get_datasource() {
@@ -1164,7 +1150,7 @@ class cache implements cache_loader {
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_application extends cache implements cache_loader_with_locking {
 
@@ -1372,10 +1358,10 @@ class cache_application extends cache implements cache_loader_with_locking {
      *
      * <code>
      * // This code will add four entries to the cache, one for each url.
-     * $cache->set('main', 'http://moodle.org');
-     * $cache->set('docs', 'http://docs.moodle.org');
-     * $cache->set('tracker', 'http://tracker.moodle.org');
-     * $cache->set('qa', 'http://qa.moodle.net');
+     * $cache->set('main', 'http://lion.org');
+     * $cache->set('docs', 'http://docs.lion.org');
+     * $cache->set('tracker', 'http://tracker.lion.org');
+     * $cache->set('qa', 'http://qa.lion.net');
      * </code>
      *
      * @param string|int $key The key for the data being requested.
@@ -1405,10 +1391,10 @@ class cache_application extends cache implements cache_loader_with_locking {
      * <code>
      * // This code will add four entries to the cache, one for each url.
      * $cache->set_many(array(
-     *     'main' => 'http://moodle.org',
-     *     'docs' => 'http://docs.moodle.org',
-     *     'tracker' => 'http://tracker.moodle.org',
-     *     'qa' => ''http://qa.moodle.net'
+     *     'main' => 'http://lion.org',
+     *     'docs' => 'http://docs.lion.org',
+     *     'tracker' => 'http://tracker.lion.org',
+     *     'qa' => ''http://qa.lion.net'
      * ));
      * </code>
      *
@@ -1566,7 +1552,7 @@ class cache_application extends cache implements cache_loader_with_locking {
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_session extends cache {
     /**
@@ -1817,10 +1803,10 @@ class cache_session extends cache {
      *
      * <code>
      * // This code will add four entries to the cache, one for each url.
-     * $cache->set('main', 'http://moodle.org');
-     * $cache->set('docs', 'http://docs.moodle.org');
-     * $cache->set('tracker', 'http://tracker.moodle.org');
-     * $cache->set('qa', 'http://qa.moodle.net');
+     * $cache->set('main', 'http://lion.org');
+     * $cache->set('docs', 'http://docs.lion.org');
+     * $cache->set('tracker', 'http://tracker.lion.org');
+     * $cache->set('qa', 'http://qa.lion.net');
      * </code>
      *
      * @param string|int $key The key for the data being requested.
@@ -1998,10 +1984,10 @@ class cache_session extends cache {
      * <code>
      * // This code will add four entries to the cache, one for each url.
      * $cache->set_many(array(
-     *     'main' => 'http://moodle.org',
-     *     'docs' => 'http://docs.moodle.org',
-     *     'tracker' => 'http://tracker.moodle.org',
-     *     'qa' => ''http://qa.moodle.net'
+     *     'main' => 'http://lion.org',
+     *     'docs' => 'http://docs.lion.org',
+     *     'tracker' => 'http://tracker.lion.org',
+     *     'qa' => ''http://qa.lion.net'
      * ));
      * </code>
      *
@@ -2195,7 +2181,7 @@ class cache_session extends cache {
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_request extends cache {
     // This comment appeases code pre-checker ;) !

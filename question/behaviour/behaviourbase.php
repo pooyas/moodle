@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Defines the question behaviour base class
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionbehaviours
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -37,7 +23,7 @@ defined('MOODLE_INTERNAL') || die();
  * relevant {@link question_definition}.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_behaviour {
 
@@ -129,10 +115,10 @@ abstract class question_behaviour {
     }
 
     /**
-     * @param moodle_page $page the page to render for.
+     * @param lion_page $page the page to render for.
      * @return qbehaviour_renderer get the appropriate renderer to use for this model.
      */
-    public function get_renderer(moodle_page $page) {
+    public function get_renderer(lion_page $page) {
         return $page->get_renderer(get_class($this));
     }
 
@@ -559,7 +545,7 @@ abstract class question_behaviour {
  * {@link question_manually_gradable} interface.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_behaviour_with_save extends question_behaviour {
     public function required_question_definition_type() {
@@ -682,7 +668,7 @@ abstract class question_behaviour_with_multiple_tries extends question_behaviour
  * manipulating scores for certainty based marking.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_cbm {
     /**#@+ @var integer named constants for the certainty levels. */
@@ -736,7 +722,7 @@ abstract class question_cbm {
      */
     public static function adjust_fraction($fraction, $certainty) {
         if ($certainty == -1) {
-            // Certainty -1 has never been used in standard Moodle, but is
+            // Certainty -1 has never been used in standard Lion, but is
             // used in Tony-Gardiner Medwin's patches to mean 'No idea' which
             // we intend to implement: MDL-42077. In the mean time, avoid
             // errors for people who have used TGM's patches.

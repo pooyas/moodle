@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * LTI source plugin info.
  *
  * @package   mod_lti
  * @copyright 2013 Damyon Wiese
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 namespace mod_lti\plugininfo;
 
 use core\plugininfo\base;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 class ltisource extends base {
@@ -46,7 +32,7 @@ class ltisource extends base {
      *
      * @param \part_of_admin_tree $adminroot
      * @param string $parentnodename
-     * @param bool $hassiteconfig whether the current user has moodle/site:config capability
+     * @param bool $hassiteconfig whether the current user has lion/site:config capability
      */
     public function load_settings(\part_of_admin_tree $adminroot, $parentnodename, $hassiteconfig) {
         global $CFG, $USER, $DB, $OUTPUT, $PAGE; // In case settings.php wants to refer to them.
@@ -61,7 +47,7 @@ class ltisource extends base {
         }
         $section  = $this->get_settings_section_name();
         $settings = new \admin_settingpage($section, $this->displayname,
-            'moodle/site:config', $this->is_enabled() === false);
+            'lion/site:config', $this->is_enabled() === false);
 
         include($this->full_path('settings.php')); // This may also set $settings to null.
 

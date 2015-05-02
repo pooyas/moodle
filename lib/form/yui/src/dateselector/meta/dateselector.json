@@ -1,5 +1,5 @@
 {
-    "moodle-form-dateselector": {
+    "lion-form-dateselector": {
         "requires": [
             "base",
             "node",

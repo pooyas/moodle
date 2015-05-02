@@ -1,7 +1,7 @@
 {
-    "name": "moodle-core-dragdrop",
+    "name": "lion-core-dragdrop",
     "builds": {
-        "moodle-core-dragdrop": {
+        "lion-core-dragdrop": {
             "jsfiles": [
                 "dragdrop.js"
             ]

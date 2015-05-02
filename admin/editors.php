@@ -16,7 +16,7 @@ $PAGE->set_url('/admin/editors.php', array('action'=>$action, 'editor'=>$editor)
 $PAGE->set_context(context_system::instance());
 
 require_login();
-require_capability('moodle/site:config', context_system::instance());
+require_capability('lion/site:config', context_system::instance());
 
 $returnurl = "$CFG->wwwroot/$CFG->admin/settings.php?section=manageeditors";
 

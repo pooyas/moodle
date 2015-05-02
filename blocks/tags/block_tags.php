@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Tags block.
  *
  * @package   block_tags
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 class block_tags extends block_base {
@@ -116,7 +102,7 @@ class block_tags extends block_base {
             // DB hits to get groups of marked up tags (if available).
             // TODO check whether time limited personal tags are required.
             $content = '';
-            $moretags = new moodle_url('/tag/coursetags_more.php', array('show'=>$tagtype));
+            $moretags = new lion_url('/tag/coursetags_more.php', array('show'=>$tagtype));
             if ($tagtype == 'all') {
                 $tags = coursetag_get_tags(0, 0, $this->config->tagtype, $this->config->numberoftags);
             } else if ($tagtype == 'course') {
@@ -147,7 +133,7 @@ class block_tags extends block_base {
             if (isloggedin() && !isguestuser()) {
                 // Only show the input form on course pages for those allowed (or not barred).
                 if ($tagtype == 'course' &&
-                                has_capability('moodle/tag:create', context_course::instance($this->page->course->id))) {
+                                has_capability('lion/tag:create', context_course::instance($this->page->course->id))) {
                     $buttonadd = get_string('add', 'block_tags');
                     $arrowtitle = get_string('arrowtitle', 'block_tags');
                     $edittags = get_string('edittags', 'block_tags');

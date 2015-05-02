@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Preset Menu
@@ -21,7 +7,7 @@
  * This is the page that is the menu item in the config database
  * pages.
  *
- * This file is part of the Database module for Moodle
+ * This file is part of the Database module for Lion
  *
  * @copyright 2005 Martin Dougiamas  http://dougiamas.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -48,7 +34,7 @@ if ($id) {
 $context = context_module::instance($cm->id, MUST_EXIST);
 require_login($course, false, $cm);
 require_capability('mod/data:managetemplates', $context);
-$PAGE->set_url(new moodle_url('/mod/data/preset.php', array('d'=>$data->id)));
+$PAGE->set_url(new lion_url('/mod/data/preset.php', array('d'=>$data->id)));
 $PAGE->set_title(get_string('course') . ': ' . $course->fullname);
 $PAGE->set_heading($course->fullname);
 
@@ -68,13 +54,13 @@ foreach ($presets as &$preset) {
         $preset->userid = 0;
         $preset->description = $preset->name;
         if (data_user_can_delete_preset($context, $preset) && $preset->name != 'Image gallery') {
-            $delurl = new moodle_url('/mod/data/preset.php', array('d'=> $data->id, 'action'=>'confirmdelete', 'fullname'=>$preset->userid.'/'.$preset->shortname, 'sesskey'=>sesskey()));
+            $delurl = new lion_url('/mod/data/preset.php', array('d'=> $data->id, 'action'=>'confirmdelete', 'fullname'=>$preset->userid.'/'.$preset->shortname, 'sesskey'=>sesskey()));
             $delicon = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/delete'), 'class'=>'iconsmall', 'alt'=>$strdelete.' '.$preset->description));
             $preset->description .= html_writer::link($delurl, $delicon);
         }
     }
     if ($preset->userid > 0 && data_user_can_delete_preset($context, $preset)) {
-        $delurl = new moodle_url('/mod/data/preset.php', array('d'=> $data->id, 'action'=>'confirmdelete', 'fullname'=>$preset->userid.'/'.$preset->shortname, 'sesskey'=>sesskey()));
+        $delurl = new lion_url('/mod/data/preset.php', array('d'=> $data->id, 'action'=>'confirmdelete', 'fullname'=>$preset->userid.'/'.$preset->shortname, 'sesskey'=>sesskey()));
         $delicon = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('t/delete'), 'class'=>'iconsmall', 'alt'=>$strdelete.' '.$preset->description));
         $preset->description .= html_writer::link($delurl, $delicon);
     }
@@ -198,7 +184,7 @@ if (optional_param('sesskey', false, PARAM_BOOL) && confirm_sesskey()) {
                              'action' => 'delete',
                              'd' => $data->id);
             $optionsno = array('d' => $data->id);
-            echo $OUTPUT->confirm($strwarning, new moodle_url('preset.php', $optionsyes), new moodle_url('preset.php', $optionsno));
+            echo $OUTPUT->confirm($strwarning, new lion_url('preset.php', $optionsyes), new lion_url('preset.php', $optionsno));
             echo $OUTPUT->footer();
             exit(0);
         } else if ($action == 'delete') {

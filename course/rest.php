@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Provide interface for topics AJAX course formats
@@ -77,18 +63,18 @@ switch($requestmethod) {
             case 'section':
 
                 if (!$DB->record_exists('course_sections', array('course'=>$course->id, 'section'=>$id))) {
-                    throw new moodle_exception('AJAX commands.php: Bad Section ID '.$id);
+                    throw new lion_exception('AJAX commands.php: Bad Section ID '.$id);
                 }
 
                 switch ($field) {
                     case 'visible':
-                        require_capability('moodle/course:sectionvisibility', $coursecontext);
+                        require_capability('lion/course:sectionvisibility', $coursecontext);
                         $resourcestotoggle = set_section_visible($course->id, $id, $value);
                         echo json_encode(array('resourcestotoggle' => $resourcestotoggle));
                         break;
 
                     case 'move':
-                        require_capability('moodle/course:movesections', $coursecontext);
+                        require_capability('lion/course:movesections', $coursecontext);
                         move_section_to($course, $id, $value);
                         // See if format wants to do something about it
                         $response = course_get_format($course)->ajax_section_move();
@@ -102,17 +88,17 @@ switch($requestmethod) {
             case 'resource':
                 switch ($field) {
                     case 'visible':
-                        require_capability('moodle/course:activityvisibility', $modcontext);
+                        require_capability('lion/course:activityvisibility', $modcontext);
                         set_coursemodule_visible($cm->id, $value);
                         \core\event\course_module_updated::create_from_cm($cm, $modcontext)->trigger();
                         break;
 
                     case 'duplicate':
-                        require_capability('moodle/course:manageactivities', $coursecontext);
-                        require_capability('moodle/backup:backuptargetimport', $coursecontext);
-                        require_capability('moodle/restore:restoretargetimport', $coursecontext);
+                        require_capability('lion/course:manageactivities', $coursecontext);
+                        require_capability('lion/backup:backuptargetimport', $coursecontext);
+                        require_capability('lion/restore:restoretargetimport', $coursecontext);
                         if (!course_allowed_module($course, $cm->modname)) {
-                            throw new moodle_exception('No permission to create that activity');
+                            throw new lion_exception('No permission to create that activity');
                         }
                         $sr = optional_param('sr', null, PARAM_INT);
                         $result = mod_duplicate_activity($course, $cm, $sr);
@@ -120,13 +106,13 @@ switch($requestmethod) {
                         break;
 
                     case 'groupmode':
-                        require_capability('moodle/course:manageactivities', $modcontext);
+                        require_capability('lion/course:manageactivities', $modcontext);
                         set_coursemodule_groupmode($cm->id, $value);
                         \core\event\course_module_updated::create_from_cm($cm, $modcontext)->trigger();
                         break;
 
                     case 'indent':
-                        require_capability('moodle/course:manageactivities', $modcontext);
+                        require_capability('lion/course:manageactivities', $modcontext);
                         $cm->indent = $value;
                         if ($cm->indent >= 0) {
                             $DB->update_record('course_modules', $cm);
@@ -135,9 +121,9 @@ switch($requestmethod) {
                         break;
 
                     case 'move':
-                        require_capability('moodle/course:manageactivities', $modcontext);
+                        require_capability('lion/course:manageactivities', $modcontext);
                         if (!$section = $DB->get_record('course_sections', array('course'=>$course->id, 'section'=>$sectionid))) {
-                            throw new moodle_exception('AJAX commands.php: Bad section ID '.$sectionid);
+                            throw new lion_exception('AJAX commands.php: Bad section ID '.$sectionid);
                         }
 
                         if ($beforeid > 0){
@@ -151,7 +137,7 @@ switch($requestmethod) {
                         echo json_encode(array('visible' => (bool) $isvisible));
                         break;
                     case 'gettitle':
-                        require_capability('moodle/course:manageactivities', $modcontext);
+                        require_capability('lion/course:manageactivities', $modcontext);
                         $cm = get_coursemodule_from_id('', $id, 0, false, MUST_EXIST);
                         $module = new stdClass();
                         $module->id = $cm->instance;
@@ -160,7 +146,7 @@ switch($requestmethod) {
                         echo json_encode(array('instancename' => $cm->name));
                         break;
                     case 'updatetitle':
-                        require_capability('moodle/course:manageactivities', $modcontext);
+                        require_capability('lion/course:manageactivities', $modcontext);
                         require_once($CFG->libdir . '/gradelib.php');
                         $cm = get_coursemodule_from_id('', $id, 0, false, MUST_EXIST);
                         $module = new stdClass();
@@ -199,7 +185,7 @@ switch($requestmethod) {
             case 'course':
                 switch($field) {
                     case 'marker':
-                        require_capability('moodle/course:setcurrentsection', $coursecontext);
+                        require_capability('lion/course:setcurrentsection', $coursecontext);
                         course_set_marker($course->id, $value);
                         break;
                 }
@@ -210,7 +196,7 @@ switch($requestmethod) {
     case 'DELETE':
         switch ($class) {
             case 'resource':
-                require_capability('moodle/course:manageactivities', $modcontext);
+                require_capability('lion/course:manageactivities', $modcontext);
                 course_delete_module($cm->id);
                 break;
         }

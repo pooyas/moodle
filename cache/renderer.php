@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * The Cache renderer.
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  *
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The cache renderer (mainly admin interfaces).
@@ -33,7 +19,7 @@ defined('MOODLE_INTERNAL') || die();
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_cache_renderer extends plugin_renderer_base {
 
@@ -268,7 +254,7 @@ class core_cache_renderer extends plugin_renderer_base {
         $html .= $this->output->heading(get_string('definitionsummaries', 'cache'), 3);
         $html .= html_writer::table($table);
 
-        $url = new moodle_url('/cache/admin.php', array('action' => 'rescandefinitions', 'sesskey' => sesskey()));
+        $url = new lion_url('/cache/admin.php', array('action' => 'rescandefinitions', 'sesskey' => sesskey()));
         $link = html_writer::link($url, get_string('rescandefinitions', 'cache'));
         $html .= html_writer::tag('div', $link, array('id' => 'core-cache-rescan-definitions'));
 
@@ -282,10 +268,10 @@ class core_cache_renderer extends plugin_renderer_base {
      * @param string $applicationstore
      * @param string $sessionstore
      * @param string $requeststore
-     * @param moodle_url $editurl
+     * @param lion_url $editurl
      * @return string HTML
      */
-    public function mode_mappings($applicationstore, $sessionstore, $requeststore, moodle_url $editurl) {
+    public function mode_mappings($applicationstore, $sessionstore, $requeststore, lion_url $editurl) {
         $table = new html_table();
         $table->colclasses = array(
             'mode',
@@ -351,7 +337,7 @@ class core_cache_renderer extends plugin_renderer_base {
         foreach ($locks as $lock) {
             $actions = array();
             if ($lock['uses'] === 0 && !$lock['default']) {
-                $url = new moodle_url('/cache/admin.php', array('lock' => $lock['name'], 'action' => 'deletelock', 'sesskey' => sesskey()));
+                $url = new lion_url('/cache/admin.php', array('lock' => $lock['name'], 'action' => 'deletelock', 'sesskey' => sesskey()));
                 $actions[] = html_writer::link($url, get_string('delete', 'cache'));
             }
             $table->data[] = new html_table_row(array(
@@ -363,7 +349,7 @@ class core_cache_renderer extends plugin_renderer_base {
             ));
         }
 
-        $url = new moodle_url('/cache/admin.php', array('action' => 'newlockinstance', 'sesskey' => sesskey()));
+        $url = new lion_url('/cache/admin.php', array('action' => 'newlockinstance', 'sesskey' => sesskey()));
         $select = new single_select($url, 'lock', cache_administration_helper::get_addable_lock_options());
         $select->label = get_string('addnewlockinstance', 'cache');
 

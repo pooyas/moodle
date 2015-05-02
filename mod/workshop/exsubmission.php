@@ -1,26 +1,12 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * View, create or edit single example submission
  *
  * @package    mod_workshop
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -161,7 +147,7 @@ if ($edit and $canmanage) {
             $example->id = $formdata->id = $DB->insert_record('workshop_submissions', $formdata);
         } else {
             if (empty($formdata->id) or empty($example->id) or ($formdata->id != $example->id)) {
-                throw new moodle_exception('err_examplesubmissionid', 'workshop');
+                throw new lion_exception('err_examplesubmissionid', 'workshop');
             }
         }
         // save and relink embedded images and save attachments
@@ -204,12 +190,12 @@ if ($edit and $canmanage) {
 if ($example->id) {
     if ($canmanage and $delete) {
     echo $output->confirm(get_string('exampledeleteconfirm', 'workshop'),
-            new moodle_url($PAGE->url, array('delete' => 1, 'confirm' => 1)), $workshop->view_url());
+            new lion_url($PAGE->url, array('delete' => 1, 'confirm' => 1)), $workshop->view_url());
     }
     if ($canmanage and !$delete and !$DB->record_exists_select('workshop_assessments',
             'grade IS NOT NULL AND weight=1 AND submissionid = ?', array($example->id))) {
         echo $output->confirm(get_string('assessmentreferenceneeded', 'workshop'),
-                new moodle_url($PAGE->url, array('assess' => 1)), $workshop->view_url());
+                new lion_url($PAGE->url, array('assess' => 1)), $workshop->view_url());
     }
     echo $output->render($workshop->prepare_example_submission($example));
 }
@@ -217,16 +203,16 @@ if ($example->id) {
 echo $output->container_start('buttonsbar');
 if ($canmanage) {
     if (empty($edit) and empty($delete)) {
-        $aurl = new moodle_url($workshop->exsubmission_url($example->id), array('edit' => 'on'));
+        $aurl = new lion_url($workshop->exsubmission_url($example->id), array('edit' => 'on'));
         echo $output->single_button($aurl, get_string('exampleedit', 'workshop'), 'get');
 
-        $aurl = new moodle_url($workshop->exsubmission_url($example->id), array('delete' => 'on'));
+        $aurl = new lion_url($workshop->exsubmission_url($example->id), array('delete' => 'on'));
         echo $output->single_button($aurl, get_string('exampledelete', 'workshop'), 'get');
     }
 }
 // ...and optionally assess it
 if ($canassess or ($canmanage and empty($edit) and empty($delete))) {
-    $aurl = new moodle_url($workshop->exsubmission_url($example->id), array('assess' => 'on', 'sesskey' => sesskey()));
+    $aurl = new lion_url($workshop->exsubmission_url($example->id), array('assess' => 'on', 'sesskey' => sesskey()));
     echo $output->single_button($aurl, get_string('exampleassess', 'workshop'), 'get');
 }
 echo $output->container_end(); // buttonsbar

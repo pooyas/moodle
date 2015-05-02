@@ -23,7 +23,7 @@
  *
  * @copyright 2010 The Open University
  */
-class xml_format_exception extends moodle_exception {
+class xml_format_exception extends lion_exception {
     /** @var string */
     public $errorstring;
     public $line;

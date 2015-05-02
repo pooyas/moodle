@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 // This page prints a particular instance of aicc/scorm package.
 
@@ -61,7 +47,7 @@ if (!empty($scoid)) {
     $scoid = scorm_check_launchable_sco($scorm, $scoid);
 }
 
-$url = new moodle_url('/mod/scorm/player.php', array('scoid' => $scoid, 'cm' => $cm->id));
+$url = new lion_url('/mod/scorm/player.php', array('scoid' => $scoid, 'cm' => $cm->id));
 if ($mode !== 'normal') {
     $url->param('mode', $mode);
 }
@@ -101,7 +87,7 @@ if ($displaymode == 'popup') {
     $PAGE->set_title($pagetitle);
     $PAGE->set_heading($course->fullname);
 }
-if (!$cm->visible and !has_capability('moodle/course:viewhiddenactivities', context_module::instance($cm->id))) {
+if (!$cm->visible and !has_capability('lion/course:viewhiddenactivities', context_module::instance($cm->id))) {
     echo $OUTPUT->header();
     notice(get_string("activityiscurrentlyhidden"));
     echo $OUTPUT->footer();
@@ -183,8 +169,8 @@ if (!empty($scorm->displayactivityname)) {
 
 $PAGE->requires->string_for_js('navigation', 'scorm');
 $PAGE->requires->string_for_js('toc', 'scorm');
-$PAGE->requires->string_for_js('hide', 'moodle');
-$PAGE->requires->string_for_js('show', 'moodle');
+$PAGE->requires->string_for_js('hide', 'lion');
+$PAGE->requires->string_for_js('show', 'lion');
 $PAGE->requires->string_for_js('popupsblocked', 'scorm');
 
 $name = false;
@@ -228,7 +214,7 @@ if ($result->prerequisites) {
         }
         $name = 'scorm_'.$name;
         echo html_writer::script('', $CFG->wwwroot.'/mod/scorm/player.js');
-        $url = new moodle_url($PAGE->url, array('scoid' => $sco->id, 'display' => 'popup', 'mode' => $mode));
+        $url = new lion_url($PAGE->url, array('scoid' => $sco->id, 'display' => 'popup', 'mode' => $mode));
         echo html_writer::script(
             js_writer::function_call('scorm_openpopup', Array($url->out(false),
                                                        $name, $scorm->options,
@@ -269,7 +255,7 @@ if (file_exists($CFG->dirroot.'/mod/scorm/datamodels/'.$scorm->version.'.php')) 
 
 // Add the checknet system to keep checking for a connection.
 $PAGE->requires->string_for_js('networkdropped', 'mod_scorm');
-$PAGE->requires->yui_module('moodle-core-checknet', 'M.core.checknet.init', array(array(
+$PAGE->requires->yui_module('lion-core-checknet', 'M.core.checknet.init', array(array(
     'message' => array('networkdropped', 'mod_scorm'),
 )));
 echo $OUTPUT->footer();

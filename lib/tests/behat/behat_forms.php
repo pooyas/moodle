@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Steps definitions related with forms.
@@ -20,10 +6,10 @@
  * @package    core
  * @category   test
  * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/../../../lib/behat/behat_base.php');
 require_once(__DIR__ . '/../../../lib/behat/behat_field_manager.php');
@@ -43,7 +29,7 @@ use Behat\Behat\Context\Step\Given as Given,
  * @package    core
  * @category   test
  * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_forms extends behat_base {
 
@@ -62,7 +48,7 @@ class behat_forms extends behat_base {
     }
 
     /**
-     * Fills a form with field/value data. More info in http://docs.moodle.org/dev/Acceptance_testing#Providing_values_to_steps.
+     * Fills a form with field/value data. More info in http://docs.lion.org/dev/Acceptance_testing#Providing_values_to_steps.
      *
      * @Given /^I set the following fields to these values:$/
      * @throws ElementNotFoundException Thrown by behat_base::find
@@ -82,7 +68,7 @@ class behat_forms extends behat_base {
     }
 
     /**
-     * Expands all moodleform's fields, including collapsed fieldsets and advanced fields if they are present.
+     * Expands all lionform's fields, including collapsed fieldsets and advanced fields if they are present.
      * @Given /^I expand all fieldsets$/
      */
     public function i_expand_all_fieldsets() {
@@ -90,7 +76,7 @@ class behat_forms extends behat_base {
     }
 
     /**
-     * Expands all moodle form fieldsets if they exists.
+     * Expands all lion form fieldsets if they exists.
      *
      * Externalized from i_expand_all_fields to call it from
      * other form-related steps without having to use steps-group calls.
@@ -189,7 +175,7 @@ class behat_forms extends behat_base {
     }
 
     /**
-     * Checks, the field matches the value. More info in http://docs.moodle.org/dev/Acceptance_testing#Providing_values_to_steps.
+     * Checks, the field matches the value. More info in http://docs.lion.org/dev/Acceptance_testing#Providing_values_to_steps.
      *
      * @Then /^the field "(?P<field_string>(?:[^"]|\\")*)" matches value "(?P<field_value_string>(?:[^"]|\\")*)"$/
      * @throws ElementNotFoundException Thrown by behat_base::find
@@ -213,7 +199,7 @@ class behat_forms extends behat_base {
     }
 
     /**
-     * Checks, the field does not match the value. More info in http://docs.moodle.org/dev/Acceptance_testing#Providing_values_to_steps.
+     * Checks, the field does not match the value. More info in http://docs.lion.org/dev/Acceptance_testing#Providing_values_to_steps.
      *
      * @Then /^the field "(?P<field_string>(?:[^"]|\\")*)" does not match value "(?P<field_value_string>(?:[^"]|\\")*)"$/
      * @throws ExpectationException
@@ -238,7 +224,7 @@ class behat_forms extends behat_base {
     }
 
     /**
-     * Checks, the provided field/value matches. More info in http://docs.moodle.org/dev/Acceptance_testing#Providing_values_to_steps.
+     * Checks, the provided field/value matches. More info in http://docs.lion.org/dev/Acceptance_testing#Providing_values_to_steps.
      *
      * @Then /^the following fields match these values:$/
      * @throws ExpectationException
@@ -258,7 +244,7 @@ class behat_forms extends behat_base {
     }
 
     /**
-     * Checks that the provided field/value pairs don't match. More info in http://docs.moodle.org/dev/Acceptance_testing#Providing_values_to_steps.
+     * Checks that the provided field/value pairs don't match. More info in http://docs.lion.org/dev/Acceptance_testing#Providing_values_to_steps.
      *
      * @Then /^the following fields do not match these values:$/
      * @throws ExpectationException

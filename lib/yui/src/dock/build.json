@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core-dock",
+  "name": "lion-core-dock",
   "builds": {
-    "moodle-core-dock": {
+    "lion-core-dock": {
       "jsfiles": [
         "dock.js",
         "panel.js",
@@ -11,7 +11,7 @@
         "dockeditem.js"
       ]
     },
-    "moodle-core-dock-loader": {
+    "lion-core-dock-loader": {
         "jsfiles": [
             "loader.js"
         ]

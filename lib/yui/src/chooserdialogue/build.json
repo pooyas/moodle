@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core-chooserdialogue",
+  "name": "lion-core-chooserdialogue",
   "builds": {
-    "moodle-core-chooserdialogue": {
+    "lion-core-chooserdialogue": {
       "jsfiles": [
         "chooserdialogue.js"
       ]

@@ -9,15 +9,15 @@ require_once($CFG->dirroot.'/calendar/preferences_form.php');
 $courseid = required_param('course', PARAM_INT);
 $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
 
-$PAGE->set_url(new moodle_url('/calendar/preferences.php', array('course' => $courseid)));
+$PAGE->set_url(new lion_url('/calendar/preferences.php', array('course' => $courseid)));
 $PAGE->set_pagelayout('standard');
 
 require_login($course);
 
 if ($courseid == SITEID) {
-    $viewurl = new moodle_url('/calendar/view.php', array('view' => 'month'));
+    $viewurl = new lion_url('/calendar/view.php', array('view' => 'month'));
 } else {
-    $viewurl = new moodle_url('/calendar/view.php', array('view' => 'month', 'course' => $courseid));
+    $viewurl = new lion_url('/calendar/view.php', array('view' => 'month', 'course' => $courseid));
 }
 navigation_node::override_active_url($viewurl);
 

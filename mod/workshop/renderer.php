@@ -1,35 +1,21 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Workshop module renderering methods are defined here
  *
  * @package    mod_workshop
  * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Workshop module renderer class
  *
  * @copyright 2009 David Mudrak <david.mudrak@gmail.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_workshop_renderer extends plugin_renderer_base {
 
@@ -105,7 +91,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
             $additionalfields = explode(',', user_picture::fields());
             $author = username_load_fields_from_object($author, $submission, 'author', $additionalfields);
             $userpic            = $this->output->user_picture($author, array('courseid' => $this->page->course->id, 'size' => 64));
-            $userurl            = new moodle_url('/user/view.php',
+            $userurl            = new lion_url('/user/view.php',
                                             array('id' => $author->id, 'course' => $this->page->course->id));
             $a                  = new stdclass();
             $a->name            = fullname($author);
@@ -183,7 +169,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
             $additionalfields = explode(',', user_picture::fields());
             $author = username_load_fields_from_object($author, $summary, 'author', $additionalfields);
             $userpic            = $this->output->user_picture($author, array('courseid' => $this->page->course->id, 'size' => 35));
-            $userurl            = new moodle_url('/user/view.php',
+            $userurl            = new lion_url('/user/view.php',
                                             array('id' => $author->id, 'course' => $this->page->course->id));
             $a                  = new stdClass();
             $a->name            = fullname($author);
@@ -608,7 +594,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
         } else {
             $title = get_string('assessment', 'workshop');
         }
-        if (($assessment->url instanceof moodle_url) and ($this->page->url != $assessment->url)) {
+        if (($assessment->url instanceof lion_url) and ($this->page->url != $assessment->url)) {
             $o .= $this->output->container(html_writer::link($assessment->url, $title), 'title');
         } else {
             $o .= $this->output->container($title, 'title');
@@ -618,7 +604,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
             $reviewer   = $assessment->reviewer;
             $userpic    = $this->output->user_picture($reviewer, array('courseid' => $this->page->course->id, 'size' => 32));
 
-            $userurl    = new moodle_url('/user/view.php',
+            $userurl    = new lion_url('/user/view.php',
                                        array('id' => $reviewer->id, 'course' => $this->page->course->id));
             $a          = new stdClass();
             $a->name    = fullname($reviewer);
@@ -663,7 +649,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
         if (!is_null($assessment->form)) {
             $o .= print_collapsible_region_start('assessment-form-wrapper', uniqid('workshop-assessment'),
                     get_string('assessmentform', 'workshop'), '', false, true);
-            $o .= $this->output->container(self::moodleform($assessment->form), 'assessment-form');
+            $o .= $this->output->container(self::lionform($assessment->form), 'assessment-form');
             $o .= print_collapsible_region_end(true);
 
             if (!$assessment->form->is_editable()) {
@@ -724,7 +710,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
             $files = '';
             foreach ($attachments as $attachment) {
                 $icon = $this->output->pix_icon(file_file_icon($attachment), get_mimetype_description($attachment),
-                    'moodle', array('class' => 'icon'));
+                    'lion', array('class' => 'icon'));
                 $link = html_writer::link($attachment->fileurl, $icon.' '.substr($attachment->filepath.$attachment->filename, 1));
                 if (file_mimetype_in_typegroup($attachment->mimetype, 'web_image')) {
                     $preview = html_writer::empty_tag('img', array('src' => $attachment->previewurl, 'alt' => '', 'class' => 'preview'));
@@ -854,13 +840,13 @@ class mod_workshop_renderer extends plugin_renderer_base {
 
             $filepath   = $file->get_filepath();
             $filename   = $file->get_filename();
-            $fileurl    = moodle_url::make_pluginfile_url($ctx->id, 'mod_workshop', 'submission_attachment',
+            $fileurl    = lion_url::make_pluginfile_url($ctx->id, 'mod_workshop', 'submission_attachment',
                             $submissionid, $filepath, $filename, true);
-            $embedurl   = moodle_url::make_pluginfile_url($ctx->id, 'mod_workshop', 'submission_attachment',
+            $embedurl   = lion_url::make_pluginfile_url($ctx->id, 'mod_workshop', 'submission_attachment',
                             $submissionid, $filepath, $filename, false);
-            $embedurl   = new moodle_url($embedurl, array('preview' => 'bigthumb'));
+            $embedurl   = new lion_url($embedurl, array('preview' => 'bigthumb'));
             $type       = $file->get_mimetype();
-            $image      = $this->output->pix_icon(file_file_icon($file), get_mimetype_description($file), 'moodle', array('class' => 'icon'));
+            $image      = $this->output->pix_icon(file_file_icon($file), get_mimetype_description($file), 'lion', array('class' => 'icon'));
 
             $linkhtml   = html_writer::link($fileurl, $image) . substr($filepath, 1) . html_writer::link($fileurl, $filename);
             $linktxt    = "$filename [$fileurl]";
@@ -956,13 +942,13 @@ class mod_workshop_renderer extends plugin_renderer_base {
 
         if (!is_null($sortid)) {
             if ($sortby !== $sortid or $sorthow !== 'ASC') {
-                $url = new moodle_url($PAGE->url);
+                $url = new lion_url($PAGE->url);
                 $url->params(array('sortby' => $sortid, 'sorthow' => 'ASC'));
                 $out .= $this->output->action_icon($url, new pix_icon('t/sort_asc', get_string('sortasc', 'workshop')),
                     null, array('class' => 'iconsort sort asc'));
             }
             if ($sortby !== $sortid or $sorthow !== 'DESC') {
-                $url = new moodle_url($PAGE->url);
+                $url = new lion_url($PAGE->url);
                 $url->params(array('sortby' => $sortid, 'sorthow' => 'DESC'));
                 $out .= $this->output->action_icon($url, new pix_icon('t/sort_desc', get_string('sortdesc', 'workshop')),
                     null, array('class' => 'iconsort sort desc'));
@@ -994,7 +980,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
         if (is_null($participant->submissionid)) {
             $out = $this->output->container(get_string('nosubmissionfound', 'workshop'), 'info');
         } else {
-            $url = new moodle_url('/mod/workshop/submission.php',
+            $url = new lion_url('/mod/workshop/submission.php',
                                   array('cmid' => $this->page->context->instanceid, 'id' => $participant->submissionid));
             $out = html_writer::link($url, format_string($participant->submissiontitle), array('class'=>'title'));
         }
@@ -1034,7 +1020,7 @@ class mod_workshop_renderer extends plugin_renderer_base {
                 $grade = get_string('formatpeergradeoverweighted', 'workshop', $a);
             }
         }
-        $url = new moodle_url('/mod/workshop/assessment.php',
+        $url = new lion_url('/mod/workshop/assessment.php',
                               array('asid' => $assessment->assessmentid));
         $grade = html_writer::link($url, $grade, array('class'=>'grade'));
 
@@ -1070,12 +1056,12 @@ class mod_workshop_renderer extends plugin_renderer_base {
     ////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Helper method dealing with the fact we can not just fetch the output of moodleforms
+     * Helper method dealing with the fact we can not just fetch the output of lionforms
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      * @return string HTML
      */
-    protected static function moodleform(moodleform $mform) {
+    protected static function lionform(lionform $mform) {
 
         ob_start();
         $mform->display();

@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Unit tests for lib/outputcomponents.php.
  *
  * @package   core
  * @category  phpunit
- * @copyright 2011 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2011 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/outputcomponents.php');
@@ -125,13 +111,13 @@ class core_outputcomponents_testcase extends advanced_testcase {
         $this->assertEquals(1, $CFG->slasharguments);
         $this->assertEquals(1, $CFG->themerev);
         $this->assertEquals(0, $CFG->themedesignermode);
-        $this->assertSame('http://www.example.com/moodle', $CFG->wwwroot);
+        $this->assertSame('http://www.example.com/lion', $CFG->wwwroot);
         $this->assertSame($CFG->wwwroot, $CFG->httpswwwroot);
         $this->assertEquals(0, $CFG->enablegravatar);
         $this->assertSame('mm', $CFG->gravatardefaulturl);
 
         // Create some users.
-        $page = new moodle_page();
+        $page = new lion_page();
         $page->set_url('/user/profile.php');
         $page->set_context(context_system::instance());
         $renderer = $page->get_renderer('core');
@@ -212,7 +198,7 @@ class core_outputcomponents_testcase extends advanced_testcase {
         // Without gravatardefaulturl, verify we pick own file.
         set_config('gravatardefaulturl', '');
         $up2 = new user_picture($user2);
-        $this->assertSame('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=http%3A%2F%2Fwww.example.com%2Fmoodle%2Fpix%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+        $this->assertSame('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=http%3A%2F%2Fwww.example.com%2Flion%2Fpix%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
         // Uploaded image takes precedence before gravatar.
         $up1 = new user_picture($user1);
         $this->assertSame($CFG->wwwroot.'/pluginfile.php/'.$context1->id.'/user/icon/clean/f2?rev=11', $up1->get_url($page, $renderer)->out(false));
@@ -227,26 +213,26 @@ class core_outputcomponents_testcase extends advanced_testcase {
         $this->assertSame($CFG->httpswwwroot.'/theme/image.php/clean/core/1/u/f2', $up3->get_url($page, $renderer)->out(false));
 
         $up2 = new user_picture($user2);
-        $this->assertSame('https://secure.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=https%3A%2F%2Fwww.example.com%2Fmoodle%2Fpix%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+        $this->assertSame('https://secure.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=https%3A%2F%2Fwww.example.com%2Flion%2Fpix%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
 
         // TODO MDL-44792 Rewrite those tests to use a fixture.
         // Now test gravatar with one theme having own images (afterburner).
         // $CFG->httpswwwroot = $CFG->wwwroot;
         // $this->assertFileExists("$CFG->dirroot/theme/afterburner/config.php");
         // set_config('theme', 'afterburner');
-        // $page = new moodle_page();
+        // $page = new lion_page();
         // $page->set_url('/user/profile.php');
         // $page->set_context(context_system::instance());
         // $renderer = $page->get_renderer('core');
 
         // $up2 = new user_picture($user2);
-        // $this->assertEquals('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=http%3A%2F%2Fwww.example.com%2Fmoodle%2Ftheme%2Fafterburner%2Fpix_core%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+        // $this->assertEquals('http://www.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=http%3A%2F%2Fwww.example.com%2Flion%2Ftheme%2Fafterburner%2Fpix_core%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
 
         // // Https version.
         // $CFG->httpswwwroot = str_replace('http:', 'https:', $CFG->wwwroot);
 
         // $up2 = new user_picture($user2);
-        // $this->assertSame('https://secure.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=https%3A%2F%2Fwww.example.com%2Fmoodle%2Ftheme%2Fafterburner%2Fpix_core%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
+        // $this->assertSame('https://secure.gravatar.com/avatar/ab53a2911ddf9b4817ac01ddcd3d975f?s=35&d=https%3A%2F%2Fwww.example.com%2Flion%2Ftheme%2Fafterburner%2Fpix_core%2Fu%2Ff2.png', $up2->get_url($page, $renderer)->out(false));
         // End of gravatar tests.
 
         // Test themed images.
@@ -254,7 +240,7 @@ class core_outputcomponents_testcase extends advanced_testcase {
         // $this->assertFileExists("$CFG->dirroot/theme/formal_white/config.php"); // Use any other theme.
         // set_config('theme', 'formal_white');
         // $CFG->httpswwwroot = $CFG->wwwroot;
-        // $page = new moodle_page();
+        // $page = new lion_page();
         // $page->set_url('/user/profile.php');
         // $page->set_context(context_system::instance());
         // $renderer = $page->get_renderer('core');
@@ -269,7 +255,7 @@ class core_outputcomponents_testcase extends advanced_testcase {
         set_config('theme', 'clean');
         $CFG->httpswwwroot = $CFG->wwwroot;
         $CFG->slasharguments = 0;
-        $page = new moodle_page();
+        $page = new lion_page();
         $page->set_url('/user/profile.php');
         $page->set_context(context_system::instance());
         $renderer = $page->get_renderer('core');
@@ -286,15 +272,15 @@ class core_outputcomponents_testcase extends advanced_testcase {
 
     public function test_basic_syntax() {
         $definition = <<<EOF
-Moodle community|http://moodle.org
--Moodle free support|http://moodle.org/support
--Moodle development|http://moodle.org/development
---Moodle Tracker|http://tracker.moodle.org
---Moodle Docs|http://docs.moodle.org
--Moodle News|http://moodle.org/news
-Moodle company||Moodle trust pty
--Hosting|http://moodle.com/hosting|Commercial hosting
--Support|http://moodle.com/support|Commercial support
+Lion community|http://lion.org
+-Lion free support|http://lion.org/support
+-Lion development|http://lion.org/development
+--Lion Tracker|http://tracker.lion.org
+--Lion Docs|http://docs.lion.org
+-Lion News|http://lion.org/news
+Lion company||Lion trust pty
+-Hosting|http://lion.com/hosting|Commercial hosting
+-Support|http://lion.com/support|Commercial support
 EOF;
 
         $menu = new custom_menu($definition);
@@ -308,19 +294,19 @@ EOF;
         $this->assertInstanceOf('custom_menu_item', $item);
         $this->assertTrue($item->has_children());
         $this->assertCount(3, $item->get_children());
-        $this->assertEquals('Moodle community', $item->get_text());
+        $this->assertEquals('Lion community', $item->get_text());
         $itemurl = $item->get_url();
-        $this->assertTrue($itemurl instanceof moodle_url);
-        $this->assertEquals('http://moodle.org', $itemurl->out());
+        $this->assertTrue($itemurl instanceof lion_url);
+        $this->assertEquals('http://lion.org', $itemurl->out());
         $this->assertEquals($item->get_text(), $item->get_title()); // Implicit title.
 
         /** @var custom_menu_item $item */
         $item = array_shift($firstlevel);
         $this->assertTrue($item->has_children());
         $this->assertCount(2, $item->get_children());
-        $this->assertSame('Moodle company', $item->get_text());
+        $this->assertSame('Lion company', $item->get_text());
         $this->assertNull($item->get_url());
-        $this->assertSame('Moodle trust pty', $item->get_title());
+        $this->assertSame('Lion trust pty', $item->get_title());
 
         $children = $item->get_children();
         $subitem = array_shift($children);
@@ -423,7 +409,7 @@ EOF;
                            '<a href="page?page=7">8</a>',
                            );
 
-        $mpage = new moodle_page();
+        $mpage = new lion_page();
         $rbase = new renderer_base($mpage, "/");
         $pbara = new paging_bar(40, 0, 5, 'index.php');
         $pbara->prepare($rbase, $mpage, "/");

@@ -1,8 +1,8 @@
 <?php
 /**
- * A service browser for remote Moodles
+ * A service browser for remote Lions
  *
- * This script 'remotely' executes the reflection methods on a remote Moodle,
+ * This script 'remotely' executes the reflection methods on a remote Lion,
  * and publishes the details of the available services
  *
  * @package    core
@@ -25,7 +25,7 @@ require_login();
 admin_externalpage_setup('mnettestclient');
 
 $context = context_system::instance();
-require_capability('moodle/site:config', $context);
+require_capability('lion/site:config', $context);
 
 error_reporting(DEBUG_ALL);
 
@@ -40,9 +40,9 @@ $servicename = optional_param('servicename', '', PARAM_SAFEDIR);
 $methodid = optional_param('method', 0, PARAM_INT);
 
 $hosts = $DB->get_records('mnet_host');
-$moodleapplicationid = $DB->get_field('mnet_application', 'id', array('name' => 'moodle'));
+$lionapplicationid = $DB->get_field('mnet_application', 'id', array('name' => 'lion'));
 
-$url = new moodle_url('/admin/mnet/testclient.php');
+$url = new lion_url('/admin/mnet/testclient.php');
 $PAGE->set_url($url);
 
 echo $OUTPUT->heading(get_string('hostlist', 'mnet'));
@@ -50,14 +50,14 @@ foreach ($hosts as $id => $host) {
     if (empty($host->wwwroot) || $host->wwwroot == $CFG->wwwroot) {
         continue;
     }
-    $newurl = new moodle_url($url, array('hostid' => $host->id));
+    $newurl = new lion_url($url, array('hostid' => $host->id));
     echo '<p>' . html_writer::link($newurl, $host->wwwroot) . '</p>';
 }
 
 if (!empty($hostid) && array_key_exists($hostid, $hosts)) {
     $host = $hosts[$hostid];
-    if ($host->applicationid != $moodleapplicationid) {
-        echo $OUTPUT->notification(get_string('notmoodleapplication', 'mnet'));
+    if ($host->applicationid != $lionapplicationid) {
+        echo $OUTPUT->notification(get_string('notlionapplication', 'mnet'));
     }
     $mnet_peer = new mnet_peer();
     $mnet_peer->set_wwwroot($host->wwwroot);
@@ -120,7 +120,7 @@ if (!empty($hostid) && array_key_exists($hostid, $hosts)) {
         } else {
             $servicedata['humanname'] = get_string('unknown', 'mnet');
         }
-        $newurl = new moodle_url($url, array('hostid' => $host->id, 'servicename' => $servicedata['name']));
+        $newurl = new lion_url($url, array('hostid' => $host->id, 'servicename' => $servicedata['name']));
         $table->data[] = array(
             $servicedata['name'],
             $servicedata['humanname'],
@@ -165,7 +165,7 @@ if (!empty($hostid) && array_key_exists($hostid, $hosts)) {
         if (isset($servicename)) {
             $params['servicename'] = $servicename;
         }
-        $newurl = new moodle_url($url, $params);
+        $newurl = new lion_url($url, $params);
         $table->data[] = array(
             $method,
             html_writer::link($newurl, get_string('inspect', 'mnet'))

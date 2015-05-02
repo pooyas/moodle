@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Defines the base class form used by blocks/edit.php to edit block instance configuration.
@@ -22,11 +8,11 @@
  *
  * @package    core_block
  * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once($CFG->libdir . '/formslib.php');
@@ -36,9 +22,9 @@ require_once($CFG->libdir . '/blocklib.php');
  * The base class form used by blocks/edit.php to edit block instance configuration.
  *
  * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class block_edit_form extends moodleform {
+class block_edit_form extends lionform {
     /**
      * The block instance we are editing.
      * @var block_base
@@ -46,7 +32,7 @@ class block_edit_form extends moodleform {
     public $block;
     /**
      * The page we are editing this block in association with.
-     * @var moodle_page
+     * @var lion_page
      */
     public $page;
 
@@ -54,7 +40,7 @@ class block_edit_form extends moodleform {
         global $CFG;
         $this->block = $block;
         $this->page = $page;
-        parent::moodleform($actionurl);
+        parent::lionform($actionurl);
     }
 
     function definition() {

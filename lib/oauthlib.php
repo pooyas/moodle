@@ -1,21 +1,7 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/filelib.php');
 
@@ -26,7 +12,7 @@ require_once($CFG->libdir.'/filelib.php');
  * 2. Call request_token method to get oauth_token and oauth_token_secret, and redirect user to authorize_url,
  *    developer needs to store oauth_token and oauth_token_secret somewhere, we will use them to request
  *    access token later on
- * 3. User approved the request, and get back to moodle
+ * 3. User approved the request, and get back to lion
  * 4. Call get_access_token, it takes previous oauth_token and oauth_token_secret as arguments, oauth_token
  *    will be used in OAuth request, oauth_token_secret will be used to bulid signature, this method will
  *    return access_token and access_secret, store these two values in database or session
@@ -38,9 +24,9 @@ require_once($CFG->libdir.'/filelib.php');
  * 2. oauth_helper class don't store tokens and secrets, you must store them manually
  * 3. Some functions are based on http://code.google.com/p/oauth/
  *
- * @package    moodlecore
- * @copyright  2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    lioncore
+ * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
  */
 
 class oauth_helper {
@@ -99,7 +85,7 @@ class oauth_helper {
         }
 
         if (!empty($args['oauth_callback'])) {
-            $this->oauth_callback = new moodle_url($args['oauth_callback']);
+            $this->oauth_callback = new lion_url($args['oauth_callback']);
         }
         if (!empty($args['access_token'])) {
             $this->access_token = $args['access_token'];
@@ -228,7 +214,7 @@ class oauth_helper {
         //     oauth_token_secret
         $result = $this->parse_result($content);
         if (empty($result['oauth_token'])) {
-            throw new moodle_exception('Error while requesting an oauth token');
+            throw new lion_exception('Error while requesting an oauth token');
         }
         // build oauth authrize url
         if (!empty($this->oauth_callback)) {
@@ -320,7 +306,7 @@ class oauth_helper {
      */
     public function parse_result($str) {
         if (empty($str)) {
-            throw new moodle_exception('error');
+            throw new lion_exception('error');
         }
         $parts = explode('&', $str);
         $result = array();
@@ -329,7 +315,7 @@ class oauth_helper {
             $result[urldecode($k)] = urldecode($v);
         }
         if (empty($result)) {
-            throw new moodle_exception('error');
+            throw new lion_exception('error');
         }
         return $result;
     }
@@ -380,14 +366,14 @@ class oauth_helper {
  *
  * @package   core
  * @copyright Dan Poltawski <talktodan@gmail.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class oauth2_client extends curl {
     /** var string client identifier issued to the client */
     private $clientid = '';
     /** var string The client secret. */
     private $clientsecret = '';
-    /** var moodle_url URL to return to after authenticating */
+    /** var lion_url URL to return to after authenticating */
     private $returnurl = null;
     /** var string scope of the authentication request */
     private $scope = '';
@@ -411,10 +397,10 @@ abstract class oauth2_client extends curl {
      *
      * @param string $clientid
      * @param string $clientsecret
-     * @param moodle_url $returnurl
+     * @param lion_url $returnurl
      * @param string $scope
      */
-    public function __construct($clientid, $clientsecret, moodle_url $returnurl, $scope) {
+    public function __construct($clientid, $clientsecret, lion_url $returnurl, $scope) {
         parent::__construct();
         $this->clientid = $clientid;
         $this->clientsecret = $clientsecret;
@@ -455,23 +441,23 @@ abstract class oauth2_client extends curl {
     /**
      * Callback url where the request is returned to.
      *
-     * @return moodle_url url of callback
+     * @return lion_url url of callback
      */
     public static function callback_url() {
         global $CFG;
 
-        return new moodle_url('/admin/oauth2callback.php');
+        return new lion_url('/admin/oauth2callback.php');
     }
 
     /**
      * Returns the login link for this oauth request
      *
-     * @return moodle_url login url
+     * @return lion_url login url
      */
     public function get_login_url() {
 
         $callbackurl = self::callback_url();
-        $url = new moodle_url($this->auth_url(),
+        $url = new lion_url($this->auth_url(),
                         array('client_id' => $this->clientid,
                               'response_type' => 'code',
                               'redirect_uri' => $callbackurl->out(false),
@@ -505,7 +491,7 @@ abstract class oauth2_client extends curl {
         }
 
         if (!$this->info['http_code'] === 200) {
-            throw new moodle_exception('Could not upgrade oauth token');
+            throw new lion_exception('Could not upgrade oauth token');
         }
 
         $r = json_decode($response);
@@ -538,7 +524,7 @@ abstract class oauth2_client extends curl {
      * @return bool
      */
     protected function request($url, $options = array()) {
-        $murl = new moodle_url($url);
+        $murl = new lion_url($url);
 
         if ($this->accesstoken) {
             if ($this->use_http_get()) {

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Filemanager and filepicker manipulation steps definitions.
@@ -20,10 +6,10 @@
  * @package    core_filepicker
  * @category   test
  * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/../../../lib/behat/behat_files.php');
 
@@ -38,7 +24,7 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  * @package    core_filepicker
  * @category   test
  * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class behat_filepicker extends behat_files {
 
@@ -65,7 +51,7 @@ class behat_filepicker extends behat_files {
         $dialoginput->setValue($foldername);
 
         $exception = new ExpectationException('The button for the create folder dialog can not be located', $this->getSession());
-        $dialognode = $this->find('css', '.moodle-dialogue-focused');
+        $dialognode = $this->find('css', '.lion-dialogue-focused');
         $buttonnode = $this->find('css', '.fp-dlg-butcreate', $exception, $dialognode);
         $buttonnode->click();
     }

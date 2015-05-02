@@ -3,7 +3,7 @@
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/datalib.php');
 
-class user_bulk_action_form extends moodleform {
+class user_bulk_action_form extends lionform {
     function definition() {
         global $CFG;
 
@@ -11,27 +11,27 @@ class user_bulk_action_form extends moodleform {
 
         $syscontext = context_system::instance();
         $actions = array(0=>get_string('choose').'...');
-        if (has_capability('moodle/user:update', $syscontext)) {
+        if (has_capability('lion/user:update', $syscontext)) {
             $actions[1] = get_string('confirm');
         }
-        if (has_capability('moodle/site:readallmessages', $syscontext) && !empty($CFG->messaging)) {
+        if (has_capability('lion/site:readallmessages', $syscontext) && !empty($CFG->messaging)) {
             $actions[2] = get_string('messageselectadd');
         }
-        if (has_capability('moodle/user:delete', $syscontext)) {
+        if (has_capability('lion/user:delete', $syscontext)) {
             $actions[3] = get_string('delete');
         }
         $actions[4] = get_string('displayonpage');
-        if (has_capability('moodle/user:update', $syscontext)) {
+        if (has_capability('lion/user:update', $syscontext)) {
             $actions[5] = get_string('download', 'admin');
         }
-        if (has_capability('moodle/role:assign', $syscontext)){
+        if (has_capability('lion/role:assign', $syscontext)){
              //TODO: MDL-24064
             //$actions[6] = get_string('enrolmultipleusers', 'admin');
         }
-        if (has_capability('moodle/user:update', $syscontext)) {
+        if (has_capability('lion/user:update', $syscontext)) {
             $actions[7] = get_string('forcepasswordchange');
         }
-        if (has_capability('moodle/cohort:assign', $syscontext)) {
+        if (has_capability('lion/cohort:assign', $syscontext)) {
             $actions[8] = get_string('bulkadd', 'core_cohort');
         }
         $objs = array();
@@ -41,7 +41,7 @@ class user_bulk_action_form extends moodleform {
     }
 }
 
-class user_bulk_form extends moodleform {
+class user_bulk_form extends lionform {
     function definition() {
 
         $mform =& $this->_form;

@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package    core_backup
  * @category   phpunit
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include all the needed stuff
 global $CFG;
@@ -117,7 +103,7 @@ class backup_logger_testcase extends basic_testcase {
         // Not much really to test, just instantiate and execute, should return true
         $lo = new error_log_logger(backup::LOG_ERROR);
         $this->assertTrue($lo instanceof error_log_logger);
-        $message = 'This log exists because you have run Moodle unit tests: Ignore it';
+        $message = 'This log exists because you have run Lion unit tests: Ignore it';
         $result = $lo->process($message, backup::LOG_ERROR);
         $this->assertTrue($result);
     }
@@ -199,7 +185,7 @@ class backup_logger_testcase extends basic_testcase {
      * test database_logger class
      */
     function test_database_logger() {
-        // Instantiate with date and level output (and with specs from the global moodle "log" table so checks will pass
+        // Instantiate with date and level output (and with specs from the global lion "log" table so checks will pass
         $now = time();
         $datecol = 'time';
         $levelcol = 'action';
@@ -230,7 +216,7 @@ class backup_logger_testcase extends basic_testcase {
         @remove_dir(dirname($file));
         // Recreate test dir
         if (!check_dir_exists(dirname($file), true, true)) {
-            throw new moodle_exception('error_creating_temp_dir', 'error', dirname($file));
+            throw new lion_exception('error_creating_temp_dir', 'error', dirname($file));
         }
 
         // Instantiate with date and level output, and also use the depth option

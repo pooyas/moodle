@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains tests for the 'missing' question type.
@@ -20,11 +6,11 @@
  * @package    qtype
  * @subpackage missingtype
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
@@ -36,7 +22,7 @@ require_once(dirname(__FILE__) . '/../question.php');
  * Unit tests for the 'missing' question type.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qtype_missing_test extends question_testcase {
 
@@ -68,12 +54,12 @@ class qtype_missing_test extends question_testcase {
 
     public function test_cannot_grade() {
         $q = new qtype_missingtype_question();
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $q->grade_response(array());
     }
 
     public function test_load_qtype_strict() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $qtype = question_bank::get_qtype('strange_unknown');
     }
 

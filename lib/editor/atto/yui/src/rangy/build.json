@@ -1,7 +1,7 @@
 {
-  "name": "moodle-editor_atto-rangy",
+  "name": "lion-editor_atto-rangy",
   "builds": {
-    "moodle-editor_atto-rangy": {
+    "lion-editor_atto-rangy": {
       "prependfiles": [
         "rangy-core.js",
         "rangy-cssclassapplier.js",

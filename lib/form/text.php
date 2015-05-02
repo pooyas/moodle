@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -22,7 +8,7 @@
  *
  * @package   core_form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once("HTML/QuickForm/text.php");
@@ -35,9 +21,9 @@ require_once("HTML/QuickForm/text.php");
  * @package   core_form
  * @category  form
  * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
-class MoodleQuickForm_text extends HTML_QuickForm_text{
+class LionQuickForm_text extends HTML_QuickForm_text{
     /** @var string html for help button, if empty then no help */
     var $_helpbutton='';
 
@@ -51,7 +37,7 @@ class MoodleQuickForm_text extends HTML_QuickForm_text{
      * @param string $elementLabel (optional) text field label
      * @param string $attributes (optional) Either a typical HTML attribute string or an associative array
      */
-    function MoodleQuickForm_text($elementName=null, $elementLabel=null, $attributes=null) {
+    function LionQuickForm_text($elementName=null, $elementLabel=null, $attributes=null) {
         parent::HTML_QuickForm_text($elementName, $elementLabel, $attributes);
     }
 
@@ -67,7 +53,7 @@ class MoodleQuickForm_text extends HTML_QuickForm_text{
     /**
      * Freeze the element so that only its value is returned and set persistantfreeze to false
      *
-     * @since     Moodle 2.4
+     * @since     Lion 2.4
      * @access    public
      * @return    void
      */
@@ -81,7 +67,7 @@ class MoodleQuickForm_text extends HTML_QuickForm_text{
     /**
      * Returns the html to be used when the element is frozen
      *
-     * @since     Moodle 2.4
+     * @since     Lion 2.4
      * @return    string Frozen html
      */
     function getFrozenHtml()

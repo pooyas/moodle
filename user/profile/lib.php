@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Profile field API library file.
@@ -22,9 +8,9 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define ('PROFILE_VISIBLE_ALL',     '2'); // Only visible for users with moodle/user:update capability.
-define ('PROFILE_VISIBLE_PRIVATE', '1'); // Either we are viewing our own profile or we have moodle/user:update capability.
-define ('PROFILE_VISIBLE_NONE',    '0'); // Only visible for moodle/user:update capability.
+define ('PROFILE_VISIBLE_ALL',     '2'); // Only visible for users with lion/user:update capability.
+define ('PROFILE_VISIBLE_PRIVATE', '1'); // Either we are viewing our own profile or we have lion/user:update capability.
+define ('PROFILE_VISIBLE_NONE',    '0'); // Only visible for lion/user:update capability.
 
 /**
  * Base class for the customisable profile fields.
@@ -70,9 +56,9 @@ class profile_field_base {
     }
 
     /**
-     * Abstract method: Adds the profile field to the moodle form class
+     * Abstract method: Adds the profile field to the lion form class
      * @abstract The following methods must be overwritten by child classes
-     * @param moodleform $mform instance of the moodleform class
+     * @param lionform $mform instance of the lionform class
      */
     public function edit_field_add($mform) {
         print_error('mustbeoveride', 'debug', '', 'edit_field_add');
@@ -85,17 +71,17 @@ class profile_field_base {
     public function display_data() {
         $options = new stdClass();
         $options->para = false;
-        return format_text($this->data, FORMAT_MOODLE, $options);
+        return format_text($this->data, FORMAT_LION, $options);
     }
 
     /**
      * Print out the form field in the edit profile page
-     * @param moodleform $mform instance of the moodleform class
+     * @param lionform $mform instance of the lionform class
      * @return bool
      */
     public function edit_field($mform) {
         if ($this->field->visible != PROFILE_VISIBLE_NONE
-          or has_capability('moodle/user:update', context_system::instance())) {
+          or has_capability('lion/user:update', context_system::instance())) {
 
             $this->edit_field_add($mform);
             $this->edit_field_set_default($mform);
@@ -107,12 +93,12 @@ class profile_field_base {
 
     /**
      * Tweaks the edit form
-     * @param moodleform $mform instance of the moodleform class
+     * @param lionform $mform instance of the lionform class
      * @return bool
      */
     public function edit_after_data($mform) {
         if ($this->field->visible != PROFILE_VISIBLE_NONE
-          or has_capability('moodle/user:update', context_system::instance())) {
+          or has_capability('lion/user:update', context_system::instance())) {
             $this->edit_field_set_locked($mform);
             return true;
         }
@@ -195,7 +181,7 @@ class profile_field_base {
 
     /**
      * Sets the default data for the field in the form object
-     * @param  moodleform $mform instance of the moodleform class
+     * @param  lionform $mform instance of the lionform class
      */
     public function edit_field_set_default($mform) {
         if (!empty($default)) {
@@ -206,7 +192,7 @@ class profile_field_base {
     /**
      * Sets the required flag for the field in the form object
      *
-     * @param moodleform $mform instance of the moodleform class
+     * @param lionform $mform instance of the lionform class
      */
     public function edit_field_set_required($mform) {
         global $USER;
@@ -217,13 +203,13 @@ class profile_field_base {
 
     /**
      * HardFreeze the field if locked.
-     * @param moodleform $mform instance of the moodleform class
+     * @param lionform $mform instance of the lionform class
      */
     public function edit_field_set_locked($mform) {
         if (!$mform->elementExists($this->inputname)) {
             return;
         }
-        if ($this->is_locked() and !has_capability('moodle/user:update', context_system::instance())) {
+        if ($this->is_locked() and !has_capability('lion/user:update', context_system::instance())) {
             $mform->hardFreeze($this->inputname);
             $mform->setConstant($this->inputname, $this->data);
         }
@@ -324,11 +310,11 @@ class profile_field_base {
                 if ($this->userid == $USER->id) {
                     return true;
                 } else {
-                    return has_capability('moodle/user:viewalldetails',
+                    return has_capability('lion/user:viewalldetails',
                             context_user::instance($this->userid));
                 }
             default:
-                return has_capability('moodle/user:viewalldetails',
+                return has_capability('lion/user:viewalldetails',
                         context_user::instance($this->userid));
         }
     }
@@ -399,14 +385,14 @@ function profile_load_data($user) {
 /**
  * Print out the customisable categories and fields for a users profile
  *
- * @param moodleform $mform instance of the moodleform class
+ * @param lionform $mform instance of the lionform class
  * @param int $userid id of user whose profile is being edited.
  */
 function profile_definition($mform, $userid = 0) {
     global $CFG, $DB;
 
     // If user is "admin" fields are displayed regardless.
-    $update = has_capability('moodle/user:update', context_system::instance());
+    $update = has_capability('lion/user:update', context_system::instance());
 
     if ($categories = $DB->get_records('user_info_category', null, 'sortorder ASC')) {
         foreach ($categories as $category) {
@@ -437,7 +423,7 @@ function profile_definition($mform, $userid = 0) {
 
 /**
  * Adds profile fields to user edit forms.
- * @param moodleform $mform
+ * @param lionform $mform
  * @param int $userid
  */
 function profile_definition_after_data($mform, $userid) {
@@ -518,9 +504,9 @@ function profile_display_fields($userid) {
 }
 
 /**
- * Adds code snippet to a moodle form object for custom profile fields that
+ * Adds code snippet to a lion form object for custom profile fields that
  * should appear on the signup page
- * @param moodleform $mform moodle form object
+ * @param lionform $mform lion form object
  */
 function profile_signup_fields($mform) {
     global $CFG, $DB;
@@ -584,7 +570,7 @@ function profile_user_record($userid) {
  *
  * @param bool $onlyinuserobject True if you only want the ones in $USER
  * @return array Array of field objects from database (indexed by id)
- * @since Moodle 2.7.1
+ * @since Lion 2.7.1
  */
 function profile_get_custom_fields($onlyinuserobject = false) {
     global $DB, $CFG;

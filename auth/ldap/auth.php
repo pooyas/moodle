@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Authentication Plugin: LDAP Authentication
@@ -24,7 +10,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // See http://support.microsoft.com/kb/305144 to interprete these values.
 if (!defined('AUTH_AD_ACCOUNTDISABLE')) {
@@ -131,9 +117,9 @@ class auth_plugin_ldap extends auth_plugin_base {
             // valid filter string, to select subsets of users based
             // on any criteria. For example, we could select the users
             // whose objectClass is 'user' and have the
-            // 'enabledMoodleUser' attribute, with something like:
+            // 'enabledLionUser' attribute, with something like:
             //
-            //   (&(objectClass=user)(enabledMoodleUser=1))
+            //   (&(objectClass=user)(enabledLionUser=1))
             //
             // In this particular case we don't need to do anything,
             // so leave $this->config->objectclass as is.
@@ -220,7 +206,7 @@ class auth_plugin_ldap extends auth_plugin_base {
         // If login fails and we are using MS Active Directory, retrieve the diagnostic
         // message to see if this is due to an expired password, or that the user is forced to
         // change the password on first login. If it is, only proceed if we can change
-        // password from Moodle (otherwise we'll get stuck later in the login process).
+        // password from Lion (otherwise we'll get stuck later in the login process).
         if (!$ldap_login && ($this->config->user_type == 'ad')
             && $this->can_change_password()
             && (!empty($this->config->expiration) and ($this->config->expiration == 1))) {
@@ -244,7 +230,7 @@ class auth_plugin_ldap extends auth_plugin_base {
      * Reads user information from ldap and returns it in array()
      *
      * Function should return all information available. If you are saving
-     * this information to moodle user-table you should honor syncronization flags
+     * this information to lion user-table you should honor syncronization flags
      *
      * @param string $username username
      *
@@ -277,7 +263,7 @@ class auth_plugin_ldap extends auth_plugin_base {
             return false; // error!
         }
 
-        $user_entry = ldap_get_entries_moodle($ldapconnection, $user_info_result);
+        $user_entry = ldap_get_entries_lion($ldapconnection, $user_info_result);
         if (empty($user_entry)) {
             $this->ldap_close();
             return false; // entry not found
@@ -364,7 +350,7 @@ class auth_plugin_ldap extends auth_plugin_base {
      * By using information in userobject
      * Use user_exists to prevent duplicate usernames
      *
-     * @param mixed $userobject  Moodle userobject
+     * @param mixed $userobject  Lion userobject
      * @param mixed $plainpass   Plaintext password
      */
     function user_create($userobject, $plainpass) {
@@ -402,7 +388,7 @@ class auth_plugin_ldap extends auth_plugin_base {
         //Following sets all mandatory and other forced attribute values
         //User should be creted as login disabled untill email confirmation is processed
         //Feel free to add your user type and send patches to paca@sci.fi to add them
-        //Moodle distribution
+        //Lion distribution
 
         switch ($this->config->user_type)  {
             case 'edir':
@@ -416,9 +402,9 @@ class auth_plugin_ldap extends auth_plugin_base {
             case 'rfc2307bis':
                 // posixAccount object class forces us to specify a uidNumber
                 // and a gidNumber. That is quite complicated to generate from
-                // Moodle without colliding with existing numbers and without
+                // Lion without colliding with existing numbers and without
                 // race conditions. As this user is supposed to be only used
-                // with Moodle (otherwise the user would exist beforehand) and
+                // with Lion (otherwise the user would exist beforehand) and
                 // doesn't need to login into a operating system, we assign the
                 // user the uid of user 'nobody' and gid of group 'nogroup'. In
                 // addition to that, we need to specify a home directory. We
@@ -426,7 +412,7 @@ class auth_plugin_ldap extends auth_plugin_base {
                 // is the only one can always be sure exists. Finally, even if
                 // it's not mandatory, we specify '/bin/false' as the login
                 // shell, to prevent the user from login in at the operating
-                // system level (Moodle ignores this).
+                // system level (Lion ignores this).
 
                 $newuser['objectClass']   = array('posixAccount', 'inetOrgPerson', 'organizationalPerson', 'person', 'top');
                 $newuser['cn']            = $extusername;
@@ -444,7 +430,7 @@ class auth_plugin_ldap extends auth_plugin_base {
                 //
                 // Beware that this can be defeated by the user if we are not
                 // using MD5 or SHA-1 passwords. After all, the source code of
-                // Moodle is available, and the user can see the kind of
+                // Lion is available, and the user can see the kind of
                 // modification we are doing and 'undo' it by hand (but only
                 // if we are using plain text passwords).
                 //
@@ -502,7 +488,7 @@ class auth_plugin_ldap extends auth_plugin_base {
     }
 
     /**
-     * Returns true if plugin allows resetting of password from moodle.
+     * Returns true if plugin allows resetting of password from lion.
      *
      * @return bool
      */
@@ -645,7 +631,7 @@ class auth_plugin_ldap extends auth_plugin_base {
         $search_attribs = array($this->config->expireattr);
         $sr = ldap_read($ldapconnection, $user_dn, '(objectClass=*)', $search_attribs);
         if ($sr)  {
-            $info = ldap_get_entries_moodle($ldapconnection, $sr);
+            $info = ldap_get_entries_lion($ldapconnection, $sr);
             if (!empty ($info)) {
                 $info = array_change_key_case($info[0], CASE_LOWER);
                 if (isset($info[$this->config->expireattr][0])) {
@@ -668,7 +654,7 @@ class auth_plugin_ldap extends auth_plugin_base {
     }
 
     /**
-     * Syncronizes user fron external LDAP server to moodle user table
+     * Syncronizes user fron external LDAP server to lion user table
      *
      * Sync is now using username attribute.
      *
@@ -979,11 +965,11 @@ class auth_plugin_ldap extends auth_plugin_base {
 
     /**
      * Update a local user record from an external source.
-     * This is a lighter version of the one in moodlelib -- won't do
+     * This is a lighter version of the one in lionlib -- won't do
      * expensive ops such as enrolment.
      *
      * If you don't pass $updatekeys, there is a performance hit and
-     * values removed from LDAP won't be removed from moodle.
+     * values removed from LDAP won't be removed from lion.
      *
      * @param string $username username
      * @param boolean $updatekeys true to update the local record with the external LDAP values.
@@ -1188,7 +1174,7 @@ class auth_plugin_ldap extends auth_plugin_base {
         $success = true;
         $user_info_result = ldap_read($ldapconnection, $user_dn, '(objectClass=*)', $search_attribs);
         if ($user_info_result) {
-            $user_entry = ldap_get_entries_moodle($ldapconnection, $user_info_result);
+            $user_entry = ldap_get_entries_lion($ldapconnection, $user_info_result);
             if (empty($user_entry)) {
                 $attribs = join (', ', $search_attribs);
                 error_log($this->errorlogtag.get_string('updateusernotfound', 'auth_ldap',
@@ -1204,7 +1190,7 @@ class auth_plugin_ldap extends auth_plugin_base {
 
             foreach ($attrmap as $key => $ldapkeys) {
                 $profilefield = '';
-                // Only process if the moodle field ($key) has changed and we
+                // Only process if the lion field ($key) has changed and we
                 // are set to update LDAP with it
                 $customprofilefield = 'profile_field_' . $key;
                 if (isset($olduser->$key) and isset($newuser->$key)
@@ -1254,7 +1240,7 @@ class auth_plugin_ldap extends auth_plugin_base {
                                 }
                             }
                         } else {
-                            // Ambiguous. Value empty before in Moodle (and LDAP) - use
+                            // Ambiguous. Value empty before in Lion (and LDAP) - use
                             // 1st ldap candidate field, no need to guess
                             if ($ouvalue === '') { // value empty before - use 1st ldap candidate
                                 // This might fail due to schema validation
@@ -1367,7 +1353,7 @@ class auth_plugin_ldap extends auth_plugin_base {
                 $search_attribs = array($this->config->expireattr, 'passwordExpirationInterval', 'loginGraceLimit');
                 $sr = ldap_read($ldapconnection, $user_dn, '(objectClass=*)', $search_attribs);
                 if ($sr) {
-                    $entry = ldap_get_entries_moodle($ldapconnection, $sr);
+                    $entry = ldap_get_entries_lion($ldapconnection, $sr);
                     $info = array_change_key_case($entry[0], CASE_LOWER);
                     $newattrs = array();
                     if (!empty($info[$this->config->expireattr][0])) {
@@ -1490,13 +1476,13 @@ class auth_plugin_ldap extends auth_plugin_base {
     }
 
     /**
-     * Returns user attribute mappings between moodle and LDAP
+     * Returns user attribute mappings between lion and LDAP
      *
      * @return array
      */
 
     function ldap_attributes () {
-        $moodleattributes = array();
+        $lionattributes = array();
         // If we have custom fields then merge them with user fields.
         $customfields = $this->get_custom_user_profile_fields();
         if (!empty($customfields) && !empty($this->userfields)) {
@@ -1507,14 +1493,14 @@ class auth_plugin_ldap extends auth_plugin_base {
 
         foreach ($userfields as $field) {
             if (!empty($this->config->{"field_map_$field"})) {
-                $moodleattributes[$field] = core_text::strtolower(trim($this->config->{"field_map_$field"}));
-                if (preg_match('/,/', $moodleattributes[$field])) {
-                    $moodleattributes[$field] = explode(',', $moodleattributes[$field]); // split ?
+                $lionattributes[$field] = core_text::strtolower(trim($this->config->{"field_map_$field"}));
+                if (preg_match('/,/', $lionattributes[$field])) {
+                    $lionattributes[$field] = explode(',', $lionattributes[$field]); // split ?
                 }
             }
         }
-        $moodleattributes['username'] = core_text::strtolower(trim($this->config->user_attribute));
-        return $moodleattributes;
+        $lionattributes['username'] = core_text::strtolower(trim($this->config->user_attribute));
+        return $lionattributes;
     }
 
     /**
@@ -1562,7 +1548,7 @@ class auth_plugin_ldap extends auth_plugin_base {
                 if ($ldap_pagedresults) {
                     ldap_control_paged_result_response($ldapconnection, $ldap_result, $ldap_cookie);
                 }
-                $users = ldap_get_entries_moodle($ldapconnection, $ldap_result);
+                $users = ldap_get_entries_lion($ldapconnection, $ldap_result);
                 // Add found users to list.
                 for ($i = 0; $i < count($users); $i++) {
                     $extuser = core_text::convert($users[$i][$this->config->user_attribute][0],
@@ -1579,7 +1565,7 @@ class auth_plugin_ldap extends auth_plugin_base {
     }
 
     /**
-     * Indicates if password hashes should be stored in local moodle database.
+     * Indicates if password hashes should be stored in local lion database.
      *
      * @return bool true means flag 'not_cached' stored instead of password hash
      */
@@ -1610,12 +1596,12 @@ class auth_plugin_ldap extends auth_plugin_base {
      * Returns the URL for changing the user's password, or empty if the default can
      * be used.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     function change_password_url() {
         if (empty($this->config->stdchangepassword)) {
             if (!empty($this->config->changepasswordurl)) {
-                return new moodle_url($this->config->changepasswordurl);
+                return new lion_url($this->config->changepasswordurl);
             } else {
                 return null;
             }
@@ -1699,7 +1685,7 @@ class auth_plugin_ldap extends auth_plugin_base {
      *
      * NOTE that this code will execute under the OS user credentials,
      * so we MUST avoid dealing with files -- such as session files.
-     * (The caller should define('NO_MOODLE_COOKIES', true) before including config.php)
+     * (The caller should define('NO_LION_COOKIES', true) before including config.php)
      *
      */
     function ntlmsso_magic($sesskey) {
@@ -2010,7 +1996,7 @@ class auth_plugin_ldap extends auth_plugin_base {
             return 0;
         }
 
-        $entry = ldap_get_entries_moodle($ldapconn, $sr);
+        $entry = ldap_get_entries_lion($ldapconn, $sr);
         $info = array_change_key_case($entry[0], CASE_LOWER);
         $useraccountcontrol = $info['useraccountcontrol'][0];
         if ($useraccountcontrol & UF_DONT_EXPIRE_PASSWD) {
@@ -2055,13 +2041,13 @@ class auth_plugin_ldap extends auth_plugin_base {
             return 0;
         }
 
-        $entry = ldap_get_entries_moodle($ldapconn, $sr);
+        $entry = ldap_get_entries_lion($ldapconn, $sr);
         $info = array_change_key_case($entry[0], CASE_LOWER);
         $domaindn = $info['defaultnamingcontext'][0];
 
         $sr = ldap_read ($ldapconn, $domaindn, '(objectClass=*)',
                          array('maxPwdAge'));
-        $entry = ldap_get_entries_moodle($ldapconn, $sr);
+        $entry = ldap_get_entries_lion($ldapconn, $sr);
         $info = array_change_key_case($entry[0], CASE_LOWER);
         $maxpwdage = $info['maxpwdage'][0];
 
@@ -2120,7 +2106,7 @@ class auth_plugin_ldap extends auth_plugin_base {
 
     /**
      * Connect to the LDAP server, using the plugin configured
-     * settings. It's actually a wrapper around ldap_connect_moodle()
+     * settings. It's actually a wrapper around ldap_connect_lion()
      *
      * @return resource A valid LDAP connection (or dies if it can't connect)
      */
@@ -2135,7 +2121,7 @@ class auth_plugin_ldap extends auth_plugin_base {
             return $this->ldapconnection;
         }
 
-        if($ldapconnection = ldap_connect_moodle($this->config->host_url, $this->config->ldap_version,
+        if($ldapconnection = ldap_connect_lion($this->config->host_url, $this->config->ldap_version,
                                                  $this->config->user_type, $this->config->bind_dn,
                                                  $this->config->bind_pw, $this->config->opt_deref,
                                                  $debuginfo, $this->config->start_tls)) {

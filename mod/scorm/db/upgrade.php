@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Upgrade script for the scorm module.
  *
  * @package    mod_scorm
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 
 /**
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param int $oldversion
  * @return bool
  */
@@ -34,7 +20,7 @@ function xmldb_scorm_upgrade($oldversion) {
     $dbman = $DB->get_manager();
 
 
-    // Moodle v2.2.0 release upgrade line
+    // Lion v2.2.0 release upgrade line
     // Put any upgrade step following this
 
     if ($oldversion < 2012032100) {
@@ -59,7 +45,7 @@ function xmldb_scorm_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2012032101, 'scorm');
     }
 
-    // Moodle v2.3.0 release upgrade line
+    // Lion v2.3.0 release upgrade line
     // Put any upgrade step following this
 
     //rename config var from maxattempts to maxattempt
@@ -75,10 +61,10 @@ function xmldb_scorm_upgrade($oldversion) {
     }
 
 
-    // Moodle v2.4.0 release upgrade line
+    // Lion v2.4.0 release upgrade line
     // Put any upgrade step following this.
 
-    // Moodle v2.5.0 release upgrade line.
+    // Lion v2.5.0 release upgrade line.
     // Put any upgrade step following this.
 
     // Remove old imsrepository type - convert any existing records to external type to help prevent major errors.
@@ -175,7 +161,7 @@ function xmldb_scorm_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2013090100, 'scorm');
     }
 
-    // Moodle v2.6.0 release upgrade line.
+    // Lion v2.6.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2013110501) {
@@ -276,7 +262,7 @@ function xmldb_scorm_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014040200, 'scorm');
     }
 
-    // Moodle v2.7.0 release upgrade line.
+    // Lion v2.7.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2014072500) {
@@ -294,7 +280,7 @@ function xmldb_scorm_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014072500, 'scorm');
     }
 
-    // Moodle v2.8.0 release upgrade line.
+    // Lion v2.8.0 release upgrade line.
     // Put any upgrade step following this.
 
     return true;

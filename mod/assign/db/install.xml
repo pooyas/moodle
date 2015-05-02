@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/assign/db" VERSION="20140724" COMMENT="XMLDB file for Moodle mod/assign"
+<XMLDB PATH="mod/assign/db" VERSION="20140724" COMMENT="XMLDB file for Lion mod/assign"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
@@ -12,7 +12,7 @@
         <FIELD NAME="intro" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The description of the assignment. This field is used by feature MOD_INTRO."/>
         <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The format of the description field of the assignment. This field is used by feature MOD_INTRO."/>
         <FIELD NAME="alwaysshowdescription" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If false the assignment intro will only be displayed after the allowsubmissionsfrom date. If true it will always be displayed."/>
-        <FIELD NAME="nosubmissions" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="This field is a cache for is_any_submission_plugin_enabled() which allows Moodle pages to distinguish offline assignment types without loading the assignment class."/>
+        <FIELD NAME="nosubmissions" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="This field is a cache for is_any_submission_plugin_enabled() which allows Lion pages to distinguish offline assignment types without loading the assignment class."/>
         <FIELD NAME="submissiondrafts" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If true, assignment submissions will be considered drafts until the student clicks on the submit assignmnet button."/>
         <FIELD NAME="sendnotifications" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Allows the disabling of email notifications in the assign module."/>
         <FIELD NAME="sendlatenotifications" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Allows separate enabling of notifications for late assignment submissions."/>

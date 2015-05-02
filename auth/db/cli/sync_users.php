@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Extdb user sync script.
  *
  * This script is meant to be called from a system cronjob to
- * sync moodle user accounts with external database.
+ * sync lion user accounts with external database.
  * It is required when using internal passwords (== passwords not defined in external database).
  *
  * Sample cron entry:
  * # 5 minutes past 4am
- * 5 4 * * * sudo -u www-data /usr/bin/php /var/www/moodle/auth/db/cli/sync_users.php
+ * 5 4 * * * sudo -u www-data /usr/bin/php /var/www/lion/auth/db/cli/sync_users.php
  *
  * Notes:
  *   - it is required to use the web server account when executing PHP CLI scripts
@@ -39,7 +25,7 @@
  *
  * @package    auth_db
  * @copyright  2006 Martin Langhoff
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('CLI_SCRIPT', true);
@@ -70,7 +56,7 @@ Example:
 
 Sample cron entry:
 # 5 minutes past 4am
-5 4 * * * sudo -u www-data /usr/bin/php /var/www/moodle/auth/db/cli/sync_users.php
+5 4 * * * sudo -u www-data /usr/bin/php /var/www/lion/auth/db/cli/sync_users.php
 ";
 
     echo $help;

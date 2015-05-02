@@ -1,21 +1,21 @@
 <?php
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +32,7 @@ require_once($CFG->libdir . '/formslib.php');
 require_once($CFG->dirroot . '/course/publish/lib.php');
 require_once($CFG->dirroot . '/' . $CFG->admin . '/registration/lib.php');
 
-class community_hub_search_form extends moodleform {
+class community_hub_search_form extends lionform {
 
     public function definition() {
         global $CFG, $USER, $OUTPUT;
@@ -84,7 +84,7 @@ class community_hub_search_form extends moodleform {
         if (isset($this->_customdata['huburl'])) {
             $huburl = $this->_customdata['huburl'];
         } else {
-            $huburl = HUB_MOODLEORGHUBURL;
+            $huburl = HUB_LIONORGHUBURL;
         }
 
         $mform->addElement('header', 'site', get_string('search', 'block_community'));
@@ -144,7 +144,7 @@ class community_hub_search_form extends moodleform {
 
                     // Retrieve hub logo + generate small logo.
                     $params = array('hubid' => $hub['id'], 'filetype' => HUB_HUBSCREENSHOT_FILE_TYPE);
-                    $imgurl = new moodle_url(HUB_HUBDIRECTORYURL . "/local/hubdirectory/webservice/download.php", $params);
+                    $imgurl = new lion_url(HUB_HUBDIRECTORYURL . "/local/hubdirectory/webservice/download.php", $params);
                     $imgsize = getimagesize($imgurl->out(false));
                     if ($imgsize[0] > 1) {
                         $ascreenshothtml = html_writer::empty_tag('img', array('src' => $imgurl, 'alt' => $hubname));
@@ -157,7 +157,7 @@ class community_hub_search_form extends moodleform {
 
                     // Statistics + trusted info.
                     $hubstats = '';
-                    if (isset($hub['enrollablecourses'])) { //check needed to avoid warnings for Moodle version < 2011081700
+                    if (isset($hub['enrollablecourses'])) { //check needed to avoid warnings for Lion version < 2011081700
                         $additionaldesc = get_string('enrollablecourses', 'block_community') . ': ' . $hub['enrollablecourses'] . ' - ' .
                                 get_string('downloadablecourses', 'block_community') . ': ' . $hub['downloadablecourses'];
                         $hubstats .= html_writer::tag('div', $additionaldesc);
@@ -199,7 +199,7 @@ class community_hub_search_form extends moodleform {
             $mform->setDefault('huburl', $huburl);
 
             //display enrol/download select box if the USER has the download capability on the course
-            if (has_capability('moodle/community:download',
+            if (has_capability('lion/community:download',
                             context_course::instance($this->_customdata['courseid']))) {
                 $options = array(0 => get_string('enrollable', 'block_community'),
                     1 => get_string('downloadable', 'block_community'));

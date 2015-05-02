@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This script migrates data from current database to another
@@ -24,7 +10,7 @@
  *
  * @package    tool_dbtransfer
  * @copyright  2012 Petr Skoda {@link http://skodak.org/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('CLI_SCRIPT', true);
@@ -159,7 +145,7 @@ cli_heading(get_string('transferringdbto', 'tool_dbtransfer', $a));
 // Try target DB connection.
 $problem = '';
 
-$targetdb = moodle_database::get_driver_instance($options['dbtype'], $options['dblibrary']);
+$targetdb = lion_database::get_driver_instance($options['dbtype'], $options['dblibrary']);
 $dboptions = array();
 if ($options['dbport']) {
     $dboptions['dbport'] = $options['dbport'];
@@ -173,7 +159,7 @@ try {
     if ($targetdb->get_tables()) {
         $problem .= get_string('targetdatabasenotempty', 'tool_dbtransfer');
     }
-} catch (moodle_exception $e) {
+} catch (lion_exception $e) {
     $problem .= $e->debuginfo."\n\n";
     $problem .= get_string('notargetconectexception', 'tool_dbtransfer');
 }

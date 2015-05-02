@@ -1,34 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// This file is part of BasicLTI4Lion
 //
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-//
-// This file is part of BasicLTI4Moodle
-//
-// BasicLTI4Moodle is an IMS BasicLTI (Basic Learning Tools for Interoperability)
-// consumer for Moodle 1.9 and Moodle 2.0. BasicLTI is a IMS Standard that allows web
+// BasicLTI4Lion is an IMS BasicLTI (Basic Learning Tools for Interoperability)
+// consumer for Lion 1.9 and Lion 2.0. BasicLTI is a IMS Standard that allows web
 // based learning tools to be easily integrated in LMS as native ones. The IMS BasicLTI
 // specification is part of the IMS standard Common Cartridge 1.1 Sakai and other main LMS
 // are already supporting or going to support BasicLTI. This project Implements the consumer
-// for Moodle. Moodle is a Free Open source Learning Management System by Martin Dougiamas.
-// BasicLTI4Moodle is a project iniciated and leaded by Ludo(Marc Alier) and Jordi Piguillem
+// for Lion. Lion is a Free Open source Learning Management System by Martin Dougiamas.
+// BasicLTI4Lion is a project iniciated and leaded by Ludo(Marc Alier) and Jordi Piguillem
 // at the GESSI research group at UPC.
-// SimpleLTI consumer for Moodle is an implementation of the early specification of LTI
+// SimpleLTI consumer for Lion is an implementation of the early specification of LTI
 // by Charles Severance (Dr Chuck) htp://dr-chuck.com , developed by Jordi Piguillem in a
 // Google Summer of Code 2008 project co-mentored by Charles Severance and Marc Alier.
 //
-// BasicLTI4Moodle is copyright 2009 by Marc Alier Forment, Jordi Piguillem and Nikolas Galanis
+// BasicLTI4Lion is copyright 2009 by Marc Alier Forment, Jordi Piguillem and Nikolas Galanis
 // of the Universitat Politecnica de Catalunya http://www.upc.edu
 // Contact info: Marc Alier Forment granludo @ gmail.com or marc.alier @ upc.edu.
 
@@ -44,10 +30,10 @@
  * @author     Jordi Piguillem
  * @author     Nikolas Galanis
  * @author     Chris Scribner
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 global $CFG;
 require_once($CFG->dirroot . '/mod/lti/locallib.php');
@@ -57,8 +43,8 @@ require_once($CFG->dirroot . '/mod/lti/servicelib.php');
  * Local library tests
  *
  * @package    mod_lti
- * @copyright  Copyright (c) 2012 Moodlerooms Inc. (http://www.moodlerooms.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  Copyright (c) 2012 Lionrooms Inc. (http://www.lionrooms.com)
+ * 
  */
 class mod_lti_locallib_testcase extends advanced_testcase {
 
@@ -159,9 +145,9 @@ class mod_lti_locallib_testcase extends advanced_testcase {
     }
 
     public function test_lti_ensure_url_is_https() {
-        $this->assertEquals('https://moodle.org', lti_ensure_url_is_https('http://moodle.org'));
-        $this->assertEquals('https://moodle.org', lti_ensure_url_is_https('moodle.org'));
-        $this->assertEquals('https://moodle.org', lti_ensure_url_is_https('https://moodle.org'));
+        $this->assertEquals('https://lion.org', lti_ensure_url_is_https('http://lion.org'));
+        $this->assertEquals('https://lion.org', lti_ensure_url_is_https('lion.org'));
+        $this->assertEquals('https://lion.org', lti_ensure_url_is_https('https://lion.org'));
     }
 
     /**
@@ -169,14 +155,14 @@ class mod_lti_locallib_testcase extends advanced_testcase {
      */
     public function test_lti_get_url_thumbprint() {
         // Note: trailing and double slash are expected right now.  Must evaluate if it must be removed at some point.
-        $this->assertEquals('moodle.org/', lti_get_url_thumbprint('http://MOODLE.ORG'));
-        $this->assertEquals('moodle.org/', lti_get_url_thumbprint('http://www.moodle.org'));
-        $this->assertEquals('moodle.org/', lti_get_url_thumbprint('https://www.moodle.org'));
-        $this->assertEquals('moodle.org/', lti_get_url_thumbprint('moodle.org'));
-        $this->assertEquals('moodle.org//this/is/moodle', lti_get_url_thumbprint('http://moodle.org/this/is/moodle'));
-        $this->assertEquals('moodle.org//this/is/moodle', lti_get_url_thumbprint('https://moodle.org/this/is/moodle'));
-        $this->assertEquals('moodle.org//this/is/moodle', lti_get_url_thumbprint('moodle.org/this/is/moodle'));
-        $this->assertEquals('moodle.org//this/is/moodle', lti_get_url_thumbprint('moodle.org/this/is/moodle?foo=bar'));
+        $this->assertEquals('lion.org/', lti_get_url_thumbprint('http://LION.ORG'));
+        $this->assertEquals('lion.org/', lti_get_url_thumbprint('http://www.lion.org'));
+        $this->assertEquals('lion.org/', lti_get_url_thumbprint('https://www.lion.org'));
+        $this->assertEquals('lion.org/', lti_get_url_thumbprint('lion.org'));
+        $this->assertEquals('lion.org//this/is/lion', lti_get_url_thumbprint('http://lion.org/this/is/lion'));
+        $this->assertEquals('lion.org//this/is/lion', lti_get_url_thumbprint('https://lion.org/this/is/lion'));
+        $this->assertEquals('lion.org//this/is/lion', lti_get_url_thumbprint('lion.org/this/is/lion'));
+        $this->assertEquals('lion.org//this/is/lion', lti_get_url_thumbprint('lion.org/this/is/lion?foo=bar'));
     }
 
     /**

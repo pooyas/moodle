@@ -1,7 +1,7 @@
 {
-    "moodle-atto_accessibilityhelper-button": {
+    "lion-atto_accessibilityhelper-button": {
         "requires": [
-            "moodle-editor_atto-plugin"
+            "lion-editor_atto-plugin"
         ]
     }
 }

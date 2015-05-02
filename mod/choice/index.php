@@ -27,7 +27,7 @@
     echo $OUTPUT->header();
 
     if (! $choices = get_all_instances_in_course("choice", $course)) {
-        notice(get_string('thereareno', 'moodle', $strchoices), "../../course/view.php?id=$course->id");
+        notice(get_string('thereareno', 'lion', $strchoices), "../../course/view.php?id=$course->id");
     }
 
     $usesections = course_format_uses_sections($course->format);

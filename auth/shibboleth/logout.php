@@ -19,7 +19,7 @@ if (is_https()) {
 
 // If the shibboleth plugin is not enable, throw an exception.
 if (!is_enabled_auth('shibboleth')) {
-    throw new moodle_exception(get_string('pluginnotenabled', 'auth', 'shibboleth'));
+    throw new lion_exception(get_string('pluginnotenabled', 'auth', 'shibboleth'));
 }
 
 // Front channel logout.
@@ -147,7 +147,7 @@ function LogoutNotification($SessionID){
                                 if ($user_session['SESSION']->shibboleth_session_id == $SessionID){
                                     // Delete session file
                                     if (!unlink($dir.'/'.$file)){
-                                        return new SoapFault('LogoutError', 'Could not delete Moodle session file.');
+                                        return new SoapFault('LogoutError', 'Could not delete Lion session file.');
                                     }
                                 }
                             }
@@ -176,7 +176,7 @@ function LogoutNotification($SessionID){
                     if ($user_session['SESSION']->shibboleth_session_id == $SessionID){
                         // Delete this session entry
                         if (ADODB_Session::destroy($session_data->sesskey) !== true){
-                            return new SoapFault('LogoutError', 'Could not delete Moodle session entry in database.');
+                            return new SoapFault('LogoutError', 'Could not delete Lion session entry in database.');
                         }
                     }
                 }

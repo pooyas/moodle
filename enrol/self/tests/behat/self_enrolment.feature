@@ -35,12 +35,12 @@ Feature: Users can auto-enrol themself in courses where self enrolment is allowe
     And I follow "Course 1"
     When I add "Self enrolment" enrolment method with:
       | Custom instance name | Test student enrolment |
-      | Enrolment key | moodle_rules |
+      | Enrolment key | lion_rules |
     And I log out
     And I log in as "student1"
     And I follow "Course 1"
     And I set the following fields to these values:
-      | Enrolment key | moodle_rules |
+      | Enrolment key | lion_rules |
     And I press "Enrol me"
     Then I should see "Topic 1"
     And I should not see "Enrolment options"
@@ -58,7 +58,7 @@ Feature: Users can auto-enrol themself in courses where self enrolment is allowe
     And I follow "Course 1"
     When I add "Self enrolment" enrolment method with:
       | Custom instance name | Test student enrolment |
-      | Enrolment key | moodle_rules |
+      | Enrolment key | lion_rules |
       | Use group enrolment keys | Yes |
     And I follow "Groups"
     And I press "Create group"

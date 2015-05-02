@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains a renderer for the assignment class
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/assign/locallib.php');
 
@@ -31,7 +17,7 @@ require_once($CFG->dirroot . '/mod/assign/locallib.php');
  *
  * @package mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_assign_renderer extends plugin_renderer_base {
 
@@ -94,7 +80,7 @@ class mod_assign_renderer extends plugin_renderer_base {
         if (!empty($result->page)) {
             $urlparams['page'] = $result->page;
         }
-        $url = new moodle_url('/mod/assign/view.php', $urlparams);
+        $url = new lion_url('/mod/assign/view.php', $urlparams);
         $classes = $result->gradingerror ? 'notifyproblem' : 'notifysuccess';
 
         $o = '';
@@ -115,7 +101,7 @@ class mod_assign_renderer extends plugin_renderer_base {
             $this->page->requires->js_init_call($form->jsinitfunction, array());
         }
         $o .= $this->output->box_start('boxaligncenter ' . $form->classname);
-        $o .= $this->moodleform($form->form);
+        $o .= $this->lionform($form->form);
         $o .= $this->output->box_end();
         return $o;
     }
@@ -149,7 +135,7 @@ class mod_assign_renderer extends plugin_renderer_base {
             $o .= $this->output->user_picture($summary->user);
             $o .= $this->output->spacer(array('width'=>30));
             $urlparams = array('id' => $summary->user->id, 'course'=>$summary->courseid);
-            $url = new moodle_url('/user/view.php', $urlparams);
+            $url = new lion_url('/user/view.php', $urlparams);
             $fullname = fullname($summary->user, $summary->viewfullnames);
             $extrainfo = array();
             foreach ($summary->extrauserfields as $extrafield) {
@@ -180,7 +166,7 @@ class mod_assign_renderer extends plugin_renderer_base {
         $o .= $this->output->heading(get_string('submitassignment', 'assign'), 3);
         $o .= $this->output->spacer(array('height'=>30));
 
-        $cancelurl = new moodle_url('/mod/assign/view.php', array('id' => $page->coursemoduleid));
+        $cancelurl = new lion_url('/mod/assign/view.php', array('id' => $page->coursemoduleid));
         if (count($page->notifications)) {
             // At least one of the submission plugins is not ready for submission.
 
@@ -194,7 +180,7 @@ class mod_assign_renderer extends plugin_renderer_base {
         } else {
             // All submission plugins ready - show the confirmation form.
             $o .= $this->output->box_start('generalbox submitconfirm');
-            $o .= $this->moodleform($page->confirmform);
+            $o .= $this->lionform($page->confirmform);
             $o .= $this->output->box_end();
         }
         $o .= $this->output->container_end();
@@ -331,7 +317,7 @@ class mod_assign_renderer extends plugin_renderer_base {
         // Link to the grading page.
         $o .= $this->output->container_start('submissionlinks');
         $urlparams = array('id' => $summary->coursemoduleid, 'action'=>'grading');
-        $url = new moodle_url('/mod/assign/view.php', $urlparams);
+        $url = new lion_url('/mod/assign/view.php', $urlparams);
         $o .= $this->output->action_link($url, get_string('viewgrading', 'assign'));
         $o .= $this->output->container_end();
 
@@ -511,7 +497,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                 $userslist = array();
                 foreach ($members as $member) {
                     $urlparams = array('id' => $member->id, 'course'=>$status->courseid);
-                    $url = new moodle_url('/user/view.php', $urlparams);
+                    $url = new lion_url('/user/view.php', $urlparams);
                     if ($status->view == assign_submission_status::GRADER_VIEW && $status->blindmarking) {
                         $userslist[] = $member->alias;
                     } else {
@@ -699,7 +685,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                 if (!$submission || $submission->status == ASSIGN_SUBMISSION_STATUS_NEW) {
                     $o .= $this->output->box_start('generalbox submissionaction');
                     $urlparams = array('id' => $status->coursemoduleid, 'action' => 'editsubmission');
-                    $o .= $this->output->single_button(new moodle_url('/mod/assign/view.php', $urlparams),
+                    $o .= $this->output->single_button(new lion_url('/mod/assign/view.php', $urlparams),
                                                        get_string('addsubmission', 'assign'), 'get');
                     $o .= $this->output->box_start('boxaligncenter submithelp');
                     $o .= get_string('editsubmission_help', 'assign');
@@ -710,7 +696,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                     $urlparams = array('id' => $status->coursemoduleid,
                                        'action' => 'editprevioussubmission',
                                        'sesskey'=>sesskey());
-                    $o .= $this->output->single_button(new moodle_url('/mod/assign/view.php', $urlparams),
+                    $o .= $this->output->single_button(new lion_url('/mod/assign/view.php', $urlparams),
                                                        get_string('addnewattemptfromprevious', 'assign'), 'get');
                     $o .= $this->output->box_start('boxaligncenter submithelp');
                     $o .= get_string('addnewattemptfromprevious_help', 'assign');
@@ -718,7 +704,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                     $o .= $this->output->box_end();
                     $o .= $this->output->box_start('generalbox submissionaction');
                     $urlparams = array('id' => $status->coursemoduleid, 'action' => 'editsubmission');
-                    $o .= $this->output->single_button(new moodle_url('/mod/assign/view.php', $urlparams),
+                    $o .= $this->output->single_button(new lion_url('/mod/assign/view.php', $urlparams),
                                                        get_string('addnewattempt', 'assign'), 'get');
                     $o .= $this->output->box_start('boxaligncenter submithelp');
                     $o .= get_string('addnewattempt_help', 'assign');
@@ -727,7 +713,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                 } else {
                     $o .= $this->output->box_start('generalbox submissionaction');
                     $urlparams = array('id' => $status->coursemoduleid, 'action' => 'editsubmission');
-                    $o .= $this->output->single_button(new moodle_url('/mod/assign/view.php', $urlparams),
+                    $o .= $this->output->single_button(new lion_url('/mod/assign/view.php', $urlparams),
                                                        get_string('editsubmission', 'assign'), 'get');
                     $o .= $this->output->box_start('boxaligncenter submithelp');
                     $o .= get_string('editsubmission_help', 'assign');
@@ -739,7 +725,7 @@ class mod_assign_renderer extends plugin_renderer_base {
             if ($status->cansubmit) {
                 $urlparams = array('id' => $status->coursemoduleid, 'action'=>'submit');
                 $o .= $this->output->box_start('generalbox submissionaction');
-                $o .= $this->output->single_button(new moodle_url('/mod/assign/view.php', $urlparams),
+                $o .= $this->output->single_button(new lion_url('/mod/assign/view.php', $urlparams),
                                                    get_string('submitassignment', 'assign'), 'get');
                 $o .= $this->output->box_start('boxaligncenter submithelp');
                 $o .= get_string('submitassignment_help', 'assign');
@@ -843,7 +829,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                                    'action'=>'grade',
                                    'returnaction'=>$history->returnaction,
                                    'returnparams'=>$returnparams);
-                    $url = new moodle_url('/mod/assign/view.php', $urlparams);
+                    $url = new lion_url('/mod/assign/view.php', $urlparams);
                     $icon = new pix_icon('gradefeedback',
                                             get_string('editattemptfeedback', 'assign', $grade->attemptnumber+1),
                                             'mod_assign');
@@ -895,7 +881,7 @@ class mod_assign_renderer extends plugin_renderer_base {
         $o .= $this->box_end();
         $jsparams = array($containerid);
 
-        $this->page->requires->yui_module('moodle-mod_assign-history', 'Y.one("#' . $containerid . '").history');
+        $this->page->requires->yui_module('lion-mod_assign-history', 'Y.one("#' . $containerid . '").history');
 
         return $o;
     }
@@ -946,7 +932,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                                    'action'=>$action,
                                    'returnaction'=>$submissionplugin->returnaction,
                                    'returnparams'=>$returnparams);
-                $url = new moodle_url('/mod/assign/view.php', $urlparams);
+                $url = new lion_url('/mod/assign/view.php', $urlparams);
                 $link .= $this->output->action_link($url, $icon);
                 $link .= '</noscript>';
 
@@ -1046,7 +1032,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                                    'action'=>'viewplugin' . $feedbackplugin->plugin->get_subtype(),
                                    'returnaction'=>$feedbackplugin->returnaction,
                                    'returnparams'=>http_build_query($feedbackplugin->returnparams));
-                $url = new moodle_url('/mod/assign/view.php', $urlparams);
+                $url = new lion_url('/mod/assign/view.php', $urlparams);
                 $link .= '<noscript>';
                 $link .= $this->output->action_link($url, $icon);
                 $link .= '</noscript>';
@@ -1103,7 +1089,7 @@ class mod_assign_renderer extends plugin_renderer_base {
         $currentsection = '';
         foreach ($indexsummary->assignments as $info) {
             $params = array('id' => $info['cmid']);
-            $link = html_writer::link(new moodle_url('/mod/assign/view.php', $params),
+            $link = html_writer::link(new lion_url('/mod/assign/view.php', $params),
                                       $info['cmname']);
             $due = $info['timedue'] ? userdate($info['timedue']) : '-';
 
@@ -1155,7 +1141,7 @@ class mod_assign_renderer extends plugin_renderer_base {
         foreach ($dir['subdirs'] as $subdir) {
             $image = $this->output->pix_icon(file_folder_icon(),
                                              $subdir['dirname'],
-                                             'moodle',
+                                             'lion',
                                              array('class'=>'icon'));
             $result .= '<li yuiConfig=\'' . json_encode($yuiconfig) . '\'>' .
                        '<div>' . $image . ' ' . s($subdir['dirname']) . '</div> ' .
@@ -1176,7 +1162,7 @@ class mod_assign_renderer extends plugin_renderer_base {
             }
             $image = $this->output->pix_icon(file_file_icon($file),
                                              $filename,
-                                             'moodle',
+                                             'lion',
                                              array('class'=>'icon'));
             $result .= '<li yuiConfig=\'' . json_encode($yuiconfig) . '\'>' .
                        '<div>' . $image . ' ' .
@@ -1212,12 +1198,12 @@ class mod_assign_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Helper method dealing with the fact we can not just fetch the output of moodleforms
+     * Helper method dealing with the fact we can not just fetch the output of lionforms
      *
-     * @param moodleform $mform
+     * @param lionform $mform
      * @return string HTML
      */
-    protected function moodleform(moodleform $mform) {
+    protected function lionform(lionform $mform) {
 
         $o = '';
         ob_start();

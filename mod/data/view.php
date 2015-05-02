@@ -3,8 +3,8 @@
 //                                                                       //
 // NOTICE OF COPYRIGHT                                                   //
 //                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.org                                            //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
+//          http://lion.org                                            //
 //                                                                       //
 // Copyright (C) 2005 Martin Dougiamas  http://dougiamas.com             //
 //                                                                       //
@@ -318,7 +318,7 @@
             $urlediting = 'on';
             $strediting = get_string('blocksediton');
         }
-        $url = new moodle_url($CFG->wwwroot.'/mod/data/view.php', array('id' => $cm->id, 'edit' => $urlediting));
+        $url = new lion_url($CFG->wwwroot.'/mod/data/view.php', array('id' => $cm->id, 'edit' => $urlediting));
         $PAGE->set_button($OUTPUT->single_button($url, $strediting));
     }
 
@@ -388,7 +388,7 @@
                                                             JOIN {user} u ON dr.userid = u.id
                                                       WHERE dr.id = ?", $dbparams, MUST_EXIST)) { // Need to check this is valid.
                 if ($deleterecord->dataid == $data->id) {                       // Must be from this database
-                    $deletebutton = new single_button(new moodle_url('/mod/data/view.php?d='.$data->id.'&delete='.$delete.'&confirm=1'), get_string('delete'), 'post');
+                    $deletebutton = new single_button(new lion_url('/mod/data/view.php?d='.$data->id.'&delete='.$delete.'&confirm=1'), get_string('delete'), 'post');
                     echo $OUTPUT->confirm(get_string('confirmdeleterecord','data'),
                             $deletebutton, 'view.php?d='.$data->id);
 
@@ -433,8 +433,8 @@
             }
             $serialiseddata = json_encode($recordids);
             $submitactions = array('d' => $data->id, 'sesskey' => sesskey(), 'confirm' => '1', 'serialdelete' => $serialiseddata);
-            $action = new moodle_url('/mod/data/view.php', $submitactions);
-            $cancelurl = new moodle_url('/mod/data/view.php', array('d' => $data->id));
+            $action = new lion_url('/mod/data/view.php', $submitactions);
+            $cancelurl = new lion_url('/mod/data/view.php', array('d' => $data->id));
             $deletebutton = new single_button($action, get_string('delete'));
             echo $OUTPUT->confirm(get_string('confirmdeleterecords', 'data'), $deletebutton, $cancelurl);
             echo data_print_template('listtemplate', $validrecords, $data, '', 0, false);
@@ -745,7 +745,7 @@ if ($showactivity) {
 
         } else {
             //  We have some records to print.
-            $url = new moodle_url('/mod/data/view.php', array('d' => $data->id, 'sesskey' => sesskey()));
+            $url = new lion_url('/mod/data/view.php', array('d' => $data->id, 'sesskey' => sesskey()));
             echo html_writer::start_tag('form', array('action' => $url, 'method' => 'post'));
 
             if ($maxcount != $totalcount) {
@@ -791,7 +791,7 @@ if ($showactivity) {
                     $records = $rm->get_ratings($ratingoptions);
                 }
 
-                data_print_template('singletemplate', $records, $data, $search, $page, false, new moodle_url($baseurl));
+                data_print_template('singletemplate', $records, $data, $search, $page, false, new lion_url($baseurl));
 
                 echo $OUTPUT->paging_bar($totalcount, $page, $nowperpage, $baseurl);
 
@@ -812,7 +812,7 @@ if ($showactivity) {
                     data_generate_default_template($data, 'listtemplate', 0, false, false);
                 }
                 echo $data->listtemplateheader;
-                data_print_template('listtemplate', $records, $data, $search, $page, false, new moodle_url($baseurl));
+                data_print_template('listtemplate', $records, $data, $search, $page, false, new lion_url($baseurl));
                 echo $data->listtemplatefooter;
 
                 echo $OUTPUT->paging_bar($totalcount, $page, $nowperpage, $baseurl);

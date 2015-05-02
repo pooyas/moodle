@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * file index.php
@@ -32,7 +18,7 @@ if (empty($CFG->enablenotes)) {
     print_error('notesdisabled', 'notes');
 }
 
-$url = new moodle_url('/notes/index.php');
+$url = new lion_url('/notes/index.php');
 if ($courseid != SITEID) {
     $url->param('course', $courseid);
 }
@@ -83,7 +69,7 @@ if ($course->id == SITEID) {
     $coursecontext = context_course::instance($course->id);
 }
 
-require_capability('moodle/notes:view', $coursecontext);
+require_capability('lion/notes:view', $coursecontext);
 $systemcontext = context_system::instance();
 
 // Trigger event.
@@ -99,10 +85,10 @@ if ($userid) {
     $PAGE->navigation->extend_for_user($user);
 } else {
     $link = null;
-    if (has_capability('moodle/course:viewparticipants', $coursecontext)
-        || has_capability('moodle/site:viewparticipants', $systemcontext)) {
+    if (has_capability('lion/course:viewparticipants', $coursecontext)
+        || has_capability('lion/site:viewparticipants', $systemcontext)) {
 
-        $link = new moodle_url('/user/index.php', array('id' => $course->id));
+        $link = new lion_url('/user/index.php', array('id' => $course->id));
     }
 }
 
@@ -126,8 +112,8 @@ echo $OUTPUT->box_start();
 
 if ($courseid != SITEID) {
     $context = context_course::instance($courseid);
-    $addid = has_capability('moodle/notes:manage', $context) ? $courseid : 0;
-    $view = has_capability('moodle/notes:view', $context);
+    $addid = has_capability('lion/notes:manage', $context) ? $courseid : 0;
+    $view = has_capability('lion/notes:view', $context);
     $fullname = format_string($course->fullname, true, array('context' => $context));
     note_print_notes(
         '<a name="sitenotes"></a>' . $strsitenotes,
@@ -158,7 +144,7 @@ if ($courseid != SITEID) {
     );
 
 } else {  // Normal course.
-    $view = has_capability('moodle/notes:view', context_system::instance());
+    $view = has_capability('lion/notes:view', context_system::instance());
     note_print_notes('<a name="sitenotes"></a>' . $strsitenotes, 0, $view, 0, $userid, NOTES_STATE_SITE, 0);
     echo '<a name="coursenotes"></a>';
 
@@ -168,7 +154,7 @@ if ($courseid != SITEID) {
             $ccontext = context_course::instance($c->id);
             $cfullname = format_string($c->fullname, true, array('context' => $ccontext));
             $header = '<a href="' . $CFG->wwwroot . '/course/view.php?id=' . $c->id . '">' . $cfullname . '</a>';
-            if (has_capability('moodle/notes:manage', context_course::instance($c->id))) {
+            if (has_capability('lion/notes:manage', context_course::instance($c->id))) {
                 $addid = $c->id;
             } else {
                 $addid = 0;

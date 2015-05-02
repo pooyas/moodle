@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Badge assertion library.
@@ -20,11 +6,11 @@
  * @package    core
  * @subpackage badges
  * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Open Badges Assertions specification 1.0 {@link https://github.com/mozilla/openbadges/wiki/Assertions}
@@ -43,7 +29,7 @@ class core_badges_assertion {
     /** @var object Issued badge information from database */
     private $_data;
 
-    /** @var moodle_url Issued badge url */
+    /** @var lion_url Issued badge url */
     private $_url;
 
     /**
@@ -73,7 +59,7 @@ class core_badges_assertion {
             WHERE ' . $DB->sql_compare_text('bi.uniquehash', 40) . ' = ' . $DB->sql_compare_text(':hash', 40),
             array('hash' => $hash), IGNORE_MISSING);
 
-        $this->_url = new moodle_url('/badges/badge.php', array('hash' => $this->_data->uniquehash));
+        $this->_url = new lion_url('/badges/badge.php', array('hash' => $this->_data->uniquehash));
     }
 
     /**
@@ -87,8 +73,8 @@ class core_badges_assertion {
         if ($this->_data) {
             $hash = $this->_data->uniquehash;
             $email = empty($this->_data->backpackemail) ? $this->_data->email : $this->_data->backpackemail;
-            $assertionurl = new moodle_url('/badges/assertion.php', array('b' => $hash));
-            $classurl = new moodle_url('/badges/assertion.php', array('b' => $hash, 'action' => 1));
+            $assertionurl = new lion_url('/badges/assertion.php', array('b' => $hash));
+            $classurl = new lion_url('/badges/assertion.php', array('b' => $hash, 'action' => 1));
 
             // Required.
             $assertion['uid'] = $hash;
@@ -124,12 +110,12 @@ class core_badges_assertion {
             } else {
                 $context = context_course::instance($this->_data->courseid);
             }
-            $issuerurl = new moodle_url('/badges/assertion.php', array('b' => $this->_data->uniquehash, 'action' => 0));
+            $issuerurl = new lion_url('/badges/assertion.php', array('b' => $this->_data->uniquehash, 'action' => 0));
 
             // Required.
             $class['name'] = $this->_data->name;
             $class['description'] = $this->_data->description;
-            $class['image'] = moodle_url::make_pluginfile_url($context->id, 'badges', 'badgeimage', $this->_data->id, '/', 'f1')->out(false);
+            $class['image'] = lion_url::make_pluginfile_url($context->id, 'badges', 'badgeimage', $this->_data->id, '/', 'f1')->out(false);
             $class['criteria'] = $this->_url->out(false); // Currently issued badge URL.
             $class['issuer'] = $issuerurl->out(false);
         }

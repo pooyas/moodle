@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Course completion progress report
@@ -21,7 +7,7 @@
  * @subpackage completion
  * @copyright  2009 Catalyst IT Ltd
  * @author     Aaron Barnes <aaronb@catalyst.net.nz>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once(dirname(__FILE__).'/../../config.php');
@@ -47,7 +33,7 @@ $edituser = optional_param('edituser', 0, PARAM_INT);
 $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
 $context = context_course::instance($course->id);
 
-$url = new moodle_url('/report/completion/index.php', array('course'=>$course->id));
+$url = new lion_url('/report/completion/index.php', array('course'=>$course->id));
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('report');
 
@@ -77,7 +63,7 @@ require_capability('report/completion:view', $context);
 // Get group mode
 $group = groups_get_course_group($course, true); // Supposed to verify group
 if ($group === 0 && $course->groupmode == SEPARATEGROUPS) {
-    require_capability('moodle/site:accessallgroups',$context);
+    require_capability('lion/site:accessallgroups',$context);
 }
 
 /**
@@ -563,9 +549,9 @@ foreach ($progress as $user) {
         print PHP_EOL.'<tr id="user-'.$user->id.'">';
 
         if (completion_can_view_data($user->id, $course)) {
-            $userurl = new moodle_url('/blocks/completionstatus/details.php', array('course' => $course->id, 'user' => $user->id));
+            $userurl = new lion_url('/blocks/completionstatus/details.php', array('course' => $course->id, 'user' => $user->id));
         } else {
-            $userurl = new moodle_url('/user/view.php', array('id' => $user->id, 'course' => $course->id));
+            $userurl = new lion_url('/user/view.php', array('id' => $user->id, 'course' => $course->id));
         }
 
         print '<th scope="row"><a href="'.$userurl->out().'">'.fullname($user).'</a></th>';
@@ -662,7 +648,7 @@ foreach ($progress as $user) {
             if ($allow_marking_criteria === $criterion->id) {
                 $describe = get_string('completion-'.$completiontype, 'completion');
 
-                $toggleurl = new moodle_url(
+                $toggleurl = new lion_url(
                     '/course/togglecompletion.php',
                     array(
                         'user' => $user->id,
@@ -738,8 +724,8 @@ if ($csv) {
 print '</table>';
 print $pagingbar;
 
-$csvurl = new moodle_url('/report/completion/index.php', array('course' => $course->id, 'format' => 'csv'));
-$excelurl = new moodle_url('/report/completion/index.php', array('course' => $course->id, 'format' => 'excelcsv'));
+$csvurl = new lion_url('/report/completion/index.php', array('course' => $course->id, 'format' => 'csv'));
+$excelurl = new lion_url('/report/completion/index.php', array('course' => $course->id, 'format' => 'excelcsv'));
 
 print '<ul class="export-actions">';
 print '<li><a href="'.$csvurl->out().'">'.get_string('csvdownload','completion').'</a></li>';

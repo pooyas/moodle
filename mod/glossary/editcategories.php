@@ -16,7 +16,7 @@ $mode   = optional_param('mode', '', PARAM_ALPHA);   // cat
 
 $action = strtolower($action);
 
-$url = new moodle_url('/mod/glossary/editcategories.php', array('id'=>$id));
+$url = new lion_url('/mod/glossary/editcategories.php', array('id'=>$id));
 if ($usedynalink !== 0) {
     $url->param('usedynalink', $usedynalink);
 }
@@ -70,7 +70,7 @@ $strglossaries   = get_string("modulenameplural", "glossary");
 $strglossary     = get_string("modulename", "glossary");
 
 $PAGE->navbar->add(get_string("categories","glossary"),
-        new moodle_url('/mod/glossary/editcategories.php', array('id' => $cm->id,'mode' => 'cat')));
+        new lion_url('/mod/glossary/editcategories.php', array('id' => $cm->id,'mode' => 'cat')));
 if (!empty($action)) {
     $navaction = get_string($action). " " . core_text::strtolower(get_string("category","glossary"));
     $PAGE->navbar->add($navaction);
@@ -182,7 +182,7 @@ if ( $hook >0 ) {
 <?php
             unset($options);
             $options = array ("id" => $id);
-            echo $OUTPUT->single_button(new moodle_url("editcategories.php", $options), get_string("no"));
+            echo $OUTPUT->single_button(new lion_url("editcategories.php", $options), get_string("no"));
             echo "</td></tr></table>";
             echo "</div>";
             echo $OUTPUT->box_end();
@@ -285,12 +285,12 @@ echo $OUTPUT->heading(format_string($glossary->name), 2);
              $options['action'] = "add";
 
              echo "<table class=\"editbuttons\" border=\"0\"><tr><td align=\"$rightalignment\">";
-             echo $OUTPUT->single_button(new moodle_url("editcategories.php", $options), get_string("add") . " " . get_string("category","glossary"));
+             echo $OUTPUT->single_button(new lion_url("editcategories.php", $options), get_string("add") . " " . get_string("category","glossary"));
              echo "</td><td align=\"$leftalignment\">";
              unset($options['action']);
              $options['mode'] = 'cat';
              $options['hook'] = $hook;
-             echo $OUTPUT->single_button(new moodle_url("view.php", $options), get_string("back","glossary"));
+             echo $OUTPUT->single_button(new lion_url("view.php", $options), get_string("back","glossary"));
              echo "</td></tr>";
              echo "</table>";
 

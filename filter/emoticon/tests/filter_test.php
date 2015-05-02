@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Skype icons filter phpunit tests
@@ -20,10 +6,10 @@
  * @package    filter_emoticon
  * @category   test
  * @copyright  2013 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/filter/emoticon/filter.php'); // Include the code to test.
@@ -44,7 +30,7 @@ class filter_emoticon_testcase extends advanced_testcase {
 
         // Verify texts not matching target formats aren't filtered.
         $expected = '(grr)';
-        $options = array('originalformat' => FORMAT_MOODLE); // Only FORMAT_HTML is filtered, see {@link testable_filter_emoticon}.
+        $options = array('originalformat' => FORMAT_LION); // Only FORMAT_HTML is filtered, see {@link testable_filter_emoticon}.
         $this->assertEquals($expected, $filter->filter('(grr)', $options));
 
         $options = array('originalformat' => FORMAT_MARKDOWN); // Only FORMAT_HTML is filtered, see {@link testable_filter_emoticon}.
@@ -55,7 +41,7 @@ class filter_emoticon_testcase extends advanced_testcase {
 
         // And texts matching target formats are filtered.
         $expected = '<img class="emoticon" alt="angry" title="angry"'.
-                    ' src="http://www.example.com/moodle/theme/image.php/_s/clean/core/1/s/angry" />';
+                    ' src="http://www.example.com/lion/theme/image.php/_s/clean/core/1/s/angry" />';
         $options = array('originalformat' => FORMAT_HTML); // Only FORMAT_HTML is filtered, see {@link testable_filter_emoticon}.
         $this->assertEquals($expected, $filter->filter('(grr)', $options));
     }

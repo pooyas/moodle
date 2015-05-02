@@ -1,37 +1,23 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This plugin is used to upload files
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package    repository_upload
  * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 require_once($CFG->dirroot . '/repository/lib.php');
 
 /**
  * A repository plugin to allow user uploading files
  *
- * @since Moodle 2.0
+ * @since Lion 2.0
  * @package    repository_upload
  * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 class repository_upload extends repository {
@@ -111,33 +97,33 @@ class repository_upload extends repository {
         }
 
         if (!isset($_FILES[$elname])) {
-            throw new moodle_exception('nofile');
+            throw new lion_exception('nofile');
         }
         if (!empty($_FILES[$elname]['error'])) {
             switch ($_FILES[$elname]['error']) {
             case UPLOAD_ERR_INI_SIZE:
-                throw new moodle_exception('upload_error_ini_size', 'repository_upload');
+                throw new lion_exception('upload_error_ini_size', 'repository_upload');
                 break;
             case UPLOAD_ERR_FORM_SIZE:
-                throw new moodle_exception('upload_error_form_size', 'repository_upload');
+                throw new lion_exception('upload_error_form_size', 'repository_upload');
                 break;
             case UPLOAD_ERR_PARTIAL:
-                throw new moodle_exception('upload_error_partial', 'repository_upload');
+                throw new lion_exception('upload_error_partial', 'repository_upload');
                 break;
             case UPLOAD_ERR_NO_FILE:
-                throw new moodle_exception('upload_error_no_file', 'repository_upload');
+                throw new lion_exception('upload_error_no_file', 'repository_upload');
                 break;
             case UPLOAD_ERR_NO_TMP_DIR:
-                throw new moodle_exception('upload_error_no_tmp_dir', 'repository_upload');
+                throw new lion_exception('upload_error_no_tmp_dir', 'repository_upload');
                 break;
             case UPLOAD_ERR_CANT_WRITE:
-                throw new moodle_exception('upload_error_cant_write', 'repository_upload');
+                throw new lion_exception('upload_error_cant_write', 'repository_upload');
                 break;
             case UPLOAD_ERR_EXTENSION:
-                throw new moodle_exception('upload_error_extension', 'repository_upload');
+                throw new lion_exception('upload_error_extension', 'repository_upload');
                 break;
             default:
-                throw new moodle_exception('nofile');
+                throw new lion_exception('nofile');
             }
         }
 
@@ -175,14 +161,14 @@ class repository_upload extends repository {
         // Check the file has some non-null contents - usually an indication that a user has
         // tried to upload a folder by mistake
         if (!$this->check_valid_contents($_FILES[$elname]['tmp_name'])) {
-            throw new moodle_exception('upload_error_invalid_file', 'repository_upload', '', $record->filename);
+            throw new lion_exception('upload_error_invalid_file', 'repository_upload', '', $record->filename);
         }
 
         if ($this->mimetypes != '*') {
             // check filetype
             $filemimetype = file_storage::mimetype($_FILES[$elname]['tmp_name'], $record->filename);
             if (!in_array($filemimetype, $this->mimetypes)) {
-                throw new moodle_exception('invalidfiletype', 'repository', '', get_mimetype_description(array('filename' => $_FILES[$elname]['name'])));
+                throw new lion_exception('invalidfiletype', 'repository', '', get_mimetype_description(array('filename' => $_FILES[$elname]['name'])));
             }
         }
 
@@ -215,12 +201,12 @@ class repository_upload extends repository {
                 $event['newfile'] = new stdClass;
                 $event['newfile']->filepath = $record->filepath;
                 $event['newfile']->filename = $unused_filename;
-                $event['newfile']->url = moodle_url::make_draftfile_url($record->itemid, $record->filepath, $unused_filename)->out(false);
+                $event['newfile']->url = lion_url::make_draftfile_url($record->itemid, $record->filepath, $unused_filename)->out(false);
 
                 $event['existingfile'] = new stdClass;
                 $event['existingfile']->filepath = $record->filepath;
                 $event['existingfile']->filename = $existingfilename;
-                $event['existingfile']->url      = moodle_url::make_draftfile_url($record->itemid, $record->filepath, $existingfilename)->out(false);
+                $event['existingfile']->url      = lion_url::make_draftfile_url($record->itemid, $record->filepath, $existingfilename)->out(false);
                 return $event;
             }
         } else {
@@ -228,7 +214,7 @@ class repository_upload extends repository {
         }
 
         return array(
-            'url'=>moodle_url::make_draftfile_url($record->itemid, $record->filepath, $record->filename)->out(false),
+            'url'=>lion_url::make_draftfile_url($record->itemid, $record->filepath, $record->filename)->out(false),
             'id'=>$record->itemid,
             'file'=>$record->filename);
     }

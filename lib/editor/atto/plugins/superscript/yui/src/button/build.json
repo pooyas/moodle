@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_superscript-button",
+    "name": "lion-atto_superscript-button",
     "builds": {
-        "moodle-atto_superscript-button": {
+        "lion-atto_superscript-button": {
             "jsfiles": [
                 "button.js"
             ]

@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Classes for handling embedded media (mainly audio and video).
  *
  * These are used only from within the core media renderer.
  *
- * To embed media from Moodle code, do something like the following:
+ * To embed media from Lion code, do something like the following:
  *
  * $mediarenderer = $PAGE->get_renderer('core', 'media');
- * echo $mediarenderer->embed_url(new moodle_url('http://example.org/a.mp3'));
+ * echo $mediarenderer->embed_url(new lion_url('http://example.org/a.mp3'));
  *
  * You do not need to require this library file manually. Getting the renderer
  * (the first line above) requires this library file automatically.
@@ -32,7 +18,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 if (!defined('CORE_MEDIA_VIDEO_WIDTH')) {
     // Default video width if no width is specified; some players may do something
@@ -100,7 +86,7 @@ abstract class core_media {
 
     /**
      * Given a string containing multiple URLs separated by #, this will split
-     * it into an array of moodle_url objects suitable for using when calling
+     * it into an array of lion_url objects suitable for using when calling
      * embed_alternatives.
      *
      * Note that the input string should NOT be html-escaped (i.e. if it comes
@@ -109,7 +95,7 @@ abstract class core_media {
      * @param string $combinedurl String of 1 or more alternatives separated by #
      * @param int $width Output variable: width (will be set to 0 if not specified)
      * @param int $height Output variable: height (0 if not specified)
-     * @return array Array of 1 or more moodle_url objects
+     * @return array Array of 1 or more lion_url objects
      */
     public static function split_alternatives($combinedurl, &$width, &$height) {
         $urls = explode('#', $combinedurl);
@@ -144,8 +130,8 @@ abstract class core_media {
                 continue;
             }
 
-            // Turn it into moodle_url object.
-            $returnurls[] = new moodle_url($url);
+            // Turn it into lion_url object.
+            $returnurls[] = new lion_url($url);
         }
 
         return $returnurls;
@@ -153,9 +139,9 @@ abstract class core_media {
 
     /**
      * Returns the file extension for a URL.
-     * @param moodle_url $url URL
+     * @param lion_url $url URL
      */
-    public static function get_extension(moodle_url $url) {
+    public static function get_extension(lion_url $url) {
         // Note: Does not use core_text (. is UTF8-safe).
         $filename = self::get_filename($url);
         $dot = strrpos($filename, '.');
@@ -167,11 +153,11 @@ abstract class core_media {
     }
 
     /**
-     * Obtains the filename from the moodle_url.
-     * @param moodle_url $url URL
+     * Obtains the filename from the lion_url.
+     * @param lion_url $url URL
      * @return string Filename only (not escaped)
      */
-    public static function get_filename(moodle_url $url) {
+    public static function get_filename(lion_url $url) {
         global $CFG;
 
         // Use the 'file' parameter if provided (for links created when
@@ -190,11 +176,11 @@ abstract class core_media {
     }
 
     /**
-     * Guesses MIME type for a moodle_url based on file extension.
-     * @param moodle_url $url URL
+     * Guesses MIME type for a lion_url based on file extension.
+     * @param lion_url $url URL
      * @return string MIME type
      */
-    public static function get_mimetype(moodle_url $url) {
+    public static function get_mimetype(lion_url $url) {
         return mimeinfo('type', self::get_filename($url));
     }
 }
@@ -212,7 +198,7 @@ abstract class core_media {
  * If you add a new class here (in core code) you must modify the
  * get_players_raw function in that file to include it.
  *
- * If a Moodle installation wishes to add extra player objects they can do so
+ * If a Lion installation wishes to add extra player objects they can do so
  * by overriding that renderer in theme, and overriding the get_players_raw
  * function. The new player class should then of course be defined within the
  * custom theme or other suitable location, not in this file.
@@ -327,9 +313,9 @@ abstract class core_media_player {
     /**
      * Given a list of URLs, returns a reduced array containing only those URLs
      * which are supported by this player. (Empty if none.)
-     * @param array $urls Array of moodle_url
+     * @param array $urls Array of lion_url
      * @param array $options Options (same as will be passed to embed)
-     * @return array Array of supported moodle_url
+     * @return array Array of supported lion_url
      */
     public function list_supported_urls(array $urls, array $options = array()) {
         $extensions = $this->get_supported_extensions();
@@ -346,7 +332,7 @@ abstract class core_media_player {
      * Obtains suitable name for media. Uses specified name if there is one,
      * otherwise makes one up.
      * @param string $name User-specified name ('' if none)
-     * @param array $urls Array of moodle_url used to make up name
+     * @param array $urls Array of lion_url used to make up name
      * @return string Name
      */
     protected function get_name($name, $urls) {
@@ -428,14 +414,14 @@ abstract class core_media_player_external extends core_media_player {
 
     /**
      * Obtains HTML code to embed the link.
-     * @param moodle_url $url Single URL to embed
+     * @param lion_url $url Single URL to embed
      * @param string $name Display name; '' to use default
      * @param int $width Optional width; 0 to use default
      * @param int $height Optional height; 0 to use default
      * @param array $options Options array
      * @return string HTML code for embed
      */
-    protected abstract function embed_external(moodle_url $url, $name, $width, $height, $options);
+    protected abstract function embed_external(lion_url $url, $name, $width, $height, $options);
 
     public function list_supported_urls(array $urls, array $options = array()) {
         // These only work with a SINGLE url (there is no fallback).
@@ -482,7 +468,7 @@ abstract class core_media_player_external extends core_media_player {
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_media_player_vimeo extends core_media_player_external {
-    protected function embed_external(moodle_url $url, $name, $width, $height, $options) {
+    protected function embed_external(lion_url $url, $name, $width, $height, $options) {
         $videoid = $this->matches[1];
         $info = s($name);
 
@@ -525,7 +511,7 @@ OET;
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_media_player_youtube extends core_media_player_external {
-    protected function embed_external(moodle_url $url, $name, $width, $height, $options) {
+    protected function embed_external(lion_url $url, $name, $width, $height, $options) {
         $videoid = end($this->matches);
 
         $info = trim($name);
@@ -561,7 +547,7 @@ OET;
     /**
      * Check for start time parameter.  Note that it's in hours/mins/secs in the URL,
      * but the embedded player takes only a number of seconds as the "start" parameter.
-     * @param moodle_url $url URL of video to be embedded.
+     * @param lion_url $url URL of video to be embedded.
      * @return int Number of seconds video should start at.
      */
     protected static function get_start_time($url) {
@@ -637,7 +623,7 @@ class core_media_player_youtube_playlist extends core_media_player_external {
         return $CFG->core_media_enable_youtube;
     }
 
-    protected function embed_external(moodle_url $url, $name, $width, $height, $options) {
+    protected function embed_external(lion_url $url, $name, $width, $height, $options) {
         $site = $this->matches[1];
         $playlist = $this->matches[3];
 

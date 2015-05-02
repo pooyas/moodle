@@ -1,28 +1,28 @@
 <?php
-// This file is part of Book module for Moodle - http://moodle.org/
+// This file is part of Book module for Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Book module upgrade related helper functions
  *
  * @package    mod_book
  * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Migrate book files stored in moddata folders.
@@ -127,7 +127,7 @@ function mod_book_migrate_all_areas() {
 }
 
 /**
- * Migrate one area, this should be probably part of moodle core...
+ * Migrate one area, this should be probably part of lion core...
  *
  * @param stdClass $record object to migrate files (book, chapter)
  * @param string $field field in the record we are going to migrate

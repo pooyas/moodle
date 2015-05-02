@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file is the main controller to do with the portfolio export wizard.
@@ -94,11 +80,11 @@ if (!empty($dataid)) {
             portfolio_export_pagesetup($PAGE, $exporter->get('caller'));
             $exporter->print_header(get_string('confirmcancel', 'portfolio'));
             echo $OUTPUT->box_start();
-            $yesbutton = new single_button(new moodle_url('/portfolio/add.php', array('id' => $dataid, 'cancel' => 1, 'cancelsure' => 1, 'logreturn' => $logreturn)), get_string('yes'));
+            $yesbutton = new single_button(new lion_url('/portfolio/add.php', array('id' => $dataid, 'cancel' => 1, 'cancelsure' => 1, 'logreturn' => $logreturn)), get_string('yes'));
             if ($logreturn) {
-                $nobutton  = new single_button(new moodle_url('/user/portfoliologs.php'), get_string('no'));
+                $nobutton  = new single_button(new lion_url('/user/portfoliologs.php'), get_string('no'));
             } else {
-                $nobutton  = new single_button(new moodle_url('/portfolio/add.php', array('id' => $dataid)), get_string('no'));
+                $nobutton  = new single_button(new lion_url('/portfolio/add.php', array('id' => $dataid)), get_string('no'));
             }
             echo $OUTPUT->confirm(get_string('confirmcancel', 'portfolio'), $yesbutton, $nobutton);
             echo $OUTPUT->box_end();
@@ -151,13 +137,13 @@ if (!empty($dataid)) {
     }
 
     // we must be passed this from the caller, we cannot start a new export
-    // without knowing information about what part of moodle we come from.
+    // without knowing information about what part of lion we come from.
     if (empty($callbackcomponent) || empty($callbackclass)) {
         debugging('no callback file or class');
         portfolio_exporter::print_expired_export();
     }
 
-    // so each place in moodle can pass callback args here
+    // so each place in lion can pass callback args here
     // process the entire request looking for ca_*
     // be as lenient as possible while still being secure
     // so only accept certain parameter types.

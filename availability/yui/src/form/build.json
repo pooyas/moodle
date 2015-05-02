@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core_availability-form",
+  "name": "lion-core_availability-form",
   "builds": {
-    "moodle-core_availability-form": {
+    "lion-core_availability-form": {
       "jsfiles": [
         "form.js"
       ]

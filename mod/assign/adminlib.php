@@ -1,28 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains the classes for the admin settings of the assign module.
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/adminlib.php');
 
@@ -31,7 +17,7 @@ require_once($CFG->libdir . '/adminlib.php');
  *
  * @package   mod_assign
  * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class assign_admin_page_manage_assign_plugins extends admin_externalpage {
 
@@ -45,7 +31,7 @@ class assign_admin_page_manage_assign_plugins extends admin_externalpage {
      */
     public function __construct($subtype) {
         $this->subtype = $subtype;
-        $url = new moodle_url('/mod/assign/adminmanageplugins.php', array('subtype'=>$subtype));
+        $url = new lion_url('/mod/assign/adminmanageplugins.php', array('subtype'=>$subtype));
         parent::__construct('manage' . $subtype . 'plugins',
                             get_string('manage' . $subtype . 'plugins', 'assign'),
                             $url);
@@ -87,8 +73,8 @@ class assign_admin_page_manage_assign_plugins extends admin_externalpage {
  * Class that handles the display and configuration of the list of submission plugins.
  *
  * @package   mod_assign
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 class assign_plugin_manager {
 
@@ -104,7 +90,7 @@ class assign_plugin_manager {
      * @param string $subtype - either assignsubmission or assignfeedback
      */
     public function __construct($subtype) {
-        $this->pageurl = new moodle_url('/mod/assign/adminmanageplugins.php', array('subtype'=>$subtype));
+        $this->pageurl = new lion_url('/mod/assign/adminmanageplugins.php', array('subtype'=>$subtype));
         $this->subtype = $subtype;
     }
 
@@ -157,9 +143,9 @@ class assign_plugin_manager {
             return html_writer::link($url, get_string('uninstallplugin', 'core_admin'));
         }
 
-        return $OUTPUT->action_icon(new moodle_url($url,
+        return $OUTPUT->action_icon(new lion_url($url,
                 array('action' => $action, 'plugin'=> $plugin, 'sesskey' => sesskey())),
-                new pix_icon($icon, $alt, 'moodle', array('title' => $alt)),
+                new pix_icon($icon, $alt, 'lion', array('title' => $alt)),
                 null, array('title' => $alt)) . ' ';
     }
 
@@ -217,7 +203,7 @@ class assign_plugin_manager {
 
             $exists = file_exists($CFG->dirroot . '/mod/assign/' . $shortsubtype . '/' . $plugin . '/settings.php');
             if ($row[1] != '' && $exists) {
-                $row[] = html_writer::link(new moodle_url('/admin/settings.php',
+                $row[] = html_writer::link(new lion_url('/admin/settings.php',
                         array('section' => $this->subtype . '_' . $plugin)), get_string('settings'));
             } else {
                 $row[] = '&nbsp;';
@@ -264,7 +250,7 @@ class assign_plugin_manager {
         // Check permissions.
         require_login();
         $systemcontext = context_system::instance();
-        require_capability('moodle/site:config', $systemcontext);
+        require_capability('lion/site:config', $systemcontext);
     }
 
     /**

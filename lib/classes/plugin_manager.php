@@ -1,39 +1,25 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Defines classes used for plugins management
  *
  * This library provides a unified interface to various plugin types in
- * Moodle. It is mainly used by the plugins management admin page and the
+ * Lion. It is mainly used by the plugins management admin page and the
  * plugins check page during the upgrade.
  *
  * @package    core
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2011 David Mudrak <david@lion.com>
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Singleton class providing general plugins management functionality.
  */
 class core_plugin_manager {
 
-    /** the plugin is shipped with standard Moodle distribution */
+    /** the plugin is shipped with standard Lion distribution */
     const PLUGIN_SOURCE_STANDARD    = 'std';
     /** the plugin is added extension */
     const PLUGIN_SOURCE_EXTENSION   = 'ext';
@@ -162,7 +148,7 @@ class core_plugin_manager {
 
         $this->installedplugins = array();
 
-        // TODO: Delete this block once Moodle 2.6 or later becomes minimum required version to upgrade.
+        // TODO: Delete this block once Lion 2.6 or later becomes minimum required version to upgrade.
         if ($CFG->version < 2013092001.02) {
             // We did not upgrade the database yet.
             $modules = $DB->get_records('modules', array(), 'name ASC', 'id, name, version');
@@ -553,7 +539,7 @@ class core_plugin_manager {
         $pluginfo = $this->get_plugin_info($component);
 
         if (is_null($pluginfo)) {
-            throw new moodle_exception('err_unknown_plugin', 'core_plugin', '', array('plugin' => $component));
+            throw new lion_exception('err_unknown_plugin', 'core_plugin', '', array('plugin' => $component));
         }
 
         return $pluginfo->displayname;
@@ -718,17 +704,17 @@ class core_plugin_manager {
      * argument is populated with the list of plugins that have failed dependencies (note that
      * a single plugin can appear multiple times in the $failedplugins).
      *
-     * @param int $moodleversion the version from version.php.
+     * @param int $lionversion the version from version.php.
      * @param array $failedplugins to return the list of plugins with non-satisfied dependencies
      * @return bool true if all the dependencies are satisfied for all plugins.
      */
-    public function all_plugins_ok($moodleversion, &$failedplugins = array()) {
+    public function all_plugins_ok($lionversion, &$failedplugins = array()) {
 
         $return = true;
         foreach ($this->get_plugins() as $type => $plugins) {
             foreach ($plugins as $plugin) {
 
-                if (!$plugin->is_core_dependency_satisfied($moodleversion)) {
+                if (!$plugin->is_core_dependency_satisfied($lionversion)) {
                     $return = false;
                     $failedplugins[] = $plugin->component;
                 }
@@ -797,7 +783,7 @@ class core_plugin_manager {
      *
      * @param string $component
      * @param string $return either 'overview' or 'manage'
-     * @return moodle_url uninstall URL, null if uninstall not supported
+     * @return lion_url uninstall URL, null if uninstall not supported
      */
     public function get_uninstall_url($component, $return = 'overview') {
         if (!$this->can_uninstall_plugin($component)) {
@@ -895,7 +881,7 @@ class core_plugin_manager {
     }
 
     /**
-     * Defines a list of all plugins that were originally shipped in the standard Moodle distribution,
+     * Defines a list of all plugins that were originally shipped in the standard Lion distribution,
      * but are not anymore and are deleted during upgrades.
      *
      * The main purpose of this list is to hide missing plugins during upgrade.
@@ -906,9 +892,9 @@ class core_plugin_manager {
      */
     public static function is_deleted_standard_plugin($type, $name) {
         // Do not include plugins that were removed during upgrades to versions that are
-        // not supported as source versions for upgrade any more. For example, at MOODLE_23_STABLE
+        // not supported as source versions for upgrade any more. For example, at LION_23_STABLE
         // branch, listed should be no plugins that were removed at 1.9.x - 2.1.x versions as
-        // Moodle 2.3 supports upgrades from 2.2.x only.
+        // Lion 2.3 supports upgrades from 2.2.x only.
         $plugins = array(
             'qformat' => array('blackboard', 'learnwise'),
             'enrol' => array('authorize'),
@@ -926,7 +912,7 @@ class core_plugin_manager {
     }
 
     /**
-     * Defines a white list of all plugins shipped in the standard Moodle distribution
+     * Defines a white list of all plugins shipped in the standard Lion distribution
      *
      * @param string $type
      * @return false|array array of standard plugins or false if the type is unknown
@@ -1131,8 +1117,8 @@ class core_plugin_manager {
             ),
 
             'tinymce' => array(
-                'ctrlhelp', 'managefiles', 'moodleemoticon', 'moodleimage',
-                'moodlemedia', 'moodlenolink', 'pdw', 'spellchecker', 'wrap'
+                'ctrlhelp', 'managefiles', 'lionemoticon', 'lionimage',
+                'lionmedia', 'lionnolink', 'pdw', 'spellchecker', 'wrap'
             ),
 
             'theme' => array(
@@ -1177,7 +1163,7 @@ class core_plugin_manager {
      * For technical reasons, plugin types returned by {@link core_component::get_plugin_types()} are
      * in a certain order that does not need to fit the expected order for the display.
      * Particularly, activity modules should be displayed first as they represent the
-     * real heart of Moodle. They should be followed by other plugin types that are
+     * real heart of Lion. They should be followed by other plugin types that are
      * used to build the courses (as that is what one expects from LMS). After that,
      * other supportive plugin types follow.
      *

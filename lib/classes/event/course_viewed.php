@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Course viewed event.
  *
  * @package    core
- * @copyright  2014 Adrian Greeve <adrian@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * 
  */
 
 namespace core\event;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Course viewed event class.
@@ -37,9 +23,9 @@ defined('MOODLE_INTERNAL') || die();
  * }
  *
  * @package    core
- * @since      Moodle 2.7
- * @copyright  2014 Adrian Greeve <adrian@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @since      Lion 2.7
+ * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * 
  */
 class course_viewed extends base {
 
@@ -84,7 +70,7 @@ class course_viewed extends base {
     /**
      * Get URL related to the action.
      *
-     * @return \moodle_url|null
+     * @return \lion_url|null
      */
     public function get_url() {
         global $CFG;
@@ -111,7 +97,7 @@ class course_viewed extends base {
      */
     protected function get_legacy_logdata() {
         if ($this->courseid == SITEID and !isloggedin()) {
-            // We did not log frontpage access in older Moodle versions.
+            // We did not log frontpage access in older Lion versions.
             return null;
         }
 

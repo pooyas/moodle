@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External user API
  *
  * @package   core_user
- * @copyright 2009 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2009 Lion Pty Ltd (http://lion.com)
+ * 
  */
 
 
 /**
  * Creates a user
  *
- * @throws moodle_exception
+ * @throws lion_exception
  * @param stdClass $user user to create
  * @param bool $updatepassword if true, authentication plugin will update password.
  * @param bool $triggerevent set false if user_created event should not be triggred.
@@ -43,10 +29,10 @@ function user_create_user($user, $updatepassword = true, $triggerevent = true) {
 
     // Check username.
     if ($user->username !== core_text::strtolower($user->username)) {
-        throw new moodle_exception('usernamelowercase');
+        throw new lion_exception('usernamelowercase');
     } else {
         if ($user->username !== clean_param($user->username, PARAM_USERNAME)) {
-            throw new moodle_exception('invalidusername');
+            throw new lion_exception('invalidusername');
         }
     }
 
@@ -55,7 +41,7 @@ function user_create_user($user, $updatepassword = true, $triggerevent = true) {
 
         // Check password toward the password policy.
         if (!check_password_policy($user->password, $errmsg)) {
-            throw new moodle_exception($errmsg);
+            throw new lion_exception($errmsg);
         }
 
         $userpassword = $user->password;
@@ -117,7 +103,7 @@ function user_create_user($user, $updatepassword = true, $triggerevent = true) {
 /**
  * Update a user with a user object (will compare against the ID)
  *
- * @throws moodle_exception
+ * @throws lion_exception
  * @param stdClass $user the user to update
  * @param bool $updatepassword if true, authentication plugin will update password.
  * @param bool $triggerevent set false if user_updated event should not be triggred.
@@ -134,10 +120,10 @@ function user_update_user($user, $updatepassword = true, $triggerevent = true) {
     // Check username.
     if (isset($user->username)) {
         if ($user->username !== core_text::strtolower($user->username)) {
-            throw new moodle_exception('usernamelowercase');
+            throw new lion_exception('usernamelowercase');
         } else {
             if ($user->username !== clean_param($user->username, PARAM_USERNAME)) {
-                throw new moodle_exception('invalidusername');
+                throw new lion_exception('invalidusername');
             }
         }
     }
@@ -147,7 +133,7 @@ function user_update_user($user, $updatepassword = true, $triggerevent = true) {
 
         // Check password toward the password policy.
         if (!check_password_policy($user->password, $errmsg)) {
-            throw new moodle_exception($errmsg);
+            throw new lion_exception($errmsg);
         }
 
         $passwd = $user->password;
@@ -232,11 +218,11 @@ function user_get_default_fields() {
  * Give user record from mdl_user, build an array contains all user details.
  *
  * Warning: description file urls are 'webservice/pluginfile.php' is use.
- *          it can be changed with $CFG->moodlewstextformatlinkstoimagesfile
+ *          it can be changed with $CFG->lionwstextformatlinkstoimagesfile
  *
- * @throws moodle_exception
+ * @throws lion_exception
  * @param stdClass $user user record from mdl_user
- * @param stdClass $course moodle course
+ * @param stdClass $course lion course
  * @param array $userfields required fields
  * @return array|null
  */
@@ -253,7 +239,7 @@ function user_get_user_details($user, $course = null, array $userfields = array(
 
     foreach ($userfields as $thefield) {
         if (!in_array($thefield, $defaultfields)) {
-            throw new moodle_exception('invaliduserfield', 'error', '', $thefield);
+            throw new lion_exception('invaliduserfield', 'error', '', $thefield);
         }
     }
 
@@ -269,11 +255,11 @@ function user_get_user_details($user, $course = null, array $userfields = array(
     if (!empty($course)) {
         $context = context_course::instance($course->id);
         $usercontext = context_user::instance($user->id);
-        $canviewdetailscap = (has_capability('moodle/user:viewdetails', $context) || has_capability('moodle/user:viewdetails', $usercontext));
+        $canviewdetailscap = (has_capability('lion/user:viewdetails', $context) || has_capability('lion/user:viewdetails', $usercontext));
     } else {
         $context = context_user::instance($user->id);
         $usercontext = $context;
-        $canviewdetailscap = has_capability('moodle/user:viewdetails', $usercontext);
+        $canviewdetailscap = has_capability('lion/user:viewdetails', $usercontext);
     }
 
     $currentuser = ($user->id == $USER->id);
@@ -282,19 +268,19 @@ function user_get_user_details($user, $course = null, array $userfields = array(
     $showuseridentityfields = get_extra_user_fields($context);
 
     if (!empty($course)) {
-        $canviewhiddenuserfields = has_capability('moodle/course:viewhiddenuserfields', $context);
+        $canviewhiddenuserfields = has_capability('lion/course:viewhiddenuserfields', $context);
     } else {
-        $canviewhiddenuserfields = has_capability('moodle/user:viewhiddendetails', $context);
+        $canviewhiddenuserfields = has_capability('lion/user:viewhiddendetails', $context);
     }
-    $canviewfullnames = has_capability('moodle/site:viewfullnames', $context);
+    $canviewfullnames = has_capability('lion/site:viewfullnames', $context);
     if (!empty($course)) {
-        $canviewuseremail = has_capability('moodle/course:useremail', $context);
+        $canviewuseremail = has_capability('lion/course:useremail', $context);
     } else {
         $canviewuseremail = false;
     }
     $cannotviewdescription   = !empty($CFG->profilesforenrolledusersonly) && !$currentuser && !$DB->record_exists('role_assignments', array('userid' => $user->id));
     if (!empty($course)) {
-        $canaccessallgroups = has_capability('moodle/site:accessallgroups', $context);
+        $canaccessallgroups = has_capability('lion/site:accessallgroups', $context);
     } else {
         $canaccessallgroups = false;
     }
@@ -346,11 +332,11 @@ function user_get_user_details($user, $course = null, array $userfields = array(
 
     // Profile image.
     if (in_array('profileimageurl', $userfields)) {
-        $profileimageurl = moodle_url::make_pluginfile_url($usercontext->id, 'user', 'icon', null, '/', 'f1');
+        $profileimageurl = lion_url::make_pluginfile_url($usercontext->id, 'user', 'icon', null, '/', 'f1');
         $userdetails['profileimageurl'] = $profileimageurl->out(false);
     }
     if (in_array('profileimageurlsmall', $userfields)) {
-        $profileimageurlsmall = moodle_url::make_pluginfile_url($usercontext->id, 'user', 'icon', null, '/', 'f2');
+        $profileimageurlsmall = lion_url::make_pluginfile_url($usercontext->id, 'user', 'icon', null, '/', 'f2');
         $userdetails['profileimageurlsmall'] = $profileimageurlsmall->out(false);
     }
 
@@ -569,11 +555,11 @@ function user_get_user_details_courses($user) {
 function can_view_user_details_cap($user, $course = null) {
     // Check $USER has the capability to view the user details at user context.
     $usercontext = context_user::instance($user->id);
-    $result = has_capability('moodle/user:viewdetails', $usercontext);
+    $result = has_capability('lion/user:viewdetails', $usercontext);
     // Otherwise can $USER see them at course context.
     if (!$result && !empty($course)) {
         $context = context_course::instance($course->id);
-        $result = has_capability('moodle/user:viewdetails', $context);
+        $result = has_capability('lion/user:viewdetails', $context);
     }
     return $result;
 }
@@ -619,7 +605,7 @@ function user_count_login_failures($user, $reset = true) {
  * stdClass with fields type, url, title, pix, and imgsrc.
  *
  * @param string $text the menu items definition
- * @param moodle_page $page the current page
+ * @param lion_page $page the current page
  * @return array
  */
 function user_convert_text_to_menu_items($text, $page) {
@@ -674,8 +660,8 @@ function user_convert_text_to_menu_items($text, $page) {
             $bits[1] = null;
             $child->itemtype = "invalid";
         } else {
-            // Make sure the url is a moodle url.
-            $bits[1] = new moodle_url(trim($bits[1]));
+            // Make sure the url is a lion url.
+            $bits[1] = new lion_url(trim($bits[1]));
         }
         $child->url = $bits[1];
 
@@ -687,7 +673,7 @@ function user_convert_text_to_menu_items($text, $page) {
         } else {
             // Check for the specified image existing.
             $pixpath = "t/" . $bits[2];
-            if ($page->theme->resolve_image_location($pixpath, 'moodle', true)) {
+            if ($page->theme->resolve_image_location($pixpath, 'lion', true)) {
                 // Use the image.
                 $child->pix = $pixpath;
             } else {
@@ -707,7 +693,7 @@ function user_convert_text_to_menu_items($text, $page) {
  * Get a list of essential user navigation items.
  *
  * @param stdclass $user user object.
- * @param moodle_page $page page object.
+ * @param lion_page $page page object.
  * @return stdClass $returnobj navigation information object, where:
  *
  *      $returnobj->navitems    array    array of links where each link is a
@@ -727,7 +713,7 @@ function user_convert_text_to_menu_items($text, $page) {
  *
  *          userid         int        the id of the user in question
  *          userfullname   string     the user's full name
- *          userprofileurl moodle_url the url of the user's profile
+ *          userprofileurl lion_url the url of the user's profile
  *          useravatar     string     a HTML fragment - the rendered
  *                                    user_picture for this user
  *          userloginfail  string     an error string denoting the number
@@ -740,7 +726,7 @@ function user_convert_text_to_menu_items($text, $page) {
  *          asotheruser        bool    whether viewing as another user
  *          realuserid         int        the id of the user in question
  *          realuserfullname   string     the user's full name
- *          realuserprofileurl moodle_url the url of the user's profile
+ *          realuserprofileurl lion_url the url of the user's profile
  *          realuseravatar     string     a HTML fragment - the rendered
  *                                        user_picture for this user
  *
@@ -765,7 +751,7 @@ function user_get_user_navigation_info($user, $page) {
     // Get basic user metadata.
     $returnobject->metadata['userid'] = $user->id;
     $returnobject->metadata['userfullname'] = fullname($user, true);
-    $returnobject->metadata['userprofileurl'] = new moodle_url('/user/profile.php', array(
+    $returnobject->metadata['userprofileurl'] = new lion_url('/user/profile.php', array(
         'id' => $user->id
     ));
     $returnobject->metadata['useravatar'] = $OUTPUT->user_picture (
@@ -804,15 +790,15 @@ function user_get_user_navigation_info($user, $page) {
     // Links: My Home.
     $myhome = new stdClass();
     $myhome->itemtype = 'link';
-    $myhome->url = new moodle_url('/my/');
-    $myhome->title = get_string('mymoodle', 'admin');
+    $myhome->url = new lion_url('/my/');
+    $myhome->title = get_string('mylion', 'admin');
     $myhome->pix = "i/course";
     $returnobject->navitems[] = $myhome;
 
     // Links: My Profile.
     $myprofile = new stdClass();
     $myprofile->itemtype = 'link';
-    $myprofile->url = new moodle_url('/user/profile.php', array('id' => $user->id));
+    $myprofile->url = new lion_url('/user/profile.php', array('id' => $user->id));
     $myprofile->title = get_string('myprofile');
     $myprofile->pix = "i/user";
     $returnobject->navitems[] = $myprofile;
@@ -826,7 +812,7 @@ function user_get_user_navigation_info($user, $page) {
             // Build role-return link instead of logout link.
             $rolereturn = new stdClass();
             $rolereturn->itemtype = 'link';
-            $rolereturn->url = new moodle_url('/course/switchrole.php', array(
+            $rolereturn->url = new lion_url('/course/switchrole.php', array(
                 'id' => $course->id,
                 'sesskey' => sesskey(),
                 'switchrole' => 0,
@@ -850,7 +836,7 @@ function user_get_user_navigation_info($user, $page) {
         // user the user is disguised as.
         $returnobject->metadata['realuserid'] = $realuser->id;
         $returnobject->metadata['realuserfullname'] = fullname($realuser, true);
-        $returnobject->metadata['realuserprofileurl'] = new moodle_url('/user/profile.php', array(
+        $returnobject->metadata['realuserprofileurl'] = new lion_url('/user/profile.php', array(
             'id' => $realuser->id
         ));
         $returnobject->metadata['realuseravatar'] = $OUTPUT->user_picture (
@@ -864,7 +850,7 @@ function user_get_user_navigation_info($user, $page) {
         // Build a user-revert link.
         $userrevert = new stdClass();
         $userrevert->itemtype = 'link';
-        $userrevert->url = new moodle_url('/course/loginas.php', array(
+        $userrevert->url = new lion_url('/course/loginas.php', array(
             'id' => $course->id,
             'sesskey' => sesskey()
         ));
@@ -879,7 +865,7 @@ function user_get_user_navigation_info($user, $page) {
         // Build a logout link.
         $logout = new stdClass();
         $logout->itemtype = 'link';
-        $logout->url = new moodle_url('/login/logout.php', array('sesskey' => sesskey()));
+        $logout->url = new lion_url('/login/logout.php', array('sesskey' => sesskey()));
         $logout->pix = "a/logout";
         $logout->title = get_string('logout');
         $lastobj = $logout;
@@ -979,12 +965,12 @@ function user_is_previously_used_password($userid, $password) {
 }
 
 /**
- * Remove a user device from the Moodle database (for PUSH notifications usually).
+ * Remove a user device from the Lion database (for PUSH notifications usually).
  *
  * @param string $uuid The device UUID.
  * @param string $appid The app id. If empty all the devices matching the UUID for the user will be removed.
  * @return bool true if removed, false if the device didn't exists in the database
- * @since Moodle 2.9
+ * @since Lion 2.9
  */
 function user_remove_user_device($uuid, $appid = "") {
     global $DB, $USER;

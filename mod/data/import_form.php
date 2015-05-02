@@ -1,12 +1,12 @@
 <?php
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/csvlib.class.php');
 
-class mod_data_import_form extends moodleform {
+class mod_data_import_form extends lionform {
 
     function definition() {
         global $CFG;

@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Loglive report renderable class.
  *
  * @package    report_loglive
  * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Report loglive renderable class.
  *
- * @since      Moodle 2.7
+ * @since      Lion 2.7
  * @package    report_loglive
  * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class report_loglive_renderable implements renderable {
 
@@ -52,7 +38,7 @@ class report_loglive_renderable implements renderable {
     /** @var stdClass course record */
     public $course;
 
-    /** @var moodle_url url of report page */
+    /** @var lion_url url of report page */
     public $url;
 
     /** @var int selected date from which records should be displayed */
@@ -75,7 +61,7 @@ class report_loglive_renderable implements renderable {
      *
      * @param string $logreader (optional)reader pluginname from which logs will be fetched.
      * @param stdClass|int $course (optional) course record or id
-     * @param moodle_url|string $url (optional) page url.
+     * @param lion_url|string $url (optional) page url.
      * @param int $date date (optional) from which records will be fetched.
      * @param int $page (optional) page number.
      * @param int $perpage (optional) number of records to show per page.
@@ -100,9 +86,9 @@ class report_loglive_renderable implements renderable {
 
         // Use page url if empty.
         if (empty($url)) {
-            $url = new moodle_url($PAGE->url);
+            $url = new lion_url($PAGE->url);
         } else {
-            $url = new moodle_url($url);
+            $url = new lion_url($url);
         }
         $this->url = $url;
 

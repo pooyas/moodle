@@ -1,7 +1,7 @@
 /**
- * The quizbase class to provide shared functionality to Modules within Moodle.
+ * The quizbase class to provide shared functionality to Modules within Lion.
  *
- * @module moodle-mod_quiz-quizbase
+ * @module lion-mod_quiz-quizbase
  */
 var QUIZBASENAME = 'mod_quiz-quizbase';
 
@@ -11,7 +11,7 @@ var QUIZBASE = function() {
 
 /**
  * The coursebase class to provide shared functionality to Modules within
- * Moodle.
+ * Lion.
  *
  * @class M.course.coursebase
  * @constructor
@@ -162,7 +162,7 @@ M.mod_quiz.edit.get_section_selector = function() {
     if (config.section_node && config.section_class) {
         return config.section_node + '.' + config.section_class;
     }
-    Y.log('section_node and section_class are not defined in M.mod_quiz.edit.get_config', 'warn', 'moodle-mod_quiz-quizbase');
+    Y.log('section_node and section_class are not defined in M.mod_quiz.edit.get_config', 'warn', 'lion-mod_quiz-quizbase');
     return null;
 };
 
@@ -192,7 +192,7 @@ M.mod_quiz.edit.get_containernode = function() {
     if (config.container_node) {
         return config.container_node;
     } else {
-        Y.log('container_node is not defined in M.mod_quiz.edit.get_config', 'warn', 'moodle-mod_quiz-quizbase');
+        Y.log('container_node is not defined in M.mod_quiz.edit.get_config', 'warn', 'lion-mod_quiz-quizbase');
     }
 };
 
@@ -206,7 +206,7 @@ M.mod_quiz.edit.get_containerclass = function() {
     if (config.container_class) {
         return config.container_class;
     } else {
-        Y.log('container_class is not defined in M.mod_quiz.edit.get_config', 'warn', 'moodle-mod_quiz-quizbase');
+        Y.log('container_class is not defined in M.mod_quiz.edit.get_config', 'warn', 'lion-mod_quiz-quizbase');
     }
 };
 
@@ -248,7 +248,7 @@ M.mod_quiz.edit.get_sectionnode = function() {
     if (config.section_node) {
         return config.section_node;
     } else {
-        Y.log('section_node is not defined in M.mod_quiz.edit.get_config', 'warn', 'moodle-mod_quiz-quizbase');
+        Y.log('section_node is not defined in M.mod_quiz.edit.get_config', 'warn', 'lion-mod_quiz-quizbase');
     }
 };
 
@@ -262,6 +262,6 @@ M.mod_quiz.edit.get_sectionclass = function() {
     if (config.section_class) {
         return config.section_class;
     } else {
-        Y.log('section_class is not defined in M.mod_quiz.edit.get_config', 'warn', 'moodle-mod_quiz-quizbase');
+        Y.log('section_class is not defined in M.mod_quiz.edit.get_config', 'warn', 'lion-mod_quiz-quizbase');
     }
 };

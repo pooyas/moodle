@@ -1,5 +1,5 @@
 {
-  "moodle-core-dock": {
+  "lion-core-dock": {
     "requires": [
         "base",
         "node",
@@ -7,10 +7,10 @@
         "event-mouseenter",
         "event-resize",
         "escape",
-        "moodle-core-dock-loader"
+        "lion-core-dock-loader"
     ]
   },
-  "moodle-core-dock-loader": {
+  "lion-core-dock-loader": {
       "requires": [
           "escape"
       ]

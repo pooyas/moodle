@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Edit page for grade scales
  *
  * @package   core_grades
  * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once '../../../config.php';
@@ -32,7 +18,7 @@ $id       = optional_param('id', 0, PARAM_INT);
 
 $PAGE->set_url('/grade/edit/scale/edit.php', array('id' => $id, 'courseid' => $courseid));
 $PAGE->set_pagelayout('admin');
-navigation_node::override_active_url(new moodle_url('/grade/edit/scale/index.php',
+navigation_node::override_active_url(new lion_url('/grade/edit/scale/index.php',
     array('id' => $courseid)));
 
 $systemcontext = context_system::instance();
@@ -53,7 +39,7 @@ if ($id) {
         }
         require_login($course);
         $context = context_course::instance($course->id);
-        require_capability('moodle/course:managescales', $context);
+        require_capability('lion/course:managescales', $context);
         $courseid = $course->id;
     } else {
         if ($courseid) {
@@ -64,7 +50,7 @@ if ($id) {
         $scale_rec->standard = 1;
         $scale_rec->courseid = $courseid;
         require_login($courseid);
-        require_capability('moodle/course:managescales', $systemcontext);
+        require_capability('lion/course:managescales', $systemcontext);
     }
 
 } else if ($courseid){
@@ -78,7 +64,7 @@ if ($id) {
     $scale_rec->courseid = $courseid;
     require_login($course);
     $context = context_course::instance($course->id);
-    require_capability('moodle/course:managescales', $context);
+    require_capability('lion/course:managescales', $context);
 
 } else {
     /// adding new scale from admin section
@@ -86,7 +72,7 @@ if ($id) {
     $scale_rec->standard = 1;
     $scale_rec->courseid = 0;
     require_login();
-    require_capability('moodle/course:managescales', $systemcontext);
+    require_capability('lion/course:managescales', $systemcontext);
 }
 
 if (!$courseid) {
@@ -127,7 +113,7 @@ if ($mform->is_cancelled()) {
         $data->description = $data->description_editor['text'];
         $data->descriptionformat = $data->description_editor['format'];
         grade_scale::set_properties($scale, $data);
-        if (!has_capability('moodle/grade:manage', $systemcontext)) {
+        if (!has_capability('lion/grade:manage', $systemcontext)) {
             $data->standard = 0;
         }
         $scale->courseid = !empty($data->standard) ? 0 : $courseid;

@@ -1,9 +1,9 @@
 {
-    "moodle-backup-confirmcancel": {
+    "lion-backup-confirmcancel": {
         "requires": [
             "node",
             "node-event-simulate",
-            "moodle-core-notification-confirm"
+            "lion-core-notification-confirm"
         ]
     }
 }

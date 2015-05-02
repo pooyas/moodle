@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains classes that are used by the Cache API only when it is disabled.
@@ -23,10 +9,10 @@
  * @package    core
  * @category   cache
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Required as it is needed for cache_config_disabled which extends cache_config_writer.
@@ -37,7 +23,7 @@ require_once($CFG->dirroot.'/cache/locallib.php');
  * The cache loader class used when the Cache has been disabled.
  *
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_disabled extends cache {
 
@@ -164,7 +150,7 @@ class cache_disabled extends cache {
  * The cache factory class used when the Cache has been disabled.
  *
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_factory_disabled extends cache_factory {
 
@@ -289,7 +275,7 @@ class cache_factory_disabled extends cache_factory {
  * The cache config class used when the Cache has been disabled.
  *
  * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_config_disabled extends cache_config_writer {
 

@@ -1,7 +1,7 @@
 {
-    "name": "Moodle",
+    "name": "Lion",
     "private": true,
-    "description": "Moodle",
+    "description": "Lion",
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-jshint": "~0.11.0",

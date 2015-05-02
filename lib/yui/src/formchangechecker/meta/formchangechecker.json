@@ -1,5 +1,5 @@
 {
-  "moodle-core-formchangechecker": {
+  "lion-core-formchangechecker": {
     "requires": [
       "base",
       "event-focus"

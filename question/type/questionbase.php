@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file defines the class {@link question_definition} and its subclasses.
@@ -35,14 +21,14 @@
  * Other interfaces:
  * - question_response_answer_comparer
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questiontypes
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -54,7 +40,7 @@ defined('MOODLE_INTERNAL') || die();
  * {@link question_graded_automatically} or {@link question_information_item}.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_definition {
     /** @var integer id of the question in the datase, or null if this question
@@ -269,10 +255,10 @@ abstract class question_definition {
     }
 
     /**
-     * @param moodle_page the page we are outputting to.
+     * @param lion_page the page we are outputting to.
      * @return qtype_renderer the renderer to use for outputting this question.
      */
-    public function get_renderer(moodle_page $page) {
+    public function get_renderer(lion_page $page) {
         return $page->get_renderer($this->qtype->plugin_name());
     }
 
@@ -316,7 +302,7 @@ abstract class question_definition {
      * - mod/quiz/report/responses/tests/fixtures/steps00.csv
      * - mod/quiz/report/statistics/tests/fixtures/stepsXX.csv
      *
-     * Also see {@link https://github.com/jamiepratt/moodle-quiz_simulate}, a quiz report plug in for uploading and downloading
+     * Also see {@link https://github.com/jamiepratt/lion-quiz_simulate}, a quiz report plug in for uploading and downloading
      * student responses as csv files.
      *
      * @param array $simulatedresponse an array of data representing a student response
@@ -418,7 +404,7 @@ abstract class question_definition {
  * to respond, like the description 'question' type.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_information_item extends question_definition {
     public function __construct() {
@@ -451,7 +437,7 @@ class question_information_item extends question_definition {
  * the manual graded behaviour.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface question_manually_gradable {
     /**
@@ -501,7 +487,7 @@ interface question_manually_gradable {
  * {@link question_manually_gradable::classify_response()}.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_classified_response {
     /**
@@ -537,7 +523,7 @@ class question_classified_response {
  * the various automatic grading behaviours.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface question_automatically_gradable extends question_manually_gradable {
     /**
@@ -594,7 +580,7 @@ interface question_automatically_gradable extends question_manually_gradable {
  * the interactivecountback behaviour.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface question_automatically_gradable_with_countback extends question_automatically_gradable {
     /**
@@ -616,7 +602,7 @@ interface question_automatically_gradable_with_countback extends question_automa
  * {@link question_information_item}.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_with_responses extends question_definition
         implements question_manually_gradable {
@@ -630,7 +616,7 @@ abstract class question_with_responses extends question_definition
  * This class represents a question that can be graded automatically.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_graded_automatically extends question_with_responses
         implements question_automatically_gradable {
@@ -705,7 +691,7 @@ abstract class question_graded_automatically extends question_with_responses
  * countback grading in interactive mode.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_graded_automatically_with_countback
         extends question_graded_automatically
@@ -726,7 +712,7 @@ abstract class question_graded_automatically_with_countback
  * a {@link question_grading_strategy}.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class question_graded_by_strategy extends question_graded_automatically {
     /** @var question_grading_strategy the strategy to use for grading. */
@@ -797,7 +783,7 @@ abstract class question_graded_by_strategy extends question_graded_automatically
  * in the database.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_answer {
     /** @var integer the answer id. */
@@ -841,7 +827,7 @@ class question_answer {
  * Used by iteractive mode, etc. A question has an array of these.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_hint {
     /** @var integer The hint id. */
@@ -888,7 +874,7 @@ class question_hint {
  * number of parts right at each stage, and to reset the wrong parts.
  *
  * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_hint_with_parts extends question_hint {
     /** @var boolean option to show the number of sub-parts of the question that were right. */
@@ -936,7 +922,7 @@ class question_hint_with_parts extends question_hint {
  * questions that that subclass {@link question_graded_by_strategy}.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface question_grading_strategy {
     /**
@@ -961,7 +947,7 @@ interface question_grading_strategy {
  * {@link question_first_matching_answer_grading_strategy}.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface question_response_answer_comparer {
     /** @return array of {@link question_answers}. */
@@ -983,7 +969,7 @@ interface question_response_answer_comparer {
  * when asked for the correct answer.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_first_matching_answer_grading_strategy implements question_grading_strategy {
     /**

@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Cohort related management functions, this file needs to be included manually.
  *
  * @package    core_cohort
  * @copyright  2010 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require('../config.php');
@@ -48,10 +34,10 @@ if ($context->contextlevel == CONTEXT_COURSECAT) {
     $category = $DB->get_record('course_categories', array('id'=>$context->instanceid), '*', MUST_EXIST);
 }
 
-$manager = has_capability('moodle/cohort:manage', $context);
-$canassign = has_capability('moodle/cohort:assign', $context);
+$manager = has_capability('lion/cohort:manage', $context);
+$canassign = has_capability('lion/cohort:assign', $context);
 if (!$manager) {
-    require_capability('moodle/cohort:view', $context);
+    require_capability('lion/cohort:view', $context);
 }
 
 $strcohorts = get_string('cohorts', 'cohort');
@@ -96,7 +82,7 @@ if ($searchquery) {
 if ($showall) {
     $params['showall'] = true;
 }
-$baseurl = new moodle_url('/cohort/index.php', $params);
+$baseurl = new lion_url('/cohort/index.php', $params);
 
 if ($editcontrols = cohort_edit_controls($context, $baseurl)) {
     echo $OUTPUT->render($editcontrols);
@@ -123,7 +109,7 @@ foreach($cohorts['cohorts'] as $cohort) {
     $cohortcontext = context::instance_by_id($cohort->contextid);
     if ($showall) {
         if ($cohortcontext->contextlevel == CONTEXT_COURSECAT) {
-            $line[] = html_writer::link(new moodle_url('/cohort/index.php' ,
+            $line[] = html_writer::link(new lion_url('/cohort/index.php' ,
                     array('contextid' => $cohort->contextid)), $cohortcontext->get_context_name(false));
         } else {
             $line[] = $cohortcontext->get_context_name(false);
@@ -143,11 +129,11 @@ foreach($cohorts['cohorts'] as $cohort) {
 
     $buttons = array();
     if (empty($cohort->component)) {
-        $cohortmanager = has_capability('moodle/cohort:manage', $cohortcontext);
-        $cohortcanassign = has_capability('moodle/cohort:assign', $cohortcontext);
+        $cohortmanager = has_capability('lion/cohort:manage', $cohortcontext);
+        $cohortcanassign = has_capability('lion/cohort:assign', $cohortcontext);
 
         $urlparams = array('id' => $cohort->id, 'returnurl' => $baseurl->out_as_local_url());
-        $showhideurl = new moodle_url('/cohort/edit.php', $urlparams + array('sesskey' => sesskey()));
+        $showhideurl = new lion_url('/cohort/edit.php', $urlparams + array('sesskey' => sesskey()));
         if ($cohort->visible) {
             $showhideurl->param('hide', 1);
             $visibleimg = html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('t/hide'), 'alt' => get_string('hide'), 'class' => 'iconsmall'));
@@ -158,15 +144,15 @@ foreach($cohorts['cohorts'] as $cohort) {
             $buttons[] = html_writer::link($showhideurl, $visibleimg, array('title' => get_string('show')));
         }
         if ($cohortmanager) {
-            $buttons[] = html_writer::link(new moodle_url('/cohort/edit.php', $urlparams + array('delete' => 1)),
+            $buttons[] = html_writer::link(new lion_url('/cohort/edit.php', $urlparams + array('delete' => 1)),
                 html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('t/delete'), 'alt' => get_string('delete'), 'class' => 'iconsmall')),
                 array('title' => get_string('delete')));
-            $buttons[] = html_writer::link(new moodle_url('/cohort/edit.php', $urlparams),
+            $buttons[] = html_writer::link(new lion_url('/cohort/edit.php', $urlparams),
                 html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('t/edit'), 'alt' => get_string('edit'), 'class' => 'iconsmall')),
                 array('title' => get_string('edit')));
         }
         if ($cohortcanassign) {
-            $buttons[] = html_writer::link(new moodle_url('/cohort/assign.php', $urlparams),
+            $buttons[] = html_writer::link(new lion_url('/cohort/assign.php', $urlparams),
                 html_writer::empty_tag('img', array('src' => $OUTPUT->pix_url('i/users'), 'alt' => get_string('assign', 'core_cohort'), 'class' => 'iconsmall')),
                 array('title' => get_string('assign', 'core_cohort')));
         }

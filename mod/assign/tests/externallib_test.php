@@ -1,20 +1,6 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -49,7 +35,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse';
         $coursedata['fullname'] = 'Lightwork Course';
         $coursedata['summary'] = 'Lightwork Course description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course = self::getDataGenerator()->create_course($coursedata);
 
         $assigndata['course'] = $course->id;
@@ -65,7 +51,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
 
         // Create a teacher and give them capabilities.
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $context->id, 3);
         $context = context_module::instance($assign->cmid);
         $this->assignUserCapability('mod/assign:grade', $context->id, $roleid);
 
@@ -155,7 +141,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
             'idnumber' => 'idnumbercourse1',
             'fullname' => 'Lightwork Course 1',
             'summary' => 'Lightwork Course 1 description',
-            'summaryformat' => FORMAT_MOODLE,
+            'summaryformat' => FORMAT_LION,
             'category' => $category->id
         ));
 
@@ -164,7 +150,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
             'idnumber' => 'idnumbercourse2',
             'fullname' => 'Lightwork Course 2',
             'summary' => 'Lightwork Course 2 description',
-            'summaryformat' => FORMAT_MOODLE,
+            'summaryformat' => FORMAT_LION,
             'category' => $category->id
         ));
 
@@ -185,7 +171,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
 
         // Create the user and give them capabilities.
         $context = context_course::instance($course1->id);
-        $roleid = $this->assignUserCapability('moodle/course:view', $context->id);
+        $roleid = $this->assignUserCapability('lion/course:view', $context->id);
         $context = context_module::instance($assign1->cmid);
         $this->assignUserCapability('mod/assign:view', $context->id, $roleid);
 
@@ -249,7 +235,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse1';
         $coursedata['fullname'] = 'Lightwork Course 1';
         $coursedata['summary'] = 'Lightwork Course 1 description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course1 = self::getDataGenerator()->create_course($coursedata);
 
         $assigndata['course'] = $course1->id;
@@ -297,7 +283,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
 
         // Create a teacher and give them capabilities.
         $context = context_course::instance($course1->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $context->id, 3);
         $context = context_module::instance($assign1->cmid);
         $this->assignUserCapability('mod/assign:grade', $context->id, $roleid);
 
@@ -340,7 +326,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse';
         $coursedata['fullname'] = 'Lightwork Course';
         $coursedata['summary'] = 'Lightwork Course description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course = self::getDataGenerator()->create_course($coursedata);
 
         $assigndata['course'] = $course->id;
@@ -356,7 +342,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
 
         // Create a teacher and give them capabilities.
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $context->id, 3);
         $context = context_module::instance($assign->cmid);
         $this->assignUserCapability('mod/assign:grade', $context->id, $roleid);
 
@@ -411,7 +397,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse';
         $coursedata['fullname'] = 'Lightwork Course';
         $coursedata['summary'] = 'Lightwork Course description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course = self::getDataGenerator()->create_course($coursedata);
 
         $assigndata['course'] = $course->id;
@@ -427,7 +413,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
 
         // Create a teacher and give them capabilities.
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $context->id, 3);
         $context = context_module::instance($assign->cmid);
         $this->assignUserCapability('mod/assign:revealidentities', $context->id, $roleid);
 
@@ -502,7 +488,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -519,9 +505,9 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $notices = array();
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $assign->save_submission($data, $notices);
     }
 
@@ -566,7 +552,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -588,7 +574,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $notices = array();
         $assign->save_submission($data, $notices);
     }
@@ -629,7 +615,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -1370,7 +1356,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse';
         $coursedata['fullname'] = 'Lightwork Course';
         $coursedata['summary'] = 'Lightwork Course description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course = self::getDataGenerator()->create_course($coursedata);
 
         $assigndata['course'] = $course->id;
@@ -1386,7 +1372,7 @@ class mod_assign_external_testcase extends externallib_advanced_testcase {
 
         // Create a teacher and give them capabilities.
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $context->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $context->id, 3);
         $context = context_module::instance($assign->cmid);
         $this->assignUserCapability('mod/assign:grade', $context->id, $roleid);
 

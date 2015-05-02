@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains tests for the question_attempt class.
@@ -20,14 +6,14 @@
  * Action methods like start, process_action and finish are assumed to be
  * tested by walkthrough tests in the various behaviours.
  *
- * @package    moodlecore
+ * @package    lioncore
  * @subpackage questionengine
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once(dirname(__FILE__) . '/../lib.php');
@@ -38,7 +24,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
  * These tests use a standard fixture of a {@link question_attempt} with three steps.
  *
  * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class question_attempt_with_steps_test extends advanced_testcase {
     private $question;
@@ -58,7 +44,7 @@ class question_attempt_with_steps_test extends advanced_testcase {
     }
 
     public function test_get_step_before_start() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $step = $this->qa->get_step(-1);
     }
 
@@ -73,7 +59,7 @@ class question_attempt_with_steps_test extends advanced_testcase {
     }
 
     public function test_get_step_past_end() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $step = $this->qa->get_step(3);
     }
 
@@ -151,7 +137,7 @@ class question_attempt_with_steps_test extends advanced_testcase {
 
     public function test_cannot_get_min_fraction_before_start() {
         $qa = new question_attempt($this->question, 0);
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $qa->get_min_fraction();
     }
 
@@ -162,7 +148,7 @@ class question_attempt_with_steps_test extends advanced_testcase {
 
     public function test_cannot_get_max_fraction_before_start() {
         $qa = new question_attempt($this->question, 0);
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $qa->get_max_fraction();
     }
 }

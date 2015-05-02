@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * External message functions unit tests
@@ -20,10 +6,10 @@
  * @package    core_message
  * @category   external
  * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -84,7 +70,7 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function
         $contextid = context_system::instance()->id;
-        $roleid = $this->assignUserCapability('moodle/site:sendmessage', $contextid);
+        $roleid = $this->assignUserCapability('lion/site:sendmessage', $contextid);
 
         $user1 = self::getDataGenerator()->create_user();
 
@@ -387,7 +373,7 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
         $this->assertEquals($user5->id, $result['id']);
 
         // Empty query, will throw an exception.
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $results = core_message_external::search_contacts('');
     }
 
@@ -409,11 +395,11 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
         $course = self::getDataGenerator()->create_course();
 
         // Send a message from one user to another.
-        message_post_message($user1, $user2, 'some random text 1', FORMAT_MOODLE);
-        message_post_message($user1, $user3, 'some random text 2', FORMAT_MOODLE);
-        message_post_message($user2, $user3, 'some random text 3', FORMAT_MOODLE);
-        message_post_message($user3, $user2, 'some random text 4', FORMAT_MOODLE);
-        message_post_message($user3, $user1, 'some random text 5', FORMAT_MOODLE);
+        message_post_message($user1, $user2, 'some random text 1', FORMAT_LION);
+        message_post_message($user1, $user3, 'some random text 2', FORMAT_LION);
+        message_post_message($user2, $user3, 'some random text 3', FORMAT_LION);
+        message_post_message($user3, $user2, 'some random text 4', FORMAT_LION);
+        message_post_message($user3, $user1, 'some random text 5', FORMAT_LION);
 
         $this->setUser($user1);
         // Get read conversations from user1 to user2.
@@ -448,12 +434,12 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
 
         // This one omits notification = 1.
         $eventdata = new stdClass();
-        $eventdata->modulename        = 'moodle';
+        $eventdata->modulename        = 'lion';
         $eventdata->component         = 'enrol_paypal';
         $eventdata->name              = 'paypal_enrolment';
         $eventdata->userfrom          = get_admin();
         $eventdata->userto            = $user1;
-        $eventdata->subject           = "Moodle: PayPal payment";
+        $eventdata->subject           = "Lion: PayPal payment";
         $eventdata->fullmessage       = "Your PayPal payment is pending.";
         $eventdata->fullmessageformat = FORMAT_PLAIN;
         $eventdata->fullmessagehtml   = '';
@@ -472,13 +458,13 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
         $message->fullmessagehtml   = markdown_to_html($message->fullmessage);
         $message->smallmessage      = $message->subject;
         $message->contexturlname    = $course->fullname;
-        $message->contexturl        = (string)new moodle_url('/course/view.php', array('id' => $course->id));
+        $message->contexturl        = (string)new lion_url('/course/view.php', array('id' => $course->id));
         message_send($message);
 
         $userfrom = core_user::get_noreply_user();
         $userfrom->maildisplay = true;
         $eventdata = new stdClass();
-        $eventdata->component         = 'moodle';
+        $eventdata->component         = 'lion';
         $eventdata->name              = 'badgecreatornotice';
         $eventdata->userfrom          = $userfrom;
         $eventdata->userto            = $user1;
@@ -546,7 +532,7 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
         try {
             $messages = core_message_external::get_messages(0, $user1->id, 'conversations', true, true, 0, 0);
             $this->fail('Exception expected due messaging disabled.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('disabled', $e->errorcode);
         }
 
@@ -556,7 +542,7 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
         try {
             $messages = core_message_external::get_messages(0, 0, 'conversations', true, true, 0, 0);
             $this->fail('Exception expected due invalid users.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('accessdenied', $e->errorcode);
         }
 
@@ -564,7 +550,7 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
         try {
             $messages = core_message_external::get_messages(2500, 0, 'conversations', true, true, 0, 0);
             $this->fail('Exception expected due invalid users.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('invaliduser', $e->errorcode);
         }
 
@@ -573,7 +559,7 @@ class core_message_externallib_testcase extends externallib_advanced_testcase {
         try {
             $messages = core_message_external::get_messages(0, $user1->id, 'conversations', true, true, 0, 0);
             $this->fail('Exception expected due invalid user.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('accessdenied', $e->errorcode);
         }
 

@@ -1,18 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /**
@@ -20,7 +6,7 @@
  *
  * @package    core_tag
  * @copyright  2007 j.beedell@open.ac.uk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once $CFG->dirroot.'/tag/lib.php';
@@ -34,8 +20,8 @@ require_once $CFG->dirroot.'/tag/locallib.php';
  * @category tag
  * @param    int      $courseid A course id. Passing 0 will return all distinct tags for all visible courses
  * @param    int      $userid   (optional) the user id, a default of 0 will return all users tags for the course
- * @param    string   $tagtype  (optional) The type of tag, empty string returns all types. Currently (Moodle 2.2) there are two
- *                              types of tags which are used within Moodle, they are 'official' and 'default'.
+ * @param    string   $tagtype  (optional) The type of tag, empty string returns all types. Currently (Lion 2.2) there are two
+ *                              types of tags which are used within Lion, they are 'official' and 'default'.
  * @param    int      $numtags  (optional) number of tags to display, default of 80 is set in the block, 0 returns all
  * @param    string   $unused   (optional) was selected sorting, moved to tag_print_cloud()
  * @return   array
@@ -273,7 +259,7 @@ function coursetag_delete_keyword($tagid, $userid, $courseid) {
 /**
  * Get courses tagged with a tag
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @package  core_tag
  * @category tag
  * @param int $tagid
@@ -298,7 +284,7 @@ function coursetag_get_tagged_courses($tagid) {
     $rs = $DB->get_recordset_sql($sql, $params);
     foreach ($rs as $course) {
         context_helper::preload_from_record($course);
-        if ($course->visible == 1 || has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id))) {
+        if ($course->visible == 1 || has_capability('lion/course:viewhiddencourses', context_course::instance($course->id))) {
             $courses[$course->id] = $course;
         }
     }
@@ -306,7 +292,7 @@ function coursetag_get_tagged_courses($tagid) {
 }
 
 /**
- * Course tagging function used only during the deletion of a course (called by lib/moodlelib.php) to clean up associated tags
+ * Course tagging function used only during the deletion of a course (called by lib/lionlib.php) to clean up associated tags
  *
  * @package core_tag
  * @param   int      $courseid     the course we wish to delete tag instances from

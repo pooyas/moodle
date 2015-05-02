@@ -6,13 +6,13 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
 $ADMIN->add('mnet', new admin_externalpage('net', new lang_string('settings', 'mnet'),
                                            "$CFG->wwwroot/$CFG->admin/mnet/index.php",
-                                           'moodle/site:config'));
+                                           'lion/site:config'));
 
 
 
 $ADMIN->add('mnet', new admin_externalpage('mnetpeers', new lang_string('managemnetpeers', 'mnet'),
                                            "$CFG->wwwroot/$CFG->admin/mnet/peers.php",
-                                           'moodle/site:config'));
+                                           'lion/site:config'));
 
 
 $ADMIN->add('mnet', new admin_category('mnetpeercat', new lang_string('mnetpeers', 'mnet')));
@@ -30,7 +30,7 @@ if (isset($CFG->mnet_dispatcher_mode) and $CFG->mnet_dispatcher_mode !== 'off') 
                 'mnetpeer' . $host->id,
                 $host->name,
                 $CFG->wwwroot . '/'.$CFG->admin.'/mnet/peers.php?step=update&hostid=' . $host->id,
-                'moodle/site:config'
+                'lion/site:config'
             )
         );
     }
@@ -38,17 +38,17 @@ if (isset($CFG->mnet_dispatcher_mode) and $CFG->mnet_dispatcher_mode !== 'off') 
 
 $ADMIN->add('mnet', new admin_externalpage('ssoaccesscontrol', new lang_string('ssoaccesscontrol', 'mnet'),
                                            "$CFG->wwwroot/$CFG->admin/mnet/access_control.php",
-                                           'moodle/site:config'));
+                                           'lion/site:config'));
 $ADMIN->add('mnet', new admin_externalpage('mnetenrol', new lang_string('clientname', 'mnetservice_enrol'),
                                            "$CFG->wwwroot/mnet/service/enrol/index.php",
-                                           'moodle/site:config'));
+                                           'lion/site:config'));
 $ADMIN->add('mnet', new admin_externalpage('trustedhosts', new lang_string('trustedhosts', 'mnet'),
                                            "$CFG->wwwroot/$CFG->admin/mnet/trustedhosts.php",
-                                           'moodle/site:config'));
+                                           'lion/site:config'));
 
 if (isset($CFG->mnet_dispatcher_mode) and $CFG->mnet_dispatcher_mode !== 'off') {
     $profilefields = new admin_settingpage('mnetprofilefields', new lang_string('profilefields', 'mnet'),
-                                               'moodle/site:config');
+                                               'lion/site:config');
     $ADMIN->add('mnet', $profilefields);
 
     $fields = mnet_profile_field_options();

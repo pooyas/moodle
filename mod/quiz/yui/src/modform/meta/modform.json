@@ -1,5 +1,5 @@
 {
-    "moodle-mod_quiz-modform": {
+    "lion-mod_quiz-modform": {
         "requires": [
             "base",
             "node",

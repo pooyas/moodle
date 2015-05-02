@@ -1,25 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * modinfolib.php - Functions/classes relating to cached information about module instances on
  * a course.
  * @package    core
  * @subpackage lib
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @author     sam marshall
  */
 
@@ -223,11 +209,11 @@ class course_modinfo {
      * Obtains a single course-module object (for a course-module that is on this course).
      * @param int $cmid Course-module ID
      * @return cm_info Information about that course-module
-     * @throws moodle_exception If the course-module does not exist
+     * @throws lion_exception If the course-module does not exist
      */
     public function get_cm($cmid) {
         if (empty($this->cms[$cmid])) {
-            throw new moodle_exception('invalidcoursemodule', 'error');
+            throw new lion_exception('invalidcoursemodule', 'error');
         }
         return $this->cms[$cmid];
     }
@@ -317,7 +303,7 @@ class course_modinfo {
     public function get_section_info($sectionnumber, $strictness = IGNORE_MISSING) {
         if (!array_key_exists($sectionnumber, $this->sectioninfo)) {
             if ($strictness === MUST_EXIST) {
-                throw new moodle_exception('sectionnotexist');
+                throw new lion_exception('sectionnotexist');
             } else {
                 return null;
             }
@@ -432,7 +418,7 @@ class course_modinfo {
      * Use get_fast_modinfo($course) instead as this maintains a cache.
      * @param stdClass $course course object, only property id is required.
      * @param int $userid User ID
-     * @throws moodle_exception if course is not found
+     * @throws lion_exception if course is not found
      */
     public function __construct($course, $userid) {
         global $CFG, $COURSE, $SITE, $DB;
@@ -594,7 +580,7 @@ class course_modinfo {
      *     but preferably should have all cached fields.
      * @return stdClass object with all cached keys of the course plus fields modinfo and sectioncache.
      *     The same object is stored in MUC
-     * @throws moodle_exception if course is not found (if $course object misses some of the
+     * @throws lion_exception if course is not found (if $course object misses some of the
      *     necessary fields it is re-requested from database)
      */
     public static function build_course_cache($course) {
@@ -675,7 +661,7 @@ class course_modinfo {
  * <b>Stage 3 (view data).</b>
  * Also user-dependend data stored in request-level cache. Second stage is created
  * because populating the view data can be expensive as it may access much more
- * Moodle APIs such as filters, user information, output renderers and we
+ * Lion APIs such as filters, user information, output renderers and we
  * don't want to request it until necessary.
  * View data is obtained when any of the following properties/methods is requested:
  * - {@link cm_info::$afterediticons}
@@ -755,7 +741,7 @@ class course_modinfo {
  * @property-read string $modfullname Returns a localised human-readable name of the module type - calculated on request
  * @property-read string $modplural Returns a localised human-readable name of the module type in plural form - calculated on request
  * @property-read string $content Content to display on main (view) page - calculated on request
- * @property-read moodle_url $url URL to link to for this module, or null if it doesn't have a view page - calculated on request
+ * @property-read lion_url $url URL to link to for this module, or null if it doesn't have a view page - calculated on request
  * @property-read string $extraclasses Extra CSS classes to add to html output for this activity on main page - calculated on request
  * @property-read string $onclick Content of HTML on-click attribute already escaped - calculated on request
  * @property-read mixed $customdata Optional custom data stored in modinfo cache for this activity, or null if none
@@ -1007,7 +993,7 @@ class cm_info implements IteratorAggregate {
     private $uservisible;
 
     /**
-     * @var moodle_url
+     * @var lion_url
      */
     private $url;
 
@@ -1022,7 +1008,7 @@ class cm_info implements IteratorAggregate {
     private $extraclasses;
 
     /**
-     * @var moodle_url full external url pointing to icon image for activity
+     * @var lion_url full external url pointing to icon image for activity
      */
     private $iconurl;
 
@@ -1100,7 +1086,7 @@ class cm_info implements IteratorAggregate {
     );
 
     /**
-     * List of methods with no arguments that were public prior to Moodle 2.6.
+     * List of methods with no arguments that were public prior to Lion 2.6.
      *
      * They can still be accessed publicly via magic __call() function with no warnings
      * but are not listed in the class methods list.
@@ -1119,13 +1105,13 @@ class cm_info implements IteratorAggregate {
         'get_custom_data',
         'get_after_link',
         'get_after_edit_icons',
-        // Method obtain_dynamic_data() should not be called from outside of this class but it was public before Moodle 2.6.
+        // Method obtain_dynamic_data() should not be called from outside of this class but it was public before Lion 2.6.
         'obtain_dynamic_data',
     );
 
     /**
      * Magic method to call functions that are now declared as private now but
-     * were public in Moodle before 2.6. Developers can access them without
+     * were public in Lion before 2.6. Developers can access them without
      * any warnings but they are not listed in the class methods list.
      *
      * @param string $name
@@ -1240,7 +1226,7 @@ class cm_info implements IteratorAggregate {
     }
 
     /**
-     * @return moodle_url URL to link to for this module, or null if it doesn't have a view page
+     * @return lion_url URL to link to for this module, or null if it doesn't have a view page
      */
     private function get_url() {
         $this->obtain_dynamic_data();
@@ -1358,8 +1344,8 @@ class cm_info implements IteratorAggregate {
     }
 
     /**
-     * @param moodle_core_renderer $output Output render to use, or null for default (global)
-     * @return moodle_url Icon URL for a suitable icon to put beside this cm
+     * @param lion_core_renderer $output Output render to use, or null for default (global)
+     * @return lion_url Icon URL for a suitable icon to put beside this cm
      */
     public function get_icon_url($output = null) {
         global $OUTPUT;
@@ -1397,7 +1383,7 @@ class cm_info implements IteratorAggregate {
      */
     public function get_grouping_label($textclasses = '') {
         $groupinglabel = '';
-        if (!empty($this->groupingid) && has_capability('moodle/course:managegroups', context_course::instance($this->course))) {
+        if (!empty($this->groupingid) && has_capability('lion/course:managegroups', context_course::instance($this->course))) {
             $groupings = groups_get_all_groupings($this->course);
             $groupinglabel = html_writer::tag('span', '('.format_string($groupings[$this->groupingid]->name).')',
                 array('class' => 'groupinglabel '.$textclasses));
@@ -1561,10 +1547,10 @@ class cm_info implements IteratorAggregate {
      * by the activity. Useful for external-tool modules (lti...)
      * If set, takes precedence over $icon and $iconcomponent
      *
-     * @param moodle_url $iconurl full external url pointing to icon image for activity
+     * @param lion_url $iconurl full external url pointing to icon image for activity
      * @return void
      */
-    public function set_icon_url(moodle_url $iconurl) {
+    public function set_icon_url(lion_url $iconurl) {
         $this->iconurl = $iconurl;
     }
 
@@ -1700,8 +1686,8 @@ class cm_info implements IteratorAggregate {
         $this->indent           = isset($mod->indent) ? $mod->indent : 0;
         $this->extra            = isset($mod->extra) ? $mod->extra : '';
         $this->extraclasses     = isset($mod->extraclasses) ? $mod->extraclasses : '';
-        // iconurl may be stored as either string or instance of moodle_url.
-        $this->iconurl          = isset($mod->iconurl) ? new moodle_url($mod->iconurl) : '';
+        // iconurl may be stored as either string or instance of lion_url.
+        $this->iconurl          = isset($mod->iconurl) ? new lion_url($mod->iconurl) : '';
         $this->onclick          = isset($mod->onclick) ? $mod->onclick : '';
         $this->content          = isset($mod->content) ? $mod->content : '';
         $this->icon             = isset($mod->icon) ? $mod->icon : '';
@@ -1740,7 +1726,7 @@ class cm_info implements IteratorAggregate {
                     FEATURE_NO_VIEW_LINK);
         }
         $this->url = $modviews[$this->modname]
-                ? new moodle_url('/mod/' . $this->modname . '/view.php', array('id'=>$this->id))
+                ? new lion_url('/mod/' . $this->modname . '/view.php', array('id'=>$this->id))
                 : null;
     }
 
@@ -1845,7 +1831,7 @@ class cm_info implements IteratorAggregate {
      * as these are no longer supported.
      *
      * @return int Zero
-     * @deprecated Since Moodle 2.8
+     * @deprecated Since Lion 2.8
      */
     private function get_deprecated_group_members_only() {
         debugging('$cm->groupmembersonly has been deprecated and always returns zero. ' .
@@ -1882,7 +1868,7 @@ class cm_info implements IteratorAggregate {
         // If the user cannot access the activity set the uservisible flag to false.
         // Additional checks are required to determine whether the activity is entirely hidden or just greyed out.
         if ((!$this->visible or !$this->get_available()) and
-                !has_capability('moodle/course:viewhiddenactivities', $this->get_context(), $userid)) {
+                !has_capability('lion/course:viewhiddenactivities', $this->get_context(), $userid)) {
 
             $this->uservisible = false;
         }
@@ -1904,7 +1890,7 @@ class cm_info implements IteratorAggregate {
      * to get information about why not.
      *
      * @return bool False
-     * @deprecated Since Moodle 2.8
+     * @deprecated Since Lion 2.8
      */
     public function is_user_access_restricted_by_group() {
         debugging('cm_info::is_user_access_restricted_by_group() ' .
@@ -2016,7 +2002,7 @@ class cm_info implements IteratorAggregate {
  *     Set to 0 for current user (default). Set to -1 to avoid calculation of dynamic user-depended data.
  * @param bool $resetonly whether we want to get modinfo or just reset the cache
  * @return course_modinfo|null Module information for course, or null if resetting
- * @throws moodle_exception when course is not found (nothing is thrown if resetting)
+ * @throws lion_exception when course is not found (nothing is thrown if resetting)
  */
 function get_fast_modinfo($courseorid, $userid = 0, $resetonly = false) {
     // compartibility with syntax prior to 2.4:
@@ -2068,7 +2054,7 @@ function get_fast_modinfo($courseorid, $userid = 0, $resetonly = false) {
  * @param stdClass|int $courseorid Optional course object if already loaded
  * @param int $userid Optional userid (default = current)
  * @return array Array with 2 elements $course and $cm
- * @throws moodle_exception If the item doesn't exist or is of wrong module name
+ * @throws lion_exception If the item doesn't exist or is of wrong module name
  */
 function get_course_and_cm_from_cmid($cmorid, $modulename = '', $courseorid = 0, $userid = 0) {
     global $DB;
@@ -2115,7 +2101,7 @@ function get_course_and_cm_from_cmid($cmorid, $modulename = '', $courseorid = 0,
     $modinfo = get_fast_modinfo($course, $userid);
     $cm = $modinfo->get_cm($cmid);
     if ($modulename && $cm->modname !== $modulename) {
-        throw new moodle_exception('invalidcoursemodule', 'error');
+        throw new lion_exception('invalidcoursemodule', 'error');
     }
     return array($course, $cm);
 }
@@ -2144,7 +2130,7 @@ function get_course_and_cm_from_cmid($cmorid, $modulename = '', $courseorid = 0,
  * @param stdClass|int $courseorid Optional course object if already loaded
  * @param int $userid Optional userid (default = current)
  * @return array Array with 2 elements $course and $cm
- * @throws moodle_exception If the item doesn't exist or is of wrong module name
+ * @throws lion_exception If the item doesn't exist or is of wrong module name
  */
 function get_course_and_cm_from_instance($instanceorid, $modulename, $courseorid = 0, $userid = 0) {
     global $DB;
@@ -2194,7 +2180,7 @@ function get_course_and_cm_from_instance($instanceorid, $modulename, $courseorid
     $modinfo = get_fast_modinfo($course, $userid);
     $instances = $modinfo->get_instances_of($modulename);
     if (!array_key_exists($instanceid, $instances)) {
-        throw new moodle_exception('invalidmoduleid', 'error', $instanceid);
+        throw new lion_exception('invalidmoduleid', 'error', $instanceid);
     }
     return array($course, $instances[$instanceid]);
 }
@@ -2214,7 +2200,7 @@ function get_course_and_cm_from_instance($instanceorid, $modulename, $courseorid
  * Cached course information is stored in MUC core/coursemodinfo and is
  * validated with the DB field {course}.cacherev
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param int $courseid id of course to rebuild, empty means all
  * @param boolean $clearonly only clear the cache, gets rebuild automatically on the fly.
  *     Recommended to set to true to avoid unnecessary multiple rebuilding.
@@ -2313,7 +2299,7 @@ class cached_cm_info {
     public $icon;
 
     /**
-     * Component for icon for this activity, as per pix_url; leave blank to use default 'moodle'
+     * Component for icon for this activity, as per pix_url; leave blank to use default 'lion'
      * component
      * @see renderer_base::pix_url()
      * @var string
@@ -2344,7 +2330,7 @@ class cached_cm_info {
     /**
      * External URL image to be used by activity as icon, useful for some external-tool modules
      * like lti. If set, takes precedence over $icon and $iconcomponent
-     * @var $moodle_url
+     * @var $lion_url
      */
     public $iconurl;
 
@@ -2707,7 +2693,7 @@ class section_info implements IteratorAggregate {
         $this->_uservisible = true;
         if (!$this->_visible || !$this->get_available()) {
             $coursecontext = context_course::instance($this->get_course());
-            if (!has_capability('moodle/course:viewhiddensections', $coursecontext, $userid)) {
+            if (!has_capability('lion/course:viewhiddensections', $coursecontext, $userid)) {
                 $this->_uservisible = false;
             }
         }

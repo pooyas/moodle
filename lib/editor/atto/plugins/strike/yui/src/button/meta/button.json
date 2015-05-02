@@ -1,7 +1,7 @@
 {
-    "moodle-atto_strike-button": {
+    "lion-atto_strike-button": {
         "requires": [
-            "moodle-editor_atto-plugin"
+            "lion-editor_atto-plugin"
         ]
     }
 }

@@ -19,7 +19,7 @@
  * @package    core
  * @subpackage cli
  * @copyright  2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define('CLI_SCRIPT', true);
@@ -133,7 +133,7 @@ if (function_exists('date_default_timezone_set') and function_exists('date_defau
 @ini_set('memory_limit', '128M');
 
 /** Used by library scripts to check they are being called by Lion */
-define('MOODLE_INTERNAL', true);
+define('LION_INTERNAL', true);
 
 // Disables all caching.
 define('CACHE_DISABLE_ALL', true);
@@ -186,7 +186,7 @@ require_once($CFG->libdir.'/clilib.php');
 require_once($CFG->libdir.'/setuplib.php');
 require_once($CFG->libdir.'/weblib.php');
 require_once($CFG->libdir.'/dmllib.php');
-require_once($CFG->libdir.'/moodlelib.php');
+require_once($CFG->libdir.'/lionlib.php');
 require_once($CFG->libdir.'/deprecatedlib.php');
 require_once($CFG->libdir.'/adminlib.php');
 require_once($CFG->libdir.'/componentlib.class.php');
@@ -219,12 +219,12 @@ $SITE = $COURSE;
 define('SITEID', 1);
 
 //Database types
-$databases = array('mysqli' => moodle_database::get_driver_instance('mysqli', 'native'),
-                   'mariadb'=> moodle_database::get_driver_instance('mariadb', 'native'),
-                   'pgsql'  => moodle_database::get_driver_instance('pgsql',  'native'),
-                   'oci'    => moodle_database::get_driver_instance('oci',    'native'),
-                   'sqlsrv' => moodle_database::get_driver_instance('sqlsrv', 'native'), // MS SQL*Server PHP driver
-                   'mssql'  => moodle_database::get_driver_instance('mssql',  'native'), // FreeTDS driver
+$databases = array('mysqli' => lion_database::get_driver_instance('mysqli', 'native'),
+                   'mariadb'=> lion_database::get_driver_instance('mariadb', 'native'),
+                   'pgsql'  => lion_database::get_driver_instance('pgsql',  'native'),
+                   'oci'    => lion_database::get_driver_instance('oci',    'native'),
+                   'sqlsrv' => lion_database::get_driver_instance('sqlsrv', 'native'), // MS SQL*Server PHP driver
+                   'mssql'  => lion_database::get_driver_instance('mssql',  'native'), // FreeTDS driver
                   );
 foreach ($databases as $type=>$database) {
     if ($database->driver_installed() !== true) {
@@ -666,7 +666,7 @@ if ($interactive) {
 // another interactive section to ignore
 if ($interactive) {
     cli_separator();
-    cli_heading(get_string('fullsitename', 'moodle'));
+    cli_heading(get_string('fullsitename', 'lion'));
 
     if ($options['fullname'] !== '') {
         $prompt = get_string('clitypevaluedefault', 'admin', $options['fullname']);
@@ -689,7 +689,7 @@ if ($interactive) {
 // another interactive section to ignore
 if ($interactive) {
     cli_separator();
-    cli_heading(get_string('shortsitename', 'moodle'));
+    cli_heading(get_string('shortsitename', 'lion'));
 
     if ($options['shortname'] !== '') {
         $prompt = get_string('clitypevaluedefault', 'admin', $options['shortname']);
@@ -768,7 +768,7 @@ if ($interactive) {
     if (!$options['agree-license']) {
         cli_separator();
         cli_heading(get_string('copyrightnotice'));
-        echo "Moodle  - Modular Object-Oriented Dynamic Learning Environment\n";
+        echo "Lion  - Modular Object-Oriented Dynamic Learning Environment\n";
         echo get_string('gpl3')."\n\n";
         echo get_string('doyouagree')."\n";
         $prompt = get_string('cliyesnoprompt', 'admin');
@@ -813,7 +813,7 @@ require("$CFG->dirroot/version.php");
 // The main file that is used for enviroment checking is admin/environment.xml
 // @todo: tweak admin/environment.xml
 require_once($CFG->libdir . '/environmentlib.php');
-list($envstatus, $environment_results) = check_moodle_environment(normalize_version($release), ENV_SELECT_RELEASE);
+list($envstatus, $environment_results) = check_lion_environment(normalize_version($release), ENV_SELECT_RELEASE);
 if (!$envstatus) {
     $errors = environment_get_errors($environment_results);
     cli_heading(get_string('environment', 'admin'));

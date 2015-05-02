@@ -1,19 +1,5 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Controller for various actions of the block.
@@ -48,8 +34,8 @@ $PAGE->navbar->add(get_string('searchcourse', 'block_community'));
 $search = optional_param('search', null, PARAM_TEXT);
 
 //if no capability to search course, display an error message
-$usercansearch = has_capability('moodle/community:add', $context);
-$usercandownload = has_capability('moodle/community:download', $context);
+$usercansearch = has_capability('lion/community:add', $context);
+$usercandownload = has_capability('lion/community:download', $context);
 if (empty($usercansearch)) {
     $notificationerror = get_string('cannotsearchcommunity', 'hub');
 } else if (!extension_loaded('xmlrpc')) {
@@ -79,7 +65,7 @@ if ($add != -1 and $confirm and confirm_sesskey()) {
     $communitymanager->block_community_add_course($course, $USER->id);
     echo $OUTPUT->header();
     echo $renderer->save_link_success(
-            new moodle_url('/course/view.php', array('id' => $courseid)));
+            new lion_url('/course/view.php', array('id' => $courseid)));
     echo $OUTPUT->footer();
     die();
 }
@@ -131,7 +117,7 @@ $communityid = optional_param('communityid', '', PARAM_INT);
 if ($remove != -1 and !empty($communityid) and confirm_sesskey()) {
     $communitymanager->block_community_remove_course($communityid, $USER->id);
     echo $OUTPUT->header();
-    echo $renderer->remove_success(new moodle_url('/course/view.php', array('id' => $courseid)));
+    echo $renderer->remove_success(new lion_url('/course/view.php', array('id' => $courseid)));
     echo $OUTPUT->footer();
     die();
 }
@@ -145,7 +131,7 @@ $fromformdata['language'] = optional_param('language', current_language(), PARAM
 $fromformdata['educationallevel'] = optional_param('educationallevel', 'all', PARAM_ALPHANUMEXT);
 $fromformdata['downloadable'] = optional_param('downloadable', $usercandownload, PARAM_ALPHANUM);
 $fromformdata['orderby'] = optional_param('orderby', 'newest', PARAM_ALPHA);
-$fromformdata['huburl'] = optional_param('huburl', HUB_MOODLEORGHUBURL, PARAM_URL);
+$fromformdata['huburl'] = optional_param('huburl', HUB_LIONORGHUBURL, PARAM_URL);
 $fromformdata['search'] = $search;
 $fromformdata['courseid'] = $courseid;
 $hubselectorform = new community_hub_search_form('', $fromformdata);
@@ -228,9 +214,9 @@ if (!empty($courses)) {
         $courseimagenumbers[] = $course['screenshots'];
     }
 }
-$PAGE->requires->yui_module('moodle-block_community-comments', 'M.blocks_community.init_comments',
+$PAGE->requires->yui_module('lion-block_community-comments', 'M.blocks_community.init_comments',
         array(array('commentids' => $commentedcourseids, 'closeButtonTitle' => get_string('close', 'editor'))));
-$PAGE->requires->yui_module('moodle-block_community-imagegallery', 'M.blocks_community.init_imagegallery',
+$PAGE->requires->yui_module('lion-block_community-imagegallery', 'M.blocks_community.init_imagegallery',
         array(array('imageids' => $courseids, 'imagenumbers' => $courseimagenumbers,
                 'huburl' => $huburl, 'closeButtonTitle' => get_string('close', 'editor'))));
 

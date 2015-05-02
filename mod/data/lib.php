@@ -1,24 +1,10 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * @package   mod_data
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 
 // Some constants
@@ -38,13 +24,13 @@ define('DATA_PRESET_FILEAREA', 'site_presets');
 define('DATA_PRESET_CONTEXT', SYSCONTEXTID);
 
 // Users having assigned the default role "Non-editing teacher" can export database records
-// Using the mod/data capability "viewalluserpresets" existing in Moodle 1.9.x.
-// In Moodle >= 2, new roles may be introduced and used instead.
+// Using the mod/data capability "viewalluserpresets" existing in Lion 1.9.x.
+// In Lion >= 2, new roles may be introduced and used instead.
 
 /**
  * @package   mod_data
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * 
  */
 class data_field_base {     // Base class for Database Field Types (see field/*/field.class.php)
 
@@ -487,7 +473,7 @@ class data_field_base {     // Base class for Database Field Types (see field/*/
         global $OUTPUT;
 
         $params = array('d'=>$this->data->id, 'fid'=>$this->field->id, 'mode'=>'display', 'sesskey'=>sesskey());
-        $link = new moodle_url('/mod/data/field.php', $params);
+        $link = new lion_url('/mod/data/field.php', $params);
         $str = '<a href="'.$link->out().'">';
         $str .= '<img src="'.$OUTPUT->pix_url('field/'.$this->type, 'data') . '" ';
         $str .= 'height="'.$this->iconheight.'" width="'.$this->iconwidth.'" alt="'.$this->type.'" title="'.$this->type.'" /></a>';
@@ -1193,10 +1179,10 @@ function data_grade_item_delete($data) {
  * @param string $search
  * @param int $page
  * @param bool $return
- * @param object $jumpurl a moodle_url by which to jump back to the record list (can be null)
+ * @param object $jumpurl a lion_url by which to jump back to the record list (can be null)
  * @return mixed
  */
-function data_print_template($template, $records, $data, $search='', $page=0, $return=false, moodle_url $jumpurl=null) {
+function data_print_template($template, $records, $data, $search='', $page=0, $return=false, lion_url $jumpurl=null) {
     global $CFG, $DB, $OUTPUT;
 
     $cm = get_coursemodule_from_instance('data', $data->id);
@@ -1225,9 +1211,9 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
     }
 
     if (!$jumpurl) {
-        $jumpurl = new moodle_url('/mod/data/view.php', array('d' => $data->id));
+        $jumpurl = new lion_url('/mod/data/view.php', array('d' => $data->id));
     }
-    $jumpurl = new moodle_url($jumpurl, array('page' => $page, 'sesskey' => sesskey()));
+    $jumpurl = new lion_url($jumpurl, array('page' => $page, 'sesskey' => sesskey()));
 
     // Check whether this activity is read-only at present
     $readonly = data_in_readonly_period($data);
@@ -1309,7 +1295,7 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
 
         $patterns[]='##approve##';
         if (has_capability('mod/data:approve', $context) && ($data->approval) && (!$record->approved)) {
-            $approveurl = new moodle_url($jumpurl, array('approve' => $record->id));
+            $approveurl = new lion_url($jumpurl, array('approve' => $record->id));
             $approveicon = new pix_icon('t/approve', get_string('approve', 'data'), '', array('class' => 'iconsmall'));
             $replacement[] = html_writer::tag('span', $OUTPUT->action_icon($approveurl, $approveicon),
                     array('class' => 'approve'));
@@ -1319,7 +1305,7 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
 
         $patterns[]='##disapprove##';
         if (has_capability('mod/data:approve', $context) && ($data->approval) && ($record->approved)) {
-            $disapproveurl = new moodle_url($jumpurl, array('disapprove' => $record->id));
+            $disapproveurl = new lion_url($jumpurl, array('disapprove' => $record->id));
             $disapproveicon = new pix_icon('t/block', get_string('disapprove', 'data'), '', array('class' => 'iconsmall'));
             $replacement[] = html_writer::tag('span', $OUTPUT->action_icon($disapproveurl, $disapproveicon),
                     array('class' => 'disapprove'));
@@ -1505,7 +1491,7 @@ function data_rating_validate($params) {
             throw new rating_exception('cannotfindgroup');//something is wrong
         }
 
-        if (!groups_is_member($groupid) and !has_capability('moodle/site:accessallgroups', $context)) {
+        if (!groups_is_member($groupid) and !has_capability('lion/site:accessallgroups', $context)) {
             // do not allow rating of posts from other groups when in SEPARATEGROUPS or VISIBLEGROUPS
             throw new rating_exception('notmemberofgroup');
         }
@@ -1907,18 +1893,18 @@ function data_convert_to_roles($data, $teacherroles=array(), $studentroles=array
             break;
         case SEPARATEGROUPS:
             foreach ($studentroles as $studentrole) {
-                assign_capability('moodle/site:accessallgroups', CAP_PREVENT, $studentrole->id, $context->id);
+                assign_capability('lion/site:accessallgroups', CAP_PREVENT, $studentrole->id, $context->id);
             }
             foreach ($teacherroles as $teacherrole) {
-                assign_capability('moodle/site:accessallgroups', CAP_ALLOW, $teacherrole->id, $context->id);
+                assign_capability('lion/site:accessallgroups', CAP_ALLOW, $teacherrole->id, $context->id);
             }
             break;
         case VISIBLEGROUPS:
             foreach ($studentroles as $studentrole) {
-                assign_capability('moodle/site:accessallgroups', CAP_ALLOW, $studentrole->id, $context->id);
+                assign_capability('lion/site:accessallgroups', CAP_ALLOW, $studentrole->id, $context->id);
             }
             foreach ($teacherroles as $teacherrole) {
-                assign_capability('moodle/site:accessallgroups', CAP_ALLOW, $teacherrole->id, $context->id);
+                assign_capability('lion/site:accessallgroups', CAP_ALLOW, $teacherrole->id, $context->id);
             }
             break;
     }
@@ -2100,7 +2086,7 @@ function data_user_can_add_entry($data, $currentgroup, $groupmode, $context = nu
         return false;
     }
 
-    if (!$groupmode or has_capability('moodle/site:accessallgroups', $context)) {
+    if (!$groupmode or has_capability('lion/site:accessallgroups', $context)) {
         return true;
     }
 
@@ -2185,10 +2171,10 @@ abstract class data_preset_importer {
     }
 
     /**
-     * Retreive the contents of a file. That file may either be in a conventional directory of the Moodle file storage
+     * Retreive the contents of a file. That file may either be in a conventional directory of the Lion file storage
      * @param file_storage $filestorage. should be null if using a conventional directory
      * @param stored_file $fileobj the directory to look in. null if using a conventional directory
-     * @param string $dir the directory to look in. null if using the Moodle file storage
+     * @param string $dir the directory to look in. null if using the Lion file storage
      * @param string $filename the name of the file we want
      * @return string the contents of the file or null if the file doesn't exist.
      */
@@ -2214,7 +2200,7 @@ abstract class data_preset_importer {
     }
     /**
      * Gets the preset settings
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return stdClass
      */
     public function get_preset_settings() {
@@ -2222,7 +2208,7 @@ abstract class data_preset_importer {
 
         $fs = $fileobj = null;
         if (!is_directory_a_preset($this->directory)) {
-            //maybe the user requested a preset stored in the Moodle file storage
+            //maybe the user requested a preset stored in the Lion file storage
 
             $fs = get_file_storage();
             $files = $fs->get_area_files(DATA_PRESET_CONTEXT, DATA_PRESET_COMPONENT, DATA_PRESET_FILEAREA);
@@ -2696,7 +2682,7 @@ function data_reset_userdata($data) {
  * @return array
  */
 function data_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups', 'moodle/site:viewfullnames', 'moodle/rating:view', 'moodle/rating:viewany', 'moodle/rating:viewall', 'moodle/rating:rate', 'moodle/comment:view', 'moodle/comment:post', 'moodle/comment:delete');
+    return array('lion/site:accessallgroups', 'lion/site:viewfullnames', 'lion/rating:view', 'lion/rating:viewany', 'lion/rating:viewall', 'lion/rating:rate', 'lion/comment:view', 'lion/comment:post', 'lion/comment:delete');
 }
 
 /**
@@ -2712,7 +2698,7 @@ function data_supports($feature) {
         case FEATURE_GRADE_HAS_GRADE:         return true;
         case FEATURE_GRADE_OUTCOMES:          return true;
         case FEATURE_RATE:                    return true;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -2760,7 +2746,7 @@ function data_export_xls($export, $dataname, $count) {
     $filename .= '.xls';
 
     $filearg = '-';
-    $workbook = new MoodleExcelWorkbook($filearg);
+    $workbook = new LionExcelWorkbook($filearg);
     $workbook->send($filename);
     $worksheet = array();
     $worksheet[0] = $workbook->add_worksheet('');
@@ -2794,7 +2780,7 @@ function data_export_ods($export, $dataname, $count) {
     $filename .= clean_filename('-' . gmdate("Ymd_Hi"));
     $filename .= '.ods';
     $filearg = '-';
-    $workbook = new MoodleODSWorkbook($filearg);
+    $workbook = new LionODSWorkbook($filearg);
     $workbook->send($filename);
     $worksheet = array();
     $worksheet[0] = $workbook->add_worksheet('');
@@ -2971,7 +2957,7 @@ function data_get_file_info($browser, $areas, $course, $cm, $context, $filearea,
     // group access
     if ($record->groupid) {
         $groupmode = groups_get_activity_groupmode($cm, $course);
-        if ($groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+        if ($groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
             if (!groups_is_member($record->groupid)) {
                 return null;
             }
@@ -2993,7 +2979,7 @@ function data_get_file_info($browser, $areas, $course, $cm, $context, $filearea,
 
     // Checks to see if the user can manage files or is the owner.
     // TODO MDL-33805 - Do not use userid here and move the capability check above.
-    if (!has_capability('moodle/course:managefiles', $context) && $storedfile->get_userid() != $USER->id) {
+    if (!has_capability('lion/course:managefiles', $context) && $storedfile->get_userid() != $USER->id) {
         return null;
     }
 
@@ -3057,7 +3043,7 @@ function data_pluginfile($course, $cm, $context, $filearea, $args, $forcedownloa
         // group access
         if ($record->groupid) {
             $groupmode = groups_get_activity_groupmode($cm, $course);
-            if ($groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+            if ($groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
                 if (!groups_is_member($record->groupid)) {
                     return false;
                 }
@@ -3103,13 +3089,13 @@ function data_extend_navigation($navigation, $course, $module, $cm) {
         $entriesnode->add_class('note');
     }
 
-    $navigation->add(get_string('list', 'data'), new moodle_url('/mod/data/view.php', array('d'=>$cm->instance)));
+    $navigation->add(get_string('list', 'data'), new lion_url('/mod/data/view.php', array('d'=>$cm->instance)));
     if (!empty($rid)) {
-        $navigation->add(get_string('single', 'data'), new moodle_url('/mod/data/view.php', array('d'=>$cm->instance, 'rid'=>$rid)));
+        $navigation->add(get_string('single', 'data'), new lion_url('/mod/data/view.php', array('d'=>$cm->instance, 'rid'=>$rid)));
     } else {
-        $navigation->add(get_string('single', 'data'), new moodle_url('/mod/data/view.php', array('d'=>$cm->instance, 'mode'=>'single')));
+        $navigation->add(get_string('single', 'data'), new lion_url('/mod/data/view.php', array('d'=>$cm->instance, 'mode'=>'single')));
     }
-    $navigation->add(get_string('search', 'data'), new moodle_url('/mod/data/view.php', array('d'=>$cm->instance, 'mode'=>'asearch')));
+    $navigation->add(get_string('search', 'data'), new lion_url('/mod/data/view.php', array('d'=>$cm->instance, 'mode'=>'asearch')));
 }
 
 /**
@@ -3132,16 +3118,16 @@ function data_extend_settings_navigation(settings_navigation $settings, navigati
         } else {
             $addstring = get_string('editentry', 'data');
         }
-        $datanode->add($addstring, new moodle_url('/mod/data/edit.php', array('d'=>$PAGE->cm->instance)));
+        $datanode->add($addstring, new lion_url('/mod/data/edit.php', array('d'=>$PAGE->cm->instance)));
     }
 
     if (has_capability(DATA_CAP_EXPORT, $PAGE->cm->context)) {
         // The capability required to Export database records is centrally defined in 'lib.php'
         // and should be weaker than those required to edit Templates, Fields and Presets.
-        $datanode->add(get_string('exportentries', 'data'), new moodle_url('/mod/data/export.php', array('d'=>$data->id)));
+        $datanode->add(get_string('exportentries', 'data'), new lion_url('/mod/data/export.php', array('d'=>$data->id)));
     }
     if (has_capability('mod/data:manageentries', $PAGE->cm->context)) {
-        $datanode->add(get_string('importentries', 'data'), new moodle_url('/mod/data/import.php', array('d'=>$data->id)));
+        $datanode->add(get_string('importentries', 'data'), new lion_url('/mod/data/import.php', array('d'=>$data->id)));
     }
 
     if (has_capability('mod/data:managetemplates', $PAGE->cm->context)) {
@@ -3160,11 +3146,11 @@ function data_extend_settings_navigation(settings_navigation $settings, navigati
 
         $templatelist = array ('listtemplate', 'singletemplate', 'asearchtemplate', 'addtemplate', 'rsstemplate', 'csstemplate', 'jstemplate');
         foreach ($templatelist as $template) {
-            $templates->add(get_string($template, 'data'), new moodle_url('/mod/data/templates.php', array('d'=>$data->id,'mode'=>$template)));
+            $templates->add(get_string($template, 'data'), new lion_url('/mod/data/templates.php', array('d'=>$data->id,'mode'=>$template)));
         }
 
-        $datanode->add(get_string('fields', 'data'), new moodle_url('/mod/data/field.php', array('d'=>$data->id)));
-        $datanode->add(get_string('presets', 'data'), new moodle_url('/mod/data/preset.php', array('d'=>$data->id)));
+        $datanode->add(get_string('fields', 'data'), new lion_url('/mod/data/field.php', array('d'=>$data->id)));
+        $datanode->add(get_string('presets', 'data'), new lion_url('/mod/data/preset.php', array('d'=>$data->id)));
     }
 
     if (!empty($CFG->enablerssfeeds) && !empty($CFG->data_enablerssfeeds) && $data->rssarticles > 0) {
@@ -3172,7 +3158,7 @@ function data_extend_settings_navigation(settings_navigation $settings, navigati
 
         $string = get_string('rsstype','forum');
 
-        $url = new moodle_url(rss_get_url($PAGE->cm->context->id, $USER->id, 'mod_data', $data->id));
+        $url = new lion_url(rss_get_url($PAGE->cm->context->id, $USER->id, 'mod_data', $data->id));
         $datanode->add($string, $url, settings_navigation::TYPE_SETTING, null, null, new pix_icon('i/rss', ''));
     }
 }
@@ -3236,7 +3222,7 @@ function data_presets_save($course, $cm, $data, $path) {
 /**
  * Generates the XML for the database module provided
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param stdClass $course The course the database module belongs to.
  * @param stdClass $cm The course module record
  * @param stdClass $data The database record
@@ -3469,7 +3455,7 @@ function data_comment_validate($comment_param) {
     // group access
     if ($record->groupid) {
         $groupmode = groups_get_activity_groupmode($cm, $course);
-        if ($groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+        if ($groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
             if (!groups_is_member($record->groupid)) {
                 throw new comment_exception('notmemberofgroup');
             }
