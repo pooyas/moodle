@@ -300,7 +300,11 @@ class core_admin_renderer extends plugin_renderer_base {
         $output = '';
 
         $output .= $this->header();
-        $output .= $this->maturity_info($maturity);
+        /// COMMENTOUT (Pooya)
+        /// No maturity problem report
+        //$output .= $this->maturity_info($maturity);
+        // Note:
+        // Update notification can be canceled by CFG->disableupdatenotifications
         $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) : '';
         $output .= $this->insecure_dataroot_warning($insecuredataroot);
         $output .= $this->display_errors_warning($errorsdisplayed);
@@ -309,11 +313,15 @@ class core_admin_renderer extends plugin_renderer_base {
         $output .= $this->db_problems($dbproblems);
         $output .= $this->maintenance_mode_warning($maintenancemode);
         $output .= $this->cache_warnings($cachewarnings);
-        $output .= $this->registration_warning($registered);
+        /// COMMENTOUT (Pooya)
+        /// No registration information display
+        //$output .= $this->registration_warning($registered);
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
         ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
-        $output .= $this->lion_copyright();
+        ///COMMENTOUT (Pooya)
+        // No copyright info
+        //$output .= $this->lion_copyright();
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
         $output .= $this->footer();

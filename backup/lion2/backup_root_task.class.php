@@ -63,7 +63,10 @@ class backup_root_task extends backup_task {
             foreach ($converters as $cnv) {
                 $formatcnv = new backup_users_setting($cnv, base_setting::IS_BOOLEAN, false);
                 $formatcnv->set_ui(new backup_setting_ui_checkbox($formatcnv, get_string('backupformat'.$cnv, 'backup')));
-                $this->add_setting($formatcnv);
+                /// COMMENTOUT (Pooya)
+                /// If the following is uncommented, it shows IMS Common Cartridge 1.1 checkbox in the initial stage of the backup
+                /// Currently I don't want it to be shown. I will deal with it later.
+                //$this->add_setting($formatcnv);
             }
         }
 

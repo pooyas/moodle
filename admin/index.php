@@ -142,83 +142,92 @@ if (!$version or !$release) {
     print_error('withoutversion', 'debug'); // without version, stop
 }
 
-if (!core_tables_exist()) {
-    $PAGE->set_pagelayout('maintenance');
-    $PAGE->set_popup_notification_allowed(false);
+// Note:
+// Should comment the following if because the installation should not begin from here
+// Actually I prefer the following code
+if (!core_tables_exist())
+	die("Please run the install script first");
 
-    // fake some settings
-    $CFG->docroot = 'http://docs.lion.org';
+/// COMMENTOUT (Pooya)
+/// I put the above code instead.
+/// I think it is ugly to do the installation from here
+// if (!core_tables_exist()) {
+//     $PAGE->set_pagelayout('maintenance');
+//     $PAGE->set_popup_notification_allowed(false);
 
-    $strinstallation = get_string('installation', 'install');
+//     // fake some settings
+//     $CFG->docroot = 'http://docs.lion.org';
 
-    // remove current session content completely
-    \core\session\manager::terminate_current();
+//     $strinstallation = get_string('installation', 'install');
 
-    if (empty($agreelicense)) {
-        $strlicense = get_string('license');
+//     // remove current session content completely
+//     \core\session\manager::terminate_current();
 
-        $PAGE->navbar->add($strlicense);
-        $PAGE->set_title($strinstallation.' - Lion '.$CFG->target_release);
-        $PAGE->set_heading($strinstallation);
-        $PAGE->set_cacheable(false);
+//     if (empty($agreelicense)) {
+//         $strlicense = get_string('license');
 
-        /** @var core_admin_renderer $output */
-        $output = $PAGE->get_renderer('core', 'admin');
-        echo $output->install_licence_page();
-        die();
-    }
-    if (empty($confirmrelease)) {
-        require_once($CFG->libdir.'/environmentlib.php');
-        list($envstatus, $environment_results) = check_lion_environment(normalize_version($release), ENV_SELECT_RELEASE);
-        $strcurrentrelease = get_string('currentrelease');
+//         $PAGE->navbar->add($strlicense);
+//         $PAGE->set_title($strinstallation.' - Lion '.$CFG->target_release);
+//         $PAGE->set_heading($strinstallation);
+//         $PAGE->set_cacheable(false);
 
-        $PAGE->navbar->add($strcurrentrelease);
-        $PAGE->set_title($strinstallation);
-        $PAGE->set_heading($strinstallation . ' - Lion ' . $CFG->target_release);
-        $PAGE->set_cacheable(false);
+//         /** @var core_admin_renderer $output */
+//         $output = $PAGE->get_renderer('core', 'admin');
+//         echo $output->install_licence_page();
+//         die();
+//     }
+//     if (empty($confirmrelease)) {
+//         require_once($CFG->libdir.'/environmentlib.php');
+//         list($envstatus, $environment_results) = check_lion_environment(normalize_version($release), ENV_SELECT_RELEASE);
+//         $strcurrentrelease = get_string('currentrelease');
 
-        /** @var core_admin_renderer $output */
-        $output = $PAGE->get_renderer('core', 'admin');
-        echo $output->install_environment_page($maturity, $envstatus, $environment_results, $release);
-        die();
-    }
+//         $PAGE->navbar->add($strcurrentrelease);
+//         $PAGE->set_title($strinstallation);
+//         $PAGE->set_heading($strinstallation . ' - Lion ' . $CFG->target_release);
+//         $PAGE->set_cacheable(false);
 
-    // check plugin dependencies
-    $failed = array();
-    if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
-        $PAGE->navbar->add(get_string('pluginscheck', 'admin'));
-        $PAGE->set_title($strinstallation);
-        $PAGE->set_heading($strinstallation . ' - Lion ' . $CFG->target_release);
+//         /** @var core_admin_renderer $output */
+//         $output = $PAGE->get_renderer('core', 'admin');
+//         echo $output->install_environment_page($maturity, $envstatus, $environment_results, $release);
+//         die();
+//     }
 
-        $output = $PAGE->get_renderer('core', 'admin');
-        $url = new lion_url('/admin/index.php', array('agreelicense' => 1, 'confirmrelease' => 1, 'lang' => $CFG->lang));
-        echo $output->unsatisfied_dependencies_page($version, $failed, $url);
-        die();
-    }
-    unset($failed);
+//     // check plugin dependencies
+//     $failed = array();
+//     if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
+//         $PAGE->navbar->add(get_string('pluginscheck', 'admin'));
+//         $PAGE->set_title($strinstallation);
+//         $PAGE->set_heading($strinstallation . ' - Lion ' . $CFG->target_release);
 
-    //TODO: add a page with list of non-standard plugins here
+//         $output = $PAGE->get_renderer('core', 'admin');
+//         $url = new lion_url('/admin/index.php', array('agreelicense' => 1, 'confirmrelease' => 1, 'lang' => $CFG->lang));
+//         echo $output->unsatisfied_dependencies_page($version, $failed, $url);
+//         die();
+//     }
+//     unset($failed);
 
-    $strdatabasesetup = get_string('databasesetup');
-    upgrade_init_javascript();
+//     //TODO: add a page with list of non-standard plugins here
 
-    $PAGE->navbar->add($strdatabasesetup);
-    $PAGE->set_title($strinstallation.' - Lion '.$CFG->target_release);
-    $PAGE->set_heading($strinstallation);
-    $PAGE->set_cacheable(false);
+//     $strdatabasesetup = get_string('databasesetup');
+//     upgrade_init_javascript();
 
-    $output = $PAGE->get_renderer('core', 'admin');
-    echo $output->header();
+//     $PAGE->navbar->add($strdatabasesetup);
+//     $PAGE->set_title($strinstallation.' - Lion '.$CFG->target_release);
+//     $PAGE->set_heading($strinstallation);
+//     $PAGE->set_cacheable(false);
 
-    if (!$DB->setup_is_unicodedb()) {
-        if (!$DB->change_db_encoding()) {
-            // If could not convert successfully, throw error, and prevent installation
-            print_error('unicoderequired', 'admin');
-        }
-    }
+//     $output = $PAGE->get_renderer('core', 'admin');
+//     echo $output->header();
 
-    install_core($version, true);
-}
+//     if (!$DB->setup_is_unicodedb()) {
+//         if (!$DB->change_db_encoding()) {
+//             // If could not convert successfully, throw error, and prevent installation
+//             print_error('unicoderequired', 'admin');
+//         }
+//     }
+
+//     install_core($version, true);
+// }
 
 
 // Check version of Lion code on disk compared with database
