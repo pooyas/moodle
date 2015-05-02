@@ -1,0 +1,1 @@
+YUI.add("lion-course-util-section",function(e,t){e.namespace("Lion.core_course.util.section"),e.Lion.core_course.util.section={CONSTANTS:{SECTIONIDPREFIX:"section-"},getId:function(e){var t=e.get("id").replace(this.CONSTANTS.SECTIONIDPREFIX,"");return t=parseInt(t,10),typeof t=="number"&&isFinite(t)?t:!1}}},"@VERSION@",{requires:["node","lion-course-util-base"]});
