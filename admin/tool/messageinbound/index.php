@@ -3,8 +3,9 @@
 /**
  * Inbound Message Settings pages.
  *
- * @package    tool_messageinbound
- * @copyright  2014 Andrew NIcols
+ * @package    tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -405,7 +405,7 @@ class google_picasa {
  * OAuth 2.0 client for Google Services
  *
  * @package   core
- * @copyright 2012 Dan Poltawski
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class google_oauth extends oauth2_client {

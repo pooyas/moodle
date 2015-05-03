@@ -9,8 +9,9 @@
  *   edit      - edit the definition of a role
  *   view      - view the definition of a role
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -12,9 +13,6 @@
  * Main page to start editing one XML file. From here it's possible to access
  * to tables edition plus PHP code generation and other utilities
  *
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
  */
 class edit_xml_file extends XMLDBAction {
 

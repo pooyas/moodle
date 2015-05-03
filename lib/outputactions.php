@@ -8,8 +8,8 @@
  *
  * @package core
  * @category output
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -17,8 +17,8 @@ defined('LION_INTERNAL') || die();
 /**
  * Helper class used by other components that involve an action on the page (URL or JS).
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -67,8 +67,8 @@ class component_action {
 /**
  * Confirm action
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -100,8 +100,8 @@ class confirm_action extends component_action {
 /**
  * Component action for a popup window.
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.0
  * @package core
  * @category output

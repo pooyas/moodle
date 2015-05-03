@@ -6,7 +6,7 @@ defined('LION_INTERNAL') || die();
  * CTRL + right click helper
  *
  * @package   tinymce_ctrlhelp
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_ctrlhelp extends editor_tinymce_plugin {

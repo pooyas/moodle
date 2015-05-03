@@ -4,7 +4,7 @@
  * Extra classes needed for HTMLPurifier customisation for Lion.
  *
  * @package    core
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL 3 or later
  */
 

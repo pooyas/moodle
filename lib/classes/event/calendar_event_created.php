@@ -4,7 +4,7 @@
  * Calendar event created event.
  *
  * @package    core
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -25,7 +25,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.7
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class calendar_event_created extends base {

@@ -5,7 +5,7 @@
  *
  * @package    tool
  * @subpackage innodb
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Jabber configuration page
  *
  * @package    message_jabber
- * @copyright  2011 Lancaster University Network Services Limited
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

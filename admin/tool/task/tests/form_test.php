@@ -3,8 +3,10 @@
 /**
  * File containing tests for the mform class.
  *
- * @package    tool_task
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage task
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,9 +17,6 @@ global $CFG;
 /**
  * Mform test class.
  *
- * @package    tool_task
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
 class tool_task_form_testcase extends advanced_testcase {
 

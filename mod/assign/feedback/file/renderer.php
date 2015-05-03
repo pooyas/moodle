@@ -4,7 +4,7 @@
  * This file contains a renderer for the assignment class
  *
  * @package   assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * A custom renderer class that extends the plugin_renderer_base and is used by the assign module.
  *
  * @package assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assignfeedback_file_renderer extends plugin_renderer_base {

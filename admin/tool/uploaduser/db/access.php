@@ -3,8 +3,9 @@
 /**
  * Defines the capabilities used by the user upload admin tool
  *
- * @package    tool_uploaduser
- * @copyright  2013 Dan Poltawski <dan@lion.com>
+ * @package    tool
+ * @subpackage uploaduser
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

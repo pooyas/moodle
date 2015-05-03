@@ -3,8 +3,9 @@
 /**
  * Fixtures for legacy logging testing.
  *
- * @package    logstore_legacy
- * @copyright  2014 Petr Skoda
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

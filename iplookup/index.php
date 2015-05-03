@@ -6,7 +6,7 @@
  * This script is not compatible with IPv6.
  *
  * @package    core_iplookup
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -4,7 +4,7 @@
  * Role assigned event.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class role_assigned extends base {

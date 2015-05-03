@@ -4,7 +4,7 @@
  * Version information for the matching question type.
  *
  * @package   qtype_match
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

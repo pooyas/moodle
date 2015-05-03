@@ -4,7 +4,7 @@
  * Implementation of zip packer.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -18,7 +18,7 @@ require_once("$CFG->libdir/filestorage/zip_archive.php");
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class zip_packer extends file_packer {

@@ -3,8 +3,10 @@
 /**
  * Tests for capability overview events.
  *
- * @package    tool_capability
- * @copyright  2014 Petr Skoda
+ * @package    tool
+ * @subpackage capability
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class for capability overview events.
  *
- * @package    tool_capability
- * @copyright  2014 Petr Skoda
- * .
  */
 class tool_capability_events_testcase extends advanced_testcase {
 

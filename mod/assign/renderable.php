@@ -4,7 +4,7 @@
  * This file contains the definition for the renderable classes for the assignment
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -13,7 +13,7 @@ defined('LION_INTERNAL') || die();
 /**
  * This class wraps the submit for grading confirmation page
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_submit_for_grading_page implements renderable {
@@ -41,7 +41,7 @@ class assign_submit_for_grading_page implements renderable {
 /**
  * Implements a renderable message notification
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_gradingmessage implements renderable {
@@ -75,7 +75,7 @@ class assign_gradingmessage implements renderable {
 /**
  * Implements a renderable grading options form
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_form implements renderable {
@@ -103,7 +103,7 @@ class assign_form implements renderable {
 /**
  * Implements a renderable user summary
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_user_summary implements renderable {
@@ -152,7 +152,7 @@ class assign_user_summary implements renderable {
 /**
  * Implements a renderable feedback plugin feedback
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_feedback_plugin_feedback implements renderable {
@@ -203,7 +203,7 @@ class assign_feedback_plugin_feedback implements renderable {
 /**
  * Implements a renderable submission plugin submission
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_submission_plugin_submission implements renderable {
@@ -252,7 +252,7 @@ class assign_submission_plugin_submission implements renderable {
 /**
  * Renderable feedback status
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_feedback_status implements renderable {
@@ -307,7 +307,7 @@ class assign_feedback_status implements renderable {
 /**
  * Renderable submission status
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_submission_status implements renderable {
@@ -535,7 +535,7 @@ class assign_attempt_history implements renderable {
 /**
  * Renderable header
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_header implements renderable {
@@ -604,7 +604,7 @@ class assign_plugin_header implements renderable {
 /**
  * Renderable grading summary
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_grading_summary implements renderable {
@@ -669,7 +669,7 @@ class assign_grading_summary implements renderable {
 /**
  * Renderable course index summary
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_course_index_summary implements renderable {
@@ -719,7 +719,7 @@ class assign_course_index_summary implements renderable {
  * An assign file class that extends rendererable class and is used by the assign module.
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_files implements renderable {

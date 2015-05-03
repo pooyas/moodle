@@ -4,7 +4,7 @@
  * Admin settings class for the choices for how to display the user's image
  *
  * @package   mod_quiz
- * @copyright 2008 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

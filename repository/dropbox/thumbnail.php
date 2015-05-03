@@ -7,7 +7,7 @@
  * the default 64x64 filetype icon is returned
  *
  * @package    repository_dropbox
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

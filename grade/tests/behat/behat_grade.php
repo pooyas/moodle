@@ -5,7 +5,7 @@
  *
  * @package    core_grades
  * @category   test
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

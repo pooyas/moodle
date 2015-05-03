@@ -3,9 +3,10 @@
 /**
  * Renderer.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage filetypes
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class containing the renderer functions for displaying file types.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_filetypes_renderer extends plugin_renderer_base {
 

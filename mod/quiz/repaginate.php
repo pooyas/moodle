@@ -4,7 +4,7 @@
  * Rest endpoint for ajax editing for paging operations on the quiz structure.
  *
  * @package   mod_quiz
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

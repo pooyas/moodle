@@ -4,7 +4,7 @@
  * Library functions for managing text filter plugins.
  *
  * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -35,7 +35,7 @@ define('TEXTFILTER_EXCL_SEPARATOR', '-%-');
  * This class is a singleton.
  *
  * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class filter_manager {
@@ -250,7 +250,7 @@ class filter_manager {
  * @todo Document this class
  *
  * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class null_filter_manager {
@@ -282,7 +282,7 @@ class null_filter_manager {
  * @todo Document this class
  *
  * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class performance_measuring_filter_manager extends filter_manager {
@@ -356,7 +356,7 @@ class performance_measuring_filter_manager extends filter_manager {
  * implement the filter method.
  *
  * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class lion_text_filter {
@@ -418,7 +418,7 @@ abstract class lion_text_filter {
  *
  * @package    core
  * @subpackage filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  **/
 class filterobject {

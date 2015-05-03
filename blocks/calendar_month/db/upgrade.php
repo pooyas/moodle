@@ -20,7 +20,7 @@
  * @since Lion 2.8
  * @package block_calendar_month
  * @copyright 2014 Andrew Davis
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**

@@ -20,7 +20,7 @@
  * @since Lion 2.0
  * @package    block_selfcompletion
  * @copyright 2012 Mark Nelson <markn@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**

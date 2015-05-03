@@ -3,9 +3,10 @@
 /**
  * Steps definitions related with administration.
  *
- * @package   core_admin
- * @category  test
- * @copyright 2013 David Monllaó
+ * @package    core
+ * @subpackage admin
+ * @category   test
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +22,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Site administration level steps definitions.
  *
- * @package    core_admin
- * @category   test
- * @copyright  2013 David Monllaó
- * 
  */
 class behat_admin extends behat_base {
 

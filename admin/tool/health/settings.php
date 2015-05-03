@@ -5,7 +5,7 @@
  *
  * @package    tool
  * @subpackage health
- * @copyright  2011 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

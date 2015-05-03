@@ -3,9 +3,9 @@
 /**
  * A scheduled task to handle cleanup of old, unconfirmed e-mails.
  *
- * @package    tool_messageinbound
- * @category   task
- * @copyright  2014 Andrew Nicols
+ * @package    tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A scheduled task to handle cleanup of old, unconfirmed e-mails.
  *
- * @copyright  2014 Andrew Nicols
- * 
  */
 class cleanup_task extends \core\task\scheduled_task {
 

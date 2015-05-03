@@ -4,7 +4,7 @@
  * Strings for component 'enrol_manual', language 'en'.
  *
  * @package    enrol_manual
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

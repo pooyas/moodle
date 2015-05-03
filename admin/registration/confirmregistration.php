@@ -1,37 +1,17 @@
 <?php
 
-///////////////////////////////////////////////////////////////////////////
-//                                                                       //
-// This file is part of Lion - http://lion.org/                      //
-// Lion - Modular Object-Oriented Dynamic Learning Environment         //
-//                                                                       //
-// Lion is free software: you can redistribute it and/or modify        //
-// it under the terms of the GNU General Public License as published by  //
-// the Free Software Foundation, either version 3 of the License, or     //
-// (at your option) any later version.                                   //
-//                                                                       //
-// Lion is distributed in the hope that it will be useful,             //
-// but WITHOUT ANY WARRANTY; without even the implied warranty of        //
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
-// GNU General Public License for more details.                          //
-//                                                                       //
-// You should have received a copy of the GNU General Public License     //
-// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
-//                                                                       //
-///////////////////////////////////////////////////////////////////////////
-
-/*
- * @package    lion
- * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
- *
+/**
+ * 
  * The administrator is redirect to this page from the hub to confirm that the
  * site has been registered. It is an administration page. The administrator
  * should be using the same browser during all the registration process.
  * This page save the token that the hub gave us, in order to call the hub
  * directory later by web service.
+ * 
+ * @package    core
+ * @subpackage registration
+ * @copyright  2015 Pooya Saeedi
+ *
  */
 
 require('../../config.php');

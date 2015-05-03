@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * An oauth2 redirection endpoint which can be used for an application:
  * http://tools.ietf.org/html/draft-ietf-oauth-v2-26#section-3.1.2
@@ -10,7 +9,8 @@
  * using the state param.
  *
  * @package    core
- * @copyright  2012 Dan Poltawski
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

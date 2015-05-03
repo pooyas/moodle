@@ -11,7 +11,7 @@
  *
  * @package     core
  * @copyright   2012 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require(__DIR__.'/mdeploy.php');

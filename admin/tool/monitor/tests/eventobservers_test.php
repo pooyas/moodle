@@ -3,9 +3,10 @@
 /**
  * Unit tests for event observers.
  *
- * @package    tool_monitor
- * @category   test
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage monitor
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

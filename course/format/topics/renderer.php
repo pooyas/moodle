@@ -4,8 +4,8 @@
  * Renderer for outputting the topics course format.
  *
  * @package format_topics
- * @copyright 2012 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.3
  */
 
@@ -16,8 +16,8 @@ require_once($CFG->dirroot.'/course/format/renderer.php');
 /**
  * Basic renderer for topics format.
  *
- * @copyright 2012 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class format_topics_renderer extends format_section_renderer_base {
 

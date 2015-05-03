@@ -4,7 +4,7 @@
  * This file contains the submission confirmation form
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/mod/assign/locallib.php');
  * Assignment submission confirmation form
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class mod_assign_confirm_submission_form extends lionform {

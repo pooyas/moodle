@@ -5,7 +5,7 @@
  *
  * @package   core_question
  * @category  test
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the parts of {@link question_engine_data_mapper} related to reporting.
  *
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class question_engine_data_mapper_reporting_testcase extends qbehaviour_walkthrough_test_base {

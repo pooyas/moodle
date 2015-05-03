@@ -6,8 +6,8 @@
  * For now keep in Reports folder, we should move it elsewhere once we deal with contexts in general reports and navigation
  *
  * @package    tool
- * @subpackage unsuproles
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @subpackage spamcleaner
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

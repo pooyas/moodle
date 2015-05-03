@@ -1,6 +1,6 @@
 
 /*
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -4,8 +4,9 @@
 /**
  * Defines the capabilities used by the Language customization admin tool
  *
- * @package    tool_customlang
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @package    tool
+ * @subpackage customlang
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

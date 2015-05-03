@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -16,7 +16,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class Hint_ResultPrinter extends PHPUnit_TextUI_ResultPrinter {
@@ -110,7 +110,7 @@ class Hint_ResultPrinter extends PHPUnit_TextUI_ResultPrinter {
  *
  * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class Hacky_TextUI_Command_reader extends PHPUnit_TextUI_Command {

@@ -4,7 +4,7 @@
  * Defines the quiz repaginate class.
  *
  * @package   mod_quiz
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * The quiz setting allows users to write quizzes with one question per page,
  * n questions per page, or all questions on one page.
  *
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class repaginate {

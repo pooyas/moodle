@@ -3,8 +3,9 @@
 /**
  * The tool_capability report viewed event.
  *
- * @package    tool_capability
- * @copyright  2014 Petr Skoda
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace tool_capability\event;
@@ -12,10 +13,6 @@ namespace tool_capability\event;
 /**
  * The tool_capability report viewed event class.
  *
- * @package    tool_capability
- * @since      Lion 2.7
- * @copyright  2014 Petr Skoda
- * 
  */
 class report_viewed extends \core\event\base {
 

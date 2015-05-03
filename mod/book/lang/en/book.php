@@ -4,7 +4,7 @@
  * Book module language strings
  *
  * @package    mod_book
- * @copyright  2004-2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2004-2015 Pooya Saeedi 
  * 
  */
 

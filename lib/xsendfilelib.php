@@ -4,7 +4,7 @@
  * X-Sendfile support
  *
  * @package   core_files
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

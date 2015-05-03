@@ -3,8 +3,9 @@
 /**
  * The tool_monitor rule deleted event.
  *
- * @package    tool_monitor
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The tool_monitor rule deleted event class.
  *
- * @package    tool_monitor
- * @since      Lion 2.8
- * @copyright  2014 Mark Nelson <markn@lion.com>
- * 
  */
 class rule_deleted extends \core\event\base {
 

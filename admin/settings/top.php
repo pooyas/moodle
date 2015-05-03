@@ -1,10 +1,16 @@
 <?php
 
-// This is the first file read by the lib/adminlib.php script
-// We use it to create the categories in correct order,
-// since they need to exist *before* settingpages and externalpages
-// are added to them.
-// 
+/**
+ * This is the first file read by the lib/adminlib.php script
+ * We use it to create the categories in correct order,
+ * since they need to exist *before* settingpages and externalpages
+ * are added to them.
+ *
+ * @package    core
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+ */
+
 // Note:
 // This basically adds categories to what admin can do
 // Partly visible in the site administration menu (?)

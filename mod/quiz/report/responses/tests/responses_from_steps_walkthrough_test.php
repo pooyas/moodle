@@ -5,7 +5,7 @@
  *
  * @package    quiz_statistics
  * @category   phpunit
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     Jamie Pratt <me@jamiep.org>
  * 
  */
@@ -23,7 +23,7 @@ require_once($CFG->dirroot . '/mod/quiz/report/reportlib.php');
  *
  * @package    quiz_statistics
  * @category   phpunit
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     Jamie Pratt <me@jamiep.org>
  * 
  */

@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage description
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->libdir . '/questionlib.php');
 /**
  * The description 'question' type.
  *
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_description extends question_type {

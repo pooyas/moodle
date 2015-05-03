@@ -1,16 +1,14 @@
 <?php
 
-
-/*
- * @package    lion
- * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
- *
+/**
  * On this page the administrator selects which hub he wants to register (except for lion.net)
  * Admins can register with lion.net via the site admin menu "Registration" link.
  * On this page the administrator can also unregister from any hubs including lion.net.
+ * 
+ * @package    core
+ * @subpackage registration
+ * @copyright  2015 Pooya Saeedi
+ *
  */
 
 require('../../config.php');

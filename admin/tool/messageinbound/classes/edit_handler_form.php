@@ -3,8 +3,9 @@
 /**
  * Form to edit handlers.
  *
- * @package    tool_messageinbound
- * @copyright  2014 Andrew Nicols
+ * @package    tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Form to edit handlers.
  *
- * @copyright  2014 Andrew Nicols
- * 
  */
 class tool_messageinbound_edit_handler_form extends lionform {
 

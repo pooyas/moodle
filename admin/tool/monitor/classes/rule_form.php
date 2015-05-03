@@ -3,9 +3,9 @@
 /**
  * The mform for creating and editing a rule.
  *
- * @copyright 2014 onwards Simey Lameze <lameze@gmail.com>
- * 
- * @package   tool_monitor
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  */
 
 namespace tool_monitor;
@@ -15,10 +15,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * The mform for creating and editing a rule.
  *
- * @since     Lion 2.8
- * @copyright 2014 onwards Simey Lameze <lameze@gmail.com>
- * 
- * @package   tool_monitor
  */
 class rule_form extends \lionform {
 

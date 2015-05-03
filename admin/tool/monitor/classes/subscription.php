@@ -3,8 +3,9 @@
 /**
  * Class represents a single subscription.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class represents a single subscription instance (i.e with all the subscription info).
  *
- * @since      Lion 2.8
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * 
  */
 class subscription {
     /**

@@ -2,7 +2,7 @@
 
 /**
  * @package    block_quiz_results
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  *
  * TODO: Finish phpdocs
  *
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class restore_quiz_results_block_task extends restore_block_task {

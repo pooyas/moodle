@@ -5,8 +5,9 @@
  *
  * Do no include this file, it is automatically loaded by the class loader!
  *
- * @package    tool_capability
- * @copyright  2013 Sam Hemelryk
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->libdir.'/formslib.php');
  *
  * The settings form for the comparison of roles/capabilities.
  *
- * @copyright  2013 Sam Hemelryk
- * 
  */
 class tool_capability_settings_form extends lionform {
 

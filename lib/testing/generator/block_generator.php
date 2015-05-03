@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -18,7 +18,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @category   test
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 abstract class testing_block_generator extends component_generator_base {

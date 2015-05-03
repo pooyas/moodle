@@ -5,7 +5,7 @@
  * The mform for creating and editing a calendar event
  *
  * @copyright 2009 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package calendar
  */
 
@@ -22,7 +22,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  * The mform class for creating and editing a calendar
  *
  * @copyright 2009 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class event_form extends lionform {
     /**

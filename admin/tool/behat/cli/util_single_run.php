@@ -6,8 +6,9 @@
  * All CLI utilities uses $CFG->behat_dataroot and $CFG->prefix_dataroot as
  * $CFG->dataroot and $CFG->prefix
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
+ * @package    tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

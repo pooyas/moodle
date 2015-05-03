@@ -4,7 +4,7 @@
  * Strings for component 'enrol_meta', language 'en'.
  *
  * @package    enrol_meta
- * @copyright  2010 onwards Petr Skoda  {@link http://skodak.org}
+ * @copyright  2010 onwards Petr Skoda  
  * 
  */
 

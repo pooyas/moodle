@@ -5,7 +5,7 @@
  *
  * @package   core_question
  * @category  test
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
  * tested elsewhere, e.g. by {@link question_usage_autosave_test}. We do not
  * re-test them here.
  *
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class question_engine_data_mapper_testcase extends qbehaviour_walkthrough_test_base {

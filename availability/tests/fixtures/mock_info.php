@@ -4,8 +4,8 @@
  * For use in unit tests that require an info object which isn't really used.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace core_availability;
@@ -16,8 +16,8 @@ defined('LION_INTERNAL') || die();
  * For use in unit tests that require an info object which isn't really used.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class mock_info extends info {
     /** @var int User id for modinfo */

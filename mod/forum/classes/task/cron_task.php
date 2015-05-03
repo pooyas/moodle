@@ -6,7 +6,7 @@
  * @todo MDL-44734 This job will be split up properly.
  *
  * @package    mod_forum
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace mod_forum\task;

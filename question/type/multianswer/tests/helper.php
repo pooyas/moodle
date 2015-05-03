@@ -4,7 +4,7 @@
  * Test helpers for the multianswer question type.
  *
  * @package    qtype_multianswer
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/question/type/multianswer/question.php');
 /**
  * Test helper class for the multianswer question type.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multianswer_test_helper extends question_test_helper {

@@ -4,7 +4,7 @@
  * This file keeps track of upgrades to the imsenterprise enrolment plugin
  *
  * @package    enrol_imsenterprise
- * @copyright  2011 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

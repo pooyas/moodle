@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * Question bank column for the duplicate action icon.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

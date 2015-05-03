@@ -5,7 +5,7 @@
  *
  * @package    tool
  * @subpackage uploaduser
- * @copyright  2007 Dan Poltawski
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +17,6 @@ require_once($CFG->dirroot . '/user/editlib.php');
 /**
  * Upload a file CVS file with user information.
  *
- * @copyright  2007 Petr Skoda  {@link http://skodak.org}
- * 
  */
 class admin_uploaduser_form1 extends lionform {
     function definition () {
@@ -55,8 +53,6 @@ class admin_uploaduser_form1 extends lionform {
 /**
  * Specify user upload details
  *
- * @copyright  2007 Petr Skoda  {@link http://skodak.org}
- * 
  */
 class admin_uploaduser_form2 extends lionform {
     function definition () {

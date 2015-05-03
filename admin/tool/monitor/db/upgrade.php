@@ -3,8 +3,9 @@
 /**
  * Upgrade scirpt for tool_monitor.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -35,9 +36,6 @@ function xmldb_tool_monitor_upgrade($oldversion) {
         // Monitor savepoint reached.
         upgrade_plugin_savepoint(true, 2014102000, 'tool', 'monitor');
     }
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

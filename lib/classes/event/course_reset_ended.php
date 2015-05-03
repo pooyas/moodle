@@ -4,7 +4,7 @@
  * The course reset ended event.
  *
  * @package    core
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class course_reset_ended extends base {

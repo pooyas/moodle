@@ -5,7 +5,7 @@
  *
  * @package   core_user
  * @category  user
- * @copyright 2011 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

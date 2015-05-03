@@ -7,8 +7,8 @@
  * static methods.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace core_availability;
@@ -22,8 +22,8 @@ defined('LION_INTERNAL') || die();
  * static methods.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 abstract class frontend {
     /**

@@ -4,8 +4,8 @@
  * User profile field condition.
  *
  * @package availability_profile
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace availability_profile;
@@ -16,8 +16,8 @@ defined('LION_INTERNAL') || die();
  * User profile field condition.
  *
  * @package availability_profile
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class condition extends \core_availability\condition {
     /** @var string Operator: field contains value */

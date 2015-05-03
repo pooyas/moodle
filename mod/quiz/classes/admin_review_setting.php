@@ -4,7 +4,7 @@
  * Admin settings class for the quiz review options.
  *
  * @package   mod_quiz
- * @copyright 2008 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Admin settings class for the quiz review options.
  *
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_quiz_admin_review_setting extends admin_setting {

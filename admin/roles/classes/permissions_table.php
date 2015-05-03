@@ -3,8 +3,9 @@
 /**
  * Library code used by the roles administration interfaces.
  *
- * @package    core_role
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

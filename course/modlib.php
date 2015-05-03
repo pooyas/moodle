@@ -7,7 +7,7 @@
  * in order to create the course API functions.
  *
  * @copyright 2013 Jerome Mouneyrac
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core_course
  */
 

@@ -4,7 +4,7 @@
  * Edit course settings
  *
  * @package    core_course
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

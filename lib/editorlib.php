@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage editor
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -158,8 +158,8 @@ function editors_head_setup() {
 /**
  * Base abstract text editor class.
  *
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
+ * 
  * @package lioncore
  */
 abstract class texteditor {

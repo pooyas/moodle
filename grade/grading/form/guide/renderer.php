@@ -4,7 +4,7 @@
  * Contains the Guide grading form renderer in all of its glory
  *
  * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Grading method plugin renderer
  *
  * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class gradingform_guide_renderer extends plugin_renderer_base {

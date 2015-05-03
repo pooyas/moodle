@@ -3,8 +3,9 @@
 /**
  * CLI task execution.
  *
- * @package    tool_task
- * @copyright  2014 Petr Skoda
+ * @package    tool
+ * @subpackage task
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

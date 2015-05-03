@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Allows the admin to manage repository
+ *
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+ *
+ */
+
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once($CFG->dirroot . '/repository/lib.php');
 require_once($CFG->libdir . '/adminlib.php');

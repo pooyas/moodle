@@ -3,7 +3,7 @@
 /**
  * Provide interface for blocks AJAX actions
  *
- * @copyright  2011 Lancaster University Network Services Limited
+ * @copyright  2015 Pooya Saeedi
  * 
  * @package core
  */

@@ -7,7 +7,7 @@ YUI.add('lion-mod_forum-subscriptiontoggle', function (Y, NAME) {
  *
  * @module     lion-core-subscriptiontoggle
  * @package    mod_forum
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
  * 
  * @main       lion-mod_forum-subscriptiontoggle
  */

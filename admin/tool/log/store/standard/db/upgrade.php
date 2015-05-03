@@ -3,8 +3,9 @@
 /**
  * Standard log store upgrade.
  *
- * @package    logstore_standard
- * @copyright  2014 Petr Skoda
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -96,12 +97,6 @@ function xmldb_logstore_standard_upgrade($oldversion) {
         // Standard savepoint reached.
         upgrade_plugin_savepoint(true, 2014041500, 'logstore', 'standard');
     }
-
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

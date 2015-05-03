@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ require_once(__DIR__ . '/../../testing/classes/tests_finder.php');
  *
  * @package    core
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_config_manager {

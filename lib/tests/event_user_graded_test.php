@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ require_once($CFG->libdir . '/mathslib.php');
  *
  * @package    core
  * @category   test
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_event_user_graded_testcase extends advanced_testcase {

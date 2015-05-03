@@ -6,7 +6,7 @@
  * @package    core_ddl
  * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- *             2008 Petr Skoda                   http://skodak.org
+ *             2015 Pooya Saeedi                   http://skodak.org
  * 
  */
 
@@ -20,7 +20,7 @@ defined('LION_INTERNAL') || die();
  * @package    core_ddl
  * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- *             2008 Petr Skoda                   http://skodak.org
+ *             2015 Pooya Saeedi                   http://skodak.org
  * 
  */
 class database_manager {

@@ -8,8 +8,9 @@
  * - su to apache account or sudo before execution
  * - already broken DB scheme or invalid data
  *
- * @package    tool_dbtransfer
- * @copyright  2012 Petr Skoda {@link http://skodak.org/}
+ * @package    tool
+ * @subpackage dbtransfer
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

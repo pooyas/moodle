@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  test
- * @copyright 2013 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -22,8 +22,8 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  *
  * @package   core
  * @category  test
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class behat_permissions extends behat_base {
 

@@ -3,7 +3,7 @@
 /**
  * @package   core_backup
  * @category  phpunit
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -142,8 +142,8 @@ class core_backup_controller_testcase extends advanced_testcase {
  * Progress class that records the result of restore_controller::is_executing calls.
  *
  * @package core_backup
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_backup_progress_restore_is_executing extends \core\progress\base {
     /** @var array Array of results from calling function */

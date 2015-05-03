@@ -3,8 +3,10 @@
 /**
  * Unit tests for tool_health.
  *
- * @package    tool_health
- * @copyright  2013 Marko Vidberg
+ * @package    tool
+ * @subpackage health
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +18,6 @@ require_once($CFG->dirroot . '/' . $CFG->admin . '/tool/health/locallib.php');
 /**
  * Health lib testcase.
  *
- * @package    tool_health
- * @copyright  2013 Marko Vidberg
- * 
  */
 class healthlib_testcase extends advanced_testcase {
 

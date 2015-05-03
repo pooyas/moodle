@@ -4,7 +4,7 @@
  * Event for recent activity page.
  *
  * @package    core
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.7
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class recent_activity_viewed extends base {

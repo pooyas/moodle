@@ -3,8 +3,9 @@
 /**
  * Link to CSV course upload.
  *
- * @package    tool_uploadcourse
- * @copyright  2011 Piers Harding
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

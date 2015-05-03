@@ -19,7 +19,7 @@
  *
  * @since Lion 2.5
  * @package block_section_links
- * @copyright 2013 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

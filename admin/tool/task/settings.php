@@ -3,8 +3,9 @@
 /**
  * Scheduled tasks.
  *
- * @package    tool_task
- * @copyright  2014 Damyon Wiese
+ * @package    tool
+ * @subpackage task
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

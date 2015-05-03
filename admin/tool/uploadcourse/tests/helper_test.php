@@ -3,8 +3,9 @@
 /**
  * File containing tests for the helper.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ global $CFG;
 /**
  * Helper test case.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * 
  */
 class tool_uploadcourse_helper_testcase extends advanced_testcase {
 

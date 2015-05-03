@@ -3,9 +3,11 @@
 /**
  * Unit test for the site generator
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @category   phpunit
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Silly class to access site_backend internal methods.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class testable_tool_generator_site_backend extends tool_generator_site_backend {
 
@@ -32,9 +31,6 @@ class testable_tool_generator_site_backend extends tool_generator_site_backend {
 /**
  * Unit test for the site generator
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_generator_maketestsite_testcase extends advanced_testcase {
 

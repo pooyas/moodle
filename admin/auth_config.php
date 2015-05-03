@@ -1,6 +1,10 @@
 <?php
 /**
  * Edit configuration for an individual auth plugin
+ * 
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../config.php';

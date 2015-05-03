@@ -5,7 +5,7 @@
  *
  * @package core_calendar
  * @copyright 2014 Brian Barnes
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 // Always include formslib.
@@ -19,7 +19,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  * The mform class for creating and editing a calendar
  *
  * @copyright 2014 Brian Barnes
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_calendar_export_form extends lionform {
 

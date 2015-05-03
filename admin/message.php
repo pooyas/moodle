@@ -3,8 +3,9 @@
 /**
  * Message outputs configuration page
  *
- * @package    message
- * @copyright  2011 Lancaster University Network Services Limited
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once(dirname(__FILE__) . '/../config.php');

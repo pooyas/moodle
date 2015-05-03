@@ -5,7 +5,7 @@
 * Adds or updates modules in a course using new formslib
 *
 * @package    lioncore
-* @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+* @copyright  2015 Pooya Saeedi
 * 
 */
 

@@ -4,7 +4,7 @@
  * Standard plugin entry points of the HTML question export format.
  *
  * @package   qformat_xhtml
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

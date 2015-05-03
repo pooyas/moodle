@@ -4,9 +4,9 @@
 /**
  * Allows the admin to manage question types.
  *
- * @package    lioncore
- * @subpackage questionbank
- * @copyright  2008 Tim Hunt
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

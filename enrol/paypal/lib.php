@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Paypal enrolment plugin implementation.
  * @author  Eugene Venter - based on code by Martin Dougiamas and others
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class enrol_paypal_plugin extends enrol_plugin {
 

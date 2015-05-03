@@ -3,8 +3,9 @@
 /**
  * Form for scheduled tasks admin pages.
  *
- * @package    tool_task
- * @copyright  2013 Damyon Wiese <damyon@lion.com>
+ * @package    tool
+ * @subpackage task
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Edit scheduled task form.
  *
- * @copyright  2013 Damyon Wiese <damyon@lion.com>
- * 
  */
 class tool_task_edit_scheduled_task_form extends lionform {
     public function definition() {

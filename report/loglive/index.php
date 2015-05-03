@@ -6,7 +6,7 @@
  * This file generates live view of recent logs.
  *
  * @package    report_loglive
- * @copyright  2011 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,7 +6,7 @@
  *
  * @since Lion 2.1
  * @package coursereport
- * @copyright 2011 Andrew Davis
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

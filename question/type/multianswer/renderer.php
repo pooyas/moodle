@@ -22,7 +22,7 @@ require_once($CFG->dirroot . '/question/type/shortanswer/renderer.php');
  * feedback, grade, correct answer(s)
  *
  * @copyright 2010 Pierre Pichet
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qtype_multianswer_renderer extends qtype_renderer {
 
@@ -95,7 +95,7 @@ class qtype_multianswer_renderer extends qtype_renderer {
  * subquestions.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
 
@@ -158,7 +158,7 @@ abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
  * subquestions.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qtype_multianswer_textfield_renderer extends qtype_multianswer_subq_renderer_base {
 

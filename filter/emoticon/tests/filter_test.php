@@ -5,7 +5,7 @@
  *
  * @package    filter_emoticon
  * @category   test
- * @copyright  2013 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

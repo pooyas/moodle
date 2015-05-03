@@ -9,7 +9,7 @@
  * @package core_portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
  *                 Martin Dougiamas <http://dougiamas.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -128,7 +128,7 @@ abstract class portfolio_format {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach <penny@catalyst.net.nz>, Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_file extends portfolio_format {
 
@@ -175,7 +175,7 @@ class portfolio_format_file extends portfolio_format {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_image extends portfolio_format_file {
     /**
@@ -218,7 +218,7 @@ class portfolio_format_image extends portfolio_format_file {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_plainhtml extends portfolio_format_file {
 
@@ -262,7 +262,7 @@ class portfolio_format_plainhtml extends portfolio_format_file {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_video extends portfolio_format_file {
 
@@ -285,7 +285,7 @@ class portfolio_format_video extends portfolio_format_file {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_text extends portfolio_format_file {
 
@@ -329,7 +329,7 @@ class portfolio_format_text extends portfolio_format_file {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class portfolio_format_rich extends portfolio_format {
 
@@ -353,7 +353,7 @@ abstract class portfolio_format_rich extends portfolio_format {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_richhtml extends portfolio_format_rich {
 
@@ -420,7 +420,7 @@ class portfolio_format_richhtml extends portfolio_format_rich {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_leap2a extends portfolio_format_rich {
 
@@ -512,7 +512,7 @@ class portfolio_format_leap2a extends portfolio_format_rich {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_pdf extends portfolio_format_file {
 
@@ -534,7 +534,7 @@ class portfolio_format_pdf extends portfolio_format_file {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_document extends portfolio_format_file {
 
@@ -556,7 +556,7 @@ class portfolio_format_document extends portfolio_format_file {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_spreadsheet extends portfolio_format_file {
 
@@ -578,7 +578,7 @@ class portfolio_format_spreadsheet extends portfolio_format_file {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_presentation extends portfolio_format_file {
 

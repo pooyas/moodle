@@ -19,7 +19,7 @@ require_once($CFG->libdir . '/outputcomponents.php');
  * Unit tests for the html_writer class.
  *
  * @copyright 2010 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_html_writer_testcase extends basic_testcase {
 

@@ -4,7 +4,7 @@
  * Manual user enrolment UI.
  *
  * @package    enrol_manual
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

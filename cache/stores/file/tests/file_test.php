@@ -4,7 +4,7 @@
  * File unit tests
  *
  * @package    cachestore_file
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot.'/cache/stores/file/lib.php');
  * File unit test class.
  *
  * @package    cachestore_file
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cachestore_file_test extends cachestore_tests {

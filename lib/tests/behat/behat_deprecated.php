@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ use Behat\Mink\Exception\ElementNotFoundException as ElementNotFoundException,
  *
  * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_deprecated extends behat_base {

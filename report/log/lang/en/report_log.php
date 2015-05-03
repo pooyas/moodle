@@ -6,7 +6,7 @@
  * Language strings to be used by report/logs
  *
  * @package    report_log
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

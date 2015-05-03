@@ -6,7 +6,7 @@
  * @package filter_data
  * @category test
  * @copyright 2015 David Monllao
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/filter/data/filter.php');
  *
  * @package filter_data
  * @copyright 2015 David Monllao
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class filter_data_filter_testcase extends advanced_testcase {
 

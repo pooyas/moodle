@@ -190,7 +190,7 @@ class_alias('core_question\bank\edit_action_column', 'question_bank_edit_action_
 /**
  * Question bank column for the duplicate action icon.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */

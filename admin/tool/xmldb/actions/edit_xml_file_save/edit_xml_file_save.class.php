@@ -1,17 +1,15 @@
 <?php
 
 /**
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * This class will save the changes performed to the comment of one file
  *
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
  */
 class edit_xml_file_save extends XMLDBAction {
 

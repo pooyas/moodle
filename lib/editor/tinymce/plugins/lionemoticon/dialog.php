@@ -4,7 +4,7 @@
  * Displays the TinyMCE popup window to insert a Lion emoticon
  *
  * @package   tinymce_lionemoticon
- * @copyright 2010 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

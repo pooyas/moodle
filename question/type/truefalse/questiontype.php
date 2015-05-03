@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage truefalse
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->libdir . '/questionlib.php');
 /**
  * The true-false question type class.
  *
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_truefalse extends question_type {

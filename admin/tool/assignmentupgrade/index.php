@@ -14,8 +14,9 @@
  * This screen is the main entry-point to the plugin, it gives the admin a list
  * of options available to them.
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
+ * @package    tool
+ * @subpackage assignmentupgrade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

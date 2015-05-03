@@ -1,7 +1,14 @@
 <?php
 
-// detects settings that were added during an upgrade, displays a screen for the admin to
-// modify them, and then processes modifications
+/**
+ * detects settings that were added during an upgrade, displays a screen for the admin to
+ * modify them, and then processes modifications
+ *
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+ *
+ */
 
 require_once('../config.php');
 require_once($CFG->libdir.'/adminlib.php');

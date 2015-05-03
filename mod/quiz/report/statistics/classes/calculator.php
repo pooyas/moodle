@@ -11,7 +11,7 @@ defined('LION_INTERNAL') || die();
  * http://docs.lion.org/dev/Quiz_statistics_calculations#Test_statistics
  *
  * @package    quiz_statistics
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     James Pratt me@jamiep.org
  * 
  */

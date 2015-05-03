@@ -17,7 +17,7 @@ require_once($CFG->libdir . '/modinfolib.php');
  * Unit tests for modinfolib.php
  *
  * @copyright 2012 Andrew Davis
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_modinfolib_testcase extends advanced_testcase {
     public function test_section_info_properties() {

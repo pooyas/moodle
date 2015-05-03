@@ -5,7 +5,7 @@
  * Utility class for browsing of course files.
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  * Represents a course context in the tree navigated by {@link file_browser}.
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class file_info_context_course extends file_info {
@@ -471,7 +471,7 @@ class file_info_context_course extends file_info {
  * Subclass of file_info_stored for files in the course files area.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class file_info_area_course_legacy extends file_info_stored {
@@ -570,7 +570,7 @@ class file_info_area_course_legacy extends file_info_stored {
  * Represents a course category context in the tree navigated by {@link file_browser}.
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class file_info_area_course_section extends file_info {
@@ -719,7 +719,7 @@ class file_info_area_course_section extends file_info {
  * Implementation of course section backup area
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class file_info_area_backup_section extends file_info {

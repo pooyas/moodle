@@ -4,7 +4,7 @@
  * Database column information.
  *
  * @package    core_dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * 'column' does mean 'the field' here.
  *
  * @package    core_dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class database_column_info {

@@ -4,8 +4,8 @@
  * Defines calendar class to manage recurrence rule (rrule) during ical imports.
  *
  * @package core_calendar
- * @copyright 2014 onwards Ankit Agarwal
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace core_calendar;
@@ -70,8 +70,8 @@ require_once($CFG->dirroot . '/calendar/lib.php');
  * setposday  = yeardaynum
  *
  * @package core_calendar
- * @copyright 2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi 
+ * 
  */
 class rrule_manager {
 

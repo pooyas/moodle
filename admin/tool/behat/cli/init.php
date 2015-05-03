@@ -3,8 +3,9 @@
 /**
  * CLI script to set up all the behat test environment.
  *
- * @package    tool_behat
- * @copyright  2013 David Monllaó
+ * @package    tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

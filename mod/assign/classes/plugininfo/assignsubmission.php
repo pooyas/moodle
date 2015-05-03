@@ -4,7 +4,7 @@
  * Assign submission subplugin info class.
  *
  * @package   mod_assign
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 namespace mod_assign\plugininfo;

@@ -4,8 +4,8 @@
  * Class for availability plugins.
  *
  * @package core
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 namespace core\plugininfo;
 
@@ -15,8 +15,8 @@ defined('LION_INTERNAL') || die();
  * Class for availability plugins.
  *
  * @package core
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class availability extends base {
     public static function get_enabled_plugins() {

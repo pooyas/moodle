@@ -12,8 +12,9 @@
  * For all but the first two of those, you also need a roleid parameter, and
  * possibly some other data.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

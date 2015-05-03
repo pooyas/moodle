@@ -3,8 +3,9 @@
 /**
  * Existing admin user selector.
  *
- * @package    core_role
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

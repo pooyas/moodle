@@ -5,7 +5,7 @@
  *
  * @package    mod_url
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_url
  * @category   phpunit
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class mod_url_lib_testcase extends basic_testcase {

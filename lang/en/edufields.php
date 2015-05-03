@@ -5,7 +5,7 @@
  * Strings describing subject classification (Codes are from ASCED 2001)
  *
  * @package   core
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

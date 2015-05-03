@@ -32,7 +32,7 @@
  *  - Antonio Vicent          {@link http://ludens.es}
  *
  * @package   lioncore
- * @copyright (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

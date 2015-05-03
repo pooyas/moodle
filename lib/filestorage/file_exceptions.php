@@ -4,7 +4,7 @@
  * File handling related exceptions.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class file_exception extends lion_exception {
@@ -36,7 +36,7 @@ class file_exception extends lion_exception {
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class stored_file_creation_exception extends file_exception {
@@ -68,7 +68,7 @@ class stored_file_creation_exception extends file_exception {
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class file_access_exception extends file_exception {
@@ -87,7 +87,7 @@ class file_access_exception extends file_exception {
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class file_pool_content_exception extends file_exception {

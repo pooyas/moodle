@@ -4,7 +4,7 @@
  * Mysqli specific recordset.
  *
  * @package    core_dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ require_once(__DIR__.'/lion_recordset.php');
  *
  * @package    core
  * @subpackage dml_driver
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class mysqli_native_lion_recordset extends lion_recordset {

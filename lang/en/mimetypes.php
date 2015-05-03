@@ -17,7 +17,7 @@
  * @see       get_mimetypes_array()
  * @see       get_mimetype_description()
  * @package   core
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

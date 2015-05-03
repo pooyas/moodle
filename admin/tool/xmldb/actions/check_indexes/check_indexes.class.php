@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -11,9 +12,6 @@
  * with the physical DB implementation, reporting about all the missing
  * indexes to be created to be 100% ok.
  *
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
  */
 class check_indexes extends XMLDBCheckAction {
 

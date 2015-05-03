@@ -4,7 +4,7 @@
  * The mod_forum discussion_subscription deleted event.
  *
  * @package    mod_forum
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
  * 
  */
 
@@ -24,7 +24,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_forum
  * @since      Lion 2.8
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
  * 
  */
 class discussion_subscription_deleted extends \core\event\base {

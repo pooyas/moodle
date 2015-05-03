@@ -4,7 +4,7 @@
  * Components (core subsystems + plugins) related code.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

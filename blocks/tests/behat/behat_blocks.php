@@ -5,7 +5,7 @@
  *
  * @package   core_block
  * @category  test
- * @copyright 2012 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ use Behat\Behat\Context\Step\Given as Given;
  *
  * @package    core_block
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_blocks extends behat_base {

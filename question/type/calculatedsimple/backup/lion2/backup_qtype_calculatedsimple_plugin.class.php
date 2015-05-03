@@ -3,7 +3,7 @@
 /**
  * @package    lioncore
  * @subpackage backup-lion2
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot .
 /**
  * Provides the information to backup calculatedsimple questions
  *
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class backup_qtype_calculatedsimple_plugin extends backup_qtype_calculated_plugin {

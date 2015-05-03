@@ -4,7 +4,7 @@
  * The mod_forum subscription deleted event.
  *
  * @package    mod_forum
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_forum
  * @since      Lion 2.7
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class subscription_deleted extends \core\event\base {

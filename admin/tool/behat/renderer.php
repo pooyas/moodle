@@ -3,8 +3,9 @@
 /**
  * Behat tool renderer
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
+ * @package    tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->libdir . '/behat/classes/behat_selectors.php');
 /**
  * Renderer for behat tool web features
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
- * 
  */
 class tool_behat_renderer extends plugin_renderer_base {
 

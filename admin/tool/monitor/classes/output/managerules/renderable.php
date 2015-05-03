@@ -3,8 +3,9 @@
 /**
  * Renderable class for manage rules page.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,10 +18,6 @@ require_once($CFG->libdir . '/tablelib.php');
 /**
  * Renderable class for manage rules page.
  *
- * @since      Lion 2.8
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * 
  */
 class renderable extends \table_sql implements \renderable {
 

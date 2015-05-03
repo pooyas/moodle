@@ -5,7 +5,7 @@
  *
  * @pacakge   core_grade
  * @category  phpunit
- * @copyright 2011 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 

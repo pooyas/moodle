@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_xmldb', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_xmldb', language 'en'
  *
- * @package    tool_xmldb
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

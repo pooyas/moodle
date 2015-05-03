@@ -1,6 +1,12 @@
 <?php
 
-// * Miscellaneous settings
+/**
+ * Miscellaneous settings
+ *
+ * @package    core
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+ */
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 

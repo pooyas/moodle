@@ -16,7 +16,7 @@
  *
  * @package    core
  * @subpackage admin
- * @copyright  (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

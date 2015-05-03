@@ -10,7 +10,7 @@
  *   - use "su" if "sudo" not available
  *
  * @package    enrol_meta
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

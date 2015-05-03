@@ -3,9 +3,9 @@
 /**
  * A Handler to re-process messages which previously failed sender verification.
  *
- * @package    tool_messageinbound
- * @category   message
- * @copyright  2014 Andrew Nicols
+ * @package    tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,8 +22,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
  * the verification hash used had expired, or if some erroneous content was
  * introduced into the content hash.
  *
- * @copyright  2014 Andrew Nicols
- * 
  */
 class invalid_recipient_handler extends \core\message\inbound\handler {
 

@@ -5,7 +5,7 @@
  *
  * @package    mod_forum
  * @category   test
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_forum
  * @category   test
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class mod_forum_generator extends testing_module_generator {

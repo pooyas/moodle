@@ -3,8 +3,9 @@
 /**
  * Development data generator.
  *
- * @package    tool_generator
- * @copyright  2009 Nicolas Connault
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require(dirname(__FILE__) . '/../../../config.php');

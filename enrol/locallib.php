@@ -1317,7 +1317,7 @@ class enrol_user_button extends single_button {
  * This class is used to manage a renderable ue action such as editing an user enrolment or deleting
  * a user enrolment.
  *
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class user_enrolment_action implements renderable {
@@ -1413,7 +1413,7 @@ class enrol_ajax_exception extends lion_exception {
 /**
  * This class is used to manage a bulk operations for enrolment plugins.
  *
- * @copyright 2011 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class enrol_bulk_enrolment_operation {

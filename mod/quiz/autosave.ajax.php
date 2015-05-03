@@ -4,7 +4,7 @@
  * Thisscript processes ajax auto-save requests during the quiz.
  *
  * @package    mod_quiz
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

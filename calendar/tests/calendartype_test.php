@@ -5,7 +5,7 @@
  *
  * @package core_calendar
  * @copyright 2013 Mark Nelson <markn@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -32,7 +32,7 @@ require_once($CFG->dirroot . '/user/profile/index_field_form.php');
  *
  * @package core_calendar
  * @copyright 2013 Mark Nelson <markn@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.6
  */
 class core_calendar_type_testcase extends advanced_testcase {

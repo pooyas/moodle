@@ -3,8 +3,9 @@
 /**
  * File containing the helper class.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');
 /**
  * Class containing a set of helpers.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * 
  */
 class tool_uploadcourse_helper {
 

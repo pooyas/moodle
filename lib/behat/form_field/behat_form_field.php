@@ -5,7 +5,7 @@
  *
  * @package    core_form
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ use Behat\Mink\Session as Session,
  *
  * @package    core_form
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_form_field {

@@ -1,6 +1,9 @@
 <?php
 /**
 * script for bulk user multi enrol operations
+* @package    core
+* @subpackage user
+* @copyright  2015 Pooya Saeedi
 */
 
 die('this needs to be rewritten to use new enrol framework, sorry');  //TODO: MDL-24064

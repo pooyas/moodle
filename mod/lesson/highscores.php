@@ -5,7 +5,7 @@
  * Provides the interface for viewing and adding high scores
  *
  * @package mod_lesson
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  **/
 

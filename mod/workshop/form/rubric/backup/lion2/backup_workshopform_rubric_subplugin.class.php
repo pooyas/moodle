@@ -3,7 +3,7 @@
 
 /**
  * @package    workshopform_rubric
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die();

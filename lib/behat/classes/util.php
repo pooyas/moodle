@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,8 +23,8 @@ require_once(__DIR__ . '/../../filelib.php');
  *
  * @package   core
  * @category  test
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class behat_util extends testing_util {
 

@@ -5,7 +5,8 @@
  * this is useful mostly for developers who did not disable the caching.
  *
  * @package    core
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

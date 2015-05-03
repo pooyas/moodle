@@ -7,7 +7,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    lioncore
  * @subpackage question
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_question_generator extends component_generator_base {

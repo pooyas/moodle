@@ -4,7 +4,7 @@
  * Inbound Message Handlers for core.
  *
  * @package    core_message
- * @copyright  2014 Andrew NIcols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

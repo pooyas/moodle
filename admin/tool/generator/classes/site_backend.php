@@ -3,9 +3,10 @@
 /**
  * tool_generator site backend.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Backend code for the site generator.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_generator_site_backend extends tool_generator_backend {
 

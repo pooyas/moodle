@@ -4,7 +4,7 @@
  * Upgrade code for install
  *
  * @package   assignsubmission_comments
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 

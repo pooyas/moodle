@@ -3,9 +3,10 @@
 /**
  * Test plan form.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,9 +16,6 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Form with options for creating large course.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_generator_make_testplan_form extends lionform {
 

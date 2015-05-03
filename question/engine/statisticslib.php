@@ -5,7 +5,7 @@
  *
  * @package    lioncore
  * @subpackage questionbank
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     Jamie Pratt <me@jamiep.org>
  * 
  */

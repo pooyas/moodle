@@ -1,8 +1,11 @@
 <?php
 
-
 /**
  * Allows admin to configure licenses.
+ * 
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

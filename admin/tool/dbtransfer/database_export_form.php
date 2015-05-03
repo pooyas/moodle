@@ -3,8 +3,9 @@
 /**
  * Transfer form
  *
- * @package    tool_dbtransfer
- * @copyright  2008 Petr Skoda {@link http://skodak.org/}
+ * @package    tool
+ * @subpackage dbtransfer
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Definition of db export settings form.
  *
- * @package    tool_dbtransfer
- * @copyright  2008 Petr Skoda {@link http://skodak.org/}
- * 
  */
 class database_export_form extends lionform {
     /**

@@ -3,8 +3,9 @@
 /**
  * This file defines an adhoc task to send notifications.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Adhock class, used to send notifications to users.
  *
- * @since      Lion 2.8
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * 
  */
 class notification_task extends \core\task\adhoc_task {
 

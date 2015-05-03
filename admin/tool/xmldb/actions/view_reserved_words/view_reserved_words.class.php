@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -12,9 +13,6 @@
  * http://docs.lion.org/en/Database_reserved_words
  * Also, it introspects te DB looking for such words and informing about
  *
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
  */
 class view_reserved_words extends XMLDBAction {
 

@@ -5,10 +5,9 @@
  *
  * Helps an admin to clean up spam in Lion
  *
- * @author Dongsheng Cai
- * @author Martin Dougiamas
- * @author Amr Hourani
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    tool
+ * @subpackage spamcleaner
+ * @copyright  2015 Pooya Saeedi
  */
 
 // List of known spammy keywords, please add more here

@@ -4,7 +4,7 @@
  * The mod_quiz question manually graded event.
  *
  * @package    core
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace mod_quiz\event;
@@ -24,7 +24,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_manually_graded extends \core\event\base {

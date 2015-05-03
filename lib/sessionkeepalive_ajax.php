@@ -3,7 +3,7 @@
 /**
  * Ensure that session is kept alive.
  *
- * @copyright 2014 Andrew Nicols
+ * @copyright 2015 Pooya Saeedi
  * @package   core
  * 
  */

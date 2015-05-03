@@ -4,7 +4,7 @@
  * Tests the user agent class.
  *
  * @package    core
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -12,7 +12,7 @@
  * User agent test suite.
  *
  * @package    core
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_useragent_testcase extends basic_testcase {

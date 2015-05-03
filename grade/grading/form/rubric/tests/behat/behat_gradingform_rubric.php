@@ -5,7 +5,7 @@
  *
  * @package   gradingform_rubric
  * @category  test
- * @copyright 2013 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ use Behat\Gherkin\Node\TableNode as TableNode,
  *
  * @package   gradingform_rubric
  * @category  test
- * @copyright 2013 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_gradingform_rubric extends behat_base {

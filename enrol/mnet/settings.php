@@ -4,7 +4,7 @@
  * Cohort enrolment plugin settings and default values
  *
  * @package    enrol_mnet
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -7,7 +7,7 @@
  *
  * @package    tool
  * @subpackage uploaduser
- * @copyright  (C) 2007 Inaki Arenaza
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

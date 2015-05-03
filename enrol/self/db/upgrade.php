@@ -4,7 +4,7 @@
  * This file keeps track of upgrades to the self enrolment plugin
  *
  * @package    enrol_self
- * @copyright  2012 Petr Skoda {@link http://skodak.org
+ * @copyright  2015 Pooya Saeedi {@link http://skodak.org
  * 
  */
 

@@ -6,7 +6,7 @@
  * @package    core_completion
  * @category   phpunit
  * @copyright  2008 Sam Marshall
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

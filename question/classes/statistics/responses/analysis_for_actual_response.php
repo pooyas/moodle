@@ -2,7 +2,7 @@
 
 /**
  * @package    core_question
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     James Pratt me@jamiep.org
  * 
  */
@@ -24,7 +24,7 @@ namespace core_question\statistics\responses;
  * {@link \core_question\statistics\responses\analysis_for_actual_response}.
  *
  * @package    core_question
- * @copyright  2014 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     James Pratt me@jamiep.org
  * 
  */

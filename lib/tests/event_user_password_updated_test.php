@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @category   phpunit
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_event_user_password_updated_testcase extends advanced_testcase {

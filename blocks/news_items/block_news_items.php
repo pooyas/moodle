@@ -4,7 +4,7 @@
  * This file contains the news item block class, based upon block_base.
  *
  * @package    block_news_items
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -12,7 +12,7 @@
  * Class block_news_items
  *
  * @package    block_news_items
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class block_news_items extends block_base {

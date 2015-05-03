@@ -4,7 +4,7 @@
  * Glossary event observer.
  *
  * @package    mod_glossary
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

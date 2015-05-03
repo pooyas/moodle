@@ -4,7 +4,7 @@
  * Adds new instance of enrol_mnet into the specified course
  *
  * @package    enrol_mnet
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

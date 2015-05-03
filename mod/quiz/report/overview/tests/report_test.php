@@ -4,7 +4,7 @@
  * Tests for the quiz overview report.
  *
  * @package   quiz_overview
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/mod/quiz/report/overview/report.php');
 /**
  * Tests for the quiz overview report.
  *
- * @copyright  2014 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quiz_overview_report_testcase extends advanced_testcase {

@@ -4,7 +4,7 @@
  * booktool_exportimscp book exported event.
  *
  * @package    booktool_exportimscp
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    booktool_exportimscp
  * @since      Lion 2.6
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class book_exported extends \core\event\base {

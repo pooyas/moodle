@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage upgrade
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ define('UPGRADE_LOG_ERROR',  2);
  *
  * @package    core
  * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class upgrade_exception extends lion_exception {
@@ -40,7 +40,7 @@ class upgrade_exception extends lion_exception {
  *
  * @package    core
  * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class downgrade_exception extends lion_exception {
@@ -55,7 +55,7 @@ class downgrade_exception extends lion_exception {
 /**
  * @package    core
  * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class upgrade_requires_exception extends lion_exception {
@@ -73,7 +73,7 @@ class upgrade_requires_exception extends lion_exception {
 /**
  * @package    core
  * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class plugin_defective_exception extends lion_exception {
@@ -90,7 +90,7 @@ class plugin_defective_exception extends lion_exception {
  *
  * @package    core
  * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class plugin_misplaced_exception extends lion_exception {

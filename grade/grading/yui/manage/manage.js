@@ -2,7 +2,7 @@
  * YUI module for advanced grading methods - the manage page
  *
  * @author David Mudrak <david@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 YUI.add('lion-core_grading-manage', function(Y) {
 

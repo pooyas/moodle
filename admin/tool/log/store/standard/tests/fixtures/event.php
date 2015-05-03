@@ -3,8 +3,9 @@
 /**
  * Fixtures for standard log storage testing.
  *
- * @package    logstore_standard
- * @copyright  2014 Petr Skoda
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

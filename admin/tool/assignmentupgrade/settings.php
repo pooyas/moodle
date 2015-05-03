@@ -3,8 +3,9 @@
 /**
  * Adds this plugin to the admin menu.
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
+ * @package    tool
+ * @subpackage assignmentupgrade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

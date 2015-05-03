@@ -5,7 +5,7 @@
  *
  * @package tinymce_lionmedia
  * @copyright 2012 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 $string['nopreview'] = 'Can not preview media.';

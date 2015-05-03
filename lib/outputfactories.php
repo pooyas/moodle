@@ -46,7 +46,7 @@ define('RENDERER_TARGET_HTMLEMAIL', 'htmlemail');
  * (See {@link renderer_factory_base::__construct} for an example.)
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -92,7 +92,7 @@ interface renderer_factory {
  * the definition of, the standard renderer class for a given module.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -268,7 +268,7 @@ abstract class renderer_factory_base implements renderer_factory {
  * It simply returns an instance of the appropriate standard renderer class.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -341,7 +341,7 @@ class standard_renderer_factory extends renderer_factory_base {
  * if either of those classes exist.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output

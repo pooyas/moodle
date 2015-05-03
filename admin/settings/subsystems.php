@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file defines settingpages and externalpages under the "subsystems" category
+ *
+ * @package    core
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+ */
+
+
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
     $optionalsubsystems->add(new admin_setting_configcheckbox('enableoutcomes', new lang_string('enableoutcomes', 'grades'), new lang_string('enableoutcomes_help', 'grades'), 0));

@@ -4,7 +4,7 @@
  * imsenterprise enrolment plugin installation.
  *
  * @package    enrol_imsenterprise
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package    core_form
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once(__DIR__ . '/behat_form_textarea.php');
  * @todo Support for multiple editors
  * @package   core_form
  * @category  test
- * @copyright 2012 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_form_editor extends behat_form_textarea {

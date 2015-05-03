@@ -5,7 +5,7 @@
  *
  * @since     Lion 2.5
  * @package   block_section_links
- * @copyright 2013 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,7 +13,7 @@
  * Renderer for the section links block.
  *
  * @package   block_section_links
- * @copyright 2013 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class block_section_links_renderer extends plugin_renderer_base {

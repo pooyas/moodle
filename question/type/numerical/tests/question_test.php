@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
  * Unit tests for the numerical question definition class.
  *
  * @copyright 2008 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qtype_numerical_question_test extends advanced_testcase {
     public function test_is_complete_response() {

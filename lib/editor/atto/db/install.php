@@ -4,7 +4,7 @@
  * Atto upgrade script.
  *
  * @package    editor_atto
- * @copyright  2014 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage file
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ defined('LION_INTERNAL') || die();
  * @deprecated since 2.7 - use new file pickers instead
  *
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class upload_manager {

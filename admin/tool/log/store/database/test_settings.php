@@ -3,8 +3,9 @@
 /**
  * Filter form.
  *
- * @package    logstore_database
- * @copyright  2014 onwards Ankit Agarwal
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

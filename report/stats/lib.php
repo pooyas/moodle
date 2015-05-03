@@ -7,7 +7,7 @@
  *
  * @package    report
  * @subpackage stats
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

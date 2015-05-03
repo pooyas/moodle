@@ -3,9 +3,10 @@
 /**
  * Unit tests for the tool_monitor clean events task.
  *
- * @package    tool_monitor
- * @category   test
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @package    tool
+ * @subpackage monitor
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

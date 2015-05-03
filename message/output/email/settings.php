@@ -4,7 +4,7 @@
  * Email configuration page
  *
  * @package   message_email
- * @copyright 2011 Lancaster University Network Services Limited
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

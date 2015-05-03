@@ -4,7 +4,7 @@
  * This script displays a particular page of a quiz attempt that is in progress.
  *
  * @package   mod_quiz
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

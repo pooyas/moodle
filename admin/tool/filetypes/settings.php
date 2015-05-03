@@ -3,9 +3,10 @@
 /**
  * Configure the setting page of the custom file type as an external page.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage filetypes
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die;

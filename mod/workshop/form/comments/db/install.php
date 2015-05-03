@@ -6,7 +6,7 @@
  * lib.php/modulename_install() post installation hook and partially defaults.php
  *
  * @package    workshopform_comments
- * @copyright  2010 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

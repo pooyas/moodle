@@ -147,7 +147,7 @@
  *
  * @package lioncore
  * @copyright Copyright 2004, Rod Apeldoorn {@link http://www.canowhoopass.com/}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**

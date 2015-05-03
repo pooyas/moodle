@@ -3,8 +3,9 @@
 /**
  * The tool_monitor subscription criteria met event.
  *
- * @package    tool_monitor
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string subscriptionid: id of the subscription.
  * }
  *
- * @package    tool_monitor
- * @since      Lion 2.8
- * @copyright  2014 Mark Nelson <markn@lion.com>
- * 
  */
 class subscription_criteria_met extends \core\event\base {
 

@@ -4,7 +4,7 @@
  * Flickr tag block.
  *
  * @package    block_tag_flickr
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

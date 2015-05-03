@@ -4,7 +4,7 @@
  * Test helpers for the random question type.
  *
  * @package    qtype_random
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     Jamie Pratt <me@jamiep.org>
  * 
  */
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the random question type.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_random_test_helper extends question_test_helper {

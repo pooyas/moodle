@@ -18,7 +18,7 @@
  * Session unit tests
  *
  * @package    cachestore_session
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -33,7 +33,7 @@ require_once($CFG->dirroot.'/cache/stores/session/lib.php');
  * Session unit test class.
  *
  * @package    cachestore_session
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cachestore_session_test extends cachestore_tests {

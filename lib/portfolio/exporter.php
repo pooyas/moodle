@@ -6,7 +6,7 @@
  * @package core_portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
  *            Martin Dougiamas  <http://dougiamas.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();

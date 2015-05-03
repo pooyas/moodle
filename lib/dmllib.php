@@ -21,7 +21,7 @@
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -43,7 +43,7 @@ define('MUST_EXIST', 2);
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_exception extends lion_exception {
@@ -63,7 +63,7 @@ class dml_exception extends lion_exception {
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_connection_exception extends dml_exception {
@@ -83,7 +83,7 @@ class dml_connection_exception extends dml_exception {
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_sessionwait_exception extends dml_exception {
@@ -101,7 +101,7 @@ class dml_sessionwait_exception extends dml_exception {
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_read_exception extends dml_exception {
@@ -133,7 +133,7 @@ class dml_read_exception extends dml_exception {
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_multiple_records_exception extends dml_exception {
@@ -159,7 +159,7 @@ class dml_multiple_records_exception extends dml_exception {
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_missing_record_exception extends dml_exception {
@@ -212,7 +212,7 @@ class dml_missing_record_exception extends dml_exception {
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_write_exception extends dml_exception {
@@ -246,7 +246,7 @@ class dml_write_exception extends dml_exception {
  * @package    core
  * @category   dml
  * @subpackage dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class dml_transaction_exception extends dml_exception {

@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -10,9 +11,6 @@
  * reporting about the ones not physically implemented as BIGINTs
  * and providing one SQL script to fix all them. MDL-11038
  *
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
  */
 class check_bigints extends XMLDBCheckAction {
     /**

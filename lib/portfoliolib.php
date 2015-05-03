@@ -11,8 +11,8 @@
  *
  * @package core_portfolio
  * @category portfolio
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -58,7 +58,7 @@ require_once($CFG->libdir . '/portfolio/caller.php');
  *
  * @package core_portfolio
  * @category portfolio
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class portfolio_add_button {

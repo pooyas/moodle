@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-  /*
+  /**
    * Utility to debug mailouts - will save the content of emails to a
    * logfile instead of sending them out. Use it as a sendmail
    * "stand-in" when testing mailouts.
@@ -26,6 +26,10 @@
    *
    * This script will create logfiles in /tmp/ or in $TMPDIR if set.
    * On windows, use php -r 'print sys_get_temp_dir()' to see where the file is saved.
+   * 
+   * @package    core
+   * @subpackage admin
+   * @copyright  2015 Pooya Saeedi
    */
 
 // Security check.

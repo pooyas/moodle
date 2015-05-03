@@ -171,7 +171,7 @@ class cache_definition_mappings_form extends lionform {
  *
  * @package    core
  * @category   cache
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cache_definition_sharing_form extends lionform {
@@ -296,7 +296,7 @@ class cache_mode_mappings_form extends lionform {
  *
  * @package    core
  * @category   cache
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cache_lock_form extends lionform {

@@ -2,8 +2,9 @@
 
 
 /**
- * @package   tool_xmldb
- * @copyright 2011 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +15,6 @@
  * them by changing to cross-db (CHAR) length semantics.
  * See MDL-29322 for more details.
  *
- * @package    tool_xmldb
- * @copyright 2011 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
  */
 class check_oracle_semantics extends XMLDBCheckAction {
 

@@ -4,8 +4,8 @@
  * Logger that stores HTML log data in memory, ready for later display.
  *
  * @package core_backup
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_backup_html_logger extends base_logger {
     /**

@@ -5,7 +5,7 @@
  *
  * @package    webservice
  * @category   phpunit
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    webservice
  * @category   phpunit
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_webservice_events_testcase extends advanced_testcase {

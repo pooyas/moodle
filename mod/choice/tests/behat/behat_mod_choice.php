@@ -5,7 +5,7 @@
  *
  * @package   mod_choice
  * @category  test
- * @copyright 2013 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ use Behat\Behat\Context\Step\Given as Given;
  *
  * @package   mod_choice
  * @category  test
- * @copyright 2013 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_mod_choice extends behat_base {

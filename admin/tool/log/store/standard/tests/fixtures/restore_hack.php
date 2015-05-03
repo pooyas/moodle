@@ -3,8 +3,9 @@
 /**
  * Restore controller hackery.
  *
- * @package    tool_log
- * @copyright  2014 Petr Skoda
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

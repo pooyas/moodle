@@ -4,7 +4,7 @@
  * This file contains main class for the course format singleactivity
  *
  * @package    format_singleactivity
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ require_once($CFG->dirroot. '/course/format/lib.php');
  * Main class for the singleactivity course format
  *
  * @package    format_singleactivity
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class format_singleactivity extends format_base {

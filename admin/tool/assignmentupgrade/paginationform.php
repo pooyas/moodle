@@ -3,8 +3,9 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package   tool_assignmentupgrade
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @package    tool
+ * @subpackage assignmentupgrade
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Assignment upgrade table display options
  *
- * @package   tool_assignmentupgrade
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * 
  */
 class tool_assignmentupgrade_pagination_form extends lionform {
     /**

@@ -13,8 +13,10 @@
 * setting page for the plugin. this load_setting is resides in /lib/classes/plugininfo/mod.php|block.php...
 * basically it loads the settings inside each plugin directory called settings.php
 * the plugin itself may override the load_setting function as well for additional features
+* 
 * @package    core
-* @copyright  2007 Petr Skoda {@link http://skodak.org}
+* @subpackage settings
+* @copyright  2015 Pooya Saeedi
 * 
 */
 

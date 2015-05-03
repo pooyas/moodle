@@ -4,8 +4,8 @@
  * Class that holds a tree of availability conditions.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace core_availability;
@@ -34,8 +34,8 @@ defined('LION_INTERNAL') || die();
  *   with false takes precedence.)
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class tree extends tree_node {
     /** @var int Operator: AND */

@@ -3,9 +3,10 @@
 /**
  * Script creates a standardised large course for testing reliability and performance.
  *
- * @package tool_generator
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 // Disable buffering so that the progress output displays gradually without

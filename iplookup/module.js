@@ -3,7 +3,7 @@
  * Iplookup utility functions
  *
  * @package    core_iplookup
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

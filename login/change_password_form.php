@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage auth
- * @copyright  2006 Petr Skoda {@link http://skodak.org}
+ * @copyright  2006 Petr Skoda 
  * 
  */
 

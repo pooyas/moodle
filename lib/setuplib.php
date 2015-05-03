@@ -7,7 +7,7 @@
  *
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -45,7 +45,7 @@ define('MEMORY_HUGE', -4);
  *
  * @package    core
  * @subpackage lib
- * @copyright  2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2009 Petr Skoda  
  * 
  * @deprecated since 2.0
  */
@@ -59,7 +59,7 @@ class object extends stdClass {};
  *
  * @package    core
  * @subpackage lib
- * @copyright  2008 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 class lion_exception extends Exception {
@@ -137,7 +137,7 @@ class lion_exception extends Exception {
  * This exception is thrown from require_login()
  *
  * @package    core_access
- * @copyright  2010 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2010 Petr Skoda  
  * 
  */
 class require_login_exception extends lion_exception {
@@ -173,7 +173,7 @@ class webservice_parameter_exception extends lion_exception {
  * and the execution can not continue.
  *
  * @package    core_access
- * @copyright  2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2009 Petr Skoda  
  * 
  */
 class required_capability_exception extends lion_exception {
@@ -203,7 +203,7 @@ class required_capability_exception extends lion_exception {
  *
  * @package    core
  * @subpackage lib
- * @copyright  2008 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 class coding_exception extends lion_exception {
@@ -225,7 +225,7 @@ class coding_exception extends lion_exception {
  *
  * @package    core
  * @subpackage lib
- * @copyright  2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2009 Petr Skoda  
  * 
  */
 class invalid_parameter_exception extends lion_exception {
@@ -282,7 +282,7 @@ class invalid_state_exception extends lion_exception {
  *
  * @package    core
  * @subpackage lib
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class invalid_dataroot_permissions extends lion_exception {
@@ -300,7 +300,7 @@ class invalid_dataroot_permissions extends lion_exception {
  *
  * @package    core
  * @subpackage lib
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class file_serving_exception extends lion_exception {

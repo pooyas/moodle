@@ -4,7 +4,7 @@
  * RSS client block caps.
  *
  * @package    block_rss_client
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

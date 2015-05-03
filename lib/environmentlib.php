@@ -9,7 +9,7 @@
  * All the info is stored in the admin/environment.xml file,
  * supporting to have an updated version in dataroot/environment
  *
- * @copyright  (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  * @package    core
  * @subpackage admin
@@ -1192,8 +1192,8 @@ function process_environment_messages($xml, &$result) {
 /**
  * Helper Class to return results to caller
  *
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @package lioncore
  */
 class environment_results {

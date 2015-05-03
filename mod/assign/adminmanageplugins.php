@@ -4,7 +4,7 @@
  * Allows the admin to manage assignment plugins
  *
  * @package    mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 

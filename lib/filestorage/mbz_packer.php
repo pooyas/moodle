@@ -14,8 +14,8 @@
  * software in some cases if used) can be used by this packer.
  *
  * @package core_files
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -27,8 +27,8 @@ require_once("$CFG->libdir/filestorage/file_packer.php");
  *
  * @package core_files
  * @category files
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class mbz_packer extends file_packer {
     /**

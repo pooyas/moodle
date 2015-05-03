@@ -5,7 +5,7 @@
  *
  * @package    block_comments
  * @category   test
- * @copyright  2013 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ use Behat\Mink\Exception\ElementNotFoundException as ElementNotFoundException,
  *
  * @package    block_comments
  * @category   test
- * @copyright  2013 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_block_comments extends behat_base {

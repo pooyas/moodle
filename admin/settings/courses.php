@@ -3,9 +3,9 @@
 /**
  * This file defines settingpages and externalpages under the "courses" category
  *
- * @package core
- * @copyright 2002 onwards Martin Dougiamas (http://dougiamas.com)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage settings 
+ * @copyright  2015 Pooya Saeedi
  */
 
 $capabilities = array(

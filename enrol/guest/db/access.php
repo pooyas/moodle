@@ -4,7 +4,7 @@
  * Capabilities for guest access plugin.
  *
  * @package    enrol_guest
- * @copyright  2010 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2010 Petr Skoda  
  * 
  */
 

@@ -4,7 +4,7 @@
  * Test enrol plugin settings.
  *
  * @package    core_enrol
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

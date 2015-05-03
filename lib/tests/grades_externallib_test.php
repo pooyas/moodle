@@ -22,7 +22,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  * @package core_grades
  * @category external
  * @copyright 2012 Andrew Davis
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_grades_external_testcase extends externallib_advanced_testcase {
 

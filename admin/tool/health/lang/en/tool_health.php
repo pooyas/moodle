@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_health', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_health', language 'en'
  *
  * @package    tool
  * @subpackage health
- * @copyright  2011 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

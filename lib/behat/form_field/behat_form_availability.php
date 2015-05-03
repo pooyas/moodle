@@ -5,8 +5,8 @@
  *
  * @package core_form
  * @category test
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 // NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
@@ -18,8 +18,8 @@ require_once(__DIR__  . '/behat_form_field.php');
  *
  * @package core_form
  * @category test
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class behat_form_availability extends behat_form_textarea {
 

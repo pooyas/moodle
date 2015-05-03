@@ -20,7 +20,7 @@
  * @package mod_wiki
  * @copyright 2011 Dongsheng Cai <dongsheng@lion.com>
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 require_once('../../config.php');

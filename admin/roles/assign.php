@@ -3,8 +3,9 @@
 /**
  * Assign roles to users.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

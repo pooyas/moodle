@@ -24,7 +24,7 @@
  *
  * @author Josep Arus
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 if (!defined('LION_INTERNAL')) {

@@ -4,7 +4,7 @@
  * Filter post install hook
  *
  * @package    filter_activitynames
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

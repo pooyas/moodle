@@ -3,7 +3,7 @@
 /**
  * @package    lioncore
  * @subpackage backup-lion2
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Provides the information to backup truefalse questions
  *
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class backup_qtype_truefalse_plugin extends backup_qtype_plugin {

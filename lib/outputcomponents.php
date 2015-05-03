@@ -9,7 +9,7 @@
  * @package core
  * @category output
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -51,7 +51,7 @@ interface templatable {
  * Data structure representing a file picker.
  *
  * @copyright 2010 Dongsheng Cai
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -128,8 +128,8 @@ class file_picker implements renderable {
 /**
  * Data structure representing a user picture.
  *
- * @copyright 2009 Nicolas Connault, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi, 2010 Petr Skoda
+ * 
  * @since Modle 2.0
  * @package core
  * @category output
@@ -428,7 +428,7 @@ class user_picture implements renderable {
  * Data structure representing a help icon.
  *
  * @copyright 2010 Petr Skoda (info@skodak.org)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -484,7 +484,7 @@ class help_icon implements renderable {
  * Data structure representing an icon.
  *
  * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -537,7 +537,7 @@ class pix_icon implements renderable {
  * Data structure representing an emoticon image
  *
  * @copyright 2010 David Mudrak
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -563,7 +563,7 @@ class pix_emoticon extends pix_icon implements renderable {
  * Data structure representing a simple form with only one button.
  *
  * @copyright 2009 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -658,7 +658,7 @@ class single_button implements renderable {
  * If JS not enabled small go button is printed too.
  *
  * @copyright 2009 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -811,7 +811,7 @@ class single_select implements renderable {
  * Simple URL selection widget description.
  *
  * @copyright 2009 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -932,7 +932,7 @@ class url_select implements renderable {
  * Data structure describing html link with special action attached.
  *
  * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -1021,7 +1021,7 @@ class action_link implements renderable {
  * Simple html output class
  *
  * @copyright 2009 Tim Hunt, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -1843,7 +1843,7 @@ class html_writer {
  * Simple javascript output class
  *
  * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -1980,7 +1980,7 @@ class js_writer {
  * echo html_writer::table($t);
  *
  * @copyright 2009 David Mudrak <david.mudrak@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2154,8 +2154,8 @@ class html_table {
 /**
  * Component representing a table row.
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2202,8 +2202,8 @@ class html_table_row {
 /**
  * Component representing a table cell.
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2269,8 +2269,8 @@ class html_table_cell {
 /**
  * Component representing a paging bar.
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2441,7 +2441,7 @@ class paging_bar implements renderable {
  * add new block UI, are also represented as block_contents objects.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2575,7 +2575,7 @@ class block_contents {
  * $PAGE->url.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2603,7 +2603,7 @@ class block_move_target {
  * not have children.
  *
  * @copyright 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2808,7 +2808,7 @@ class custom_menu_item implements renderable {
  *     Settings: Administration > Appearance > Themes > Theme settings
  *
  * @copyright 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -2965,7 +2965,7 @@ class custom_menu extends custom_menu_item {
 /**
  * Stores one tab
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 class tabobject implements renderable {
@@ -3075,7 +3075,7 @@ class tabobject implements renderable {
  * you can specify ->subtree for the active tabobject.
  *
  * @copyright 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.5
  * @package core
  * @category output
@@ -3123,8 +3123,8 @@ class tabtree extends tabobject {
  *
  * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class action_menu implements renderable {
 
@@ -3483,7 +3483,7 @@ class action_menu implements renderable {
  * @package core
  * @category output
  * @copyright 2013 Andrew Nicols
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class action_menu_filler extends action_link implements renderable {
 
@@ -3505,8 +3505,8 @@ class action_menu_filler extends action_link implements renderable {
  *
  * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class action_menu_link extends action_link implements renderable {
 
@@ -3544,8 +3544,8 @@ class action_menu_link extends action_link implements renderable {
  *
  * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class action_menu_link_primary extends action_menu_link {
     /**
@@ -3566,8 +3566,8 @@ class action_menu_link_primary extends action_menu_link {
  *
  * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class action_menu_link_secondary extends action_menu_link {
     /**

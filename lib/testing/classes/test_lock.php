@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -16,7 +16,7 @@ require_once(__DIR__.'/../lib.php');
  *
  * @package    core
  * @category   test
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class test_lock {

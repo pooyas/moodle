@@ -4,7 +4,7 @@
  * Define all the backup steps that will be used by the backup_book_activity_task
  *
  * @package    mod_book
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * This file is responsible for serving of yui images
  *
  * @package   core
- * @copyright 2009 Petr Skoda (skodak)  {@link http://skodak.org}
+ * @copyright 2009 Petr Skoda (skodak)  
  * 
  */
 

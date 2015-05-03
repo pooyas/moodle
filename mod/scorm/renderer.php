@@ -6,7 +6,7 @@
  * @package mod_scorm
  * @copyright 2013 Dan Marsden
  * @author Dan Marsden <dan@danmarsden.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  * The renderer for the scorm module.
  *
  * @copyright 2013 Dan Marsden
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_scorm_renderer extends plugin_renderer_base {
     public function view_user_heading($user, $course, $baseurl, $attempt, $attemptids) {
@@ -68,7 +68,7 @@ class mod_scorm_renderer extends plugin_renderer_base {
  * Component representing a SCORM attempts bar.
  *
  * @copyright 2013 Dan Marsden
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package mod_scorm
  */
 class mod_scorm_attempt_bar implements renderable {

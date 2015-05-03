@@ -4,7 +4,7 @@
  * The mod_quiz instance list viewed event.
  *
  * @package    mod_quiz
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_quiz
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {

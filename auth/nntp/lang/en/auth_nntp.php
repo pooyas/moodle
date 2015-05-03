@@ -4,7 +4,7 @@
  * Strings for component 'auth_nntp', language 'en'.
  *
  * @package   auth_nntp
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

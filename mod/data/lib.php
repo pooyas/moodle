@@ -3,7 +3,7 @@
 
 /**
  * @package   mod_data
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -29,7 +29,7 @@ define('DATA_PRESET_CONTEXT', SYSCONTEXTID);
 
 /**
  * @package   mod_data
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class data_field_base {     // Base class for Database Field Types (see field/*/field.class.php)

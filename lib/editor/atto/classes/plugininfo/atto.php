@@ -4,7 +4,7 @@
  * Subplugin info class.
  *
  * @package   editor_atto
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 namespace editor_atto\plugininfo;

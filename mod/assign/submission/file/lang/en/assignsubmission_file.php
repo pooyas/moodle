@@ -4,7 +4,7 @@
  * Strings for component 'assignsubmission_file', language 'en'
  *
  * @package   assignsubmission_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 

@@ -2692,7 +2692,7 @@ class calendar_event {
  * @package core_calendar
  * @category calendar
  * @copyright 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class calendar_information {
 

@@ -4,7 +4,7 @@
  * Aids in capability assignment and alteration of the assigned capability.
  *
  * @package    core_course
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class course_capability_assignment {

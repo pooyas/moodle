@@ -3,8 +3,9 @@
 /**
  * Strings for component 'tool_generator', language 'en'.
  *
- * @package    tool_dbtransfer
- * @copyright  2011 Petr Skoda {@link http://skodak.org/}
+ * @package    tool
+ * @subpackage dbtransfer
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

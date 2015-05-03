@@ -4,8 +4,8 @@
  * Renderer outputting the quiz editing UI.
  *
  * @package mod_quiz
- * @copyright 2013 The Open University.
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi.
+ * 
  */
 
 namespace mod_quiz\output;
@@ -17,8 +17,8 @@ use \html_writer;
 /**
  * Renderer outputting the quiz editing UI.
  *
- * @copyright 2013 The Open University.
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi.
+ * 
  * @since Lion 2.7
  */
 class edit_renderer extends \plugin_renderer_base {

@@ -5,7 +5,7 @@
  * Private folder module utility functions
  *
  * @package   mod_folder
- * @copyright 2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright 2009 Petr Skoda  
  * 
  */
 

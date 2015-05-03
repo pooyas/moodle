@@ -4,7 +4,7 @@
  * The mod_quiz group override updated event.
  *
  * @package    mod_quiz
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace mod_quiz\event;
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_quiz
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class group_override_updated extends \core\event\base {

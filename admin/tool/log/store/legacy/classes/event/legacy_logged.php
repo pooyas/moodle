@@ -7,9 +7,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Legacy log emulation event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class legacy_logged extends \core\event\base {

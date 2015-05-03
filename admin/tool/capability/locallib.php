@@ -3,8 +3,9 @@
 /**
  * Functions used by the capability tool.
  *
- * @package    tool_capability
- * @copyright  2013 Sam Hemelryk
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

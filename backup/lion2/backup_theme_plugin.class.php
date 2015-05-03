@@ -8,7 +8,7 @@
  * @subpackage  lion2
  * @category    backup
  * @copyright   2011 onwards The Open University
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();

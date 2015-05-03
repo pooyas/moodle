@@ -239,7 +239,7 @@ function is_https() {
  *
  * @copyright 2007 jamiesensei
  * @link http://docs.lion.org/dev/lib/weblib.php_lion_url See short write up here
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 class lion_url {
@@ -2993,7 +2993,7 @@ function is_in_popup() {
  * - call update or update_full() or update() repeatedly
  *
  * @copyright 2008 jamiesensei
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 class progress_bar {
@@ -3166,7 +3166,7 @@ EOT;
  * what is going on, but don't know if, or in what format, the output should be.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 abstract class progress_trace {
@@ -3189,7 +3189,7 @@ abstract class progress_trace {
  * This subclass of progress_trace does not ouput anything.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 class null_progress_trace extends progress_trace {
@@ -3208,7 +3208,7 @@ class null_progress_trace extends progress_trace {
  * This subclass of progress_trace outputs to plain text.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 class text_progress_trace extends progress_trace {
@@ -3229,7 +3229,7 @@ class text_progress_trace extends progress_trace {
  * This subclass of progress_trace outputs as HTML.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 class html_progress_trace extends progress_trace {
@@ -3250,7 +3250,7 @@ class html_progress_trace extends progress_trace {
  * HTML List Progress Tree
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  */
 class html_list_progress_trace extends progress_trace {
@@ -3300,8 +3300,8 @@ class html_list_progress_trace extends progress_trace {
 /**
  * This subclass of progress_trace outputs to error log.
  *
- * @copyright Petr Skoda {@link http://skodak.org}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright Petr Skoda 
+ * 
  * @package core
  */
 class error_log_progress_trace extends progress_trace {
@@ -3331,8 +3331,8 @@ class error_log_progress_trace extends progress_trace {
 /**
  * Special type of trace that can be used for catching of output of other traces.
  *
- * @copyright Petr Skoda {@link http://skodak.org}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright Petr Skoda 
+ * 
  * @package core
  */
 class progress_trace_buffer extends progress_trace {
@@ -3406,8 +3406,8 @@ class progress_trace_buffer extends progress_trace {
 /**
  * Special type of trace that can be used for redirecting to multiple other traces.
  *
- * @copyright Petr Skoda {@link http://skodak.org}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright Petr Skoda 
+ * 
  * @package core
  */
 class combined_progress_trace extends progress_trace {

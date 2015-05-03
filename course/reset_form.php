@@ -5,7 +5,7 @@
  *
  * @package     core
  * @copyright   2007 Petr Skoda
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,7 +16,7 @@ require_once $CFG->libdir.'/formslib.php';
  * Defines the course reset settings form.
  *
  * @copyright   2007 Petr Skoda
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class course_reset_form extends lionform {
     function definition (){

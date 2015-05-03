@@ -5,7 +5,7 @@
  * Resource module admin settings and defaults
  *
  * @package    mod_resource
- * @copyright  2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2009 Petr Skoda  
  * 
  */
 

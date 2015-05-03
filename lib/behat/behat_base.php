@@ -8,7 +8,7 @@
  *
  * @package   core
  * @category  test
- * @copyright 2012 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -33,7 +33,7 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  *
  * @package   core
  * @category  test
- * @copyright 2012 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_base extends Behat\MinkExtension\Context\RawMinkContext {

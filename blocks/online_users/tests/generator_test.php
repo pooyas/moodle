@@ -5,7 +5,7 @@
  *
  * @package    block_online_users
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    block_online_users
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class block_online_users_generator_testcase extends advanced_testcase {

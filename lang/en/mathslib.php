@@ -4,7 +4,7 @@
  * Strings for component 'mathslib', language 'en', branch 'LION_19_STABLE'
  *
  * @package   core
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

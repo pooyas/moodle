@@ -5,7 +5,7 @@
  *
  * @package    enrol_self
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

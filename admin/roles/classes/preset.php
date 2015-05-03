@@ -3,8 +3,9 @@
 /**
  * New role XML processing.
  *
- * @package    core_role
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * XML role file manipulation class.
  *
- * @package    core_role
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * 
  */
 class core_role_preset {
 

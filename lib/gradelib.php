@@ -4,7 +4,7 @@
  * Library of functions for gradebook - both public and internal
  *
  * @package   core_grades
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

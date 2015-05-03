@@ -24,7 +24,7 @@ require_once($CFG->dirroot.'/cache/locallib.php');
  *
  * @since 2.9
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class cache_config_testing extends cache_config_writer {
 

@@ -4,7 +4,7 @@
  * Main course enrolment management UI.
  *
  * @package    core_enrol
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

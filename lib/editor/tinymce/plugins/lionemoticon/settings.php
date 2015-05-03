@@ -4,7 +4,7 @@
  * Emoticon integration settings.
  *
  * @package   tinymce_lionemoticon
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

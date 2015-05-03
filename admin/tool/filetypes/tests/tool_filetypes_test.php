@@ -3,9 +3,11 @@
 /**
  * Unit tests for the custom file types.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage filetypes
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,9 +17,6 @@ use tool_filetypes\utils;
 /**
  * Unit tests for the custom file types.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_filetypes_test extends advanced_testcase {
     /**

@@ -28,7 +28,7 @@ defined('LION_INTERNAL') || die();
  *   endtime          = end time (in seconds since epoch) - optional
  *
  * @author  Eugene Venter - based on code by Petr Skoda, Martin Dougiamas, Martin Langhoff and others
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class enrol_flatfile_plugin extends enrol_plugin {
     protected $lasternoller = null;

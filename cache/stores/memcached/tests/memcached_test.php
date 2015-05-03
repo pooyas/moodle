@@ -9,7 +9,7 @@
  * define('TEST_CACHESTORE_MEMCACHED_TESTSERVERS', '127.0.0.1:11211');
  *
  * @package    cachestore_memcached
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ require_once($CFG->dirroot.'/cache/stores/memcached/lib.php');
  * Memcached unit test class.
  *
  * @package    cachestore_memcached
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cachestore_memcached_test extends cachestore_tests {

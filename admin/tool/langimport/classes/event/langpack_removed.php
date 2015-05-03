@@ -3,8 +3,9 @@
 /**
  * The langimport langpack removed event.
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @package    tool
+ * @subpackage langimport
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string langcode: the langpage pack code.
  * }
  *
- * @package    tool_langimport
- * @since      Lion 2.8
- * @copyright  2014 Dan Poltawski <dan@lion.com>
- * 
  */
 class langpack_removed extends \core\event\base {
     /**

@@ -5,7 +5,7 @@
  *
  * @package    lioncore
  * @subpackage questionengine
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Test data generator
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_question_generator_testcase extends advanced_testcase {

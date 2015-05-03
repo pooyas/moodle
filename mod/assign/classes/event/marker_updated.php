@@ -4,7 +4,7 @@
  * The mod_assign marker updated event.
  *
  * @package    mod_assign
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_assign
  * @since      Lion 2.6
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class marker_updated extends base {

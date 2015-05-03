@@ -4,8 +4,8 @@
  * Language strings for media embedding.
  * @package core
  * @subpackage media
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 $string['flashanimation'] = 'Flash animation';

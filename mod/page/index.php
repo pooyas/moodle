@@ -5,7 +5,7 @@
  * List of all pages in course
  *
  * @package mod_page
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,8 +4,8 @@
  * Class represents the result of an availability check for the user.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace core_availability;
@@ -19,8 +19,8 @@ defined('LION_INTERNAL') || die();
  * display suitable student information about the result.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class result {
     /** @var bool True if the item is available */

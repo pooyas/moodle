@@ -5,7 +5,7 @@
  *
  * @package    core_cohort
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -20,7 +20,7 @@ require_once("$CFG->dirroot/cohort/lib.php");
  *
  * @package    core_cohort
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class core_cohort_cohortlib_testcase extends advanced_testcase {

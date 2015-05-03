@@ -6,7 +6,7 @@
  * Note: you can find history of this file in lib/ajax/ajaxlib.php
  *
  * @copyright 2009 Tim Hunt, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  * @category output
  */
@@ -38,7 +38,7 @@ defined('LION_INTERNAL') || die();
  * individual methods for details.
  *
  * @copyright 2009 Tim Hunt, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -1679,7 +1679,7 @@ class page_requirements_manager {
  * This class represents the YUI configuration.
  *
  * @copyright 2013 Andrew Nicols
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.5
  * @package core
  * @category output

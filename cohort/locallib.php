@@ -4,7 +4,7 @@
  * Cohort UI related functions and classes.
  *
  * @package    core_cohort
- * @copyright  2012 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

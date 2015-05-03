@@ -1,12 +1,10 @@
 <?php
 
-
 /**
  * Web services tokens admin UI
  *
  * @package   webservice
- * @author Jerome Mouneyrac
- * @copyright 2009 Lion Pty Ltd (http://lion.com)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 require_once('../../config.php');

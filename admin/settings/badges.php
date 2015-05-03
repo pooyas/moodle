@@ -1,14 +1,12 @@
 <?php
 
-
 /**
 * This file defines settingpages and externalpages under the "badges" section
 *
 * @package    core
-* @subpackage badges
-* @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+* @subpackage settings
+* @copyright  2015 Pooya Saeedi
 * 
-* @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
 */
 
 global $SITE;

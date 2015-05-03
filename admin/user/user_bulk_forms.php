@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * script for bulk user forms
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+ */
+
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/datalib.php');
 

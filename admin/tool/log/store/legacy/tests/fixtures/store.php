@@ -3,8 +3,9 @@
 /**
  * Fixtures for legacy logging testing.
  *
- * @package    logstore_legacy
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

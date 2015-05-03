@@ -4,13 +4,11 @@
 /**
  * Provides validation class to check the plugin ZIP contents
  *
- * Uses fragments of the local_plugins_archive_validator class copyrighted by
- * Marina Glancy that is part of the local_plugins plugin.
  *
- * @package     tool_installaddon
- * @subpackage  classes
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool
+ * @subpackage  installaddon
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -24,8 +22,6 @@ if (!defined('T_ML_COMMENT')) {
 /**
  * Validates the contents of extracted plugin ZIP file
  *
- * @copyright 2013 David Mudrak <david@lion.com>
- * 
  */
 class tool_installaddon_validator {
 

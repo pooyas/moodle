@@ -4,7 +4,7 @@
  * Allows the user to manage calendar subscriptions.
  *
  * @copyright 2012 Jonathan Harker
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package calendar
  */
 

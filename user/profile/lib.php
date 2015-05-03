@@ -5,7 +5,7 @@
  *
  * @package core_user
  * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 define ('PROFILE_VISIBLE_ALL',     '2'); // Only visible for users with lion/user:update capability.
@@ -17,7 +17,7 @@ define ('PROFILE_VISIBLE_NONE',    '0'); // Only visible for lion/user:update ca
  *
  * @package core_user
  * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class profile_field_base {
 

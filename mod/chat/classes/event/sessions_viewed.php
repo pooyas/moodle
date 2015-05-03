@@ -4,7 +4,7 @@
  * The mod_chat sessions viewed event.
  *
  * @package    mod_chat
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_chat
  * @since      Lion 2.6
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class sessions_viewed extends \core\event\base {

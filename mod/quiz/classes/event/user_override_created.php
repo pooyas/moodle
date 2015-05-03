@@ -4,7 +4,7 @@
  * The mod_quiz user override created event.
  *
  * @package    mod_quiz
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace mod_quiz\event;
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_quiz
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class user_override_created extends \core\event\base {

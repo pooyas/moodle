@@ -1,11 +1,5 @@
 <?php
 
-
-
-
-
-//// SITE PRIVACY /////
-
 /**
  * Site privacy: private
  */
@@ -25,10 +19,9 @@ define('HUB_SITELINKPUBLISHED', 'linked');
  *
  * Site registration library
  *
- * @package   course
- * @copyright 2010 Lion Pty Ltd (http://lion.com)
- * @author    Jerome Mouneyrac
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @package    core
+ * @subpackage registration
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class registration_manager {

@@ -1,6 +1,12 @@
 <?php
 
-// This file defines settingpages and externalpages under the "appearance" category
+/**
+ * This file defines settingpages and externalpages under the "appearance" category
+ *
+ * @package    core
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+ */
 
 if ($hassiteconfig) {
 

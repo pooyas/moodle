@@ -3,8 +3,9 @@
 /**
  * A scheduled task for updating langpacks.
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @package    tool
+ * @subpackage langimport
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace tool_langimport\task;
@@ -12,9 +13,6 @@ namespace tool_langimport\task;
 /**
  * A scheduled task for updating langpacks.
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski <dan@lion.com>
- * 
  */
 class update_langpacks_task extends \core\task\scheduled_task {
 

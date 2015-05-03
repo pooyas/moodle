@@ -4,7 +4,7 @@
  * Category enrolment plugin.
  *
  * @package    enrol_category
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
 /**
  * category enrolment plugin implementation.
  * @author  Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class enrol_category_plugin extends enrol_plugin {
 

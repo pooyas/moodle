@@ -7,8 +7,8 @@
  * @package     core_backup
  * @subpackage  lion2
  * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -627,8 +627,8 @@ class restore_review_pending_block_positions extends restore_execution_step {
  * restore.
  *
  * @package core_backup
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class restore_update_availability extends restore_execution_step {
 
@@ -707,7 +707,7 @@ class restore_update_availability extends restore_execution_step {
  * This step is included only to handle legacy backups (2.6 and before). It does not
  * do anything for newer backups.
  *
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class restore_process_course_modules_availability extends restore_execution_step {

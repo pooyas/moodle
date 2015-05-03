@@ -1,6 +1,13 @@
 <?php
-      // Allows the admin to manage activity modules
-
+/**
+ * Allows the admin to manage activity modules
+ *
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+ *
+ */
+      
     require_once('../config.php');
     require_once('../course/lib.php');
     require_once($CFG->libdir.'/adminlib.php');

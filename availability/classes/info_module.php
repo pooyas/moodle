@@ -4,8 +4,8 @@
  * Class handles conditional availability information for an activity.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace core_availability;
@@ -16,8 +16,8 @@ defined('LION_INTERNAL') || die();
  * Class handles conditional availability information for an activity.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class info_module extends info {
     /** @var \cm_info Activity. */

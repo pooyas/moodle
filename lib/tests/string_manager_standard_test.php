@@ -5,8 +5,8 @@
  *
  * @package     core
  * @category    phpunit
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -17,7 +17,7 @@ require_once($CFG->libdir.'/lionlib.php');
 /**
  * Tests for the API of the string_manager.
  *
- * @copyright 2013 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_string_manager_standard_testcase extends advanced_testcase {
@@ -101,7 +101,7 @@ class core_string_manager_standard_testcase extends advanced_testcase {
 /**
  * Helper class providing testable string_manager
  *
- * @copyright 2013 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class testable_core_string_manager extends core_string_manager_standard {

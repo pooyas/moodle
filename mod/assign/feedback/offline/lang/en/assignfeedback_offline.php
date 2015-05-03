@@ -4,7 +4,7 @@
  * Strings for component 'feedback_offline', language 'en'
  *
  * @package   assignfeedback_offline
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 

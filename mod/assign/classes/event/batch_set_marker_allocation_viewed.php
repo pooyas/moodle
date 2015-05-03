@@ -4,7 +4,7 @@
  * The mod_assign batch set marker allocation viewed event.
  *
  * @package    mod_assign
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_assign
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class batch_set_marker_allocation_viewed extends base {

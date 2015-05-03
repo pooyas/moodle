@@ -3,16 +3,15 @@
 /**
  * Capability tool renderer.
  *
- * @package    tool_capability
- * @copyright  2013 Sam Hemelryk
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * The primary renderer for the capability tool.
  *
- * @copyright  2013 Sam Hemelryk
- * 
  */
 class tool_capability_renderer extends plugin_renderer_base {
 

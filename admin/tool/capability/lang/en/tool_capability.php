@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_capability', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_capability', language 'en'
  *
- * @package    tool_capability
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

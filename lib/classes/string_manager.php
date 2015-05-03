@@ -4,7 +4,7 @@
  * String manager interface.
  *
  * @package    core
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * of localised strings from language packs.
  *
  * @package    core
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface core_string_manager {

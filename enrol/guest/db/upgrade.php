@@ -4,7 +4,7 @@
  * This file keeps track of upgrades to the guest enrolment plugin.
  *
  * @package    enrol_guest
- * @copyright  2011 Petr Skoda {@link http://skodak.org
+ * @copyright  2015 Pooya Saeedi {@link http://skodak.org
  * 
  */
 

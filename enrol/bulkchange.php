@@ -4,7 +4,7 @@
  * Bulk user enrolment processing.
  *
  * @package    core_enrol
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

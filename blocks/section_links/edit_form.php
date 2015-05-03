@@ -4,7 +4,7 @@
  * Instance configuration for the section links block.
  *
  * @package   block_section_links
- * @copyright 2013 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -12,7 +12,7 @@
  * Instance configuration form.
  *
  * @package   block_section_links
- * @copyright 2013 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class block_section_links_edit_form extends block_edit_form {

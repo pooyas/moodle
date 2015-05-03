@@ -5,7 +5,7 @@
  *
  * @package    mod_data
  * @category   test
- * @copyright  2014 David Monllaó
+ * @copyright  2014 2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ use Behat\Behat\Context\Step\Given as Given,
  *
  * @package    mod_data
  * @category   test
- * @copyright  2014 David Monllaó
+ * @copyright  2014 2015 Pooya Saeedi
  * 
  */
 class behat_mod_data extends behat_base {

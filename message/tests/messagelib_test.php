@@ -6,7 +6,7 @@
  * @package core_message
  * @category test
  * @copyright 2014 Rajesh Taneja <rajesh@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/message/lib.php');
  * @package core_message
  * @category test
  * @copyright 2014 Rajesh Taneja <rajesh@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_message_messagelib_testcase extends advanced_testcase {
 

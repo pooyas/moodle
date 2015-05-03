@@ -1,10 +1,4 @@
 
-/**
- * @package    tool_xmldb
- * @copyright  2003 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
- */
-
 // Register the needed events
 onload=function() {
     // Adjust the form on load

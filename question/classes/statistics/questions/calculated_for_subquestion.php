@@ -4,7 +4,7 @@
  * Class for storing calculated sub question statistics and intermediate calculation values.
  *
  * @package    core_question
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     James Pratt me@jamiep.org
  * 
  */
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  * A class to store calculated stats for a sub question.
  *
  * @package    core_question
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     James Pratt me@jamiep.org
  * 
  */

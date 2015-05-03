@@ -5,7 +5,7 @@
  *
  * @package   core_form
  * @category  phpunit
- * @copyright 2011 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

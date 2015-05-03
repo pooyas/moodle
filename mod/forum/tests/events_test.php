@@ -5,7 +5,7 @@
  *
  * @package    mod_forum
  * @category   test
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_forum
  * @category   test
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_forum_events_testcase extends advanced_testcase {

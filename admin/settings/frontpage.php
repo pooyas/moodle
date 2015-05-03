@@ -1,6 +1,12 @@
 <?php
 
-// This file defines everything related to frontpage
+/**
+ * This file defines everything related to frontpage
+ *
+ * @package    core
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+ */
 
 if (!during_initial_install()) { //do not use during installation
     $frontpagecontext = context_course::instance(SITEID);

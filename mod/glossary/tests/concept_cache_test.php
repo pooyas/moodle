@@ -5,7 +5,7 @@
  *
  * @package    mod_glossary
  * @category   test
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  *
  * @package    mod_glossary
  * @category   test
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_glossary_concept_cache_testcase extends advanced_testcase {

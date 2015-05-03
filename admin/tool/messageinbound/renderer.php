@@ -3,9 +3,10 @@
 /**
  * Output rendering for the plugin.
  *
- * @package     tool_messageinbound
- * @copyright   2014 Andrew Nicols
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage messageinbound
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -13,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Implements the plugin renderer
  *
- * @copyright 2014 Andrew Nicols
- * 
  */
 class tool_messageinbound_renderer extends plugin_renderer_base {
 

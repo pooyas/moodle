@@ -4,7 +4,7 @@
  * Adds new instance of enrol_meta to specified course.
  *
  * @package    enrol_meta
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

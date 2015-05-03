@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/grade/export/lib.php');
  * Returns detailed info about users and their grades.
  *
  * @author Petr Skoda <skodak@lion.org>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class graded_users_iterator {
 
@@ -739,8 +739,8 @@ function grade_get_plugin_info($courseid, $active_type, $active_plugin) {
  * Can be subclassed for special rules
  *
  * @package core_grades
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class grade_plugin_info {
     /**
@@ -895,8 +895,8 @@ function print_grade_page_head($courseid, $active_type, $active_plugin=null,
  * Utility class used for return tracking when using edit and other forms in grade plugins
  *
  * @package core_grades
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class grade_plugin_return {
     public $type;
@@ -1201,8 +1201,8 @@ function grade_build_nav($path, $pagename=null, $id=null) {
  * General structure representing grade items in course
  *
  * @package core_grades
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class grade_structure {
     public $context;
@@ -1840,8 +1840,8 @@ class grade_structure {
  *
  * @uses grade_structure
  * @package core_grades
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class grade_seq extends grade_structure {
 
@@ -1977,8 +1977,8 @@ class grade_seq extends grade_structure {
  *
  * @uses grade_structure
  * @package core_grades
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class grade_tree extends grade_structure {
 

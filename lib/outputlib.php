@@ -7,7 +7,7 @@
  * for an overview.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package core
  * @category output
  */
@@ -99,7 +99,7 @@ function theme_get_revision() {
  * will create one for you, accessible as $PAGE->theme.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -1959,7 +1959,7 @@ class theme_config {
  * onto the stack.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output

@@ -4,8 +4,8 @@
  * This file contains the class that handles testing of the calendar events.
  *
  * @package core_calendar
- * @copyright 2014 Ankit Agarwal <ankit.agrr@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2014 Ankit Agarwal 
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,8 +16,8 @@ require_once($CFG->dirroot . '/calendar/tests/externallib_test.php');
  * This file contains the class that handles testing of the calendar events.
  *
  * @package core_calendar
- * @copyright 2014 Ankit Agarwal <ankit.agrr@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2014 Ankit Agarwal 
+ * 
  */
 class core_calendar_events_testcase extends advanced_testcase {
 

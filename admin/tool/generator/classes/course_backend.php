@@ -3,9 +3,10 @@
 /**
  * tool_generator course backend code.
  *
- * @package tool_generator
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Backend code for the 'make large course' tool.
  *
- * @package tool_generator
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_generator_course_backend extends tool_generator_backend {
     /**

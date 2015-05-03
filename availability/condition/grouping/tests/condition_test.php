@@ -4,8 +4,8 @@
  * Unit tests for the condition.
  *
  * @package availability_grouping
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,8 +16,8 @@ use availability_grouping\condition;
  * Unit tests for the condition.
  *
  * @package availability_grouping
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class availability_grouping_condition_testcase extends advanced_testcase {
     /**

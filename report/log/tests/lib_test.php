@@ -4,7 +4,7 @@
  * Tests for report library functions.
  *
  * @package    report_log
- * @copyright  2014 onwards Ankit agarwal <ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * .
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Class report_log_events_testcase.
  *
  * @package    report_log
- * @copyright  2014 onwards Ankit agarwal <ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * .
  */
 class report_log_lib_testcase extends advanced_testcase {

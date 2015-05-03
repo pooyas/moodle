@@ -4,7 +4,7 @@
  * Unit tests for group lib.
  *
  * @package    core_group
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/group/lib.php');
  * Group lib testcase.
  *
  * @package    core_group
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_group_lib_testcase extends advanced_testcase {

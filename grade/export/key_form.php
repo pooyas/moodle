@@ -5,7 +5,7 @@
  * Grade export key management form.
  *
  * @package   lioncore
- * @copyright 2008 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

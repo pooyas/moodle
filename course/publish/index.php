@@ -5,7 +5,7 @@
  * @subpackage publish
  * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  *
  * The user selects if he wants to publish the course on Lion.org hub or
  * on a specific hub. The site must be registered on a hub to be able to

@@ -10,7 +10,7 @@
  *
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -9697,7 +9697,7 @@ function get_course_display_name_for_list($course) {
  *
  * @package    core
  * @category   string
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class lang_string {

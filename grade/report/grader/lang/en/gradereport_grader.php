@@ -5,7 +5,7 @@
  * Strings for component 'gradereport_grader', language 'en'
  *
  * @package   gradereport_grader
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

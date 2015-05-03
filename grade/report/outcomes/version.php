@@ -4,7 +4,7 @@
  * Version details for the outcomes report
  *
  * @package    gradereport_outcomes
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

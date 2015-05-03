@@ -4,7 +4,7 @@
  * Manual authentication plugin upgrade code
  *
  * @package    auth_manual
- * @copyright  2011 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

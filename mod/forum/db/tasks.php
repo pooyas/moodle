@@ -5,7 +5,7 @@
  *
  * @package   mod_forum
  * @category  task
- * @copyright 2014 Dan Poltawski <dan@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

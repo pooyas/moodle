@@ -7,7 +7,7 @@
  * @category completion
  * @copyright 2009 Catalyst IT Ltd
  * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -27,7 +27,7 @@ define('DATA_OBJECT_FETCH_BY_KEY',  2);
  * @category completion
  * @copyright 2009 Catalyst IT Ltd
  * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class data_object {
 

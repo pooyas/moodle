@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage auth
- * @copyright  2006 Petr Skoda {@link http://skodak.org}
+ * @copyright  2006 Petr Skoda 
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot.'/user/lib.php');
  *
  * @package    core
  * @subpackage auth
- * @copyright  2006 Petr Skoda {@link http://skodak.org}
+ * @copyright  2006 Petr Skoda 
  * @copyright  2013 Peter Bulmer
  * 
  */

@@ -5,7 +5,7 @@
  *
  * @package    mod_data
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_data
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class field_created extends \core\event\base {

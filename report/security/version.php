@@ -5,7 +5,7 @@
  *
  * @package    report
  * @subpackage security
- * @copyright  2011 petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

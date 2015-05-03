@@ -4,7 +4,7 @@
  * Recent Blog Entries Block page.
  *
  * @package   block_blog_recent
- * @copyright 2009 Nicolas Connault
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

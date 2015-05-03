@@ -476,7 +476,7 @@ class qtype_numerical extends question_type {
  * This class processes numbers with units.
  *
  * @copyright 2010 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qtype_numerical_answer_processor {
     /** @var array unit name => multiplier. */

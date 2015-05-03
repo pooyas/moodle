@@ -36,7 +36,7 @@ class submission_updated extends \mod_assign\event\submission_updated {
  * mod_assign test class for event base.
  *
  * @package    mod_assign
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class nothing_happened extends \mod_assign\event\base {

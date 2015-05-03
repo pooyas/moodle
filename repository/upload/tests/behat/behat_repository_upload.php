@@ -5,7 +5,7 @@
  *
  * @package    repository_upload
  * @category   test
- * @copyright  2013 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  *
  * @package    repository_upload
  * @category   test
- * @copyright  2013 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_repository_upload extends behat_files {

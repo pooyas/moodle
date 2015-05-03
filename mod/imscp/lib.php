@@ -4,7 +4,7 @@
  * Mandatory public API of imscp module
  *
  * @package mod_imscp
- * @copyright  2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2009 Petr Skoda  
  * 
  */
 

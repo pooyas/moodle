@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2013 Damyon Wiese <damyon@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->libdir . '/tablelib.php');
  *
  * @package    core
  * @category   phpunit
- * @copyright  2013 Damyon Wiese <damyon@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_tablelib_testcase extends basic_testcase {

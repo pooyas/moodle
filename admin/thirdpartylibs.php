@@ -3,8 +3,9 @@
 /**
  * List of 3rd party libs used in lion and all plugins.
  *
- * @package   admin
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

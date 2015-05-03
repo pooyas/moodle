@@ -3,8 +3,9 @@
 /**
  * Strings for tool_behat
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
+ * @package    tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

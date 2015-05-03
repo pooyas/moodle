@@ -4,7 +4,7 @@
  * Standard string manager.
  *
  * @package    core
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * Implements string_manager with getting and printing localised strings
  *
  * @package    core
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_string_manager_standard implements core_string_manager {

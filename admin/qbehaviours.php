@@ -4,8 +4,8 @@
 /**
  * Allows the admin to manage question behaviours.
  *
- * @package    lioncore
- * @subpackage questionengine
+ * @package    core
+ * @subpackage admin
  * @copyright  2011 The Open University
  * 
  */

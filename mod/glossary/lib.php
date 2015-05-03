@@ -6,7 +6,7 @@
  * (replace glossary with the name of your module and delete this line)
  *
  * @package   mod_glossary
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 require_once($CFG->libdir . '/completionlib.php');

@@ -4,7 +4,7 @@
  * My latest badges block capabilities.
  *
  * @package    block_badges
- * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @copyright  2015 Pooya Saeedi
  * 
  * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
  */

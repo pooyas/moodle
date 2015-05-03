@@ -9,7 +9,7 @@
  * NOTE: plugins are free to implement own edit scripts with extra logic.
  *
  * @package    core_enrol
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * This file contains a renderer for the assignment class
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/mod/assign/locallib.php');
  * A custom renderer class that extends the plugin_renderer_base and is used by the assign module.
  *
  * @package mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class mod_assign_renderer extends plugin_renderer_base {

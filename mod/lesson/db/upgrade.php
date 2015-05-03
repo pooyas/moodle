@@ -23,7 +23,7 @@
  * before any action that may take longer time to finish.
  *
  * @package mod_lesson
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 o
  */
 

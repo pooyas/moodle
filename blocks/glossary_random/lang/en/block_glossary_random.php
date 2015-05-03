@@ -4,7 +4,7 @@
  * Strings for component 'block_glossary_random', language 'en', branch 'LION_20_STABLE'
  *
  * @package   block_glossary_random
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

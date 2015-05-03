@@ -3,9 +3,10 @@
 /**
  * Role XML presets test case.
  *
- * @package   core_role
- * @category  phpunit
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage role
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

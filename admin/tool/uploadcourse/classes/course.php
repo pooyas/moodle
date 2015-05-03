@@ -3,8 +3,9 @@
 /**
  * File containing the course class.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->dirroot . '/course/lib.php');
 /**
  * Course class.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * 
  */
 class tool_uploadcourse_course {
 

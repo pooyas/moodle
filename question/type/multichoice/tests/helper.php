@@ -4,7 +4,7 @@
  * Test helper code for the multiple choice question type.
  *
  * @package    qtype_multichoice
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the multiple choice question type.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_test_helper extends question_test_helper {

@@ -3,8 +3,9 @@
 /**
  * Steps definitions form
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
+ * @package    tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Form to display the available steps definitions
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
- * 
  */
 class steps_definitions_form extends lionform {
 

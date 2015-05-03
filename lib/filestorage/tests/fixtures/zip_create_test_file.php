@@ -4,7 +4,7 @@
  * This debug script is used during zip support development.
  *
  * @package    core_files
- * @copyright  2012 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

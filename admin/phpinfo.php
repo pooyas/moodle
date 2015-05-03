@@ -1,5 +1,12 @@
 <?php
-       // phpinfo.php - shows phpinfo for the current server
+/**
+ * shows phpinfo for the current server
+ *
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+ *
+ */
 
     require_once("../config.php");
     require_once($CFG->libdir.'/adminlib.php');

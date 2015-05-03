@@ -3,9 +3,10 @@
 /**
  * Event monitor data generator
  *
- * @package    tool_monitor
+ * @package    tool
+ * @subpackage monitor
  * @category   test
- * @copyright  2014 onwards Simey Lameze <simey@lion.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -14,11 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Event monitor data generator class
  *
- * @since       Lion 2.8
- * @package     tool_monitor
- * @category    test
- * @copyright   2014 onwards Simey Lameze <simey@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_monitor_generator extends testing_module_generator {
 

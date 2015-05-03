@@ -7,7 +7,7 @@
  * and for displaying the navigation panel.
  *
  * @package   mod_quiz
- * @copyright 2008 onwards Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  * Class for quiz exceptions. Just saves a couple of arguments on the
  * constructor for a lion_exception.
  *
- * @copyright 2008 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */
@@ -41,7 +41,7 @@ class lion_quiz_exception extends lion_exception {
  * extra information only when necessary or when asked. The class tracks which questions
  * are loaded.
  *
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since      Lion 2.0
  */
@@ -414,7 +414,7 @@ class quiz {
  * This class extends the quiz class to hold data about the state of a particular attempt,
  * in addition to the data about the quiz.
  *
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since      Lion 2.0
  */
@@ -1770,7 +1770,7 @@ class quiz_nav_question_button implements renderable {
  * Represents the navigation panel, and builds a {@link block_contents} to allow
  * it to be output.
  *
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since      Lion 2.0
  */
@@ -1879,7 +1879,7 @@ abstract class quiz_nav_panel_base {
 /**
  * Specialisation of {@link quiz_nav_panel_base} for the attempt quiz page.
  *
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since      Lion 2.0
  */
@@ -1909,7 +1909,7 @@ class quiz_attempt_nav_panel extends quiz_nav_panel_base {
 /**
  * Specialisation of {@link quiz_nav_panel_base} for the review quiz page.
  *
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since      Lion 2.0
  */

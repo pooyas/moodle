@@ -7,7 +7,7 @@
  * @category    string
  * @copyright   &copy; 2008 The Open University
  * @author      Sam Marshall
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 $string['achievinggrade'] = 'Achieving grade';

@@ -4,7 +4,7 @@
  * This file contains tests that walks essay questions through some attempts.
  *
  * @package   qtype_essay
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the essay question type.
  *
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_essay_walkthrough_testcase extends qbehaviour_walkthrough_test_base {

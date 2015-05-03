@@ -5,7 +5,7 @@
  *
  * @package    core_form
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once(__DIR__  . '/behat_form_field.php');
  *
  * @package    core_form
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_form_select extends behat_form_field {

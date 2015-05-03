@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  test
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ defined('LION_INTERNAL') || die();
  * class type_plugin_generator extends component_generator_base
  * Note that there are more specific classes to extend for mods and blocks.
  *
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class component_generator_base {

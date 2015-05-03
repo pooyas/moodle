@@ -4,7 +4,7 @@
  * Database enrolment plugin installation.
  *
  * @package    enrol_database
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

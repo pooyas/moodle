@@ -6,7 +6,7 @@
  * temp table names included in the get_tables() method of the DB.
  *
  * @package    core_dml
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

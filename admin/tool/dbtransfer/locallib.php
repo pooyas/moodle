@@ -3,8 +3,9 @@
 /**
  * Export db content to file.
  *
- * @package    tool_dbtransfer
- * @copyright  2008 Petr Skoda {@link http://skodak.org/}
+ * @package    tool
+ * @subpackage dbtransfer
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

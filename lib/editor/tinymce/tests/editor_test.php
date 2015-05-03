@@ -5,7 +5,7 @@
  *
  * @package   editor_tinymce
  * @category  phpunit
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package   editor_tinymce
  * @category  phpunit
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class editor_tinymce_testcase extends advanced_testcase {

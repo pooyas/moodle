@@ -3,8 +3,9 @@
 /**
  * Wrapper to run previously set-up behat tests in parallel.
  *
- * @package    tool_behat
- * @copyright  2014 NetSpot Pty Ltd
+ * @package    tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

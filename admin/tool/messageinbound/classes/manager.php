@@ -3,8 +3,9 @@
 /**
  * The Mail Pickup Manager.
  *
- * @package    tool_messageinbound
- * @copyright  2014 Andrew Nicols
+ * @package    tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Mail Pickup Manager.
  *
- * @copyright  2014 Andrew Nicols
- * 
  */
 class manager {
 

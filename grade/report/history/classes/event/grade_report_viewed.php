@@ -4,7 +4,7 @@
  * Grade history report viewed event.
  *
  * @package    gradereport_history
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    gradereport_history
  * @since      Lion 2.8
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class grade_report_viewed extends \core\event\grade_report_viewed {

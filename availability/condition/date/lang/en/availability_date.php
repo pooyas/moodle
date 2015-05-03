@@ -4,8 +4,8 @@
  * Language strings.
  *
  * @package availability_date
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 $string['ajaxerror'] = 'Error contacting server to convert times';

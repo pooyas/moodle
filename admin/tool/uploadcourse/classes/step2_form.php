@@ -3,8 +3,9 @@
 /**
  * Bulk course upload step 2.
  *
- * @package    tool_uploadcourse
- * @copyright  2011 Piers Harding
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Specify course upload details.
  *
- * @package    tool_uploadcourse
- * @copyright  2011 Piers Harding
- * 
  */
 class tool_uploadcourse_step2_form extends tool_uploadcourse_base_form {
 

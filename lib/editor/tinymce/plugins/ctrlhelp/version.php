@@ -4,7 +4,7 @@
  * CTRL + right click helper.
  *
  * @package   tinymce_ctrlhelp
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

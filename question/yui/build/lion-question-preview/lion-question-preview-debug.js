@@ -2,7 +2,7 @@ YUI.add('lion-question-preview', function (Y, NAME) {
 
 
 /*
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

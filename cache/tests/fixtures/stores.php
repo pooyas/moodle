@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @category   cache
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class cachestore_tests extends advanced_testcase {

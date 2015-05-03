@@ -5,7 +5,7 @@
  *
  * @package    booktool_exportimscp
  * @category   phpunit
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ global $CFG;
  *
  * @package    booktool_exportimscp
  * @category   phpunit
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class booktool_exportimscp_events_testcase extends advanced_testcase {

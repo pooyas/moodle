@@ -23,7 +23,7 @@
  * define('TEST_CACHESTORE_MONGODB_TESTSERVER', 'mongodb://localhost:27017');
  *
  * @package    cachestore_mongodb
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -38,7 +38,7 @@ require_once($CFG->dirroot.'/cache/stores/mongodb/lib.php');
  * MongoDB unit test class.
  *
  * @package    cachestore_mongodb
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cachestore_mongodb_test extends cachestore_tests {

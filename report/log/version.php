@@ -6,7 +6,7 @@
  * This File contains information about the current version of report/logs
  *
  * @package    report_log
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

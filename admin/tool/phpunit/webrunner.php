@@ -3,8 +3,9 @@
 /**
  * PHPUnit shell execution wrapper
  *
- * @package    tool_phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @package    tool
+ * @subpackage phpunit
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

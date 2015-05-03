@@ -15,7 +15,7 @@
  *
  * @package core_media
  * @copyright 2012 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -41,7 +41,7 @@ if (!defined('CORE_MEDIA_AUDIO_WIDTH')) {
  * Constants and static utility functions for use with core_media_renderer.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class core_media {
     /**
@@ -204,7 +204,7 @@ abstract class core_media {
  * custom theme or other suitable location, not in this file.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class core_media_player {
     /**
@@ -386,7 +386,7 @@ abstract class core_media_player {
  * As opposed to media files.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class core_media_player_external extends core_media_player {
     /**
@@ -465,7 +465,7 @@ abstract class core_media_player_external extends core_media_player {
  * Player that embeds Vimeo links.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_vimeo extends core_media_player_external {
     protected function embed_external(lion_url $url, $name, $width, $height, $options) {
@@ -508,7 +508,7 @@ OET;
  * Player that creates YouTube embedding.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_youtube extends core_media_player_external {
     protected function embed_external(lion_url $url, $name, $width, $height, $options) {
@@ -614,7 +614,7 @@ OET;
  * Player that creates YouTube playlist embedding.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_youtube_playlist extends core_media_player_external {
     public function is_enabled() {
@@ -666,7 +666,7 @@ OET;
  * MP3 player inserted using JavaScript.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_mp3 extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -708,7 +708,7 @@ class core_media_player_mp3 extends core_media_player {
  * Flash video player inserted using JavaScript.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_flv extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -752,7 +752,7 @@ class core_media_player_flv extends core_media_player {
  * Embeds Windows Media Player using object tag.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_wmp extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -828,7 +828,7 @@ OET;
  * Media player using object tag and QuickTime player.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_qt extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -896,7 +896,7 @@ OET;
  * Hopefully nobody is using this obsolete format any more!
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_rm extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -955,7 +955,7 @@ OET;
  * embedded by a trusted user (e.g. in trust text).
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_swf extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -1017,7 +1017,7 @@ OET;
  * Player that creates HTML5 <video> tag.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_html5video extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -1136,7 +1136,7 @@ OET;
  * Player that creates HTML5 <audio> tag.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_html5audio extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {
@@ -1219,7 +1219,7 @@ OET;
  * Always enabled, used as the last fallback.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_player_link extends core_media_player {
     public function embed($urls, $name, $width, $height, $options) {

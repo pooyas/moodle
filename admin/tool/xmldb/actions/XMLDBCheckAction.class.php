@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package    tool_xmldb
- * @copyright  2008 onwards Tim Hunt
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -10,9 +11,6 @@
  * This is a base class for the various actions that interate over all the
  * tables and check some aspect of their definition.
  *
- * @package    tool_xmldb
- * @copyright  2008 onwards Tim Hunt
- * 
  */
 abstract class XMLDBCheckAction extends XMLDBAction {
     /**

@@ -6,7 +6,7 @@
  * outside of what is required for the core lion api
  *
  * @package   mod_glossary
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -198,7 +198,7 @@ class glossary_full_portfolio_caller extends portfolio_module_caller_base {
  * class to export a single glossary entry
  *
  * @package   mod_glossary
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class glossary_entry_portfolio_caller extends portfolio_module_caller_base {

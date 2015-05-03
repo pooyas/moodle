@@ -5,7 +5,7 @@ YUI.add('lion-question-qbankmanager', function (Y, NAME) {
  * Question Bank Management.
  *
  * @package    question
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

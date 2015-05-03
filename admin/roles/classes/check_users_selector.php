@@ -3,8 +3,9 @@
 /**
  * User selector.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +16,6 @@ require_once($CFG->dirroot.'/user/selector/lib.php');
 /**
  * User selector subclass for the selection of users in the check permissions page.
  *
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
  */
 class core_role_check_users_selector extends user_selector_base {
     /** @var bool limit listing of users to enrolled only */

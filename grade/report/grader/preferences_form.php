@@ -4,7 +4,7 @@
  * Form for grader report preferences
  *
  * @package    gradereport_grader
- * @copyright  2009 Nicolas Connault
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  * Utility class for browsing of module files.
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  * Represents a module context in the tree navigated by {@link file_browser}.
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class file_info_context_module extends file_info {

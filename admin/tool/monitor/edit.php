@@ -3,8 +3,9 @@
 /**
  * This file gives an overview of the monitors present in site.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Simey Lameze <simey@lion.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 require(__DIR__ . '/../../../config.php');

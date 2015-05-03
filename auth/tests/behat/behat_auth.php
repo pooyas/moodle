@@ -6,7 +6,7 @@
  *
  * @package    core_auth
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ use Behat\Behat\Context\Step\When as When;
  *
  * @package    core_auth
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_auth extends behat_base {

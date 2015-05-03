@@ -3,8 +3,9 @@
 /**
  * Allows the admin to enable, disable and uninstall course formats
  *
- * @package    core_admin
- * @copyright  2012 Marina Glancy
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

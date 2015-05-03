@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  test
- * @copyright 2012 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -31,7 +31,7 @@ use Behat\Behat\Exception\PendingException as PendingException;
  * @todo      If the available elements list grows too much this class must be split into smaller pieces
  * @package   core
  * @category  test
- * @copyright 2012 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_data_generators extends behat_base {

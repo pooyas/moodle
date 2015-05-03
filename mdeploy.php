@@ -37,7 +37,7 @@
  * @subpackage  mdeploy
  * @version     1.1
  * @copyright   2012 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 if (defined('LION_INTERNAL')) {

@@ -4,7 +4,7 @@
  * Subplugin info class.
  *
  * @package   mod_scorm
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 namespace mod_scorm\plugininfo;

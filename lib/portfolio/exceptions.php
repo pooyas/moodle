@@ -5,7 +5,7 @@
  *
  * @package core_portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,  Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_exception extends lion_exception {}
 
@@ -29,7 +29,7 @@ class portfolio_exception extends lion_exception {}
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_export_exception extends portfolio_exception {
 
@@ -85,7 +85,7 @@ class portfolio_export_exception extends portfolio_exception {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_caller_exception extends portfolio_exception {}
 
@@ -98,7 +98,7 @@ class portfolio_caller_exception extends portfolio_exception {}
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_plugin_exception extends portfolio_exception {}
 
@@ -108,7 +108,7 @@ class portfolio_plugin_exception extends portfolio_exception {}
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_button_exception extends portfolio_exception {}
 
@@ -118,6 +118,6 @@ class portfolio_button_exception extends portfolio_exception {}
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_leap2a_exception extends portfolio_exception {}

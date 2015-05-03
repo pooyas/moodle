@@ -3,8 +3,9 @@
 /**
  * Standard log reader/writer cron task.
  *
- * @package    logstore_standard
- * @copyright  2014 Petr Skoda {@link http://skodak.org}
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -5,7 +5,7 @@
  * Ajax script to update the contents of the question bank dialogue.
  *
  * @package    mod_quiz
- * @copyright  2014 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

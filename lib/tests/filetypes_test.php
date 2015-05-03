@@ -4,8 +4,8 @@
  * Unit tests for /lib/classes/filetypes.php.
  *
  * @package core
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -17,8 +17,8 @@ require_once($CFG->libdir . '/filelib.php');
  * Unit tests for /lib/classes/filetypes.php.
  *
  * @package core
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_filetypes_testcase extends advanced_testcase {
 

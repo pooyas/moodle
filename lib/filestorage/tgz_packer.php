@@ -17,8 +17,8 @@
  * - May not contain non-ASCII characters.
  *
  * @package core_files
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -31,8 +31,8 @@ require_once("$CFG->libdir/filestorage/tgz_extractor.php");
  *
  * @package core_files
  * @category files
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class tgz_packer extends file_packer {
     /**

@@ -4,7 +4,7 @@
  * Installation code for the email message processor
  *
  * @package    message_email
- * @copyright  2009 Lion Pty Ltd (http://lion.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

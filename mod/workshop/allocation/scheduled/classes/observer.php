@@ -5,7 +5,7 @@
  *
  * @package workshopallocation_scheduled
  * @copyright 2013 Adrian Greeve <adrian@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 namespace workshopallocation_scheduled;
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package workshopallocation_scheduled
  * @copyright 2013 Adrian Greeve <adrian@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class observer {
 

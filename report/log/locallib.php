@@ -6,7 +6,7 @@
  * This files lists the functions that are used during the log report generation.
  *
  * @package    report_log
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

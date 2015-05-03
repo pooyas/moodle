@@ -12,7 +12,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  * @package core_grading
  * @category external
  * @copyright 2013 Paul Charsley
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_grading_externallib_testcase extends externallib_advanced_testcase {
 

@@ -5,14 +5,14 @@
  *
  * @package mod_imscp
  * @subpackage backup-lion2
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
 /**
  * Structure step to restore one imscp activity
  *
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_imscp_activity_structure_step extends restore_activity_structure_step {

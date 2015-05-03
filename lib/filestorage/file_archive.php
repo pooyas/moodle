@@ -5,7 +5,7 @@
  * Abstraction of general file archives.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  * Each file archive type must extend this class.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 abstract class file_archive implements Iterator {

@@ -4,8 +4,8 @@
  * Renderer for outputting the weeks course format.
  *
  * @package format_weeks
- * @copyright 2012 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.3
  */
 
@@ -18,8 +18,8 @@ require_once($CFG->dirroot.'/course/format/weeks/lib.php');
 /**
  * Basic renderer for weeks format.
  *
- * @copyright 2012 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class format_weeks_renderer extends format_section_renderer_base {
     /**

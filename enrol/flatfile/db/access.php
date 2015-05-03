@@ -4,7 +4,7 @@
  * Capabilities for manual enrolment plugin.
  *
  * @package    enrol_flatfile
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

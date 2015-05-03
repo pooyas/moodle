@@ -3,8 +3,9 @@
 /**
  * Helper trait store.
  *
- * @package    tool_log
- * @copyright  2014 onwards Ankit Agarwal
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Helper trait store. Adds some helper methods for stores.
  *
- * @package    tool_log
- * @copyright  2014 onwards Ankit Agarwal
- * 
  */
 trait store {
 

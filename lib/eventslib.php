@@ -6,8 +6,8 @@
  * The public API is all at the end of this file.
  *
  * @package core
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();

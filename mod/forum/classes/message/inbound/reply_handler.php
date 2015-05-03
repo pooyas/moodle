@@ -5,7 +5,7 @@
  *
  * @package    mod_forum
  * @subpackage core_message
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * A Handler to process replies to forum posts.
  *
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class reply_handler extends \core\message\inbound\handler {

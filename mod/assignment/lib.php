@@ -6,7 +6,7 @@
  * This class provides all the functionality for an assignment
  *
  * @package   mod_assignment
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

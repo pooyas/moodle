@@ -10,7 +10,7 @@
  * @author     Iñaki Arenaza
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  * @copyright  2010 onwards Iñaki Arenaza
  * 
  */

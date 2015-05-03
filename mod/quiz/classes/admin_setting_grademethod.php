@@ -4,7 +4,7 @@
  * Admin settings class for the quiz grading method.
  *
  * @package   mod_quiz
- * @copyright 2008 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

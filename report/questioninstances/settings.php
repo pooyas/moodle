@@ -5,7 +5,7 @@
  *
  * @package    report
  * @subpackage questioninstances
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

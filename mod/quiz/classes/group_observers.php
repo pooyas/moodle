@@ -4,7 +4,7 @@
  * Group observers.
  *
  * @package    mod_quiz
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
  * Group observers class.
  *
  * @package    mod_quiz
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class group_observers {

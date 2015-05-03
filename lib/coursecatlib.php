@@ -3002,7 +3002,7 @@ class course_in_list implements IteratorAggregate {
  *
  * @package    core
  * @subpackage course
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class coursecat_sortable_records extends ArrayObject {

@@ -4,8 +4,8 @@
  * Unit tests for the capability checker class.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 use core_availability\capability_checker;
@@ -16,8 +16,8 @@ defined('LION_INTERNAL') || die();
  * Unit tests for the capability checker class.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_availability_capability_checker_testcase extends advanced_testcase {
     /**

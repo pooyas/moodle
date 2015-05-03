@@ -4,7 +4,7 @@
  * Contains the form used to edit enrolments for a user.
  *
  * @package    core_enrol
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

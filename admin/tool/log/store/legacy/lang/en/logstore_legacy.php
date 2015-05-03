@@ -3,8 +3,9 @@
 /**
  * Legacy log reader lang strings.
  *
- * @package    logstore_legacy
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

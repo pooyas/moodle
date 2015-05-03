@@ -6,7 +6,7 @@
  * It is responsible for deleting a calendar entry + optionally its repeats
  *
  * @copyright 2009 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package calendar
  */
 

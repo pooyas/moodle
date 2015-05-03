@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage install
- * @copyright  2011 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

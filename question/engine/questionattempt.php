@@ -1612,7 +1612,7 @@ class question_attempt_reverse_step_iterator extends question_attempt_step_itera
  * A variant of {@link question_attempt_step_iterator} that iterates through the
  * steps with submitted tries.
  *
- * @copyright  2014 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_steps_with_submitted_response_iterator extends question_attempt_step_iterator implements Countable {

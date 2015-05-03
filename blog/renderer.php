@@ -5,7 +5,7 @@
  *
  * @package    core_blog
  * @subpackage blog
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

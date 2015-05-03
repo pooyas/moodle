@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * This will be included in trustedhosts.php and fullfill its needs
+ *
+ *
+ * @package    core
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+ */
+
+if (!defined('LION_INTERNAL')) {
+	die('Direct access to this script is forbidden.'); // It must be included from a Lion page
+}
+
 echo $OUTPUT->header();
 ?>
 <div id="trustedhosts"><!-- See theme/standard/styles_layout.css #trustedhosts .generaltable for rules -->

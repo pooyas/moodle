@@ -4,7 +4,7 @@
  * Shutdown management class.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Shutdown management class.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_shutdown_manager {

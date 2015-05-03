@@ -3,8 +3,9 @@
 /**
  * Capability overview settings
  *
- * @package    tool_capability
- * @copyright  2008 Tim Hunt
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -1,11 +1,9 @@
 <?php
-
-
 /**
  * Web services services UI
  *
  * @package   webservice
- * @copyright 2009 Lion Pty Ltd (http://lion.com)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 require_once('../../config.php');

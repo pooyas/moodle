@@ -3,8 +3,8 @@
 /**
  * @package    core
  * @subpackage session
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @copyright  2008, 2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
+ * @copyright  2008, 2009 Petr Skoda  
  * 
  */
 

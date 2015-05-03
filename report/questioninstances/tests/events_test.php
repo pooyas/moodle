@@ -4,7 +4,7 @@
  * Tests for question instances events.
  *
  * @package    report_questioninstances
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Class for question instances events.
  *
  * @package    report_questioninstances
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 class report_questioninstances_events_testcase extends advanced_testcase {

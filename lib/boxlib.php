@@ -19,7 +19,7 @@ require_once($CFG->libdir . '/oauthlib.php');
  * Box.net client class.
  *
  * @package    core
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class boxnet_client extends oauth2_client {

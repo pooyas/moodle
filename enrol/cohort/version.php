@@ -4,7 +4,7 @@
  * Cohort enrolment plugin version specification.
  *
  * @package    enrol_cohort
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

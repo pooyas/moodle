@@ -4,7 +4,7 @@
  * Strings for component 'filter_mathjaxloader', language 'en'.
  *
  * @package    filter_mathjaxloader
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

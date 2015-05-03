@@ -4,8 +4,8 @@
  * Generates a JMeter test plan to performance comparison.
  *
  * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 require(__DIR__ . '/../../../config.php');

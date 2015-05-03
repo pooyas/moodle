@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once(__DIR__ . '/../lib.php');
  *
  * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_command {

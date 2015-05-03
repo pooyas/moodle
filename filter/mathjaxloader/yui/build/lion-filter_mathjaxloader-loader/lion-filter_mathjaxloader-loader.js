@@ -5,7 +5,7 @@ YUI.add('lion-filter_mathjaxloader-loader', function (Y, NAME) {
  * Mathjax JS Loader.
  *
  * @package    filter_mathjaxloader
- * @copyright  2014 Damyon Wiese  <damyon@lion.com>
+ * @copyright  2015 Pooya Saeedi  <damyon@lion.com>
  * 
  */
 M.filter_mathjaxloader = M.filter_mathjaxloader || {

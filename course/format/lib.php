@@ -4,7 +4,7 @@
  * Base class for course format plugins
  *
  * @package    core_course
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -43,7 +43,7 @@ function course_get_format($courseorid) {
  * appropriate functions of the class.
  *
  * @package    core_course
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class format_base {
@@ -1009,7 +1009,7 @@ abstract class format_base {
  * Pseudo course format used for the site main page
  *
  * @package    core_course
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class format_site extends format_base {

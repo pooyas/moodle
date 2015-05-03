@@ -3,7 +3,7 @@
 /**
  * @package    core_backup
  * @category   phpunit
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

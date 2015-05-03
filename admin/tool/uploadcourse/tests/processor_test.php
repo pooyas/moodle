@@ -3,8 +3,9 @@
 /**
  * File containing tests for the processor.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->libdir . '/csvlib.class.php');
 /**
  * Processor test case.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * 
  */
 class tool_uploadcourse_processor_testcase extends advanced_testcase {
 

@@ -3,7 +3,7 @@
 /**
  * @package    mod_quiz
  * @subpackage backup-lion2
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Define all the backup steps that will be used by the backup_quiz_activity_task
  *
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class backup_quiz_activity_structure_step extends backup_questions_activity_structure_step {

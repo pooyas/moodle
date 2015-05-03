@@ -1,5 +1,13 @@
 <?php
 
+/**
+ *
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+ *
+ */
+
 require_once($CFG->dirroot.'/user/filters/lib.php');
 
 if (!defined('MAX_BULK_USERS')) {

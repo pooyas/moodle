@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @category   test
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_event_grade_deleted_testcase extends advanced_testcase {

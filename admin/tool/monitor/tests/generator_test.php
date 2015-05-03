@@ -3,9 +3,10 @@
 /**
  * PHPUnit data generator tests.
  *
- * @package    tool_monitor
- * @category   test
- * @copyright  2014 onwards Simey Lameze <simey@lion.com>
+ * @package    tool
+ * @subpackage monitor
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -14,11 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * PHPUnit data generator test case.
  *
- * @since      Lion 2.8
- * @package    tool_monitor
- * @category   test
- * @copyright  2014 onwards Simey Lameze <simey@lion.com>
- * 
  */
 class tool_monitor_generator_testcase extends advanced_testcase {
 

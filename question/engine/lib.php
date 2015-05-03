@@ -982,7 +982,7 @@ class question_variant_pseudorandom_no_repeats_strategy
  * For selected questions it wil return a specific variants. For the other
  * slots it will use a fallback strategy.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_variant_forced_choices_selection_strategy

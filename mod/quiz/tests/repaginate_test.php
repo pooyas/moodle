@@ -44,8 +44,8 @@ class mod_quiz_repaginate_testable extends \mod_quiz\repaginate {
 
 /**
  * Test for some parts of the repaginate class.
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class mod_quiz_repaginate_test extends advanced_testcase {
 

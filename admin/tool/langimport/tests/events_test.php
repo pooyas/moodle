@@ -3,8 +3,10 @@
 /**
  * Tests for langimport events.
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski
+ * @package    tool
+ * @subpackage langimport
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test class for langimport events.
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski
- * .
  */
 class tool_langimport_events_testcase extends advanced_testcase {
 

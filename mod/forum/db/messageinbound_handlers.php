@@ -4,7 +4,7 @@
  * Message Inbound Handlers for mod_forum.
  *
  * @package    mod_forum
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

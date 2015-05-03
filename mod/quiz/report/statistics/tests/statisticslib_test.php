@@ -5,7 +5,7 @@
  *
  * @package   quiz_statistics
  * @category  test
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/mod/quiz/report/statistics/statisticslib.php');
 /**
  * Unit tests for (some of) statisticslib.php.
  *
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class quiz_statistics_statisticslib_testcase extends basic_testcase {

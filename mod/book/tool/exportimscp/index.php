@@ -6,7 +6,7 @@
  * @package    booktool_exportimscp
  * @copyright  2001-3001 Antonio Vicent          {@link http://ludens.es}
  * @copyright  2001-3001 Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @copyright  2011 Petr Skoda                   {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi                   
  * 
  */
 

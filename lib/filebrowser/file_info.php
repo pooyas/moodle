@@ -5,7 +5,7 @@
  * Base for all file browsing classes.
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  * Base class for things in the tree navigated by {@link file_browser}.
  *
  * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 abstract class file_info {

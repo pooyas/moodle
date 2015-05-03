@@ -4,8 +4,8 @@
  * Events tests.
  *
  * @package core_question
- * @copyright 2014 Mark Nelson <markn@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();

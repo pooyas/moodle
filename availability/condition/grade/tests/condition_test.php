@@ -4,8 +4,8 @@
  * Unit tests for the grade condition.
  *
  * @package availability_grade
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,8 +16,8 @@ use availability_grade\condition;
  * Unit tests for the grade condition.
  *
  * @package availability_grade
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class availability_grade_condition_testcase extends advanced_testcase {
     /**

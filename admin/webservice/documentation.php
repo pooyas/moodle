@@ -1,14 +1,13 @@
 <?php
 
-
 /**
  * Web services API documentation
  *
  * @package   webservice
- * @copyright 2011 Lion Pty Ltd (http://lion.com)
+ * @copyright 2015 Pooya Saeedi
  * 
- * @author Jerome Mouneyrac
  */
+
 require_once('../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
 require($CFG->dirroot . '/webservice/lib.php');

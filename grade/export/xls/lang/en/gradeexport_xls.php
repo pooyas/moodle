@@ -5,7 +5,7 @@
  * Strings for component 'gradeexport_xls', language 'en', branch 'LION_20_STABLE'
  *
  * @package   gradeexport_xls
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

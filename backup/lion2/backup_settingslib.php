@@ -7,8 +7,8 @@
  * @package     core_backup
  * @subpackage  lion2
  * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 // TODO: Reduce these to the minimum because ui/dependencies are 100% separated
@@ -54,7 +54,7 @@ class backup_users_setting extends backup_generic_setting {}
 /**
  * root setting to control if backup will include group information depends on @backup_users_setting
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @copyright 2014 Matt Sammarco
  */
 class backup_groups_setting extends backup_generic_setting {

@@ -8,7 +8,7 @@ defined('LION_INTERNAL') || die();
  * Base event class.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  *
  * @property-read string $eventname Name of the event (=== class name with leading \)

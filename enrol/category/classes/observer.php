@@ -4,7 +4,7 @@
  * Local stuff for category enrolment plugin.
  *
  * @package    enrol_category
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

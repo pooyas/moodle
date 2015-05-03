@@ -9,7 +9,7 @@
  * whether upgrades should be performed (see lib/db/*.php)
  *
  * @package    core
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,8 +4,8 @@
  * Contains renderers for the course management pages.
  *
  * @package core_course
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die;
@@ -16,8 +16,8 @@ require_once($CFG->dirroot.'/course/renderer.php');
  * Main renderer for the course management pages.
  *
  * @package core_course
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_course_management_renderer extends plugin_renderer_base {
 

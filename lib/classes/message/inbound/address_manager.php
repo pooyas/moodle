@@ -4,7 +4,7 @@
  * Incoming Message address manager.
  *
  * @package    core_message
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Incoming Message address manager.
  *
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
  * 
  */
 class address_manager {

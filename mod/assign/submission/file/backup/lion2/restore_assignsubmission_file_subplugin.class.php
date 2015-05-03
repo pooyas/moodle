@@ -4,7 +4,7 @@
  * This file contains the class for restore of this submission plugin
  *
  * @package assignsubmission_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -15,7 +15,7 @@
  * needed to restore one assign_submission subplugin.
  *
  * @package assignsubmission_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class restore_assignsubmission_file_subplugin extends restore_subplugin {

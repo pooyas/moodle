@@ -6,7 +6,7 @@
  *
  * @package    enrol_database
  * @category   phpunit
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

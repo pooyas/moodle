@@ -3,8 +3,9 @@
 /**
  * Lang import controller
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski <dan@lion.com>
+ * @package    tool
+ * @subpackage langimport
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->libdir.'/componentlib.class.php');
 /**
  * Lang import controller
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski <dan@lion.com>
- * 
  */
 class controller {
     /** @var array list of informational messages */

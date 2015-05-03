@@ -4,7 +4,7 @@
  * This page lists all the instances of book in a particular course
  *
  * @package    mod_book
- * @copyright  2004-2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2004-2015 Pooya Saeedi 
  * 
  */
 

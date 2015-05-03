@@ -4,7 +4,7 @@
  * Strings for component 'enrol_guest', language 'en'.
  *
  * @package    enrol_guest
- * @copyright  2010 onwards Petr Skoda  {@link http://skodak.org}
+ * @copyright  2010 onwards Petr Skoda  
  * 
  */
 

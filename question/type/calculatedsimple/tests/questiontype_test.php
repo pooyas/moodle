@@ -4,7 +4,7 @@
  * Unit tests for the calculatedsimple question type class.
  *
  * @package    qtype_calculatedsimple
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

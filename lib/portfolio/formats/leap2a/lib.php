@@ -5,7 +5,7 @@
  *
  * @package core_portfolio
  * @copyright 2009 Penny Leach (penny@liip.ch), Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  *
  */
 
@@ -26,7 +26,7 @@ defined('LION_INTERNAL') || die();
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_leap2a_writer {
 
@@ -198,7 +198,7 @@ class portfolio_format_leap2a_writer {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_leap2a_entry {
 
@@ -479,7 +479,7 @@ class portfolio_format_leap2a_entry {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_format_leap2a_file extends portfolio_format_leap2a_entry {
 

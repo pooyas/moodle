@@ -4,8 +4,8 @@
  * Admin-only code to delete a course utterly.
  *
  * @package core_course
- * @copyright 2002 onwards Martin Dougiamas (http://dougiamas.com)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 require_once(dirname(__FILE__) . '/../config.php');

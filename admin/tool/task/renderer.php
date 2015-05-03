@@ -1,12 +1,12 @@
 <?php
 
-
 /**
  * Output rendering for the plugin.
  *
- * @package     tool_task
- * @copyright   2014 Damyon Wiese
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage task
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -14,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Implements the plugin renderer
  *
- * @copyright 2014 Damyon Wiese
- * 
  */
 class tool_task_renderer extends plugin_renderer_base {
     /**

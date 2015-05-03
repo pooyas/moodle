@@ -5,8 +5,8 @@
  *
  * @package core_calendar
  * @category test
- * @copyright 2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi 
+ * 
  */
 class core_calendar_rrule_manager_testcase extends advanced_testcase {
 
@@ -509,8 +509,8 @@ class core_calendar_rrule_manager_testcase extends advanced_testcase {
  *
  * @package core_calendar
  * @category test
- * @copyright 2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi 
+ * 
  */
 class core_tests_calendar_rrule_manager extends \core_calendar\rrule_manager{
 

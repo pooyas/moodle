@@ -5,7 +5,7 @@
  * Define all the backup steps that will be used by the backup_resource_activity_task
  *
  * @package    mod_resource
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

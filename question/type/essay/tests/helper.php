@@ -4,7 +4,7 @@
  * Test helpers for the essay question type.
  *
  * @package    qtype_essay
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the essay question type.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_test_helper extends question_test_helper {

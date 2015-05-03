@@ -10,7 +10,7 @@
  *
  * @package    core
  * @subpackage file
- * @copyright  2011 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

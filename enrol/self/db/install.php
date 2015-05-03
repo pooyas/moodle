@@ -4,7 +4,7 @@
  * Self enrol plugin installation script
  *
  * @package    enrol_self
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die();

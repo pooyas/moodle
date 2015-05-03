@@ -6,7 +6,7 @@
  * This file contains version information about report_loglive
  *
  * @package    report_loglive
- * @copyright  2011 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

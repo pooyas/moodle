@@ -1,12 +1,10 @@
 <?php
 
-
 /**
- * @package     tool_installaddon
- * @subpackage  classes
- * @category    form
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool
+ * @subpackage  installaddon
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,8 +14,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Defines a simple form for uploading the add-on ZIP package
  *
- * @copyright 2013 David Mudrak <david@lion.com>
- * 
  */
 class tool_installaddon_installfromzip_form extends lionform {
 

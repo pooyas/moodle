@@ -3,8 +3,9 @@
 /**
  * Allows admin to edit all auth plugin settings.
  *
- * JH: copied and Hax0rd from admin/enrol.php and admin/filters.php
- *
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

@@ -4,7 +4,7 @@
  * Online users block settings.
  *
  * @package    block_online_users
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

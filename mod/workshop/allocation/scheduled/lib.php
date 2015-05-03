@@ -7,7 +7,7 @@
  * @package     workshopallocation_scheduled
  * @subpackage  mod_workshop
  * @copyright   2012 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();

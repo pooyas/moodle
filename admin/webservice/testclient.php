@@ -1,12 +1,10 @@
 <?php
 
-
 /**
  * Web service test client.
  *
  * @package   webservice
- * @copyright 2009 Lion Pty Ltd (http://lion.com)
- * @author    Petr Skoda (skodak)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

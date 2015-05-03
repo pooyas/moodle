@@ -4,7 +4,7 @@
  * Unit tests for the shortanswer question type class.
  *
  * @package    qtype_shortanswer
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

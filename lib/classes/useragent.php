@@ -4,7 +4,7 @@
  * Environment class to aid with the detection and establishment of the working environment.
  *
  * @package    core
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@
  * Use sparingly and only with good cause!
  *
  * @package    core
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_useragent {

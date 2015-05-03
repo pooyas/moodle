@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_uploaduser', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_uploaduser', language 'en'
  *
  * @package    tool
  * @subpackage uploaduser
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

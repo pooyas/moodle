@@ -4,7 +4,7 @@
  * The report_completion report viewed event.
  *
  * @package    report_completion
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    report_completion
  * @since      Lion 2.7
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class report_viewed extends \core\event\base {

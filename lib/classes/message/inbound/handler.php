@@ -4,7 +4,7 @@
  * Abstract class describing Inbound Message Handlers.
  *
  * @package    core_message
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\message\inbound;
@@ -12,7 +12,7 @@ namespace core\message\inbound;
 /**
  * Abstract class describing Inbound Message Handlers.
  *
- * @copyright  2014 Andrew NIcols
+ * @copyright  2015 Pooya Saeedi
  * 
  *
  * @property-read int $id The ID of the handler in the database

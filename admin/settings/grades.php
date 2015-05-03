@@ -1,6 +1,12 @@
 <?php
 
-// This file defines settingpages and externalpages under the "grades" section
+/**
+ * This file defines settingpages and externalpages under the "grades" section
+ *
+ * @package    core
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+ */
 
 if (has_capability('lion/grade:manage', $systemcontext)
  or has_capability('lion/grade:manageletters', $systemcontext)) { // speedup for non-admins, add all caps used on this page

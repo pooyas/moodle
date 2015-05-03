@@ -3,8 +3,9 @@
 /**
  * Role add/reset selection form.
  *
- * @package    core_role
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ require_once("$CFG->libdir/formslib.php");
 /**
  * Role add/reset selection form.
  *
- * @package    core_role
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
  * 
  */
 class core_role_preset_form extends lionform {

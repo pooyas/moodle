@@ -5,7 +5,7 @@
  *
  * @package core_user
  * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 if (!defined('LION_INTERNAL')) {
@@ -18,7 +18,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  * Class field_form
  *
  * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class field_form extends lionform {
 

@@ -4,8 +4,8 @@
  * Class to manage the custom filetypes list that is stored in a config variable.
  *
  * @package core
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,8 +15,8 @@ require_once($CFG->libdir . '/filelib.php');
 /**
  * Class to manage the custom filetypes list that is stored in a config variable.
  *
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 abstract class core_filetypes {
     /** @var array Cached MIME types for current request */

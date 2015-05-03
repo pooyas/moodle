@@ -3,8 +3,9 @@
 /**
  * Assignment upgrade tool library functions
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
+ * @package    tool
+ * @subpackage assignmentupgrade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,9 +24,6 @@ function tool_assignmentupgrade_url($script, $params = array()) {
 /**
  * Class to encapsulate the continue / cancel for batch operations
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
- * 
  */
 class tool_assignmentupgrade_batchoperationconfirm implements renderable {
     /** @var string $continuemessage The message to show above the continue cancel buttons */
@@ -64,9 +62,6 @@ class tool_assignmentupgrade_batchoperationconfirm implements renderable {
 /**
  * Class to encapsulate one of the functionalities that this plugin offers.
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
- * 
  */
 class tool_assignmentupgrade_action {
     /** @var string the name of this action. */

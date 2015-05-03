@@ -5,7 +5,7 @@
  *
  * @package    repository
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since      Lion 2.5.1
  */

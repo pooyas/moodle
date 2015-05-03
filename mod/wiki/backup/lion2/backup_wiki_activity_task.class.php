@@ -7,7 +7,7 @@
  * @package     mod_wiki
  * @category    backup
  * @copyright   2010 Jordi Piguillem <pigui0@hotmail.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();

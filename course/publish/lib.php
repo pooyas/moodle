@@ -90,9 +90,9 @@ define('HUB_BACKUP_FILE_TYPE', 'backup');
  * Course publication library
  *
  * @package   course
- * @copyright 2010 Lion Pty Ltd (http://lion.com)
+ * @copyright 2015 Pooya Saeedi
  * @author    Jerome Mouneyrac
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class course_publish_manager {

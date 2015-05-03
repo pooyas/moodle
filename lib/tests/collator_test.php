@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @category   phpunit
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_collator_testcase extends advanced_testcase {
@@ -277,7 +277,7 @@ class core_collator_testcase extends advanced_testcase {
  *
  * @package    core
  * @category   phpunit
- * @copyright  2011 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class string_test_class extends stdClass {

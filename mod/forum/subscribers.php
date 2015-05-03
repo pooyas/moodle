@@ -5,7 +5,7 @@
  * This file is used to display and organise forum subscribers
  *
  * @package   mod_forum
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

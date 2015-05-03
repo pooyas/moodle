@@ -4,7 +4,7 @@
  * Box.net migration CLI script.
  *
  * @package    repository_boxnet
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,8 +4,9 @@
 /**
  * Resets the emoticons mapping into the default value
  *
- * @package   core
- * @copyright 2010 David Mudrak <david@lion.com>
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

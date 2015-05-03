@@ -4,7 +4,7 @@
  * Single view report viewed event.
  *
  * @package    gradereport_singleview
- * @copyright  2014 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    gradereport_singleview
  * @since      Lion 2.8
- * @copyright  2014 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class grade_report_viewed extends \core\event\grade_report_viewed {

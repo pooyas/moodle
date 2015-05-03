@@ -4,7 +4,7 @@
  * Defines classes used for plugin info.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\plugininfo;

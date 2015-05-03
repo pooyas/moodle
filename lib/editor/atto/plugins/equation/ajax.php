@@ -5,7 +5,7 @@
  * using whatever tex filters are enabled.
  *
  * @package    atto_equation
- * @copyright  2014 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

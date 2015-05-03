@@ -107,7 +107,7 @@
  * That's all!
  *
  * @package   core
- * @copyright (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -135,7 +135,7 @@ define('COMPONENT_INSTALLED',       3);
  * its getError() method can be called, returning one error string
  * to be used with the standard get/print_string() functions.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package lioncore
  */
 class component_installer {

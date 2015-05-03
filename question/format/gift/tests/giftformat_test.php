@@ -22,7 +22,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
  * Unit tests for the GIFT import/export format.
  *
  * @copyright 2010 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class qformat_gift_test extends question_testcase {
     public function assert_same_gift($expectedtext, $text) {

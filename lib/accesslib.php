@@ -109,7 +109,7 @@
  * are dealt with appropriately.
  *
  * @package    core_access
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -4990,7 +4990,7 @@ function role_change_permission($roleid, $context, $capname, $permission) {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  *
@@ -5801,7 +5801,7 @@ abstract class context extends stdClass implements IteratorAggregate {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  */
@@ -6077,7 +6077,7 @@ class context_helper extends context {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  */
@@ -6318,7 +6318,7 @@ class context_system extends context {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  */
@@ -6505,7 +6505,7 @@ class context_user extends context {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  */
@@ -6737,7 +6737,7 @@ class context_coursecat extends context {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  */
@@ -6959,7 +6959,7 @@ class context_course extends context {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  */
@@ -7201,7 +7201,7 @@ class context_module extends context {
  *
  * @package   core_access
  * @category  access
- * @copyright Petr Skoda {@link http://skodak.org}
+ * @copyright Petr Skoda 
  * 
  * @since     Lion 2.2
  */

@@ -3,8 +3,9 @@
 /**
  * For a given capability, show what permission it has for every role, and everywhere that it is overridden.
  *
- * @package    tool_capability
- * @copyright  2008 Tim Hunt
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

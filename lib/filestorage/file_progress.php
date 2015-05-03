@@ -9,8 +9,8 @@
  * periodically but without information on completion.
  *
  * @package core_files
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 interface file_progress {
     /**

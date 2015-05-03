@@ -3,8 +3,10 @@
 /**
  * Unit tests for behat manager.
  *
- * @package   tool_behat
- * @copyright  2012 David Monllaó
+ * @package    tool
+ * @subpackage behat
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +20,6 @@ require_once($CFG->libdir . '/behat/classes/behat_config_manager.php');
 /**
  * Behat manager tests.
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
  * 
  */
 class tool_behat_manager_testcase extends advanced_testcase {
@@ -149,8 +149,6 @@ class tool_behat_manager_testcase extends advanced_testcase {
 /**
  * Allows access to internal methods without exposing them.
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
  * 
  */
 class testable_behat_config_manager extends behat_config_manager {

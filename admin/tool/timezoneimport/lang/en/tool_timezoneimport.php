@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_timezoneimport', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_timezoneimport', language 'en'
  *
  * @package    tool
  * @subpackage timezoneimport
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

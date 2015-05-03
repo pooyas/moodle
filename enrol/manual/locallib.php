@@ -4,7 +4,7 @@
  * Auxiliary manual user enrolment lib, the main purpose is to lower memory requirements...
  *
  * @package    enrol_manual
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -145,7 +145,7 @@ class enrol_manual_current_participant extends user_selector_base {
 /**
  * A bulk operation for the manual enrolment plugin to edit selected users.
  *
- * @copyright 2011 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class enrol_manual_editselectedusers_operation extends enrol_bulk_enrolment_operation {
@@ -281,7 +281,7 @@ class enrol_manual_editselectedusers_operation extends enrol_bulk_enrolment_oper
 /**
  * A bulk operation for the manual enrolment plugin to delete selected users enrolments.
  *
- * @copyright 2011 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class enrol_manual_deleteselectedusers_operation extends enrol_bulk_enrolment_operation {

@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage user
- * @copyright  2011 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();

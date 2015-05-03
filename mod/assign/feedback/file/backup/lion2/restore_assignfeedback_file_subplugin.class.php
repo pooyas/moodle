@@ -4,7 +4,7 @@
  * This file contains the restore code for the feedback_file plugin.
  *
  * @package   assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 defined('LION_INTERNAL') || die();
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  * to restore one assign_feedback subplugin.
  *
  * @package   assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class restore_assignfeedback_file_subplugin extends restore_subplugin {

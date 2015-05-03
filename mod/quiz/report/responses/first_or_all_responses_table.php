@@ -4,7 +4,7 @@
  * This file defines the quiz responses table for showing first or all tries at a question.
  *
  * @package   quiz_responses
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * @author    Jamie Pratt <me@jamiep.org>
  * 
  */
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  * This is a table subclass for displaying the quiz responses report, showing first or all tries.
  *
  * @package   quiz_responses
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * @author    Jamie Pratt <me@jamiep.org>
  * 
  */

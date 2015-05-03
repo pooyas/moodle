@@ -5,7 +5,7 @@
  *
  * @package    filter
  * @subpackage tex
- * @copyright  2007 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

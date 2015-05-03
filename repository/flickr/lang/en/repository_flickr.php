@@ -5,7 +5,7 @@
  * Strings for component 'repository_flickr', language 'en', branch 'LION_20_STABLE'
  *
  * @package   repository_flickr
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

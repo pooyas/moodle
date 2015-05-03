@@ -4,7 +4,7 @@
  * Capabilities gradeexport plugin.
  *
  * @package    gradeexport_ods
- * @copyright  2007 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

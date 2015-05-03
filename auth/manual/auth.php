@@ -5,7 +5,7 @@
  * Just does a simple check against the lion database.
  *
  * @package    auth_manual
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->libdir.'/authlib.php');
  *
  * @package    auth
  * @subpackage manual
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class auth_plugin_manual extends auth_plugin_base {

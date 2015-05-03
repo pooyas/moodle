@@ -5,7 +5,7 @@
  *
  *
  * @package   assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -23,7 +23,7 @@ define('ASSIGNFEEDBACK_FILE_MAXFILEUNZIPTIME', 120);
  * Library class for file feedback plugin extending feedback plugin base class.
  *
  * @package   assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_feedback_file extends assign_feedback_plugin {

@@ -4,8 +4,8 @@
  * Front-end class.
  *
  * @package availability_profile
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace availability_profile;
@@ -16,8 +16,8 @@ defined('LION_INTERNAL') || die();
  * Front-end class.
  *
  * @package availability_profile
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class frontend extends \core_availability\frontend {
     protected function get_javascript_strings() {

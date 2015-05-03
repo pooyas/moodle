@@ -4,7 +4,7 @@
  * User added to a cohort event.
  *
  * @package    core
- * @copyright  2013 Dan Poltawski <dan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Dan Poltawski <dan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cohort_member_added extends base {

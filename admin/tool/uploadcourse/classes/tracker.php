@@ -3,8 +3,9 @@
 /**
  * Output tracker.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +15,6 @@ require_once($CFG->libdir . '/weblib.php');
 /**
  * Class output tracker.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * 
  */
 class tool_uploadcourse_tracker {
 

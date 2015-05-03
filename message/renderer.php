@@ -4,7 +4,7 @@
  * Contains renderer objects for messaging
  *
  * @package    core_message
- * @copyright  2011 Lancaster University Network Services Limited
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core_message
  * @subpackage message
- * @copyright  2011 Lancaster University Network Services Limited
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_message_renderer extends plugin_renderer_base {

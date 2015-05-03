@@ -6,9 +6,11 @@ defined('LION_INTERNAL') || die();
  * Automated unit testing. This tests the 'make large course' backend,
  * using the 'XS' option so that it completes quickly.
  *
- * @package tool_generator
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 class tool_generator_maketestcourse_testcase extends advanced_testcase {
     /**

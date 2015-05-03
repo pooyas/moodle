@@ -3,7 +3,7 @@
 
 /**
  * @package    workshopform_accumulative
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

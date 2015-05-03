@@ -8,7 +8,7 @@
  *
  * @package    core
  * @subpackage auth
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -68,7 +68,7 @@ define('AUTH_LOGIN_UNAUTHORISED', 5);
 /**
  * Abstract authentication plugin.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package lioncore
  */
 class auth_plugin_base {

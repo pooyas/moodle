@@ -4,7 +4,7 @@
  * Contains user interface tests.
  *
  * @package   core_backup
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ global $CFG;
  * ui tests (all)
  *
  * @package   core_backup
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui_testcase extends basic_testcase {

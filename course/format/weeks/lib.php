@@ -16,7 +16,7 @@ require_once($CFG->dirroot. '/course/format/lib.php');
  * Main class for the Weeks course format
  *
  * @package    format_weeks
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class format_weeks extends format_base {

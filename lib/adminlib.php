@@ -84,7 +84,7 @@
  *
  * @package    core
  * @subpackage admin
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -642,7 +642,7 @@ function enable_cli_maintenance_mode() {
  * block. It forces inheriting classes to define a method for checking user permissions
  * and methods for finding something in the admin tree.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface part_of_admin_tree {
 
@@ -715,7 +715,7 @@ interface part_of_admin_tree {
  * from ensuring part_of_admin_tree compliancy, it also ensures inheriting methods
  * include an add method for adding other part_of_admin_tree objects as children.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface parentable_part_of_admin_tree extends part_of_admin_tree {
 
@@ -746,7 +746,7 @@ interface parentable_part_of_admin_tree extends part_of_admin_tree {
  *
  * Each admin_category object contains a number of part_of_admin_tree objects.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_category implements parentable_part_of_admin_tree {
 
@@ -1104,7 +1104,7 @@ class admin_category implements parentable_part_of_admin_tree {
 /**
  * Root of admin settings tree, does not have any parent.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_root extends admin_category {
 /** @var array List of errors */
@@ -1168,7 +1168,7 @@ class admin_root extends admin_category {
  *
  * See detailed usage example at the top of this document (adminlib.php)
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_externalpage implements part_of_admin_tree {
 
@@ -1311,7 +1311,7 @@ class admin_externalpage implements part_of_admin_tree {
 /**
  * Used to group a number of admin_setting objects into a page and add them to the admin tree.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_settingpage implements part_of_admin_tree {
 
@@ -1514,7 +1514,7 @@ class admin_settingpage implements part_of_admin_tree {
  * Admin settings class. Only exists on setting pages.
  * Read & write happens at this level; no authentication.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class admin_setting {
     /** @var string unique ascii name, either 'mysetting' for settings that in config, or 'myplugin/mysetting' for ones in config_plugins. */
@@ -1892,7 +1892,7 @@ abstract class admin_setting {
  * An additional option that can be applied to an admin setting.
  * The currently supported options are 'ADVANCED' and 'LOCKED'.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_flag {
     /** @var bool Flag to indicate if this option can be toggled for this setting */
@@ -2016,7 +2016,7 @@ class admin_setting_flag {
 /**
  * No setting - just heading and text.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_heading extends admin_setting {
 
@@ -2077,7 +2077,7 @@ class admin_setting_heading extends admin_setting {
 /**
  * The most flexibly setting, user is typing text
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configtext extends admin_setting {
 
@@ -2172,7 +2172,7 @@ class admin_setting_configtext extends admin_setting {
 /**
  * General text area without html editor.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configtextarea extends admin_setting_configtext {
     private $rows;
@@ -2264,7 +2264,7 @@ class admin_setting_confightmleditor extends admin_setting_configtext {
 /**
  * Password field, allows unmasking of password
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configpasswordunmask extends admin_setting_configtext {
     /**
@@ -2346,7 +2346,7 @@ if (is_ie) {
  * Empty setting used to allow flags (advanced) on settings that can have no sensible default.
  * Note: Only advanced makes sense right now - locked does not.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configempty extends admin_setting_configtext {
 
@@ -2386,7 +2386,7 @@ class admin_setting_configempty extends admin_setting_configtext {
 /**
  * Path to directory
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configfile extends admin_setting_configtext {
     /**
@@ -2458,7 +2458,7 @@ class admin_setting_configfile extends admin_setting_configtext {
 /**
  * Path to executable file
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configexecutable extends admin_setting_configfile {
 
@@ -2498,7 +2498,7 @@ class admin_setting_configexecutable extends admin_setting_configfile {
 /**
  * Path to directory
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configdirectory extends admin_setting_configfile {
 
@@ -2538,7 +2538,7 @@ class admin_setting_configdirectory extends admin_setting_configfile {
 /**
  * Checkbox
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configcheckbox extends admin_setting {
     /** @var string Value used when checked */
@@ -2625,7 +2625,7 @@ class admin_setting_configcheckbox extends admin_setting {
 /**
  * Multiple checkboxes, each represents different value, stored in csv format
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configmulticheckbox extends admin_setting {
     /** @var array Array of choices value=>label */
@@ -2796,7 +2796,7 @@ class admin_setting_configmulticheckbox extends admin_setting {
 /**
  * Multiple checkboxes 2, value stored as string 00101011
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configmulticheckbox2 extends admin_setting_configmulticheckbox {
 
@@ -2854,7 +2854,7 @@ class admin_setting_configmulticheckbox2 extends admin_setting_configmulticheckb
 /**
  * Select one value from list
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configselect extends admin_setting {
     /** @var array Array of choices value=>label */
@@ -3013,7 +3013,7 @@ class admin_setting_configselect extends admin_setting {
 /**
  * Select multiple items from list
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configmultiselect extends admin_setting_configselect {
     /**
@@ -3152,7 +3152,7 @@ class admin_setting_configmultiselect extends admin_setting_configselect {
  * This is a liiitle bit messy. we're using two selects, but we're returning
  * them as an array named after $name (so we only use $name2 internally for the setting)
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configtime extends admin_setting {
     /** @var string Used for setting second select (minutes) */
@@ -3409,8 +3409,8 @@ class admin_setting_configduration extends admin_setting {
  * Seconds duration setting with an advanced checkbox, that controls a additional
  * $name.'_adv' setting.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @copyright 2014 The Open University
+ * 
+ * @copyright 2015 Pooya Saeedi
  */
 class admin_setting_configduration_with_advanced extends admin_setting_configduration {
     /**
@@ -3433,8 +3433,8 @@ class admin_setting_configduration_with_advanced extends admin_setting_configdur
 /**
  * Used to validate a textarea used for ip addresses
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @copyright 2011 Petr Skoda (http://skodak.org)
+ * 
+ * @copyright 2015 Pooya Saeedi 
  */
 class admin_setting_configiplist extends admin_setting_configtextarea {
 
@@ -3485,7 +3485,7 @@ class admin_setting_configiplist extends admin_setting_configtextarea {
  * To correctly get a list of users from this config setting, you need to call the
  * get_users_from_config($CFG->mysetting, $capability); function in lionlib.php.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_users_with_capability extends admin_setting_configmultiselect {
     /** @var string The capabilities name */
@@ -3601,7 +3601,7 @@ class admin_setting_users_with_capability extends admin_setting_configmultiselec
 /**
  * Special checkbox for calendar - resets SESSION vars.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_adminseesall extends admin_setting_configcheckbox {
     /**
@@ -3632,7 +3632,7 @@ class admin_setting_special_adminseesall extends admin_setting_configcheckbox {
 /**
  * Special select for settings that are altered in setup.php and can not be altered on the fly
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_selectsetup extends admin_setting_configselect {
     /**
@@ -3665,7 +3665,7 @@ class admin_setting_special_selectsetup extends admin_setting_configselect {
 /**
  * Special select for frontpage - stores data in course table
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_sitesetselect extends admin_setting_configselect {
     /**
@@ -3716,7 +3716,7 @@ class admin_setting_sitesetselect extends admin_setting_configselect {
  * Select for blog's bloglevel setting: if set to 0, will set blog_menu
  * block to hidden.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_bloglevel extends admin_setting_configselect {
     /**
@@ -3749,7 +3749,7 @@ class admin_setting_bloglevel extends admin_setting_configselect {
 /**
  * Special select - lists on the frontpage - hacky
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_courselist_frontpage extends admin_setting {
     /** @var array Array of choices value=>label */
@@ -3869,7 +3869,7 @@ class admin_setting_courselist_frontpage extends admin_setting {
 /**
  * Special checkbox for frontpage - stores data in course table
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_sitesetcheckbox extends admin_setting_configcheckbox {
     /**
@@ -3913,7 +3913,7 @@ class admin_setting_sitesetcheckbox extends admin_setting_configcheckbox {
  * Special text for frontpage - stores data in course table.
  * Empty string means not set here. Manual setting is required.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_sitesettext extends admin_setting_configtext {
     /**
@@ -3981,7 +3981,7 @@ class admin_setting_sitesettext extends admin_setting_configtext {
 /**
  * Special text editor for site description.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_frontpagedesc extends admin_setting {
     /**
@@ -4047,7 +4047,7 @@ class admin_setting_special_frontpagedesc extends admin_setting {
 /**
  * Administration interface for emoticon_manager settings.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_emoticons extends admin_setting {
 
@@ -4266,7 +4266,7 @@ class admin_setting_emoticons extends admin_setting {
 /**
  * Special setting for limiting of the list of available languages.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_langlist extends admin_setting_configtext {
     /**
@@ -4294,7 +4294,7 @@ class admin_setting_langlist extends admin_setting_configtext {
  * Selection of one of the recognised countries using the list
  * returned by {@link get_list_of_countries()}.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_settings_country_select extends admin_setting_configselect {
     protected $includeall;
@@ -4348,7 +4348,7 @@ class admin_settings_num_course_sections extends admin_setting_configselect {
 /**
  * Course category selection
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_settings_coursecat_select extends admin_setting_configselect {
     /**
@@ -4378,7 +4378,7 @@ class admin_settings_coursecat_select extends admin_setting_configselect {
 /**
  * Special control for selecting days to backup
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_backupdays extends admin_setting_configmulticheckbox2 {
     /**
@@ -4449,7 +4449,7 @@ class admin_setting_special_backup_auto_destination extends admin_setting_config
 /**
  * Special debug setting
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_debug extends admin_setting_configselect {
     /**
@@ -4481,7 +4481,7 @@ class admin_setting_special_debug extends admin_setting_configselect {
 /**
  * Special admin control
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_calendar_weekend extends admin_setting {
     /**
@@ -4565,7 +4565,7 @@ class admin_setting_special_calendar_weekend extends admin_setting {
 /**
  * Admin setting that allows a user to pick a behaviour.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_question_behaviour extends admin_setting_configselect {
     /**
@@ -4594,7 +4594,7 @@ class admin_setting_question_behaviour extends admin_setting_configselect {
 /**
  * Admin setting that allows a user to pick appropriate roles for something.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_pickroles extends admin_setting_configmulticheckbox {
     /** @var array Array of capabilities which identify roles */
@@ -4660,7 +4660,7 @@ class admin_setting_pickroles extends admin_setting_configmulticheckbox {
 /**
  * Text field with an advanced checkbox, that controls a additional $name.'_adv' setting.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configtext_with_advanced extends admin_setting_configtext {
     /**
@@ -4733,7 +4733,7 @@ class admin_setting_configcheckbox_with_lock extends admin_setting_configcheckbo
 /**
  * Dropdown menu with an advanced checkbox, that controls a additional $name.'_adv' setting.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configselect_with_advanced extends admin_setting_configselect {
     /**
@@ -4750,7 +4750,7 @@ class admin_setting_configselect_with_advanced extends admin_setting_configselec
 /**
  * Graded roles in gradebook
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_gradebookroles extends admin_setting_pickroles {
     /**
@@ -4766,7 +4766,7 @@ class admin_setting_special_gradebookroles extends admin_setting_pickroles {
 
 /**
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_regradingcheckbox extends admin_setting_configcheckbox {
     /**
@@ -4795,7 +4795,7 @@ class admin_setting_regradingcheckbox extends admin_setting_configcheckbox {
 /**
  * Which roles to show on course description page
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_coursecontact extends admin_setting_pickroles {
     /**
@@ -4811,7 +4811,7 @@ class admin_setting_special_coursecontact extends admin_setting_pickroles {
 
 /**
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_gradelimiting extends admin_setting_configcheckbox {
     /**
@@ -4858,7 +4858,7 @@ class admin_setting_special_gradelimiting extends admin_setting_configcheckbox {
 /**
  * Primary grade export plugin - has state tracking.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_gradeexport extends admin_setting_configmulticheckbox {
     /**
@@ -4893,7 +4893,7 @@ class admin_setting_special_gradeexport extends admin_setting_configmulticheckbo
 /**
  * A setting for setting the default grade point value. Must be an integer between 1 and $CFG->gradepointmax.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_gradepointdefault extends admin_setting_configtext {
     /**
@@ -4935,7 +4935,7 @@ class admin_setting_special_gradepointdefault extends admin_setting_configtext {
 /**
  * A setting for setting the maximum grade value. Must be an integer between 1 and 10000.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_gradepointmax extends admin_setting_configtext {
 
@@ -5016,7 +5016,7 @@ class admin_setting_special_gradepointmax extends admin_setting_configtext {
 /**
  * Grade category settings
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_gradecat_combo extends admin_setting {
     /** @var array Array of choices */
@@ -5149,7 +5149,7 @@ class admin_setting_gradecat_combo extends admin_setting {
 /**
  * Selection of grade report in user profiles
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_grade_profilereport extends admin_setting_configselect {
     /**
@@ -5190,7 +5190,7 @@ class admin_setting_grade_profilereport extends admin_setting_configselect {
 /**
  * Special class for register auth selection
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_special_registerauth extends admin_setting_configselect {
     /**
@@ -5263,7 +5263,7 @@ class admin_page_pluginsoverview extends admin_externalpage {
 /**
  * Module manage page
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_page_managemods extends admin_externalpage {
     /**
@@ -5318,8 +5318,8 @@ class admin_page_managemods extends admin_externalpage {
 /**
  * Special class for enrol plugins management.
  *
- * @copyright 2010 Petr Skoda {@link http://skodak.org}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class admin_setting_manageenrols extends admin_setting {
     /**
@@ -5544,7 +5544,7 @@ class admin_setting_manageenrols extends admin_setting {
 /**
  * Blocks manage page
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_page_manageblocks extends admin_externalpage {
     /**
@@ -5598,7 +5598,7 @@ class admin_page_manageblocks extends admin_externalpage {
 /**
  * Message outputs configuration
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_page_managemessageoutputs extends admin_externalpage {
     /**
@@ -5652,7 +5652,7 @@ class admin_page_managemessageoutputs extends admin_externalpage {
 /**
  * Default message outputs configuration
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_page_defaultmessageoutputs extends admin_page_managemessageoutputs {
     /**
@@ -5717,7 +5717,7 @@ class admin_page_manageqbehaviours extends admin_externalpage {
 /**
  * Question type manage page
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_page_manageqtypes extends admin_externalpage {
     /**
@@ -5866,7 +5866,7 @@ class admin_page_managerepositories extends admin_externalpage {
 /**
  * Special class for authentication administration.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_manageauths extends admin_setting {
     /**
@@ -6095,7 +6095,7 @@ class admin_setting_manageauths extends admin_setting {
 /**
  * Special class for authentication administration.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_manageeditors extends admin_setting {
     /**
@@ -6275,7 +6275,7 @@ class admin_setting_manageeditors extends admin_setting {
 /**
  * Special class for license administration.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_managelicenses extends admin_setting {
     /**
@@ -6516,7 +6516,7 @@ class admin_setting_manageformats extends admin_setting {
 /**
  * Special class for filter administration.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_page_managefilters extends admin_externalpage {
     /**
@@ -7147,7 +7147,7 @@ function db_replace($search, $replace) {
 /**
  * Manage repository settings
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_managerepository extends admin_setting {
 /** @var string */
@@ -8358,7 +8358,7 @@ class admin_setting_managewebservicetokens extends admin_setting {
  * Colour picker
  *
  * @copyright 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configcolourpicker extends admin_setting {
 
@@ -8516,8 +8516,8 @@ class admin_setting_configcolourpicker extends admin_setting {
  * Please note you need to implement your own '_pluginfile' callback function,
  * this setting only stores the file, it does not deal with file serving.
  *
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class admin_setting_configstoredfile extends admin_setting {
     /** @var array file area options - should be one file only */
@@ -8689,7 +8689,7 @@ class admin_setting_configstoredfile extends admin_setting {
 /**
  * Administration interface for user specified regular expressions for device detection.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_devicedetectregex extends admin_setting {
 
@@ -8881,7 +8881,7 @@ class admin_setting_devicedetectregex extends admin_setting {
 /**
  * Multiselect for current modules
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class admin_setting_configmultiselect_modules extends admin_setting_configmultiselect {
     private $excludesystem;

@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2014 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +17,8 @@ require_once($CFG->libdir . '/outputfactories.php');
 /**
  * This is renderer factory testing of the classname autoloading.
  *
- * @copyright 2014 Damyon Wiese
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @package core
  * @category phpunit
  */

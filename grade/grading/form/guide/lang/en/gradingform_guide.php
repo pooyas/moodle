@@ -4,7 +4,7 @@
  * Strings for the marking guide advanced grading plugin
  *
  * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

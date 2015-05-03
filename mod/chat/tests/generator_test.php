@@ -4,7 +4,7 @@
  * Genarator tests.
  *
  * @package    mod_chat
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -12,7 +12,7 @@
  * Genarator tests class.
  *
  * @package    mod_chat
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_chat_generator_testcase extends advanced_testcase {

@@ -5,7 +5,7 @@
  *
  * @package   core_grading
  * @category  test
- * @copyright 2013 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ use Behat\Gherkin\Node\TableNode as TableNode,
  *
  * @package   core_grading
  * @category  test
- * @copyright 2013 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_grading extends behat_base {

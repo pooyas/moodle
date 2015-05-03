@@ -4,7 +4,7 @@
 /**
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -33,7 +33,7 @@ define('TABLE_P_BOTTOM', 2);
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class flexible_table {
@@ -1354,7 +1354,7 @@ class flexible_table {
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_sql extends flexible_table {
@@ -1532,7 +1532,7 @@ class table_sql extends flexible_table {
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_default_export_format_parent {
@@ -1581,7 +1581,7 @@ class table_default_export_format_parent {
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_spreadsheet_export_format_parent extends table_default_export_format_parent {
@@ -1663,7 +1663,7 @@ class table_spreadsheet_export_format_parent extends table_default_export_format
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_excel_export_format extends table_spreadsheet_export_format_parent {
@@ -1681,7 +1681,7 @@ class table_excel_export_format extends table_spreadsheet_export_format_parent {
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_ods_export_format extends table_spreadsheet_export_format_parent {
@@ -1697,7 +1697,7 @@ class table_ods_export_format extends table_spreadsheet_export_format_parent {
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_text_export_format_parent extends table_default_export_format_parent {
@@ -1754,7 +1754,7 @@ class table_text_export_format_parent extends table_default_export_format_parent
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_tsv_export_format extends table_text_export_format_parent {
@@ -1766,7 +1766,7 @@ class table_tsv_export_format extends table_text_export_format_parent {
 require_once($CFG->libdir . '/csvlib.class.php');
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_csv_export_format extends table_text_export_format_parent {
@@ -1777,7 +1777,7 @@ class table_csv_export_format extends table_text_export_format_parent {
 
 /**
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class table_xhtml_export_format extends table_default_export_format_parent {

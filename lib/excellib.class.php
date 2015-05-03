@@ -3,7 +3,7 @@
 /**
  * Excel writer abstraction layer.
  *
- * @copyright  (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  * @package    core
  */
@@ -16,8 +16,8 @@ defined('LION_INTERNAL') || die();
  * This class acts as a wrapper around another library
  * maintaining Lion functions isolated from underlying code.
  *
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @package lioncore
  */
 class LionExcelWorkbook {
@@ -130,7 +130,7 @@ class LionExcelWorkbook {
  * This class acts as a wrapper around another library
  * maintaining Lion functions isolated from underlying code.
  *
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package   core
  */
@@ -429,8 +429,8 @@ class LionExcelWorksheet {
  * A big part of this class acts as a wrapper over other libraries
  * maintaining Lion functions isolated from underlying code.
  *
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @package lioncore
  */
 class LionExcelFormat {

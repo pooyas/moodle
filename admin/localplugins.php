@@ -1,15 +1,14 @@
 <?php
 
-
 /**
  * Provides an overview of installed local plugins
  *
  * Displays the list of found local plugins, their version (if found) and
  * a link to delete the local plugin.
  *
- * @see       http://docs.lion.org/dev/Local_customisation
- * @package   admin
- * @copyright 2010 David Mudrak <david.mudrak@gmail.com>
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

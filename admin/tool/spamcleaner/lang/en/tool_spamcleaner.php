@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_spamcleaner', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_spamcleaner', language 'en'
  *
  * @package    tool
  * @subpackage spamcleaner
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

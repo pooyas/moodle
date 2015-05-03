@@ -7,7 +7,7 @@
  * @category completion
  * @copyright 2009 Catalyst IT Ltd
  * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  * @category completion
  * @copyright 2009 Catalyst IT Ltd
  * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class completion_criteria_duration extends completion_criteria {
 

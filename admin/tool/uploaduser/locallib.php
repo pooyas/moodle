@@ -5,7 +5,7 @@
  *
  * @package    tool
  * @subpackage uploaduser
- * @copyright  2004 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -37,7 +37,7 @@ define('UU_PWRESET_ALL', 2);
  *
  * @package    core
  * @subpackage admin
- * @copyright  2007 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2007 Petr Skoda  
  * 
  */
 class uu_progress_tracker {

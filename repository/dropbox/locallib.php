@@ -5,7 +5,7 @@
  *
  * @since Lion 2.0
  * @package    repository_dropbox
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * @copyright  2010 Dongsheng Cai
  * @author     Dongsheng Cai <dongsheng@lion.com>
  * 

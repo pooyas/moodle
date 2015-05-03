@@ -6,7 +6,7 @@
  * @package format_weeks
  * @copyright 2006 The Open University
  * @author N.D.Freear@open.ac.uk, and others.
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();

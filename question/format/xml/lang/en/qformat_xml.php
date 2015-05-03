@@ -4,7 +4,7 @@
  * Strings for component 'qformat_xml', language 'en', branch 'LION_20_STABLE'
  *
  * @package    qformat_xml
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

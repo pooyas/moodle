@@ -5,7 +5,7 @@
  * URL module main user interface
  *
  * @package    mod_url
- * @copyright  2009 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2009 Petr Skoda  
  * 
  */
 

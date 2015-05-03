@@ -4,8 +4,8 @@
  * Unit tests for the component and plugin definitions for availability system.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -14,8 +14,8 @@ defined('LION_INTERNAL') || die();
  * Unit tests for the component and plugin definitions for availability system.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_availability_component_testcase extends advanced_testcase {
     /**

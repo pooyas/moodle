@@ -3,8 +3,9 @@
 /**
  * Renderable class to display a set of rules in the manage subscriptions page.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,10 +18,6 @@ require_once($CFG->libdir . '/tablelib.php');
 /**
  * Renderable class to display a set of rules in the manage subscriptions page.
  *
- * @since      Lion 2.8
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * 
  */
 class rules extends \table_sql implements \renderable {
 

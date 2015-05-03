@@ -41,7 +41,7 @@ define('TOCFULLURL', 2);
 
 /**
  * @package   mod_scorm
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class scorm_package_file_info extends file_info_stored {

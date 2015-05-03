@@ -3,8 +3,9 @@
 /**
  * Behat commands
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
+ * @package    tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,6 @@ require_once($CFG->dirroot . '/' . $CFG->admin . '/tool/behat/steps_definitions_
 /**
  * Behat commands manager
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
- * 
  */
 class tool_behat {
 

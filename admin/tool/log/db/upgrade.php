@@ -3,8 +3,9 @@
 /**
  * Logging support.
  *
- * @package    tool_log
- * @copyright  2014 Petr Skoda {@link http://skodak.org}
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -28,12 +29,6 @@ function xmldb_tool_log_upgrade($oldversion) {
         xmldb_tool_log_install();
         upgrade_plugin_savepoint(true, 2014040600, 'tool', 'log');
     }
-
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

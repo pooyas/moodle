@@ -7,7 +7,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -40,7 +40,7 @@ use Behat\Behat\Event\SuiteEvent as SuiteEvent,
  *
  * @package   core
  * @category  test
- * @copyright 2012 David Monllaó
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_hooks extends behat_base {

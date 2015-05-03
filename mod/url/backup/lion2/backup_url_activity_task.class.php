@@ -7,7 +7,7 @@
  * @package     mod_url
  * @category    backup
  * @copyright   2010 onwards Andrew Davis
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die;

@@ -12,7 +12,7 @@
  * used and their size.
  *
  * @package    repository_boxnet
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  * @todo       Deprecate/remove this tool after the 14th of December 2013.
  */

@@ -6,7 +6,7 @@
  * This class provides all the functionality for the new assign module.
  *
  * @package assignsubmission_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -22,7 +22,7 @@ define('ASSIGNSUBMISSION_FILE_FILEAREA', 'submission_files');
  * Library class for file submission plugin extending submission plugin base class
  *
  * @package   assignsubmission_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assign_submission_file extends assign_submission_plugin {

@@ -3,9 +3,10 @@
 /**
  * Behat steps definitions for Language import tool
  *
- * @package   tool_langimport
- * @category  test
- * @copyright 2014 Dan Poltawski <dan@lion.com>
+ * @package    tool
+ * @subpackage langimport
+ * @category   test
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +19,6 @@ use Lion\BehatExtension\Exception\SkippedException;
 /**
  * Steps definitions related with the Language import tool
  *
- * @package   tool_langimport
- * @category  test
- * @copyright 2014 Dan Poltawski <dan@lion.com>
- * 
  */
 class behat_tool_langimport extends behat_base {
 

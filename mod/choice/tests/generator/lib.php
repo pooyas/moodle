@@ -6,7 +6,7 @@
  * @package mod_choice
  * @category test
  * @copyright 2013 Adrian Greeve <adrian@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * @package mod_choice
  * @category test
  * @copyright 2013 Adrian Greeve <adrian@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_choice_generator extends testing_module_generator {
 

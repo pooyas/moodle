@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_health', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_health', language 'en'
  *
  * @package    tool
  * @subpackage health
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -652,8 +652,6 @@ class problem_000017 extends problem_base {
 /**
  * Check course categories tree structure for problems.
  *
- * @copyright  2013 Marko Vidberg
- * 
  */
 class problem_000018 extends problem_base {
     /**

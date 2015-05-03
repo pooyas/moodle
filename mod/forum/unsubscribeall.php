@@ -3,7 +3,7 @@
 
 /**
  * @package   mod_forum
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

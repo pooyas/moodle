@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * script for bulk user message form
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+ */
+
 if (!defined('LION_INTERNAL')) {
     die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }

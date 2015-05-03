@@ -5,7 +5,7 @@
  *
  * @package    filter
  * @subpackage urltolink
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

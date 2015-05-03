@@ -3,8 +3,9 @@
 /**
  * Helper trait buffered_writer
  *
- * @package    tool_log
- * @copyright  2014 onwards Ankit Agarwal
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Helper trait buffered_writer. Adds buffer support for the store.
  *
- * @package    tool_log
- * @copyright  2014 onwards Ankit Agarwal
- * 
  */
 trait buffered_writer {
 

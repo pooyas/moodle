@@ -4,7 +4,7 @@
  * Variable Envelope Return Path message processing failure exception.
  *
  * @package    core_message
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Variable Envelope Return Path message processing failure exception.
  *
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
  * 
  */
 class processing_failed_exception extends \lion_exception {

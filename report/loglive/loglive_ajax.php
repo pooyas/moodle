@@ -4,7 +4,7 @@
  * Ajax responder page.
  *
  * @package    report_loglive
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -4,7 +4,7 @@
  * Session manager class.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  * - session_destroy() - use require_logout() instead.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class manager {

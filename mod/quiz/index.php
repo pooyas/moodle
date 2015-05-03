@@ -4,7 +4,7 @@
  * This script lists all the instances of quiz in a particular course
  *
  * @package    mod_quiz
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

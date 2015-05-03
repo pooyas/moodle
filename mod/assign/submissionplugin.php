@@ -6,7 +6,7 @@
  * This class provides all the functionality for submission plugins.
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/mod/assign/assignmentplugin.php');
  * Abstract base class for submission plugin types.
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 abstract class assign_submission_plugin extends assign_plugin {

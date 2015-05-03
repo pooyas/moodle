@@ -5,7 +5,7 @@
  *
  * @package    enrol_imsenterprise
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/enrol/imsenterprise/lib.php');
  *
  * @package    enrol_imsenterprise
  * @category   test
- * @copyright  2012 David Monllaó
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class enrol_imsenterprise_testcase extends advanced_testcase {

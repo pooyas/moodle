@@ -4,8 +4,8 @@
  * Observer handling events.
  *
  * @package availability_grade
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace availability_grade;
@@ -19,8 +19,8 @@ defined('LION_INTERNAL') || die();
  * hard-coded. (The new event system is not suitable for this type of use.)
  *
  * @package availability_grade
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class callbacks {
     /**

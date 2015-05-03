@@ -8,7 +8,7 @@
  * @category completion
  * @copyright 2009 Catalyst IT Ltd
  * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -21,7 +21,7 @@ require_once($CFG->dirroot.'/completion/data_object.php');
  * @category completion
  * @copyright 2009 Catalyst IT Ltd
  * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class completion_aggregation extends data_object {
 

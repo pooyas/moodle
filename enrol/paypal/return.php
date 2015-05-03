@@ -4,7 +4,7 @@
  * Paypal utility script
  *
  * @package    enrol_paypal
- * @copyright  2004 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

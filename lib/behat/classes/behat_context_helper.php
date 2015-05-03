@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   test
- * @copyright  2014 David Monllaó
+ * @copyright  2014 2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ use Behat\Mink\Session as Session,
  *
  * @package    core
  * @category   test
- * @copyright  2014 David Monllaó
+ * @copyright  2014 2015 Pooya Saeedi
  * 
  */
 class behat_context_helper {

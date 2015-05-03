@@ -5,8 +5,8 @@
  *
  * @package     mod_imscp
  * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/mod/imscp/backup/lion2/backup_imscp_stepslib.php'
 /**
  * Provides the steps to perform one complete backup of the IMSCP instance
  *
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_imscp_activity_task extends backup_activity_task {

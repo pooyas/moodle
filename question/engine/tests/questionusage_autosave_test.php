@@ -5,7 +5,7 @@
  *
  * @package    lioncore
  * @subpackage questionengine
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the autosave parts of the {@link question_usage} class.
  *
- * @copyright 2013 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class question_usage_autosave_test extends qbehaviour_walkthrough_test_base {

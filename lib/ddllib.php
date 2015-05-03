@@ -23,7 +23,7 @@
  * @package    core
  * @subpackage ddl
  * @copyright  2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- *             2008 Petr Skoda                   http://skodak.org
+ *             2015 Pooya Saeedi                   http://skodak.org
  * 
  */
 

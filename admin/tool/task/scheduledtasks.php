@@ -3,8 +3,9 @@
 /**
  * Scheduled task admin pages.
  *
- * @package    tool_task
- * @copyright  2013 Damyon Wiese <damyon@lion.com>
+ * @package    tool
+ * @subpackage task
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

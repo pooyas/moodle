@@ -3,8 +3,9 @@
 /**
  * Defines the renderer for the assignment upgrade helper plugin.
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
+ * @package    tool
+ * @subpackage assignmentupgrade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Renderer for the assignment upgrade helper plugin.
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
- * 
  */
 class tool_assignmentupgrade_renderer extends plugin_renderer_base {
 

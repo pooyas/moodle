@@ -4,9 +4,9 @@
 /**
  * This file contains functions used by the admin pages
  *
- * @since Lion 2.1
- * @package admin
- * @copyright 2011 Andrew Davis
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

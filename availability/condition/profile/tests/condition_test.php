@@ -4,8 +4,8 @@
  * Unit tests for the user profile condition.
  *
  * @package availability_profile
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,8 +16,8 @@ use availability_profile\condition;
  * Unit tests for the user profile condition.
  *
  * @package availability_profile
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class availability_profile_condition_testcase extends advanced_testcase {
     /** @var profile_define_text Profile field for testing */

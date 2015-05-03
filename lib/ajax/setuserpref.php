@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   preference
- * @copyright  2008 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

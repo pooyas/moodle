@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage multichoice
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->libdir . '/questionlib.php');
 /**
  * The multiple choice question type.
  *
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice extends question_type {

@@ -3,7 +3,7 @@
 /**
  * @package    mod_quiz
  * @subpackage backup-lion2
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/mod/quiz/backup/lion2/restore_quiz_stepslib.php')
  * quiz restore task that provides all the settings and steps to perform one
  * complete restore of the activity
  *
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class restore_quiz_activity_task extends restore_activity_task {

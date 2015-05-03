@@ -5,7 +5,7 @@
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
  * @package mod_page
- * @copyright  2011 Andrew Davis <andrew@lion.com>
+ * @copyright  2015 Pooya Saeedi <andrew@lion.com>
  * 
  */
 

@@ -4,7 +4,7 @@
  * Googledocs repository upgrade script.
  *
  * @package   repository_googledocs
- * @copyright 2013 Dan Poltawski <dan@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

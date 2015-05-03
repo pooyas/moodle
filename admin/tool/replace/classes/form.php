@@ -3,8 +3,9 @@
 /**
  * Site wide search-replace form.
  *
- * @package    tool_replace
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @package    tool
+ * @subpackage replace
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Course overview block
  *
  * @package    block_course_overview
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once($CFG->dirroot.'/blocks/course_overview/locallib.php');
@@ -12,7 +12,7 @@ require_once($CFG->dirroot.'/blocks/course_overview/locallib.php');
 /**
  * Course overview block
  *
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class block_course_overview extends block_base {

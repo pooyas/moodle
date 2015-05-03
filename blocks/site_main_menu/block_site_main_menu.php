@@ -4,7 +4,7 @@
  * Site main menu block.
  *
  * @package    block_site_main_menu
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

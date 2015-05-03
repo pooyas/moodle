@@ -2,6 +2,10 @@
 
 /**
  * Allows admin to configure editors.
+ * 
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

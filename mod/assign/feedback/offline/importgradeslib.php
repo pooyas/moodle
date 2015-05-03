@@ -4,7 +4,7 @@
  * This file contains the forms to create and edit an instance of this module
  *
  * @package assignfeedback_offline
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die('Direct access to this script is forbidden.');
  * CSV Grade importer
  *
  * @package   assignfeedback_offline
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assignfeedback_offline_grade_importer {

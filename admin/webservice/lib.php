@@ -4,7 +4,7 @@
  * Web services admin library
  *
  * @package   webservice
- * @copyright 2009 Lion Pty Ltd (http://lion.com)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

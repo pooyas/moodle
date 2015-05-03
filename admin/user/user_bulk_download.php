@@ -1,6 +1,9 @@
 <?php
 /**
 * script for downloading of user lists
+* @package    core
+* @subpackage user
+* @copyright  2015 Pooya Saeedi
 */
 
 require_once('../../config.php');

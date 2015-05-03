@@ -6,8 +6,8 @@
  *
  * @package     mod_workshop
  * @category    backup
- * @copyright   2010 David Mudrak <david.mudrak@gmail.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();

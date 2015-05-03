@@ -4,8 +4,8 @@
  * Unit tests for the completion condition.
  *
  * @package availability_completion
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -19,8 +19,8 @@ require_once($CFG->libdir . '/completionlib.php');
  * Unit tests for the completion condition.
  *
  * @package availability_completion
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class availability_completion_condition_testcase extends advanced_testcase {
     /**

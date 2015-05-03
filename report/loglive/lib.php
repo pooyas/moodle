@@ -6,7 +6,7 @@
  * NOTE: page type not included because there can not be any blocks in popups
  *
  * @package    report_loglive
- * @copyright  2011 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

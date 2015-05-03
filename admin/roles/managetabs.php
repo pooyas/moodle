@@ -3,8 +3,9 @@
 /**
  * Defines the tab bar used on the manage/allow assign/allow overrides pages.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    core
+ * @subpackage role
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

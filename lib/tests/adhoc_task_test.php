@@ -19,7 +19,7 @@ require_once(__DIR__ . '/fixtures/task_fixtures.php');
  * @package core
  * @category task
  * @copyright 2013 Damyon Wiese
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_adhoc_task_testcase extends advanced_testcase {
 

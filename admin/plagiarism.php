@@ -6,9 +6,9 @@
  * Displays the list of found plagiarism plugins, their version (if found) and
  * a link to uninstall the plagiarism plugin.
  *
- * @see       http://docs.lion.org/dev/Plagiarism_API
- * @package   admin
- * @copyright 2012 Dan Marsden <dan@danmarsden.com>
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,9 +3,10 @@
 /**
  * Display the custom file type settings page.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage filetypes
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 require(__DIR__ . '/../../../config.php');

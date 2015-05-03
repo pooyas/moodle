@@ -4,7 +4,7 @@
  * Save and load draft text while a user is still editing a form.
  *
  * @package    editor_atto
- * @copyright  2014 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

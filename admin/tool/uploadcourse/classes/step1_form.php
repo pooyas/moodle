@@ -3,8 +3,9 @@
 /**
  * File containing the step 1 of the upload form.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Upload a file CVS file with course information.
  *
- * @package    tool_uploadcourse
- * @copyright  2011 Piers Harding
- * 
  */
 class tool_uploadcourse_step1_form extends tool_uploadcourse_base_form {
 

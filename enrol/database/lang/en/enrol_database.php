@@ -4,7 +4,7 @@
  * Strings for component 'enrol_database', language 'en'.
  *
  * @package   enrol_database
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

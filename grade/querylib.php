@@ -5,7 +5,7 @@
  *
  * @package   core_grades
  * @category  grade
- * @copyright 2008 Petr Skoda and Nicolas Connault
+ * @copyright 2015 Pooya Saeedi and Nicolas Connault
  * 
  */
 

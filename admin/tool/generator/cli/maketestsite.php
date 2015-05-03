@@ -3,9 +3,10 @@
 /**
  * CLI interface for creating a test site.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 define('CLI_SCRIPT', true);

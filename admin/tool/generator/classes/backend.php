@@ -3,9 +3,10 @@
 /**
  * Backend generic code.
  *
- * @package tool_generator
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
  * Backend generic code for all tool_generator commands.
  *
  * @abstract
- * @package tool_generator
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class tool_generator_backend {
     /**

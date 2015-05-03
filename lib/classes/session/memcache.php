@@ -10,8 +10,8 @@
  * if you specify multiple servers.
  *
  * @package core
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace core\session;
@@ -22,8 +22,8 @@ defined('LION_INTERNAL') || die();
  * Memcache based session handler.
  *
  * @package core
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class memcache extends handler {
     /** @var string $savepath save_path string  */

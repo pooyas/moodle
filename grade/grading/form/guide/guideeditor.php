@@ -4,7 +4,7 @@
  * This file contains the marking guide editor element
  *
  * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ require_once("HTML/QuickForm/input.php");
  * The editor for the marking guide advanced grading plugin.
  *
  * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class lionquickform_guideeditor extends HTML_QuickForm_input {

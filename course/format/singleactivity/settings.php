@@ -4,7 +4,7 @@
  * Settings for format_singleactivity
  *
  * @package    format_singleactivity
- * @copyright  2012 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

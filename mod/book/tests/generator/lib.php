@@ -5,7 +5,7 @@
  *
  * @package    mod_book
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_book
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_book_generator extends testing_module_generator {

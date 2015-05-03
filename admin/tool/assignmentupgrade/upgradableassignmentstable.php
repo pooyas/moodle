@@ -3,8 +3,9 @@
 /**
  * This file contains the definition for the grading table which subclassses easy_table
  *
- * @package   tool_assignmentupgrade
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @package    tool
+ * @subpackage assignmentupgrade
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->dirroot.'/mod/assign/locallib.php');
 /**
  * Extends table_sql to provide a table of assignment submissions
  *
- * @package   tool_assignmentupgrade
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * 
  */
 class tool_assignmentupgrade_assignments_table extends table_sql implements renderable {
 

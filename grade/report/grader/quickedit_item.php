@@ -4,7 +4,7 @@
  * Allow the editing of grades for a grade item
  *
  * @package   gradereport_grader
- * @copyright 2009 Nicolas Connault
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

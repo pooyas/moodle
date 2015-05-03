@@ -6,7 +6,7 @@
  * @package core_message
  * @category test
  * @copyright 2015 onwards Ankit Agarwal
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -19,7 +19,7 @@ global $CFG;
  * @package core_message
  * @category test
  * @copyright 2015 onwards Ankit Agarwal
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_message_testcase extends advanced_testcase {
 

@@ -4,7 +4,7 @@
  * The report_questioninstances report viewed event.
  *
  * @package    report_questioninstances
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace report_questioninstances\event;
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    report_questioninstances
  * @since      Lion 2.7
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class report_viewed extends \core\event\base {

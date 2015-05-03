@@ -4,7 +4,7 @@
  * Strings for component 'atto_accessibilitychecker', language 'en'.
  *
  * @package    atto_accessibilitychecker
- * @copyright  2014 Damyon Wiese  <damyon@lion.com>
+ * @copyright  2015 Pooya Saeedi  <damyon@lion.com>
  * 
  */
 

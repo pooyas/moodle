@@ -4,8 +4,8 @@
  * Unit tests for info and subclasses.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -18,8 +18,8 @@ use core_availability\info_section;
  * Unit tests for info and subclasses.
  *
  * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class info_testcase extends \advanced_testcase {
     public function setUp() {

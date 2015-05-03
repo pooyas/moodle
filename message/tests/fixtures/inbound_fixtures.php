@@ -4,7 +4,7 @@
  * Fixtures for Inbound Message tests.
  *
  * @package    core_message
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
 /**
  * A base handler for unit testing.
  *
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class handler_base extends \core\message\inbound\handler {
@@ -43,7 +43,7 @@ class handler_base extends \core\message\inbound\handler {
 /**
  * A handler for unit testing.
  *
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class handler_one extends handler_base {
@@ -52,7 +52,7 @@ class handler_one extends handler_base {
 /**
  * A handler for unit testing.
  *
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class handler_two extends handler_base {
@@ -61,7 +61,7 @@ class handler_two extends handler_base {
 /**
  * A handler for unit testing.
  *
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class handler_three extends handler_base {
@@ -70,7 +70,7 @@ class handler_three extends handler_base {
 /**
  * A handler for unit testing.
  *
- * @copyright  2014 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class handler_four extends handler_base {

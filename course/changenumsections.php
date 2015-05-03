@@ -6,8 +6,8 @@
  * or decreased, redirecting to the course page.
  *
  * @package core_course
- * @copyright 2012 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  * @since Lion 2.3
  */
 

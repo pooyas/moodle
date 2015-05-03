@@ -6,7 +6,7 @@
  * @package core_portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
  *            Martin Dougiamas (http://dougiamas.com)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -27,7 +27,7 @@ require_once ($CFG->libdir.'/formslib.php');
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 final class portfolio_export_form extends lionform {
 
@@ -123,7 +123,7 @@ final class portfolio_export_form extends lionform {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 final class portfolio_admin_form extends lionform {
 
@@ -239,7 +239,7 @@ final class portfolio_admin_form extends lionform {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 final class portfolio_user_form extends lionform {
 
@@ -291,7 +291,7 @@ final class portfolio_user_form extends lionform {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class portfolio_instance_select extends lionform {
 

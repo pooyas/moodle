@@ -5,7 +5,7 @@
  *
  * @package    mod_workshop
  * @category   phpunit
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,7 +6,7 @@
  * Please note functions may throw exceptions, please ensure your JS handles them as well as the outcome objects.
  *
  * @package    core_course
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

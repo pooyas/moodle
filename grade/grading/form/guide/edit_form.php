@@ -4,7 +4,7 @@
  * The form used at the guide editor page is defined here
  *
  * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ LionQuickForm::registerElementType('guideeditor', $CFG->dirroot.'/grade/grading/
  * Defines the guide edit form
  *
  * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class gradingform_guide_editguide extends lionform {

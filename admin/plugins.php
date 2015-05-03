@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * UI for general plugins management
  *

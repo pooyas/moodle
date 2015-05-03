@@ -3,8 +3,9 @@
 /**
  * Search and replace strings throughout all texts in the whole database.
  *
- * @package    tool_replace
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    tool
+ * @subpackage replace
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

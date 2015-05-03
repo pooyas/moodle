@@ -4,7 +4,7 @@
  * Cohort related management functions, this file needs to be included manually.
  *
  * @package    core_cohort
- * @copyright  2010 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2010 Petr Skoda  
  * 
  */
 

@@ -7,7 +7,7 @@
  * @package     mod_lesson
  * @category    backup
  * @copyright   2015 Pooya Saeedi
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();

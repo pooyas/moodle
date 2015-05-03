@@ -12,7 +12,7 @@
  * One big advantage to this method is that we provide consistent debugging for renamed classes when they are used.
  *
  * @package    scormreport_objectives
- * @copyright  2014 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,9 +3,9 @@
 /**
  * This file is used to display a categories sub categories, external pages, and settings.
  *
- * @since      Lion 2.3
- * @package    admin
- * @copyright  2011 Sam Hemelryk
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

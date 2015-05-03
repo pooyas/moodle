@@ -5,7 +5,7 @@
  *
  * @package   enrol_category
  * @category  event
- * @copyright 2010 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

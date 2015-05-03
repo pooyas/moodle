@@ -5,7 +5,7 @@
  *
  * @package    editor_atto
  * @category   test
- * @copyright  2014 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@
  *
  * @package    editor_atto
  * @category   test
- * @copyright  2014 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_editor_atto extends behat_base {

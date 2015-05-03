@@ -4,7 +4,7 @@
  * Unit tests for the mulitple choice question definition class.
  *
  * @package    qtype_multichoice
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

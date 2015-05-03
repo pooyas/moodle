@@ -4,7 +4,8 @@
  * Filter management page.
  *
  * @package    core
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -9,7 +9,7 @@ require_once($CFG->libdir . '/portfolio/caller.php');
 
 /**
  * @package   mod_chat
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class chat_portfolio_caller extends portfolio_module_caller_base {

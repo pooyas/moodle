@@ -4,9 +4,10 @@
 /**
  * The main screen of the tool.
  *
- * @package     tool_installaddon
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool
+ * @subpackage  installaddon
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 require(dirname(__FILE__) . '/../../../config.php');

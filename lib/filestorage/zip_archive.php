@@ -4,7 +4,7 @@
  * Implementation of zip file archive.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -17,7 +17,7 @@ require_once("$CFG->libdir/filestorage/file_archive.php");
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 class zip_archive extends file_archive {

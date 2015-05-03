@@ -5,7 +5,7 @@
  * Label module upgrade
  *
  * @package mod_label
- * @copyright  2006 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package    repository_merlot
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  *
  * @package    repository_merlot
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class repository_merlot_generator extends testing_repository_generator {

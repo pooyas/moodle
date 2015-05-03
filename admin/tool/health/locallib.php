@@ -3,8 +3,9 @@
 /**
  * Functions used by the health tool.
  *
- * @package    tool_health
- * @copyright  2013 Marko Vidberg
+ * @package    tool
+ * @subpackage health
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

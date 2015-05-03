@@ -5,7 +5,7 @@
  * This file is responsible for producing the survey reports
  *
  * @package   mod_survey
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

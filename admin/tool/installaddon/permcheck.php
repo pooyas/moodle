@@ -4,10 +4,10 @@
 /**
  * Checks the write permission for the given plugin type
  *
- * @package     tool_installaddon
- * @subpackage  ajax
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool
+ * @subpackage  installaddon
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 define('AJAX_SCRIPT', true);

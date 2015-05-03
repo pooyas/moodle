@@ -5,7 +5,7 @@
  * This page lists all the instances of lesson in a particular course
  *
  * @package mod_lesson
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  **/
 

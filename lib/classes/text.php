@@ -4,7 +4,7 @@
  * Defines string apis
  *
  * @package    core
- * @copyright  (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -29,7 +29,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package   core
  * @category  string
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_text {

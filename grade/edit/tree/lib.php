@@ -4,7 +4,7 @@
  * A library of classes used by the grade edit pages
  *
  * @package   core_grades
- * @copyright 2009 Nicolas Connault
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

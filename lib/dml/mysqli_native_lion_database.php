@@ -4,7 +4,7 @@
  * Native mysqli class representing lion database interface.
  *
  * @package    core_dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -18,7 +18,7 @@ require_once(__DIR__.'/mysqli_native_lion_temptables.php');
  * Native mysqli class representing lion database interface.
  *
  * @package    core_dml
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class mysqli_native_lion_database extends lion_database {

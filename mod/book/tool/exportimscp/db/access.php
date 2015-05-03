@@ -4,7 +4,7 @@
  * Book module capability definition
  *
  * @package    booktool_exportimscp
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

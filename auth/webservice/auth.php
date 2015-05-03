@@ -5,7 +5,7 @@
  * TODO: add IP restrictions and some other features - MDL-17135
  *
  * @package    auth_webservice
- * @copyright  2008 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

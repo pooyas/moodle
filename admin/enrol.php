@@ -4,8 +4,8 @@
  * Enrol config manipulation script.
  *
  * @package    core
- * @subpackage enrol
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

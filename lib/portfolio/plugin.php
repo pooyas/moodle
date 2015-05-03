@@ -26,7 +26,7 @@ defined('LION_INTERNAL') || die();
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class portfolio_plugin_base {
 
@@ -734,7 +734,7 @@ abstract class portfolio_plugin_base {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class portfolio_plugin_push_base extends portfolio_plugin_base {
 
@@ -758,7 +758,7 @@ abstract class portfolio_plugin_push_base extends portfolio_plugin_base {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class portfolio_plugin_pull_base extends portfolio_plugin_base {
 

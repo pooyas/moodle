@@ -4,9 +4,9 @@
  * This is the main script for the complete XMLDB interface. From here
  * all the actions supported will be launched.
  *
- * @package    tool_xmldb
- * @copyright  (C) 1999 onwards Martin Dougiamas http://dougiamas.com,
- *             (C) 2001-3001 Eloy Lafuente (stronk7) http://contiento.com
+ * @package    tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

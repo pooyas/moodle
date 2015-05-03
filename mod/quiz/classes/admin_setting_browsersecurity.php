@@ -4,7 +4,7 @@
  * Admin settings class for the quiz browser security option.
  *
  * @package   mod_quiz
- * @copyright 2008 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

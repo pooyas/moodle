@@ -7,7 +7,7 @@
  * most ppl actually expect enrolments to be suspended only...
  *
  * @package    core_enrol
- * @copyright  2011 Petr skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

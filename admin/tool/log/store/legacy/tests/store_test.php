@@ -3,8 +3,10 @@
 /**
  * Legacy log store tests.
  *
- * @package    logstore_legacy
- * @copyright  2014 Petr Skoda {@link http://skodak.org/}
+ * @package    tool
+ * @subpackage log
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

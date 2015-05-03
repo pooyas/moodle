@@ -4,7 +4,7 @@
  * MathJax filter version information
  *
  * @package    filter_mathjaxloader
- * @copyright  2014 Damyon Wiese (damyon@lion.com)
+ * @copyright  2015 Pooya Saeedi (damyon@lion.com)
  * 
  */
 

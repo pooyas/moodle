@@ -4,7 +4,7 @@
  * Unit tests for the description question type class.
  *
  * @package    qtype_description
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once($CFG->dirroot . '/question/type/description/edit_description_form.p
 /**
  * Unit tests for the description question type class.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_description_test extends advanced_testcase {

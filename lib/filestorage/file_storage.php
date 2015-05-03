@@ -5,7 +5,7 @@
  * Core file storage class definition.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -24,7 +24,7 @@ require_once("$CFG->libdir/filestorage/stored_file.php");
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  * @since     Lion 2.0
  */

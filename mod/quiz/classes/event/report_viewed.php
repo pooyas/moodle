@@ -4,7 +4,7 @@
  * The mod_quiz report viewed event.
  *
  * @package    mod_quiz
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_quiz
  * @since      Lion 2.7
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class report_viewed extends \core\event\base {

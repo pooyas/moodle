@@ -1,6 +1,12 @@
 <?php
 
-    // Allows the admin to configure blocks (hide/show, uninstall and configure)
+/**
+ * Allows the admin to configure blocks (hide/show, uninstall and configure)
+ *
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+ */
 
     require_once('../config.php');
     require_once($CFG->libdir.'/adminlib.php');

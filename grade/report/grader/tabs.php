@@ -4,7 +4,7 @@
  * Outputs navigation tabs for the grader report
  *
  * @package   gradereport_grader
- * @copyright 2007 2009 Nicolas Connault
+ * @copyright 2007 2015 Pooya Saeedi
  * 
  */
 

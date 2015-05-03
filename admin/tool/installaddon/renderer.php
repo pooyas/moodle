@@ -4,10 +4,10 @@
 /**
  * Output rendering for the plugin.
  *
- * @package     tool_installaddon
- * @category    output
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool
+ * @subpackage  installaddon
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Implements the plugin renderer
  *
- * @copyright 2013 David Mudrak <david@lion.com>
- * 
  */
 class tool_installaddon_renderer extends plugin_renderer_base {
 

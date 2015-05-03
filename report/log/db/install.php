@@ -6,7 +6,7 @@
  * Contains code that are run during the installation of report/logs
  *
  * @package    report_log
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

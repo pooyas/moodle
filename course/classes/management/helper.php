@@ -4,7 +4,7 @@
  * Course and category management helper class.
  *
  * @package    core_course
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die;
  *      having to include any logic or capability checks.
  *
  * @package    core_course
- * @copyright  2013 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class helper {

@@ -3,8 +3,9 @@
 /**
  * Version details.
  *
- * @package    tool_capability
- * @copyright  2011 Petr Skoda
+ * @package    tool
+ * @subpackage capability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

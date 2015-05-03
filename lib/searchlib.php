@@ -4,7 +4,7 @@
 /**
  * @package    core
  * @subpackage search
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -29,7 +29,7 @@ define("TOKEN_INSTANCE","8");
  * Class to hold token/value pairs after they're parsed.
  *
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class search_token {
@@ -63,7 +63,7 @@ class search_token {
  * might be useful for other tasks.
  *
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class search_lexer extends Lexer{
@@ -190,7 +190,7 @@ class search_lexer extends Lexer{
  * one exception being getParseArray() which returns the result.
  *
  * @package   lioncore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class search_parser {

@@ -3,8 +3,9 @@
 /**
  * Version details.
  *
- * @package    tool_profiling
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    tool
+ * @subpackage profiling
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

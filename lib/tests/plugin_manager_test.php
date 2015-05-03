@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2013 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Defines site config settings for the grade history report
  *
  * @package    gradereport_history
- * @copyright  2014 NetSpot Pty Ltd
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

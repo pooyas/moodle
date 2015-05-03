@@ -3,8 +3,9 @@
 /**
  * External database log store settings.
  *
- * @package    logstore_database
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @package    tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -31,7 +31,7 @@ defined('LION_INTERNAL') || die();
  * Also has methods to facilitate generating HTML output.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -326,7 +326,7 @@ class renderer_base {
  * Basis for all plugin renderers.
  *
  * @copyright Petr Skoda (skodak)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -422,7 +422,7 @@ class plugin_renderer_base extends renderer_base {
  * The standard implementation of the core_renderer interface.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -3839,7 +3839,7 @@ EOD;
  * The implementation of this renderer is probably incomplete.
  *
  * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -3933,7 +3933,7 @@ class core_renderer_cli extends core_renderer {
  * encoded error messages, all other output is ignored.
  *
  * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @since Lion 2.0
  * @package core
  * @category output
@@ -4047,7 +4047,7 @@ class core_renderer_ajax extends core_renderer {
  * output embedded media.
  *
  * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class core_media_renderer extends plugin_renderer_base {
     /** @var array Array of available 'player' objects */
@@ -4303,8 +4303,8 @@ class core_media_renderer extends plugin_renderer_base {
  * @since Lion 2.6
  * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_renderer_maintenance extends core_renderer {
 

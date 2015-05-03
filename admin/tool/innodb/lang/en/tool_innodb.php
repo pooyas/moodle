@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_generator', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_generator', language 'en'
  *
  * @package    tool
  * @subpackage innodb
- * @copyright  2011 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

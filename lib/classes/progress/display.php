@@ -10,8 +10,8 @@ defined('LION_INTERNAL') || die();
  * so we do extra output in addition to the bar.
  *
  * @package core_progress
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class display extends base {
     /**

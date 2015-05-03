@@ -6,7 +6,7 @@
  * @since Lion 2.0
  * @package block_html
  * @copyright 2010 Dongsheng Cai
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 /**

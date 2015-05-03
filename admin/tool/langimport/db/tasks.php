@@ -3,9 +3,9 @@
 /**
  * Definition of langimport tasks
  *
- * @package   tool_langimport
- * @category  task
- * @copyright 2014 Dan Poltawski <dan@lion.com>
+ * @package    tool
+ * @subpackage langimport
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

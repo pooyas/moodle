@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'tool_unsuproles', language 'en', branch 'LION_22_STABLE'
+ * Strings for component 'tool_unsuproles', language 'en'
  *
  * @package    tool
  * @subpackage unsuproles
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

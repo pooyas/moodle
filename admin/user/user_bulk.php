@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * script for bulk user operations
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+ */
+
 require_once('../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 require_once($CFG->dirroot.'/'.$CFG->admin.'/user/lib.php');

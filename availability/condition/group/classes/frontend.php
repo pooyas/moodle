@@ -4,8 +4,8 @@
  * Front-end class.
  *
  * @package availability_group
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace availability_group;
@@ -16,8 +16,8 @@ defined('LION_INTERNAL') || die();
  * Front-end class.
  *
  * @package availability_group
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class frontend extends \core_availability\frontend {
     /** @var array Array of group info for course */

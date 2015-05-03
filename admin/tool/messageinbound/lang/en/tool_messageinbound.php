@@ -3,8 +3,9 @@
 /**
  * Strings for component 'tool_messageinbound', language 'en'
  *
- * @package    tool_messageinbound
- * @copyright  2014 Andrew Nicols
+ * @package    tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

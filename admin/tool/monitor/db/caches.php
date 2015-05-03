@@ -3,8 +3,9 @@
 /**
  * Event monitor cache definitions.
  *
- * @package    tool_monitor
- * @copyright  2014 Mark Nelson <markn@lion.com>
+ * @package    tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -8,7 +8,7 @@
  *
  * @package    tool
  * @subpackage multilangupgrade
- * @copyright  2006 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

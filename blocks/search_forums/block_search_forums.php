@@ -4,7 +4,7 @@
  * Block to search forum posts.
  *
  * @package   block_search_forums
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

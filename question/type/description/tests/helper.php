@@ -4,7 +4,7 @@
  * Test helper code for the description question type.
  *
  * @package    qtype_description
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the description question type.
  *
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_description_test_helper extends question_test_helper {

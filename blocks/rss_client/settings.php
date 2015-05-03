@@ -4,7 +4,7 @@
  * Settings for the RSS client block.
  *
  * @package   block_rss_client
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

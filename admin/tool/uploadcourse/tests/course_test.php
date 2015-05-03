@@ -3,8 +3,10 @@
 /**
  * File containing tests for the course class.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
+ * @package    tool
+ * @subpackage uploadcourse
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +17,6 @@ global $CFG;
 /**
  * Course test case.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
 class tool_uploadcourse_course_testcase extends advanced_testcase {
 

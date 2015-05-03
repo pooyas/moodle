@@ -7,8 +7,8 @@
  * @package     core_backup
  * @subpackage  lion2
  * @category    backup
- * @copyright   2011 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();

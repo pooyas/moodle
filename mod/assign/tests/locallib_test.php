@@ -5,7 +5,7 @@
  *
  * @package    mod_assign
  * @category   phpunit
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/mod/assign/tests/base_test.php');
 /**
  * Unit tests for (some of) mod/assign/locallib.php.
  *
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_assign_locallib_testcase extends mod_assign_base_testcase {

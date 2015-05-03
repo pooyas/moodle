@@ -4,7 +4,7 @@
  * The mod_book chapter deleted event.
  *
  * @package    mod_book
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_book
  * @since      Lion 2.6
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class chapter_deleted extends \core\event\base {

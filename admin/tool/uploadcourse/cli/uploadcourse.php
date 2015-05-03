@@ -3,8 +3,9 @@
 /**
  * CLI Bulk course registration script from a comma separated file.
  *
- * @package    tool_uploadcourse
- * @copyright  2012 Piers Harding
+ * @package    tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

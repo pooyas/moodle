@@ -4,7 +4,7 @@
  * Print lib
  *
  * @package    booktool_print
- * @copyright  2004-2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2004-2015 Pooya Saeedi 
  * 
  */
 

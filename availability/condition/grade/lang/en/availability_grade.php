@@ -4,8 +4,8 @@
  * Language strings.
  *
  * @package availability_grade
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 $string['cachedef_items'] = 'Grade items cached for evaluating conditional availability';

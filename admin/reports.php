@@ -6,10 +6,10 @@
  * Displays the list of found reports, their version (if found) and
  * a link to uninstall the report.
  *
- * The code is based on admin/localplugins.php by David Mudrak.
  *
- * @package   admin
- * @copyright 2011 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

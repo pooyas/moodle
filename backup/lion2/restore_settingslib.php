@@ -7,8 +7,8 @@
  * @package     core_backup
  * @subpackage  lion2
  * @category    backup
- * @copyright   2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -32,7 +32,7 @@ class restore_users_setting extends restore_generic_setting {}
 /**
  * root setting to control if restore will create groups/grouping information. Depends on @restore_users_setting
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @copyright 2014 Matt Sammarco
  */
 class restore_groups_setting extends restore_generic_setting {

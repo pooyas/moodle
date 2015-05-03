@@ -4,7 +4,7 @@
  * Theme version info
  *
  * @package    theme_base
- * @copyright  2011 Petr Skoda  {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

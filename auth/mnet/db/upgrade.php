@@ -4,7 +4,7 @@
  * Keeps track of upgrades to the auth_mnet plugin
  *
  * @package    auth_mnet
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

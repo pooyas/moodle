@@ -4,7 +4,7 @@
  * Form to add an instance of enrol_mnet plugin
  *
  * @package    enrol_mnet
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -9,7 +9,7 @@
  * The feature will also reset the start date of the course if necessary.
  *
  * @copyright Mark Flach and lion.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package course
  */
 

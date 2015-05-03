@@ -8,7 +8,7 @@
  * If by student params: course=2
  * If by manager params: course=2&user=4&rolec=3&sesskey=ghfgsdf
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package course
  */
 

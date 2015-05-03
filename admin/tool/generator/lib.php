@@ -3,8 +3,9 @@
 /**
  * Generator tool functions.
  *
- * @package    tool_generator
- * @copyright  David Monllaó
+ * @package    tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

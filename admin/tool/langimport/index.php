@@ -10,7 +10,7 @@
  *
  * @package    tool
  * @subpackage langimport
- * @copyright  2005 Yu Zhang
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

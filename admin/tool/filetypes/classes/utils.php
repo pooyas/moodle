@@ -3,9 +3,10 @@
 /**
  * Class with static back-end methods used by the file type tool.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage filetypes
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 namespace tool_filetypes;
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class with static back-end methods used by the file type tool.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class utils {
     /**

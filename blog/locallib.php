@@ -5,7 +5,7 @@
  *
  * @package    lioncore
  * @subpackage blog
- * @copyright  2009 Nicolas Connault
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once($CFG->libdir . '/filelib.php');
  *
  * @package    lioncore
  * @subpackage blog
- * @copyright  2009 Nicolas Connault
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class blog_entry implements renderable {
@@ -548,7 +548,7 @@ class blog_entry implements renderable {
  *
  * @package    lioncore
  * @subpackage blog
- * @copyright  2009 Nicolas Connault
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class blog_listing {

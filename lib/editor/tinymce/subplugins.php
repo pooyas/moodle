@@ -4,7 +4,7 @@
  * TinyMCE subplugin management.
  *
  * @package   editor_tinymce
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

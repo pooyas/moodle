@@ -4,7 +4,7 @@
  * Provide interface for AJAX device actions
  *
  * @copyright 2012 Jerome Mouneyrac
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  * @package message_airnotifier
  */
 

@@ -5,7 +5,7 @@
  * Keeps track of upgrades to the workshop numerrors grading strategy
  *
  * @package    workshopform_numerrors
- * @copyright  2010 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

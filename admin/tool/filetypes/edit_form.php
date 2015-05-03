@@ -3,9 +3,10 @@
 /**
  * Customised file types editing form.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    tool
+ * @subpackage filetypes
+ * @copyright  2015 Pooya Saeedi
+ * 
  */
 
 require_once($CFG->dirroot . '/lib/formslib.php');
@@ -13,9 +14,6 @@ require_once($CFG->dirroot . '/lib/formslib.php');
 /**
  * Form for adding a new custom file type or updating an existing custom file type.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_filetypes_form extends lionform {
 

@@ -9,7 +9,7 @@
  * @package core_completion
  * @category completion
  * @copyright 1999 onwards Martin Dougiamas   {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -208,7 +208,7 @@ function completion_can_view_data($userid, $course = null) {
  * @package core
  * @category completion
  * @copyright 2008 Sam Marshall
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class completion_info {
 

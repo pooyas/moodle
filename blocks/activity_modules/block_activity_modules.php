@@ -4,7 +4,7 @@
  * This file contains the Activity modules block.
  *
  * @package    block_activity_modules
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

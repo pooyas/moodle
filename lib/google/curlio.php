@@ -4,8 +4,8 @@
  * This file contains the class lion_google_curlio.
  *
  * @package core_google
- * @copyright 2013 Frédéric Massart
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -20,8 +20,8 @@ require_once($CFG->libdir . '/google/Google/IO/Exception.php');
  * class curl in Google_IO_Curl. It mostly entirely overrides it.
  *
  * @package core_google
- * @copyright 2013 Frédéric Massart
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
 */
 class lion_google_curlio extends Google_IO_Curl {
 

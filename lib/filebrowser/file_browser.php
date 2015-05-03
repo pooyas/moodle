@@ -5,7 +5,7 @@
  * Utility class for browsing of files.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -41,7 +41,7 @@ require_once("$CFG->libdir/filebrowser/file_info_context_module.php");
   *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi 
  * 
 */
 class file_browser {

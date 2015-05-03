@@ -4,7 +4,7 @@
  * booktool_print chapter printed event.
  *
  * @package    booktool_print
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    booktool_print
  * @since      Lion 2.6
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class chapter_printed extends \core\event\base {

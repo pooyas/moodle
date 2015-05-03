@@ -4,7 +4,7 @@
  * Add questions from question bank functionality for a popup in quiz editing page.
  *
  * @package   mod_quiz
- * @copyright 2014 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

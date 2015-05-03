@@ -4,8 +4,8 @@
  * Language strings.
  *
  * @package availability_grouping
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 $string['description'] = 'Allow only students who belong to a group within a specified grouping.';

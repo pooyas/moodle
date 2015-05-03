@@ -3,8 +3,9 @@
 /**
  * Strings for the assignment upgrade tool
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
+ * @package    tool
+ * @subpackage assignmentupgrade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

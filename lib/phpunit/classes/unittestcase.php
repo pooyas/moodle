@@ -7,7 +7,7 @@
  * @package    core
  * @category   phpunit
  * @author     Petr Skoda
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -21,7 +21,7 @@
  * @package    core
  * @category   phpunit
  * @author     Petr Skoda
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 abstract class UnitTestCase extends PHPUnit_Framework_TestCase {

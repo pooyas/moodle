@@ -4,7 +4,7 @@
  * This file contains the forms to create and edit an instance of this module
  *
  * @package   assignfeedback_offline
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot.'/mod/assign/feedback/offline/importgradeslib.php');
  * Import grades form
  *
  * @package   assignfeedback_offline
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class assignfeedback_offline_import_grades_form extends lionform implements renderable {

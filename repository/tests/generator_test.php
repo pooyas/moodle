@@ -5,7 +5,7 @@
  *
  * @package   repository
  * @category  test
- * @copyright 2013 Frédéric Massart
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package   repository
  * @category  test
- * @copyright 2013 Frédéric Massart
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_repository_generator_testcase extends advanced_testcase {

@@ -6,10 +6,10 @@
  * Displays the list of found admin tools, their version (if found) and
  * a link to uninstall the admin tool.
  *
- * The code is based on admin/localplugins.php by David Mudrak.
  *
- * @package   admin
- * @copyright 2011 Petr Skoda {@link http://skodak.org}
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

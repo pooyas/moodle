@@ -8,7 +8,7 @@
  *
  * @package core_portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>, Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class portfolio_caller_base {
 
@@ -483,7 +483,7 @@ abstract class portfolio_caller_base {
  * @package core_portfolio
  * @category portfolio
  * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class portfolio_module_caller_base extends portfolio_caller_base {
 

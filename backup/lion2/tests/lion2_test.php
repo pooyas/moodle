@@ -4,8 +4,8 @@
  * Tests for Lion 2 format backup operation.
  *
  * @package core_backup
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -19,8 +19,8 @@ require_once($CFG->libdir . '/completionlib.php');
  * Tests for Lion 2 format backup operation.
  *
  * @package core_backup
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class core_backup_lion2_testcase extends advanced_testcase {
 

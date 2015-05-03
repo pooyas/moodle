@@ -11,7 +11,7 @@ use \core_calendar\type_base;
  *
  * @package core_calendar
  * @copyright 2013 Mark Nelson <markn@lion.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class structure extends type_base {
 

@@ -5,7 +5,7 @@
  *
  * @package    mod_imscp
  * @subpackage backup-lion2
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/mod/imscp/backup/lion2/restore_imscp_stepslib.php
 /**
  * Provides the settings and steps to perform one complete restore of the activity
  *
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_imscp_activity_task extends restore_activity_task {

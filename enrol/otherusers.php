@@ -4,7 +4,7 @@
  * List and modify users that are not enrolled but still have a role in course.
  *
  * @package    core_enrol
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

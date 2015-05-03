@@ -5,7 +5,7 @@
  *
  * @package    repository_s3
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  *
  * @package    repository_s3
  * @category   test
- * @copyright  2013 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class repository_s3_generator extends testing_repository_generator {

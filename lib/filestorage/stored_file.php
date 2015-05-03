@@ -5,7 +5,7 @@
  * Definition of a class stored_file.
  *
  * @package   core_files
- * @copyright 2008 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -21,7 +21,7 @@ require_once($CFG->dirroot . '/lib/filestorage/file_progress.php');
  *
  * @package   core_files
  * @category  files
- * @copyright 2008 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi 
  * 
  * @since     Lion 2.0
  */

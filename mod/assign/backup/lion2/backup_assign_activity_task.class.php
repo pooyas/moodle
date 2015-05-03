@@ -4,7 +4,7 @@
  * This file contains the backup activity for the assign module
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/mod/assign/backup/lion2/backup_assign_stepslib.ph
  * assign backup task that provides all the settings and steps to perform one complete backup of the activity
  *
  * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class backup_assign_activity_task extends backup_activity_task {

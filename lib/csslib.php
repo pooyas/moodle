@@ -10,7 +10,7 @@
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -467,7 +467,7 @@ function css_sort_by_count(array $a, array $b) {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_optimiser {
 
@@ -1253,7 +1253,7 @@ class css_optimiser {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class css_writer {
 
@@ -1433,7 +1433,7 @@ abstract class css_writer {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 interface core_css_consolidatable_style {
     /**
@@ -1453,7 +1453,7 @@ interface core_css_consolidatable_style {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_selector {
 
@@ -1546,7 +1546,7 @@ class css_selector {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_rule {
 
@@ -1911,7 +1911,7 @@ class css_rule {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class css_rule_collection {
     /**
@@ -2041,7 +2041,7 @@ abstract class css_rule_collection {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_media extends css_rule_collection {
 
@@ -2104,7 +2104,7 @@ class css_media extends css_rule_collection {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_keyframe extends css_rule_collection {
 
@@ -2161,7 +2161,7 @@ class css_keyframe extends css_rule_collection {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class css_style {
 
@@ -2415,7 +2415,7 @@ abstract class css_style {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_generic extends css_style {
 
@@ -2441,7 +2441,7 @@ class css_style_generic extends css_style {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_color extends css_style {
 
@@ -2526,7 +2526,7 @@ class css_style_color extends css_style {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_width extends css_style {
 
@@ -2572,7 +2572,7 @@ class css_style_width extends css_style {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_margin extends css_style_width implements core_css_consolidatable_style {
 
@@ -2711,7 +2711,7 @@ class css_style_margin extends css_style_width implements core_css_consolidatabl
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_margintop extends css_style_margin {
 
@@ -2741,7 +2741,7 @@ class css_style_margintop extends css_style_margin {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_marginright extends css_style_margin {
 
@@ -2771,7 +2771,7 @@ class css_style_marginright extends css_style_margin {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_marginbottom extends css_style_margin {
 
@@ -2801,7 +2801,7 @@ class css_style_marginbottom extends css_style_margin {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_marginleft extends css_style_margin {
 
@@ -2831,7 +2831,7 @@ class css_style_marginleft extends css_style_margin {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_border extends css_style implements core_css_consolidatable_style {
 
@@ -3165,7 +3165,7 @@ class css_style_border extends css_style implements core_css_consolidatable_styl
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_bordercolor extends css_style_color {
 
@@ -3245,7 +3245,7 @@ class css_style_bordercolor extends css_style_color {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderleft extends css_style_generic {
 
@@ -3288,7 +3288,7 @@ class css_style_borderleft extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderright extends css_style_generic {
 
@@ -3331,7 +3331,7 @@ class css_style_borderright extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_bordertop extends css_style_generic {
 
@@ -3374,7 +3374,7 @@ class css_style_bordertop extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderbottom extends css_style_generic {
 
@@ -3417,7 +3417,7 @@ class css_style_borderbottom extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderwidth extends css_style_width {
 
@@ -3504,7 +3504,7 @@ class css_style_borderwidth extends css_style_width {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderstyle extends css_style_generic {
 
@@ -3557,7 +3557,7 @@ class css_style_borderstyle extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_bordertopcolor extends css_style_bordercolor {
 
@@ -3587,7 +3587,7 @@ class css_style_bordertopcolor extends css_style_bordercolor {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderleftcolor extends css_style_bordercolor {
 
@@ -3617,7 +3617,7 @@ class css_style_borderleftcolor extends css_style_bordercolor {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderrightcolor extends css_style_bordercolor {
 
@@ -3647,7 +3647,7 @@ class css_style_borderrightcolor extends css_style_bordercolor {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderbottomcolor extends css_style_bordercolor {
 
@@ -3677,7 +3677,7 @@ class css_style_borderbottomcolor extends css_style_bordercolor {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_bordertopwidth extends css_style_borderwidth {
 
@@ -3707,7 +3707,7 @@ class css_style_bordertopwidth extends css_style_borderwidth {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderleftwidth extends css_style_borderwidth {
 
@@ -3737,7 +3737,7 @@ class css_style_borderleftwidth extends css_style_borderwidth {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderrightwidth extends css_style_borderwidth {
 
@@ -3767,7 +3767,7 @@ class css_style_borderrightwidth extends css_style_borderwidth {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderbottomwidth extends css_style_borderwidth {
 
@@ -3797,7 +3797,7 @@ class css_style_borderbottomwidth extends css_style_borderwidth {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_bordertopstyle extends css_style_borderstyle {
 
@@ -3827,7 +3827,7 @@ class css_style_bordertopstyle extends css_style_borderstyle {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderleftstyle extends css_style_borderstyle {
 
@@ -3857,7 +3857,7 @@ class css_style_borderleftstyle extends css_style_borderstyle {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderrightstyle extends css_style_borderstyle {
 
@@ -3887,7 +3887,7 @@ class css_style_borderrightstyle extends css_style_borderstyle {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_borderbottomstyle extends css_style_borderstyle {
 
@@ -3917,7 +3917,7 @@ class css_style_borderbottomstyle extends css_style_borderstyle {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_background extends css_style implements core_css_consolidatable_style {
 
@@ -4223,7 +4223,7 @@ class css_style_background extends css_style implements core_css_consolidatable_
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_background_advanced extends css_style_generic {
     /**
@@ -4256,7 +4256,7 @@ class css_style_background_advanced extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundcolor extends css_style_color {
 
@@ -4307,7 +4307,7 @@ class css_style_backgroundcolor extends css_style_color {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundimage extends css_style_generic {
 
@@ -4361,7 +4361,7 @@ class css_style_backgroundimage extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundimage_advanced extends css_style_generic {
     /**
@@ -4392,7 +4392,7 @@ class css_style_backgroundimage_advanced extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundrepeat extends css_style_generic {
 
@@ -4443,7 +4443,7 @@ class css_style_backgroundrepeat extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundattachment extends css_style_generic {
 
@@ -4494,7 +4494,7 @@ class css_style_backgroundattachment extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundposition extends css_style_generic {
 
@@ -4545,7 +4545,7 @@ class css_style_backgroundposition extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundsize extends css_style_generic {
 
@@ -4575,7 +4575,7 @@ class css_style_backgroundsize extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundclip extends css_style_generic {
 
@@ -4605,7 +4605,7 @@ class css_style_backgroundclip extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_backgroundorigin extends css_style_generic {
 
@@ -4635,7 +4635,7 @@ class css_style_backgroundorigin extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_padding extends css_style_width implements core_css_consolidatable_style {
 
@@ -4770,7 +4770,7 @@ class css_style_padding extends css_style_width implements core_css_consolidatab
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_paddingtop extends css_style_padding {
 
@@ -4800,7 +4800,7 @@ class css_style_paddingtop extends css_style_padding {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_paddingright extends css_style_padding {
 
@@ -4830,7 +4830,7 @@ class css_style_paddingright extends css_style_padding {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_paddingbottom extends css_style_padding {
 
@@ -4860,7 +4860,7 @@ class css_style_paddingbottom extends css_style_padding {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_paddingleft extends css_style_padding {
 
@@ -4890,7 +4890,7 @@ class css_style_paddingleft extends css_style_padding {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_cursor extends css_style_generic {
     /**
@@ -4925,7 +4925,7 @@ class css_style_cursor extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_verticalalign extends css_style_generic {
     /**
@@ -4957,7 +4957,7 @@ class css_style_verticalalign extends css_style_generic {
  * @package core
  * @subpackage cssoptimiser
  * @copyright 2012 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class css_style_float extends css_style_generic {
     /**

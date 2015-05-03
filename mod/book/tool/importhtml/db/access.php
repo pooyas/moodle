@@ -4,7 +4,7 @@
  * Book import capability definition
  *
  * @package    booktool_importhtml
- * @copyright  2011 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

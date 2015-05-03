@@ -4,7 +4,7 @@
  * class block_recent_activity
  *
  * @package    block_recent_activity
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ require_once($CFG->dirroot.'/course/lib.php');
  * class block_recent_activity
  *
  * @package    block_recent_activity
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class block_recent_activity extends block_base {

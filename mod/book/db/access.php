@@ -4,7 +4,7 @@
  * Book module capability definition
  *
  * @package    mod_book
- * @copyright  2009-2012 Petr Skoda {@link http://skodak.org}
+ * @copyright  2009-2015 Pooya Saeedi 
  * 
  */
 

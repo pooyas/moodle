@@ -4,7 +4,7 @@
  * Strings for component 'quiz_grading', language 'en', branch 'LION_20_STABLE'
  *
  * @package   quiz_grading
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

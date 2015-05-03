@@ -4,10 +4,11 @@
 /**
  * Provides the unit tests class and some helper classes
  *
- * @package     tool_installaddon
- * @category    test
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool
+ * @subpackage  installaddon
+ * @category    phpunit
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for the {@link tool_installaddon_installer} class
  *
- * @copyright 2013 David Mudrak <david@lion.com>
- * 
  */
 class tool_installaddon_validator_testcase extends basic_testcase {
 
@@ -292,8 +291,6 @@ class tool_installaddon_validator_testcase extends basic_testcase {
 /**
  * Provides access to protected methods we want to explicitly test
  *
- * @copyright 2013 David Mudrak <david@lion.com>
- * 
  */
 class testable_tool_installaddon_validator extends tool_installaddon_validator {
 

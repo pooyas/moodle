@@ -4,7 +4,7 @@
  * Tests for report completion events.
  *
  * @package    report_completion
- * @copyright  2014 onwards Ankit Agarwal<ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  * Class for tests related to completion report events.
  *
  * @package    report_completion
- * @copyright  2014 onwards Ankit Agarwal<ankit.agrr@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 class report_completion_events_testcase extends advanced_testcase {

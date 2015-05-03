@@ -4,7 +4,7 @@
  * Common functions for the quiz statistics report.
  *
  * @package    quiz_statistics
- * @copyright  2013 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @author     James Pratt me@jamiep.org
  * 
  */

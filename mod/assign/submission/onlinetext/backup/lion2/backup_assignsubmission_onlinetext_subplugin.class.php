@@ -4,7 +4,7 @@
  * This file contains the class for backup of this submission plugin
  *
  * @package assignsubmission_onlinetext
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  * This just adds its filearea to the annotations and records the submissiontext and format
  *
  * @package assignsubmission_onlinetext
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 class backup_assignsubmission_onlinetext_subplugin extends backup_subplugin {

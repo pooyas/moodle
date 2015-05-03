@@ -4,10 +4,10 @@
 /**
  * Provides tool_installaddon_pluginfo_client and related classes
  *
- * @package     tool_installaddon
- * @subpackage  classes
- * @copyright   2013 David Mudrak <david@lion.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     tool
+ * @subpackage  installaddon
+ * @copyright   2015 Pooya Saeedi
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Implements a client for https://download.lion.org/api/x.y/pluginfo.php service
  *
- * @copyright 2013 David Mudrak <david@lion.com>
- * 
  */
 class tool_installaddon_pluginfo_client {
 
@@ -180,8 +178,6 @@ class tool_installaddon_pluginfo_client {
 /**
  * General exception thrown by {@link tool_installaddon_pluginfo_client} class
  *
- * @copyright 2013 David Mudrak <david@lion.com>
- * 
  */
 class tool_installaddon_pluginfo_exception extends lion_exception {
 

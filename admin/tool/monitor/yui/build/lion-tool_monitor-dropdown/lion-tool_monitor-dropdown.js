@@ -9,7 +9,6 @@ YUI.add('lion-tool_monitor-dropdown', function (Y, NAME) {
 /**
  * A module to manage dependent selects on the edit page.
  *
- * @since Lion 2.8
  * @class lion-tool_monitor.dropdown
  * @extends Base
  * @constructor

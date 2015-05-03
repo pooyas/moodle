@@ -7,7 +7,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package mod_quiz
  * @copyright 2012 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_quiz_generator extends testing_module_generator {
 

@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package editor_tinymce
  * @copyright 2012 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 abstract class editor_tinymce_plugin {
     /** @var string Plugin folder */

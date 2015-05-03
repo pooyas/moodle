@@ -12,7 +12,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  * @package mod_assign
  * @category external
  * @copyright 2012 Paul Charsley
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 class mod_assign_external_testcase extends externallib_advanced_testcase {
 

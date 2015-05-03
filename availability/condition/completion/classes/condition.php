@@ -4,8 +4,8 @@
  * Activity completion condition.
  *
  * @package availability_completion
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 namespace availability_completion;
@@ -18,8 +18,8 @@ require_once($CFG->libdir . '/completionlib.php');
  * Activity completion condition.
  *
  * @package availability_completion
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class condition extends \core_availability\condition {
     /** @var int ID of module that this depends on */

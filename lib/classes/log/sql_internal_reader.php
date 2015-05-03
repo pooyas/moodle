@@ -4,7 +4,7 @@
  * Log storage sql reader interface.
  *
  * @package    core
- * @copyright  2014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  * @see        sql_reader
  * @todo       MDL-49291 This will be deleted in Lion 3.1.
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface sql_internal_reader extends sql_select_reader {

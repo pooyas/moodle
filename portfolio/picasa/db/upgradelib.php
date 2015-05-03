@@ -4,7 +4,7 @@
  * Picasa portfolio upgrade script.
  *
  * @package   portfolio_picasa
- * @copyright 2013 Dan Poltawski <dan@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

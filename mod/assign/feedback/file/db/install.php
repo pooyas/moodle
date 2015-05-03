@@ -4,7 +4,7 @@
  * Post-install code for the assignfeedback_file module.
  *
  * @package assignfeedback_file
- * @copyright  1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -14,7 +14,7 @@
  * @package lioncore
  * @subpackage questionbank
  * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * 
  */
 
 
@@ -1243,8 +1243,8 @@ function question_default_export_filename($course, $category) {
  * Converts contextlevels to strings and back to help with reading/writing contexts
  * to/from import/export files.
  *
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 class context_to_string_translator{
     /**

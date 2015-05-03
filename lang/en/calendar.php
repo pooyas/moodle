@@ -4,7 +4,7 @@
  * Strings for component 'calendar', language 'en', branch 'LION_20_STABLE'
  *
  * @package   core_calendar
- * @copyright 1999 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

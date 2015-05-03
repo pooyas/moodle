@@ -4,7 +4,7 @@
  * This file contains the version information for the comments feedback plugin
  *
  * @package   assignfeedback_comments
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
  * 
  */
 

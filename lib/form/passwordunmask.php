@@ -25,7 +25,7 @@ require_once($CFG->libdir.'/form/password.php');
  *
  * @package   core_form
  * @category  form
- * @copyright 2009 Petr Skoda {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class LionQuickForm_passwordunmask extends LionQuickForm_password {

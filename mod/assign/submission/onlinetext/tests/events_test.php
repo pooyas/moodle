@@ -4,7 +4,7 @@
  * Contains the event tests for the plugin.
  *
  * @package   assignsubmission_onlinetext
- * @copyright 2013 Frédéric Massart
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
