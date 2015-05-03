@@ -3,8 +3,9 @@
 /**
  * Node (base class) used to construct a tree of availability conditions.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Node (base class) used to construct a tree of availability conditions.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class tree_node {
     /**

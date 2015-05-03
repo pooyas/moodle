@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    auth_fc
+ * @package    auth
+ * @subpackage fc
  * @copyright  2015 Pooya Saeedi
  * 
  */

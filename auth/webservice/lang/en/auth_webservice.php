@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_webservice', language 'en'.
  *
- * @package   auth_webservice
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage webservice
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Version info.
  *
- * @package availability_grouping
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grouping
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

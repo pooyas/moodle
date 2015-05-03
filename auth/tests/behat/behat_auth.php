@@ -4,7 +4,8 @@
 /**
  * Basic authentication steps definitions.
  *
- * @package    core_auth
+ * @package    core
+ * @subpackage auth
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

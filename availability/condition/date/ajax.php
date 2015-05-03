@@ -3,8 +3,9 @@
 /**
  * Handles AJAX processing (convert date to timestamp using current calendar).
  *
- * @package availability_date
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage date
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,10 @@
 /**
  * Unit tests for the user profile condition.
  *
- * @package availability_profile
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage profile
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +17,6 @@ use availability_profile\condition;
 /**
  * Unit tests for the user profile condition.
  *
- * @package availability_profile
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class availability_profile_condition_testcase extends advanced_testcase {
     /** @var profile_define_text Profile field for testing */

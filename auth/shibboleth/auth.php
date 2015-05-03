@@ -4,12 +4,10 @@
  * Authentication Plugin: Shibboleth Authentication
  * Authentication using Shibboleth.
  *
- * Distributed under GPL (c)Markus Hagman 2004-2006
  *
- * @package auth_shibboleth
- * @author Martin Dougiamas
- * @author Lukas Haemmerle
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

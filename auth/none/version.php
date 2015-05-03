@@ -3,8 +3,9 @@
 /**
  * Version information
  *
- * @package    auth_none
- * @copyright  2015 Pooya Saeedi 
+ * @package    auth
+ * @subpackage none
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

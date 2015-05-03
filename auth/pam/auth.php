@@ -17,9 +17,9 @@
  * Website 1: http://elearning.zhwin.ch/
  * Website 2: http://birdy1976.com/
  *
- * @package auth_pam
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage pam
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

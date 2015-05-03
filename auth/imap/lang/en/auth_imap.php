@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_imap', language 'en'.
  *
- * @package   auth_imap
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage imap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

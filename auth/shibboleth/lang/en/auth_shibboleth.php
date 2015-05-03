@@ -4,8 +4,9 @@
 /**
  * Strings for component 'auth_shibboleth', language 'en'.
  *
- * @package   auth_shibboleth
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

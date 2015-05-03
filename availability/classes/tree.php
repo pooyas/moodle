@@ -3,8 +3,9 @@
 /**
  * Class that holds a tree of availability conditions.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -33,9 +34,6 @@ defined('LION_INTERNAL') || die();
  *   can make it be hidden or shown depending on which one they fail. (Anything
  *   with false takes precedence.)
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class tree extends tree_node {
     /** @var int Operator: AND */

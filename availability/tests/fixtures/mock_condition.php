@@ -3,8 +3,9 @@
 /**
  * Mock condition.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Mock condition.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class condition extends \core_availability\condition {
     /** @var bool True if available */

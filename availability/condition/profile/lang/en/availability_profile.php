@@ -3,8 +3,9 @@
 /**
  * Language strings.
  *
- * @package availability_profile
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage profile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

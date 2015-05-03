@@ -3,8 +3,9 @@
 /**
  * Front-end class.
  *
- * @package availability_group
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Front-end class.
  *
- * @package availability_group
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class frontend extends \core_availability\frontend {
     /** @var array Array of group info for course */

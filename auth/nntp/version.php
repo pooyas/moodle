@@ -3,8 +3,9 @@
 /**
  * Version information
  *
- * @package    auth_nntp
- * @copyright  2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

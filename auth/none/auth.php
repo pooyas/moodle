@@ -3,9 +3,9 @@
 /**
  * Anobody can login with any password.
  *
- * @package auth_none
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage none
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

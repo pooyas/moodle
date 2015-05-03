@@ -4,8 +4,9 @@
  * Authentication Plugin: Manual Authentication
  * Just does a simple check against the lion database.
  *
- * @package    auth_manual
- * @copyright  2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->libdir.'/authlib.php');
 /**
  * Manual authentication plugin.
  *
- * @package    auth
- * @subpackage manual
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class auth_plugin_manual extends auth_plugin_base {

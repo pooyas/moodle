@@ -5,9 +5,9 @@
  *
  * Checks against an external database.
  *
- * @package    auth_db
- * @author     Martin Dougiamas
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

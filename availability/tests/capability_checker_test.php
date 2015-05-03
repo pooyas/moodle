@@ -3,8 +3,10 @@
 /**
  * Unit tests for the capability checker class.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for the capability checker class.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_availability_capability_checker_testcase extends advanced_testcase {
     /**

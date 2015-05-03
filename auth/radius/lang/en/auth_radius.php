@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_radius', language 'en'.
  *
- * @package   auth_radius
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

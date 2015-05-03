@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_cas', language 'en'.
  *
- * @package   auth_cas
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

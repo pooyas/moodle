@@ -3,8 +3,9 @@
 /**
  * Base class for conditional availability information (for module or section).
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Base class for conditional availability information (for module or section).
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class info {
     /** @var \stdClass Course */

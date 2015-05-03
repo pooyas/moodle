@@ -4,9 +4,9 @@
  * Authentication Plugin: Lion Network Authentication
  * Multiple host authentication support for Lion Network.
  *
- * @package auth_mnet
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi 
  */
 
 defined('LION_INTERNAL') || die();

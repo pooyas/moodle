@@ -3,8 +3,9 @@
 /**
  * Manual authentication plugin version information
  *
- * @package    auth_mnet
- * @copyright  2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

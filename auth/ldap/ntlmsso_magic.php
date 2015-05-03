@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    auth
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
+ */
+
 // Don't let lib/setup.php set any cookies
 // as we will be executing under the OS security
 // context of the user we are trying to login, rather than

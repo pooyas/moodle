@@ -12,7 +12,8 @@
  * define('TEST_AUTH_LDAP_BIND_PW', 'somepassword');
  * define('TEST_AUTH_LDAP_DOMAIN', 'dc=example,dc=local');
  *
- * @package    auth_ldap
+ * @package    auth
+ * @subpackage ldap
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

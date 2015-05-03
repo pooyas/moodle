@@ -3,8 +3,9 @@
 /**
  * Unit tests for the grade condition.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ use availability_grade\condition;
 /**
  * Unit tests for the grade condition.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class availability_grade_condition_testcase extends advanced_testcase {
     /**

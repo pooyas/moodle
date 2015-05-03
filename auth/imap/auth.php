@@ -4,9 +4,9 @@
  * Authentication Plugin: IMAP Authentication
  * Authenticates against an IMAP server.
  *
- * @package auth_imap
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage imap
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

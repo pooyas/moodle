@@ -3,8 +3,9 @@
 /**
  * Condition on grades of current user.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Condition on grades of current user.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class condition extends \core_availability\condition {
     /** @var int Grade item id */

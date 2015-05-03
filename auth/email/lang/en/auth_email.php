@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_email', language 'en'.
  *
- * @package   auth_email
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage email
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

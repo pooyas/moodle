@@ -3,7 +3,8 @@
 /**
  * Manual authentication plugin version information
  *
- * @package    auth_manual
+ * @package    auth
+ * @subpackage manual
  * @copyright  2015 Pooya Saeedi 
  * 
  */

@@ -4,9 +4,9 @@
  * Authentication Plugin: FirstClass Authentication
  * Authentication using a FirstClass server.
 
- * @package auth_fc
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage fc
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

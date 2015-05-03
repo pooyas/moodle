@@ -5,8 +5,9 @@
  *
  * All condition types must extend this class.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -34,8 +35,6 @@ defined('LION_INTERNAL') || die();
  * present in a restore, so there should be a default value for any new fields
  * and old ones should be handled correctly).
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class condition extends tree_node {

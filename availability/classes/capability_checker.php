@@ -6,8 +6,9 @@
  * This object caches get_users_by_capability results in case they are needed
  * by multiple conditions.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +22,6 @@ defined('LION_INTERNAL') || die();
  * This object caches get_users_by_capability results in case they are needed
  * by multiple conditions.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class capability_checker {

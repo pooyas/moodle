@@ -3,9 +3,9 @@
 /**
  * Version details
  *
- * @package    auth_ldap
- * @author     Martin Dougiamas
- * @author     Iñaki Arenaza
+ * @package    auth
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

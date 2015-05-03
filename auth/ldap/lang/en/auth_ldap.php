@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_ldap', language 'en'.
  *
- * @package   auth_ldap
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

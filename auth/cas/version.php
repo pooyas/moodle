@@ -3,11 +3,9 @@
 /**
  * Version details
  *
- * @package    auth_cas
- * @author     Martin Dougiamas
- * @author     Jerome GUTIERREZ
- * @author     Iñaki Arenaza
- * 
+ * @package    auth
+ * @subpackage cas
+ * @category   2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

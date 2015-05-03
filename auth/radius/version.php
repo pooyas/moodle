@@ -3,7 +3,8 @@
 /**
  * Version information
  *
- * @package    auth_radius
+ * @package    auth
+ * @subpackage radius
  * @copyright  2015 Pooya Saeedi
  * 
  */

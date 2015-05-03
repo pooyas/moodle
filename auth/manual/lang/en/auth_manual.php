@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_manual', language 'en'.
  *
- * @package   auth_manual
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

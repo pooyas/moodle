@@ -3,8 +3,9 @@
 /**
  * Class handles conditional availability information for a section.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class handles conditional availability information for a section.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class info_section extends info {
     /** @var \section_info Section. */

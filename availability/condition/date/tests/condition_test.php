@@ -3,8 +3,10 @@
 /**
  * Unit tests for the date condition.
  *
- * @package availability_date
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage date
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +17,6 @@ use availability_date\condition;
 /**
  * Unit tests for the date condition.
  *
- * @package availability_date
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class availability_date_condition_testcase extends advanced_testcase {
     /**

@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    auth_db
+ * @package    auth
+ * @subpackage db
  * @copyright  2015 Pooya Saeedi
  * 
  */

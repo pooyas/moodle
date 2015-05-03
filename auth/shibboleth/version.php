@@ -3,9 +3,9 @@
 /**
  * Version information
  *
- * @package    auth_shibboleth
- * @author     Martin Dougiamas
- * @author     Lukas Haemmerle
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

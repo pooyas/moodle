@@ -27,8 +27,9 @@
  * We have optimized it as best as we could for PostgreSQL and MySQL, with 27K students
  * we have seen this take 10 minutes.
  *
- * @package    auth_ldap
- * @copyright  2004 Martin Langhoff
+ * @package    auth
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

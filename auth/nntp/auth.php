@@ -4,9 +4,9 @@
  * Authentication Plugin: NNTP Authentication
  * Authenticates against an NNTP server.
  *
- * @package auth_nntp
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi 
  */
 
 defined('LION_INTERNAL') || die();

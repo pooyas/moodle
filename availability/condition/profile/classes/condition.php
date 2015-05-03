@@ -3,8 +3,9 @@
 /**
  * User profile field condition.
  *
- * @package availability_profile
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage profile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * User profile field condition.
  *
- * @package availability_profile
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class condition extends \core_availability\condition {
     /** @var string Operator: field contains value */

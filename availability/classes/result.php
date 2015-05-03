@@ -3,8 +3,9 @@
 /**
  * Class represents the result of an availability check for the user.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,6 @@ defined('LION_INTERNAL') || die();
  * You can pass an object of this class to tree::get_result_information to
  * display suitable student information about the result.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class result {
     /** @var bool True if the item is available */

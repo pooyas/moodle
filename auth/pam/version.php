@@ -3,7 +3,8 @@
 /**
  * Version information
  *
- * @package    auth_pam
+ * @package    auth
+ * @subpackage pam
  * @copyright  2015 Pooya Saeedi
  * 
  */

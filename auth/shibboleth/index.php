@@ -1,6 +1,12 @@
 <?php
 
-    // Designed to be redirected from lion/login/index.php
+/**
+ * Designed to be redirected from lion/login/index.php
+ * 
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+ */
 
     require('../../config.php');
 

@@ -3,9 +3,9 @@
 /**
  * Nologin authentication login - prevents user login.
  *
- * @package auth_nologin
- * @author Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage nologin
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

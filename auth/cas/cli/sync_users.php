@@ -23,8 +23,9 @@
  * We have optimized it as best as we could for PostgreSQL and MySQL, with 27K students
  * we have seen this take 10 minutes.
  *
- * @package    auth_cas
- * @copyright  2007 Jerome Gutierrez - based on code by Martin Langhoff
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

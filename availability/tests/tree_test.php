@@ -3,8 +3,9 @@
 /**
  * Unit tests for the condition tree class and related logic.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for the condition tree class and related logic.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class tree_testcase extends \advanced_testcase {
     public function setUp() {

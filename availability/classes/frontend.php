@@ -6,8 +6,9 @@
  * This is a base class of a class implemented by each component, and also has
  * static methods.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +22,6 @@ defined('LION_INTERNAL') || die();
  * This is a base class of a class implemented by each component, and also has
  * static methods.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class frontend {

@@ -3,9 +3,9 @@
 /**
  * This file contains the mnet services for the mnet authentication plugin
  *
- * @since Lion 2.0
- * @package auth_mnet
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

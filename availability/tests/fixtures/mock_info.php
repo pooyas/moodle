@@ -3,8 +3,9 @@
 /**
  * For use in unit tests that require an info object which isn't really used.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * For use in unit tests that require an info object which isn't really used.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mock_info extends info {
     /** @var int User id for modinfo */

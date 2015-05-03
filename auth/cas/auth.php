@@ -5,11 +5,9 @@
  *
  * Authentication using CAS (Central Authentication Server).
  *
- * @author Martin Dougiamas
- * @author Jerome GUTIERREZ
- * @author Iñaki Arenaza
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package auth_cas
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

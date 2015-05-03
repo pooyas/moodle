@@ -3,8 +3,10 @@
 /**
  * Unit tests for the completion condition.
  *
- * @package availability_completion
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage completion
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +20,6 @@ require_once($CFG->libdir . '/completionlib.php');
 /**
  * Unit tests for the completion condition.
  *
- * @package availability_completion
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class availability_completion_condition_testcase extends advanced_testcase {
     /**

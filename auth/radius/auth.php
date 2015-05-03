@@ -7,9 +7,9 @@
  * Contributed by Clive Gould <clive@ce.bromley.ac.uk>
  * CHAP support contributed by Stanislav Tsymbalov http://www.tsymbalov.net/
  *
- * @package auth_radius
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

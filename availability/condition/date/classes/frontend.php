@@ -3,8 +3,9 @@
 /**
  * Front-end class.
  *
- * @package availability_date
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage date
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Front-end class.
  *
- * @package availability_date
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class frontend extends \core_availability\frontend {
     /**

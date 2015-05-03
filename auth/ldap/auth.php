@@ -4,10 +4,9 @@
  * Authentication Plugin: LDAP Authentication
  * Authentication using LDAP (Lightweight Directory Access Protocol).
  *
- * @package auth_ldap
- * @author Martin Dougiamas
- * @author Iñaki Arenaza
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

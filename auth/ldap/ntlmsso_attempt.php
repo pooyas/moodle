@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    auth
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
+ */
+
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 
 //HTTPS is required in this page when $CFG->loginhttps enabled

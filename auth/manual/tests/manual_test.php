@@ -3,9 +3,10 @@
 /**
  * Manual authentication tests.
  *
- * @package    auth_manual
- * @category   test
- * @copyright  2014 Gilles-Philippe Leblanc <gilles-philippe.leblanc@umontreal.ca>
+ * @package    auth
+ * @subpackage manual
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->dirroot.'/auth/manual/auth.php');
 /**
  * Manual authentication tests class.
  *
- * @package    auth_manual
- * @category   test
- * @copyright  2014 Gilles-Philippe Leblanc <gilles-philippe.leblanc@umontreal.ca>
  * 
  */
 class auth_manual_testcase extends advanced_testcase {

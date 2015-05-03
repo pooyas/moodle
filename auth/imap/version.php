@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    auth_imap
+ * @package    auth
+ * @subpackage imap
  * @copyright  2015 Pooya Saeedi
  * 
  */

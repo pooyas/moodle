@@ -3,9 +3,9 @@
 /**
  * Front-end class.
  *
- * @package availability_completion
- * @copyright 2015 Pooya Saeedi
- * 
+ * @package    availability
+ * @subpackage completion
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace availability_completion;
@@ -15,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Front-end class.
  *
- * @package availability_completion
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class frontend extends \core_availability\frontend {
     /**

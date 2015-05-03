@@ -23,8 +23,9 @@
  * Performance notes:
  * + The code is simpler, but not as optimized as its LDAP counterpart.
  *
- * @package    auth_db
- * @copyright  2006 Martin Langhoff
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

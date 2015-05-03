@@ -3,8 +3,9 @@
 /**
  * Condition main class.
  *
- * @package availability_grouping
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grouping
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Condition main class.
  *
- * @package availability_grouping
- * @copyright 2015 Pooya Saeedi
- * 
+ * @package    availability
+ * @subpackage grouping
+ * @copyright  2015 Pooya Saeedi
  */
 class condition extends \core_availability\condition {
     /** @var array Array from grouping id => name */

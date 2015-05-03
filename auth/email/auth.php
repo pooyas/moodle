@@ -3,9 +3,9 @@
 /**
  * Authentication Plugin: Email Authentication
  *
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package auth_email
+ * @package    auth
+ * @subpackage email
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

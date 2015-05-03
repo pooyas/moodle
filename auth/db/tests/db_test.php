@@ -4,7 +4,8 @@
  * External database auth sync tests, this also tests adodb drivers
  * that are matching our four supported Lion database drivers.
  *
- * @package    auth_db
+ * @package    auth
+ * @subpackage db
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 

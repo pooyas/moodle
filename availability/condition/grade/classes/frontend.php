@@ -3,8 +3,9 @@
 /**
  * Front-end class.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Front-end class.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class frontend extends \core_availability\frontend {
     protected function get_javascript_strings() {

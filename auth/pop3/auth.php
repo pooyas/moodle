@@ -4,9 +4,9 @@
  * Authentication Plugin: POP3 Authentication
  * Authenticates against a POP3 server.
  *
- * @package auth_pop3
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage pop3
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

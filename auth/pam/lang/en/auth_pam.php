@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_pam', language 'en'.
  *
- * @package   auth_pam
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage pam
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

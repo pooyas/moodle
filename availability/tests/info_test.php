@@ -3,8 +3,10 @@
 /**
  * Unit tests for info and subclasses.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +19,6 @@ use core_availability\info_section;
 /**
  * Unit tests for info and subclasses.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class info_testcase extends \advanced_testcase {
     public function setUp() {

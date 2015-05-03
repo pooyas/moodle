@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_none', language 'en'.
  *
- * @package   auth_none
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage none
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

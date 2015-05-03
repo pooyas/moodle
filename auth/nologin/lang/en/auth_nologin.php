@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_nologin', language 'en'.
  *
- * @package   auth_nologin
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage nologin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

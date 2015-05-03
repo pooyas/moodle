@@ -3,17 +3,15 @@
 /**
  * Renderer for availability display.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Renderer for availability display.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_availability_renderer extends plugin_renderer_base {
     /**

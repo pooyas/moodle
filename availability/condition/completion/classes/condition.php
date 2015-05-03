@@ -3,8 +3,9 @@
 /**
  * Activity completion condition.
  *
- * @package availability_completion
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage completion
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->libdir . '/completionlib.php');
 /**
  * Activity completion condition.
  *
- * @package availability_completion
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class condition extends \core_availability\condition {
     /** @var int ID of module that this depends on */

@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    auth_email
+ * @package    auth
+ * @subpackage email
  * @copyright  2015 Pooya Saeedi
  * 
  */

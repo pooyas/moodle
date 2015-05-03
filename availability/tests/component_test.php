@@ -3,8 +3,10 @@
 /**
  * Unit tests for the component and plugin definitions for availability system.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage availability
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for the component and plugin definitions for availability system.
  *
- * @package core_availability
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_availability_component_testcase extends advanced_testcase {
     /**

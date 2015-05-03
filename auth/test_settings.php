@@ -3,7 +3,8 @@
 /**
  * Test auth settings.
  *
- * @package    core_auth
+ * @package    core
+ * @subpackage auth
  * @copyright  2015 Pooya Saeedi
  * 
  */

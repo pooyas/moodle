@@ -1,8 +1,14 @@
 <?php
 
-// Implements logout for Shibboleth authenticated users according to:
-// - https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPLogoutInitiator
-// - https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPNotify
+/**
+ * Implements logout for Shibboleth authenticated users according to:
+ * https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPLogoutInitiator
+ * https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPNotify
+ * 
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+ */
 
 require_once("../../config.php");
 

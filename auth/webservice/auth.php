@@ -4,8 +4,9 @@
  * Web service auth plugin, reserves username, prevents normal login.
  * TODO: add IP restrictions and some other features - MDL-17135
  *
- * @package    auth_webservice
- * @copyright  2015 Pooya Saeedi 
+ * @package    auth
+ * @subpackage webservice
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

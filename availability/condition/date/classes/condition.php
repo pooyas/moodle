@@ -3,8 +3,9 @@
 /**
  * Date condition.
  *
- * @package availability_date
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage date
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Date condition.
  *
- * @package availability_date
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class condition extends \core_availability\condition {

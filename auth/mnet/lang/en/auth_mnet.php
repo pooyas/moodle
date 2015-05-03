@@ -3,8 +3,9 @@
 /**
  * Strings for component 'auth_mnet', language 'en'.
  *
- * @package   auth_mnet
- * @copyright 2015 Pooya Saeedi
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

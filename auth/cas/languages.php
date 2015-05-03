@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
+ */
+
+
 $caslangconstprefix = 'PHPCAS_LANG_';
 $caslangprefixlen = strlen('CAS_Languages_');
 $CASLANGUAGES = array ();

@@ -3,8 +3,10 @@
 /**
  * Unit tests for the condition.
  *
- * @package availability_grouping
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grouping
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +17,6 @@ use availability_grouping\condition;
 /**
  * Unit tests for the condition.
  *
- * @package availability_grouping
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class availability_grouping_condition_testcase extends advanced_testcase {
     /**

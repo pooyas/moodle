@@ -3,8 +3,9 @@
 /**
  * Observer handling events.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,6 @@ defined('LION_INTERNAL') || die();
  * This ought to use the hooks system, but it doesn't exist - calls are
  * hard-coded. (The new event system is not suitable for this type of use.)
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class callbacks {
     /**

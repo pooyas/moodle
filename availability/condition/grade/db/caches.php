@@ -3,8 +3,9 @@
 /**
  * Cache definitions.
  *
- * @package availability_grade
- * @copyright 2015 Pooya Saeedi
+ * @package    availability
+ * @subpackage grade
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

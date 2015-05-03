@@ -3,7 +3,8 @@
 /**
  * Version information
  *
- * @package    auth_pop3
+ * @package    auth
+ * @subpackage pop3
  * @copyright  2015 Pooya Saeedi
  * 
  */
