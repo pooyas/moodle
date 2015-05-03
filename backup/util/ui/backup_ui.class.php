@@ -4,7 +4,7 @@
  * This file contains the backup user interface class
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  * The backup user interface class manages the user interface and backup for Lion.
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui extends base_ui {
@@ -205,7 +205,7 @@ class backup_ui extends base_ui {
  * Backup user interface exception. Modelled off the backup_exception class
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui_exception extends base_ui_exception {}

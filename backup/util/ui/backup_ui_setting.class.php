@@ -5,7 +5,7 @@
  * settings use to represent the UI they have.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  *
  * @todo extend as required for restore
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class base_setting_ui {
@@ -173,7 +173,7 @@ class base_setting_ui {
  * Abstract class to represent the user interface backup settings have
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class backup_setting_ui extends base_setting_ui {
@@ -324,7 +324,7 @@ abstract class backup_setting_ui extends base_setting_ui {
  * A text input user interface element for backup settings
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_setting_ui_text extends backup_setting_ui {
@@ -360,7 +360,7 @@ class backup_setting_ui_text extends backup_setting_ui {
  * A checkbox user interface element for backup settings (default)
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_setting_ui_checkbox extends backup_setting_ui {
@@ -466,7 +466,7 @@ class backup_setting_ui_checkbox extends backup_setting_ui {
  * Radio button user interface element for backup settings
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_setting_ui_radio extends backup_setting_ui {
@@ -551,7 +551,7 @@ class backup_setting_ui_radio extends backup_setting_ui {
  * A select box, drop down user interface for backup settings
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_setting_ui_select extends backup_setting_ui {
@@ -636,7 +636,7 @@ class backup_setting_ui_select extends backup_setting_ui {
  * A date selector user interface widget for backup settings.
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_setting_ui_dateselector extends backup_setting_ui_text {
@@ -673,7 +673,7 @@ class backup_setting_ui_dateselector extends backup_setting_ui_text {
  * Base setting UI exception class.
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class base_setting_ui_exception extends base_setting_exception {}
@@ -682,7 +682,7 @@ class base_setting_ui_exception extends base_setting_exception {}
  * Backup setting UI exception class.
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_setting_ui_exception extends base_setting_ui_exception {};

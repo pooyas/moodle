@@ -1,6 +1,13 @@
 <?php
 
-    // Allows the admin to configure mnet stuff
+/**
+ * Allows the admin to configure mnet stuff
+ *
+ * @package    core
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+ *
+ */
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
     require_once($CFG->libdir.'/adminlib.php');

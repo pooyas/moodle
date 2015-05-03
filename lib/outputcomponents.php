@@ -2602,7 +2602,7 @@ class block_move_target {
  * This class is used to represent one item within a custom menu that may or may
  * not have children.
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since Lion 2.0
  * @package core
@@ -2807,7 +2807,7 @@ class custom_menu_item implements renderable {
  * To configure the custom menu:
  *     Settings: Administration > Appearance > Themes > Theme settings
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since Lion 2.0
  * @package core
@@ -3074,7 +3074,7 @@ class tabobject implements renderable {
  * Multiple row tabs may not look good on some devices but if you want to use them
  * you can specify ->subtree for the active tabobject.
  *
- * @copyright 2013 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since Lion 2.5
  * @package core

@@ -6,7 +6,7 @@
  * import.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  * Import UI class
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class import_ui extends backup_ui {
@@ -101,7 +101,7 @@ class import_ui extends backup_ui {
  * Extends the initial stage
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class import_ui_stage_inital extends backup_ui_stage_initial {}
@@ -110,7 +110,7 @@ class import_ui_stage_inital extends backup_ui_stage_initial {}
  * Extends the schema stage
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class import_ui_stage_schema extends backup_ui_stage_schema {}
@@ -122,7 +122,7 @@ class import_ui_stage_schema extends backup_ui_stage_schema {}
  * as it is always hidden.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class import_ui_stage_confirmation extends backup_ui_stage_confirmation {
@@ -177,7 +177,7 @@ class import_ui_stage_confirmation extends backup_ui_stage_confirmation {
  * Overrides the final stage.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class import_ui_stage_final extends backup_ui_stage_final {}
@@ -186,7 +186,7 @@ class import_ui_stage_final extends backup_ui_stage_final {}
  * Extends the restore course search to search for import courses.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class import_course_search extends restore_course_search {

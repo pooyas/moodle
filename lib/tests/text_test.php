@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @category   phpunit
- * @copyright  2010 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_text_testcase extends advanced_testcase {

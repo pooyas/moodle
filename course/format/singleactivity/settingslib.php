@@ -4,7 +4,7 @@
  * Settings class for format_singleactivity
  *
  * @package    format_singleactivity
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die;
  * Admin settings class for the format singleactivity activitytype choice
  *
  * @package    format_singleactivity
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class format_singleactivity_admin_setting_activitytype extends admin_setting_configselect {

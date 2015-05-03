@@ -13,7 +13,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Lion.  If not, see <http://www.gnu.org/licenses/>.
 
-copyright 2009 Petr Skoda (http://skodak.org)
+copyright 2015 Pooya Saeedi
 license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 
 

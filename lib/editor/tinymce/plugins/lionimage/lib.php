@@ -6,7 +6,7 @@ defined('LION_INTERNAL') || die();
  * Plugin for inserting and editing of images with Lion file picker support.
  *
  * @package   tinymce_lionimage
- * @copyright 2012 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_lionimage extends editor_tinymce_plugin {

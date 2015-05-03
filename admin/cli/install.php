@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * This script creates config.php file and prepares database.
  *
@@ -768,8 +767,10 @@ if ($interactive) {
     if (!$options['agree-license']) {
         cli_separator();
         cli_heading(get_string('copyrightnotice'));
-        echo "Lion  - Modular Object-Oriented Dynamic Learning Environment\n";
-        echo get_string('gpl3')."\n\n";
+        echo "Lion  - Learning Is ONline\n";
+		/// COMMENTOUT (Pooya)
+		/// No license for show
+        // echo get_string('gpl3')."\n\n";
         echo get_string('doyouagree')."\n";
         $prompt = get_string('cliyesnoprompt', 'admin');
         $input = cli_input($prompt, '', array(get_string('clianswerno', 'admin'), get_string('cliansweryes', 'admin')));

@@ -4,7 +4,7 @@
  * This file contains the forms used by the restore stages
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,7 +13,7 @@
  *
  * @abstract Marked abstract here because some idiot forgot to mark it abstract in code!
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_lionform extends base_lionform {
@@ -40,7 +40,7 @@ class restore_lionform extends base_lionform {
  * Restore settings form.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_settings_form extends restore_lionform {}
@@ -49,7 +49,7 @@ class restore_settings_form extends restore_lionform {}
  * Restore schema review form.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_schema_form extends restore_lionform {}
@@ -58,7 +58,7 @@ class restore_schema_form extends restore_lionform {}
  * Restore complete process review form.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_review_form extends restore_lionform {};

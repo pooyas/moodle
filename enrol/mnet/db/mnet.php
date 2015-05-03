@@ -8,7 +8,7 @@
  *
  * @since      Lion 2.0
  * @package    enrol_mnet
- * @copyright  2010 Penny Leach
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

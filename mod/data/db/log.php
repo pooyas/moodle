@@ -6,7 +6,7 @@
  *
  * @package    mod_data
  * @category   log
- * @copyright  2010 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

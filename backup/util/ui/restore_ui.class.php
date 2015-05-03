@@ -4,7 +4,7 @@
  * This file contains the restore user interface class
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@
  * Lion.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui extends base_ui {
@@ -375,7 +375,7 @@ class restore_ui extends base_ui {
  * Restore user interface exception. Modelled off the restore_exception class
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_exception extends base_ui_exception {}

@@ -5,7 +5,7 @@
  *
  * @package     core_backup
  * @subpackage  lion2
- * @copyright   2011 David Mudrak <david@lion.com>
+ * @copyright   2015 Pooya Saeedi
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * As an example of implementation see {@link backup_gradingform_rubric_plugin}
  *
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  * @category   backup
  */

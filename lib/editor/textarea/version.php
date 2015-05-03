@@ -5,7 +5,7 @@
  *
  * @package    editor
  * @subpackage textarea
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

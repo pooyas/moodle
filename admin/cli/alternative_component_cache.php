@@ -7,8 +7,9 @@
  * This file needs to be called after any change in PHP files in dataroot,
  * that is before upgrade and install.
  *
- * @package   core
- * @copyright 2013 Petr Skoda (skodak)  {@link http://skodak.org}
+ * @package    core
+ * @subpackage cli
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

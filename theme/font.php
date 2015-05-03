@@ -6,7 +6,7 @@
  * Note: it is recommended to use only WOFF (Web Open Font Format) fonts.
  *
  * @package   core
- * @copyright 2013 Petr Skoda (skodak)  {@link http://skodak.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

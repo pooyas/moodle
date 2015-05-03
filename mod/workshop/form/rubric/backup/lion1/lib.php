@@ -5,7 +5,7 @@
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
  * @package    workshopform_rubric
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

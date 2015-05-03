@@ -4,7 +4,7 @@
  * MySQL collation conversion tool.
  *
  * @package    core
- * @copyright  2012 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

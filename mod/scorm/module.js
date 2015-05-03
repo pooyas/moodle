@@ -3,7 +3,7 @@
  * Javascript helper function for SCORM module.
  *
  * @package   mod-scorm
- * @copyright 2009 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Advanced grading methods support
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -72,7 +72,7 @@ function get_grading_manager($context_or_areaid = null, $component = null, $area
  * manager. Such pattern is used when copying form definitions, for example.
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  * @category   grading
  */

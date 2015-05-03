@@ -3,10 +3,10 @@
 /**
  * Validate that the current db structure matches the install.xml files.
  *
- * @package   core
- * @copyright 2014 Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @package    core
+ * @subpackage cli
+ * @copyright  2015 Pooya Saeedi
  * 
- * @author    Petr Skoda <petr.skoda@totaralms.com>
  */
 
 define('CLI_SCRIPT', true);

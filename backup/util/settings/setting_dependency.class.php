@@ -3,14 +3,14 @@
 
 /**
  * @package   lioncore
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
 /**
  * Generic abstract dependency class
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class setting_dependency {
@@ -149,7 +149,7 @@ abstract class setting_dependency {
  * A dependency that disables the secondary setting if the primary setting is
  * equal to the provided value
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class setting_dependency_disabledif_equals extends setting_dependency {
@@ -418,7 +418,7 @@ class setting_dependency_disabledif_equals2 extends setting_dependency {
  * A dependency that disables the secondary element if the primary element is
  * true or checked
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class setting_dependency_disabledif_checked extends setting_dependency_disabledif_equals {
@@ -444,7 +444,7 @@ class setting_dependency_disabledif_checked extends setting_dependency_disabledi
  * A dependency that disables the secondary element if the primary element is
  * false or not checked
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class setting_dependency_disabledif_not_checked extends setting_dependency_disabledif_equals {
@@ -470,7 +470,7 @@ class setting_dependency_disabledif_not_checked extends setting_dependency_disab
  * A dependency that disables the secondary setting if the value of the primary setting
  * is not empty.
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class setting_dependency_disabledif_not_empty extends setting_dependency_disabledif_equals {
@@ -535,7 +535,7 @@ class setting_dependency_disabledif_not_empty extends setting_dependency_disable
  * A dependency that disables the secondary setting if the value of the primary setting
  * is empty.
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class setting_dependency_disabledif_empty extends setting_dependency_disabledif_equals {

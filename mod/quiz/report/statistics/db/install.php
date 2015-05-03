@@ -3,7 +3,7 @@
 /**
  * Post-install script for the quiz statistics report.
  * @package   quiz_statistics
- * @copyright 2010 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

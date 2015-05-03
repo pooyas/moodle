@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * Allows the admin to configure a list of profile fields that are sent/recieved
  *
  * @package    core
  * @subpackage mnet
- * @copyright  2010 onwards Penny Leach <penny@liip.ch>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

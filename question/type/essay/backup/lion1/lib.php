@@ -3,7 +3,7 @@
 /**
  * @package    qtype
  * @subpackage essay
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

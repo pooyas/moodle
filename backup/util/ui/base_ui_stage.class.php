@@ -8,7 +8,7 @@
  * These will be primarily operated a {@link base_ui} instance.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@
  *  - initialise_stage_form : To get a backup_lionform instance for the stage
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class base_ui_stage {

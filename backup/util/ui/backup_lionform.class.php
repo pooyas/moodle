@@ -6,7 +6,7 @@
  * interface can exist within.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ defined('LION_INTERNAL') || die();
  * EWWWWW!!!!!!!!!!!!!!!!!!!!!!!!
  *
  * @package core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class backup_lionform extends base_lionform {
@@ -50,7 +50,7 @@ abstract class backup_lionform extends base_lionform {
  * between stages.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_initial_form extends backup_lionform {}
@@ -62,7 +62,7 @@ class backup_initial_form extends backup_lionform {}
  * between stages.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_schema_form extends backup_lionform {}
@@ -74,7 +74,7 @@ class backup_schema_form extends backup_lionform {}
  * between stages.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_confirmation_form extends backup_lionform {

@@ -2540,7 +2540,7 @@ function grade_extend_settings($plugininfo, $courseid) {
  * This class provides several helpful functions that work irrespective of any
  * current state.
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class grade_helper {

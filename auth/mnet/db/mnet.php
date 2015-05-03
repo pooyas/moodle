@@ -5,7 +5,7 @@
  *
  * @since Lion 2.0
  * @package auth_mnet
- * @copyright 2010 Penny Leach
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

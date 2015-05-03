@@ -4,7 +4,7 @@
  * Strings for component 'repository_areafiles'
  *
  * @package   repository_areafiles
- * @copyright 2013 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

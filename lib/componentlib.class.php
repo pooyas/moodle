@@ -559,7 +559,7 @@ class component_installer {
  * and installs them. It detects eventual dependencies and installs
  * all parent languages, too.
  *
- * @copyright 2011 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class lang_installer {
@@ -799,7 +799,7 @@ class lang_installer {
 /**
  * Exception thrown by {@link lang_installer}
  *
- * @copyright 2011 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class lang_installer_exception extends lion_exception {

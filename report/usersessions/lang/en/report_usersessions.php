@@ -4,9 +4,9 @@
  * Lang strings.
  *
  * @package   report_usersessions
- * @copyright 2014 Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @copyright 2015 Pooya Saeedi
  * 
- * @author    Petr Skoda <petr.skoda@totaralms.com>
+ * 
  */
 
 $string['navigationlink'] = 'Browser sessions';

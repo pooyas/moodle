@@ -5,7 +5,7 @@
  * Page configuration form
  *
  * @package mod_page
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

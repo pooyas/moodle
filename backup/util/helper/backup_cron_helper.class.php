@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage backup
- * @copyright  2010 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Creating a default instance of areafiles repository on install
  *
  * @package    repository_areafiles
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

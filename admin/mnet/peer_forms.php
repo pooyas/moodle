@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * This file contains two forms for adding/editing mnet hosts, used by peers.php
  *
  * @package    core
  * @subpackage mnet
- * @copyright  2010 Penny Leach
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

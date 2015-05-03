@@ -6,7 +6,7 @@
  *
  * @package     mod_lesson
  * @category    backup
- * @copyright   2010 Sam Hemelryk
+ * @copyright   2015 Pooya Saeedi
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/mod/lesson/backup/lion2/backup_lesson_stepslib.ph
 /**
  * Provides the steps to perform one complete backup of the Lesson instance
  *
- * @copyright  2010 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class backup_lesson_activity_task extends backup_activity_task {

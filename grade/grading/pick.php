@@ -4,7 +4,7 @@
  * Allows to choose a form from the list of available templates
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

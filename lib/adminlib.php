@@ -3241,7 +3241,7 @@ class admin_setting_configtime extends admin_setting {
 /**
  * Seconds duration setting.
  *
- * @copyright 2012 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class admin_setting_configduration extends admin_setting {
@@ -4682,7 +4682,7 @@ class admin_setting_configtext_with_advanced extends admin_setting_configtext {
 /**
  * Checkbox with an advanced checkbox that controls an additional $name.'_adv' config setting.
  *
- * @copyright 2009 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class admin_setting_configcheckbox_with_advanced extends admin_setting_configcheckbox {
@@ -4709,7 +4709,7 @@ class admin_setting_configcheckbox_with_advanced extends admin_setting_configche
  *
  * This is nearly a copy/paste of admin_setting_configcheckbox_with_adv
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class admin_setting_configcheckbox_with_lock extends admin_setting_configcheckbox {
@@ -8357,7 +8357,7 @@ class admin_setting_managewebservicetokens extends admin_setting {
 /**
  * Colour picker
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class admin_setting_configcolourpicker extends admin_setting {

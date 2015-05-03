@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  * language pack from lion.org lang download site.
  *
  * @package    core
- * @copyright  2010 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_string_manager_install implements core_string_manager {

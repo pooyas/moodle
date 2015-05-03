@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * Tabs to be included on the pages for configuring a single host
  * $mnet_peer object must be set and bootstrapped
@@ -9,9 +7,7 @@
  *
  * @package    core
  * @subpackage mnet
- * @copyright  2007 Donal McMullan
- * @copyright  2007 Martin Langhoff
- * @copyright  2010 Penny Leach
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

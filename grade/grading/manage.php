@@ -8,7 +8,7 @@
  * current form as a template or re-use some existing form.
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

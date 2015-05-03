@@ -6,7 +6,7 @@
  * interface can exist within.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ require_once($CFG->libdir . '/formslib.php');
  * EWWWWW!!!!!!!!!!!!!!!!!!!!!!!!
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class base_lionform extends lionform {

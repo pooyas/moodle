@@ -4,7 +4,7 @@
  * Defines classes used for plugin info.
  *
  * @package    core
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\plugininfo;

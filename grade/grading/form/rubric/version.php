@@ -4,7 +4,7 @@
  * Version information for plugin gradingform_rubric
  *
  * @package    gradingform_rubric
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

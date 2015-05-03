@@ -5,8 +5,8 @@
  *
  * @package   core
  * @category  phpunit
- * @author    Petr Skoda <petr.skoda@totaralms.com>
- * @copyright 2014 Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * 
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +17,8 @@ defined('LION_INTERNAL') || die();
  *
  * @package   core
  * @category  phpunit
- * @author    Petr Skoda <petr.skoda@totaralms.com>
- * @copyright 2014 Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * 
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_sessionlib_testcase extends advanced_testcase {

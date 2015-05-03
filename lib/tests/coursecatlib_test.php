@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

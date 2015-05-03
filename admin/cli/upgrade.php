@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * This script creates config.php file and prepares database.
  *
@@ -11,7 +10,7 @@
  *
  * @package    core
  * @subpackage cli
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -7,7 +7,7 @@
  * @since Lion 2.0
  * @package lioncore
  * @subpackage portfolio
- * @copyright 2010 Penny Leach
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

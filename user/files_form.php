@@ -5,7 +5,7 @@
  *
  * @package   core_user
  * @category  files
- * @copyright 2010 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ require_once("$CFG->libdir/formslib.php");
 
 /**
  * Class user_files_form
- * @copyright 2010 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_files_form extends lionform {

@@ -4,7 +4,7 @@
  * Delegated database transaction support.
  *
  * @package    core_dml
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Delegated transaction class.
  *
  * @package    core_dml
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class lion_transaction {

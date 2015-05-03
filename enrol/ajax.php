@@ -7,7 +7,7 @@
  * which will be returned and acted upon by the calling AJAX script.
  *
  * @package    core_enrol
- * @copyright  2010 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

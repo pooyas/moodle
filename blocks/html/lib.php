@@ -3,7 +3,7 @@
 /**
  * Form for editing HTML block instances.
  *
- * @copyright 2010 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package   block_html
  * @category  files

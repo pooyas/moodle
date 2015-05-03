@@ -4,7 +4,7 @@
  * This file contains components used by the restore UI
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -12,7 +12,7 @@
  * A base class that can be used to build a specific search upon
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class restore_search_base implements renderable {
@@ -248,7 +248,7 @@ abstract class restore_search_base implements renderable {
  * A course search component
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_course_search extends restore_search_base {
@@ -354,7 +354,7 @@ class restore_course_search extends restore_search_base {
  * A category search component
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_category_search extends restore_search_base  {

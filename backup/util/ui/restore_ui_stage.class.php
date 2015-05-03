@@ -8,7 +8,7 @@
  * These will be primarily operated a {@link restore_ui} instance.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@
  *  - initialise_stage_form : To get a restore_lionform instance for the stage
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class restore_ui_stage extends base_ui_stage {
@@ -82,7 +82,7 @@ abstract class restore_ui_stage extends base_ui_stage {
  * no use for the restore controller.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class restore_ui_independent_stage {
@@ -205,7 +205,7 @@ abstract class restore_ui_independent_stage {
  * This is the first stage, it is independent.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_stage_confirm extends restore_ui_independent_stage implements file_progress {
@@ -394,7 +394,7 @@ class restore_ui_stage_confirm extends restore_ui_independent_stage implements f
  * This stage is the second stage and is also independent
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_stage_destination extends restore_ui_independent_stage {
@@ -571,7 +571,7 @@ class restore_ui_stage_destination extends restore_ui_independent_stage {
  * is the first stage as such.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_stage_settings extends restore_ui_stage {
@@ -678,7 +678,7 @@ class restore_ui_stage_settings extends restore_ui_stage {
  * to the area that they are backing up as well as its children.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_stage_schema extends restore_ui_stage {
@@ -830,7 +830,7 @@ class restore_ui_stage_schema extends restore_ui_stage {
  * of the file that will be generated.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_stage_review extends restore_ui_stage {
@@ -921,7 +921,7 @@ class restore_ui_stage_review extends restore_ui_stage {
  * we simply need to process.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_stage_process extends restore_ui_stage {
@@ -1072,7 +1072,7 @@ class restore_ui_stage_process extends restore_ui_stage {
  * Once this is displayed there is nothing more to do.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class restore_ui_stage_complete extends restore_ui_stage_process {

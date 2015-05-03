@@ -1,13 +1,11 @@
 <?php
 
-
-
 /**
  * The form for configuring which services are subscribed and published on a host
  *
  * @package    core
  * @subpackage mnet
- * @copyright  2010 Penny Leach
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

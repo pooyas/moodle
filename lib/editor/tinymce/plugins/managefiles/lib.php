@@ -6,7 +6,7 @@ defined('LION_INTERNAL') || die();
  * Plugin for managing files embedded in the text editor
  *
  * @package   tinymce_managefiles
- * @copyright 2013 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_managefiles extends editor_tinymce_plugin {

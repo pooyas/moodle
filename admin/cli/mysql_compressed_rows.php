@@ -4,9 +4,9 @@
  * MySQL table row compression tool tool.
  *
  * @package   core
- * @copyright 2014 Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @copyright 2015 Pooya Saeedi
  * 
- * @author    Petr Skoda <petr.skoda@totaralms.com>
+ * 
  */
 
 define('CLI_SCRIPT', true);

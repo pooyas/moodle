@@ -145,7 +145,7 @@ class editor_tinymce_testcase extends advanced_testcase {
  *
  * @package   editor_tinymce
  * @category  phpunit
- * @copyright 2013 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_testplugin extends editor_tinymce_plugin {

@@ -10,7 +10,7 @@
  * @package    core
  * @subpackage course
  * @deprecated Lion 2.8 MDL-46428 - Now redirects to mod.php.
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

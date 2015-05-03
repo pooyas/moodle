@@ -8,7 +8,7 @@
  * These will be primarily operated a {@link backup_ui} instance.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@
  *  - initialise_stage_form : To get a backup_lionform instance for the stage
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class backup_ui_stage extends base_ui_stage {
@@ -51,7 +51,7 @@ abstract class backup_ui_stage extends base_ui_stage {
  * In this stage the user is required to set the root level settings.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui_stage_initial extends backup_ui_stage {
@@ -207,7 +207,7 @@ class backup_ui_stage_initial extends backup_ui_stage {
  * to the area that they are backing up as well as its children.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui_stage_schema extends backup_ui_stage {
@@ -365,7 +365,7 @@ class backup_ui_stage_schema extends backup_ui_stage {
  * of the file that will be generated.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui_stage_confirmation extends backup_ui_stage {
@@ -494,7 +494,7 @@ class backup_ui_stage_confirmation extends backup_ui_stage {
  * we simply need to process.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui_stage_final extends backup_ui_stage {
@@ -547,7 +547,7 @@ class backup_ui_stage_final extends backup_ui_stage {
  * backup file in the file browser.
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_ui_stage_complete extends backup_ui_stage_final {

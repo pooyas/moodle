@@ -4,7 +4,7 @@
  * Renderer for the grade user report
  *
  * @package   gradereport_user
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  * To get an instance of this use the following code:
  * $renderer = $PAGE->get_renderer('gradereport_user');
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class gradereport_user_renderer extends plugin_renderer_base {

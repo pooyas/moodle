@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage lib
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

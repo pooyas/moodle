@@ -5,7 +5,7 @@
  *
  * @package    mod_url
  * @category   test
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_url
  * @category   test
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_url_generator extends testing_module_generator {

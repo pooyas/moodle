@@ -3,7 +3,7 @@
  * Readme file for local customisations
  *
  * @package    local
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

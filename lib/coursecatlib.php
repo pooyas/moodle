@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage course
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -31,7 +31,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @subpackage course
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class coursecat implements renderable, cacheable_object, IteratorAggregate {
@@ -2633,7 +2633,7 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
  *
  * @package    core
  * @subpackage course
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class course_in_list implements IteratorAggregate {

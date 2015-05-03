@@ -3,7 +3,7 @@
  * Init private files treeview
  *
  * @package    block_private_files
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

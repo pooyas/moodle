@@ -4,7 +4,7 @@
  * TinyMCE image insert/edit plugin version details.
  *
  * @package   tinymce_lionimage
- * @copyright 2012 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

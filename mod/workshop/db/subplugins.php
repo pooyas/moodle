@@ -5,7 +5,7 @@
  * Workshop subplugin types declaration
  *
  * @package   mod_workshop
- * @copyright 2010 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package   core_user
  * @category  files
- * @copyright 2010 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Manage files in user draft area attached to texteditor
  *
  * @package   tinymce_managefiles
- * @copyright 2013 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

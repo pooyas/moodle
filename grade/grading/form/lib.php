@@ -4,7 +4,7 @@
  * Common classes used by gradingform plugintypes are defined here
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -28,7 +28,7 @@ defined('LION_INTERNAL') || die();
  * definition to include additional data stored.
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  * @category   grading
  */

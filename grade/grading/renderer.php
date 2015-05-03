@@ -4,7 +4,7 @@
  * Renderer for core_grading subsystem
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Standard HTML output renderer for core_grading subsystem
  *
  * @package    core_grading
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  * @category   grading
  */

@@ -5,7 +5,7 @@
  *
  * @package    mod_scorm
  * @category   test
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@
  *
  * @package    mod_scorm
  * @category   test
- * @copyright  2013 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_scorm_generator_testcase extends advanced_testcase {

@@ -4,7 +4,7 @@
  * Grading method controller for the Rubric plugin
  *
  * @package    gradingform_rubric
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ require_once($CFG->dirroot.'/grade/grading/form/lib.php');
  * This controller encapsulates the rubric grading logic
  *
  * @package    gradingform_rubric
- * @copyright  2011 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class gradingform_rubric_controller extends gradingform_controller {

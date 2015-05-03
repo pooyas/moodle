@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * This installs Lion into empty database, config.php must already exist.
  *
@@ -10,7 +9,7 @@
  *
  * @package    core
  * @subpackage cli
- * @copyright  2010 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -52,8 +51,8 @@ Example:
 if (version_compare(phpversion(), "5.4.4") < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN NOT move it after installib
-    fwrite(STDERR, "Lion 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).\n");
-    fwrite(STDERR, "Please upgrade your server software or install older Lion version.\n");
+    fwrite(STDERR, "Lion requires at least PHP 5.4.4 (currently using version $phpversion).\n");
+    fwrite(STDERR, "Please upgrade your server software.\n");
     exit(1);
 }
 

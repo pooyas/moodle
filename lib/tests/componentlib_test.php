@@ -104,7 +104,7 @@ class core_componentlib_testcase extends advanced_testcase {
  * Testable lang_installer subclass that does not actually install anything
  * and provides access to the protected methods of the parent class
  *
- * @copyright 2011 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class testable_lang_installer extends lang_installer {

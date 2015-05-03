@@ -4,7 +4,7 @@
  * TinyMCE text editor integration version file.
  *
  * @package    editor_tinymce
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

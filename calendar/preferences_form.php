@@ -4,7 +4,7 @@
 /**
  * The mform for settings user preferences
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @package calendar
  */
@@ -21,7 +21,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * The mform class for setting user preferences
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class calendar_preferences_form extends lionform {

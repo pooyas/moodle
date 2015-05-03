@@ -5,7 +5,7 @@
  * with the functions that exist in enrollib.php in relation to a single course.
  *
  * @package    core_enrol
- * @copyright  2010 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * It is provided as a convenience more than anything else.
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class course_enrolment_manager {
@@ -1200,7 +1200,7 @@ class course_enrolment_manager {
 /**
  * A button that is used to enrol users in a course
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class enrol_user_button extends single_button {

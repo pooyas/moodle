@@ -4,7 +4,7 @@
  * This file contains backup and restore output renderers
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@
  * ?>
  *
  * @package   core_backup
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_backup_renderer extends plugin_renderer_base {

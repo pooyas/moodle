@@ -4,7 +4,7 @@
  * This script imports TinyMCE lang strings into Lion English lang pack.
  *
  * @package    editor_tinymce
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

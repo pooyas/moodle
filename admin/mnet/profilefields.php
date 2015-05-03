@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage mnet
- * @copyright  2010 onwards Penny Leach <penny@liip.ch>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

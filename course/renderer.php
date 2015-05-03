@@ -8,7 +8,7 @@
  * This renderer should contain methods useful to courses, and categories.
  *
  * @package   lioncore
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -2138,7 +2138,7 @@ class core_course_renderer extends plugin_renderer_base {
  * it may as well not use this class at all or extend it.
  *
  * @package   core
- * @copyright 2013 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class coursecat_helper {

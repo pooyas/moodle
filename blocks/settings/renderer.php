@@ -4,7 +4,7 @@
  * Settings block
  *
  * @package    block_settings
- * @copyright  2010 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

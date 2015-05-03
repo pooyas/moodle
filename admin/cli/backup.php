@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage cli
- * @copyright  2013 Lancaster University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

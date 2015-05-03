@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage cli
- * @copyright  2013 Petr Skoda (http://skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

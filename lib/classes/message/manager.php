@@ -5,9 +5,9 @@
  *
  * @package   core_message
  * @since     Lion 2.8
- * @copyright 2014 Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @copyright 2015 Pooya Saeedi
  * 
- * @author    Petr Skoda <petr.skoda@totaralms.com>
+ * 
  */
 
 namespace core\message;
@@ -23,9 +23,9 @@ defined('LION_INTERNAL') || die();
  *
  * @package   core_message
  * @since     Lion 2.8
- * @copyright 2014 Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @copyright 2015 Pooya Saeedi
  * 
- * @author    Petr Skoda <petr.skoda@totaralms.com>
+ * 
  */
 class manager {
     /** @var array buffer of pending messages */

@@ -714,7 +714,7 @@ class navigation_node implements renderable {
  *
  * @package   core
  * @category  navigation
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class navigation_node_collection implements IteratorAggregate {

@@ -1,15 +1,11 @@
 <?php
 
-
-
 /**
  * Page to allow the administrator to configure networked hosts, and add new ones
  *
  * @package    core
  * @subpackage mnet
- * @copyright  2007 Donal McMullan
- * @copyright  2007 Martin Langhoff
- * @copyright  2010 Penny Leach
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

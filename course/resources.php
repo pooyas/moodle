@@ -5,7 +5,7 @@
  * List of all resource type modules in course
  *
  * @package   lioncore
- * @copyright 2009 Petr Skoda (http://skodak.org)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
