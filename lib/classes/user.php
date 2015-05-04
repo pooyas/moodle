@@ -4,7 +4,7 @@
  * User class
  *
  * @package    core
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  *
  * @todo       move api's from user/lib.php and depreciate old ones.
  * @package    core
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_user {

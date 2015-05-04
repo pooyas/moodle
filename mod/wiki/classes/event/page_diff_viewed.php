@@ -4,7 +4,7 @@
  * The mod_wiki diff viewed event.
  *
  * @package    mod_wiki
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_wiki
  * @since      Lion 2.7
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class page_diff_viewed extends \core\event\base {

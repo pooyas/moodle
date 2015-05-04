@@ -5,7 +5,7 @@
  *
  * @package    block_comments
  * @category   test
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    block_comments
  * @category   test
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class block_comments_events_testcase extends advanced_testcase {

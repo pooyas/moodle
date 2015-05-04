@@ -4,7 +4,7 @@
  * The mod_wiki comments viewed event.
  *
  * @package    mod_wiki
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_wiki
  * @since      Lion 2.7
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class comments_viewed extends \core\event\comments_viewed {

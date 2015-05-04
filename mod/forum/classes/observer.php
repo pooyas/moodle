@@ -4,7 +4,7 @@
  * Event observers used in forum.
  *
  * @package    mod_forum
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

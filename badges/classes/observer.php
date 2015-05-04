@@ -3,8 +3,9 @@
 /**
  * Local stuff for category enrolment plugin.
  *
- * @package    core_badges
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @package    core
+ * @subpackage badges
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

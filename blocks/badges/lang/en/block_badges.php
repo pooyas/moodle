@@ -6,7 +6,7 @@
  * @package    block_badges
  * @copyright  2015 Pooya Saeedi
  * 
- * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
+ * 
  */
 
 $string['pluginname'] = 'My latest badges';

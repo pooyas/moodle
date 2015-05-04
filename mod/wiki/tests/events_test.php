@@ -5,7 +5,7 @@
  *
  * @package    mod_wiki
  * @category   phpunit
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot.'/mod/wiki/locallib.php');
  *
  * @package    mod_wiki
  * @category   phpunit
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_wiki_events_testcase extends advanced_testcase {

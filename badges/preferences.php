@@ -5,9 +5,9 @@
  *
  * @package    core
  * @subpackage badges
- * @copyright  2013 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @copyright  2015 Pooya Saeedi
  * 
- * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
+ * 
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');

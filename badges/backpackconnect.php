@@ -7,7 +7,7 @@
  * @subpackage badges
  * @copyright  2015 Pooya Saeedi
  * 
- * @author     Simon Coggins <simon.coggins@totaralms.com>
+ * 
  */
 
 define('AJAX_SCRIPT', true);

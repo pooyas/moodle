@@ -5,7 +5,7 @@
  *
  * @package    core_user
  * @category   phpunit
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot.'/user/lib.php');
  *
  * @package    core_user
  * @category   phpunit
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_userliblib_testcase extends advanced_testcase {

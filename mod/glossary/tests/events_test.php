@@ -5,7 +5,7 @@
  *
  * @package    mod_glossary
  * @category   test
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package   mod_glossary
  * @category  test
- * @copyright 2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class glossary_event_testcase extends advanced_testcase {

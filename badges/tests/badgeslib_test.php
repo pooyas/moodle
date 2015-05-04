@@ -5,9 +5,10 @@
  *
  * @package    core
  * @subpackage badges
- * @copyright  2013 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
- * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
+ * 
  */
 
 defined('LION_INTERNAL') || die();

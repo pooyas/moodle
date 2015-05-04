@@ -2,8 +2,10 @@
 /**
  * Badge events tests.
  *
- * @package    core_badges
- * @copyright  2015 onwards Simey Lameze <simey@lion.com>
+ * @package    core
+ * @subpackage badges
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die();
@@ -13,9 +15,6 @@ require_once($CFG->dirroot . '/badges/tests/badgeslib_test.php');
 /**
  * Badge events tests class.
  *
- * @package    core_badges
- * @copyright  2015 onwards Simey Lameze <simey@lion.com>
- * 
  */
 class core_badges_events_testcase extends core_badges_badgeslib_testcase {
 

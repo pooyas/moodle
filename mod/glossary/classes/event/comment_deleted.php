@@ -4,7 +4,7 @@
  * The mod_glossary comment deleted event.
  *
  * @package    mod_glossary
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_glossary
  * @since      Lion 2.7
- * @copyright  2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class comment_deleted extends \core\event\comment_deleted {

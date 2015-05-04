@@ -4602,7 +4602,7 @@ class settings_navigation extends navigation_node {
  *
  * @package   core
  * @category  navigation
- * @copyright 2013 Rajesh Taneja <rajesh@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class settings_navigation_ajax extends settings_navigation {

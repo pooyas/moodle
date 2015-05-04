@@ -7,7 +7,7 @@
  * @subpackage badges
  * @copyright  2015 Pooya Saeedi
  * 
- * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
+ * 
  */
 
 defined('LION_INTERNAL') || die();
