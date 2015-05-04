@@ -10,9 +10,8 @@ defined('LION_INTERNAL') || die();
  * backed up, a report should make use of the second and third
  * parameters in get_plugin_element().
  *
- * @package     core_backup
+ * @package     backup
  * @subpackage  lion2
- * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
  */

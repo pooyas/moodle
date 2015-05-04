@@ -4,10 +4,9 @@
 /**
  * Defines backup_local_plugin class
  *
- * @package    core_backup
- * @subpackage lion2
- * @category   backup
- * @copyright  2015 Pooya Saeedi
+ * @package     backup
+ * @subpackage  lion2
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

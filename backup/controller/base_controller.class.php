@@ -4,9 +4,9 @@
  * Base class with shared stuff between backup controller and restore
  * controller.
  *
- * @package core_backup
- * @copyright 2015 Pooya Saeedi
- * 
+ * @package    backup
+ * @subpackage controller
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class base_controller extends backup implements loggable {
     /**

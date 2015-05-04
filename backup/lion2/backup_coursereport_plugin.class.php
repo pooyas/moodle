@@ -10,10 +10,9 @@ defined('LION_INTERNAL') || die();
  * backed up, a course report should make use of the second and third
  * parameters in get_plugin_element().
  *
- * @package     core_backup
+ * @package     backup
  * @subpackage  lion2
- * @category    backup
- * @copyright   2011 onwards The Open University
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 abstract class backup_coursereport_plugin extends backup_plugin {

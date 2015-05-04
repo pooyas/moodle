@@ -1,14 +1,13 @@
 <?php
 
-
 /**
- * Defines Lion 1.9 backup conversion handlers
+ * Defines older backup conversion handlers
  *
  * Handlers are classes responsible for the actual conversion work. Their logic
  * is similar to the functionality provided by steps in plan based restore process.
  *
- * @package    backup-convert
- * @subpackage lion1
+ * @package    backup
+ * @subpackage convert
  * @copyright  2015 Pooya Saeedi
  * 
  */

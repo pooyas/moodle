@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package     core
+ * @subpackage  backup
+ * @copyright   2015 Pooya Saeedi
+ */
+
 // Require both the backup and restore libs
 require_once('../config.php');
 require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');

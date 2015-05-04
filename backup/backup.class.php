@@ -2,9 +2,9 @@
 
 
 /**
- * @package lioncore
- * @subpackage backup
- * @copyright 2015 Pooya Saeedi
+ * @package     core
+ * @subpackage  backup
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

@@ -1,8 +1,8 @@
 <?php
 /**
- * @package    backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@lionrooms.com>
- * 
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('cc_general.php');

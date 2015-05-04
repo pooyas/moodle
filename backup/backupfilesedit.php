@@ -3,8 +3,10 @@
 
 /**
  * Manage backup files
- * @package   lioncore
- * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
+ * @package     core
+ * @subpackage  backup
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

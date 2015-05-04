@@ -4,9 +4,9 @@
 /**
  * Provides classes used by the lion1 converter
  *
- * @package    backup-convert
- * @subpackage lion1
- * @copyright  2011 Mark Nielsen <mark@lionrooms.com>
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

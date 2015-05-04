@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @package   lioncore
- * @subpackage backup-imscc
- * @copyright 2011 Darko Miletic (dmiletic@lionrooms.com)
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

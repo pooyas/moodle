@@ -2,8 +2,9 @@
 /**
  * Provides validation classes used by the imscc converters
  *
- * @package    backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@lionrooms.com>
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

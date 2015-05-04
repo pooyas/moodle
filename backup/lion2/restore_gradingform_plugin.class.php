@@ -3,9 +3,9 @@
 /**
  * Contains class restore_gradingform_plugin responsible for advanced grading form plugin backup
  *
- * @package    core_backup
+ * @package     backup
  * @subpackage  lion2
- * @copyright  2015 Pooya Saeedi
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * As an example of implementation see {@link restore_gradingform_rubric_plugin}
  *
- * @copyright  2015 Pooya Saeedi
- * 
- * @category   backup
  */
 abstract class restore_gradingform_plugin extends restore_plugin {
 

@@ -4,9 +4,8 @@
 /**
  * Defines backup_plan_builder class
  *
- * @package     core_backup
+ * @package     backup
  * @subpackage  lion2
- * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
  */

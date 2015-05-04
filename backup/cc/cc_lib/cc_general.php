@@ -1,10 +1,10 @@
 <?php
 /**
-* @package    backup-convert
-* @subpackage cc-library
-* @copyright  2011 Darko Miletic <dmiletic@lionrooms.com>
-* 
-*/
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
+ * 
+ */
 
 require_once 'gral_lib/cssparser.php';
 require_once 'xmlbase.php';

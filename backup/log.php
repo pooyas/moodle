@@ -1,6 +1,16 @@
 <?php
-       // log.php - old scheduled backups report. Now redirecting
-       // to the new admin one
+
+/**
+ * old scheduled backups report. Now redirecting
+ * to the new admin one
+ * 
+ * @package     core
+ * @subpackage  backup
+ * @copyright   2015 Pooya Saeedi
+ */
+       
+       // log.php - 
+       // 
 
     require_once("../config.php");
 

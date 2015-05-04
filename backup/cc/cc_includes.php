@@ -3,8 +3,9 @@
 /**
  * Main include for IMS Common Cartridge export classes
  *
- * @package    backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@lionrooms.com>
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

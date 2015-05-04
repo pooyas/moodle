@@ -4,9 +4,8 @@
 /**
  * Defines various backup steps that will be used by common tasks in backup
  *
- * @package     core_backup
+ * @package     backup
  * @subpackage  lion2
- * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
  */
@@ -1870,10 +1869,6 @@ class backup_activity_grade_items_to_ids extends backup_execution_step {
 /**
  * This step allows enrol plugins to annotate custom fields.
  *
- * @package   core_backup
- * @copyright 2014 University of Wisconsin
- * @author    Matt Petro
- * 
  */
 class backup_enrolments_execution_step extends backup_execution_step {
 

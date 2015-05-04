@@ -264,7 +264,7 @@ class setting_dependency_disabledif_equals extends setting_dependency {
 * A dependency that disables the secondary setting if the primary setting is
 * not equal to the provided value
 *
-* @copyright 2011 Darko Miletic <dmiletic@lionrooms.com>
+* @copyright 2015 Pooya Saeedi
 * 
 */
 class setting_dependency_disabledif_not_equals extends setting_dependency_disabledif_equals {

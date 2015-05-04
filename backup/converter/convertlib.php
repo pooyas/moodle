@@ -4,9 +4,9 @@
 /**
  * Provides base converter classes
  *
- * @package    core
- * @subpackage backup-convert
- * @copyright  2011 Mark Nielsen <mark@lionrooms.com>
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -256,7 +256,6 @@ abstract class base_converter implements loggable {
 /**
  * General convert-related exception
  *
- * @author David Mudrak <david@lion.com>
  */
 class convert_exception extends lion_exception {
 

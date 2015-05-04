@@ -4,10 +4,6 @@
  * Librería de funciones básicas V1.0 (June, 16th 2009)
  *
  *
- * @author Daniel Mühlrad
- * @link daniel.muhlrad@uvcms.com
- * @version 1.0
- * @copyright 2009
  *
  */
 

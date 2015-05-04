@@ -1,8 +1,8 @@
 <?php
 /**
- * @package   lioncore
- * @subpackage backup-imscc
- * @copyright 2009 Mauro Rondinelli (mauro.rondinelli [AT] uvcms.com)
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') or die('Direct access to this script is forbidden.');

@@ -4,9 +4,8 @@
 /**
  * Defines classes used to handle backup settings
  *
- * @package     core_backup
+ * @package     backup
  * @subpackage  lion2
- * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
  */

@@ -3,8 +3,10 @@
 /**
  * Tests for Lion 2 format backup operation.
  *
- * @package core_backup
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage backup
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +20,6 @@ require_once($CFG->libdir . '/completionlib.php');
 /**
  * Tests for Lion 2 format backup operation.
  *
- * @package core_backup
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_backup_lion2_testcase extends advanced_testcase {
 

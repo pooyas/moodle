@@ -1,10 +1,11 @@
 <?php
 
-
 /**
  * Import backup file form
- * @package   lioncore
- * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * 
+ * @package     core
+ * @subpackage  backup
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 require_once($CFG->libdir.'/formslib.php');

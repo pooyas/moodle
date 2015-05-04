@@ -3,10 +3,10 @@
 /**
  * Unit tests for the lion1 converter
  *
- * @package    core_backup
- * @subpackage backup-convert
+ * @package    backup
+ * @subpackage convert
  * @category   phpunit
- * @copyright  2011 Mark Nielsen <mark@lionrooms.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

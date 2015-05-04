@@ -4,9 +4,9 @@
 /**
  * Provides {@link imscc11_export_converter} class
  *
- * @package    core
- * @subpackage backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@lionrooms.com>
+ * @package    backup
+ * @subpackage convert
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

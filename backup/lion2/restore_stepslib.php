@@ -4,9 +4,8 @@
 /**
  * Defines various restore steps that will be used by common tasks in restore
  *
- * @package     core_backup
+ * @package     backup
  * @subpackage  lion2
- * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
  */
@@ -626,9 +625,6 @@ class restore_review_pending_block_positions extends restore_execution_step {
  * completed. This is necessary in order to update IDs that have changed during
  * restore.
  *
- * @package core_backup
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class restore_update_availability extends restore_execution_step {
 
@@ -707,8 +703,6 @@ class restore_update_availability extends restore_execution_step {
  * This step is included only to handle legacy backups (2.6 and before). It does not
  * do anything for newer backups.
  *
- * @copyright 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class restore_process_course_modules_availability extends restore_execution_step {
 
@@ -4103,8 +4097,6 @@ class restore_create_question_files extends restore_execution_step {
  * and user Private files here at the moment. This could be eventually replaced with a set of
  * callbacks in the future if needed.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
- * 
  */
 class restore_process_file_aliases_queue extends restore_execution_step {
 
