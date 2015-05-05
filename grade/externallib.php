@@ -3,9 +3,10 @@
 /**
  * External grading API
  *
- * @package    core_grading
- * @since      Lion 2.5
- * @copyright  2013 Paul Charsley
+ * @package    core
+ * @subpackage grading
+ * @category   external
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +17,6 @@ defined('LION_INTERNAL') || die;
 /**
  * core grading functions. Renamed to core_grading_external
  *
- * @since Lion 2.5
  * @deprecated since 2.6 See MDL-30085. Please do not use this class any more.
  * @see core_grading_external
  */

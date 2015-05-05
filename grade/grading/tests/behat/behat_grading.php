@@ -3,9 +3,10 @@
 /**
  * Grading methods steps definitions.
  *
- * @package   core_grading
- * @category  test
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage grading
+ * @category   test
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,9 +21,6 @@ use Behat\Gherkin\Node\TableNode as TableNode,
 /**
  * Generic grading methods step definitions.
  *
- * @package   core_grading
- * @category  test
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_grading extends behat_base {

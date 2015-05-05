@@ -3,8 +3,9 @@
 /**
  * Contains renderer used for displaying rubric
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy
+ * @package    gradingform
+ * @subpackage rubric
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Grading method plugin renderer
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy
- * 
  */
 class gradingform_rubric_renderer extends plugin_renderer_base {
 

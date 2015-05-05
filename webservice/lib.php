@@ -723,7 +723,7 @@ class webservice {
  * some code logic against an access error.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 class webservice_access_exception extends lion_exception {
@@ -760,7 +760,7 @@ function webservice_protocol_is_enabled($protocol) {
  * Mandatory interface for all test client classes.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 interface webservice_test_client_interface {
@@ -780,7 +780,7 @@ interface webservice_test_client_interface {
  * Mandatory interface for all web service protocol classes
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 interface webservice_server_interface {
@@ -795,7 +795,7 @@ interface webservice_server_interface {
  * Abstract web service base class.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 abstract class webservice_server implements webservice_server_interface {
@@ -1550,7 +1550,7 @@ class '.$classname.' {
  * This class handles both simple and token authentication.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 abstract class webservice_base_server extends webservice_server {

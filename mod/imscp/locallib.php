@@ -4,7 +4,7 @@
  * Private imscp module utility functions
  *
  * @package mod_imscp
- * @copyright  2009 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 
@@ -263,7 +263,7 @@ function imscp_recursive_item($xmlitem, $level, $resources) {
 /**
  * File browsing support class
  *
- * @copyright  2009 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 class imscp_file_info extends file_info {

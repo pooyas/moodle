@@ -3,8 +3,9 @@
 /**
  * A form to allow importing outcomes from a file
  *
- * @package   core_grades
- * @copyright 2008 Lion Pty Ltd (http://lion.com)
+ * @package   core
+ * @subpackage grades
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

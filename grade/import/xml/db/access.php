@@ -3,8 +3,9 @@
 /**
  * Capabilities gradeimport plugin.
  *
- * @package    gradeimport_xml
- * @copyright  2007 Martin Dougiamas
+ * @package    gradeimport
+ * @subpackage xml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

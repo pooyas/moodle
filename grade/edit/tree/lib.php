@@ -3,7 +3,8 @@
 /**
  * A library of classes used by the grade edit pages
  *
- * @package   core_grades
+ * @package   core
+ * @subpackage grades
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -530,7 +531,6 @@ class grade_edit_tree {
 /**
  * Class grade_edit_tree_column
  *
- * @package   core_grades
  * 
  */
 abstract class grade_edit_tree_column {
@@ -607,7 +607,6 @@ abstract class grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_name
  *
- * @package   core_grades
  * 
  */
 class grade_edit_tree_column_name extends grade_edit_tree_column {
@@ -666,7 +665,6 @@ class grade_edit_tree_column_name extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_weight
  *
- * @package   core_grades
  * 
  */
 class grade_edit_tree_column_weight extends grade_edit_tree_column {
@@ -709,7 +707,6 @@ class grade_edit_tree_column_weight extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_range
  *
- * @package   core_grades
  * 
  */
 class grade_edit_tree_column_range extends grade_edit_tree_column {
@@ -779,7 +776,6 @@ class grade_edit_tree_column_range extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_actions
  *
- * @package   core_grades
  * 
  */
 class grade_edit_tree_column_actions extends grade_edit_tree_column {
@@ -818,8 +814,6 @@ class grade_edit_tree_column_actions extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_select
  *
- * @package   core_grades
- * 
  */
 class grade_edit_tree_column_select extends grade_edit_tree_column {
 

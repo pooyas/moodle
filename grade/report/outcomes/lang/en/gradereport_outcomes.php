@@ -4,8 +4,9 @@
 /**
  * Strings for component 'gradereport_outcomes', language 'en'
  *
- * @package   gradereport_outcomes
- * @copyright 2015 Pooya Saeedi
+ * @package    gradereport
+ * @subpackage outcomes
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

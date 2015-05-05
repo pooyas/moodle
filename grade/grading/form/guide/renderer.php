@@ -3,7 +3,8 @@
 /**
  * Contains the Guide grading form renderer in all of its glory
  *
- * @package    gradingform_guide
+ * @package    gradingform
+ * @subpackage guide
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Grading method plugin renderer
  *
- * @package    gradingform_guide
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class gradingform_guide_renderer extends plugin_renderer_base {
 

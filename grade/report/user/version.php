@@ -3,7 +3,8 @@
 /**
  * Version details for the user gradebook report
  *
- * @package    gradereport_user
+ * @package    gradereport
+ * @subpackage user
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Unit tests for the advanced grading subsystem
  *
- * @package    core_grading
+ * @package    core
+ * @subpackage grading
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -18,9 +19,6 @@ require_once($CFG->dirroot . '/grade/grading/lib.php'); // Include the code to t
 /**
  * Makes protected method accessible for testing purposes
  *
- * @package    core_grading
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class testable_grading_manager extends grading_manager {
@@ -30,9 +28,6 @@ class testable_grading_manager extends grading_manager {
 /**
  * Test cases for the grading manager API
  *
- * @package    core_grading
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_grade_grading_manager_testcase extends advanced_testcase {

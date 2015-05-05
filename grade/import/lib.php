@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package    grade
+ * @subpackage import
+ * @copyright  2015 Pooya Saeedi
+ */
 
 require_once($CFG->libdir.'/gradelib.php');
 

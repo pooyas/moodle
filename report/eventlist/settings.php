@@ -4,7 +4,7 @@
  * Adds the event list link to the admin tree
  *
  * @package    report_eventlist
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

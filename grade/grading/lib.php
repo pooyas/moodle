@@ -3,7 +3,8 @@
 /**
  * Advanced grading methods support
  *
- * @package    core_grading
+ * @package    core
+ * @subpackage grading
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,7 +20,6 @@ defined('LION_INTERNAL') || die();
  * can be provided. Note that null values are allowed in the second case as the context,
  * component and the area name can be set explicitly later.
  *
- * @category grading
  * @example $manager = get_grading_manager($areaid);
  * @example $manager = get_grading_manager(context_system::instance());
  * @example $manager = get_grading_manager($context, 'mod_assignment', 'submission');
@@ -71,10 +71,6 @@ function get_grading_manager($context_or_areaid = null, $component = null, $area
  * It is also possible to change context, component and area of an existing
  * manager. Such pattern is used when copying form definitions, for example.
  *
- * @package    core_grading
- * @copyright  2015 Pooya Saeedi
- * 
- * @category   grading
  */
 class grading_manager {
 

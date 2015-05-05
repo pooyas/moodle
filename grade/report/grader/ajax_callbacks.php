@@ -3,8 +3,9 @@
 /**
  * This file receives ajax callbacks for the grader report
  *
- * @package   gradereport_grader
- * @copyright 2008 Nicolas Connault
+ * @package    gradereport
+ * @subpackage grader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

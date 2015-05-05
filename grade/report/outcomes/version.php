@@ -3,7 +3,8 @@
 /**
  * Version details for the outcomes report
  *
- * @package    gradereport_outcomes
+ * @package    gradereport
+ * @subpackage outcomes
  * @copyright  2015 Pooya Saeedi
  * 
  */

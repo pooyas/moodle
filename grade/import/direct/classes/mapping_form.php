@@ -10,8 +10,9 @@ if (!defined('LION_INTERNAL')) {
 /**
  * Form for mapping columns to the fields in the table.
  *
- * @package   gradeimport_direct
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @package    gradeimport
+ * @subpackage direct
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class gradeimport_direct_mapping_form extends lionform {

@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'gradeexport_ods', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'gradeexport_ods', language 'en'
  *
- * @package   gradeexport_ods
- * @copyright 2015 Pooya Saeedi
+ * @package    gradeexport
+ * @subpackage ods
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

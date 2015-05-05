@@ -3,8 +3,9 @@
 /**
  * Allow the editing of grades for a grade item
  *
- * @package   gradereport_grader
- * @copyright 2015 Pooya Saeedi
+ * @package    gradereport
+ * @subpackage grader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

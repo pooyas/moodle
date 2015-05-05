@@ -3,7 +3,8 @@
 /**
  * Language file for plugin gradingform_rubric
  *
- * @package    gradingform_rubric
+ * @package    gradingform
+ * @subpackage rubric
  * @copyright  2015 Pooya Saeedi
  * 
  */

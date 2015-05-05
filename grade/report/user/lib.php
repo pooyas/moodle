@@ -3,8 +3,9 @@
 /**
  * Definition of the grade_user_report class is defined
  *
- * @package gradereport_user
- * @copyright 2007 Nicolas Connault
+ * @package    gradereport
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +20,6 @@ define("GRADE_REPORT_USER_SHOW_HIDDEN", 2);
 /**
  * Class providing an API for the user report building and displaying.
  * @uses grade_report
- * @package gradereport_user
  */
 class grade_report_user extends grade_report {
 

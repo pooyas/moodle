@@ -15,7 +15,7 @@ require_once("$CFG->dirroot/webservice/lib.php");
  * REST service server implementation.
  *
  * @package    webservice_rest
- * @copyright  2009 Petr Skoda (skodak)
+ * @copyright  2015 Pooya Saeedi (skodak)
  * 
  */
 class webservice_rest_server extends webservice_base_server {
@@ -223,7 +223,7 @@ class webservice_rest_server extends webservice_base_server {
  * REST test client class
  *
  * @package    webservice_rest
- * @copyright  2009 Petr Skoda (skodak)
+ * @copyright  2015 Pooya Saeedi (skodak)
  * 
  */
 class webservice_rest_test_client implements webservice_test_client_interface {

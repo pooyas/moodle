@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'gradeimport_csv', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'gradeimport_csv', language 'en'
  *
- * @package   gradeimport_csv
- * @copyright 2015 Pooya Saeedi
+ * @package    gradeimport
+ * @subpackage csv
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

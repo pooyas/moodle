@@ -3,9 +3,9 @@
 /**
  * User searching requests.
  *
- * @package    gradereport_history
- * @copyright  2013 NetSpot Pty Ltd (https://www.netspot.com.au)
- * @author     Adam Olley <adam.olley@netspot.com.au>
+ * @package    gradereport
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -25,7 +25,7 @@
  * before any action that may take longer time to finish.
  *
  * @package    mod_resource
- * @copyright  2009 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * Grading method controller for the guide plugin
  *
- * @package    gradingform_guide
+ * @package    gradingform
+ * @subpackage guide
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@ require_once($CFG->dirroot.'/grade/grading/form/lib.php');
 /**
  * This controller encapsulates the guide grading logic
  *
- * @package    gradingform_guide
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class gradingform_guide_controller extends gradingform_controller {
     // Modes of displaying the guide (used in gradingform_guide_renderer).
@@ -701,9 +699,6 @@ class gradingform_guide_controller extends gradingform_controller {
  * Class to manage one guide grading instance. Stores information and performs actions like
  * update, copy, validate, submit, etc.
  *
- * @package    gradingform_guide
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class gradingform_guide_instance extends gradingform_instance {
 

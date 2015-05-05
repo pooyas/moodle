@@ -562,7 +562,7 @@ class pix_emoticon extends pix_icon implements renderable {
 /**
  * Data structure representing a simple form with only one button.
  *
- * @copyright 2009 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -657,7 +657,7 @@ class single_button implements renderable {
  *
  * If JS not enabled small go button is printed too.
  *
- * @copyright 2009 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -810,7 +810,7 @@ class single_select implements renderable {
 /**
  * Simple URL selection widget description.
  *
- * @copyright 2009 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core

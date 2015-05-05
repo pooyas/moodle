@@ -3,8 +3,9 @@
 /**
  * File containing the grade_report class
  *
- * @package   core_grades
- * @copyright 2007 Lion Pty Ltd (http://lion.com)
+ * @package    grade
+ * @subpackage report
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

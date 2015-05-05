@@ -3,7 +3,8 @@
 /**
  * Allows to choose a form from the list of available templates
  *
- * @package    core_grading
+ * @package    core
+ * @subpackage grading
  * @copyright  2015 Pooya Saeedi
  * 
  */

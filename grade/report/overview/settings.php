@@ -3,8 +3,9 @@
 /**
  * Defines site settings for the overview gradebook report
  *
- * @package gradereport_overview
- * @copyright 2007 Petr Skoda
+ * @package    gradereport
+ * @subpackage overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

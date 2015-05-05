@@ -4,8 +4,9 @@
 /**
  * Import key management.
  *
- * @package   lioncore
- * @copyright 2008 Nicolas Connault
+ * @package    grade
+ * @subpackage import
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

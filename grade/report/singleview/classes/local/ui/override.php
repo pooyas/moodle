@@ -3,8 +3,9 @@
 /**
  * An override grade checkbox element
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die;
 /**
  * An override grade checkbox element
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 class override extends grade_attribute_format implements be_checked, be_disabled {
 

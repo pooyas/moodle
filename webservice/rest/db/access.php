@@ -6,7 +6,7 @@
  *
  * @package    webservice_rest
  * @category   access
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 

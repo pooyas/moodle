@@ -3,8 +3,9 @@
 /**
  * Helper class for gradehistory report.
  *
- * @package    gradereport_history
- * @copyright  2015 Pooya Saeedi 
+ * @package    gradereport
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Helper class for gradehistory report.
  *
- * @since      Lion 2.8
- * @package    gradereport_history
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class helper {
 

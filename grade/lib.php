@@ -3,8 +3,9 @@
 /**
  * Functions used by gradebook plugins and reports.
  *
- * @package   core_grades
- * @copyright 2009 Petr Skoda and Nicolas Connault
+ * @package    core
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ require_once($CFG->dirroot . '/grade/export/lib.php');
  * This class iterates over all users that are graded in a course.
  * Returns detailed info about users and their grades.
  *
- * @author Petr Skoda <skodak@lion.org>
- * 
  */
 class graded_users_iterator {
 
@@ -738,9 +737,6 @@ function grade_get_plugin_info($courseid, $active_type, $active_plugin) {
  * A simple class containing info about grade plugins.
  * Can be subclassed for special rules
  *
- * @package core_grades
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class grade_plugin_info {
     /**
@@ -894,9 +890,6 @@ function print_grade_page_head($courseid, $active_type, $active_plugin=null,
 /**
  * Utility class used for return tracking when using edit and other forms in grade plugins
  *
- * @package core_grades
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class grade_plugin_return {
     public $type;
@@ -1200,9 +1193,6 @@ function grade_build_nav($path, $pagename=null, $id=null) {
 /**
  * General structure representing grade items in course
  *
- * @package core_grades
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class grade_structure {
     public $context;
@@ -1839,8 +1829,6 @@ class grade_structure {
  * Flat structure similar to grade tree.
  *
  * @uses grade_structure
- * @package core_grades
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class grade_seq extends grade_structure {
@@ -1976,8 +1964,6 @@ class grade_seq extends grade_structure {
  * deletion and moving of items and categories within the tree.
  *
  * @uses grade_structure
- * @package core_grades
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class grade_tree extends grade_structure {
@@ -2540,8 +2526,6 @@ function grade_extend_settings($plugininfo, $courseid) {
  * This class provides several helpful functions that work irrespective of any
  * current state.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class grade_helper {
     /**

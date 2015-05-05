@@ -5,7 +5,7 @@
  * AMF web service implementation classes and methods.
  *
  * @package    webservice_amf
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 
@@ -38,7 +38,7 @@ class invalid_return_value_exception extends lion_exception {
  * AMF service server implementation.
  *
  * @package    webservice_amf
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 class webservice_amf_server extends webservice_zend_server {

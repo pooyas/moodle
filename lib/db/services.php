@@ -15,7 +15,7 @@
  *
  * @package    core_webservice
  * @category   webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 

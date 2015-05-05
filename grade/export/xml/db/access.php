@@ -3,7 +3,8 @@
 /**
  * Capabilities gradeexport plugin.
  *
- * @package    gradeexport_xml
+ * @package    gradeexport
+ * @subpackage xml
  * @copyright  2015 Pooya Saeedi
  * 
  */

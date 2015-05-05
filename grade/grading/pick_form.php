@@ -3,7 +3,8 @@
 /**
  * Defines forms used by pick.php
  *
- * @package    core_grading
+ * @package    core
+ * @subpackage grading
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Allows to search for a specific shared template
  *
- * @package    core_grading
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class grading_search_template_form extends lionform {
 

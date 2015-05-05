@@ -3,8 +3,9 @@
 /**
  * A page to create or edit outcome grade items
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
+ * @package   core
+ * @subpackage grades
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

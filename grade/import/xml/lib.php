@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package    gradeimport
+ * @subpackage xml
+ * @copyright  2015 Pooya Saeedi
+ */
 
 require_once $CFG->libdir.'/gradelib.php';
 require_once($CFG->libdir.'/xmlize.php');

@@ -3,7 +3,8 @@
 /**
  * Version details for the overview gradebook report
  *
- * @package    gradereport_overview
+ * @package    gradereport
+ * @subpackage overview
  * @copyright  2015 Pooya Saeedi
  * 
  */

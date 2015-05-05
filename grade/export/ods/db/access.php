@@ -3,7 +3,8 @@
 /**
  * Capabilities gradeexport plugin.
  *
- * @package    gradeexport_ods
+ * @package    gradeexport
+ * @subpackage ods
  * @copyright  2015 Pooya Saeedi
  * 
  */

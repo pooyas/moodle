@@ -3,8 +3,9 @@
 /**
  * UI element representing the finalgrade column.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ use stdClass;
 /**
  * UI element representing the finalgrade column.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 class finalgrade extends grade_attribute_format implements unique_value, be_disabled {
 

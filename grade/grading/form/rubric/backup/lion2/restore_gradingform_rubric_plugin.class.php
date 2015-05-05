@@ -3,7 +3,8 @@
 /**
  * Support for restore API
  *
- * @package    gradingform_rubric
+ * @package    gradingform
+ * @subpackage rubric
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Restores the rubric specific data from grading.xml file
  *
- * @package    gradingform_rubric
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_gradingform_rubric_plugin extends restore_gradingform_plugin {
 

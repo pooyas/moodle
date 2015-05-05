@@ -5,7 +5,7 @@
  * Support for external API
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 
@@ -107,7 +107,7 @@ function external_function_info($function, $strictness=MUST_EXIST) {
  * Exception indicating user is not allowed to use external function in the current context.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -126,7 +126,7 @@ class restricted_context_exception extends lion_exception {
  * Base class for external api methods.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -395,7 +395,7 @@ class external_api {
  * Common ancestor of all parameter description classes
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -428,7 +428,7 @@ abstract class external_description {
  * Scalar value description class
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -462,7 +462,7 @@ class external_value extends external_description {
  * Associative array description class
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -491,7 +491,7 @@ class external_single_structure extends external_description {
  * Bulk array description class.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -520,7 +520,7 @@ class external_multiple_structure extends external_description {
  * Description of top level - PHP function parameters.
  *
  * @package    core_webservice
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */

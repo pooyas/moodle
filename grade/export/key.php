@@ -4,8 +4,9 @@
 /**
  * Grade export key edit page.
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage gradeexport
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

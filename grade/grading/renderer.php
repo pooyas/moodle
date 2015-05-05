@@ -3,7 +3,8 @@
 /**
  * Renderer for core_grading subsystem
  *
- * @package    core_grading
+ * @package    core
+ * @subpackage grading
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Standard HTML output renderer for core_grading subsystem
  *
- * @package    core_grading
- * @copyright  2015 Pooya Saeedi
- * 
- * @category   grading
  */
 class core_grading_renderer extends plugin_renderer_base {
 

@@ -3,7 +3,8 @@
 /**
  * The form used at the guide editor page is defined here
  *
- * @package    gradingform_guide
+ * @package    gradingform
+ * @subpackage guide
  * @copyright  2015 Pooya Saeedi
  * 
  */

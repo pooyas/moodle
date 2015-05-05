@@ -7,7 +7,7 @@
  * Contains HTML class for a password type element with unmask option
  *
  * @package   core_form
- * @copyright 2009 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

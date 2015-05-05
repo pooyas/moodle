@@ -7,7 +7,8 @@
  * area, provides access to the plugin editor and allows user to save the
  * current form as a template or re-use some existing form.
  *
- * @package    core_grading
+ * @package    core
+ * @subpackage grading
  * @copyright  2015 Pooya Saeedi
  * 
  */

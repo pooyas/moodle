@@ -3,8 +3,9 @@
 /**
  * Defines site settings for the user gradebook report
  *
- * @package gradereport_user
- * @copyright 2007 Petr Skoda
+ * @package    gradereport
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

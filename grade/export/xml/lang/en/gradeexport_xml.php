@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'gradeexport_xml', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'gradeexport_xml', language 'en'
  *
- * @package   gradeexport_xml
- * @copyright 2015 Pooya Saeedi
+ * @package    gradeexport
+ * @subpackage xml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

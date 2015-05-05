@@ -3,8 +3,9 @@
 /**
  * Defines capabilities for the outcomes report
  *
- * @package   gradereport_outcomes
- * @copyright 2007 Petr Skoda
+ * @package    gradereport
+ * @subpackage outcomes
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

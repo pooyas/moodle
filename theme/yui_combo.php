@@ -4,7 +4,7 @@
  * This file is responsible for serving of yui Javascript and CSS
  *
  * @package   core
- * @copyright 2009 Petr Skoda (skodak)  
+ * @copyright 2015 Pooya Saeedi (skodak)  
  * 
  */
 

@@ -3,8 +3,10 @@
 /**
  * External grade report user API
  *
- * @package    gradereport_user
- * @copyright  2015 Juan Leyva <juan@lion.com>
+ * @package    gradereport
+ * @subpackage user
+ * @category   external
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +18,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * External grade report API implementation
  *
- * @package    gradereport_user
- * @copyright  2015 Juan Leyva <juan@lion.com>
- * @category   external
  * 
  */
 class gradereport_user_external extends external_api {

@@ -3,8 +3,9 @@
 /**
  * Outputs navigation tabs for the grader report
  *
- * @package   gradereport_grader
- * @copyright 2007 2015 Pooya Saeedi
+ * @package    gradereport
+ * @subpackage grader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

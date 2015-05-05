@@ -3,8 +3,9 @@
 /**
  * The form used at the rubric editor page is defined here
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy <marina@lion.com>
+ * @package    gradingform
+ * @subpackage rubric
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ LionQuickForm::registerElementType('rubriceditor', $CFG->dirroot.'/grade/grading
 /**
  * Defines the rubric edit form
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy <marina@lion.com>
- * 
  */
 class gradingform_rubric_editrubric extends lionform {
 

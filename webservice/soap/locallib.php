@@ -5,7 +5,7 @@
  * SOAP web service implementation classes and methods.
  *
  * @package    webservice_soap
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 
@@ -139,7 +139,7 @@ class lion_zend_soap_server extends Zend_Soap_Server {
  * SOAP service server implementation.
  *
  * @package    webservice_soap
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -289,7 +289,7 @@ class '.$classname.' {
  * SOAP test client class
  *
  * @package    webservice_soap
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */

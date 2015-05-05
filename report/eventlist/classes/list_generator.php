@@ -4,7 +4,7 @@
  * Event documentation
  *
  * @package   report_eventlist
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Class for returning system event information.
  *
  * @package   report_eventlist
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class report_eventlist_list_generator {

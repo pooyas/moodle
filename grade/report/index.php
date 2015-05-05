@@ -3,8 +3,9 @@
 /**
  * Redirects the user to the default grade report
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
+ * @package    grade
+ * @subpackage report
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

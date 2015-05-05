@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    gradeexport
+ * @subpackage ods
+ * @copyright  2015 Pooya Saeedi
+ */
+
 
 define('NO_LION_COOKIES', true); // session not used here
 require_once '../../../config.php';

@@ -3,8 +3,9 @@
 /**
  * The gradebook interface for a filterable class.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die;
 /**
  * The gradebook interface for a filterable class.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 interface filterable_items {
 

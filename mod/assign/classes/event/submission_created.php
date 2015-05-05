@@ -4,7 +4,7 @@
  * The mod_assign submission_created abstract event.
  *
  * @package    mod_assign
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -27,7 +27,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_assign
  * @since      Lion 2.7
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class submission_created extends base {

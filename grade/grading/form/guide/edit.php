@@ -3,7 +3,8 @@
 /**
  * Rubric editor page
  *
- * @package    gradingform_guide
+ * @package    gradingform
+ * @subpackage guide
  * @copyright  2015 Pooya Saeedi
  * 
  */

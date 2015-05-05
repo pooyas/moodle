@@ -4,7 +4,7 @@
  * The assignsubmission_file submission_created event.
  *
  * @package    assignsubmission_file
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    assignsubmission_file
  * @since      Lion 2.7
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class submission_created extends \mod_assign\event\submission_created {

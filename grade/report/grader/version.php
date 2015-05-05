@@ -3,7 +3,8 @@
 /**
  * Version details for the grader report
  *
- * @package    gradereport_grader
+ * @package    gradereport
+ * @subpackage grader
  * @copyright  2015 Pooya Saeedi
  * 
  */

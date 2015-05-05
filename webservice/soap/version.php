@@ -5,7 +5,7 @@
  * Version details
  *
  * @package    webservice_soap
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 

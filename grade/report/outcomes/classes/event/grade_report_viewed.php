@@ -3,8 +3,9 @@
 /**
  * Outcomes report viewed event.
  *
- * @package    gradereport_outcomes
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @package    gradereport
+ * @subpackage outcomes
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Outcomes report viewed event class.
  *
- * @package    gradereport_outcomes
- * @since      Lion 2.8
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
- * 
  */
 class grade_report_viewed extends \core\event\grade_report_viewed {
 

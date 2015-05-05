@@ -3,7 +3,8 @@
 /**
  * Support for backup API
  *
- * @package    gradingform_rubric
+ * @package    gradingform
+ * @subpackage rubric
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Defines rubric backup structures
  *
- * @package    gradingform_rubric
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_gradingform_rubric_plugin extends backup_gradingform_plugin {
 

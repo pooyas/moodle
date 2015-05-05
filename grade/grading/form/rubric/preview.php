@@ -3,8 +3,9 @@
 /**
  * Preview rubric page
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy
+ * @package    gradingform
+ * @subpackage rubric
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

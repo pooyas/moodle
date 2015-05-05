@@ -3,7 +3,8 @@
 /**
  * Behat grade related steps definitions.
  *
- * @package    core_grades
+ * @package    core
+ * @subpackage grades
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

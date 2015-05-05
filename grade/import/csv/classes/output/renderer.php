@@ -3,8 +3,9 @@
 /**
  * Renderers for the import of CSV files into the gradebook.
  *
- * @package   gradeimport_csv
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @package    gradeimport
+ * @subpackage csv
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Renderers for the import of CSV files into the gradebook.
  *
- * @package   gradeimport_csv
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
- * 
  */
 class gradeimport_csv_renderer extends plugin_renderer_base {
 

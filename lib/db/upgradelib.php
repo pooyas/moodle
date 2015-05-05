@@ -10,7 +10,7 @@
  *
  * @package   core_install
  * @category  upgrade
- * @copyright 2007 Petr Skoda 
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

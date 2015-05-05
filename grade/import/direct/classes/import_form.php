@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    gradeimport
+ * @subpackage direct
+ * @copyright  2015 Pooya Saeedi
+ */
+
 require_once($CFG->libdir.'/formslib.php');
 
 if (!defined('LION_INTERNAL')) {
@@ -9,8 +15,6 @@ if (!defined('LION_INTERNAL')) {
 /**
  * Form for copying and pasting from a spreadsheet.
  *
- * @package   gradeimport_direct
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
  * 
  */
 class gradeimport_direct_import_form extends lionform {

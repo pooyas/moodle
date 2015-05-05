@@ -45,7 +45,7 @@ define('MEMORY_HUGE', -4);
  *
  * @package    core
  * @subpackage lib
- * @copyright  2009 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  * @deprecated since 2.0
  */
@@ -173,7 +173,7 @@ class webservice_parameter_exception extends lion_exception {
  * and the execution can not continue.
  *
  * @package    core_access
- * @copyright  2009 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 class required_capability_exception extends lion_exception {
@@ -225,7 +225,7 @@ class coding_exception extends lion_exception {
  *
  * @package    core
  * @subpackage lib
- * @copyright  2009 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 class invalid_parameter_exception extends lion_exception {

@@ -3,7 +3,8 @@
 /**
  * Defines site config settings for the grade history report
  *
- * @package    gradereport_history
+ * @package    gradereport
+ * @subpackage history
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,8 +3,9 @@
 /**
  * User grade report external functions and service definitions.
  *
- * @package    gradereport_user
- * @copyright  2015 Juan Leyva <juan@lion.com>
+ * @package    gradereport
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

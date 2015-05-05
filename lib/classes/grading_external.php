@@ -5,7 +5,7 @@
  *
  * @package    core_grading
  * @since      Lion 2.5
- * @copyright  2013 Paul Charsley
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

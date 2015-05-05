@@ -3,9 +3,9 @@
 /**
  * Is this thing checked?
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace gradereport_singleview\local\ui;
@@ -15,9 +15,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Is this thing checked?
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 interface be_checked {
     /**

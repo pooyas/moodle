@@ -3,8 +3,9 @@
 /**
  * UI Element for an excluded grade_grade.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die;
 /**
  * UI Element for an excluded grade_grade.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 abstract class element {
 

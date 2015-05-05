@@ -3,8 +3,9 @@
 /**
  * The gradebook outcomes report
  *
- * @package   gradereport_outcomes
- * @copyright 2007 Nicolas Connault
+ * @package    gradereport
+ * @subpackage outcomes
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package   report
  * @subplugin configlog
- * @copyright 2009 petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

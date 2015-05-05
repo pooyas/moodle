@@ -3,8 +3,9 @@
 /**
  * A class for loading and preparing grade data from import.
  *
- * @package   gradeimport_csv
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @package    gradeimport
+ * @subpackage csv
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A class for loading and preparing grade data from import.
  *
- * @package   gradeimport_csv
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
- * 
  */
 class gradeimport_csv_load_data {
 

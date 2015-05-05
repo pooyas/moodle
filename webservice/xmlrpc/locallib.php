@@ -5,7 +5,7 @@
  * XML-RPC web service implementation classes and methods.
  *
  * @package    webservice_xmlrpc
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 
@@ -62,7 +62,7 @@ class lion_zend_xmlrpc_server extends Zend_XmlRpc_Server {
  * XML-RPC service server implementation.
  *
  * @package    webservice_xmlrpc
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */
@@ -99,7 +99,7 @@ class webservice_xmlrpc_server extends webservice_zend_server {
  * XML-RPC test client class
  *
  * @package    webservice_xmlrpc
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  */

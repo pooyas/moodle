@@ -3,8 +3,9 @@
 /**
  * Defines capabilities for the user report
  *
- * @package   gradereport_user
- * @copyright 2007 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    gradereport
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

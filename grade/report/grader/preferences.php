@@ -3,8 +3,9 @@
 /**
  * Grader report preferences configuration page
  *
- * @package   gradereport_grader
- * @copyright 2007 Nicolas Connault
+ * @package    gradereport
+ * @subpackage grader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

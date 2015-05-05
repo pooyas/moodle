@@ -4,8 +4,9 @@
 /**
  * Grade import key management form.
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
+ * @package    grade
+ * @subpackage import
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

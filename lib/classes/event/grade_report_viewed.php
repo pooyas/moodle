@@ -4,7 +4,7 @@
  * Grade report viewed event.
  *
  * @package    core
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.8
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class grade_report_viewed extends base {

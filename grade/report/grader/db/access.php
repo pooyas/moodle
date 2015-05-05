@@ -3,8 +3,9 @@
 /**
  * Capability definition for the gradebook grader report
  *
- * @package   gradereport_grader
- * @copyright 2007 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage grader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

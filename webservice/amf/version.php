@@ -5,7 +5,7 @@
  * Version details
  *
  * @package    webservice_amf
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 

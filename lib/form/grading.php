@@ -7,7 +7,7 @@
  * Element-container for advanced grading custom input
  *
  * @package   core_form
- * @copyright 2011 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -30,7 +30,7 @@ if (class_exists('HTML_QuickForm')) {
  *
  * @package   core_form
  * @category  form
- * @copyright 2011 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class LionQuickForm_grading extends HTML_QuickForm_input{

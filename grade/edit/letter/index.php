@@ -3,8 +3,9 @@
 /**
  * List of grade letters.
  *
- * @package   core_grades
- * @copyright 2008 Nicolas Connault
+ * @package   core
+ * @subpackage grades
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -37,7 +37,7 @@ define('UU_PWRESET_ALL', 2);
  *
  * @package    core
  * @subpackage admin
- * @copyright  2007 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 class uu_progress_tracker {

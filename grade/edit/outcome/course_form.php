@@ -1,7 +1,5 @@
 <?php 
 // Original name: *.html
-// Note:
-// Renaming required
 defined('LION_INTERNAL') || die();
 $maxlength=70; ?>
 

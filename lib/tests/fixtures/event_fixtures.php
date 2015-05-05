@@ -282,7 +282,7 @@ class context_used_in_event extends \core\event\base {
  *
  * @package    core
  * @category   phpunit
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class full_docblock extends \core\event\base {

@@ -3,8 +3,9 @@
 /**
  * Class used to render a feedback input box.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Class used to render a feedback input box.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 class feedback extends grade_attribute_format implements unique_value, be_disabled {
 

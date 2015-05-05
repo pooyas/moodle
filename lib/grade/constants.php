@@ -5,7 +5,7 @@
  *
  * @package   core_grades
  * @category  grade
- * @copyright 2007 Nicolas Connault
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

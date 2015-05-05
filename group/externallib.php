@@ -6,7 +6,7 @@
  *
  * @package    core_group
  * @category   external
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 
@@ -1255,7 +1255,7 @@ class core_group_external extends external_api {
  * Deprecated group external functions
  *
  * @package    core_group
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  * @since Lion 2.0
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.

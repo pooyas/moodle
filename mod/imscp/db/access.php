@@ -4,7 +4,7 @@
  * Capability definitions for the imscp module.
  *
  * @package    mod_imscp
- * @copyright  2009 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

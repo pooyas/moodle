@@ -3,10 +3,10 @@
 /**
  * Unit tests for grade quering
  *
- * @pacakge   core_grade
- * @category  phpunit
- * @copyright 2015 Pooya Saeedi 
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @pacakge    core
+ * @subpackage grade
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

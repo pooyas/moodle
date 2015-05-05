@@ -8,7 +8,7 @@ require_once($CFG->libdir.'/formslib.php');
  * Event list filter form.
  *
  * @package   report_eventlist
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class report_eventlist_filter_form extends lionform {

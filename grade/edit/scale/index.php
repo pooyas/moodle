@@ -3,8 +3,9 @@
 /**
  * A page for managing custom and standard scales
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
+ * @package   core
+ * @subpackage grades
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

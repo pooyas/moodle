@@ -5,7 +5,7 @@
  * Folder module main user interface
  *
  * @package   mod_folder
- * @copyright 2009 Petr Skoda  
+ * @copyright 2015 Pooya Saeedi  
  * 
  */
 

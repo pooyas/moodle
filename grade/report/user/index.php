@@ -3,8 +3,9 @@
 /**
  * The gradebook user report
  *
- * @package   gradereport_user
- * @copyright 2007 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

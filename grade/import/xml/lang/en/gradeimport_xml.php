@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'gradeimport_xml', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'gradeimport_xml', language 'en'
  *
- * @package   gradeimport_xml
- * @copyright 2015 Pooya Saeedi
+ * @package    gradeimport
+ * @subpackage xml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

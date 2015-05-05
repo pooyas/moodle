@@ -3,8 +3,9 @@
 /**
  * Strings for component 'gradereport_overview', language 'en'
  *
- * @package   gradereport_overview
- * @copyright 2015 Pooya Saeedi
+ * @package    gradereport
+ * @subpackage overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

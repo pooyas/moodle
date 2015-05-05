@@ -3,8 +3,9 @@
 /**
  * The gradebook overview report
  *
- * @package   gradereport_overview
- * @copyright 2007 Nicolas Connault
+ * @package    gradereport
+ * @subpackage overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

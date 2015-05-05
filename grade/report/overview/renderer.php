@@ -3,8 +3,9 @@
 /**
  * Renderer for the gradebook overview report
  *
- * @package   gradereport_overview
- * @copyright 2015 Pooya Saeedi
+ * @package    gradereport
+ * @subpackage overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,8 +15,6 @@
  * To get an instance of this use the following code:
  * $renderer = $PAGE->get_renderer('gradereport_overview');
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class gradereport_overview_renderer extends plugin_renderer_base {
 

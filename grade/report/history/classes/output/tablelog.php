@@ -3,8 +3,9 @@
 /**
  * Renderable class for gradehistory report.
  *
- * @package    gradereport_history
- * @copyright  2015 Pooya Saeedi 
+ * @package    gradereport
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,10 +18,6 @@ require_once($CFG->libdir . '/tablelib.php');
 /**
  * Renderable class for gradehistory report.
  *
- * @since      Lion 2.8
- * @package    gradereport_history
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class tablelog extends \table_sql implements \renderable {
 

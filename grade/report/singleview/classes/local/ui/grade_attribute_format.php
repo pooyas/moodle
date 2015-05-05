@@ -3,8 +3,9 @@
 /**
  * Abstract class for a form element representing something about a grade_grade.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Abstract class for a form element representing something about a grade_grade.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 abstract class grade_attribute_format extends attribute_format implements unique_name {
 

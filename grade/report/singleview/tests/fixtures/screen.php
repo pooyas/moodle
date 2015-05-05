@@ -3,8 +3,9 @@
 /**
  * Fixtures for single view report screen class testing.
  *
- * @package    gradereport_singleview
- * @copyright  2014 onwards Simey Lameze <simey@lion.com>
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

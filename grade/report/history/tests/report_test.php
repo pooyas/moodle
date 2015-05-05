@@ -3,8 +3,9 @@
 /**
  * Grade history report test.
  *
- * @package    gradereport_history
- * @copyright  2014 Frédéric Massart - FMCorz.net
+ * @package    gradereport
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Grade history report test class.
  *
- * @package    gradereport_history
- * @copyright  2014 Frédéric Massart - FMCorz.net
- * 
  */
 class gradereport_history_report_testcase extends advanced_testcase {
 

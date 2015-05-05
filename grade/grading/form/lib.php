@@ -3,7 +3,8 @@
 /**
  * Common classes used by gradingform plugintypes are defined here
  *
- * @package    core_grading
+ * @package    grading
+ * @subpackage form
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -27,10 +28,6 @@ defined('LION_INTERNAL') || die();
  * to overwrite functions responsible for loading and saving of the
  * definition to include additional data stored.
  *
- * @package    core_grading
- * @copyright  2015 Pooya Saeedi
- * 
- * @category   grading
  */
 abstract class gradingform_controller {
 
@@ -729,10 +726,6 @@ abstract class gradingform_controller {
  * included in the grading form, so this class must implement functions for rendering
  * and validation of this form element. See {@link LionQuickForm_grading}
  *
- * @package    core_grading
- * @copyright  2011 Marina Glancy
- * 
- * @category   grading
  */
 abstract class gradingform_instance {
     /** Valid istance status */

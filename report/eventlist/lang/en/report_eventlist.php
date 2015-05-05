@@ -4,7 +4,7 @@
  * Strings for component 'report_event', language 'en', branch 'LION_27_STABLE'
  *
  * @package    report_eventlist
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * Support for restore API
  *
- * @package    gradingform_guide
+ * @package    gradingform
+ * @subpackage guide
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Restores the marking guide specific data from grading.xml file
  *
- * @package    gradingform_guide
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_gradingform_guide_plugin extends restore_gradingform_plugin {
 

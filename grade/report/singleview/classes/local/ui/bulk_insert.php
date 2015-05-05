@@ -3,8 +3,9 @@
 /**
  * Checkbox element used for bulk inserting values in the gradebook.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Checkbox element used for bulk inserting values in the gradebook.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 class bulk_insert extends element {
 

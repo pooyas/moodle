@@ -3,8 +3,9 @@
 /**
  * This page is provided for compatability and redirects the user to the default grade report
  *
- * @package   core_grades
- * @copyright 2005 onwards Martin Dougiamas  {@link http://lion.com}
+ * @package    core
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

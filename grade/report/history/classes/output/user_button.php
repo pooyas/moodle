@@ -3,9 +3,9 @@
 /**
  * User button. Adapted from core_select_user_button.
  *
- * @package    gradereport_history
- * @copyright  2013 NetSpot Pty Ltd (https://www.netspot.com.au)
- * @author     Adam Olley <adam.olley@netspot.com.au>
+ * @package    gradereport
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +16,6 @@ defined('LION_INTERNAL') || die;
 /**
  * A button that is used to select users for a form.
  *
- * @since      Lion 2.8
- * @package    gradereport_history
- * @copyright  2013 NetSpot Pty Ltd (https://www.netspot.com.au)
- * @author     Adam Olley <adam.olley@netspot.com.au>
  * 
  */
 class user_button extends \single_button implements \renderable {

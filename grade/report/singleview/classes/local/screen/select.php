@@ -3,8 +3,9 @@
 /**
  * The gradebook simple view - initial view to select your search options
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,6 @@ defined('LION_INTERNAL') || die;
 /**
  * The gradebook simple view - initial view to select your search options
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 class select extends screen {
 

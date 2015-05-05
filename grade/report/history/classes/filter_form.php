@@ -3,9 +3,9 @@
 /**
  * Form for grade history filters
  *
- * @package    gradereport_history
- * @copyright  2013 NetSpot Pty Ltd (https://www.netspot.com.au)
- * @author     Adam Olley <adam.olley@netspot.com.au>
+ * @package    gradereport
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Form for grade history filters
  *
- * @since      Lion 2.8
- * @package    gradereport_history
- * @copyright  2013 NetSpot Pty Ltd (https://www.netspot.com.au)
- * @author     Adam Olley <adam.olley@netspot.com.au>
  * 
  */
 class filter_form extends \lionform {

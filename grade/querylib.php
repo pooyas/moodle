@@ -3,9 +3,9 @@
 /**
  * Functions used to retrieve grades objects
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2015 Pooya Saeedi and Nicolas Connault
+ * @package    core
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

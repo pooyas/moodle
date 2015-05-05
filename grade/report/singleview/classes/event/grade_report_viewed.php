@@ -3,7 +3,8 @@
 /**
  * Single view report viewed event.
  *
- * @package    gradereport_singleview
+ * @package    gradereport
+ * @subpackage singleview
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * User report viewed event class.
  *
- * @package    gradereport_singleview
- * @since      Lion 2.8
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class grade_report_viewed extends \core\event\grade_report_viewed {
 

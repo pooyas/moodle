@@ -3,8 +3,9 @@
 /**
  * Definition of the grade_overview_report class
  *
- * @package gradereport_overview
- * @copyright 2007 Nicolas Connault
+ * @package    gradereport
+ * @subpackage overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +15,6 @@ require_once($CFG->libdir.'/tablelib.php');
 /**
  * Class providing an API for the overview report building and displaying.
  * @uses grade_report
- * @package gradereport_overview
  */
 class grade_report_overview extends grade_report {
 

@@ -3,7 +3,8 @@
 /**
  * Support for backup API
  *
- * @package    gradingform_guide
+ * @package    gradingform
+ * @subpackage guide
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Defines marking guide backup structures
  *
- * @package    gradingform_guide
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_gradingform_guide_plugin extends backup_gradingform_plugin {
 

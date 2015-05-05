@@ -3,9 +3,10 @@
 /**
  * Unit tests for gradereport_singleview screen class.
  *
- * @package    gradereport_singleview
- * @category   test
- * @copyright  2014 onwards Simey Lameze <simey@lion.com>
+ * @package    gradereport
+ * @subpackage singleview
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

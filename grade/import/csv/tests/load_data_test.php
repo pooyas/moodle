@@ -3,9 +3,10 @@
 /**
  * Unit tests for the class in load_data.php
  *
- * @package    gradeimport_csv
- * @category   phpunit
- * @copyright  2014 Adrian Greeve
+ * @package    gradeimport
+ * @subpackage csv
+ * @subpackage phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

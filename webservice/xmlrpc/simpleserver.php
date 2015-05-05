@@ -5,7 +5,7 @@
  * XML-RPC web service entry point. The authentication is done via username/password.
  *
  * @package    webservice_xmlrpc
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 

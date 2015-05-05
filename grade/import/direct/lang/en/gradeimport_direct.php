@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'gradeimport_direct', language 'en', branch 'LION_28_STABLE'
+ * Strings for component 'gradeimport_direct', language 'en'
  *
- * @package   gradeimport_direct
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @package    gradeimport
+ * @subpackage direct
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

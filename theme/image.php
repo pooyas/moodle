@@ -4,7 +4,7 @@
  * This file is responsible for serving the one theme and plugin images.
  *
  * @package   core
- * @copyright 2009 Petr Skoda (skodak)  
+ * @copyright 2015 Pooya Saeedi (skodak)  
  * 
  */
 

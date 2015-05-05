@@ -3,7 +3,8 @@
 /**
  * Capabilities gradeexport plugin.
  *
- * @package    gradeexport_xls
+ * @package    gradeexport
+ * @subpackage xls
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,9 +3,10 @@
 /**
  * User grade report functions unit tests
  *
- * @package    gradereport_user
- * @category   external
- * @copyright  2015 Juan Leyva <juan@lion.com>
+ * @package    gradereport
+ * @subpackage user
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

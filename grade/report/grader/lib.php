@@ -3,8 +3,9 @@
 /**
  * Definition of the grader report class
  *
- * @package   gradereport_grader
- * @copyright 2007 Nicolas Connault
+ * @package    gradereport
+ * @subpackage grader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +15,6 @@ require_once($CFG->libdir.'/tablelib.php');
 /**
  * Class providing an API for the grader report building and displaying.
  * @uses grade_report
- * @copyright 2007 Nicolas Connault
  * 
  */
 class grade_report_grader extends grade_report {

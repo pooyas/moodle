@@ -3,8 +3,9 @@
 /**
  * A lionform to edit the grade options for an individual grade category
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
+ * @package   core
+ * @subpackage grades
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

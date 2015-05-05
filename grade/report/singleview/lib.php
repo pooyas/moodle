@@ -3,8 +3,9 @@
 /**
  * Base lib class for singleview functionality.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
+ * @package    gradereport
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->dirroot . '/grade/report/lib.php');
 /**
  * This class is the main class that must be implemented by a grade report plugin.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Lion Pty Ltd (http://lion.com)
- * 
  */
 class gradereport_singleview extends grade_report {
 

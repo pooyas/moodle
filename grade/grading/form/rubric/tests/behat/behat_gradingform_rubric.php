@@ -3,9 +3,10 @@
 /**
  * Steps definitions for rubrics.
  *
- * @package   gradingform_rubric
- * @category  test
- * @copyright 2015 Pooya Saeedi
+ * @package    gradingform
+ * @subpackage rubric
+ * @category   test
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Event developer detail.
  *
  * @package   report_eventlist
- * @copyright 2014 Adrian Greeve <adrian@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 require_once(__DIR__ . '/../../config.php');

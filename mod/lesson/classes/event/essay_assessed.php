@@ -4,7 +4,7 @@
  * The mod_lesson essay assessed event.
  *
  * @package    mod_lesson
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_lesson
  * @since      Lion 2.7
- * @copyright  2014 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class essay_assessed extends \core\event\base {

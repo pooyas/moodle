@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package    core
+ * @subpackage gradeexport
+ * @copyright  2015 Pooya Saeedi
+ */
 
 require_once($CFG->dirroot.'/lib/gradelib.php');
 require_once($CFG->dirroot.'/grade/lib.php');

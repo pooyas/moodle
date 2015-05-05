@@ -3,8 +3,9 @@
 /**
  * File contains definition of class LionQuickForm_rubriceditor
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy
+ * @package    gradingform
+ * @subpackage rubric
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,9 +24,6 @@ require_once("HTML/QuickForm/input.php");
  * If Javascript is disabled when one of those special buttons is pressed, the form
  * element is not validated and, instead of submitting the form, we process button presses.
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy
- * 
  */
 class LionQuickForm_rubriceditor extends HTML_QuickForm_input {
     /** @var string help message */

@@ -4,7 +4,7 @@
  * @package    core
  * @subpackage session
  * @copyright  2015 Pooya Saeedi
- * @copyright  2008, 2009 Petr Skoda  
+ * @copyright  2008, 2015 Pooya Saeedi  
  * 
  */
 
