@@ -3,7 +3,8 @@
 /**
  * Unit test for the filter_urltolink
  *
- * @package    filter_urltolink
+ * @package    filter
+ * @subpackage urltolink
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

@@ -1,9 +1,15 @@
 <?php
-    // latex.php
-    // render TeX stuff using latex - this will not work on all platforms
-    // or configurations. Only works on Linux and Mac with appropriate
-    // software installed.
-    // Much of this inspired/copied from Benjamin Zeiss' work
+
+/**
+ * render TeX stuff using latex - this will not work on all platforms
+ * or configurations. Only works on Linux and Mac with appropriate
+ * software installed.
+ * Much of this inspired/copied from Benjamin Zeiss' work
+ * 
+ * @package    filter
+ * @subpackage tex
+ * @copyright  2015 Pooya Saeedi
+ */
 
     class latex {
 

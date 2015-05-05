@@ -5,7 +5,7 @@
  *
  * @package    filter
  * @subpackage mathjaxloader
- * @copyright  2014 onwards Andrew Davis (andyjdavis)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

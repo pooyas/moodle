@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * A Lion form base class for editing local filter settings.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  * @package    core
  * @subpackage filter
+ * @copyright  2015 Pooya Saeedi
  */
 defined('LION_INTERNAL') || die();
 

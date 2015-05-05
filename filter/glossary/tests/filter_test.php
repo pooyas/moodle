@@ -3,8 +3,9 @@
 /**
  * Unit tests.
  *
- * @package filter_glossary
- * @category test
+ * @package    filter
+ * @subpackage glossary
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

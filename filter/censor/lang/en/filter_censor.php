@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'filter_censor', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'filter_censor', language 'en'
  *
- * @package   filter_censor
- * @copyright 2015 Pooya Saeedi
+ * @package    filter
+ * @subpackage censor
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,9 +6,9 @@
  * For developer test usage only. This can be used to compare performance if
  * there are changes to the system in future.
  *
- * @copyright 2012 The Open University
- * 
- * @package filter_mediaplugin
+ * @package    filter
+ * @subpackage mediaplugin
+ * @copyright  2015 Pooya Saeedi
  */
 
 require(dirname(__FILE__) . '/../../../config.php');

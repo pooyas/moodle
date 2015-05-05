@@ -3,7 +3,8 @@
 /**
  * Strings for component 'filter_mathjaxloader', language 'en'.
  *
- * @package    filter_mathjaxloader
+ * @package    filter
+ * @subpackage mathjaxloader
  * @copyright  2015 Pooya Saeedi
  * 
  */

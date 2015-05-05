@@ -8,7 +8,7 @@
  *
  * @package    filter
  * @subpackage mediaplugin
- * @copyright  2004 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  * It is highly recommended to configure servers to be compatible with our slasharguments,
  * otherwise the "?d=600x400" may not work.
  *
- * @package    filter
- * @subpackage mediaplugin
- * @copyright  2004 onwards Martin Dougiamas  {@link http://lion.com}
- * 
  */
 class filter_mediaplugin extends lion_text_filter {
     /** @var bool True if currently filtering trusted text */

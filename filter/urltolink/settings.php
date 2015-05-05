@@ -2,8 +2,8 @@
 
 
 /**
- * @package    plugintype
- * @subpackage pluginname
+ * @package    filter
+ * @subpackage urltolink
  * @copyright  2015 Pooya Saeedi
  * 
  */

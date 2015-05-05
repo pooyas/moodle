@@ -3,8 +3,9 @@
 /**
  * This filter provides automatic support for MathJax
  *
- * @package    filter_mathjaxloader
- * @copyright  2013 Damyon Wiese (damyon@lion.com)
+ * @package    filter
+ * @subpackage mathjaxloader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

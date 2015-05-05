@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    filter
+ * @subpackage censor
+ * @copyright  2015 Pooya Saeedi
+ */
+
 defined('LION_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {

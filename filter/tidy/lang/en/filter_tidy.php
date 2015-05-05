@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'filter_tidy', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'filter_tidy', language 'en'
  *
- * @package   filter_tidy
- * @copyright 2015 Pooya Saeedi
+ * @package    filter
+ * @subpackage tidy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

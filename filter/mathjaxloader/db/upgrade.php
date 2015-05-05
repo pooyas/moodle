@@ -3,8 +3,9 @@
 /**
  * MathJAX filter upgrade code.
  *
- * @package    filter_mathjaxloader
- * @copyright  2015 Pooya Saeedi (damyon@lion.com)
+ * @package    filter
+ * @subpackage mathjaxloader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ function xmldb_filter_mathjaxloader_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
     if ($oldversion < 2014081100) {
 
         $sslcdnurl = get_config('filter_mathjaxloader', 'httpsurl');
@@ -29,9 +27,6 @@ function xmldb_filter_mathjaxloader_upgrade($oldversion) {
 
         upgrade_plugin_savepoint(true, 2014081100, 'filter', 'mathjaxloader');
     }
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     if ($oldversion < 2015021200) {
 

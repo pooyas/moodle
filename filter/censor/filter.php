@@ -9,7 +9,7 @@
  *
  * @package    filter
  * @subpackage censor
- * @copyright  2004 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

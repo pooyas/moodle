@@ -3,8 +3,9 @@
 /**
  * MathJax filter version information
  *
- * @package    filter_mathjaxloader
- * @copyright  2015 Pooya Saeedi (damyon@lion.com)
+ * @package    filter
+ * @subpackage mathjaxloader
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

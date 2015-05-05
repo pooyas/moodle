@@ -3,9 +3,10 @@
 /**
  * Unit tests.
  *
- * @package filter_data
- * @category test
- * @copyright 2015 David Monllao
+ * @package    filter
+ * @subpackage data
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->dirroot . '/filter/data/filter.php');
 /**
  * Tests for filter_data.
  *
- * @package filter_data
- * @copyright 2015 David Monllao
- * 
  */
 class filter_data_filter_testcase extends advanced_testcase {
 

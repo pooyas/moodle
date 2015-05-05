@@ -6,7 +6,7 @@
  *
  * @package    filter
  * @subpackage data
- * @copyright  2006 Vy-Shane Sin Fat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

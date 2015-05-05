@@ -3,7 +3,8 @@
 /**
  * Skype icons filter phpunit tests
  *
- * @package    filter_emoticon
+ * @package    filter
+ * @subpackage emoticon
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

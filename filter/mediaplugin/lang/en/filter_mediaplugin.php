@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'filter_mediaplugin', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'filter_mediaplugin', language 'en'
  *
- * @package   filter_mediaplugin
- * @copyright 2015 Pooya Saeedi
+ * @package    filter
+ * @subpackage mediaplugin
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

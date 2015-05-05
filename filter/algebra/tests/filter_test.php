@@ -3,9 +3,10 @@
 /**
  * Unit test for the filter_algebra
  *
- * @package    filter_algebra
+ * @package    filter
+ * @subpackage algebra
  * @category   phpunit
- * @copyright  2012 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,8 +24,6 @@ require_once($CFG->dirroot . '/filter/algebra/filter.php');
  * test server, and if it does not work here, it probably does not also work
  * for other people. A failing test will be irritating noise.
  *
- * @copyright  2012 Tim Hunt
- * 
  */
 class filter_algebra_testcase extends basic_testcase {
 

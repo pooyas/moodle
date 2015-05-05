@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'filter_tex', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'filter_tex', language 'en'
  *
  * @package    filter
  * @subpackage tex

@@ -3,7 +3,8 @@
 /**
  * Unit test for the filter_tex
  *
- * @package    filter_tex
+ * @package    filter
+ * @subpackage tex
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,8 +20,6 @@ require_once($CFG->dirroot . '/filter/tex/filter.php');
  *
  * Test the delimiter parsing used by the tex filter.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class filter_tex_testcase extends advanced_testcase {
 

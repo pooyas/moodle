@@ -6,7 +6,7 @@
  *
  * @package    filter
  * @subpackage emailprotect
- * @copyright  2004 Mike Churchward
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

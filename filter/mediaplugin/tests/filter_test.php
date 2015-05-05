@@ -3,9 +3,10 @@
 /**
  * Unit test for the filter_mediaplugin
  *
- * @package    filter_mediaplugin
+ * @package    filter
+ * @subpackage mediaplugin
  * @category   phpunit
- * @copyright  2011 Rossiani Wijaya <rwijaya@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

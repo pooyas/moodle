@@ -3,7 +3,8 @@
 /**
  * Filter post install hook
  *
- * @package    filter_activitynames
+ * @package    filter
+ * @subpackage activitynames
  * @copyright  2015 Pooya Saeedi 
  * 
  */

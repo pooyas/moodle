@@ -1,7 +1,15 @@
 <?php
-      // This function fetches math. images from the data directory
-      // If not, it obtains the corresponding TeX expression from the cache_tex db table
-      // and uses mimeTeX to create the image file
+
+/**
+ * This function fetches math. images from the data directory
+ * If not, it obtains the corresponding TeX expression from the cache_tex db table
+ * and uses mimeTeX to create the image file
+ * 
+ * @package    filter
+ * @subpackage tex
+ * @copyright  2015 Pooya Saeedi
+ */      
+      
 
 // disable lion specific debug messages and any errors in output
 define('NO_DEBUG_DISPLAY', true);

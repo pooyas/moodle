@@ -7,8 +7,7 @@
  *
  * @package    filter
  * @subpackage tex
- * @copyright  2004 Zbigniew Fiedorowicz fiedorow@math.ohio-state.edu
- *             Originally based on code provided by Bruno Vernier bruno@vsbeducation.ca
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

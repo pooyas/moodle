@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'filter_activitynames', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'filter_activitynames', language 'en'
  *
- * @package   filter_activitynames
- * @copyright 2015 Pooya Saeedi
+ * @package    filter
+ * @subpackage activitynames
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

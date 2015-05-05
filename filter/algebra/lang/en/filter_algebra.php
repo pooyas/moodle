@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'filter_algebra', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'filter_algebra', language 'en'
  *
- * @package   filter_algebra
- * @copyright 2015 Pooya Saeedi
+ * @package    filter
+ * @subpackage algebra
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

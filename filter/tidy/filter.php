@@ -6,7 +6,7 @@
  *
  * @package    filter
  * @subpackage tiny
- * @copyright  2004 Hannes Gassert <hannes at mediagonal dot ch>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,9 +4,9 @@
 /**
  * Lets users configure which filters are active in a sub-context.
  *
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  * @package    core
  * @subpackage filter
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../config.php');

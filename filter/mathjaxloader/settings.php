@@ -3,7 +3,8 @@
 /**
  * MathJAX filter settings
  *
- * @package    filter_mathjaxloader
+ * @package    filter
+ * @subpackage mathjaxloader
  * @copyright  2015 Pooya Saeedi
  * 
  */
