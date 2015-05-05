@@ -5,9 +5,10 @@
  *
  * This file is part of the memcache cache store, it contains the API for interacting with an instance of the store.
  *
- * @package    cachestore_memcache
- * @copyright  2012 Sam Hemelryk
- * 
+ * @package    cachestore
+ * @subpackage memcache
+ * @copyright  2015 Pooya Saeedi
+s * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -17,8 +18,6 @@ require_once($CFG->dirroot.'/cache/forms.php');
 /**
  * Form for adding a memcache instance.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cachestore_memcache_addinstance_form extends cachestore_addinstance_form {
 

@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,9 +20,6 @@ defined('LION_INTERNAL') || die();
  * The cache helper class provides common functionality to the cache API and is useful to developers within to interact with
  * the cache API in a general way.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
  * 
  */
 class cache_helper {

@@ -7,8 +7,9 @@
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @subpackage phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,8 +23,6 @@ require_once($CFG->dirroot.'/cache/tests/fixtures/lib.php');
 /**
  * PHPunit tests for the cache API
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class core_cache_testcase extends advanced_testcase {
 

@@ -6,8 +6,8 @@
  * This file is part of Lion's cache API, affectionately called MUC.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +18,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Add store instance form.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
  * 
  */
 class cachestore_addinstance_form extends lionform {
@@ -107,10 +104,6 @@ class cachestore_addinstance_form extends lionform {
 /**
  * Form to set definition mappings
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_definition_mappings_form extends lionform {
 
@@ -169,10 +162,6 @@ class cache_definition_mappings_form extends lionform {
 /**
  * Form to set definition sharing option
  *
- * @package    core
- * @category   cache
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class cache_definition_sharing_form extends lionform {
     /**
@@ -248,10 +237,6 @@ class cache_definition_sharing_form extends lionform {
 /**
  * Form to set the mappings for a mode.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_mode_mappings_form extends lionform {
     /**
@@ -294,9 +279,6 @@ class cache_mode_mappings_form extends lionform {
  * All cache lock plugins that wish to have custom configuration should override
  * this form, and more explicitly the plugin_definition and plugin_validation methods.
  *
- * @package    core
- * @category   cache
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class cache_lock_form extends lionform {

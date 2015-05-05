@@ -5,8 +5,9 @@
  *
  * This file is part of the memcached cache store, it contains the API for interacting with an instance of the store.
  *
- * @package    cachestore_memcached
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage memcached
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -26,8 +27,6 @@ defined('LION_INTERNAL') || die();
  *                      HASH_FNV1A_32, HASH_HSIEH, HASH_MURMUR
  *      bufferwrites:   true, false
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cachestore_memcached extends cache_store implements cache_is_configurable {
     /**

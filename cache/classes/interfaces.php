@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -389,10 +389,6 @@ interface cache_is_configurable {
  *
  * Can be implemented by any class.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 interface cache_data_source {
 

@@ -5,8 +5,9 @@
  *
  * Not to be confused with the memcache plugin.
  *
- * @package    cachestore_memcached
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage memcached
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

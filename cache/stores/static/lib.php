@@ -6,9 +6,9 @@
  * This file is part of the static cache store, it contains the API for interacting with an instance of the store.
  * This is used as a default cache store within the Cache API. It should never be deleted.
  *
- * @package    cachestore_static
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage static
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The static data store class
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 abstract class static_data_store extends cache_store {
 
@@ -53,7 +51,7 @@ abstract class static_data_store extends cache_store {
     /**
      * Flushes all of the values from all stores.
      *
-     * @copyright  2012 Sam Hemelryk
+     * @copyright  2015 Pooya Saeedi
      * 
      */
     protected static function flush_store() {
@@ -69,8 +67,6 @@ abstract class static_data_store extends cache_store {
 /**
  * The static store class.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cachestore_static extends static_data_store implements cache_is_key_aware, cache_is_searchable {
 

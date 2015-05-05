@@ -3,8 +3,9 @@
 /**
  * The language strings for the MongoDB store plugin.
  *
- * @package    cachestore_mongodb
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage mongodb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +21,6 @@ defined('LION_INTERNAL') || die();
  * This allows us to both reuse objects saving on overhead, and gives us an easy place to "reset" the cache API in situations that
  * we need such as unit testing.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_factory {
 

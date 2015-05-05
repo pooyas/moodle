@@ -8,8 +8,8 @@
  * Things in here are more in line with administration and management of the cache setup and configuration.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  *
  * This class should only be used when you need to write to the config, all read operations exist within the cache_config.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_config_writer extends cache_config {
 
@@ -651,10 +647,6 @@ class cache_config_writer extends cache_config {
 /**
  * A cache helper for administration tasks
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 abstract class cache_administration_helper extends cache_helper {
 

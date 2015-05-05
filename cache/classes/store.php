@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  * This interface defines the static methods that must be implemented by every cache store plugin.
  * To ensure plugins implement this class the abstract cache_store class implements this interface.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 interface cache_store_interface {
     /**
@@ -84,10 +80,6 @@ interface cache_store_interface {
  * All cache store plugins must extend this base class.
  * It lays down the foundation for what is required of a cache store plugin.
  *
- * @since Lion 2.4
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
  * 
  */
 abstract class cache_store implements cache_store_interface {

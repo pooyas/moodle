@@ -5,8 +5,9 @@
  *
  * This file is part of the memcached cache store, it contains the API for interacting with an instance of the store.
  *
- * @package    cachestore_memcached
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage memcached
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

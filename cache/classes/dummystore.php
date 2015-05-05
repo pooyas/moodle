@@ -11,7 +11,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +20,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The cache dummy store.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cachestore_dummy extends cache_store {
 

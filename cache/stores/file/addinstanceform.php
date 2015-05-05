@@ -6,9 +6,9 @@
  * This file is part of the file cache store, it contains the API for interacting with an instance of the store.
  * This is used as a default cache store within the Cache API. It should never be deleted.
  *
- * @package    cachestore_file
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage file
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +17,6 @@ require_once($CFG->dirroot.'/cache/forms.php');
 /**
  * Form for adding a file instance.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cachestore_file_addinstance_form extends cachestore_addinstance_form {
 

@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  * This class is used to interact with the cache's configuration.
  * The configuration is stored in the Lion data directory.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_config {
 

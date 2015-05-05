@@ -4,7 +4,7 @@
  * Cache store test fixtures.
  *
  * @package    core
- * @category   cache
+ * @subpackage cache
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * An abstract class to make writing unit tests for cache stores very easy.
  *
- * @package    core
- * @category   cache
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class cachestore_tests extends advanced_testcase {
 

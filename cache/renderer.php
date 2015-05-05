@@ -6,8 +6,8 @@
  * This file is part of Lion's cache API, affectionately called MUC.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The cache renderer (mainly admin interfaces).
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class core_cache_renderer extends plugin_renderer_base {
 

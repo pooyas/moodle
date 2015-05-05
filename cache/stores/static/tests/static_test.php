@@ -3,7 +3,9 @@
 /**
  * Static unit tests
  *
- * @package    cachestore_static
+ * @package    cachestore
+ * @subpackage static
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,8 +20,6 @@ require_once($CFG->dirroot.'/cache/stores/static/lib.php');
 /**
  * Static unit test class.
  *
- * @package    cachestore_static
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class cachestore_static_test extends cachestore_tests {

@@ -9,8 +9,8 @@
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -30,10 +30,6 @@ require_once($CFG->dirroot.'/cache/classes/definition.php');
  *
  * This class gets used when the data is an object that has implemented the cacheable_object interface.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_cached_object {
 
@@ -73,10 +69,6 @@ class cache_cached_object {
  *
  * This class is exactly why you should use event driving invalidation of cache data rather than relying on ttl.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_ttl_wrapper {
 
@@ -115,10 +107,6 @@ class cache_ttl_wrapper {
 /**
  * A cache exception class. Just allows people to catch cache exceptions.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_exception extends lion_exception {
     /**
@@ -161,8 +149,6 @@ class cache_exception extends lion_exception {
  * $cache->set($data);
  * </code>
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cacheable_object_array extends ArrayObject implements cacheable_object {
 

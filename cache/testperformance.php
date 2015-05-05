@@ -4,8 +4,8 @@
  * Store performance test run + output script.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,9 +6,9 @@
  * This file is part of the session cache store, it contains the API for interacting with an instance of the store.
  * This is used as a default cache store within the Cache API. It should never be deleted.
  *
- * @package    cachestore_session
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage session
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The session data store class.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 abstract class session_data_store extends cache_store {
 
@@ -73,7 +71,7 @@ abstract class session_data_store extends cache_store {
 /**
  * The Session store class.
  *
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cachestore_session extends session_data_store implements cache_is_key_aware, cache_is_searchable {

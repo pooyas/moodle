@@ -5,8 +5,9 @@
  *
  * This file is part of the MongoDB store plugin, it contains the API for interacting with an instance of the store.
  *
- * @package    cachestore_mongodb
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage mongodb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ defined('LION_INTERNAL') || die();
  *  - {@link http://www.php.net/manual/en/mongo.installation.php}
  *  - {@link http://www.mongodb.org/display/DOCS/PHP+Language+Center}
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cachestore_mongodb extends cache_store implements cache_is_configurable {
 

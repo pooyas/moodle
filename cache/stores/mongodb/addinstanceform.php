@@ -12,8 +12,9 @@
  *      - usesafe
  *      - extendedmode
  *
- * @package    cachestore_mongodb
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage mongodb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -25,8 +26,6 @@ require_once($CFG->dirroot.'/cache/forms.php');
 /**
  * The form to add an instance of the MongoDB store to the system.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cachestore_mongodb_addinstance_form extends cachestore_addinstance_form {
 

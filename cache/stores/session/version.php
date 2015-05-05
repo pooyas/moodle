@@ -5,9 +5,9 @@
  *
  * This is used as a default cache store within the Cache API. It should never be deleted.
  *
- * @package    cachestore_session
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage session
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

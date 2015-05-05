@@ -5,8 +5,9 @@
  *
  * This file is part of the mongodb cache store, it contains the API for interacting with an instance of the store.
  *
- * @package    cachestore_mongodb
- * @copyright  2012 Sam Hemelryk
+ * @package    cachestore
+ * @subpackage mongodb
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

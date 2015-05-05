@@ -7,8 +7,8 @@
  * to only do what is absolutely necessary when initialising and using the Cache API when its been disabled.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,8 +22,6 @@ require_once($CFG->dirroot.'/cache/locallib.php');
 /**
  * The cache loader class used when the Cache has been disabled.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_disabled extends cache {
 
@@ -149,8 +147,6 @@ class cache_disabled extends cache {
 /**
  * The cache factory class used when the Cache has been disabled.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_factory_disabled extends cache_factory {
 
@@ -274,8 +270,6 @@ class cache_factory_disabled extends cache_factory {
 /**
  * The cache config class used when the Cache has been disabled.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_config_disabled extends cache_config_writer {
 

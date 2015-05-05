@@ -7,8 +7,8 @@
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,9 +22,6 @@ require_once($CFG->dirroot.'/cache/locallib.php');
  * This class was originally named cache_config_phpunittest but was renamed in 2.9
  * because it is used for both unit tests and acceptance tests.
  *
- * @since 2.9
- * @copyright 2012 Sam Hemelryk
- * 
  */
 class cache_config_testing extends cache_config_writer {
 
@@ -282,9 +279,6 @@ class cache_config_testing extends cache_config_writer {
  * This was deprecated in Lion 2.9 but will be removed at the next major release
  * as it is only used during testing and its highly unlikely anyone has used this.
  *
- * @deprecated since 2.9
- * @copyright  2014 Sam Hemelryk
- * 
  */
 class cache_config_phpunittest extends cache_config_testing {
     // We can't do anything here to warn the user.
@@ -294,8 +288,6 @@ class cache_config_phpunittest extends cache_config_testing {
 /**
  * Dummy object for testing cacheable object interface and interaction
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_phpunit_dummy_object extends stdClass implements cacheable_object {
     /**
@@ -337,8 +329,6 @@ class cache_phpunit_dummy_object extends stdClass implements cacheable_object {
 /**
  * Dummy data source object for testing data source interface and implementation
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_phpunit_dummy_datasource implements cache_data_source {
     /**
@@ -381,8 +371,6 @@ class cache_phpunit_dummy_datasource implements cache_data_source {
  *
  * Used to expose things we could not otherwise see within an application cache.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_phpunit_application extends cache_application {
 
@@ -419,8 +407,6 @@ class cache_phpunit_application extends cache_application {
  *
  * Used to expose things we could not otherwise see within an session cache.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_phpunit_session extends cache_session {
 
@@ -446,8 +432,6 @@ class cache_phpunit_session extends cache_session {
  *
  * Used to expose things we could not otherwise see within an request cache.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_phpunit_request extends cache_request {
 
@@ -471,8 +455,6 @@ class cache_phpunit_request extends cache_request {
 /**
  * Dummy overridden cache loader class that we can use to test overriding loader functionality.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_phpunit_dummy_overrideclass extends cache_application {
     // Satisfying the code pre-checker is just part of my day job.
@@ -481,8 +463,6 @@ class cache_phpunit_dummy_overrideclass extends cache_application {
 /**
  * Cache PHPUnit specific factory.
  *
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_phpunit_factory extends cache_factory {
     /**

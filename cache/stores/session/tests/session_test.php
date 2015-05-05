@@ -1,23 +1,10 @@
 <?php
-// This session is part of Lion - http://lion.org/
-//
-// Lion is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Lion is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Lion.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Session unit tests
  *
- * @package    cachestore_session
+ * @package    cachestore
+ * @subpackage session
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -32,9 +19,6 @@ require_once($CFG->dirroot.'/cache/stores/session/lib.php');
 /**
  * Session unit test class.
  *
- * @package    cachestore_session
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class cachestore_session_test extends cachestore_tests {
     /**

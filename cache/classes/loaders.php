@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +21,6 @@ defined('LION_INTERNAL') || die();
  * In order to create an instance of a cache that they can work with they must call one of the static make methods belonging
  * to this class.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache implements cache_loader {
 
@@ -1147,10 +1143,6 @@ class cache implements cache_loader {
  *
  * @internal don't use me directly.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_application extends cache implements cache_loader_with_locking {
 
@@ -1549,10 +1541,6 @@ class cache_application extends cache implements cache_loader_with_locking {
  * @internal don't use me directly.
  * @method cache_store|cache_is_searchable get_store() Returns the cache store which must implement both cache_is_searchable.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_session extends cache {
     /**
@@ -2178,10 +2166,6 @@ class cache_session extends cache {
  *
  * @internal don't use me directly.
  *
- * @package    core
- * @category   cache
- * @copyright  2012 Sam Hemelryk
- * 
  */
 class cache_request extends cache {
     // This comment appeases code pre-checker ;) !
