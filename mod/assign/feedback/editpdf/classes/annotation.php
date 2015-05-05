@@ -4,7 +4,7 @@
  * This file contains the annotation class for the assignfeedback_editpdf plugin
  *
  * @package   assignfeedback_editpdf
- * @copyright 2012 Davo Smith
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ namespace assignfeedback_editpdf;
  * This class adds and removes annotations from a page of a response.
  *
  * @package   assignfeedback_editpdf
- * @copyright 2012 Davo Smith
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class annotation {

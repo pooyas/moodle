@@ -3,7 +3,8 @@
 /**
  * Course format class to allow plugins developed for Lion 2.3 to work in the new API
  *
- * @package    core_course
+ * @package    format
+ * @subpackage weeks
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Course format class to allow plugins developed for Lion 2.3 to work in the new API
  *
- * @package    core_course
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class format_legacy extends format_base {
 

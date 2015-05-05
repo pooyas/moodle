@@ -3,10 +3,9 @@
 /**
  * Course completion status for a particular user/course
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +15,6 @@ require_once($CFG->dirroot.'/completion/data_object.php');
 /**
  * Course completion status for a particular user/course
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
  * 
  */
 class completion_completion extends data_object {

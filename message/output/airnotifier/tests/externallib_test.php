@@ -5,7 +5,7 @@
  *
  * @package    message_airnotifier
  * @category   external
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  *
  * @package    message_airnotifier
  * @category   external
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class message_airnotifier_external_testcase extends externallib_advanced_testcase {

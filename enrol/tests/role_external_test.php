@@ -12,7 +12,7 @@ require_once($CFG->dirroot . '/enrol/externallib.php');
  *
  * @package    core_enrol
  * @category   external
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.4
  */

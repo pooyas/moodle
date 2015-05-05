@@ -3,7 +3,8 @@
 /**
  * Course and category management helper class.
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,9 +23,6 @@ defined('LION_INTERNAL') || die;
  *  2.  abstract logic for acquiring actions away from output so that renderers may use them without
  *      having to include any logic or capability checks.
  *
- * @package    core_course
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class helper {
 

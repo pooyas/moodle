@@ -3,7 +3,8 @@
 /**
  * Aids in capability assignment and alteration of the assigned capability.
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @copyright  2015 Pooya Saeedi
  * 
  */

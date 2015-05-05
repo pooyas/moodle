@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+ */
+
+
 /// TIME PERIOD ///
 
 define('HUB_LASTMODIFIED_WEEK', 7);

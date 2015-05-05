@@ -3,9 +3,10 @@
 /**
  * External course functions unit tests
  *
- * @package    core_course
- * @category   external
- * @copyright  2012 Jerome Mouneyrac
+ * @package    core
+ * @subpackage course
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,6 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 /**
  * External course functions unit tests
  *
- * @package    core_course
- * @category   external
- * @copyright  2012 Jerome Mouneyrac
  * 
  */
 class core_course_externallib_testcase extends externallib_advanced_testcase {

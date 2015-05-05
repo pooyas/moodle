@@ -3,10 +3,9 @@
 /**
  * This file contains the course criteria type.
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +17,6 @@ defined('LION_INTERNAL') || die();
  * This course completion criteria depends on another course with
  * completion enabled to be marked as complete for this user
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
  * 
  */
 class completion_criteria_course extends completion_criteria {

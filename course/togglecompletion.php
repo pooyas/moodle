@@ -8,8 +8,9 @@
  * If by student params: course=2
  * If by manager params: course=2&user=4&rolec=3&sesskey=ghfgsdf
  *
- * 
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

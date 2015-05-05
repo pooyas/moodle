@@ -3,9 +3,9 @@
 /**
  * Library of useful functions
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * 
- * @package core_course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die;
@@ -2807,10 +2807,6 @@ function average_number_of_courses_modules() {
  *
  * Please note we do not allow embedded images here because there is no context
  * to store them with proper access control.
- *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
  *
  * @property-read int $id
  * @property-read string $fullname

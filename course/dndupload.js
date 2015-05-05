@@ -4,7 +4,7 @@
  *
  * @package    core
  * @subpackage course
- * @copyright  2012 Davo Smith
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 M.course_dndupload = {

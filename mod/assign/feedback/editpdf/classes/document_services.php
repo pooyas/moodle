@@ -4,7 +4,7 @@
  * This file contains the ingest manager for the assignfeedback_editpdf plugin
  *
  * @package   assignfeedback_editpdf
- * @copyright 2012 Davo Smith
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ namespace assignfeedback_editpdf;
  * PDF 1.4 document with all submission files concatinated together. It also
  * provides the functions to generate a downloadable pdf with all comments and
  * annotations embedded.
- * @copyright 2012 Davo Smith
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class document_services {

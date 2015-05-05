@@ -5,7 +5,7 @@
  *
  * @package    report
  * @subpackage completion
- * @copyright  2009 Catalyst IT Ltd
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

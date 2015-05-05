@@ -469,7 +469,7 @@ class assign_submission_status implements renderable {
  * Used to output the attempt history for a particular assignment.
  *
  * @package mod_assign
- * @copyright 2012 Davo Smith, Synergy Learning
+ * @copyright 2015 Pooya Saeedi, Synergy Learning
  * 
  */
 class assign_attempt_history implements renderable {

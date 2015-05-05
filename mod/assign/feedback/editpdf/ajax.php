@@ -4,7 +4,7 @@
  * Process ajax requests
  *
  * @package assignfeedback_editpdf
- * @copyright  2012 Davo Smith
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

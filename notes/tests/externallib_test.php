@@ -5,7 +5,7 @@
  *
  * @package    core_notes
  * @category   external
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

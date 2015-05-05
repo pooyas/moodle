@@ -5,7 +5,7 @@
  *
  * @package   message_airnotifier
  * @category  access
- * @copyright 2012 Jerome Mouneyrac
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

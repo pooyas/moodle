@@ -4,6 +4,7 @@
  * Course related unit tests
  *
  * @package    core
+ * @subpackage course
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 

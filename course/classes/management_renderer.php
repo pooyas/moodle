@@ -3,8 +3,9 @@
 /**
  * Contains renderers for the course management pages.
  *
- * @package core_course
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->dirroot.'/course/renderer.php');
 /**
  * Main renderer for the course management pages.
  *
- * @package core_course
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_course_management_renderer extends plugin_renderer_base {
 

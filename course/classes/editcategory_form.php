@@ -3,8 +3,9 @@
 /**
  * Edit category form.
  *
- * @package core_course
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->libdir.'/coursecatlib.php');
 /**
  * Edit category form.
  *
- * @package core_course
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_course_editcategory_form extends lionform {
 

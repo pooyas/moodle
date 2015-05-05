@@ -4,7 +4,7 @@
  * Airnotifier configuration page
  *
  * @package    message_airnotifier
- * @copyright  2012 Jerome Mouneyrac, 2014 Juan Leyva
+ * @copyright  2015 Pooya Saeedi, 2014 Juan Leyva
  * 
  */
 defined('LION_INTERNAL') || die;

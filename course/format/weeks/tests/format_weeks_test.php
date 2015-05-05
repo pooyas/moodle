@@ -3,8 +3,10 @@
 /**
  * format_weeks related unit tests
  *
- * @package    format_weeks
- * @copyright  2015 Marina Glancy
+ * @package    format
+ * @subpackage weeks
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +18,6 @@ require_once($CFG->dirroot . '/course/lib.php');
 /**
  * format_weeks related unit tests
  *
- * @package    format_weeks
- * @copyright  2015 Marina Glancy
- * 
  */
 class format_weeks_testcase extends advanced_testcase {
 

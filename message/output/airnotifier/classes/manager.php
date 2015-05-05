@@ -5,7 +5,7 @@
  *
  * @package    message_airnotifier
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi <jerome@lion.com>
  * 
  * @since Lion 2.7
  */
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die;
 /**
  * Airnotifier helper manager class
  *
- * @copyright  2012 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi <jerome@lion.com>
  * 
  */
 class message_airnotifier_manager {

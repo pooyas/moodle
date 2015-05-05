@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'format_topics', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'format_topics', language 'en'
  *
- * @package   format_topics
- * @copyright 2015 Pooya Saeedi
+ * @package    format
+ * @subpackage topics
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

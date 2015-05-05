@@ -9,9 +9,9 @@
  * The reason that we created this file was so that user didn't get redirected back
  * to the course view page only to be redirected again.
  *
- * @since Lion 2.0
- * @package course
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * format_topics related unit tests
  *
- * @package    format_topics
- * @copyright  2015 Marina Glancy
+ * @package    format
+ * @subpackage topics
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->dirroot . '/course/lib.php');
 /**
  * format_topics related unit tests
  *
- * @package    format_topics
- * @copyright  2015 Marina Glancy
- * 
  */
 class format_topics_testcase extends advanced_testcase {
 

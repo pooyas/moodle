@@ -3,10 +3,9 @@
 /**
  * Course completion critieria - completion on achieving course grade
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,11 +16,6 @@ require_once $CFG->dirroot.'/grade/querylib.php';
 /**
  * Course completion critieria - completion on achieving course grade
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * 
  */
 class completion_criteria_grade extends completion_criteria {
 

@@ -3,9 +3,9 @@
 /**
  * Topics course format.  Display the whole course as "topics" made of modules.
  *
- * @package format_topics
- * @copyright 2006 The Open University
- * @author N.D.Freear@open.ac.uk, and others.
+ * @package    format
+ * @subpackage topics
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

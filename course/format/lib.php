@@ -3,7 +3,8 @@
 /**
  * Base class for course format plugins
  *
- * @package    core_course
+ * @package    format
+ * @subpackage weeks
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -42,9 +43,6 @@ function course_get_format($courseorid) {
  * it to format_FORMATNAME, then move the code from your callback functions into
  * appropriate functions of the class.
  *
- * @package    core_course
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class format_base {
     /** @var int Id of the course in this instance (maybe 0) */

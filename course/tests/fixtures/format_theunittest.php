@@ -7,7 +7,8 @@ require_once($CFG->dirroot . '/course/format/lib.php');
 /**
  * Fixture for fake course format testing course format API.
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @copyright  2015 Pooya Saeedi
  * 
  */

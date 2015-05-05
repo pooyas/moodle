@@ -626,7 +626,7 @@ function external_delete_descriptions($component) {
  * Standard Lion web service warnings
  *
  * @package    core_webservice
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.3
  */
@@ -661,7 +661,7 @@ class external_warnings extends external_multiple_structure {
  * as it is the standard way to implement text format param/return values.
  *
  * @package    core_webservice
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.3
  */
@@ -745,7 +745,7 @@ function external_format_text($text, $textformat, $contextid, $component, $filea
  * We use singleton to encapsulate the "logic"
  *
  * @package    core_webservice
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.3
  */

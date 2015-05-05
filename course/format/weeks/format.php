@@ -3,9 +3,9 @@
 /**
  * Weeks course format.  Display the whole course as "weeks" made of modules.
  *
- * @package format_weeks
- * @copyright 2006 The Open University
- * @author N.D.Freear@open.ac.uk, and others.
+ * @package    format
+ * @subpackage weeks
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

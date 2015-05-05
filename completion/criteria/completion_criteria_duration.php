@@ -3,10 +3,9 @@
 /**
  * Course completion critieria - completion after specific duration from course enrolment
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,11 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Course completion critieria - completion after specific duration from course enrolment
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * 
  */
 class completion_criteria_duration extends completion_criteria {
 

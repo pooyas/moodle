@@ -8,7 +8,8 @@
  * or the activity is not setup, does not have url or is not accessible at the
  * moment
  *
- * @package    format_singleactivity
+ * @package    format
+ * @subpackage singleactivity
  * @copyright  2015 Pooya Saeedi
  * 
  */

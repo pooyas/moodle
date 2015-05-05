@@ -5,7 +5,8 @@
  *
  * Please note functions may throw exceptions, please ensure your JS handles them as well as the outcome objects.
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @copyright  2015 Pooya Saeedi
  * 
  */

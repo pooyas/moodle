@@ -3,7 +3,8 @@
 /**
  * Course and category management interfaces.
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @copyright  2015 Pooya Saeedi
  * 
  */

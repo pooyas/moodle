@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+ */
+
 defined('LION_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');

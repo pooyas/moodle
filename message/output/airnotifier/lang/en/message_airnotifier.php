@@ -4,7 +4,7 @@
  * Strings for component 'message_airnotifier', language 'en'
  *
  * @package    message_airnotifier
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

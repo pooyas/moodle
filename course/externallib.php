@@ -4,9 +4,10 @@
 /**
  * External course API
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @category   external
- * @copyright  2009 Petr Skodak
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

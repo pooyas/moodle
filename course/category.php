@@ -3,7 +3,8 @@
 /**
  * Displays the top level category or all courses
  *
- * @package    core_coure
+ * @package    core
+ * @subpackage course
  * @copyright  2015 Pooya Saeedi
  * 
  */

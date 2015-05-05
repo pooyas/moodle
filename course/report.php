@@ -1,6 +1,12 @@
 <?php
-      // Display all the interfaces for importing data into a specific course
-
+/**
+ * Display all the interfaces for importing data into a specific course
+ * 
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+ */
+      
     require_once('../config.php');
 
     $id = required_param('id', PARAM_INT);   // course id to import TO

@@ -3,9 +3,9 @@
 /**
  * This file contains main class for the course format Social
  *
- * @since     Lion 2.0
- * @package   format_social
- * @copyright 2015 Pooya Saeedi
+ * @package    format
+ * @subpackage social
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +15,6 @@ require_once($CFG->dirroot. '/course/format/lib.php');
 /**
  * Main class for the Social course format
  *
- * @package    format_social
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class format_social extends format_base {
 

@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * Allows a user to request a course be created for them.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * 
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../config.php');

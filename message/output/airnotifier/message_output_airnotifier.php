@@ -5,7 +5,7 @@
  *
  * @package    message_airnotifier
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi <jerome@lion.com>
  * 
  * @since Lion 2.7
  */
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/message/output/lib.php');
  * Message processor class
  *
  * @package   message_airnotifier
- * @copyright 2012 Jerome Mouneyrac
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class message_output_airnotifier extends message_output {

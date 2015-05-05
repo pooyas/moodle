@@ -6,7 +6,7 @@
  *
  * @package    core_webservice
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi <jerome@lion.com>
  * 
  */
 
@@ -19,7 +19,7 @@ require_once("$CFG->libdir/externallib.php");
  *
  * @package    core
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi <jerome@lion.com>
  * 
  * @since Lion 2.4
  */

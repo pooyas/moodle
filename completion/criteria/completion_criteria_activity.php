@@ -5,10 +5,9 @@
  * This file contains the activity completion criteria type class and any
  * supporting functions it may require.
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Course completion critieria - completion on activity completion
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
  * 
  */
 class completion_criteria_activity extends completion_criteria {

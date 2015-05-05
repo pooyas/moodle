@@ -7,8 +7,9 @@
  * Otherwise it creates a new category with default parent from the parent
  * parameter, which may be 0.
  *
- * @package    core_course
- * @copyright  2007 Nicolas Connault
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

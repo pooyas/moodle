@@ -4,7 +4,7 @@
  * This file contains the version information for the comments feedback plugin
  *
  * @package assignfeedback_editpdf
- * @copyright  2012 Davo Smith
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

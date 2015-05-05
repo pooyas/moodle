@@ -3,10 +3,9 @@
 /**
  * Course completion critieria aggregation
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -23,11 +22,6 @@ define('DATA_OBJECT_FETCH_BY_KEY',  2);
 /**
  * A data abstraction object that holds methods and attributes
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * 
  */
 abstract class data_object {
 

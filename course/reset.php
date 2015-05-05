@@ -8,9 +8,9 @@
  * specific data.  Each module must be modified to take advantage of this new feature.
  * The feature will also reset the start date of the course if necessary.
  *
- * @copyright Mark Flach and lion.com
- * 
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../config.php');

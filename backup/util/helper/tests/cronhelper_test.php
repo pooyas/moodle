@@ -5,7 +5,7 @@
  *
  * @package   core_backup
  * @category  phpunit
- * @copyright 2012 Frédéric Massart <fred@lion.com>
+ * @copyright 2015 Pooya Saeedi <fred@lion.com>
  * 
  */
 

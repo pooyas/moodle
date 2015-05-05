@@ -3,7 +3,9 @@
 /**
  * Course related unit tests
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */

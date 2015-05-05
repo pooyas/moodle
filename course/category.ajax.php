@@ -6,8 +6,9 @@
  * @see core_course_renderer::coursecat_include_js()
  * @see core_course_renderer::coursecat_ajax()
  *
- * @package   core
- * @copyright 2013 Andrew Nicols
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

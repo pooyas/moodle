@@ -1,6 +1,13 @@
 <?php
-      // format.php - course format featuring social forum
-      //              included from view.php
+/**
+ * course format featuring social forum
+ * included from view.php
+ * 
+ * @package    format
+ * @subpackage social
+ * @copyright  2015 Pooya Saeedi
+ */
+      
 
     require_once($CFG->dirroot.'/mod/forum/lib.php');
 

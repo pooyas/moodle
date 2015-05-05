@@ -3,7 +3,8 @@
 /**
  * Renderer for outputting the singleactivity course format.
  *
- * @package    format_singleactivity
+ * @package    format
+ * @subpackage singleactivity
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Basic renderer for singleactivity format.
  *
- * @package    format_singleactivity
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class format_singleactivity_renderer extends plugin_renderer_base {
 

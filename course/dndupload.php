@@ -4,8 +4,8 @@
  * Starting point for drag and drop course uploads
  *
  * @package    core
- * @subpackage lib
- * @copyright  2012 Davo smith
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

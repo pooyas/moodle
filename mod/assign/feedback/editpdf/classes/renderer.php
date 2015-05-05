@@ -4,7 +4,7 @@
  * This file contains the definition for the library class for edit PDF renderer.
  *
  * @package   assignfeedback_editpdf
- * @copyright 2012 Davo Smith
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

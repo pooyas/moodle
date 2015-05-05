@@ -4,9 +4,9 @@
 /**
  * Redirection of old enrol entry point.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * 
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../config.php');

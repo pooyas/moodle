@@ -3,10 +3,9 @@
 /**
  * Completion data for a specific user, course and critieria
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,11 +15,6 @@ require_once($CFG->dirroot.'/completion/data_object.php');
 /**
  * Completion data for a specific user, course and critieria
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * 
  */
 class completion_criteria_completion extends data_object {
 

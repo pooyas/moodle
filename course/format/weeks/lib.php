@@ -3,9 +3,9 @@
 /**
  * This file contains main class for the course format Weeks
  *
- * @since     Lion 2.0
- * @package   format_weeks
- * @copyright 2015 Pooya Saeedi
+ * @package    format
+ * @subpackage weeks
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +15,6 @@ require_once($CFG->dirroot. '/course/format/lib.php');
 /**
  * Main class for the Weeks course format
  *
- * @package    format_weeks
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class format_weeks extends format_base {
 

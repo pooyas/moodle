@@ -3,7 +3,7 @@
 /**
  * Provide interface for AJAX device actions
  *
- * @copyright 2012 Jerome Mouneyrac
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package message_airnotifier
  */

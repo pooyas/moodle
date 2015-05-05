@@ -1,10 +1,8 @@
 <?php
 
-/*
- * @package    course
- * @subpackage publish
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+/**
+ * @package    core
+ * @subpackage course
  * @copyright  2015 Pooya Saeedi
  *
  * The user selects if he wants to publish the course on Lion.org hub or

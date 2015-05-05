@@ -4,8 +4,9 @@
 /**
 * Adds or updates modules in a course using new formslib
 *
-* @package    core
-* @copyright  2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
 * 
 */
 

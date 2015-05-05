@@ -3,9 +3,10 @@
 /**
  * Completion steps definitions.
  *
- * @package    core_completion
+ * @package    core
+ * @subpackage completion
  * @category   test
- * @copyright  2015 Pooya Saeedi
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,9 +20,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Steps definitions to deal with course and activities completion.
  *
- * @package    core_completion
- * @category   test
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_completion extends behat_base {

@@ -4,8 +4,8 @@
  * Library to handle drag and drop course uploads
  *
  * @package    core
- * @subpackage lib
- * @copyright  2012 Davo smith
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -69,9 +69,6 @@ function dndupload_add_to_course($course, $modnames) {
 /**
  * Stores all the information about the available dndupload handlers
  *
- * @package    core
- * @copyright  2012 Davo Smith
- * 
  */
 class dndupload_handler {
 
@@ -357,9 +354,6 @@ class dndupload_handler {
 /**
  * Processes the upload, creating the course module and returning the result
  *
- * @package    core
- * @copyright  2012 Davo Smith
- * 
  */
 class dndupload_ajax_processor {
 

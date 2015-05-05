@@ -5,6 +5,10 @@ require_once($CFG->libdir.'/completionlib.php');
 /**
  * This class adds extra methods to form wrapper specific to be used for module
  * add / update forms mod/{modname}/mod_form.php replaced deprecated mod/{modname}/mod.html
+ * 
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class lionform_mod extends lionform {
     /** Current data */

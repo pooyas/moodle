@@ -3,9 +3,9 @@
 /**
  * This file contains main class for the course format Topic
  *
- * @since     Lion 2.0
- * @package   format_topics
- * @copyright 2015 Pooya Saeedi
+ * @package    format
+ * @subpackage topics
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +15,6 @@ require_once($CFG->dirroot. '/course/format/lib.php');
 /**
  * Main class for the Topics course format
  *
- * @package    format_topics
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class format_topics extends format_base {
 

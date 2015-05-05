@@ -3,8 +3,9 @@
 /**
  * Admin-only code to delete a course utterly.
  *
- * @package core_course
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

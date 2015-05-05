@@ -1,5 +1,12 @@
 <?php
-// Allows a teacher/admin to login as another user (in stealth mode).
+
+/**
+ * Allows a teacher/admin to login as another user (in stealth mode).
+ * 
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+ */
 
 require_once('../config.php');
 require_once('lib.php');

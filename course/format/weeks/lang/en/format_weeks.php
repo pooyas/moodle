@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'format_weeks', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'format_weeks', language 'en'
  *
- * @package   format_weeks
- * @copyright 2015 Pooya Saeedi
+ * @package    format
+ * @subpackage weeks
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

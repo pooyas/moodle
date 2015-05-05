@@ -4,10 +4,9 @@
 /**
  * Allows a creator to edit custom scales, and also display help about scales
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @deprecated - TODO remove this file or replace it with an alternative solution for scales overview
- * 
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../config.php");

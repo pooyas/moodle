@@ -1,6 +1,15 @@
 <?php
 
-/// Displays external information about a course
+/**
+ * Displays external information about a course
+ * 
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+ */
+
+
+/// 
 
     require_once("../config.php");
     require_once("lib.php");

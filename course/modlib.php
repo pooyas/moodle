@@ -6,9 +6,9 @@
  * This file has been created has an alternative solution to a full refactor of course/modedit.php
  * in order to create the course API functions.
  *
- * @copyright 2013 Jerome Mouneyrac
- * 
- * @package core_course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die;

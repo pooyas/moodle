@@ -5,10 +5,9 @@
  * This script allows the number of sections in a course to be increased
  * or decreased, redirecting to the course page.
  *
- * @package core_course
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.3
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__).'/../config.php');

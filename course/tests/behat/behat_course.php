@@ -3,7 +3,8 @@
 /**
  * Behat course-related steps definitions.
  *
- * @package    core_course
+ * @package    core
+ * @subpackage course
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -22,9 +23,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Course-related steps definitions.
  *
- * @package    core_course
- * @category   test
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_course extends behat_base {

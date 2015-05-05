@@ -4,10 +4,9 @@
 /**
  * Edit course completion settings
  *
- * @package     core_completion
- * @category    completion
- * @copyright   2009 Catalyst IT Ltd
- * @author      Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

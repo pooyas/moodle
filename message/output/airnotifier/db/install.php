@@ -4,7 +4,7 @@
  * Airnotifier message processor installation code
  *
  * @package    message_airnotifier
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

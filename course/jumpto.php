@@ -1,13 +1,12 @@
 <?php
 
-
 /**
  * Jumps to a given relative or Lion absolute URL.
  * Mostly used for accessibility.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * 
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../config.php');

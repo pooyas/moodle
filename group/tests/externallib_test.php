@@ -5,7 +5,7 @@
  *
  * @package    core_group
  * @category   external
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.4
  */

@@ -3,10 +3,9 @@
 /**
  * This file contains the date criteria type
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    core
+ * @subpackage completion
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,11 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Course completion critieria - completion on specified date
  *
- * @package core_completion
- * @category completion
- * @copyright 2009 Catalyst IT Ltd
- * @author Aaron Barnes <aaronb@catalyst.net.nz>
- * 
  */
 class completion_criteria_date extends completion_criteria {
 

@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * Course publish renderer.
- * @package   course
- * @subpackage publish
- * @copyright 2015 Pooya Saeedi
- * @author    Jerome Mouneyrac
+ * 
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_publish_renderer extends plugin_renderer_base {

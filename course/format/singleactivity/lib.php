@@ -3,7 +3,8 @@
 /**
  * This file contains main class for the course format singleactivity
  *
- * @package    format_singleactivity
+ * @package    format
+ * @subpackage singleactivity
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,9 +15,6 @@ require_once($CFG->dirroot. '/course/format/lib.php');
 /**
  * Main class for the singleactivity course format
  *
- * @package    format_singleactivity
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class format_singleactivity extends format_base {
     /** @var cm_info the current activity. Use get_activity() to retrieve it. */

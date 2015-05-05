@@ -3,8 +3,9 @@
 /**
  * Provides the course_reset_form class.
  *
- * @package     core
- * @copyright   2007 Petr Skoda
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ require_once $CFG->libdir.'/formslib.php';
 /**
  * Defines the course reset settings form.
  *
- * @copyright   2007 Petr Skoda
- * 
  */
 class course_reset_form extends lionform {
     function definition (){

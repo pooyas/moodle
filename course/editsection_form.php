@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+ */
+
 if (!defined('LION_INTERNAL')) {
     die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }

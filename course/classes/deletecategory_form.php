@@ -3,8 +3,9 @@
 /**
  * Delete category form.
  *
- * @package core_course
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ require_once($CFG->libdir . '/coursecatlib.php');
 
 /**
  * Delete category lionform.
- * @package core_course
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_course_deletecategory_form extends lionform {

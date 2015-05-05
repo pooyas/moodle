@@ -3,10 +3,9 @@
 /**
  * Base renderer for outputting course formats.
  *
- * @package core
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.3
+ * @package    format
+ * @subpackage weeks
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();
@@ -17,10 +16,6 @@ defined('LION_INTERNAL') || die();
  * to reduce code duplication. It is not necessary for all course formats to
  * use this and its likely to change in future releases.
  *
- * @package core
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.3
  */
 abstract class format_section_renderer_base extends plugin_renderer_base {
 

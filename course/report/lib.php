@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * This file contains functions used by course reports
  *
- * @since Lion 2.1
- * @package coursereport
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

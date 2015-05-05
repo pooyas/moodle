@@ -4,8 +4,9 @@
 /**
  * List of all resource type modules in course
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

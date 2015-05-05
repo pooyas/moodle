@@ -1,14 +1,14 @@
 <?php
 
-
 /**
  * Renderer for use with the course section and all the goodness that falls
  * within it.
  *
  * This renderer should contain methods useful to courses, and categories.
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -2137,8 +2137,6 @@ class core_course_renderer extends plugin_renderer_base {
  * If theme overrides methods in core_course_renderers that access this class
  * it may as well not use this class at all or extend it.
  *
- * @package   core
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class coursecat_helper {

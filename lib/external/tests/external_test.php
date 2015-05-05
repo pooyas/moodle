@@ -11,7 +11,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  *
  * @package    core
  * @category   phpunit
- * @copyright  2012 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_external_testcase extends externallib_advanced_testcase {
