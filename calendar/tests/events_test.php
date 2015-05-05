@@ -3,9 +3,10 @@
 /**
  * This file contains the class that handles testing of the calendar events.
  *
- * @package core_calendar
- * @copyright 2014 Ankit Agarwal 
- * 
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
+s * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,9 +16,6 @@ require_once($CFG->dirroot . '/calendar/tests/externallib_test.php');
 /**
  * This file contains the class that handles testing of the calendar events.
  *
- * @package core_calendar
- * @copyright 2014 Ankit Agarwal 
- * 
  */
 class core_calendar_events_testcase extends advanced_testcase {
 

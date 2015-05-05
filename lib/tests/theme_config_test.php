@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2012 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  *  (5)
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->libdir . '/outputlib.php');
 /**
  * Tests the theme config class.
  *
- * @copyright 2012 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_theme_config_testcase extends advanced_testcase {

@@ -15,7 +15,7 @@ require_once($CFG->dirroot.'/user/selector/lib.php');
 /**
  * User selector control for removing subscribed users
  * @package   mod_forum
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_forum_existing_subscriber_selector extends mod_forum_subscriber_selector_base {

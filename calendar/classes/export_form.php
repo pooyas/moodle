@@ -3,8 +3,9 @@
 /**
  * The mform for exporting calendar events
  *
- * @package core_calendar
- * @copyright 2014 Brian Barnes
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +19,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * The mform class for creating and editing a calendar
  *
- * @copyright 2014 Brian Barnes
- * 
  */
 class core_calendar_export_form extends lionform {
 

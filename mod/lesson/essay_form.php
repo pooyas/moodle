@@ -5,7 +5,7 @@
  * Essay grading form
  *
  * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  **/
 
@@ -19,7 +19,7 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Essay grading form
  *
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  **/
 class essay_grading_form extends lionform {

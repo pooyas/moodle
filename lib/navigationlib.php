@@ -5,7 +5,7 @@
  *
  * @since      Lion 2.0
  * @package    core
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -28,7 +28,7 @@ define('NAVIGATION_SITE_ADMIN_CACHE_NAME', 'navigationsiteadmin');
  *
  * @package   core
  * @category  navigation
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class navigation_node implements renderable {
@@ -955,7 +955,7 @@ class navigation_node_collection implements IteratorAggregate {
  *
  * @package   core
  * @category  navigation
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class global_navigation extends navigation_node {
@@ -2768,7 +2768,7 @@ class global_navigation extends navigation_node {
  *
  * @package   core
  * @category  navigation
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class global_navigation_for_ajax extends global_navigation {
@@ -3017,7 +3017,7 @@ class global_navigation_for_ajax extends global_navigation {
  *
  * @package   core
  * @category  navigation
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class navbar extends navigation_node {
@@ -3360,7 +3360,7 @@ class navbar extends navigation_node {
  *
  * @package   core
  * @category  navigation
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class settings_navigation extends navigation_node {
@@ -4642,7 +4642,7 @@ class settings_navigation_ajax extends settings_navigation {
  *
  * @package   core
  * @category  navigation
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class navigation_json {
@@ -4759,7 +4759,7 @@ class navigation_json {
  *
  * @package   core
  * @category  navigation
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class navigation_cache {

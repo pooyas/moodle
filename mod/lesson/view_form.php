@@ -5,7 +5,7 @@
  * Lesson page without answers
  *
  * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  **/
 
@@ -20,7 +20,7 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Lesson page without answers
  *
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  **/
 class lesson_page_without_answers extends lionform {

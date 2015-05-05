@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * This file contains the renderers for the calendar within Lion
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package calendar
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  */
 
 if (!defined('LION_INTERNAL')) {

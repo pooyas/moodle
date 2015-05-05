@@ -11,7 +11,7 @@
  *
  * @since Lion 2.0
  * @package course
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

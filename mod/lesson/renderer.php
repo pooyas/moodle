@@ -5,7 +5,7 @@
  * Lion renderer used to display special elements of the lesson module
  *
  * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  **/
 

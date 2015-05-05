@@ -8,7 +8,7 @@
  *
  * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

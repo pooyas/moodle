@@ -3,8 +3,9 @@
 /**
  * Defines calendar class to manage recurrence rule (rrule) during ical imports.
  *
- * @package core_calendar
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

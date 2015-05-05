@@ -7,8 +7,9 @@ namespace core_calendar;
  *
  * Factory class producing required subclasses of {@link \core_calendar\type_base}.
  *
- * @package core_calendar
- * @copyright 2008 onwards Foodle Group {@link http://foodle.org}
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class type_factory {

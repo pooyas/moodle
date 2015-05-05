@@ -6,8 +6,9 @@ use core_calendar\type_base;
 /**
  * Handles calendar functions for the gregorian calendar.
  *
- * @package calendartype_gregorian
- * @copyright 2008 onwards Foodle Group {@link http://foodle.org}
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class structure extends type_base {

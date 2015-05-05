@@ -3,9 +3,9 @@
 /**
  * Allows the user to manage calendar subscriptions.
  *
- * @copyright 2012 Jonathan Harker
- * 
- * @package calendar
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

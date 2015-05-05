@@ -5,7 +5,7 @@
  *
  * @since     Lion 2.0
  * @package   format_topics
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

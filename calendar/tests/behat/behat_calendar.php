@@ -3,9 +3,10 @@
 /**
  * Behat calendar-related steps definitions.
  *
- * @package    core_calendar
+ * @package    core
+ * @subpackage calendar
  * @category   test
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

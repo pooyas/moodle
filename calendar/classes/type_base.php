@@ -7,8 +7,9 @@ namespace core_calendar;
  *
  * This library provides a unified interface for calendar types.
  *
- * @package core_calendar
- * @copyright 2008 onwards Foodle Group {@link http://foodle.org}
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class type_base {

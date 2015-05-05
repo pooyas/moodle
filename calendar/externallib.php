@@ -4,11 +4,9 @@
 /**
  * External calendar API
  *
- * @package    core_calendar
- * @category   external
- * @copyright  2012 Ankit Agarwal
- * 
- * @since Lion 2.5
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die;
@@ -18,11 +16,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Calendar external functions
  *
- * @package    core_calendar
- * @category   external
- * @copyright  2012 Ankit Agarwal
- * 
- * @since Lion 2.5
  */
 class core_calendar_external extends external_api {
 

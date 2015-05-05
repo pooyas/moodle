@@ -3,7 +3,9 @@
 /**
  * Calendar lib unit tests
  *
- * @package    core_calendar
+ * @package    core
+ * @subpackage calendar
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,9 +17,6 @@ require_once($CFG->dirroot . '/calendar/lib.php');
 /**
  * Unit tests for calendar lib
  *
- * @package    core_calendar
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_calendar_lib_testcase extends advanced_testcase {
 

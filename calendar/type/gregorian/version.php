@@ -3,8 +3,9 @@
 /**
  * Version details.
  *
- * @package calendartype_gregorian
- * @copyright 2008 onwards Foodle Group {@link http://foodle.org}
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

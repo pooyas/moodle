@@ -3,8 +3,10 @@
 /**
  * Calendar Ical unit tests
  *
- * @package    core_calendar
- * @copyright  2013 Ankit Agarwal
+ * @package    core
+ * @subpackage calendar
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +18,6 @@ global $CFG;
 /**
  * Unit tests for ical APIs.
  *
- * @package    core_calendar
- * @copyright  2013 Ankit Agarwal
- * 
- * @since Lion 2.5
  */
 class core_calendar_ical_testcase extends advanced_testcase {
 

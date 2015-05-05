@@ -3,9 +3,9 @@
 /**
  * Allows the user to manage calendar subscriptions.
  *
- * @copyright 2012 Jonathan Harker
- * 
- * @package calendar
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  */
 
 if (!defined('LION_INTERNAL')) {
@@ -16,8 +16,6 @@ require_once($CFG->libdir.'/formslib.php');
 
 /**
  * Form for adding a subscription to a Lion course calendar.
- * @copyright 2012 Jonathan Harker
- * 
  */
 class calendar_addsubscription_form extends lionform {
 

@@ -4,9 +4,9 @@
 /**
  * The mform for creating and editing a calendar event
  *
- * @copyright 2009 Sam Hemelryk
- * 
- * @package calendar
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  */
 
  /**
@@ -21,7 +21,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * The mform class for creating and editing a calendar
  *
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class event_form extends lionform {

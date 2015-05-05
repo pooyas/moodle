@@ -15,7 +15,7 @@ require_once($CFG->dirroot.'/user/selector/lib.php');
 /**
  * A user selector control for potential subscribers to the selected forum
  * @package   mod_forum
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_forum_potential_subscriber_selector extends mod_forum_subscriber_selector_base {

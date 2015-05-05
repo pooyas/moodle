@@ -4,7 +4,7 @@
  * Contains the definition of the form used to send messages
  *
  * @package    core_message
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 if (!defined('LION_INTERNAL')) {
@@ -17,7 +17,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  * The form used by users to send instant messages
  *
  * @package   core_message
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class send_form extends lionform {

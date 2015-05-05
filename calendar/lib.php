@@ -3,9 +3,9 @@
 /**
  * Calendar extension
  *
- * @package    core_calendar
- * @copyright  2004 Greek School Network (http://www.sch.gr), Jon Papaioannou,
- *             Avgoustos Tsinakos
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -1935,10 +1935,6 @@ function calendar_normalize_tz($tz) {
  * better framework for dealing with calendar events in particular regard to file
  * handling through the new file API
  *
- * @package    core_calendar
- * @category   calendar
- * @copyright  2009 Sam Hemelryk
- * 
  *
  * @property int $id The id within the event table
  * @property string $name The name of the event
@@ -2689,9 +2685,6 @@ class calendar_event {
  * This class is used simply to organise the information pertaining to a calendar
  * and is used primarily to make information easily available.
  *
- * @package core_calendar
- * @category calendar
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class calendar_information {

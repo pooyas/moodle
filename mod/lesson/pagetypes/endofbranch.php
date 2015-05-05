@@ -5,7 +5,7 @@
  * End of branch table
  *
  * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  **/
 

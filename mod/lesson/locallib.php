@@ -629,7 +629,7 @@ function lesson_get_media_html($lesson, $context) {
  * OR if it has a special requirement on creation it can extend construction_override
  *
  * @abstract
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class lesson_add_page_form_base extends lionform {
@@ -894,7 +894,7 @@ abstract class lesson_add_page_form_base extends lionform {
  * @property int $firstpageid Id of the first page of this lesson (prevpageid=0)
  * @property int $lastpageid Id of the last page of this lesson (nextpageid=0)
  *
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class lesson extends lesson_base {
@@ -1613,7 +1613,7 @@ class lesson extends lesson_base {
  * or set via magic methods, or alternatively by defining methods get_blah() or
  * set_blah() within the extending object.
  *
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class lesson_base {
@@ -1733,7 +1733,7 @@ abstract class lesson_base {
  * @property-read typestring The string that describes this page type
  *
  * @abstract
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class lesson_page extends lesson_base {
@@ -2799,7 +2799,7 @@ abstract class lesson_page extends lesson_base {
  * @property string $answer The answer itself
  * @property string $response The response the user sees if selecting this answer
  *
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class lesson_page_answer extends lesson_base {
@@ -2841,7 +2841,7 @@ class lesson_page_answer extends lesson_base {
  * The first time the page type manager is retrieved the it includes all of the
  * different page types located in mod/lesson/pagetypes.
  *
- * @copyright  2009 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class lesson_page_type_manager {

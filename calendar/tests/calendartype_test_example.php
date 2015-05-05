@@ -9,8 +9,10 @@ use \core_calendar\type_base;
  * The test calendar is going to be 2 years, 2 days, 2 hours and 2 minutes
  * in the future of the Gregorian calendar.
  *
- * @package core_calendar
- * @copyright 2013 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage calendar
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class structure extends type_base {

@@ -4,9 +4,9 @@
 /**
  * The mform for settings user preferences
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package calendar
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  */
 
  /**

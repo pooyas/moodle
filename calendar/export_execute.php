@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
+ */
+
 require_once('../config.php');
 //require_once($CFG->dirroot.'/course/lib.php');
 require_once($CFG->dirroot.'/calendar/lib.php');

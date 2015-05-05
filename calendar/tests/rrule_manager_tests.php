@@ -3,9 +3,10 @@
 /**
  * Defines test class to test manage rrule during ical imports.
  *
- * @package core_calendar
- * @category test
- * @copyright 2015 Pooya Saeedi 
+ * @package    core
+ * @subpackage calendar
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_calendar_rrule_manager_testcase extends advanced_testcase {
@@ -507,10 +508,6 @@ class core_calendar_rrule_manager_testcase extends advanced_testcase {
  *
  * Wrapper to access protected vars for testing.
  *
- * @package core_calendar
- * @category test
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class core_tests_calendar_rrule_manager extends \core_calendar\rrule_manager{
 

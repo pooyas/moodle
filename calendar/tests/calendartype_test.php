@@ -3,8 +3,9 @@
 /**
  * This file contains the class that handles testing the calendar type system.
  *
- * @package core_calendar
- * @copyright 2013 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

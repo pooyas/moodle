@@ -15,7 +15,7 @@ require_once($CFG->dirroot.'/user/selector/lib.php');
 /**
  * Abstract class used by forum subscriber selection controls
  * @package   mod_forum
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class mod_forum_subscriber_selector_base extends user_selector_base {

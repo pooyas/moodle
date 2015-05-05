@@ -3,9 +3,9 @@
 /**
  * External calendar functions unit tests
  *
- * @package    core_calendar
- * @category   external
- * @copyright  2012 Ankit Agarwal
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,11 +18,6 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 /**
  * External course functions unit tests
  *
- * @package    core_calendar
- * @category   external
- * @copyright  2012 Ankit Agarwal
- * 
- * @since Lion 2.5
  */
 class core_calendar_externallib_testcase extends externallib_advanced_testcase {
 

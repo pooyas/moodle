@@ -5,9 +5,9 @@
  * This file is part of the Calendar section Lion
  * It is responsible for deleting a calendar entry + optionally its repeats
  *
- * @copyright 2009 Sam Hemelryk
- * 
- * @package calendar
+ * @package    calendartype
+ * @subpackage gregorian
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

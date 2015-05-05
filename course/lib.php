@@ -2808,7 +2808,7 @@ function average_number_of_courses_modules() {
  * Please note we do not allow embedded images here because there is no context
  * to store them with proper access control.
  *
- * @copyright 2009 Sam Hemelryk
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  *
