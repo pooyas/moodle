@@ -4,7 +4,7 @@
  * Tests for feedback events.
  *
  * @package    mod_feedback
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -16,7 +16,7 @@ global $CFG;
  * Class for tests related to feedback events.
  *
  * @package    mod_feedback
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 class mod_feedback_events_testcase extends advanced_testcase {

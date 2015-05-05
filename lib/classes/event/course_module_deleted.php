@@ -4,7 +4,7 @@
  * Event to be triggered when a new course module is deleted.
  *
  * @package    core
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -25,7 +25,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 class course_module_deleted extends base {

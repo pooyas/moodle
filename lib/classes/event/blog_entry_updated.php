@@ -4,7 +4,7 @@
  * Event to be triggered when a blog entry is updated.
  *
  * @package    core
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\event;
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class blog_entry_updated extends base {

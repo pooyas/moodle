@@ -4,7 +4,7 @@
  * Generator tests.
  *
  * @package    core_notes
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
  * Generator tests class.
  *
  * @package    core_notes
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_notes_generator_testcase extends advanced_testcase {

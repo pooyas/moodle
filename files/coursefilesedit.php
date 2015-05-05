@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package    core
+ * @subpackage files
+ * @copyright  2015 Pooya Saeedi
+ */
+
 
 require_once('../config.php');
 require_once(dirname(__FILE__) . '/coursefilesedit_form.php');

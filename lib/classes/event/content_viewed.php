@@ -5,7 +5,7 @@
  * This class has been deprecated, please extend base event or other relevent abstract class.
  *
  * @package    core
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * @deprecated since Lion 2.7
  * 
  */
@@ -30,7 +30,7 @@ debugging('core\event\content_viewed has been deprecated. Please extend base eve
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * @deprecated since Lion 2.7
  * 
  */

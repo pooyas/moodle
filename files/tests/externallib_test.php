@@ -1,14 +1,13 @@
 <?php
 
-
 /**
  * PHPunit tests for external files API.
  *
- * @package    core_files
- * @category   external
- * @copyright  2013 Ankit Agarwal
+ * @package    core
+ * @subpackage files
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
- * @since Lion 2.6
  */
 defined('LION_INTERNAL') || die();
 

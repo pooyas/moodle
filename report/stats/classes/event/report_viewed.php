@@ -4,7 +4,7 @@
  * The report_stats report viewed event.
  *
  * @package    report_stats
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace report_stats\event;
@@ -24,7 +24,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    report_stats
  * @since      Lion 2.7
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class report_viewed extends \core\event\base {

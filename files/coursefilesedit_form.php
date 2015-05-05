@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * 
+ * @package    core
+ * @subpackage files
+ * @copyright  2015 Pooya Saeedi
+ */
+
 
 require_once($CFG->libdir.'/formslib.php');
 

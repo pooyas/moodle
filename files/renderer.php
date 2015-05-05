@@ -4,19 +4,14 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Rendering of files viewer related widgets.
- * @package   core
- * @subpackage file
- * @copyright 2010 Dongsheng Cai
- * 
- * @since     Lion 2.0
+ * @package    core
+ * @subpackage files
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * File browser render
  *
- * @copyright 2010 Dongsheng Cai
- * 
- * @since     Lion 2.0
  */
 class core_files_renderer extends plugin_renderer_base {
 
@@ -1049,9 +1044,6 @@ class core_files_renderer extends plugin_renderer_base {
 /**
  * Data structure representing a general lion file tree viewer
  *
- * @copyright 2010 Dongsheng Cai
- * 
- * @since     Lion 2.0
  */
 class files_tree_viewer implements renderable {
     public $tree;

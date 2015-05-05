@@ -5,8 +5,8 @@
  * Lion file tree viewer based on YUI2 Treeview
  *
  * @package    core
- * @subpackage file
- * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * @subpackage files
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

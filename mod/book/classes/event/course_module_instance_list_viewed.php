@@ -4,7 +4,7 @@
  * The mod_book instance list viewed event.
  *
  * @package    mod_book
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

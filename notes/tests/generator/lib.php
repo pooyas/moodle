@@ -5,7 +5,7 @@
  *
  * @package    core_notes
  * @category   test
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core_notes
  * @category   test
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_notes_generator extends component_generator_base {

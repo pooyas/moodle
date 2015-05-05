@@ -5,7 +5,7 @@
  *
  * @package    mod_feedback
  * @category   test
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_feedback
  * @category   test
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_feedback_generator extends testing_module_generator {

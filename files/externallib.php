@@ -4,9 +4,10 @@
 /**
  * External files API
  *
- * @package    core_files
+ * @package    core
+ * @subpackage files
  * @category   external
- * @copyright  2010 Dongsheng Cai
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,11 +17,6 @@ require_once("$CFG->libdir/filelib.php");
 /**
  * Files external functions
  *
- * @package    core_files
- * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * 
- * @since Lion 2.2
  */
 class core_files_external extends external_api {
 
@@ -375,10 +371,6 @@ class core_files_external extends external_api {
 /**
  * Deprecated files external functions
  *
- * @package    core_files
- * @copyright  2010 Dongsheng Cai
- * 
- * @since Lion 2.0
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_files_external
  */

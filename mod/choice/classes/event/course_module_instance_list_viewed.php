@@ -4,7 +4,7 @@
  * The mod_choice instance list viewed event.
  *
  * @package    mod_choice
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

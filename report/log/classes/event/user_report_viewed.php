@@ -4,7 +4,7 @@
  * The report_log user report viewed event.
  *
  * @package    report_log
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace report_log\event;
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    report_log
  * @since      Lion 2.7
- * @copyright  2013 Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class user_report_viewed extends \core\event\base {
