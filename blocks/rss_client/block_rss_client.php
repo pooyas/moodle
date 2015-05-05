@@ -3,9 +3,9 @@
 /**
  * A block which displays Remote feeds
  *
- * @package   block_rss_client
- * @copyright  Daryl Hawes
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+ * @package    block
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  */
 
  class block_rss_client extends block_base {

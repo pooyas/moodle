@@ -113,7 +113,7 @@ function question_can_delete_cat($todelete) {
 /**
  * Base class for representing a column in a {@link question_bank_view}.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -122,7 +122,7 @@ class_alias('core_question\bank\column_base', 'question_bank_column_base', true)
 /**
  * A column with a checkbox for each question with name q{questionid}.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -131,7 +131,7 @@ class_alias('core_question\bank\checkbox_column', 'question_bank_checkbox_column
 /**
  * A column type for the name of the question type.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -141,7 +141,7 @@ class_alias('core_question\bank\question_type_column', 'question_bank_question_t
 /**
  * A column type for the name of the question name.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -151,7 +151,7 @@ class_alias('core_question\bank\question_name_column', 'question_bank_question_n
 /**
  * A column type for the name of the question creator.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -161,7 +161,7 @@ class_alias('core_question\bank\creator_name_column', 'question_bank_creator_nam
 /**
  * A column type for the name of the question last modifier.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -171,7 +171,7 @@ class_alias('core_question\bank\modifier_name_column', 'question_bank_modifier_n
 /**
  * A base class for actions that are an icon that lets you manipulate the question in some way.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -181,7 +181,7 @@ class_alias('core_question\bank\action_column_base', 'question_bank_action_colum
 /**
  * Base class for question bank columns that just contain an action icon.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -199,7 +199,7 @@ class_alias('core_question\bank\copy_action_column', 'question_bank_copy_action_
 /**
  * Question bank columns for the preview action icon.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -209,7 +209,7 @@ class_alias('core_question\bank\preview_action_column', 'question_bank_preview_a
 /**
  * action to delete (or hide) a question, or restore a previously hidden question.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -218,7 +218,7 @@ class_alias('core_question\bank\delete_action_column', 'question_bank_delete_act
 /**
  * Base class for 'columns' that are actually displayed as a row following the main question row.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
@@ -227,14 +227,14 @@ class_alias('core_question\bank\row_base', 'question_bank_row_base', true);
 /**
  * A column type for the name of the question name.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */
 class_alias('core_question\bank\question_text_row', 'question_bank_question_text_row', true);
 
 /**
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated since Lion 2.7 MDL-40457
  */

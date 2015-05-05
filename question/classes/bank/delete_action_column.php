@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * action to delete (or hide) a question, or restore a previously hidden question.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

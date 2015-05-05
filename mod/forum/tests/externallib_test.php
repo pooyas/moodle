@@ -6,7 +6,7 @@
  *
  * @package    mod_forum
  * @category   external
- * @copyright  2012 Mark Nelson <markn@lion.com>
+ * @copyright  2012 2015 Pooya Saeedi
  * 
  */
 

@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_calendar_month', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_calendar_month', language 'en'
  *
- * @package   block_calendar_month
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage calendar_month
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

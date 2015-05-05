@@ -3,9 +3,10 @@
 /**
  * PHPUnit data generator tests
  *
- * @package    block_online_users
+ * @package    block
+ * @subpackage online_users
  * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * PHPUnit data generator testcase
  *
- * @package    block_online_users
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
  * 
  */
 class block_online_users_generator_testcase extends advanced_testcase {

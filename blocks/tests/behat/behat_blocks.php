@@ -3,9 +3,10 @@
 /**
  * Steps definitions related with blocks.
  *
- * @package   core_block
- * @category  test
- * @copyright 2015 Pooya Saeedi
+ * @package    core
+ * @subpackage block
+ * @category   test
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +19,6 @@ use Behat\Behat\Context\Step\Given as Given;
 /**
  * Blocks management steps definitions.
  *
- * @package    core_block
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_blocks extends behat_base {
 

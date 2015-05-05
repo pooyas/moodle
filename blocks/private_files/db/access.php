@@ -3,8 +3,9 @@
 /**
  * Private files block caps.
  *
- * @package    block_private_files
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage private_files
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -17,8 +17,9 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @package   block_recent_activity
- * @copyright 2014 Marina Glancy
+ * @package    block
+ * @subpackage recent_activity
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -67,11 +68,6 @@ function xmldb_block_recent_activity_upgrade($oldversion, $block) {
         upgrade_block_savepoint(true, 2014012000, 'recent_activity');
     }
 
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

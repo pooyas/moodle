@@ -3,16 +3,15 @@
 /**
  * Form for editing tag_youtube block instances.
  *
- * @package    block_tag_youtube
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage tag_youtube
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing tag_youtube block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_tag_youtube_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

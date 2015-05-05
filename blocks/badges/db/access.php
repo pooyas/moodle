@@ -3,7 +3,8 @@
 /**
  * My latest badges block capabilities.
  *
- * @package    block_badges
+ * @package    block
+ * @subpackage badges
  * @copyright  2015 Pooya Saeedi
  * 
  * 

@@ -23,7 +23,7 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
  * as true) if access should be blocked. Slighly unnatural, but acutally the easist
  * way to implement this.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.2
  */

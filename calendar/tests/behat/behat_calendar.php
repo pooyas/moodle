@@ -5,7 +5,7 @@
  *
  * @package    core_calendar
  * @category   test
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ use Behat\Gherkin\Node\TableNode as TableNode;
  *
  * @package    core_calendar
  * @category   test
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 class behat_calendar extends behat_base {

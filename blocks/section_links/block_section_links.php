@@ -3,17 +3,15 @@
 /**
  * This file contains the main class for the section links block.
  *
- * @package    block_section_links
- * @copyright  Jason Hardin
+ * @package    block
+ * @subpackage section_links
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Section links block class.
  *
- * @package    block_section_links
- * @copyright  Jason Hardin
- * 
  */
 class block_section_links extends block_base {
 

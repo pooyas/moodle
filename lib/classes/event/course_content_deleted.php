@@ -4,7 +4,7 @@
  * Course content deleted event.
  *
  * @package    core
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.6
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 class course_content_deleted extends base {

@@ -3,8 +3,9 @@
 /**
  * Calendar month block caps.
  *
- * @package    block_calendar_month
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage calendar_month
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

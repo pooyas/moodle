@@ -4,7 +4,7 @@
  * This file contains the class that handles testing the calendar type system.
  *
  * @package core_calendar
- * @copyright 2013 Mark Nelson <markn@lion.com>
+ * @copyright 2013 2015 Pooya Saeedi
  * 
  */
 
@@ -31,7 +31,7 @@ require_once($CFG->dirroot . '/user/profile/index_field_form.php');
  * Unit tests for the calendar type system.
  *
  * @package core_calendar
- * @copyright 2013 Mark Nelson <markn@lion.com>
+ * @copyright 2013 2015 Pooya Saeedi
  * 
  * @since Lion 2.6
  */

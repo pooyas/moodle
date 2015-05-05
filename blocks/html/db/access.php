@@ -3,8 +3,9 @@
 /**
  * HTML block caps.
  *
- * @package    block_html
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage html
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * Site main menu block.
  *
- * @package    block_site_main_menu
+ * @package    block
+ * @subpackage site_main_menu
  * @copyright  2015 Pooya Saeedi
  * 
  */

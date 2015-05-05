@@ -17,9 +17,9 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @since Lion 2.0
- * @package block_course_summary
- * @copyright 2012 Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage course_summary
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -32,8 +32,6 @@
 function xmldb_block_course_summary_upgrade($oldversion, $block) {
     global $DB;
 
-    // Lion v2.4.0 release upgrade line
-    // Put any upgrade step following this.
 
     if ($oldversion < 2012112901) {
         // Get the instances of this block.
@@ -48,20 +46,6 @@ function xmldb_block_course_summary_upgrade($oldversion, $block) {
         // Savepoint reached.
         upgrade_block_savepoint(true, 2012112901, 'course_summary');
     }
-
-
-    // Lion v2.5.0 release upgrade line.
-    // Put any upgrade step following this.
-
-
-    // Lion v2.6.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

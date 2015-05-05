@@ -5,7 +5,7 @@
  * Library functions to facilitate the use of ajax JavaScript in Lion.
  *
  * @package   core
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

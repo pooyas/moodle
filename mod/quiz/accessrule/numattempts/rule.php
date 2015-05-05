@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
 /**
  * A rule controlling the number of attempts allowed.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_numattempts extends quiz_access_rule_base {

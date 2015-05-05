@@ -14,7 +14,7 @@
  *  http://docs.lion.org/dev/Themes_2.0
  *
  * @package   theme_base
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

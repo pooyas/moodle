@@ -17,9 +17,9 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @since Lion 2.0
- * @package block_settings
- * @copyright 2009 Sam Hemelryk
+ * @package    block
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -40,29 +40,6 @@
 function xmldb_block_settings_upgrade($oldversion, $block) {
     global $DB;
 
-    // Lion v2.2.0 release upgrade line
-    // Put any upgrade step following this
-
-    // Lion v2.3.0 release upgrade line
-    // Put any upgrade step following this
-
-
-    // Lion v2.4.0 release upgrade line
-    // Put any upgrade step following this
-
-
-    // Lion v2.5.0 release upgrade line.
-    // Put any upgrade step following this.
-
-
-    // Lion v2.6.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

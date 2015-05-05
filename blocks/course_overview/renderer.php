@@ -3,8 +3,9 @@
 /**
  * course_overview block rendrer
  *
- * @package    block_course_overview
- * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
+ * @package    block
+ * @subpackage course_overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die;
@@ -12,8 +13,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Course_overview block rendrer
  *
- * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
- * 
  */
 class block_course_overview_renderer extends plugin_renderer_base {
 

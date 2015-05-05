@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_completionstatus', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_completionstatus', language 'en'
  *
- * @package   block_completionstatus
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage completionstatus
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

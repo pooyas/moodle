@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_private_files', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_private_files', language 'en'
  *
- * @package   block_private_files
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage private_files
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,7 +6,7 @@
  * A simple test script that sets up test data in the database then
  * measures performance of filter_get_active_in_context.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * @author     N.D.Freear@open.ac.uk, T.J.Hunt@open.ac.uk
  * 
  */

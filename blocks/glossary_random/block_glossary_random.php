@@ -3,7 +3,8 @@
 /**
  * Glossary Random block.
  *
- * @package   block_glossary_random
+ * @package block
+ * @subpackage glossary_random
  * @copyright 2015 Pooya Saeedi
  * 
  */

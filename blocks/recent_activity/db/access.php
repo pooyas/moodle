@@ -3,8 +3,9 @@
 /**
  * Recent activity block caps.
  *
- * @package    block_recent_activity
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage recent_activity
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

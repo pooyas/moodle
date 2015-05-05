@@ -3,8 +3,9 @@
 /**
  * Self completion block.
  *
- * @package   block_selfcompletion
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage selfcompletion
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

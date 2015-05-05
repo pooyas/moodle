@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * A column type for the name of the question type.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_type_column extends column_base {

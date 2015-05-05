@@ -3,8 +3,9 @@
 /**
  * Admin bookmarks block caps.
  *
- * @package    block_admin_bookmarks
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage admin_bookmarks
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

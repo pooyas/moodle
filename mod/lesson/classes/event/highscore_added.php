@@ -4,7 +4,7 @@
  * The mod_lesson highscore added event.
  *
  * @package    mod_lesson
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * .
  */
 
@@ -24,7 +24,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_lesson
  * @since      Lion 2.7
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * .
  */
 

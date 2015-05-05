@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_search_forums
+ * @package    block
+ * @subpackage search_forums
  * @copyright  2015 Pooya Saeedi
  * 
  */

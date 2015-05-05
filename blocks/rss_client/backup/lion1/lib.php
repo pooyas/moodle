@@ -3,8 +3,9 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package    block_rss_client
- * @copyright  2012 Paul Nicholls
+ * @package    block
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_navigation
+ * @package    block
+ * @subpackage myprofile
  * @copyright  2015 Pooya Saeedi
  * 
  */

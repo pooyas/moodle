@@ -17,7 +17,7 @@
  *
  * @package core
  * @category output
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -30,7 +30,7 @@ defined('LION_INTERNAL') || die();
  *
  * Also has methods to facilitate generating HTML output.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -421,7 +421,7 @@ class plugin_renderer_base extends renderer_base {
 /**
  * The standard implementation of the core_renderer interface.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -3838,7 +3838,7 @@ EOD;
  *
  * The implementation of this renderer is probably incomplete.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core

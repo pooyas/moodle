@@ -3,8 +3,9 @@
 /**
  * Classes to enforce the various access rules that can apply to a quiz.
  *
- * @package    block_quiz_results
- * @copyright  2009 Tim Hunt
+ * @package    block
+ * @subpackage quiz_results
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,9 +21,6 @@ require_once($CFG->dirroot . '/mod/quiz/lib.php');
  * This block can be added to a course page or a quiz page to display of list of
  * the best/worst students/groups in a particular quiz.
  *
- * @package    block_quiz_results
- * @copyright  2009 Tim Hunt
- * 
  */
 define('B_QUIZRESULTS_NAME_FORMAT_FULL', 1);
 define('B_QUIZRESULTS_NAME_FORMAT_ID',   2);

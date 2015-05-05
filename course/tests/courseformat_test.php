@@ -4,7 +4,7 @@
  * Course related unit tests
  *
  * @package    core_course
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

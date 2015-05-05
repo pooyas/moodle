@@ -3,8 +3,9 @@
 /**
  * News items block caps.
  *
- * @package    block_news_items
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage news_items
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * My profile block caps.
  *
- * @package    block_myprofile
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

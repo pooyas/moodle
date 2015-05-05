@@ -4,8 +4,9 @@
 /**
  * Strings for component 'block_blog_recent', language 'en', branch 'LION_20_STABLE'
  *
- * @package   block_blog_recent
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage blog_recent
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

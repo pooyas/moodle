@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_section_links', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_section_links', language 'en'
  *
- * @package    block_section_links
- * @copyright  Jason Hardin
+ * @package    block
+ * @subpackage section_links
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

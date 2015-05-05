@@ -3,8 +3,9 @@
 /**
  * Self completion block caps.
  *
- * @package    block_selfcompletion
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage selfcompletion
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

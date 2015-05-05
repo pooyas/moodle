@@ -6,7 +6,7 @@
  * As required by http://docs.lion.org/dev/Coding_style.
  *
  * @package    core
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -7,9 +7,9 @@
  * can easily check the logged-in user matches the person
  * operating the computer.
  *
- * @package    block_myprofile
- * @copyright  2010 Remote-Learner.net
- * @author     Olav Jordan <olav.jordan@remote-learner.ca>
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Displays the current user's profile information.
  *
- * @copyright  2010 Remote-Learner.net
- * @author     Olav Jordan <olav.jordan@remote-learner.ca>
  * 
  */
 class block_myprofile extends block_base {

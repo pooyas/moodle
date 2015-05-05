@@ -3,8 +3,9 @@
 /**
  * Tag flickr block caps.
  *
- * @package    block_tag_flickr
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage tag_flickr
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

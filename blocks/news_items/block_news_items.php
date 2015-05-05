@@ -3,7 +3,8 @@
 /**
  * This file contains the news item block class, based upon block_base.
  *
- * @package    block_news_items
+ * @package    block
+ * @subpackage news_items
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -11,9 +12,6 @@
 /**
  * Class block_news_items
  *
- * @package    block_news_items
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class block_news_items extends block_base {
     function init() {

@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_recent_activity
+ * @package    block
+ * @subpackage recent_activity
  * @copyright  2015 Pooya Saeedi
  * 
  */

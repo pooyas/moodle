@@ -3,8 +3,9 @@
 /**
  * Blog tags block.
  *
- * @package    block_blog_tags
- * @copyright  2006 Shane Elliott
+ * @package    block
+ * @subpackage blog_tags
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

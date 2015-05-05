@@ -3,8 +3,9 @@
 /**
  * Activity modules block caps.
  *
- * @package    block_activity_modules
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage activity_modules
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

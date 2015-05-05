@@ -3,8 +3,9 @@
 /**
  * Search forums block caps.
  *
- * @package    block_search_forums
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage search_forums
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

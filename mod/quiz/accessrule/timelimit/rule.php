@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
  * A rule representing the time limit. It does not actually restrict access, but we use this
  * class to encapsulate some of the relevant code.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_timelimit extends quiz_access_rule_base {

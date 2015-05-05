@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_rss_client', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_rss_client', language 'en'
  *
- * @package   block_rss_client
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

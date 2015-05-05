@@ -4,8 +4,9 @@
 /**
  * Manage user private area files
  *
- * @package    block_private_files
- * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * @package    block
+ * @subpackage private_files
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

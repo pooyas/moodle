@@ -1,10 +1,5 @@
 /**
  * coursetags.js
- * @author j.beedell@open.ac.uk July07
- *
- * getKeywords modified from an original script (Auto Complete Textfield)
- * from The JavaScript Source http://javascript.internet.com
- * originally created by: Timothy Groves http://www.brandspankingnew.net/
  */
 
 

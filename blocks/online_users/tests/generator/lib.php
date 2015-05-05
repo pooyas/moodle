@@ -3,9 +3,10 @@
 /**
  * block_online_users data generator
  *
- * @package    block_online_users
- * @category   test
- * @copyright  2015 Pooya Saeedi 
+ * @package    block
+ * @subpackage online_users
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Online users block data generator class
  *
- * @package    block_online_users
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class block_online_users_generator extends testing_block_generator {
 

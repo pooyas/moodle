@@ -3,8 +3,9 @@
 /**
  * Defines the form for editing Quiz results block instances.
  *
- * @package    block_quiz_results
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage quiz_results
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Form for editing Quiz results block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_quiz_results_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

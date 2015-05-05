@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @package    block_rss_client
- * @subpackage backup-lion2
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

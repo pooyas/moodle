@@ -3,8 +3,9 @@
 /**
  * Glossary random block caps.
  *
- * @package    block_glossary_random
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package block
+ * @subpackage glossary_random
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

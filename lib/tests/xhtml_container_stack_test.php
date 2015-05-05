@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  *  (5)
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->libdir . '/outputlib.php');
  *
  * These tests assume that developer debug mode is on which is enforced by our phpunit integration.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_xhtml_container_stack_testcase extends advanced_testcase {

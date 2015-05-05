@@ -3,8 +3,9 @@
 /**
  * Mentees block caps.
  *
- * @package    block_mentees
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage mentees
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

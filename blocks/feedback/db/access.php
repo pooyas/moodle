@@ -3,8 +3,9 @@
 /**
  * Feedback block caps.
  *
- * @package    block_feedback
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

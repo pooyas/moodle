@@ -6,8 +6,9 @@
  * It works with the {@link block_edit_form} class, or rather the particular
  * subclass defined by this block, to do the editing.
  *
- * @package    core_block
- * @copyright  2009 Tim Hunt
+ * @package    core
+ * @subpackage block
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +22,7 @@ require_once($CFG->libdir . '/blocklib.php');
 /**
  * The base class form used by blocks/edit.php to edit block instance configuration.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class block_edit_form extends lionform {

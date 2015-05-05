@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
 /**
  * A rule enforcing open and close dates.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_openclosedate extends quiz_access_rule_base {

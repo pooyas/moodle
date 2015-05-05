@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_blog_tags
+ * @package    block
+ * @subpackage blog_tags
  * @copyright  2015 Pooya Saeedi
  * 
  */

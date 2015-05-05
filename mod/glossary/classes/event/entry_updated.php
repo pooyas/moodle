@@ -4,7 +4,7 @@
  * The mod_glossary entry updated event.
  *
  * @package    mod_glossary
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_glossary
  * @since      Lion 2.7
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class entry_updated extends \core\event\base {

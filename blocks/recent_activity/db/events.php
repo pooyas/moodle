@@ -3,9 +3,9 @@
 /**
  * Event observer.
  *
- * @package   block_recent_activity
- * @category  event
- * @copyright 2014 Marina Glancy
+ * @package    block
+ * @subpackage recent_activity
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

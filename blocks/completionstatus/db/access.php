@@ -3,8 +3,9 @@
 /**
  * Completion status block caps.
  *
- * @package    block_completionstatus
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage completionstatus
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

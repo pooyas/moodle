@@ -3,18 +3,15 @@
 /**
  * Form for editing settings navigation instances.
  *
- * @since Lion 2.0
- * @package block_settings
- * @copyright 2009 Sam Hemelryk
+ * @package    block
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for setting navigation instances.
  *
- * @package block_settings
- * @copyright 2009 Sam Hemelryk
- * 
  */
 class block_settings_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

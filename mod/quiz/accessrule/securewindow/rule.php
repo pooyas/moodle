@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
  * A rule for ensuring that the quiz is opened in a popup, with some JavaScript
  * to prevent copying and pasting, etc.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_securewindow extends quiz_access_rule_base {

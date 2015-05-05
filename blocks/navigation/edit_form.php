@@ -3,19 +3,15 @@
 /**
  * Form for editing global navigation instances.
  *
- * @since     Lion 2.0
- * @package   block_navigation
- * @copyright 2009 Sam Hemelryk
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing global navigation instances.
  *
- * @package   block_navigation
- * @category  navigation
- * @copyright 2009 Sam Hemelryk
- * 
  */
 class block_navigation_edit_form extends block_edit_form {
     /**

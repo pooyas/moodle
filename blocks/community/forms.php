@@ -3,9 +3,8 @@
 /**
  * Form for community search
  *
- * @package    block_community
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+ * @package    block
+ * @subpackage community
  * @copyright  2015 Pooya Saeedi
  */
 

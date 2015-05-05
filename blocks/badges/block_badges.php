@@ -3,7 +3,8 @@
 /**
  * Block for displaying earned local badges to users
  *
- * @package    block_badges
+ * @package    block
+ * @subpackage badges
  * @copyright  2015 Pooya Saeedi
  * 
  * 

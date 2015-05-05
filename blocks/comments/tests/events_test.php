@@ -3,8 +3,9 @@
 /**
  * Events tests.
  *
- * @package    block_comments
- * @category   test
+ * @package    block
+ * @subpackage comments
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Events tests class.
  *
- * @package    block_comments
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class block_comments_events_testcase extends advanced_testcase {
     /** @var stdClass Keeps course object */

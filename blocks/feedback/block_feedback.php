@@ -3,7 +3,8 @@
 /**
  * Feedback block.
  *
- * @package    block_feedback
+ * @package    block
+ * @subpackage feedback
  * @copyright  2015 Pooya Saeedi
  * 
  */

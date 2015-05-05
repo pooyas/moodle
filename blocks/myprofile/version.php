@@ -3,9 +3,9 @@
 /**
  * Current user info block.
  *
- * @package    block_myprofile
- * @copyright  2010 Remote-Learner.net
- * @author     Olav Jordan <olav.jordan@remote-learner.ca>
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

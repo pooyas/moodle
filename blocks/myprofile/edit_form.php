@@ -5,9 +5,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Form for editing profile block settings
  *
- * @package    block_myprofile
- * @copyright  2010 Remote-Learner.net
- * @author     Olav Jordan <olav.jordan@remote-learner.ca>
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class block_myprofile_edit_form extends block_edit_form {

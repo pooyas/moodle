@@ -3,16 +3,15 @@
 /**
  * Form for editing HTML block instances.
  *
- * @package   block_glossary_random
- * @copyright 2009 Tim Hunt
+ * @package block
+ * @subpackage glossary_random
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing Random glossary entry block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_glossary_random_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

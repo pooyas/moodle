@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * Base class for question bank columns that just contain an action icon.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class edit_action_column extends action_column_base {

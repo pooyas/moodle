@@ -3,7 +3,8 @@
 /**
  * Renderer for block recent_activity
  *
- * @package    block_recent_activity
+ * @package    block
+ * @subpackage recent_activity
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die;
 /**
  * recent_activity block rendrer
  *
- * @package    block_recent_activity
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class block_recent_activity_renderer extends plugin_renderer_base {
 

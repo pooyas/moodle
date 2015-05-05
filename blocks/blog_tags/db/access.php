@@ -3,8 +3,9 @@
 /**
  * Blog tags block caps.
  *
- * @package    block_blog_tags
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage blog_tags
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

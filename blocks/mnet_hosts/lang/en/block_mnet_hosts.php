@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_mnet_hosts', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_mnet_hosts', language 'en'
  *
- * @package   block_mnet_hosts
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage mnet_hosts
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_tag_flickr', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_tag_flickr', language 'en'
  *
- * @package   block_tag_flickr
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage tag_flickr
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

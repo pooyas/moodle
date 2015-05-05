@@ -8,7 +8,7 @@
  *
  * @package core
  * @category output
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -1020,7 +1020,7 @@ class action_link implements renderable {
 /**
  * Simple html output class
  *
- * @copyright 2009 Tim Hunt, 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi, 2010 Petr Skoda
  * 
  * @since Lion 2.0
  * @package core
@@ -2440,7 +2440,7 @@ class paging_bar implements renderable {
  * Other block-like things that need to appear on the page, for example the
  * add new block UI, are also represented as block_contents objects.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -2574,7 +2574,7 @@ class block_contents {
  * clicking anywhere in the form should submit it. The form action should be
  * $PAGE->url.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core

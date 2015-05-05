@@ -3,8 +3,9 @@
 /**
  * Recent Blog Entries Block page.
  *
- * @package   block_blog_recent
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage blog_recent
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

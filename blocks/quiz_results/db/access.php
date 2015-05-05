@@ -3,8 +3,9 @@
 /**
  * Quiz results block caps.
  *
- * @package    block_quiz_results
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage quiz_results
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

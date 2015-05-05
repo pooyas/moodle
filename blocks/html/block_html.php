@@ -3,8 +3,9 @@
 /**
  * Form for editing HTML block instances.
  *
- * @package   block_html
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage html
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

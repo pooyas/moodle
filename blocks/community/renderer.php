@@ -3,9 +3,9 @@
 
 /**
  * Block community renderer.
- * @package   block_community
- * @copyright 2015 Pooya Saeedi
- * @author    Jerome Mouneyrac
+ * @package    block
+ * @subpackage community
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class block_community_renderer extends plugin_renderer_base {

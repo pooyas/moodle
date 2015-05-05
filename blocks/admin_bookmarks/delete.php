@@ -3,8 +3,9 @@
 /**
  * Delete admin bookmarks.
  *
- * @package    block_admin_bookmarks
- * @copyright  2006 vinkmar
+ * @package    block
+ * @subpackage admin_bookmarks
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_myprofile', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_myprofile', language 'en'
  *
- * @package    block_myprofile
- * @copyright  2010 Remote-Learner.net
- * @author     Olav Jordan <olav.jordan@remote-learner.ca>
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

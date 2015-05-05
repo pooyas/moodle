@@ -3,8 +3,9 @@
 /**
  * Handles displaying the calendar upcoming events block.
  *
- * @package    block_calendar_upcoming
- * @copyright  2004 Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    block
+ * @subpackage calendar_upcoming
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class block_calendar_upcoming extends block_base {

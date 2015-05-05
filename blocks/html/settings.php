@@ -3,9 +3,9 @@
 /**
  * Settings for the HTML block
  *
- * @copyright 2012 Aaron Barnes
- * 
- * @package   block_html
+ * @package    block
+ * @subpackage html
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die;

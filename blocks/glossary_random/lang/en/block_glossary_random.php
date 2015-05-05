@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'block_glossary_random', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_glossary_random', language 'en'
  *
- * @package   block_glossary_random
+ * @package block
+ * @subpackage glossary_random
  * @copyright 2015 Pooya Saeedi
  * 
  */

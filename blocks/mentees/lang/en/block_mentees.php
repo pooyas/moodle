@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'block_mentees', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_mentees', language 'en'
  *
- * @package   block_mentees
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage mentees
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

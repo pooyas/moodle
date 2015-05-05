@@ -4,9 +4,9 @@
  * This file contains classes used to manage the navigation structures in Lion
  * and was introduced as part of the changes occuring in Lion 2.0
  *
- * @since     Lion 2.0
- * @package   block_navigation
- * @copyright 2009 Sam Hemelryk
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +15,6 @@
  *
  * Used to produce the global navigation block new to Lion 2.0
  *
- * @package   block_navigation
- * @category  navigation
- * @copyright 2009 Sam Hemelryk
- * 
  */
 class block_navigation extends block_base {
 

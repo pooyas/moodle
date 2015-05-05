@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
 /**
  * A rule implementing the password check.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_password extends quiz_access_rule_base {

@@ -6,7 +6,7 @@ namespace core_question\bank;
 /**
  * A column type for the name of the question last modifier.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class modifier_name_column extends column_base {

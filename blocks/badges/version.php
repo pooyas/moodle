@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_badges
+ * @package    block
+ * @subpackage badges
  * @copyright  2015 Pooya Saeedi
  * 
  * 

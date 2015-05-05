@@ -3,16 +3,15 @@
 /**
  * Form for editing HTML block instances.
  *
- * @package   block_html
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage html
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing HTML block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_html_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

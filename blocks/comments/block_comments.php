@@ -3,8 +3,9 @@
 /**
  * The comments block
  *
- * @package    block_comments
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
+ * @package    block
+ * @subpackage comments
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

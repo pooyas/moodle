@@ -7,7 +7,7 @@
  *
  * @package    core_form
  * @category   phpunit
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ require_once($CFG->libdir . '/form/duration.php');
  *
  * @package    core_form
  * @category   phpunit
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_form_duration_testcase extends basic_testcase {

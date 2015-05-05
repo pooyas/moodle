@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_calendar_month
+ * @package    block
+ * @subpackage calendar_month
  * @copyright  2015 Pooya Saeedi
  * 
  */

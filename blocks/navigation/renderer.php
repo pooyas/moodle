@@ -3,19 +3,15 @@
 /**
  * Outputs the navigation tree.
  *
- * @since     Lion 2.0
- * @package   block_navigation
- * @copyright 2009 Sam Hemelryk
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Renderer for block navigation
  *
- * @package   block_navigation
- * @category  navigation
- * @copyright 2009 Sam Hemelryk
- * 
  */
 class block_navigation_renderer extends plugin_renderer_base {
     /**

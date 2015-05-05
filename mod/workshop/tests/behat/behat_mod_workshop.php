@@ -5,7 +5,7 @@
  *
  * @package    mod_workshop
  * @category   test
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ use Behat\Behat\Context\Step\Given as Given,
  *
  * @package    mod_workshop
  * @category   test
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_mod_workshop extends behat_base {

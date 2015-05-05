@@ -3,8 +3,9 @@
 /**
  * Mnet hosts block caps.
  *
- * @package    block_mnet_hosts
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage mnet_hosts
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

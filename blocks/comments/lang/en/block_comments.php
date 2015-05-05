@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'block_comments', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_comments', language 'en'
  *
- * @package   block_comments
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage comments
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

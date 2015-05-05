@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * A column type for the name followed by the start of the question text.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_name_text_column extends \core_question\bank\question_name_column {

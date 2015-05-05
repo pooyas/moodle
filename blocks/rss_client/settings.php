@@ -3,7 +3,8 @@
 /**
  * Settings for the RSS client block.
  *
- * @package   block_rss_client
+ * @package    block
+ * @subpackage rss_client
  * @copyright  2015 Pooya Saeedi
  * 
  */

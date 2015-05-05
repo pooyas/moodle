@@ -3,8 +3,9 @@
 /**
  * Navigation block caps.
  *
- * @package    block_navigation
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage navigation
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

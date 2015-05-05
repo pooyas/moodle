@@ -3,10 +3,9 @@
 /**
  * Admin Bookmarks Block page.
  *
- * @package    block_admin_bookmarks
- * @copyright  2011 Lion
- * @author     2006 vinkmar
- *             2011 Rossiani Wijaya (updated)
+ * @package    block
+ * @subpackage admin_bookmarks
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

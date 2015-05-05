@@ -4,7 +4,7 @@
  * Script to let a user edit the properties of a particular RSS feed.
  *
  * @package   block_rss_client
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

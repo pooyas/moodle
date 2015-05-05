@@ -4,17 +4,15 @@
 /**
  * Form for editing tag block instances.
  *
- * @package   block_blog_recent
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage blog_recent
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing tag block instances.
  *
- * @package   block_blog_recent
- * @copyright 2009 Tim Hunt
- * 
  */
 
 class block_blog_recent_edit_form extends block_edit_form {

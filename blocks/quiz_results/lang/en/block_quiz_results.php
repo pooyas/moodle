@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'block_quiz_results', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_quiz_results', language 'en'
  *
- * @package    block_quiz_results
+ * @package    block
+ * @subpackage quiz_results
  * @copyright  2015 Pooya Saeedi
  * 
  */

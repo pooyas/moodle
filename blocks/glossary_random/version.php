@@ -3,8 +3,9 @@
 /**
  * Version details
  *
- * @package    block_glossary_random
- * @copyright  2015 Pooya Saeedi
+ * @package block
+ * @subpackage glossary_random
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

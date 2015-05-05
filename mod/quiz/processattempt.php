@@ -10,7 +10,7 @@
  * This code used to be near the top of attempt.php, if you are looking for CVS history.
  *
  * @package   mod_quiz
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

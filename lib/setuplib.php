@@ -1582,7 +1582,7 @@ function is_web_crawler() {
  * must be careful referring to classes/functions from there, they may not be
  * defined yet, and we must avoid fatal errors.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */

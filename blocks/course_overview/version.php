@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_course_overview
+ * @package    block
+ * @subpackage course_overview
  * @copyright  2015 Pooya Saeedi
  * 
  */

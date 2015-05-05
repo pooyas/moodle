@@ -10,7 +10,7 @@ use \core_calendar\type_base;
  * in the future of the Gregorian calendar.
  *
  * @package core_calendar
- * @copyright 2013 Mark Nelson <markn@lion.com>
+ * @copyright 2013 2015 Pooya Saeedi
  * 
  */
 class structure extends type_base {

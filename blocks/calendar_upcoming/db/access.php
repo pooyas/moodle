@@ -3,8 +3,9 @@
 /**
  * Calendar upcoming block caps.
  *
- * @package    block_calendar_upcoming
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage calendar_upcoming
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Tags block.
  *
- * @package   block_tags
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage tags
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

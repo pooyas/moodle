@@ -3,8 +3,9 @@
 /**
  * Handles displaying the calendar block.
  *
- * @package    block_calendar_month
- * @copyright  2004 Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    block
+ * @subpackage calendar_month
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class block_calendar_month extends block_base {

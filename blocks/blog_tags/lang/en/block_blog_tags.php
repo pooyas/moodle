@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_blog_tags', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_blog_tags', language 'en'
  *
- * @package   block_blog_tags
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage blog_tags
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

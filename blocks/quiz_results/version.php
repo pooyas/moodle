@@ -3,8 +3,9 @@
 /**
  * Version information for the block_quiz_results plugin.
  *
- * @package    block_quiz_results
- * @copyright  2011 The Open University
+ * @package    block
+ * @subpackage quiz_results
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

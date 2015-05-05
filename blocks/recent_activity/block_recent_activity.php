@@ -3,8 +3,9 @@
 /**
  * class block_recent_activity
  *
- * @package    block_recent_activity
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage recent_activity
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ require_once($CFG->dirroot.'/course/lib.php');
 /**
  * class block_recent_activity
  *
- * @package    block_recent_activity
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class block_recent_activity extends block_base {
 

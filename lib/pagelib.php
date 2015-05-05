@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  * some more significant components like $PAGE->theme, $PAGE->requires,
  * $PAGE->blocks, etc.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core

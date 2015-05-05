@@ -3,8 +3,9 @@
 /**
  * Section links block
  *
- * @package    block_section_links
- * @copyright  Jason Hardin
+ * @package    block
+ * @subpackage section_links
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

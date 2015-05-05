@@ -4,7 +4,7 @@
  * A form for cohort upload.
  *
  * @package    core_cohort
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ require_once($CFG->libdir.'/formslib.php');
  * Cohort upload form class
  *
  * @package    core_cohort
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class cohort_upload_form extends lionform {

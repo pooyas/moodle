@@ -3,8 +3,9 @@
 /**
  * Social activities block caps.
  *
- * @package    block_social_activities
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage social_activities
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

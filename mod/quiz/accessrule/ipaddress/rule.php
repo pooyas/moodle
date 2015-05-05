@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
 /**
  * A rule implementing the ipaddress check against the ->subnet setting.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_ipaddress extends quiz_access_rule_base {

@@ -3,8 +3,9 @@
 /**
  * Course list block settings
  *
- * @package    block_course_list
- * @copyright  2007 Petr Skoda
+ * @package    block
+ * @subpackage course_list
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

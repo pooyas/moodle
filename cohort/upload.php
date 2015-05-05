@@ -4,7 +4,7 @@
  * A form for cohort upload.
  *
  * @package    core_cohort
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

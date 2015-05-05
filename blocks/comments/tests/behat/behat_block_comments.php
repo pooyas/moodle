@@ -3,7 +3,8 @@
 /**
  * Commenting system steps definitions.
  *
- * @package    block_comments
+ * @package    block
+ * @subpackage comments
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

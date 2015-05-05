@@ -3,8 +3,9 @@
 /**
  * Course summary block caps.
  *
- * @package    block_course_summary
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage course_summary
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

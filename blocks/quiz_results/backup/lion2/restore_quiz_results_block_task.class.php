@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @package    block_quiz_results
+ * @package    block
+ * @subpackage quiz_results
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,8 +15,6 @@ defined('LION_INTERNAL') || die();
  *
  * TODO: Finish phpdocs
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_quiz_results_block_task extends restore_block_task {
 

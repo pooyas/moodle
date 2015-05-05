@@ -3,8 +3,9 @@
 /**
  * This file contains the parent class for lion blocks, block_base.
  *
- * @package    core_block
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    core
+ * @subpackage block
+ * @copyright  2015 Pooya Saeedi
  */
 
 /// Constants
@@ -26,8 +27,6 @@ define('BLOCK_TYPE_TREE',    3);
 /**
  * Class for describing a lion block, all Lion blocks derive from this class
  *
- * @author Jon Papaioannou
- * @package core_block
  */
 class block_base {
 
@@ -202,7 +201,6 @@ class block_base {
      * {@link hide_header()}, {@link (get_edit_controls)}, etc.
      *
      * @return block_contents a representation of the block, for rendering.
-     * @since Lion 2.0.
      */
     public function get_content_for_output($output) {
         global $CFG;
@@ -268,7 +266,6 @@ class block_base {
      *
      * @param $output The core_renderer to use when generating the output.
      * @return string the HTML that should appearn in the body of the block.
-     * @since Lion 2.0.
      */
     protected function formatted_contents($output) {
         $this->get_content();
@@ -673,8 +670,6 @@ EOD;
  * The get_content method should set $this->content->items and (optionally)
  * $this->content->icons, instead of $this->content->text.
  *
- * @author Jon Papaioannou
- * @package core_block
  */
 
 class block_list extends block_base {
@@ -719,8 +714,6 @@ class block_list extends block_base {
  * Unlike {@link block_list}, the icons are specified as part of the items,
  * not in a separate array.
  *
- * @author Alan Trick
- * @package core_block
  * @internal this extends block_list so we get is_empty() for free
  */
 class block_tree extends block_list {

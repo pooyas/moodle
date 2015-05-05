@@ -3,8 +3,9 @@
 /**
  * Save course order in course_overview block
  *
- * @package    block_course_overview
- * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
+ * @package    block
+ * @subpackage course_overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 define('AJAX_SCRIPT', true);

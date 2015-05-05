@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_tag_flickr
+ * @package    block
+ * @subpackage tag_flickr
  * @copyright  2015 Pooya Saeedi
  * 
  */

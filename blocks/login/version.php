@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_login
+ * @package    block
+ * @subpackage login
  * @copyright  2015 Pooya Saeedi
  * 
  */

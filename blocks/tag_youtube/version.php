@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_tag_youtube
+ * @package    block
+ * @subpackage tag_youtube
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -7,7 +7,7 @@
  * Contains class to create length of time for element.
  *
  * @package   core_form
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ require_once($CFG->libdir . '/form/text.php');
  *
  * @package   core_form
  * @category  form
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class LionQuickForm_duration extends LionQuickForm_group {

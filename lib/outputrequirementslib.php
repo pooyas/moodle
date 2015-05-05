@@ -5,7 +5,7 @@
  *
  * Note: you can find history of this file in lib/ajax/ajaxlib.php
  *
- * @copyright 2009 Tim Hunt, 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi, 2010 Petr Skoda
  * 
  * @package core
  * @category output
@@ -37,7 +37,7 @@ defined('LION_INTERNAL') || die();
  * can only be called before the <head> tag is output. See the comments on the
  * individual methods for details.
  *
- * @copyright 2009 Tim Hunt, 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi, 2010 Petr Skoda
  * 
  * @since Lion 2.0
  * @package core

@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_social_activities
+ * @package    block
+ * @subpackage social_activities
  * @copyright  2015 Pooya Saeedi
  * 
  */

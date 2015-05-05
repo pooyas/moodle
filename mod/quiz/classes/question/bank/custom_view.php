@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Subclass to customise the view of the question bank for the quiz editing screen.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class custom_view extends \core_question\bank\view {

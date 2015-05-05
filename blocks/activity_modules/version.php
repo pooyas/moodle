@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_activity_modules
+ * @package    block
+ * @subpackage activity_modules
  * @copyright  2015 Pooya Saeedi
  * 
  */

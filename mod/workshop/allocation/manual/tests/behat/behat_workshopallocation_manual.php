@@ -5,7 +5,7 @@
  *
  * @package    workshopallocation_manual
  * @category   test
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ use Behat\Behat\Context\Step\Given as Given,
  *
  * @package    workshopallocation_manual
  * @category   test
- * @copyright  2014 Marina Glancy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_workshopallocation_manual extends behat_base {

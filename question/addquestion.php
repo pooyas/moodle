@@ -6,7 +6,7 @@
  *
  * @package    lioncore
  * @subpackage questionbank
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

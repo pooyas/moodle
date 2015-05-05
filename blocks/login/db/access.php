@@ -3,8 +3,9 @@
 /**
  * Login block caps.
  *
- * @package    block_login
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

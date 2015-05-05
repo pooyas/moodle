@@ -3,8 +3,9 @@
 /**
  * Block to search forum posts.
  *
- * @package   block_search_forums
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage search_forums
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Comments block caps.
  *
- * @package    block_comments
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage comments
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

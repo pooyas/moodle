@@ -4,9 +4,9 @@
 /**
  * This file contains language strings used in the global navigation block
  *
- * @since Lion 2.0
- * @package block_navigation
- * @copyright 2009 Sam Hemelryk
+ * @package    block
+ * @subpackage myprofile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

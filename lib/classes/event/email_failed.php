@@ -5,7 +5,7 @@
  *
  * @package    core
  * @since      Lion 2.7
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    core
  * @since      Lion 2.7
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 class email_failed extends base {

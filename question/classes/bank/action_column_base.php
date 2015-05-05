@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * A base class for actions that are an icon that lets you manipulate the question in some way.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package   mod_quiz
  * @category  question
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * A column type for the add this question to the quiz action.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class add_action_column extends \core_question\bank\action_column_base {

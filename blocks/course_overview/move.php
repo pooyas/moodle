@@ -3,8 +3,9 @@
 /**
  * Move/order course functionality for course_overview block.
  *
- * @package    block_course_overview
- * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
+ * @package    block
+ * @subpackage course_overview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once(dirname(__FILE__) . '/../../config.php');

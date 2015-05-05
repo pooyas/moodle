@@ -3,8 +3,9 @@
 /**
  * Script to let a user manage their RSS feeds.
  *
- * @package   block_rss_client
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

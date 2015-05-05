@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * Base class for 'columns' that are actually displayed as a row following the main question row.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class row_base extends column_base {

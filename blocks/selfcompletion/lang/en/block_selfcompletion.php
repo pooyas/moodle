@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_selfcompletion', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_selfcompletion', language 'en'
  *
- * @package   block_selfcompletion
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage selfcompletion
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

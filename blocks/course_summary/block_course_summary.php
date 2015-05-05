@@ -3,7 +3,8 @@
 /**
  * Course summary block
  *
- * @package    block_course_summary
+ * @package    block
+ * @subpackage course_summary
  * @copyright  2015 Pooya Saeedi
  * 
  */

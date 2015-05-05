@@ -7,7 +7,7 @@
  * Contains HTML class for editing tags, both official and peronal.
  *
  * @package   core_form
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once($CFG->libdir . '/form/group.php');
  *
  * @package   core_form
  * @category  form
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class LionQuickForm_tags extends LionQuickForm_group {

@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
 /**
  * A rule imposing the delay between attempts settings.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_delaybetweenattempts extends quiz_access_rule_base {

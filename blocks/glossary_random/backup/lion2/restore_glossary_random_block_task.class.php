@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package block_glossary_random
- * @subpackage backup-lion2
+ * @package block
+ * @subpackage glossary_random
  * @copyright 2015 Pooya Saeedi
  * 
  */

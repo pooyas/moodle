@@ -3,8 +3,9 @@
 /**
  * Event observer.
  *
- * @package    block_recent_activity
- * @copyright  2014 Marina Glancy
+ * @package    block
+ * @subpackage recent_activity
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
  * Stores all actions about modules create/update/delete in plugin own's table.
  * This allows the block to avoid expensive queries to the log table.
  *
- * @package    block_recent_activity
- * @copyright  2014 Marina Glancy
- * 
  */
 class block_recent_activity_observer {
 

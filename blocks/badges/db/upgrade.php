@@ -17,9 +17,9 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @since Lion 2.8
- * @package block_badges
- * @copyright 2014 Andrew Davis
+ * @package    block
+ * @subpackage badges
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -59,8 +59,6 @@ function xmldb_block_badges_upgrade($oldversion, $block) {
         upgrade_block_savepoint(true, 2014062600, $blockname);
     }
 
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

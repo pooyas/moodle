@@ -4,9 +4,9 @@
 /**
  * This file contains language strings used in the settings navigation block
  *
- * @since Lion 2.0
- * @package block_settings
- * @copyright 2009 Sam Hemelryk
+ * @package    block
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

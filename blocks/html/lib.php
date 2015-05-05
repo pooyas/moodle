@@ -3,10 +3,10 @@
 /**
  * Form for editing HTML block instances.
  *
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage html
+ * @copyright  2015 Pooya Saeedi
  * 
- * @package   block_html
- * @category  files
  * @param stdClass $course course object
  * @param stdClass $birecord_or_cm block instance record
  * @param stdClass $context context object

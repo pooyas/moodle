@@ -32,7 +32,7 @@ define('BUI_CONTEXTS_CURRENT_SUBS', 1);
  * Exception thrown when someone tried to do something with a block that does
  * not exist on a page.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */
@@ -55,7 +55,7 @@ class block_not_on_page_exception extends lion_exception {
  *
  * The page to work with as passed to the constructor.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */

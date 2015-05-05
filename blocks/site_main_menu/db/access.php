@@ -3,8 +3,9 @@
 /**
  * Site main menu block caps.
  *
- * @package    block_site_main_menu
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage site_main_menu
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

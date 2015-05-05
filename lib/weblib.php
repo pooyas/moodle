@@ -3165,7 +3165,7 @@ EOT;
  * Use this class from long operations where you want to output occasional information about
  * what is going on, but don't know if, or in what format, the output should be.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core
  */
@@ -3188,7 +3188,7 @@ abstract class progress_trace {
 /**
  * This subclass of progress_trace does not ouput anything.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core
  */
@@ -3207,7 +3207,7 @@ class null_progress_trace extends progress_trace {
 /**
  * This subclass of progress_trace outputs to plain text.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core
  */
@@ -3228,7 +3228,7 @@ class text_progress_trace extends progress_trace {
 /**
  * This subclass of progress_trace outputs as HTML.
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core
  */
@@ -3249,7 +3249,7 @@ class html_progress_trace extends progress_trace {
 /**
  * HTML List Progress Tree
  *
- * @copyright 2009 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core
  */

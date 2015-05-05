@@ -3,8 +3,9 @@
 /**
  * Messages block caps.
  *
- * @package    block_messages
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage messages
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

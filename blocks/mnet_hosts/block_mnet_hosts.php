@@ -3,7 +3,8 @@
 /**
  * MNet hosts block.
  *
- * @package    block_mnet_hosts
+ * @package    block
+ * @subpackage mnet_hosts
  * @copyright  2015 Pooya Saeedi
  * 
  */

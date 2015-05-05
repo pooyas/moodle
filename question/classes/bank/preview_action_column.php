@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * Question bank columns for the preview action icon.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class preview_action_column extends action_column_base {

@@ -5,7 +5,7 @@ namespace core_question\bank;
 /**
  * A column with a checkbox for each question with name q{questionid}.
  *
- * @copyright  2009 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class checkbox_column extends column_base {

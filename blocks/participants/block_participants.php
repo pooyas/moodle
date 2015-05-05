@@ -3,7 +3,8 @@
 /**
  * Participants block
  *
- * @package    block_participants
+ * @package    block
+ * @subpackage participants
  * @copyright  2015 Pooya Saeedi
  * 
  */

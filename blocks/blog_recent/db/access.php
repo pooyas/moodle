@@ -3,8 +3,9 @@
 /**
  * Blog recent block caps.
  *
- * @package    block_blog_recent
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage blog_recent
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

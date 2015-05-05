@@ -3,8 +3,9 @@
 /**
  * Participants block caps.
  *
- * @package    block_participants
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage participants
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,16 +3,15 @@
 /**
  * Form for editing Mentees block instances.
  *
- * @package   block_mentees
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage mentees
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing Mentees block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_mentees_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

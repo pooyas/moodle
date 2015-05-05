@@ -3,8 +3,9 @@
 /**
  * Section links block caps.
  *
- * @package    block_section_links
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage section_links
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

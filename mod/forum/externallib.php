@@ -5,7 +5,7 @@
  * External forum API
  *
  * @package    mod_forum
- * @copyright  2012 Mark Nelson <markn@lion.com>
+ * @copyright  2012 2015 Pooya Saeedi
  * 
  */
 

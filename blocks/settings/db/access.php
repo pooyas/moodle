@@ -3,8 +3,9 @@
 /**
  * Settings block caps.
  *
- * @package    block_settings
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

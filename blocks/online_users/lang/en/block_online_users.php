@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'block_online_users', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_online_users', language 'en'
  *
- * @package   block_online_users
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage online_users
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

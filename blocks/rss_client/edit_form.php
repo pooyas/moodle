@@ -3,16 +3,15 @@
 /**
  * Form for editing RSS client block instances.
  *
- * @package   block_rss_client
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing RSS client block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_rss_client_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Strings for component 'block_search_forums', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_search_forums', language 'en'
  *
- * @package   block_search_forums
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage search_forums
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * Mentees block.
  *
- * @package    block_messages
+ * @package    block
+ * @subpackage messages
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,8 +3,9 @@
 /**
  * Community block caps.
  *
- * @package    block_community
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage community
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

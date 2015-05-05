@@ -2,10 +2,11 @@
 
 
 /**
- * Strings for component 'block_recent_activity', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_recent_activity', language 'en'
  *
- * @package   block_recent_activity
- * @copyright 2015 Pooya Saeedi
+ * @package    block
+ * @subpackage recent_activity
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

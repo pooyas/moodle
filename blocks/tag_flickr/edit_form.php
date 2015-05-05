@@ -3,16 +3,12 @@
 /**
  * Form for editing tag_flickr block instances.
  *
- * @package    block_tag_flickr
- * @copyright 2009 Tim Hunt
  * 
  */
 
 /**
  * Form for editing tag_flickr block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_tag_flickr_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

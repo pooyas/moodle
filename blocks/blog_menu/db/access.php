@@ -3,8 +3,9 @@
 /**
  * Blog menu block caps.
  *
- * @package    block_blog_menu
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage blog_menu
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

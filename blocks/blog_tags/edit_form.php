@@ -3,16 +3,15 @@
 /**
  * Form for editing Blog tags block instances.
  *
- * @package   block_blog_tags
- * @copyright 2009 Tim Hunt
+ * @package    block
+ * @subpackage blog_tags
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Form for editing Blog tags block instances.
  *
- * @copyright 2009 Tim Hunt
- * 
  */
 class block_blog_tags_edit_form extends block_edit_form {
     protected function specific_definition($mform) {

@@ -4,7 +4,7 @@
  * The mod_url course module viewed event.
  *
  * @package    mod_url
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_url
  * @since      Lion 2.7
- * @copyright  2013 Mark Nelson <markn@lion.com>
+ * @copyright  2013 2015 Pooya Saeedi
  * 
  */
 class course_module_viewed extends \core\event\course_module_viewed {

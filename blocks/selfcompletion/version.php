@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    block_selfcompletion
+ * @package    block
+ * @subpackage selfcompletion
  * @copyright  2015 Pooya Saeedi
  * 
  */

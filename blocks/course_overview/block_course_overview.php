@@ -3,7 +3,8 @@
 /**
  * Course overview block
  *
- * @package    block_course_overview
+ * @package    block
+ * @subpackage course_overview
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,8 +13,6 @@ require_once($CFG->dirroot.'/blocks/course_overview/locallib.php');
 /**
  * Course overview block
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class block_course_overview extends block_base {
     /**

@@ -3,9 +3,9 @@
 /**
  * Version info
  *
- * @package    block_completionstatus
- * @copyright  2009 Catalyst IT Ltd
- * @author     Aaron Barnes <aaronb@catalyst.net.nz>
+ * @package    block
+ * @subpackage completionstatus
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

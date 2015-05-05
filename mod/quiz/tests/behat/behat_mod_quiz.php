@@ -5,7 +5,7 @@
  *
  * @package   mod_quiz
  * @category  test
- * @copyright 2014 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Steps definitions related to mod_quiz.
  *
- * @copyright 2014 Marina Glancy
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class behat_mod_quiz extends behat_question_base {

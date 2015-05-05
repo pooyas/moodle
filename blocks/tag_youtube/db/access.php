@@ -3,8 +3,9 @@
 /**
  * Tag youtube block caps.
  *
- * @package    block_tag_youtube
- * @copyright  Mark Nelson <markn@lion.com>
+ * @package    block
+ * @subpackage tag_youtube
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

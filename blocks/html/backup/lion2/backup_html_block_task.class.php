@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package    block_html
- * @subpackage backup-lion2
+ * @package    block
+ * @subpackage html
  * @copyright  2015 Pooya Saeedi
  * 
  */
