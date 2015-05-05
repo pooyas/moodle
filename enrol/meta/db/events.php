@@ -3,9 +3,9 @@
 /**
  * Meta course enrolment plugin event handler definition.
  *
- * @package enrol_meta
- * @category event
- * @copyright 2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage meta
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

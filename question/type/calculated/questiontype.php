@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculated
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
 /**
  * The calculated question type.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculated extends question_type {

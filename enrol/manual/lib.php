@@ -3,8 +3,9 @@
 /**
  * Manual enrolment plugin main library file.
  *
- * @package    enrol_manual
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

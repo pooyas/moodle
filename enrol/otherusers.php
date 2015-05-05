@@ -3,7 +3,8 @@
 /**
  * List and modify users that are not enrolled but still have a role in course.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

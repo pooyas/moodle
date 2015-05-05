@@ -3,8 +3,9 @@
 /**
  * Self enrol plugin installation script
  *
- * @package    enrol_self
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();

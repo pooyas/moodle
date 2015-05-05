@@ -3,8 +3,9 @@
 /**
  * Self enrol plugin external functions
  *
- * @package    enrol_self
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,10 +16,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Self enrolment external functions.
  *
- * @package   enrol_self
- * @copyright 2012 Rajesh Taneja <rajesh@lion.com>
- * 
- * @since     Lion 2.6
  */
 class enrol_self_external extends external_api {
 

@@ -5,8 +5,9 @@
  *
  * This plugin allows you to set up paid courses.
  *
- * @package    enrol_paypal
- * @copyright  2010 Eugene Venter
+ * @package    enrol
+ * @subpackage paypal
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -14,7 +15,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Paypal enrolment plugin implementation.
- * @author  Eugene Venter - based on code by Martin Dougiamas and others
  * 
  */
 class enrol_paypal_plugin extends enrol_plugin {

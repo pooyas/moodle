@@ -3,9 +3,9 @@
 /**
  * Cohort enrolment plugin event handler definition.
  *
- * @package enrol_cohort
- * @category event
- * @copyright 2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage category
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

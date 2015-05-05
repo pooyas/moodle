@@ -19,10 +19,9 @@
  *   - For debugging & better logging, you are encouraged to use in the command line:
  *     -d log_errors=1 -d error_reporting=E_ALL -d display_errors=0 -d html_errors=0
  *
- * @package    enrol_ldap
- * @author     Iñaki Arenaza - based on code by Martin Dougiamas, Martin Langhoff and others
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
- * @copyright  2010 Iñaki Arenaza <iarenaza@eps.mondragon.edu>
+ * @package    enrol
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

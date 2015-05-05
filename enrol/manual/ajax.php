@@ -6,8 +6,9 @@
  * The general idea behind this file is that any errors should throw exceptions
  * which will be returned and acted upon by the calling AJAX script.
  *
- * @package    enrol_manual
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

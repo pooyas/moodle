@@ -3,8 +3,9 @@
 /**
  * Strings for component 'enrol_database', language 'en'.
  *
- * @package   enrol_database
- * @copyright 2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage database
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

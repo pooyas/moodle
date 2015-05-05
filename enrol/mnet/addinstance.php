@@ -3,7 +3,8 @@
 /**
  * Adds new instance of enrol_mnet into the specified course
  *
- * @package    enrol_mnet
+ * @package    enrol
+ * @subpackage mnet
  * @copyright  2015 Pooya Saeedi
  * 
  */

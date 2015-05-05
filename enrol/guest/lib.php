@@ -6,8 +6,9 @@
  * This plugin does not add any entries into the user_enrolments table,
  * the access control is granted on the fly via the tricks in require_login().
  *
- * @package    enrol_guest
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage guest
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

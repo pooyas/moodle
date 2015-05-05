@@ -6,9 +6,10 @@
  * This api is mostly read only, the actual enrol and unenrol
  * support is in each enrol plugin.
  *
- * @package    enrol_manual
+ * @package    enrol
+ * @subpackage manual
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -19,11 +20,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Manual enrolment external functions.
  *
- * @package    enrol_manual
- * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * 
- * @since Lion 2.2
  */
 class enrol_manual_external extends external_api {
 
@@ -31,7 +27,6 @@ class enrol_manual_external extends external_api {
      * Returns description of method parameters.
      *
      * @return external_function_parameters
-     * @since Lion 2.2
      */
     public static function enrol_users_parameters() {
         return new external_function_parameters(
@@ -57,7 +52,6 @@ class enrol_manual_external extends external_api {
      *
      * Function throw an exception at the first error encountered.
      * @param array $enrolments  An array of user enrolment
-     * @since Lion 2.2
      */
     public static function enrol_users($enrolments) {
         global $DB, $CFG;
@@ -150,7 +144,6 @@ class enrol_manual_external extends external_api {
  * @package    enrol_manual
  * @copyright  2011 Jerome Mouneyrac
  * 
- * @since Lion 2.0
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see enrol_manual_external
  */
@@ -160,7 +153,6 @@ class lion_enrol_manual_external extends external_api {
      * Returns description of method parameters.
      *
      * @return external_function_parameters
-     * @since Lion 2.0
      * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see enrol_manual_external::enrol_users_parameters()
      */
@@ -173,7 +165,6 @@ class lion_enrol_manual_external extends external_api {
      * Function throw an exception at the first error encountered.
      *
      * @param array $enrolments  An array of user enrolment
-     * @since Lion 2.0
      * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see enrol_manual_external::enrol_users()
      */
@@ -185,7 +176,6 @@ class lion_enrol_manual_external extends external_api {
      * Returns description of method result value.
      *
      * @return nul
-     * @since Lion 2.0
      * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see enrol_manual_external::enrol_users_returns()
      */

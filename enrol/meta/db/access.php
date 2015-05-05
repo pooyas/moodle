@@ -3,7 +3,8 @@
 /**
  * Capabilities for meta link access plugin.
  *
- * @package    enrol_meta
+ * @package    enrol
+ * @subpackage meta
  * @copyright  2015 Pooya Saeedi
  * 
  */

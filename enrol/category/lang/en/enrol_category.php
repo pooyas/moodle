@@ -3,8 +3,9 @@
 /**
  * Strings for component 'enrol_category', language 'en'.
  *
- * @package    enrol_category
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage category
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

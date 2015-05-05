@@ -4,8 +4,9 @@
  * Adds new instance of enrol_manual to specified course
  * or edits current instance.
  *
- * @package    enrol_manual
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

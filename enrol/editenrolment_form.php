@@ -3,7 +3,8 @@
 /**
  * Contains the form used to edit enrolments for a user.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

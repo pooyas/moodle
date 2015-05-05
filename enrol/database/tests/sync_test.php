@@ -4,9 +4,9 @@
  * External database enrolment sync tests, this also tests adodb drivers
  * that are matching our four supported Lion database drivers.
  *
- * @package    enrol_database
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
+ * @package    enrol
+ * @subpackage database
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

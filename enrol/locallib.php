@@ -4,7 +4,8 @@
  * This file contains the course_enrolment_manager class which is used to interface
  * with the functions that exist in enrollib.php in relation to a single course.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -17,8 +18,6 @@ defined('LION_INTERNAL') || die();
  *
  * It is provided as a convenience more than anything else.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class course_enrolment_manager {
 
@@ -1200,7 +1199,6 @@ class course_enrolment_manager {
 /**
  * A button that is used to enrol users in a course
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class enrol_user_button extends single_button {
@@ -1317,7 +1315,6 @@ class enrol_user_button extends single_button {
  * This class is used to manage a renderable ue action such as editing an user enrolment or deleting
  * a user enrolment.
  *
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class user_enrolment_action implements renderable {
@@ -1413,7 +1410,6 @@ class enrol_ajax_exception extends lion_exception {
 /**
  * This class is used to manage a bulk operations for enrolment plugins.
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class enrol_bulk_enrolment_operation {

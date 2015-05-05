@@ -3,8 +3,9 @@
 /**
  * Database enrolment plugin custom settings.
  *
- * @package    enrol_database
- * @copyright  2013 Darko Miletic
+ * @package    enrol
+ * @subpackage database
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,7 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class implements new specialized setting for course categories that are loaded
  * only when required
- * @author Darko Miletic
  *
  */
 class enrol_database_admin_setting_category extends admin_setting_configselect {

@@ -3,8 +3,9 @@
 /**
  * This file keeps track of upgrades to the self enrolment plugin
  *
- * @package    enrol_self
- * @copyright  2015 Pooya Saeedi {@link http://skodak.org
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,8 +16,6 @@ function xmldb_enrol_self_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
-    // Lion v2.3.0 release upgrade line
-    // Put any upgrade step following this
 
     if ($oldversion < 2012101400) {
         // Set default expiry threshold to 1 day.
@@ -31,28 +30,12 @@ function xmldb_enrol_self_upgrade($oldversion) {
     }
 
 
-    // Lion v2.4.0 release upgrade line
-    // Put any upgrade step following this
-
-
-    // Lion v2.5.0 release upgrade line.
-    // Put any upgrade step following this.
-
-
-    // Lion v2.6.0 release upgrade line.
-    // Put any upgrade step following this.
 
     if ($oldversion < 2013112100) {
         // Set customint1 (group enrolment key) to 0 if it was not set (null).
         $DB->execute("UPDATE {enrol} SET customint1 = 0 WHERE enrol = 'self' AND customint1 IS NULL");
         upgrade_plugin_savepoint(true, 2013112100, 'enrol', 'self');
     }
-
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

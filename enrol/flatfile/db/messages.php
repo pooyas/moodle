@@ -3,8 +3,9 @@
 /**
  * Defines message providers (types of message sent) for the PayPal enrolment plugin.
  *
- * @package    enrol_flatfile
- * @copyright  2012 Andrew Davis
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

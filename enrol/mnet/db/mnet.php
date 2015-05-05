@@ -6,8 +6,8 @@
  * If we rewrite MNet as proposed in MDL-21993 this file would contain
  * just a declaration of xml-rpc methods that this plugin publishes.
  *
- * @since      Lion 2.0
- * @package    enrol_mnet
+ * @package    enrol
+ * @subpackage mnet
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,8 +3,9 @@
 /**
  * IMS Enterprise enrolments plugin settings and presets.
  *
- * @package    enrol_imsenterprise
- * @copyright  2010 Eugene Venter
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

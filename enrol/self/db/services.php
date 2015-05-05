@@ -3,10 +3,9 @@
 /**
  * Self enrol plugin external functions and service definitions.
  *
- * @package   enrol_self
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.6
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  */
 
 $functions = array(

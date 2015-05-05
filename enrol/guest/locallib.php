@@ -3,8 +3,9 @@
 /**
  * Guest access plugin implementation.
  *
- * @package    enrol_guest
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage guest
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

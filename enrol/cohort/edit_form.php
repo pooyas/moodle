@@ -3,7 +3,8 @@
 /**
  * Adds instance form
  *
- * @package    enrol_cohort
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

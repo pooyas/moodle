@@ -5,10 +5,9 @@
  *
  * This plugin synchronises enrolment and roles with a LDAP server.
  *
- * @package    enrol_ldap
- * @author     Iñaki Arenaza - based on code by Martin Dougiamas, Martin Langhoff and others
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
- * @copyright  2010 Iñaki Arenaza <iarenaza@eps.mondragon.edu>
+ * @package    enrol
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

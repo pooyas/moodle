@@ -3,7 +3,8 @@
 /**
  * Test enrol plugin settings.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

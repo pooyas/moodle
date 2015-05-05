@@ -3,7 +3,8 @@
 /**
  * Capabilities for database enrolment plugin.
  *
- * @package    enrol_database
+ * @package    enrol
+ * @subpackage database
  * @copyright  2015 Pooya Saeedi
  * 
  */

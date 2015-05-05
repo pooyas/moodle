@@ -3,8 +3,9 @@
 /**
  * Manual enrolment plugin - support for user self unenrolment.
  *
- * @package    enrol_manual
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

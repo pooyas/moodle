@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Base class for question import and export formats.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qformat_default {

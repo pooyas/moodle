@@ -3,9 +3,10 @@
 /**
  * Category enrolment sync functional test.
  *
- * @package    enrol_category
+ * @package    enrol
+ * @subpackage category
  * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

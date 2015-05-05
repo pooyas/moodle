@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ require_once($CFG->dirroot . '/question/move_form.php');
 /**
  * Class representing a list of question categories
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_category_list extends lion_list {
@@ -55,7 +55,7 @@ class question_category_list extends lion_list {
 /**
  * An item in a list of question categories.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_category_list_item extends list_item {
@@ -115,7 +115,7 @@ class question_category_list_item extends list_item {
 /**
  * Class representing q question category
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_category_object {

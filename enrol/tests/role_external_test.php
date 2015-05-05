@@ -10,11 +10,10 @@ require_once($CFG->dirroot . '/enrol/externallib.php');
 /**
  * Role external PHPunit tests
  *
- * @package    core_enrol
- * @category   external
+ * @package    core
+ * @subpackage enrol
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
- * 
- * @since Lion 2.4
  */
 class core_enrol_role_external_testcase extends externallib_advanced_testcase {
 

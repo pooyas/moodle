@@ -3,8 +3,9 @@
 /**
  * IMS Enterprise enrolment tests.
  *
- * @package    enrol_imsenterprise
- * @category   test
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,9 +19,6 @@ require_once($CFG->dirroot . '/enrol/imsenterprise/lib.php');
 /**
  * IMS Enterprise test case
  *
- * @package    enrol_imsenterprise
- * @category   test
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class enrol_imsenterprise_testcase extends advanced_testcase {

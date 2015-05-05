@@ -3,7 +3,8 @@
 /**
  * Enrolment steps definitions.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

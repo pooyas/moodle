@@ -3,7 +3,8 @@
 /**
  * This page shows all course enrolment options for current user.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

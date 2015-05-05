@@ -3,7 +3,8 @@
 /**
  * MNet enrolment plugin
  *
- * @package    enrol_mnet
+ * @package    enrol
+ * @subpackage mnet
  * @copyright  2015 Pooya Saeedi
  * 
  */

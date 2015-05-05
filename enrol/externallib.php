@@ -7,9 +7,9 @@
  * This api is mostly read only, the actual enrol and unenrol
  * support is in each enrol plugin.
  *
- * @package    core_enrol
- * @category   external
- * @copyright  2010 Jerome Mouneyrac
+ * @package    core
+ * @subpackage enrol
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -612,11 +612,6 @@ class core_enrol_external extends external_api {
 /**
  * Role external functions
  *
- * @package    core_role
- * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * 
- * @since Lion 2.2
  */
 class core_role_external extends external_api {
 
@@ -759,10 +754,7 @@ class core_role_external extends external_api {
 /**
  * Deprecated enrol and role external functions
  *
- * @package    core_enrol
- * @copyright  2010 Jerome Mouneyrac
  * 
- * @since Lion 2.0
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_enrol_external
  * @see core_role_external

@@ -3,7 +3,8 @@
 /**
  * Category enrolment plugin.
  *
- * @package    enrol_category
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,8 +14,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * category enrolment plugin implementation.
- * @author  Petr Skoda
- * 
  */
 class enrol_category_plugin extends enrol_plugin {
 

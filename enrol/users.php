@@ -3,7 +3,8 @@
 /**
  * Main course enrolment management UI, this is not compatible with frontpage course.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

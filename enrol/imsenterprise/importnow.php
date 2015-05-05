@@ -3,8 +3,9 @@
 /**
  * Import IMS Enterprise file immediately.
  *
- * @package    enrol_imsenterprise
- * @copyright  2006 Dan Stowell
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');

@@ -3,9 +3,9 @@
 /**
  * Flat file enrolment plugin version specification.
  *
- * @package    enrol_flatfile
- * @copyright  2010 Eugene Venter
- * @author     Eugene Venter
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

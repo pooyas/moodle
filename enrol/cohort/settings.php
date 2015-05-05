@@ -3,7 +3,8 @@
 /**
  * Cohort enrolment plugin settings and presets.
  *
- * @package    enrol_cohort
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

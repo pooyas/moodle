@@ -3,7 +3,8 @@
 /**
  * Capabilities for cohort access plugin.
  *
- * @package    enrol_cohort
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

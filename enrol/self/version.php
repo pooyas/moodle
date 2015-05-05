@@ -3,8 +3,9 @@
 /**
  * Self enrolment plugin version specification.
  *
- * @package    enrol_self
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

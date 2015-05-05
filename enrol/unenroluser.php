@@ -6,7 +6,8 @@
  * Please note when unenrolling a user all of their grades are removed as well,
  * most ppl actually expect enrolments to be suspended only...
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Self enrolment plugin tests.
  *
- * @package    enrol_self
+ * @package    enrol
+ * @subpackage self
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 

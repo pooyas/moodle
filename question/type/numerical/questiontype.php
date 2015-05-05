@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage numerical
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
  * This class contains some special features in order to make the
  * question type embeddable within a multianswer (cloze) question
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_numerical extends question_type {

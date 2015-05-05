@@ -3,8 +3,9 @@
 /**
  * Capabilities for manual enrolment plugin.
  *
- * @package    enrol_manual
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

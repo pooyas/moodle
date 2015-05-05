@@ -3,8 +3,9 @@
 /**
  * Strings for component 'enrol_self', language 'en'.
  *
- * @package    enrol_self
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

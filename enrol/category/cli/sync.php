@@ -11,7 +11,8 @@
  *   - you need to change the "www-data" to match the apache user account
  *   - use "su" if "sudo" not available
  *
- * @package    enrol_category
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

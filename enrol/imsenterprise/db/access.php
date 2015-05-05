@@ -3,8 +3,9 @@
 /**
  * Capabilities for imsenterprise enrolment plugin.
  *
- * @package    enrol_imsenterprise
- * @copyright  2014 Daniel Neis Araujo
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

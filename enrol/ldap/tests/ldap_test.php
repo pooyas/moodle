@@ -12,7 +12,8 @@
  * define('TEST_ENROL_LDAP_BIND_PW', 'somepassword');
  * define('TEST_ENROL_LDAP_DOMAIN', 'dc=example,dc=local');
  *
- * @package    enrol_ldap
+ * @package    enrol
+ * @subpackage ldap
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

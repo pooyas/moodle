@@ -3,7 +3,8 @@
 /**
  * Adds new instance of enrol_cohort to specified course.
  *
- * @package    enrol_cohort
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

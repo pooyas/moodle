@@ -3,8 +3,9 @@
 /**
  * A scheduled task.
  *
- * @package    enrol_imsenterprise
- * @copyright  2014 Universite de Montreal
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace enrol_imsenterprise\task;
@@ -12,7 +13,6 @@ namespace enrol_imsenterprise\task;
 /**
  * Simple task to run the IMS Enterprise enrolment cron.
  *
- * @copyright  2014 Universite de Montreal
  * 
  */
 class cron_task extends \core\task\scheduled_task {

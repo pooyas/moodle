@@ -3,7 +3,8 @@
 /**
  * Meta enrolment sync functional test.
  *
- * @package    enrol_meta
+ * @package    enrol
+ * @subpackage meta
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

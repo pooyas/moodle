@@ -3,7 +3,8 @@
 /**
  * Meta course enrolment plugin.
  *
- * @package    enrol_meta
+ * @package    enrol
+ * @subpackage meta
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,7 +13,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Meta course enrolment plugin.
- * @author Petr Skoda
  * 
  */
 class enrol_meta_plugin extends enrol_plugin {

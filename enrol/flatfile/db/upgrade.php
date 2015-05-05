@@ -3,8 +3,9 @@
 /**
  * Keeps track of upgrades to the enrol_flatfile plugin
  *
- * @package    enrol_flatfile
- * @copyright  2010 Aparup Banerjee <aparup@lion.com>
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

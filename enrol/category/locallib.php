@@ -3,7 +3,8 @@
 /**
  * Local stuff for category enrolment plugin.
  *
- * @package    enrol_category
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

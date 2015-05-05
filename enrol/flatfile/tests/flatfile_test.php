@@ -3,8 +3,9 @@
 /**
  * flatfile enrolment sync tests.
  *
- * @package    enrol_flatfile
- * @category   phpunit
+ * @package    enrol
+ * @subpackage flatfile
+ * @subpackage phpunit
  * @copyright  2015 Pooya Saeedi 
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Local stuff for meta course enrolment plugin.
  *
- * @package    enrol_meta
+ * @package    enrol
+ * @subpackage meta
  * @copyright  2015 Pooya Saeedi
  * 
  */

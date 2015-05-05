@@ -3,9 +3,9 @@
 /**
  * Category enrolment plugin event handler definition.
  *
- * @package   enrol_category
- * @category  event
- * @copyright 2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage category
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

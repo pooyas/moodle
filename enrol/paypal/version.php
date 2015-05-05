@@ -3,9 +3,9 @@
 /**
  * Paypal enrolment plugin version specification.
  *
- * @package    enrol_paypal
- * @copyright  2010 Eugene Venter
- * @author     Eugene Venter
+ * @package    enrol
+ * @subpackage paypal
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

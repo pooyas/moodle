@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questiontypes
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -28,7 +28,7 @@ require_once($CFG->dirroot . '/question/engine/lib.php');
  * interface to meet their needs, rather the freeze the API prematurely and
  * condem everyone to working round a clunky interface for ever afterwards.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_type {

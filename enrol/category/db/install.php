@@ -3,7 +3,8 @@
 /**
  * category enrolment plugin installation.
  *
- * @package    enrol_category
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

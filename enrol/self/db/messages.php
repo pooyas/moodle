@@ -3,7 +3,8 @@
 /**
  * Defines message providers for self enrolments.
  *
- * @package    enrol_self
+ * @package    enrol
+ * @subpackage self
  * @copyright  2015 Pooya Saeedi 
  * 
  */

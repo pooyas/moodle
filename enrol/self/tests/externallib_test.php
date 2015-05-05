@@ -3,10 +3,10 @@
 /**
  * Self enrol external PHPunit tests
  *
- * @package   enrol_self
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.6
+ * @package    enrol
+ * @subpackage self
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi 
  */
 
 defined('LION_INTERNAL') || die();

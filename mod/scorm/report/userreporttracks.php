@@ -18,7 +18,7 @@
  * This page displays the user data from a single attempt
  *
  * @package mod_scorm
- * @copyright 1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

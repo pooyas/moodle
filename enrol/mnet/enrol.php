@@ -11,7 +11,8 @@
  * be a common name of a plugin library containing functions/methods callable
  * via MNet framework.
  *
- * @package    enrol_mnet
+ * @package    enrol
+ * @subpackage mnet
  * @copyright  2015 Pooya Saeedi
  * 
  */

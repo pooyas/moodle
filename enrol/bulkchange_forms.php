@@ -3,7 +3,8 @@
 /**
  * This file contains form for bulk changing user enrolments.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,8 +16,6 @@ require_once("$CFG->libdir/formslib.php");
 /**
  * A base class that can be used to easily construct a form for use with bulk operations
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class enrol_bulk_enrolment_change_form extends lionform {
 
@@ -79,8 +78,6 @@ abstract class enrol_bulk_enrolment_change_form extends lionform {
 
 /**
  * A convenience class to allow the quick generation of a confirmation form for a bulk operation.
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class enrol_bulk_enrolment_confirm_form extends enrol_bulk_enrolment_change_form {
 

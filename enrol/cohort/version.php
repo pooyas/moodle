@@ -3,7 +3,8 @@
 /**
  * Cohort enrolment plugin version specification.
  *
- * @package    enrol_cohort
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */

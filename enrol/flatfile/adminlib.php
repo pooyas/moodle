@@ -3,8 +3,9 @@
 /**
  * Special flatfile settings.
  *
- * @package    enrol_flatfile
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

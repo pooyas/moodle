@@ -2,8 +2,9 @@
 
 /**
  * Cohort enrolment plugin.
- *
- * @package    enrol_cohort
+ * 
+ * @package    enrol
+ * @subpackage category
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,7 +13,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Cohort enrolment plugin implementation.
- * @author Petr Skoda
  * 
  */
 class enrol_cohort_plugin extends enrol_plugin {

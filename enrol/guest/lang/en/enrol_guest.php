@@ -3,8 +3,9 @@
 /**
  * Strings for component 'enrol_guest', language 'en'.
  *
- * @package    enrol_guest
- * @copyright  2010 onwards Petr Skoda  
+ * @package    enrol
+ * @subpackage guest
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

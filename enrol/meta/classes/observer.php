@@ -3,7 +3,8 @@
 /**
  * Event observer for meta enrolment plugin.
  *
- * @package    enrol_meta
+ * @package    enrol
+ * @subpackage meta
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@ require_once($CFG->dirroot.'/enrol/meta/locallib.php');
 /**
  * Event observer for enrol_meta.
  *
- * @package    enrol_meta
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class enrol_meta_observer extends enrol_meta_handler {
 

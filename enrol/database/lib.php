@@ -5,7 +5,8 @@
  *
  * This plugin synchronises enrolment and roles with external database table.
  *
- * @package    enrol_database
+ * @package    enrol
+ * @subpackage database
  * @copyright  2015 Pooya Saeedi
  * 
  */

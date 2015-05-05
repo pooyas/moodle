@@ -3,7 +3,8 @@
 /**
  * Defines message providers for manual enrolments.
  *
- * @package    enrol_manual
+ * @package    enrol
+ * @subpackage manual
  * @copyright  2015 Pooya Saeedi 
  * 
  */

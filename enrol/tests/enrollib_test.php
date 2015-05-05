@@ -3,9 +3,10 @@
 /**
  * Test non-plugin enrollib parts.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test non-plugin enrollib parts.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class core_enrollib_testcase extends advanced_testcase {
 

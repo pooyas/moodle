@@ -7,7 +7,7 @@
  * Functions that are only called by the quiz module itself are in {@link locallib.php}
  *
  * @package    mod_quiz
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

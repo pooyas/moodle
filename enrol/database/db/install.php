@@ -3,7 +3,8 @@
 /**
  * Database enrolment plugin installation.
  *
- * @package    enrol_database
+ * @package    enrol
+ * @subpackage database
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -4,8 +4,9 @@
  * Adds new instance of enrol_paypal to specified course
  * or edits current instance.
  *
- * @package    enrol_paypal
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage paypal
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

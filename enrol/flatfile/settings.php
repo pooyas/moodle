@@ -3,9 +3,9 @@
 /**
  * Flatfile enrolments plugin settings and presets.
  *
- * @package    enrol_flatfile
- * @copyright  2010 Eugene Venter
- * @author     Eugene Venter - based on code by Petr Skoda and others
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

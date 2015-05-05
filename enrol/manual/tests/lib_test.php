@@ -3,7 +3,8 @@
 /**
  * Manual enrolment tests.
  *
- * @package    enrol_manual
+ * @package    enrol
+ * @subpackage manual
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Manual enrolment tests.
  *
- * @package    enrol_manual
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class enrol_manual_lib_testcase extends advanced_testcase {
     /**

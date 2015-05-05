@@ -4,7 +4,7 @@
  * Code for exporting questions as Lion XML.
  *
  * @package    qformat_xml
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -27,7 +27,7 @@ if (!class_exists('qformat_default')) {
  *
  * See http://docs.lion.org/en/Lion_XML_format for a description of the format.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qformat_xml extends qformat_default {

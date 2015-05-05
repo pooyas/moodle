@@ -3,9 +3,9 @@
 /**
  * Definition of IMS Enterprise enrolment scheduled tasks.
  *
- * @package   enrol_imsenterprise
- * @category  task
- * @copyright 2014 Universite de Montreal
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

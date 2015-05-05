@@ -3,8 +3,9 @@
 /**
  * Strings for component 'enrol_flatfile', language 'en'.
  *
- * @package    enrol_flatfile
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -3,9 +3,10 @@
 /**
  * Cohort enrolment sync functional test.
  *
- * @package    enrol_cohort
+ * @package    enrol
+ * @subpackage category
  * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

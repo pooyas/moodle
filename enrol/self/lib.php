@@ -3,15 +3,14 @@
 /**
  * Self enrolment plugin.
  *
- * @package    enrol_self
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
 /**
  * Self enrolment plugin implementation.
- * @author Petr Skoda
- * 
  */
 class enrol_self_plugin extends enrol_plugin {
 

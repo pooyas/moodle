@@ -3,7 +3,8 @@
 /**
  * Meta link enrolment plugin installation.
  *
- * @package    enrol_meta
+ * @package    enrol
+ * @subpackage meta
  * @copyright  2015 Pooya Saeedi
  * 
  */

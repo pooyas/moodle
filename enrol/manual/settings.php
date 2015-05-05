@@ -3,8 +3,9 @@
 /**
  * Manual enrolment plugin settings and presets.
  *
- * @package    enrol_manual
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

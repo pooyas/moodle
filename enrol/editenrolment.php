@@ -8,7 +8,8 @@
  *
  * NOTE: plugins are free to implement own edit scripts with extra logic.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

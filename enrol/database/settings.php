@@ -3,7 +3,8 @@
 /**
  * Database enrolment plugin settings and presets.
  *
- * @package    enrol_database
+ * @package    enrol
+ * @subpackage database
  * @copyright  2015 Pooya Saeedi
  * 
  */

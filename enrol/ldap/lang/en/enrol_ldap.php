@@ -3,9 +3,9 @@
 /**
  * Strings for component 'enrol_ldap', language 'en'.
  *
- * @package    enrol_ldap
+ * @package    enrol
+ * @subpackage ldap
  * @copyright  2015 Pooya Saeedi
- * @copyright  2010 Iñaki Arenaza <iarenaza@eps.mondragon.edu>
  * 
  */
 

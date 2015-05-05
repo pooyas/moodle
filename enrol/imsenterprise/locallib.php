@@ -3,8 +3,9 @@
 /**
  * IMS Enterprise enrol plugin implementation.
  *
- * @package    enrol_imsenterprise
- * @copyright  2010 Eugene Venter
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class for dealing with role mappings in IMS Enterprise.
  *
- * @copyright  2010 Eugene Venter
- * 
  */
 class imsenterprise_roles {
     /** @var imscode => ims role name. Role name mapping. */
@@ -88,9 +87,6 @@ class imsenterprise_roles {
 /**
  * Mapping between Lion course attributes and IMS enterprise group description tags
  *
- * @package   enrol_imsenterprise
- * @copyright 2011 Aaron C Spike
- * 
  */
 class imsenterprise_courses {
     /** @var array IMS group description names */

@@ -3,9 +3,9 @@
 /**
  * Manual plugin external functions and service definitions.
  *
- * @package    enrol_manual
- * @category   webservice
- * @copyright  2011 Jerome Mouneyrac
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * Adds new instance of enrol_meta to specified course.
  *
- * @package    enrol_meta
+ * @package    enrol
+ * @subpackage meta
  * @copyright  2015 Pooya Saeedi
  * 
  */

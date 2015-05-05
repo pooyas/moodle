@@ -3,8 +3,9 @@
 /**
  * This file keeps track of upgrades to the manual enrolment plugin
  *
- * @package    enrol_manual
- * @copyright  2015 Pooya Saeedi {@link http://skodak.org
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -14,9 +15,6 @@ function xmldb_enrol_manual_upgrade($oldversion) {
     global $CFG, $DB, $OUTPUT;
 
     $dbman = $DB->get_manager();
-
-    // Lion v2.3.0 release upgrade line
-    // Put any upgrade step following this
 
     if ($oldversion < 2012100702) {
         // Set default expiry threshold to 1 day.
@@ -31,23 +29,6 @@ function xmldb_enrol_manual_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2012101400, 'enrol', 'manual');
     }
 
-
-    // Lion v2.4.0 release upgrade line
-    // Put any upgrade step following this
-
-
-    // Lion v2.5.0 release upgrade line.
-    // Put any upgrade step following this.
-
-
-    // Lion v2.6.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Lion v2.8.0 release upgrade line.
-    // Put any upgrade step following this.
 
     return true;
 }

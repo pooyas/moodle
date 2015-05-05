@@ -3,8 +3,9 @@
 /**
  * Flatfile enrolment plugin installation.
  *
- * @package    enrol_flatfile
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

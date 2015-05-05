@@ -3,8 +3,9 @@
 /**
  * Strings for component 'enrol_paypal', language 'en'.
  *
- * @package    enrol_paypal
- * @copyright  2015 Pooya Saeedi
+ * @package    enrol
+ * @subpackage paypal
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

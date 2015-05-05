@@ -3,7 +3,8 @@
 /**
  * Cohort enrolment plugin settings and default values
  *
- * @package    enrol_mnet
+ * @package    enrol
+ * @subpackage mnet
  * @copyright  2015 Pooya Saeedi
  * 
  */

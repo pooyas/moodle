@@ -3,7 +3,8 @@
 /**
  * Strings for component 'enrol_imsenterprise', language 'en'.
  *
- * @package    enrol_imsenterprise
+ * @package    enrol
+ * @subpackage imsenterprise
  * @copyright  2015 Pooya Saeedi
  * 
  */

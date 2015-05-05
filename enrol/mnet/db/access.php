@@ -3,8 +3,9 @@
 /**
  * Capabilities for mnet enrolment plugin.
  *
- * @package    enrol_mnet
- * @copyright  2014 Daniel Neis Araujo
+ * @package    enrol
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

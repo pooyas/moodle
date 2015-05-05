@@ -3,8 +3,9 @@
 /**
  * imsenterprise enrolment plugin installation.
  *
- * @package    enrol_imsenterprise
- * @copyright  2015 Pooya Saeedi 
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

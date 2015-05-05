@@ -3,7 +3,8 @@
 /**
  * paypal enrolment plugin tests.
  *
- * @package    enrol_paypal
+ * @package    enrol
+ * @subpackage paypal
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 

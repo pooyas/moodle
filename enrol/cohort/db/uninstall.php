@@ -3,8 +3,9 @@
 /**
  * Meta link enrolment plugin uninstallation.
  *
- * @package    enrol_cohort
- * @copyright  2015 Pooya Saeedi 
+ * @package    enrol
+ * @subpackage category
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

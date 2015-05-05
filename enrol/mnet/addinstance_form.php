@@ -3,7 +3,8 @@
 /**
  * Form to add an instance of enrol_mnet plugin
  *
- * @package    enrol_mnet
+ * @package    enrol
+ * @subpackage mnet
  * @copyright  2015 Pooya Saeedi
  * 
  */

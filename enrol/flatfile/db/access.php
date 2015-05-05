@@ -3,7 +3,8 @@
 /**
  * Capabilities for manual enrolment plugin.
  *
- * @package    enrol_flatfile
+ * @package    enrol
+ * @subpackage flatfile
  * @copyright  2015 Pooya Saeedi 
  * 
  */

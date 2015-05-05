@@ -3,7 +3,8 @@
 /**
  * Bulk user enrolment processing.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */

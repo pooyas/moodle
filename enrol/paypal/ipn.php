@@ -8,9 +8,9 @@
  * If PayPal verifies this then it sets up the enrolment for that
  * user.
  *
- * @package    enrol_paypal
- * @copyright 2010 Eugene Venter
- * @author     Eugene Venter - based on code by others
+ * @package    enrol
+ * @subpackage paypal
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

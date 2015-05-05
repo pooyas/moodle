@@ -3,8 +3,9 @@
 /**
  * Strings for component 'enrol_meta', language 'en'.
  *
- * @package    enrol_meta
- * @copyright  2010 onwards Petr Skoda  
+ * @package    enrol
+ * @subpackage meta
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,8 +6,9 @@
  * This plugin lets the user specify a "flatfile" (CSV) containing enrolment information.
  * On a regular cron cycle, the specified file is parsed and then deleted.
  *
- * @package    enrol_flatfile
- * @copyright  2010 Eugene Venter
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -27,7 +28,6 @@ defined('LION_INTERNAL') || die();
  *   starttime        = start time (in seconds since epoch) - optional
  *   endtime          = end time (in seconds since epoch) - optional
  *
- * @author  Eugene Venter - based on code by Petr Skoda, Martin Dougiamas, Martin Langhoff and others
  * 
  */
 class enrol_flatfile_plugin extends enrol_plugin {

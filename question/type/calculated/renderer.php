@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/question/type/numerical/renderer.php');
 /**
  * Generates the output for calculated questions.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculated_renderer extends qtype_numerical_renderer {

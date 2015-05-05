@@ -3,7 +3,8 @@
 /**
  * This is the main renderer for the enrol section.
  *
- * @package    core_enrol
+ * @package    core
+ * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -11,8 +12,6 @@
 /**
  * This is the core renderer
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_enrol_renderer extends plugin_renderer_base {
 
@@ -285,9 +284,6 @@ class core_enrol_renderer extends plugin_renderer_base {
  * The control then produces the table, the paging, and the associated JS actions
  * for the page.
  *
- * @package    core
- * @subpackage enrol
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class course_enrolment_table extends html_table implements renderable {
@@ -685,7 +681,6 @@ class course_enrolment_table extends html_table implements renderable {
 /**
  * Table control used for enrolled users
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class course_enrolment_users_table extends course_enrolment_table {
@@ -704,7 +699,6 @@ class course_enrolment_users_table extends course_enrolment_table {
  *
  * Other users are users who have roles but are not enrolled.
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class course_enrolment_other_users_table extends course_enrolment_table {

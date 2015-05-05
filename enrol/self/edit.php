@@ -4,8 +4,9 @@
  * Adds new instance of enrol_self to specified course
  * or edits current instance.
  *
- * @package    enrol_self
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage self
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

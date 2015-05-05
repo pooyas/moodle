@@ -3,8 +3,9 @@
 /**
  * Guest access plugin settings and presets.
  *
- * @package    enrol_guest
- * @copyright  2015 Pooya Saeedi  
+ * @package    enrol
+ * @subpackage guest
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
