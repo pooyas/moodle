@@ -4,7 +4,7 @@
 /**
  * Form page for blog preferences
  *
- * @package    lioncore
+ * @package    core
  * @subpackage blog
  * @copyright  2015 Pooya Saeedi
  * 

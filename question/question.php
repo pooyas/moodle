@@ -3,7 +3,7 @@
 /**
  * Page for editing questions.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
  * 

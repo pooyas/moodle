@@ -3,7 +3,7 @@
 /**
  * This file defines the question attempt class, and a few related classes.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2009 The Open University
  * 

@@ -3,7 +3,7 @@
 /**
  * Functions common to the question usage statistics code.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2015 Pooya Saeedi
  * @author     Jamie Pratt <me@jamiep.org>

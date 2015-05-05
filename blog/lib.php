@@ -3,7 +3,7 @@
 /**
  * Core global functions for Blog.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage blog
  * @copyright  2015 Pooya Saeedi
  * 
@@ -918,8 +918,6 @@ function blog_get_associated_count($courseid, $cmid=null) {
  * Capability check has been done in comment->check_permissions(), we
  * don't need to do it again here.
  *
- * @package  core_blog
- * @category comment
  *
  * @param stdClass $comment_param {
  *              context  => context the context object

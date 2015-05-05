@@ -5,7 +5,7 @@
  *
  * @package    core_rating
  * @category   rating
- * @copyright  2010 Andrew Davis
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

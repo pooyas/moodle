@@ -3,7 +3,7 @@
 /**
  * Defines the form for editing question categories.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2007 Jamie Pratt me@jamiep.org
  * 

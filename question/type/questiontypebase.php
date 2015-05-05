@@ -3,7 +3,7 @@
 /**
  * The default questiontype class.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questiontypes
  * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
  * 

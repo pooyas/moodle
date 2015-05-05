@@ -5,7 +5,7 @@
  *
  * This file contains common functions for the dashboard and profile pages.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage my
  * @copyright  2010 Remote-Learner.net
  * @author     Hubert Chathi <hubert@remote-learner.net>

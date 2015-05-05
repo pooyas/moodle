@@ -4,7 +4,7 @@
  * Web service documentation renderer.
  * @package    core_rss
  * @category   rss
- * @copyright  2010 Andrew Davis
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -12,7 +12,7 @@
  * Web service documentation renderer extending the plugin_renderer_base class.
  * @package    core_rss
  * @category   rss
- * @copyright  2010 Andrew Davis
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_rss_renderer extends plugin_renderer_base {

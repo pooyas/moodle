@@ -2,7 +2,7 @@
 
 
 /**
- * @package    lioncore
+ * @package    core
  * @subpackage backup-factories
  * @copyright  2015 Pooya Saeedi
  * 

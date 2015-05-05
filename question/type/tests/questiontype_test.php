@@ -3,7 +3,7 @@
 /**
  * Unit tests for the question type base class.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questiontypes
  * @copyright  2008 The Open University
  * 

@@ -3,7 +3,7 @@
 /**
  * Defines the renderer base classes for question types.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questiontypes
  * @copyright  2009 The Open University
  * 

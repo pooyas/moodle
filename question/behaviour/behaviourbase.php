@@ -3,7 +3,7 @@
 /**
  * Defines the question behaviour base class
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbehaviours
  * @copyright  2009 The Open University
  * 

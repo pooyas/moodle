@@ -3,7 +3,8 @@
 /**
  * Unit tests for blog
  *
- * @package    core_blog
+ * @package    core
+ * @subpackage blog
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

@@ -3,7 +3,7 @@
 /**
  * This defines the states a question can be in.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2010 The Open University
  * 

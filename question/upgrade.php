@@ -5,7 +5,7 @@
  * and also check methods that can be used for pre-install checks via
  * admin/environment.php and lib/environmentlib.php.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2007 The Open University
  * 

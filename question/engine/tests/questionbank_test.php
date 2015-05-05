@@ -3,7 +3,7 @@
 /**
  * This file contains tests for the question_bank class.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2011 The Open University
  * 

@@ -3,7 +3,7 @@
 /**
  * This file contains tests for the autosave code in the question_usage class.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2015 Pooya Saeedi
  * 

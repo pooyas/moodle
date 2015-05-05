@@ -4,7 +4,7 @@
  * This file contains classes for handling the different question behaviours
  * during upgrade.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2010 The Open University
  * 

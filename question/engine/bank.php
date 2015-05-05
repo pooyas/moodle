@@ -7,7 +7,7 @@
  * fully object oriented structure, at which point this file can be a
  * starting point.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2009 The Open University
  * 

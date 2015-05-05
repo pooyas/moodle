@@ -3,7 +3,7 @@
 /**
  * This script allows a teacher to create, edit and delete question categories.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  1999 onwards Martin Dougiamas {@link http://lion.com}
  * 

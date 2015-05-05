@@ -2,7 +2,7 @@
 
 
 /**
- * @package    lioncore
+ * @package    core
  * @subpackage backup-settings
  * @copyright  2015 Pooya Saeedi
  * 

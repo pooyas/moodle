@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package    lioncore
+ * @package    core
  * @subpackage backup-lion2
  * @copyright  2015 Pooya Saeedi
  * 

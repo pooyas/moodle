@@ -24,7 +24,7 @@ require_once($CFG->libdir.'/filelib.php');
  * 2. oauth_helper class don't store tokens and secrets, you must store them manually
  * 3. Some functions are based on http://code.google.com/p/oauth/
  *
- * @package    lioncore
+ * @package    core
  * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
  * 
  */

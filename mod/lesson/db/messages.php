@@ -5,7 +5,7 @@
  * Defines message providers (types of messages being sent)
  *
  * @package mod_lesson
- * @copyright 2010 Andrew Davis
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

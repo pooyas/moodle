@@ -3,7 +3,7 @@
 /**
  * Data generators tests
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2015 Pooya Saeedi
  * 

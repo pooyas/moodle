@@ -3,7 +3,7 @@
 /**
  * Unit tests for the question import and export system.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2009 The Open University
  * 

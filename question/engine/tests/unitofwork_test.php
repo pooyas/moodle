@@ -3,7 +3,7 @@
 /**
  * This file contains tests for the question_engine_unit_of_work class.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2012 The Open University
  * 

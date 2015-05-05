@@ -3,7 +3,7 @@
 /**
  * This defines the core classes of the Lion question engine.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2009 The Open University
  * 

@@ -4,7 +4,7 @@
 /**
  * Lionform for the user interface for managing external blog links.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage blog
  * @copyright  2015 Pooya Saeedi
  * 

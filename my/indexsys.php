@@ -13,7 +13,7 @@
  * This script implements the user's view of the dashboard, and allows editing
  * of the dashboard.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage my
  * @copyright  2010 Remote-Learner.net
  * @author     Hubert Chathi <hubert@remote-learner.net>

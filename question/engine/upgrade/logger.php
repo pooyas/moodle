@@ -3,7 +3,7 @@
 /**
  * Code that deals with logging stuff during the question engine upgrade.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2010 The Open University
  * 

@@ -3,7 +3,7 @@
 /**
  * This file contains tests for the question_usage_by_activity class.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2009 The Open University
  * 

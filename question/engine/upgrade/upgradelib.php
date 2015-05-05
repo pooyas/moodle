@@ -4,7 +4,7 @@
  * This file contains the code required to upgrade all the attempt data from
  * old versions of Lion into the tables used by the new question engine.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2010 The Open University
  * 

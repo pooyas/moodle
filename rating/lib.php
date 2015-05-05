@@ -5,7 +5,7 @@
  *
  * @package    core_rating
  * @subpackage rating
- * @copyright  2010 Andrew Davis
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ define ('RATING_DEFAULT_SCALE', 5);
  *
  * @package   core_rating
  * @category  rating
- * @copyright 2010 Andrew Davis
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */
@@ -353,7 +353,7 @@ class rating implements renderable {
  *
  * @package   core_rating
  * @category  rating
- * @copyright 2010 Andrew Davis
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */
@@ -1044,7 +1044,7 @@ class rating_manager {
  *
  * @package   core_rating
  * @category  rating
- * @copyright 2010 Andrew Davis
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */

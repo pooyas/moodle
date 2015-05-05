@@ -5,7 +5,7 @@
  * question engine. The acutal tests are organised by question type in files
  * like question/type/truefalse/tests/upgradelibnewqe_test.php.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2009 The Open University
  * 

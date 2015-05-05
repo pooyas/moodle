@@ -3,7 +3,7 @@
 /**
  * Defines the import questions form.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2015 Pooya Saeedi
  * 

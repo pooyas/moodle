@@ -3,7 +3,7 @@
 /**
  * Library functions used by question/preview.php.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2010 The Open University
  * 

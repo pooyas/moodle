@@ -5,7 +5,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Quiz module test data generator class
  *
- * @package    lioncore
+ * @package    core
  * @subpackage question
  * @copyright  2015 Pooya Saeedi
  * 

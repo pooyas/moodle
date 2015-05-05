@@ -3,7 +3,7 @@
 /**
  * Renderers for outputting blog data
  *
- * @package    core_blog
+ * @package    core
  * @subpackage blog
  * @copyright  2015 Pooya Saeedi
  * 

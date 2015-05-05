@@ -2,7 +2,7 @@
 /**
  * JavaScript required by the question engine.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2008 The Open University
  * 

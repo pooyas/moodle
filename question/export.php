@@ -3,7 +3,7 @@
 /**
  * Script for importing questions into the question bank.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2015 Pooya Saeedi
  * 

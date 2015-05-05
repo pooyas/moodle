@@ -8,7 +8,7 @@
  * information is stored in the session as an array of subsequent states rather
  * than in the database.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  Alex Smith {@link http://maths.york.ac.uk/serving_maths} and
  *      numerous contributors.

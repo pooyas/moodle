@@ -21,7 +21,7 @@
  * Other interfaces:
  * - question_response_answer_comparer
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questiontypes
  * @copyright  2009 The Open University
  * 

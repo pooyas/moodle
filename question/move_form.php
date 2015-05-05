@@ -3,7 +3,7 @@
 /**
  * Form for moving questions between categories.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2008 The Open University
  * 

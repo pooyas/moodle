@@ -6,7 +6,7 @@
  * Action methods like start, process_action and finish are assumed to be
  * tested by walkthrough tests in the various behaviours.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2009 The Open University
  * 

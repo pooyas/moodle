@@ -3,7 +3,7 @@
 /**
  * Classes for Blogs.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage blog
  * @copyright  2015 Pooya Saeedi
  * 
@@ -19,9 +19,6 @@ require_once($CFG->libdir . '/filelib.php');
  * This class follows the Object Relational Mapping technique, its member variables being mapped to
  * the fields of the post table.
  *
- * @package    lioncore
- * @subpackage blog
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class blog_entry implements renderable {
@@ -546,10 +543,6 @@ class blog_entry implements renderable {
 /**
  * Abstract Blog_Listing class: used to gather blog entries and output them as listings. One of the subclasses must be used.
  *
- * @package    lioncore
- * @subpackage blog
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class blog_listing {
     /**

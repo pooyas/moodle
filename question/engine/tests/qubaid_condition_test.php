@@ -3,7 +3,7 @@
 /**
  * This file contains tests for some of the code in ../datalib.php.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2009 The Open University
  * 

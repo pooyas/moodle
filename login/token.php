@@ -2,7 +2,7 @@
 
 /**
  * Return token
- * @package    lioncore
+ * @package    core
  * @copyright  2011 Dongsheng Cai <dongsheng@lion.com>
  * 
  */

@@ -3,7 +3,7 @@
 /**
  * Defines the renderer base class for question behaviours.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbehaviours
  * @copyright  2009 The Open University
  * 

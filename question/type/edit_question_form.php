@@ -3,7 +3,7 @@
 /**
  * A base class for question editing forms.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questiontypes
  * @copyright  2006 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License

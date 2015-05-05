@@ -1,10 +1,9 @@
 <?php
 
-
 /**
  * Blog entry edit page
  *
- * @package    lioncore
+ * @package    core
  * @subpackage blog
  * @copyright  2015 Pooya Saeedi
  * 

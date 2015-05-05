@@ -3,7 +3,7 @@
 /**
  * Used by ajax calls to toggle the flagged state of a question in an attempt.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2009 The Open University
  * 

@@ -4,7 +4,13 @@
  * file index.php
  * index page to view blogs. if no blog is specified then site wide entries are shown
  * if a blog id is specified then the latest entries from that blog are shown
+ *
+ * @package    core
+ * @subpackage blog
+ * @copyright  2015 Pooya Saeedi
+ *
  */
+
 
 require_once(dirname(dirname(__FILE__)).'/config.php');
 require_once($CFG->dirroot .'/blog/lib.php');

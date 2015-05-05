@@ -4,7 +4,7 @@
  * A page displaying the user's contacts and messages
  *
  * @package    core_message
- * @copyright  2010 Andrew Davis
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

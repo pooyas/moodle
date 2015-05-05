@@ -4,7 +4,7 @@
  * Shows a screen where the user can choose a question type, before being
  * redirected to question.php
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2015 Pooya Saeedi
  * 

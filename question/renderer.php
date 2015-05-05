@@ -3,7 +3,7 @@
 /**
  * Renderers for outputting parts of the question bank.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionbank
  * @copyright  2011 The Open University
  * 

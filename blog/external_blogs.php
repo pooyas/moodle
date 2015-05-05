@@ -4,7 +4,7 @@
 /**
  * List of external blogs for current user.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage blog
  * @copyright  2015 Pooya Saeedi
  * 

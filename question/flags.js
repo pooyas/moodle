@@ -5,7 +5,7 @@
  * This script, and the YUI libraries that it needs, are inluded by
  * the $PAGE->requires->js calls in question_get_html_head_contributions in lib/questionlib.php.
  *
- * @package    lioncore
+ * @package    core
  * @subpackage questionengine
  * @copyright  2010 The Open University
  * 
