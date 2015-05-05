@@ -4,8 +4,9 @@
 /**
  * Functions and classes for comments management
  *
- * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @package    core
+ * @subpackage comment
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die();
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * comment_manager is helper class to manage lion comments in admin page (Reports->Comments)
  *
- * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class comment_manager {
 

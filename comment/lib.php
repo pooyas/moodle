@@ -3,8 +3,9 @@
 /**
  * Functions and classes for commenting
  *
- * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @package    core
+ * @subpackage comment
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die();
@@ -12,10 +13,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Comment is helper class to add/delete comments anywhere in lion
  *
- * @package   core
- * @category  comment
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class comment {
     /** @var int there may be several comment box in one page so we need a client_id to recognize them */
@@ -1030,9 +1027,6 @@ class comment {
 /**
  * Comment exception class
  *
- * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class comment_exception extends lion_exception {
 }

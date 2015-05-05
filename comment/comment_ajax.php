@@ -1,10 +1,11 @@
 <?php
 
-/*
+/**
  * Handling all ajax request for comments API
  *
- * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @package    core
+ * @subpackage comment
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 define('AJAX_SCRIPT', true);

@@ -1,10 +1,11 @@
 <?php
 
-/*
+/**
  * Handling new comments from non-js comments interface
  *
- * @package   core
- * @copyright 2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @package    core
+ * @subpackage comment
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once('../config.php');
