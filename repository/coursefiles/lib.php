@@ -5,7 +5,7 @@
  *
  * @since Lion 2.0
  * @package    repository_coursefiles
- * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once($CFG->dirroot . '/repository/lib.php');
@@ -15,7 +15,7 @@ require_once($CFG->dirroot . '/repository/lib.php');
  *
  * @since Lion 2.0
  * @package    repository_coursefiles
- * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class repository_coursefiles extends repository {

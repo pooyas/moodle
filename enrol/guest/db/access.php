@@ -4,7 +4,7 @@
  * Capabilities for guest access plugin.
  *
  * @package    enrol_guest
- * @copyright  2010 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

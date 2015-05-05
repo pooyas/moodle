@@ -4,7 +4,7 @@
  * Prints navigation tabs
  *
  * @package    core_group
- * @copyright  2010 Petr Skoda (http://lion.com)
+ * @copyright  2015 Pooya Saeedi (http://lion.com)
  * 
  */
     $row = array();

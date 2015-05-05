@@ -3932,7 +3932,7 @@ class core_renderer_cli extends core_renderer {
  * This renderer prevents accidental sends back only json
  * encoded error messages, all other output is ignored.
  *
- * @copyright 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core

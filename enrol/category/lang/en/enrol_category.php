@@ -4,7 +4,7 @@
  * Strings for component 'enrol_category', language 'en'.
  *
  * @package    enrol_category
- * @copyright  2010 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

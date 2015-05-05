@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Interface marking other classes as suitable for renderer_base::render()
  *
- * @copyright 2010 Petr Skoda (skodak) info@skodak.org
+ * @copyright 2015 Pooya Saeedi (skodak) info@skodak.org
  * @package core
  * @category output
  */
@@ -128,7 +128,7 @@ class file_picker implements renderable {
 /**
  * Data structure representing a user picture.
  *
- * @copyright 2015 Pooya Saeedi, 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi, 2015 Pooya Saeedi
  * 
  * @since Modle 2.0
  * @package core
@@ -427,7 +427,7 @@ class user_picture implements renderable {
 /**
  * Data structure representing a help icon.
  *
- * @copyright 2010 Petr Skoda (info@skodak.org)
+ * @copyright 2015 Pooya Saeedi (info@skodak.org)
  * 
  * @since Lion 2.0
  * @package core
@@ -483,7 +483,7 @@ class help_icon implements renderable {
 /**
  * Data structure representing an icon.
  *
- * @copyright 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -931,7 +931,7 @@ class url_select implements renderable {
 /**
  * Data structure describing html link with special action attached.
  *
- * @copyright 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -1020,7 +1020,7 @@ class action_link implements renderable {
 /**
  * Simple html output class
  *
- * @copyright 2015 Pooya Saeedi, 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi, 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core
@@ -1842,7 +1842,7 @@ class html_writer {
 /**
  * Simple javascript output class
  *
- * @copyright 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @package core

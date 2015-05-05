@@ -3,8 +3,9 @@
 /**
  * A form for cohort upload.
  *
- * @package    core_cohort
- * @copyright  2015 Pooya Saeedi
+ * @package    core
+ * @subpackage cohort
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

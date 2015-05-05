@@ -5,7 +5,7 @@
  *
  * @package    core_cohort
  * @subpackage cohort
- * @copyright  2010 Petr Skoda (info@skodak.org)
+ * @copyright  2015 Pooya Saeedi (info@skodak.org)
  * 
  */
 

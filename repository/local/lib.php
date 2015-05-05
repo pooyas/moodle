@@ -5,7 +5,7 @@
  *
  * @since Lion 2.0
  * @package    repository_local
- * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once($CFG->dirroot . '/repository/lib.php');

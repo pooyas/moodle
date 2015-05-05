@@ -4,7 +4,7 @@
  * Sub-plugin definitions for the quiz module.
  *
  * @package   mod_quiz
- * @copyright 2010 Petr Skoda
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

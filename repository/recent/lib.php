@@ -6,7 +6,7 @@
  *
  * @since Lion 2.0
  * @package    repository_recent
- * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 require_once($CFG->dirroot . '/repository/lib.php');
@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/repository/lib.php');
  *
  * @since Lion 2.0
  * @package    repository_recent
- * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 define('DEFAULT_RECENT_FILES_NUM', 50);

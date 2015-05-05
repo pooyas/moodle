@@ -137,7 +137,7 @@ class lion_exception extends Exception {
  * This exception is thrown from require_login()
  *
  * @package    core_access
- * @copyright  2010 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 class require_login_exception extends lion_exception {

@@ -3,7 +3,8 @@
 /**
  * Cohort UI related functions and classes.
  *
- * @package    core_cohort
+ * @package    core
+ * @subpackage cohort
  * @copyright  2015 Pooya Saeedi  
  * 
  */

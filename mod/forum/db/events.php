@@ -5,7 +5,7 @@
  *
  * @package mod_forum
  * @category event
- * @copyright 2010 Petr Skoda  
+ * @copyright 2015 Pooya Saeedi  
  * 
  */
 

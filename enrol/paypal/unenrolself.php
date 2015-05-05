@@ -4,7 +4,7 @@
  * PayPal enrolment plugin - support for user self unenrolment.
  *
  * @package    enrol_paypal
- * @copyright  2010 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

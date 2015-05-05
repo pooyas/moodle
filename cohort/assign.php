@@ -3,8 +3,9 @@
 /**
  * Cohort related management functions, this file needs to be included manually.
  *
- * @package    core_cohort
- * @copyright  2010 Petr Skoda  
+ * @package    core
+ * @subpackage cohort
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

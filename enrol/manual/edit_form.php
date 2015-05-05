@@ -5,7 +5,7 @@
  * or edits current instance.
  *
  * @package    enrol_manual
- * @copyright  2010 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

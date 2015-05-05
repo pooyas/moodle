@@ -6,7 +6,7 @@
  *
  * @package    webservice_xmlrpc
  * @category   string
- * @copyright  2010 Petr Skodak
+ * @copyright  2015 Pooya Saeedik
  * 
  */
 

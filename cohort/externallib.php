@@ -3,9 +3,10 @@
 /**
  * External cohort API
  *
- * @package    core_cohort
+ * @package    core
+ * @subpackage cohort
  * @category   external
- * @copyright  MediaTouch 2000 srl
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

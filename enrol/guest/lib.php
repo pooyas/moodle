@@ -7,7 +7,7 @@
  * the access control is granted on the fly via the tricks in require_login().
  *
  * @package    enrol_guest
- * @copyright  2010 Petr Skoda  
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

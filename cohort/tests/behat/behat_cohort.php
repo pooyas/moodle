@@ -3,7 +3,8 @@
 /**
  * Cohorts steps definitions.
  *
- * @package    core_cohort
+ * @package    core
+ * @subpackage cohort
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -18,10 +19,6 @@ use Behat\Behat\Context\Step\Given as Given;
 /**
  * Steps definitions for cohort actions.
  *
- * @package    core_cohort
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_cohort extends behat_base {
 

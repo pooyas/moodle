@@ -4,7 +4,7 @@
  * This file is serving optimised JS
  *
  * @package    core_lib
- * @copyright  2010 Petr Skoda (skodak)
+ * @copyright  2015 Pooya Saeedi (skodak)
  * 
  */
 

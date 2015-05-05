@@ -3,9 +3,10 @@
 /**
  * External cohort API
  *
- * @package    core_cohort
- * @category   external
- * @copyright  MediaTouch 2000 srl
+ * @package    core
+ * @subpackage cohort
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
