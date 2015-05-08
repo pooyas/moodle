@@ -3,8 +3,9 @@
 /**
  * General database importer class
  *
- * @package    core_dtl
- * @copyright  2008 Andrei Bautu
+ * @package    core
+ * @subpackage dtl
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

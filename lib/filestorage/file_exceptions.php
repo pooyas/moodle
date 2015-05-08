@@ -3,7 +3,7 @@
 /**
  * File handling related exceptions.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -13,10 +13,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Basic file related exception class.
  *
- * @package   core_files
- * @category  files
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class file_exception extends lion_exception {
     /**
@@ -34,10 +30,6 @@ class file_exception extends lion_exception {
 /**
  * Can not create file exception.
  *
- * @package   core_files
- * @category  files
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class stored_file_creation_exception extends file_exception {
     /**
@@ -66,10 +58,6 @@ class stored_file_creation_exception extends file_exception {
 /**
  * No file access exception.
  *
- * @package   core_files
- * @category  files
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class file_access_exception extends file_exception {
     /**
@@ -85,10 +73,6 @@ class file_access_exception extends file_exception {
 /**
  * Hash file content problem exception.
  *
- * @package   core_files
- * @category  files
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class file_pool_content_exception extends file_exception {
     /**
@@ -106,10 +90,6 @@ class file_pool_content_exception extends file_exception {
 /**
  * Problem with records in the {files_reference} table.
  *
- * @package   core_files
- * @category  files
- * @copyright 2012 David Mudrak <david@lion.com>
- * 
  */
 class file_reference_exception extends file_exception {
     /**

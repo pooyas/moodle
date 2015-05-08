@@ -268,7 +268,7 @@ class qbehaviour_adaptive extends question_behaviour_with_multiple_tries {
  * This class encapsulates all the information about the current state-of-play
  * scoring-wise. It is used to communicate between the beahviour and the renderer.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_adaptive_mark_details {

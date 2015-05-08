@@ -3,8 +3,9 @@
 /**
  * TinyMCE subplugin type declaration.
  *
- * @package editor_tinymce
- * @copyright 2012 The Open University
+ * @package   editor
+ * @subpackage tinymce
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

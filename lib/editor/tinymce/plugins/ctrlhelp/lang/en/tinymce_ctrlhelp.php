@@ -3,7 +3,8 @@
 /**
  * Strings for CTRL+Right click helper.
  *
- * @package   tinymce_ctrlhelp
+ * @package   tinymce
+ * @subpackage ctrlhelp
  * @copyright 2015 Pooya Saeedi
  * 
  */

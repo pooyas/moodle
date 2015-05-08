@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'folder', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'folder', language 'en'
  *
  * @package   mod_folder
  * @copyright 2015 Pooya Saeedi

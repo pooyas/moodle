@@ -4,9 +4,10 @@
 /**
  * External groups API
  *
- * @package    core_group
+ * @package    core
+ * @subpackage group
  * @category   external
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,11 +16,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Group external functions
  *
- * @package    core_group
- * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * 
- * @since Lion 2.2
  */
 class core_group_external extends external_api {
 
@@ -1254,10 +1250,6 @@ class core_group_external extends external_api {
 /**
  * Deprecated group external functions
  *
- * @package    core_group
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_group_external
  */

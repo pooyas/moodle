@@ -4,7 +4,7 @@
  * The report_outline activity report viewed event.
  *
  * @package    report_outline
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace report_outline\event;
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    report_outline
  * @since      Lion 2.7
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class activity_report_viewed extends \core\event\base {

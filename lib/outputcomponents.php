@@ -3,8 +3,6 @@
 /**
  * Classes representing HTML elements, used by $OUTPUT methods
  *
- * Please see http://docs.lion.org/en/Developement:How_Lion_outputs_HTML
- * for an overview.
  *
  * @package core
  * @category output
@@ -17,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Interface marking other classes as suitable for renderer_base::render()
  *
- * @copyright 2015 Pooya Saeedi (skodak) info@skodak.org
- * @package core
- * @category output
  */
 interface renderable {
     // intentionally empty
@@ -28,10 +23,6 @@ interface renderable {
 /**
  * Interface marking other classes having the ability to export their data for use by templates.
  *
- * @copyright 2015 Damyon Wiese
- * @package core
- * @category output
- * @since 2.9
  */
 interface templatable {
 
@@ -50,11 +41,6 @@ interface templatable {
 /**
  * Data structure representing a file picker.
  *
- * @copyright 2010 Dongsheng Cai
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class file_picker implements renderable {
 
@@ -128,11 +114,6 @@ class file_picker implements renderable {
 /**
  * Data structure representing a user picture.
  *
- * @copyright 2015 Pooya Saeedi, 2015 Pooya Saeedi
- * 
- * @since Modle 2.0
- * @package core
- * @category output
  */
 class user_picture implements renderable {
     /**
@@ -427,11 +408,6 @@ class user_picture implements renderable {
 /**
  * Data structure representing a help icon.
  *
- * @copyright 2015 Pooya Saeedi (info@skodak.org)
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class help_icon implements renderable {
 
@@ -483,11 +459,6 @@ class help_icon implements renderable {
 /**
  * Data structure representing an icon.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class pix_icon implements renderable {
 
@@ -536,11 +507,6 @@ class pix_icon implements renderable {
 /**
  * Data structure representing an emoticon image
  *
- * @copyright 2010 David Mudrak
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class pix_emoticon extends pix_icon implements renderable {
 
@@ -562,11 +528,6 @@ class pix_emoticon extends pix_icon implements renderable {
 /**
  * Data structure representing a simple form with only one button.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class single_button implements renderable {
 
@@ -657,11 +618,6 @@ class single_button implements renderable {
  *
  * If JS not enabled small go button is printed too.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class single_select implements renderable {
 
@@ -810,11 +766,6 @@ class single_select implements renderable {
 /**
  * Simple URL selection widget description.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class url_select implements renderable {
     /**
@@ -931,11 +882,6 @@ class url_select implements renderable {
 /**
  * Data structure describing html link with special action attached.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class action_link implements renderable {
 
@@ -1020,11 +966,6 @@ class action_link implements renderable {
 /**
  * Simple html output class
  *
- * @copyright 2015 Pooya Saeedi, 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class html_writer {
 
@@ -1842,11 +1783,6 @@ class html_writer {
 /**
  * Simple javascript output class
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class js_writer {
 
@@ -1979,11 +1915,6 @@ class js_writer {
  * ... // set various properties of the object $t as described below
  * echo html_writer::table($t);
  *
- * @copyright 2009 David Mudrak <david.mudrak@gmail.com>
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class html_table {
 
@@ -2154,11 +2085,6 @@ class html_table {
 /**
  * Component representing a table row.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class html_table_row {
 
@@ -2202,11 +2128,6 @@ class html_table_row {
 /**
  * Component representing a table cell.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class html_table_cell {
 
@@ -2269,11 +2190,6 @@ class html_table_cell {
 /**
  * Component representing a paging bar.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class paging_bar implements renderable {
 
@@ -2440,11 +2356,6 @@ class paging_bar implements renderable {
  * Other block-like things that need to appear on the page, for example the
  * add new block UI, are also represented as block_contents objects.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class block_contents {
 
@@ -2574,11 +2485,6 @@ class block_contents {
  * clicking anywhere in the form should submit it. The form action should be
  * $PAGE->url.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class block_move_target {
 
@@ -2602,11 +2508,6 @@ class block_move_target {
  * This class is used to represent one item within a custom menu that may or may
  * not have children.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class custom_menu_item implements renderable {
 
@@ -2807,11 +2708,6 @@ class custom_menu_item implements renderable {
  * To configure the custom menu:
  *     Settings: Administration > Appearance > Themes > Theme settings
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class custom_menu extends custom_menu_item {
 
@@ -2965,8 +2861,6 @@ class custom_menu extends custom_menu_item {
 /**
  * Stores one tab
  *
- * 
- * @package core
  */
 class tabobject implements renderable {
     /** @var string unique id of the tab in this tree, it is used to find selected and/or inactive tabs */
@@ -3074,11 +2968,6 @@ class tabobject implements renderable {
  * Multiple row tabs may not look good on some devices but if you want to use them
  * you can specify ->subtree for the active tabobject.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.5
- * @package core
- * @category output
  */
 class tabtree extends tabobject {
     /**
@@ -3121,10 +3010,6 @@ class tabtree extends tabobject {
  * The primary actions are displayed permanently and the secondary attributes are displayed within a drop
  * down menu.
  *
- * @package core
- * @category output
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class action_menu implements renderable {
 
@@ -3480,10 +3365,6 @@ class action_menu implements renderable {
 /**
  * An action menu filler
  *
- * @package core
- * @category output
- * @copyright 2013 Andrew Nicols
- * 
  */
 class action_menu_filler extends action_link implements renderable {
 
@@ -3503,10 +3384,6 @@ class action_menu_filler extends action_link implements renderable {
 /**
  * An action menu action
  *
- * @package core
- * @category output
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class action_menu_link extends action_link implements renderable {
 
@@ -3542,10 +3419,6 @@ class action_menu_link extends action_link implements renderable {
 /**
  * A primary action menu action
  *
- * @package core
- * @category output
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class action_menu_link_primary extends action_menu_link {
     /**
@@ -3564,10 +3437,6 @@ class action_menu_link_primary extends action_menu_link {
 /**
  * A secondary action menu action
  *
- * @package core
- * @category output
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class action_menu_link_secondary extends action_menu_link {
     /**

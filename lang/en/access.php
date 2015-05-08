@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'access', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'access', language 'en'
  *
- * @package   core_access
+ * @package   core
+ * @subpackage access
  * @copyright 2015 Pooya Saeedi
  * 
  */

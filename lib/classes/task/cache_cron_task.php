@@ -4,7 +4,7 @@
  * A scheduled task.
  *
  * @package    core
- * @copyright  2013 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\task;

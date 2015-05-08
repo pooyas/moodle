@@ -3,7 +3,7 @@
 /**
  * Generic group field class.
  *
- * @package    core_form
+ * @package    core
  * @category   test
  * @copyright  2014 2015 Pooya Saeedi
  * 
@@ -20,10 +20,6 @@ require_once(__DIR__  . '/behat_form_field.php');
  * of field are we dealing with, so we should re-guess it as behat_form_field
  * does.
  *
- * @package    core_form
- * @category   test
- * @copyright  2014 2015 Pooya Saeedi
- * 
  */
 class behat_form_group extends behat_form_field {
 }

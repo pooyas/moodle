@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'portfolio_mahara', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'portfolio_mahara', language 'en'
  *
  * @package   portfolio_mahara
  * @copyright 2015 Pooya Saeedi

@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'workshopform_rubric', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'workshopform_rubric', language 'en'
  *
  * @package    workshopform_rubric
  * @copyright  2009 David Mudrak <david@lion.com>

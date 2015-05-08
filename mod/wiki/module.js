@@ -3,7 +3,7 @@
  * Javascript helper function for wiki
  *
  * @package   mod-wiki
- * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

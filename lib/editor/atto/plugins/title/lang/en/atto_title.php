@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_title', language 'en'.
  *
- * @package    atto_title
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage title
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

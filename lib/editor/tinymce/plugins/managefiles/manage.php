@@ -3,7 +3,8 @@
 /**
  * Manage files in user draft area attached to texteditor
  *
- * @package   tinymce_managefiles
+ * @package   tinymce
+ * @subpackage managefiles
  * @copyright 2015 Pooya Saeedi
  * 
  */

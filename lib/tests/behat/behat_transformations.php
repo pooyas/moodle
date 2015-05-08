@@ -23,10 +23,6 @@ use Behat\Gherkin\Node\TableNode;
  * This methods are applied to the steps arguments that matches
  * the regular expressions specified in the @Transform tag.
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_transformations extends behat_base {
 

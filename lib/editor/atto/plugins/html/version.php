@@ -3,8 +3,9 @@
 /**
  * Atto text editor integration version file.
  *
- * @package    atto_html
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage html
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

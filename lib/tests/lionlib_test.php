@@ -5,9 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  &copy; 2006 The Open University
- * @author     T.J.Hunt@open.ac.uk
- * @author     nicolas@lion.com
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

@@ -6,8 +6,8 @@
  *
  * Contains class for static warning type element
  *
- * @package   core_form
- * @copyright 2008 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 require_once("HTML/QuickForm/static.php");
@@ -17,10 +17,6 @@ require_once("HTML/QuickForm/static.php");
  *
  * overrides {@link HTML_QuickForm_static} to display staic warning.
  *
- * @package   core_form
- * @category  form
- * @copyright 2008 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_warning extends HTML_QuickForm_static{
     /** @var string Form element type */

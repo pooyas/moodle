@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'webservice_soap', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'webservice_soap', language 'en'
  *
  * @package    webservice_soap
  * @category   string

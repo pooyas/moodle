@@ -3,8 +3,9 @@
 /**
  * Atto text editor integration version file.
  *
- * @package    atto_managefiles
- * @copyright  2014 Frédéric Massart
+ * @package    atto
+ * @subpackage managefiles
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

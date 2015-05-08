@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for our utf-8 aware collator which is used for sorting.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_collator_testcase extends advanced_testcase {
 
@@ -275,9 +271,6 @@ class core_collator_testcase extends advanced_testcase {
 /**
  * Simple class used to work with the unit test.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class string_test_class extends stdClass {

@@ -8,7 +8,6 @@ defined('LION_INTERNAL') || die();
  * New event manager class.
  *
  * @package    core
- * @since      Lion 2.6
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Emoticon integration settings.
  *
- * @package   tinymce_lionemoticon
+ * @package   tinymce
+ * @subpackage lionemoticon
  * @copyright 2015 Pooya Saeedi 
  * 
  */

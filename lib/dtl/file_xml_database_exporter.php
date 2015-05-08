@@ -3,8 +3,9 @@
 /**
  * XML format exporter class to file storage
  *
- * @package    core_dtl
- * @copyright  2008 Andrei Bautu
+ * @package    core
+ * @subpackage dtl
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

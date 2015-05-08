@@ -17,10 +17,6 @@ defined('LION_INTERNAL') || die;
  * Responds to nasty strings requests with a random string of the list
  * to try with different combinations in different places.
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class nasty_strings {
 

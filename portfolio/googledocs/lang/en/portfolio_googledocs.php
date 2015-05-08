@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'portfolio_googledocs', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'portfolio_googledocs', language 'en'
  *
  * @package   portfolio_googledocs
  * @copyright 2015 Pooya Saeedi

@@ -4,8 +4,7 @@
  * Lock configuration class, used to get an instance of the currently configured lock factory.
  *
  * @package    core
- * @category   lock
- * @copyright  Damyon Wiese 2013
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Lock configuration class, used to get an instance of the currently configured lock factory.
  *
- * @package   core
- * @category  lock
- * @copyright Damyon Wiese 2013
- * 
  */
 class lock_config {
 

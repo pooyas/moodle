@@ -5,7 +5,7 @@
  * This file defines a class with rubric grading strategy logic
  *
  * @package    workshopform_rubric
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_alfresco', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_alfresco', language 'en'
  *
  * @package   repository_alfresco
  * @copyright 2015 Pooya Saeedi

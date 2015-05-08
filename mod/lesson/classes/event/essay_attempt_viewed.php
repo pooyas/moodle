@@ -4,7 +4,7 @@
  * The mod_lesson essay attempt viewed event.
  *
  * @package    mod_lesson
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_lesson
  * @since      Lion 2.7
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 class essay_attempt_viewed extends \core\event\base {

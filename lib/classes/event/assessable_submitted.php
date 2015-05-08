@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *
  * Both events could be triggered in a row, first the uploaded, then the submitted.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class assessable_submitted extends base {
 

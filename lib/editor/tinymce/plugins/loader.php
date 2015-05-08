@@ -10,8 +10,9 @@
  * Note there are no access checks in this script - you do not have to be
  * logged in to retrieve the plugin resource files.
  *
- * @package editor_tinymce
- * @copyright 2012 The Open University
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

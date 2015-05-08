@@ -21,7 +21,6 @@
 /**
  * Exception thrown when there is an error parsing an XML file.
  *
- * @copyright 2010 The Open University
  */
 class xml_format_exception extends lion_exception {
     /** @var string */

@@ -27,10 +27,6 @@ defined('LION_INTERNAL') || die();
  * its capabilities so, don't forget to make the conversion
  * from every wrapper function!
  *
- * @package   core
- * @category  string
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_text {
 

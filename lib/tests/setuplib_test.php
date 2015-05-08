@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for setuplib.php
  *
- * @copyright 2012 The Open University
- * 
  */
 class core_setuplib_testcase extends advanced_testcase {
 

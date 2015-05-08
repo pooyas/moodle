@@ -3,8 +3,8 @@
 /**
  * Functions for interacting with the message system
  *
- * @package   core_message
- * @copyright 2008 Luis Rodrigues and Martin Dougiamas
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

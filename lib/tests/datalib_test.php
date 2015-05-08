@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test for various bits of datalib.php.
  *
- * @package   core
- * @category  phpunit
- * @copyright 2012 The Open University
- * 
  */
 class core_datalib_testcase extends advanced_testcase {
     protected function normalise_sql($sort) {

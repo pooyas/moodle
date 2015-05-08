@@ -4,7 +4,7 @@
  * The mod_scorm tracks user report viewed event.
  *
  * @package    mod_scorm
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_scorm
  * @since      Lion 2.7
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class user_report_viewed extends \core\event\base {

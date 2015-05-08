@@ -4,8 +4,7 @@
  * Mustache helper render pix icons.
  *
  * @package    core
- * @category   output
- * @copyright  2015 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +16,6 @@ use renderer_base;
 /**
  * This class will call pix_icon with the section content.
  *
- * @copyright  2015 Damyon Wiese
- * 
- * @since      2.9
  */
 class mustache_pix_helper {
 

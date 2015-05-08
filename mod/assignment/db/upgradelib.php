@@ -4,7 +4,7 @@
  * Assignment upgrade script.
  *
  * @package   mod_assignment
- * @copyright 2013 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

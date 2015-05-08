@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'survey', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'survey', language 'en'
  *
  * @package   mod_survey
  * @copyright 2015 Pooya Saeedi

@@ -5,7 +5,7 @@
  *
  * This file contains all unit test related to forms library.
  *
- * @package    core_form
+ * @package    core
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -21,7 +21,7 @@ require_once($CFG->libdir . '/form/duration.php');
  *
  * Contains test cases for testing LionQuickForm_duration
  *
- * @package    core_form
+ * @package    core
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

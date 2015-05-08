@@ -158,9 +158,6 @@ function editors_head_setup() {
 /**
  * Base abstract text editor class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
- * @package lioncore
  */
 abstract class texteditor {
     /**

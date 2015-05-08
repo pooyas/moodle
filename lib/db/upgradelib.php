@@ -8,8 +8,7 @@
  * because it might depend on db structures that are not yet present during upgrade.
  * (Do not use functions from accesslib.php, grades classes or group functions at all!)
  *
- * @package   core_install
- * @category  upgrade
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */

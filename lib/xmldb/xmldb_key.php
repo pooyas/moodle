@@ -3,9 +3,8 @@
 /**
  * This class represent one XMLDB Key
  *
- * @package    core_xmldb
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
- *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
+ * @package    core
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

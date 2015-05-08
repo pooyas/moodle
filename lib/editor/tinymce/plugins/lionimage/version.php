@@ -3,7 +3,8 @@
 /**
  * TinyMCE image insert/edit plugin version details.
  *
- * @package   tinymce_lionimage
+ * @package   tinymce
+ * @subpackage lionimage
  * @copyright 2015 Pooya Saeedi
  * 
  */

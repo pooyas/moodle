@@ -5,7 +5,7 @@
  *
  * Contains HTML class for a listing form element.
  *
- * @package   core_form
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -36,9 +36,6 @@ require_once("HTML/QuickForm/input.php");
 *   You can change the css in core.css. For example if you remove float:left; from .formlistingrow,
 *   then the item list is not display as tabs but as rows.
 *
-* @package   core_form
-* @copyright 2015 Pooya Saeedi
-* 
 */
 class LionQuickForm_listing extends HTML_QuickForm_input {
 

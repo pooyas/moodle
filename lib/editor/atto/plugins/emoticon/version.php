@@ -3,8 +3,9 @@
 /**
  * Atto text editor emoticon plugin version file.
  *
- * @package    atto_emoticon
- * @copyright  2014 Frédéric Massart
+ * @package    atto
+ * @subpackage emoticon
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

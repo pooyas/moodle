@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a select type element with options containing link
  *
- * @package   core_form
- * @copyright 2008 Nicolas Connault <nicolasconnault@gmail.com>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -18,10 +18,6 @@ require_once('HTML/QuickForm/select.php');
  *
  * HTML class for a select type element with options containing link
  *
- * @package   core_form
- * @category  form
- * @copyright 2008 Nicolas Connault <nicolasconnault@gmail.com>
- * 
  */
 class LionQuickForm_selectwithlink extends HTML_QuickForm_select{
     /** @var string html for help button, if empty then no help */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_blackboard_six', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_blackboard_six', language 'en'
  *
  * @package    qformat_blackboard_six
  * @copyright  2010 Helen Foster

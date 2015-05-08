@@ -5,7 +5,7 @@
  *
  * @package    mod_folder
  * @category   test
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

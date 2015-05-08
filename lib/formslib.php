@@ -16,8 +16,8 @@
  *      you should be using setType for every form element except select, radio or checkbox
  *              elements, these elements clean themselves.
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -101,9 +101,6 @@ function form_init_date_js() {
  *
  * You will write your own definition() method which performs the form set up.
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * 
  * @todo      MDL-19380 rethink the file scanning
  */
 abstract class lionform {
@@ -1343,9 +1340,6 @@ abstract class lionform {
  * call methods on this class from within abstract methods that you override on lionform such
  * as definition and definition_after_data
  *
- * @package   core_form
- * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
  * 
  */
 class LionQuickForm extends HTML_QuickForm_DHTMLRulesTableless {
@@ -2508,9 +2502,6 @@ function validate_' . $this->_formName . '(frm) {
  *
  * Stylesheet is part of standard theme and should be automatically included.
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
 
@@ -2844,10 +2835,6 @@ class LionQuickForm_Renderer extends HTML_QuickForm_Renderer_Tableless{
  *
  * This class overrides QuickForm validation since it allowed space or empty tag as a value
  *
- * @package   core_form
- * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_Rule_Required extends HTML_QuickForm_Rule {
     /**

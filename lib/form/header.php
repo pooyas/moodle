@@ -6,8 +6,8 @@
  *
  * Contains a pseudo-element used for adding headers to form
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ require_once 'HTML/QuickForm/header.php';
  *
  * A pseudo-element used for adding headers to form
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_header extends HTML_QuickForm_header
 {

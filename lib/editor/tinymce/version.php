@@ -3,7 +3,8 @@
 /**
  * TinyMCE text editor integration version file.
  *
- * @package    editor_tinymce
+ * @package    editor
+ * @subpackage tinymce
  * @copyright  2015 Pooya Saeedi
  * 
  */

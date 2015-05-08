@@ -6,9 +6,9 @@
  *
  * Completion top-level options (admin setting enablecompletion)
  *
- * @package core_completion
+ * @package core
  * @category completion
- * @copyright 1999 onwards Martin Dougiamas   {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -207,7 +207,7 @@ function completion_can_view_data($userid, $course = null) {
  *
  * @package core
  * @category completion
- * @copyright 2008 Sam Marshall
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class completion_info {

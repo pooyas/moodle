@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a url type element
  *
- * @package   core_form
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,10 +17,6 @@ require_once("HTML/QuickForm/text.php");
  * url type form element
  *
  * HTML class for a url type element
- * @package   core_form
- * @category  form
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
- * 
  */
 class LionQuickForm_url extends HTML_QuickForm_text{
     /** @var string html for help button, if empty then no help */

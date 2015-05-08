@@ -4,9 +4,9 @@
 /**
  * A form for the creation and editing of groups.
  *
- * @copyright 2006 The Open University, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk
- * 
- * @package   core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die;
@@ -16,9 +16,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Group form class
  *
- * @copyright 2006 The Open University, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk
- * 
- * @package   core_group
  */
 class group_form extends lionform {
 

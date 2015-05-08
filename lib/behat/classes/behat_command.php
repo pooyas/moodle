@@ -16,10 +16,6 @@ require_once(__DIR__ . '/../lib.php');
 /**
  * Behat command related utils
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_command {
 

@@ -23,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string name: name of the event.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class calendar_event_deleted extends base {
 

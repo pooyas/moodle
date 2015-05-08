@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_youtube', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_youtube', language 'en'
  *
  * @package   repository_youtube
  * @copyright 2015 Pooya Saeedi

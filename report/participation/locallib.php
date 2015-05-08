@@ -4,7 +4,7 @@
  * This file contains functions used by the participation reports
  *
  * @package   report_participation
- * @copyright 2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

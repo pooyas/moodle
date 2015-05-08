@@ -4,7 +4,7 @@
  * Produces a sample PDF using lib/pdflib.php
  *
  * @package    core
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -26,7 +26,7 @@ if (!$fontfamily) {
  * Extend the standard PDF class to get access to some protected values we want to display
  * at the test page.
  *
- * @copyright 2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 if ($getpdf) {

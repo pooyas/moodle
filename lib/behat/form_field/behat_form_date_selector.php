@@ -3,7 +3,7 @@
 /**
  * Date form field class.
  *
- * @package    core_form
+ * @package    core
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -19,10 +19,6 @@ require_once(__DIR__  . '/behat_form_group.php');
  * This class will be refactored in case we are interested in
  * creating more complex formats to fill date and date-time fields.
  *
- * @package    core_form
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_form_date_selector extends behat_form_group {
 }

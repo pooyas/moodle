@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_emoticon', language 'en'.
  *
- * @package    atto_emoticon
- * @copyright  2014 Frédéric Massart
+ * @package    atto
+ * @subpackage emoticon
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_strike', language 'en'.
  *
- * @package    atto_strike
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage strike
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

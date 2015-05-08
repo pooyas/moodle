@@ -23,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - float finalgrade: (optional) the final grade value.
  * }
  *
- * @package    core
- * @since      Lion 2.8
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class grade_deleted extends base {
 

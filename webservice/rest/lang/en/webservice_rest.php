@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'webservice_rest', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'webservice_rest', language 'en'
  *
  * @package    webservice_rest
  * @category   string

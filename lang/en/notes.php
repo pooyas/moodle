@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Strings for component 'notes', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'notes', language 'en'
  *
- * @package    core_notes
+ * @package    core
  * @subpackage notes
  * @copyright  2015 Pooya Saeedi
  * 

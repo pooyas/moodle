@@ -4,8 +4,7 @@
  * Mustache helper that will add JS to the end of the page.
  *
  * @package    core
- * @category   output
- * @copyright  2015 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +13,6 @@ namespace core\output;
 /**
  * Store a list of JS calls to insert at the end of the page.
  *
- * @copyright  2015 Damyon Wiese
- * 
- * @since      2.9
  */
 class mustache_javascript_helper {
 

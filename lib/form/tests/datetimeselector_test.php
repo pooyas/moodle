@@ -5,9 +5,9 @@
  *
  * This file contains unit test related to datetimeselector form element
  *
- * @package    core_form
+ * @package    core
  * @category   phpunit
- * @copyright  2012 Rajesh Taneja
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,9 +22,9 @@ require_once($CFG->libdir.'/formslib.php');
  *
  * Contains test cases for testing LionQuickForm_date_time_selector
  *
- * @package    core_form
+ * @package    core
  * @category   phpunit
- * @copyright  2012 Rajesh Taneja
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_form_datetimeselector_testcase extends basic_testcase {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'chat', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'chat', language 'en'
  *
  * @package   mod_chat
  * @copyright 2015 Pooya Saeedi

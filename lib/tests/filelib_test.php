@@ -3,9 +3,9 @@
 /**
  * Unit tests for /lib/filelib.php.
  *
- * @package   core_files
+ * @package   core
  * @category  phpunit
- * @copyright 2009 Jerome Mouneyrac
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

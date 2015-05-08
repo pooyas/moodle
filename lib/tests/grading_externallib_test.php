@@ -9,7 +9,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 /**
  * Unit tests for the grading API defined in core_grading_external class.
  *
- * @package core_grading
+ * @package core
  * @category external
  * @copyright 2015 Pooya Saeedi
  * 

@@ -3,7 +3,7 @@
 /**
  * Radio input form element.
  *
- * @package    core_form
+ * @package    core
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -28,10 +28,6 @@ require_once(__DIR__  . '/behat_form_checkbox.php');
  * finds a input[type=radio] and it delegates set_value() and
  * get_value() to behat_form_radio.
  *
- * @package    core_form
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_form_radio extends behat_form_checkbox {
 

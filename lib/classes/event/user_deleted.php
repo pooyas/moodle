@@ -24,10 +24,6 @@ defined('LION_INTERNAL') || die();
  *      - int mnethostid: mnet host id.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_deleted extends base {
 

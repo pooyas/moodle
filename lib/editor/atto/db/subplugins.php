@@ -3,8 +3,9 @@
 /**
  * Yui Editor
  *
- * @package    editor_atto
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    editor
+ * @subpackage atto
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

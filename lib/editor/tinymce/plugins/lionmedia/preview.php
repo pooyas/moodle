@@ -4,8 +4,9 @@
  * Provides A/V preview features for the TinyMCE editor Lion Media plugin.
  * The preview is included in an iframe within the popup dialog.
  *
- * @package   tinymce_lionmedia
- * @copyright 1999 onwards Martin Dougiamas   {@link http://lion.com}
+ * @package   tinymce
+ * @subpackage lionmedia
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

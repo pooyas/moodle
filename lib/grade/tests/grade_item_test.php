@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @package    core_grades
+ * @package    core
  * @category   phpunit
- * @copyright  nicolas@lion.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

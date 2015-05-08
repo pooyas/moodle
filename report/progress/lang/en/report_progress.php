@@ -5,7 +5,7 @@
  *
  * @package    report
  * @subpackage progress
- * @copyright  2008 Sam Marshall
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

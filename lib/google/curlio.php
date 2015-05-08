@@ -3,7 +3,7 @@
 /**
  * This file contains the class lion_google_curlio.
  *
- * @package core_google
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -19,8 +19,6 @@ require_once($CFG->libdir . '/google/Google/IO/Exception.php');
  * The initial purpose of this class is to add support for our
  * class curl in Google_IO_Curl. It mostly entirely overrides it.
  *
- * @package core_google
- * @copyright 2015 Pooya Saeedi
  * 
 */
 class lion_google_curlio extends Google_IO_Curl {

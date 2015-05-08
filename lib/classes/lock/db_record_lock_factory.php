@@ -4,8 +4,7 @@
  * This is a db record locking factory.
  *
  * @package    core
- * @category   lock
- * @copyright  Damyon Wiese 2013
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,9 +19,6 @@ defined('LION_INTERNAL') || die();
  * value was set. It supports timeouts, autorelease and can work on any DB. The downside - is this
  * will always be slower than some shared memory type locking function.
  *
- * @package   core
- * @category  lock
- * @copyright Damyon Wiese 2013
  * 
  */
 class db_record_lock_factory implements lock_factory {

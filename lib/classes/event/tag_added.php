@@ -25,10 +25,6 @@ defined('LION_INTERNAL') || die();
  *      - string itemtype: the type of item tagged.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class tag_added extends base {
 

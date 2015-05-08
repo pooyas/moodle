@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
  *
  * Event for when a new blog entry is deleted.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 
 class blog_entry_deleted extends base {

@@ -3,7 +3,7 @@
 /**
  * Functions for file handling.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -2641,10 +2641,6 @@ function file_modify_html_header($text) {
  * $html = $c->put('http://example.com/', array('file'=>'/var/www/test.txt');
  * </code>
  *
- * @package   core_files
- * @category files
- * @copyright Dongsheng Cai <dongsheng@lion.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class curl {
     /** @var bool Caches http request contents */
@@ -3535,8 +3531,6 @@ class curl {
  * $ret = $c->get('http://www.google.com');
  * </code>
  *
- * @package   core_files
- * @copyright Dongsheng Cai <dongsheng@lion.com>
  * 
  */
 class curl_cache {

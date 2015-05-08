@@ -3,7 +3,7 @@
  * Event for when blog entries are viewed.
  *
  * @package    core
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\event;
@@ -26,10 +26,6 @@ defined('LION_INTERNAL') || die();
  *      - int fromstart: (optional) the time to search from.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2013 onwards Ankit Agarwal
- * 
  */
 class blog_entries_viewed extends base {
 

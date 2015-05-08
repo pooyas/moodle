@@ -3,8 +3,7 @@
 /**
  * External grading API
  *
- * @package    core_grading
- * @since      Lion 2.5
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */

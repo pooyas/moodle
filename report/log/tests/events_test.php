@@ -4,7 +4,7 @@
  * Tests for report log events.
  *
  * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  * Class for tests related to log events.
  *
  * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 class report_log_events_testcase extends advanced_testcase {

@@ -3,9 +3,9 @@
 /**
  * Test classes for handling embedded media (audio/video).
  *
- * @package core_media
+ * @package core
  * @category phpunit
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

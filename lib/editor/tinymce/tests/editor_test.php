@@ -3,7 +3,8 @@
 /**
  * TinyMCE tests.
  *
- * @package   editor_tinymce
+ * @package    editor
+ * @subpackage tinymce
  * @category  phpunit
  * @copyright 2015 Pooya Saeedi 
  * 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * TinyMCE tests.
  *
- * @package   editor_tinymce
- * @category  phpunit
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class editor_tinymce_testcase extends advanced_testcase {
 
@@ -143,10 +140,6 @@ class editor_tinymce_testcase extends advanced_testcase {
 /**
  * Pseudo plugin class for testing editor_tinymce_plugin protected methods
  *
- * @package   editor_tinymce
- * @category  phpunit
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class tinymce_testplugin extends editor_tinymce_plugin {
     protected function update_init_params(array &$params, context $context, array $options = null) {

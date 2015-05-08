@@ -3,8 +3,6 @@
 /**
  * Classes for rendering HTML output for Lion.
  *
- * Please see {@link http://docs.lion.org/en/Developement:How_Lion_outputs_HTML}
- * for an overview.
  *
  * Included in this file are the primary renderer classes:
  *     - renderer_base:         The renderer outline class that all renderers
@@ -30,11 +28,6 @@ defined('LION_INTERNAL') || die();
  *
  * Also has methods to facilitate generating HTML output.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class renderer_base {
     /**
@@ -325,11 +318,6 @@ class renderer_base {
 /**
  * Basis for all plugin renderers.
  *
- * @copyright Petr Skoda (skodak)
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class plugin_renderer_base extends renderer_base {
 
@@ -421,11 +409,6 @@ class plugin_renderer_base extends renderer_base {
 /**
  * The standard implementation of the core_renderer interface.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class core_renderer extends renderer_base {
     /**
@@ -3838,11 +3821,6 @@ EOD;
  *
  * The implementation of this renderer is probably incomplete.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class core_renderer_cli extends core_renderer {
 
@@ -3932,11 +3910,6 @@ class core_renderer_cli extends core_renderer {
  * This renderer prevents accidental sends back only json
  * encoded error messages, all other output is ignored.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class core_renderer_ajax extends core_renderer {
 
@@ -4046,8 +4019,6 @@ class core_renderer_ajax extends core_renderer {
  * Used in file resources, media filter, and any other places that need to
  * output embedded media.
  *
- * @copyright 2011 The Open University
- * 
  */
 class core_media_renderer extends plugin_renderer_base {
     /** @var array Array of available 'player' objects */
@@ -4300,11 +4271,6 @@ class core_media_renderer extends plugin_renderer_base {
  * is running a maintenance related task.
  * It must always extend the core_renderer as we switch from the core_renderer to this renderer in a couple of places.
  *
- * @since Lion 2.6
- * @package core
- * @category output
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_renderer_maintenance extends core_renderer {
 

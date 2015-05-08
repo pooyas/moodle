@@ -5,7 +5,7 @@
  * Lion REST library
  *
  * @package    webservice_rest
- * @copyright  2009 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

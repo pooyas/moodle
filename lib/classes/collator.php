@@ -5,7 +5,6 @@
  *
  * @package   core
  * @copyright 2015 Pooya Saeedi
- *            2015 Pooya Saeedi
  * 
  */
 
@@ -13,10 +12,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * A collator class with static methods that can be used for sorting.
- *
- * @package   core
- * @copyright 2015 Pooya Saeedi
- *            2015 Pooya Saeedi
  * 
  */
 class core_collator {

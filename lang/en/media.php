@@ -2,6 +2,7 @@
 
 /**
  * Language strings for media embedding.
+ * 
  * @package core
  * @subpackage media
  * @copyright 2015 Pooya Saeedi

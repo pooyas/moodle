@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'tag', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'tag', language 'en'
  *
- * @package   core_tag
+ * @package   core
+ * @subpackage tag
  * @copyright 2015 Pooya Saeedi
  * 
  */

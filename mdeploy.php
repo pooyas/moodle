@@ -36,7 +36,7 @@
  * @package     core
  * @subpackage  mdeploy
  * @version     1.1
- * @copyright   2012 David Mudrak <david@lion.com>
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 
@@ -71,7 +71,7 @@ class invalid_setting_exception extends Exception {}
 /**
  * Base class implementing the singleton pattern using late static binding feature.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class singleton_pattern {
@@ -125,7 +125,7 @@ abstract class singleton_pattern {
  * Implements the delegate pattern by dispatching the calls to appropriate
  * helper class (CLI or HTTP).
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class input_manager extends singleton_pattern {
@@ -402,7 +402,7 @@ class input_manager extends singleton_pattern {
 /**
  * Base class for input providers.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class input_provider extends singleton_pattern {
@@ -484,7 +484,7 @@ abstract class input_provider extends singleton_pattern {
 /**
  * Provides access to the script options passed via CLI.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class input_cli_provider extends input_provider {
@@ -522,7 +522,7 @@ class input_cli_provider extends input_provider {
 /**
  * Provides access to the script options passed via HTTP request.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class input_http_provider extends input_provider {
@@ -543,7 +543,7 @@ class input_http_provider extends input_provider {
 /**
  * Provides output operations.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class output_manager extends singleton_pattern {
@@ -577,7 +577,7 @@ class output_manager extends singleton_pattern {
 /**
  * Base class for all output providers.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class output_provider extends singleton_pattern {
@@ -586,7 +586,7 @@ abstract class output_provider extends singleton_pattern {
 /**
  * Provides output to the command line.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class output_cli_provider extends output_provider {
@@ -629,7 +629,7 @@ class output_cli_provider extends output_provider {
 /**
  * Provides HTML output as a part of HTTP response.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class output_http_provider extends output_provider {
@@ -693,7 +693,7 @@ class output_http_provider extends output_provider {
 /**
  * The actual worker class implementing the main functionality of the script.
  *
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class worker extends singleton_pattern {

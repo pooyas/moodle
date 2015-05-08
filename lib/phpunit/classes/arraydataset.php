@@ -14,10 +14,6 @@
  * Based on array iterator code from PHPUnit documentation by Sebastian Bergmann
  * with new constructor parameter for different array types.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class phpunit_ArrayDataSet extends PHPUnit_Extensions_Database_DataSet_AbstractDataSet {
     /**

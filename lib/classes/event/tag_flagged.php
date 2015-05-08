@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string rawname: the raw name of the tag.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class tag_flagged extends base {
 

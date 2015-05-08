@@ -3,7 +3,8 @@
 /**
  * Atto upgrade script.
  *
- * @package    editor_atto
+ * @package    editor
+ * @subpackage atto
  * @copyright  2015 Pooya Saeedi
  * 
  */

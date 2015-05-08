@@ -237,9 +237,7 @@ function is_https() {
  *     - output the url without any get params
  *     - and output the params as hidden fields to be output within a form
  *
- * @copyright 2007 jamiesensei
- * @link http://docs.lion.org/dev/lib/weblib.php_lion_url See short write up here
- * 
+ * @copyright 2015 Pooya Saeedi
  * @package core
  */
 class lion_url {
@@ -2992,9 +2990,6 @@ function is_in_popup() {
  * - call create (or use the 3rd param to the constructor)
  * - call update or update_full() or update() repeatedly
  *
- * @copyright 2008 jamiesensei
- * 
- * @package core
  */
 class progress_bar {
     /** @var string html id */
@@ -3165,9 +3160,6 @@ EOT;
  * Use this class from long operations where you want to output occasional information about
  * what is going on, but don't know if, or in what format, the output should be.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package core
  */
 abstract class progress_trace {
     /**
@@ -3188,9 +3180,6 @@ abstract class progress_trace {
 /**
  * This subclass of progress_trace does not ouput anything.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package core
  */
 class null_progress_trace extends progress_trace {
     /**
@@ -3207,9 +3196,6 @@ class null_progress_trace extends progress_trace {
 /**
  * This subclass of progress_trace outputs to plain text.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package core
  */
 class text_progress_trace extends progress_trace {
     /**
@@ -3228,9 +3214,6 @@ class text_progress_trace extends progress_trace {
 /**
  * This subclass of progress_trace outputs as HTML.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package core
  */
 class html_progress_trace extends progress_trace {
     /**
@@ -3249,9 +3232,6 @@ class html_progress_trace extends progress_trace {
 /**
  * HTML List Progress Tree
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package core
  */
 class html_list_progress_trace extends progress_trace {
     /** @var int */
@@ -3300,9 +3280,6 @@ class html_list_progress_trace extends progress_trace {
 /**
  * This subclass of progress_trace outputs to error log.
  *
- * @copyright Petr Skoda 
- * 
- * @package core
  */
 class error_log_progress_trace extends progress_trace {
     /** @var string log prefix */
@@ -3331,9 +3308,6 @@ class error_log_progress_trace extends progress_trace {
 /**
  * Special type of trace that can be used for catching of output of other traces.
  *
- * @copyright Petr Skoda 
- * 
- * @package core
  */
 class progress_trace_buffer extends progress_trace {
     /** @var progres_trace */
@@ -3406,9 +3380,6 @@ class progress_trace_buffer extends progress_trace {
 /**
  * Special type of trace that can be used for redirecting to multiple other traces.
  *
- * @copyright Petr Skoda 
- * 
- * @package core
  */
 class combined_progress_trace extends progress_trace {
 

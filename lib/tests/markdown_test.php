@@ -19,10 +19,6 @@ defined('LION_INTERNAL') || die();
  * See http://daringfireball.net/projects/markdown/basics
  * for more format information.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class core_markdown_testcase extends basic_testcase {
 

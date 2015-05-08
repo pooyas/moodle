@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a button type element
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -23,10 +23,6 @@ require_once($CFG->libdir.'/form/submit.php');
  *
  * Overloaded {@link LionQuickForm_submit} with default behavior modified to cancel a form.
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_cancel extends LionQuickForm_submit
 {

@@ -4,7 +4,7 @@
  * User login failed event.
  *
  * @package    core
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int reason: failure reason.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
- * 
  */
 class user_login_failed extends base {
     /**

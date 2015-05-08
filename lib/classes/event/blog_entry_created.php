@@ -17,10 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Class for event to be triggered when a blog entry is created.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class blog_entry_created extends base {
 

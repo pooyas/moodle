@@ -21,10 +21,6 @@ use Behat\Behat\Context\BehatContext,
  * Renamed from behat FeatureContext class according
  * to Lion coding styles conventions
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_init_context extends BehatContext {
 

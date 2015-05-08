@@ -16,7 +16,7 @@ require_once($CFG->dirroot.'/course/lionform_mod.php');
  * Disabled assignment settings form.
  *
  * @package   mod_assignment
- * @copyright 2013 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_assignment_mod_form extends lionform_mod {

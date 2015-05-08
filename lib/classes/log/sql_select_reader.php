@@ -17,9 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * @deprecated since Lion 2.9 MDL-48595 - please do not use this interface any more.
  * @see        sql_reader
- * @todo       MDL-49291 This will be deleted in Lion 3.1.
- * @package    core
- * @copyright  2015 Pooya Saeedi
  * 
  */
 interface sql_select_reader extends reader {

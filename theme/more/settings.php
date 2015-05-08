@@ -13,7 +13,7 @@
  *
  * @see        theme_clean_get_html_for_settings
  * @package    theme_more
- * @copyright  2014 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

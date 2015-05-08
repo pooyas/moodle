@@ -4,9 +4,9 @@
 /**
  * Extra library for groups and groupings.
  *
- * @copyright 2006 The Open University, J.White AT open.ac.uk, Petr Skoda (skodak)
- * 
- * @package   core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 
 /*

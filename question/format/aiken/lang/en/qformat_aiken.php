@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_aiken', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_aiken', language 'en'
  *
  * @package    qformat_aiken
  * @copyright  2010 Helen Foster

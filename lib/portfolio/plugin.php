@@ -5,13 +5,10 @@
  *
  * portfolio_plugin_pull_base and portfolio_plugin_push_base
  * which both in turn inherit from portfolio_plugin_base.
- * {@link http://docs.lion.org/dev/Writing_a_Portfolio_Plugin}
  *
- * @package    core_portfolio
- * @copyright  2008 Penny Leach <penny@catalyst.net.nz>,
- *             Martin Dougiamas <http://dougiamas.com>
- * 
- */
+ * @package    core
+ * @copyright  2015 Pooya Saeedi,
+s */
 
 defined('LION_INTERNAL') || die();
 
@@ -23,10 +20,6 @@ defined('LION_INTERNAL') || die();
  * @see portfolio_plugin_pull_base
  * @see portfolio_plugin_push_base
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 abstract class portfolio_plugin_base {
 
@@ -731,10 +724,6 @@ abstract class portfolio_plugin_base {
  *
  * Eg: those that send the file via a HTTP post or whatever
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 abstract class portfolio_plugin_push_base extends portfolio_plugin_base {
 
@@ -755,10 +744,6 @@ abstract class portfolio_plugin_push_base extends portfolio_plugin_base {
  * from portfolio/file.php.
  * If you're using this you must do $this->set('file', $file) so that it can be served.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 abstract class portfolio_plugin_pull_base extends portfolio_plugin_base {
 

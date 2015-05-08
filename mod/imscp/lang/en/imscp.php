@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'imscp', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'imscp', language 'en'
  *
  * @package mod_imscp
  * @copyright  2015 Pooya Saeedi

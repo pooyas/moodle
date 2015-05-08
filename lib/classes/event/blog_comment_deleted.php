@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The blog comment deleted event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class blog_comment_deleted extends comment_deleted {
 

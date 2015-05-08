@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_align', language 'en'.
  *
- * @package    atto_align
- * @copyright  2014 Frédéric Massart
+ * @package    atto
+ * @subpackage align
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

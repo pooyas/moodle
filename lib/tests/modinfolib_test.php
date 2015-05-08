@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2012 Andrew Davis
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,8 +16,6 @@ require_once($CFG->libdir . '/modinfolib.php');
 /**
  * Unit tests for modinfolib.php
  *
- * @copyright 2012 Andrew Davis
- * 
  */
 class core_modinfolib_testcase extends advanced_testcase {
     public function test_section_info_properties() {

@@ -4,7 +4,7 @@
  * This file is serving optimised JS for RequireJS.
  *
  * @package    core
- * @copyright  2015 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

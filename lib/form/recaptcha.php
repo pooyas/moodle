@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a recaptcha type element
  *
- * @package   core_form
- * @copyright 2008 Nicolas Connault <nicolasconnault@gmail.com>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -18,10 +18,6 @@ require_once('HTML/QuickForm/input.php');
  *
  * HTML class for a recaptcha type element
  *
- * @package   core_form
- * @category  form
- * @copyright 2008 Nicolas Connault <nicolasconnault@gmail.com>
- * 
  */
 class LionQuickForm_recaptcha extends HTML_QuickForm_input {
 

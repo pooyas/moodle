@@ -4,7 +4,7 @@
  * Defines abstract factory class for generating locks.
  *
  * @package    core
- * @copyright  Damyon Wiese 2013
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Defines abstract factory class for generating locks.
  *
- * @package   core
- * @category  lock
- * @copyright Damyon Wiese 2013
- * 
  */
 interface lock_factory {
 

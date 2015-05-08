@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qtype_match', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qtype_match', language 'en'
  *
  * @package   qtype_match
  * @copyright 2015 Pooya Saeedi

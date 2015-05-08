@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'portfolio', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'portfolio', language 'en'
  *
- * @package   core_portfolio
+ * @package   core
+ * @subpackage portfolio
  * @copyright 2015 Pooya Saeedi
  * 
  */

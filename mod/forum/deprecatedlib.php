@@ -2,7 +2,7 @@
 
 /**
  * @package   mod_forum
- * @copyright 2014 Andrew Robert Nicols <andrew@nicols.co.uk>
+ * @copyright 2014 Andrew Robert Nicols 
  * 
  */
 

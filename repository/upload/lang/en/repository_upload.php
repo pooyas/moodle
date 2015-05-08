@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_upload', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_upload', language 'en'
  *
  * @package   repository_upload
  * @copyright 2015 Pooya Saeedi

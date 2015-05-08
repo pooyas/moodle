@@ -10,12 +10,6 @@
 //          though both are licensed under the GPL.
 //          http://drupal.org
 //
-// Modifications:
-//
-// Lion - Modular Object-Oriented Dynamic Learning Environment
-//          http://lion.com
-//
-//
 
 /**
  * Based on Drupal's search.module version 1.224
@@ -25,11 +19,6 @@
  * Usage: $tokens = tokenise_text($text)
  * Returns an array of tokens (key) with their score (value)
  * (see function definition for more info)
- *
- * Major Contributors
- *  - Martin Dougiamas  {@link http://lion.com}
- *  - Eloy Lafuente (stronk7) {@link http://contiento.com}
- *  - Antonio Vicent          {@link http://ludens.es}
  *
  * @package   lioncore
  * @copyright 2015 Pooya Saeedi

@@ -21,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - bool forgottenreset: true means reset via token.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_password_updated extends base {
     /**

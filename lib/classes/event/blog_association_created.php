@@ -3,7 +3,7 @@
  * Event for when a new blog entry is associated with a context.
  *
  * @package    core
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\event;
@@ -22,9 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string subject: blog subject.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2013 onwards Ankit Agarwal
  * 
  */
 class blog_association_created extends base {

@@ -3,8 +3,9 @@
 /**
  * Strings for Lion emoticon plugin.
  *
- * @package   tinymce_lionemoticon
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage lionemoticon
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

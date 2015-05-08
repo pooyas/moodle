@@ -5,7 +5,7 @@
  *
  * @package core_message
  * @category test
- * @copyright 2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/message/lib.php');
  *
  * @package core_message
  * @category test
- * @copyright 2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_message_messagelib_testcase extends advanced_testcase {

@@ -5,8 +5,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Plugin for Lion media (audio/video) insertion dialog.
  *
- * @package   tinymce_lionmedia
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage lionmedia
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_lionmedia extends editor_tinymce_plugin {

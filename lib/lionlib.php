@@ -7149,8 +7149,6 @@ function get_emoticon_manager() {
  *
  * @see admin_setting_emoticons
  *
- * @copyright 2010 David Mudrak
- * 
  */
 class emoticon_manager {
 
@@ -9502,7 +9500,6 @@ function partial() {
     if (!class_exists('partial')) {
         /**
          * Used to manage function binding.
-         * @copyright  2009 Penny Leach
          * 
          */
         class partial{
@@ -9695,10 +9692,6 @@ function get_course_display_name_for_list($course) {
  * 1. You cannot use a lang_string object as an array offset. Doing so will
  *     result in PHP throwing an error. (You can use it as an object property!)
  *
- * @package    core
- * @category   string
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class lang_string {
 

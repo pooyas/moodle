@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_s3', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_s3', language 'en'
  *
  * @package   repository_s3
  * @copyright 2015 Pooya Saeedi

@@ -3,8 +3,8 @@
 /**
  * Tests for core_message_inbound to test Variable Envelope Return Path functionality.
  *
- * @package    core_message
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @package    core
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -14,7 +14,7 @@ require_once(__DIR__ . '/fixtures/inbound_fixtures.php');
 /**
  * Tests for core_message_inbound to test Variable Envelope Return Path functionality.
  *
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class core_message_inbound_testcase extends advanced_testcase {
@@ -601,7 +601,7 @@ class core_message_inbound_testcase extends advanced_testcase {
 /**
  * A helper function for unit testing to expose protected functions in the core_message_inbound API for testing.
  *
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class core_message_inbound_test_helper extends \core\message\inbound\address_manager {
@@ -638,7 +638,7 @@ class core_message_inbound_test_helper extends \core\message\inbound\address_man
 /**
  * A helper function for unit testing to expose protected functions in the core_message_inbound API for testing.
  *
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class core_message_inbound_test_manager extends \core\message\inbound\manager {

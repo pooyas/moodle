@@ -6,8 +6,8 @@
  *
  * Contains HTML class for group form element
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ require_once("HTML/QuickForm/group.php");
  *
  * Overloaded {@link HTML_QuickForm_group} with default behavior modified for Lion.
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_group extends HTML_QuickForm_group{
     /** @var string html for help button, if empty then no help */

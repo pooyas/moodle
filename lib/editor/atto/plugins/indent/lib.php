@@ -3,8 +3,9 @@
 /**
  * Atto text editor align plugin lib.
  *
- * @package    atto_align
- * @copyright  2014 Jason Fowler
+ * @package    atto
+ * @subpackage align
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

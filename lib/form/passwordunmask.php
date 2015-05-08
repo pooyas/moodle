@@ -6,7 +6,7 @@
  *
  * Contains HTML class for a password type element with unmask option
  *
- * @package   core_form
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -23,10 +23,6 @@ require_once($CFG->libdir.'/form/password.php');
  *
  * HTML class for a password type element with unmask option
  *
- * @package   core_form
- * @category  form
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class LionQuickForm_passwordunmask extends LionQuickForm_password {
     /**

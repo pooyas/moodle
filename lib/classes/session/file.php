@@ -15,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * File based session handler.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class file extends handler {
     /** @var string session dir */

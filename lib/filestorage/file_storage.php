@@ -4,7 +4,7 @@
 /**
  * Core file storage class definition.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -22,11 +22,6 @@ require_once("$CFG->libdir/filestorage/stored_file.php");
  * files of modules it has to use file_browser class instead or there
  * has to be some callback API.
  *
- * @package   core_files
- * @category  files
- * @copyright 2015 Pooya Saeedi 
- * 
- * @since     Lion 2.0
  */
 class file_storage {
     /** @var string Directory with file contents */

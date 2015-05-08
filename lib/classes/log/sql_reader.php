@@ -4,7 +4,7 @@
  * Log iterator reader interface.
  *
  * @package    core
- * @copyright  2015 David Monllao
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ defined('LION_INTERNAL') || die();
  * Replaces sql_select_reader adding functions
  * to return iterators.
  *
- * @since      Lion 2.9
- * @package    core
- * @copyright  2015 David Monllao
- * 
  */
 interface sql_reader extends reader {
 

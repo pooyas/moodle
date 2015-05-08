@@ -3,7 +3,7 @@
  * Messenger manager.
  *
  * @module     lion-core_message-messenger
- * @package    core_message
+ * @package    core
  * @copyright  2015 Frédéric Massart - FMCorz.net
  * 
  */

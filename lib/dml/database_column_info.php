@@ -3,7 +3,8 @@
 /**
  * Database column information.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * It is based on the adodb library's ADOFieldObject object.
  * 'column' does mean 'the field' here.
  *
- * @package    core_dml
- * @copyright  2015 Pooya Saeedi 
  * 
  */
 class database_column_info {

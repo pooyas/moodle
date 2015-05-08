@@ -395,7 +395,7 @@ class data_portfolio_caller extends portfolio_module_caller_base {
  * Class representing the virtual node with all itemids in the file browser
  *
  * @category  files
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class data_file_info_container extends file_info {

@@ -6,8 +6,9 @@ defined('LION_INTERNAL') || die();
  * Plugin for spell checking (Lion custom replacement for standard TinyMCE
  * plugin, but with same name, which seems a bit unhelpful).
  *
- * @package   tinymce_spellchecker
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage spellchecker
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_spellchecker extends editor_tinymce_plugin {

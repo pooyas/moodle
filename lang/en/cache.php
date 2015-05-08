@@ -6,8 +6,8 @@
  * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are requried in order to use caching.
  *
- * @package    core_cache
- * @category   cache
+ * @package    core
+ * @subpackage cache
  * @copyright  2015 Pooya Saeedi
  * 
  */

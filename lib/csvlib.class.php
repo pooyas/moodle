@@ -8,7 +8,7 @@
  *
  * @package    core
  * @subpackage lib
- * @copyright  Petr Skoda
+ * @2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +16,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Utitily class for importing of CSV files.
- * @copyright Petr Skoda
- * 
- * @package   lioncore
  */
 class csv_import_reader {
 
@@ -350,10 +347,6 @@ class csv_import_reader {
 
 /**
  * Utitily class for exporting of CSV files.
- * @copyright 2012 Adrian Greeve
- * 
- * @package   core
- * @category  csv
  */
 class csv_export_writer {
     /**

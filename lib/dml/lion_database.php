@@ -3,7 +3,8 @@
 /**
  * Abstract database driver class.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -42,9 +43,6 @@ define('SQL_QUERY_AUX', 5);
  * Abstract class representing lion database interface.
  * @link http://docs.lion.org/dev/DML_functions
  *
- * @package    core_dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 abstract class lion_database {
 

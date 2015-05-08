@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'data', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'data', language 'en'
  *
  * @package   mod_data
  * @copyright 2015 Pooya Saeedi

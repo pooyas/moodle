@@ -4,7 +4,7 @@
  * Defines the user list viewed event.
  *
  * @package    core
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string coursefullname: (optional) the full name of course.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2013 2015 Pooya Saeedi
- * 
  */
 
 class user_list_viewed extends base {

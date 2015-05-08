@@ -29,10 +29,6 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  * when necessary and including only the ones we need to avoid
  * overlapping and confusion.
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_general extends behat_base {
 

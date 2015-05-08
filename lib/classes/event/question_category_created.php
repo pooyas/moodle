@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Question category created event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_category_created extends base {
 

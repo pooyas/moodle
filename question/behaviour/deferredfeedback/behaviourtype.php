@@ -4,7 +4,7 @@
  * Question behaviour type for deferred feedback behaviour.
  *
  * @package    qbehaviour_deferredfeedback
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Question behaviour type information for deferred feedback behaviour.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_deferredfeedback_type extends question_behaviour_type {

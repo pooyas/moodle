@@ -3,9 +3,8 @@
 /**
  * New messaging class.
  *
- * @package   core_message
- * @since     Lion 2.9
- * @copyright 2015 onwards Ankit Agarwal
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -36,10 +35,6 @@ defined('LION_INTERNAL') || die();
  *  attachment stored_file File instance that needs to be sent as attachment.
  *  attachname string Name of the attachment.
  *
- * @package   core_message
- * @since     Lion 2.9
- * @copyright 2015 onwards Ankit Agarwal
- * 
  */
 class message {
     /** @var string Component name. */

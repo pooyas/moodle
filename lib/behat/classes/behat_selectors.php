@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Lion selectors manager.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_selectors {
 

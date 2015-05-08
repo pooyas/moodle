@@ -4,7 +4,7 @@
  * Code to search for users in response to an ajax call from a user selector.
  *
  * @package core_user
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

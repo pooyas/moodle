@@ -5,8 +5,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Plugin for Lion 'Toolbar Toggle' button.
  *
- * @package   tinymce_pdw
- * @copyright 2013 Jason Fowler
+ * @package   tinymce
+ * @subpackage pdw
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_pdw extends editor_tinymce_plugin {

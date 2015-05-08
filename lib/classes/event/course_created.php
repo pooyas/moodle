@@ -4,7 +4,7 @@
  * Course created event.
  *
  * @package    core
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string shortname: (optional) shortname of course.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2013 2015 Pooya Saeedi
- * 
  */
 class course_created extends base {
 

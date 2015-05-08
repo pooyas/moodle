@@ -15,8 +15,6 @@ require_once($CFG->libdir . '/filelib.php');
 /**
  * Class to manage the custom filetypes list that is stored in a config variable.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class core_filetypes {
     /** @var array Cached MIME types for current request */

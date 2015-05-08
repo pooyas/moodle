@@ -14,7 +14,7 @@
  * (the first line above) requires this library file automatically.
  *
  * @package core_media
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -4,8 +4,7 @@
  * Scheduled and adhoc task management.
  *
  * @package    core
- * @category   task
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\task;
@@ -17,8 +16,6 @@ define('CORE_TASK_TASKS_FILENAME', 'db/tasks.php');
  * Some locking rules for this class:
  * All changes to scheduled tasks must be protected with both - the global cron lock and the lock
  * for the specific scheduled task (in that order). Locks must be released in the reverse order.
- * @copyright  2013 Damyon Wiese
- * 
  */
 class manager {
 

@@ -2,10 +2,10 @@
 
 
 /**
- * Strings for component 'repository_recent', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_recent', language 'en'
  *
  * @package   lioncore
- * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

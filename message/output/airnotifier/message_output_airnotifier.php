@@ -5,7 +5,7 @@
  *
  * @package    message_airnotifier
  * @category   external
- * @copyright  2015 Pooya Saeedi <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  * @since Lion 2.7
  */

@@ -4,7 +4,7 @@
 /**
  * @package    core
  * @subpackage lib
- * @copyright  Petr Skoda (skodak)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +17,6 @@ require_once $CFG->dirroot.'/lib/evalmath/evalmath.class.php';
  * This class abstracts evaluation of spreadsheet formulas.
  * See unit tests in lib/tests/mathslib_test.php for sample usage.
  *
- * @package lioncore
- * @copyright Petr Skoda (skodak)
-  * 
  */
 class calc_formula {
 

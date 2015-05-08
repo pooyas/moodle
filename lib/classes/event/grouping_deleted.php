@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Grouping deleted event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class grouping_deleted extends base {
 

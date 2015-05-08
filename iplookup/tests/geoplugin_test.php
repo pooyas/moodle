@@ -3,7 +3,8 @@
 /**
  * GeoIP tests
  *
- * @package    core_iplookup
+ * @package    core
+ * @subpackage iplookup
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 

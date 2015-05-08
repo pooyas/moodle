@@ -15,8 +15,9 @@ defined('LION_INTERNAL') || die();
  * Finally, a static function in this class is used to call into all the
  * plugins when required.
  *
- * @package editor_tinymce
- * @copyright 2012 The Open University
+ * @package   editor
+ * @subpackage tinymce
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class editor_tinymce_plugin {

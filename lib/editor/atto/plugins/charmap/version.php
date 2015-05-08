@@ -3,8 +3,9 @@
 /**
  * Atto text editor charmap plugin version file.
  *
- * @package    atto_charmap
- * @copyright  2014 Frédéric Massart
+ * @package    atto
+ * @subpackage charmap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

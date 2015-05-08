@@ -4,8 +4,7 @@
  * Mustache helper to load strings from string_manager.
  *
  * @package    core
- * @category   output
- * @copyright  2015 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,9 +21,6 @@ use theme_config;
 /**
  * This class contains a list of webservice functions related to output.
  *
- * @copyright  2015 Damyon Wiese
- * 
- * @since      2.9
  */
 class external extends external_api {
     /**

@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Course category updated event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_category_updated extends base {
 

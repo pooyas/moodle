@@ -4,7 +4,7 @@
  * Base class for the options that control what is visible in an {@link quiz_attempts_report}.
  *
  * @package   mod_quiz
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Base class for the options that control what is visible in an {@link quiz_attempts_report}.
  *
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_quiz_attempts_report_options {

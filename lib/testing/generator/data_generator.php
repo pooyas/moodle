@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Data generator class for unit tests and other tools that need to create fake test sites.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class testing_data_generator {
     /** @var int The number of grade categories created */

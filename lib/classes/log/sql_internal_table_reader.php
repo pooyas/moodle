@@ -4,7 +4,7 @@
  * Log storage sql internal table reader interface.
  *
  * @package    core
- * @copyright  2015 David Monllao
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Replaces sql_internal_reader and extends sql_reader.
  *
- * @since      Lion 2.9
- * @package    core
- * @copyright  2015 David Monllao
  * 
  */
 interface sql_internal_table_reader extends sql_reader {

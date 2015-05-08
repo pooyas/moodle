@@ -4,7 +4,7 @@
  * Unit tests for (some of) question/type/calculated/questiontype.php.
  *
  * @package    qtype_calculated
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/calculated/tests/helper.php');
 /**
  * Unit tests for question/type/calculated/questiontype.php.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculated_test extends advanced_testcase {

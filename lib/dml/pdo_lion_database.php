@@ -3,8 +3,9 @@
 /**
  * Experimental pdo database class
  *
- * @package    core_dml
- * @copyright  2008 Andrei Bautu
+ * @package    core
+ * @subpackage dml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ require_once(__DIR__.'/pdo_lion_recordset.php');
 /**
  * Experimental pdo database class
  *
- * @package    core_dml
- * @copyright  2008 Andrei Bautu
- * 
  */
 abstract class pdo_lion_database extends lion_database {
 

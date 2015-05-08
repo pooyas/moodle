@@ -5,7 +5,7 @@
  *
  * @package   core_user
  * @category  user
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,7 +13,7 @@ require_once($CFG->dirroot.'/user/filters/lib.php');
 
 /**
  * Generic filter based on a list of values.
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_simpleselect extends user_filter_type {

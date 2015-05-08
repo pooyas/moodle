@@ -3,8 +3,9 @@
 /**
  * Atto text editor integration version file.
  *
- * @package    atto_undo
- * @copyright  2014 Jerome Mouneyrac
+ * @package    atto
+ * @subpackage undo
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_multianswer', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_multianswer', language 'en'
  *
  * @package    qformat_multianswer
  * @copyright  2010 Helen Foster

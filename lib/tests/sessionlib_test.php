@@ -15,11 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for sessionlib.php file.
  *
- * @package   core
- * @category  phpunit
- * 
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_sessionlib_testcase extends advanced_testcase {
     public function test_cron_setup_user() {

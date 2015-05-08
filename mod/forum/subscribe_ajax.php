@@ -4,7 +4,7 @@
  * Subscribe to or unsubscribe from a forum discussion.
  *
  * @package    mod_forum
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

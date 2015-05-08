@@ -3,10 +3,9 @@
 /**
  * Database manager instance is responsible for all database structure modifications.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
- *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- *             2015 Pooya Saeedi                   http://skodak.org
+ * @package    core
+ * @subpackage ddl
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,11 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * It is using db specific generators to find out the correct SQL syntax to do that.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
- *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- *             2015 Pooya Saeedi                   http://skodak.org
- * 
  */
 class database_manager {
 

@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a single filepicker form element
  *
- * @package   core_form
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +21,6 @@ require_once($CFG->dirroot.'/repository/lib.php');
  *
  * HTML class for a single filepicker element (based on button)
  *
- * @package   core_form
- * @category  form
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
- * 
  */
 class LionQuickForm_filepicker extends HTML_QuickForm_input {
     /** @var string html for help button, if empty then no help will icon will be dispalyed. */

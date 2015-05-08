@@ -5,10 +5,8 @@
 /**
  * A namespace contains license specific functions
  *
- * @since      Lion 2.0
  * @package    core
- * @subpackage lib
- * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

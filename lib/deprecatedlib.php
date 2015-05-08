@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Add an entry to the legacy log table.
  *
- * @deprecated since 2.7 use new events instead
+ * @deprecated use new events instead
  *
  * @param    int     $courseid  The course id
  * @param    string  $module  The module name  e.g. forum, journal, resource, course, user etc

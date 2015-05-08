@@ -1,26 +1,9 @@
 <?php
 
 /**
- * Lion - Modular Object-Oriented Dynamic Learning Environment
- *          http://lion.org
- * Copyright 2015 Pooya Saeedi
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * @package    lion
- * @subpackage lib
- * @author     Dan Poltawski <talktodan@gmail.com>
+ * @package    core
+ * @copyright  2015 Pooya Saeedi
  * 
  *
  * Customised version of SimplePie for Lion
@@ -42,9 +25,6 @@ require_once($CFG->libdir.'/simplepie/autoloader.php');
  * curl functions/proxy config for making http
  * requests in line with lion configuration.
  *
- * @copyright 2009 Dan Poltawski <talktodan@gmail.com>
- * 
- * @since     Lion 2.0
  */
 class lion_simplepie extends SimplePie {
     /**

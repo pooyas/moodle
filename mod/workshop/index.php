@@ -5,7 +5,7 @@
  * Prints the list of all workshops in the course
  *
  * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

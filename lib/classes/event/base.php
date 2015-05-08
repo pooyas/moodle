@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * All other event classes must extend this class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  *
  * @property-read string $eventname Name of the event (=== class name with leading \)
  * @property-read string $component Full frankenstyle component name

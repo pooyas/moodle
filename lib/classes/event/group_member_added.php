@@ -21,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int itemid: id of item.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class group_member_added extends base {
 

@@ -19,10 +19,6 @@ use Behat\Mink\Session as Session,
 /**
  * Helper to interact with form fields.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_field_manager {
 

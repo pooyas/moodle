@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbehaviours
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * This class represents the type of behaviour, rather than the instance of the
  * behaviour which control a particular question attempt.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_behaviour_type {
@@ -96,7 +96,7 @@ abstract class question_behaviour_type {
  * to work. It implements the question_behaviour_type API for the other behaviour
  * as much as possible in a backwards-compatible way.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_behaviour_type_fallback extends question_behaviour_type {

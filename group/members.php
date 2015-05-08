@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * Add/remove members from group.
  *
- * @copyright 2006 The Open University and others, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk and others
- * 
- * @package   core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 require_once(dirname(__FILE__) . '/../config.php');
 require_once(dirname(__FILE__) . '/lib.php');

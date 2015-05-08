@@ -3,7 +3,8 @@
 /**
  * Native pgsql class representing lion database interface.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -17,9 +18,6 @@ require_once(__DIR__.'/pgsql_native_lion_temptables.php');
 /**
  * Native pgsql class representing lion database interface.
  *
- * @package    core_dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class pgsql_native_lion_database extends lion_database {
 

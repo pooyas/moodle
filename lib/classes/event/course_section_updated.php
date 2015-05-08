@@ -21,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int sectionnum: section number.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_section_updated extends base {
 

@@ -3,9 +3,9 @@
 /**
  * Tests for messagelib.php.
  *
- * @package    core_message
+ * @package    core
  * @category   phpunit
- * @copyright  2012 The Open Universtiy
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

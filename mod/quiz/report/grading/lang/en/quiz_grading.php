@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'quiz_grading', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'quiz_grading', language 'en'
  *
  * @package   quiz_grading
  * @copyright 2015 Pooya Saeedi

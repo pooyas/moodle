@@ -5,7 +5,7 @@
  *
  * @since Lion 2.0
  * @package    repository_picasa
- * @copyright  2009 Dan Poltawski <talktodan@gmail.com>
+ * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
  * 
  */
 require_once($CFG->dirroot . '/repository/lib.php');
@@ -17,7 +17,7 @@ require_once($CFG->libdir.'/googleapi.php');
  * @since Lion 2.0
  * @package    repository
  * @subpackage picasa
- * @copyright  2009 Dan Poltawski
+ * @copyright  2015 Pooya Saeedi
  * @author     Dan Poltawski <talktodan@gmail.com>
  * 
  */

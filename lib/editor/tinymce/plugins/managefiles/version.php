@@ -3,7 +3,8 @@
 /**
  * TinyMCE manage files plugin version details.
  *
- * @package   tinymce_managefiles
+ * @package   tinymce
+ * @subpackage managefiles
  * @copyright 2015 Pooya Saeedi
  * 
  */

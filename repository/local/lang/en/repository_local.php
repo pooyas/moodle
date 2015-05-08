@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_local', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_local', language 'en'
  *
  * @package   repository_local
  * @copyright 2015 Pooya Saeedi

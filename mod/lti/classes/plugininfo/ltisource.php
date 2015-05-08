@@ -4,7 +4,7 @@
  * LTI source plugin info.
  *
  * @package   mod_lti
- * @copyright 2013 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 namespace mod_lti\plugininfo;

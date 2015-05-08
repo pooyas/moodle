@@ -31,10 +31,6 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  * @method NodeElement find_link(string $locator) Finds a link on a page
  * @method NodeElement find_file(string $locator) Finds a forum input file element
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_base extends Behat\MinkExtension\Context\RawMinkContext {
 

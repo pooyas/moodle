@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'url', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'url', language 'en'
  *
  * @package    mod_url
  * @copyright  2015 Pooya Saeedi

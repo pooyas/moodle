@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'webservice_amf', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'webservice_amf', language 'en'
  *
  * @package    webservice_amf
  * @category   string

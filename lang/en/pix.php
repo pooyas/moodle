@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Strings for component 'pix', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'pix', language 'en'
  *
- * @package    core_pix
+ * @package    core
  * @subpackage pix
  * @copyright  2015 Pooya Saeedi
  * 

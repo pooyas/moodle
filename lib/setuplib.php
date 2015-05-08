@@ -43,11 +43,8 @@ define('MEMORY_HUGE', -4);
  * more familiar to Java developers ;-) Do not use for type checking of
  * function parameters. Please use stdClass instead.
  *
- * @package    core
- * @subpackage lib
- * @copyright  2015 Pooya Saeedi  
  * 
- * @deprecated since 2.0
+ * @deprecated
  */
 class object extends stdClass {};
 
@@ -57,10 +54,6 @@ class object extends stdClass {};
  * Although this class is defined here, you cannot throw a lion_exception until
  * after lionlib.php has been included (which will happen very soon).
  *
- * @package    core
- * @subpackage lib
- * @copyright  2015 Pooya Saeedi  
- * 
  */
 class lion_exception extends Exception {
 
@@ -136,9 +129,6 @@ class lion_exception extends Exception {
  *
  * This exception is thrown from require_login()
  *
- * @package    core_access
- * @copyright  2015 Pooya Saeedi  
- * 
  */
 class require_login_exception extends lion_exception {
     /**
@@ -172,9 +162,6 @@ class webservice_parameter_exception extends lion_exception {
  * Exceptions indicating user does not have permissions to do something
  * and the execution can not continue.
  *
- * @package    core_access
- * @copyright  2015 Pooya Saeedi  
- * 
  */
 class required_capability_exception extends lion_exception {
     /**
@@ -201,10 +188,6 @@ class required_capability_exception extends lion_exception {
  * Exception indicating programming error, must be fixed by a programer. For example
  * a core API might throw this type of exception if a plugin calls it incorrectly.
  *
- * @package    core
- * @subpackage lib
- * @copyright  2015 Pooya Saeedi  
- * 
  */
 class coding_exception extends lion_exception {
     /**
@@ -223,10 +206,6 @@ class coding_exception extends lion_exception {
  * user submitted data in forms. It is more suitable
  * for WS and other low level stuff.
  *
- * @package    core
- * @subpackage lib
- * @copyright  2015 Pooya Saeedi  
- * 
  */
 class invalid_parameter_exception extends lion_exception {
     /**
@@ -261,10 +240,6 @@ class invalid_response_exception extends lion_exception {
  * default case, to just in case something really weird is going on, and
  * $context->contextlevel is invalid - rather than ignoring this possibility.
  *
- * @package    core
- * @subpackage lib
- * @copyright  2009 onwards Martin Dougiamas  {@link http://lion.com}
- * 
  */
 class invalid_state_exception extends lion_exception {
     /**
@@ -280,10 +255,6 @@ class invalid_state_exception extends lion_exception {
 /**
  * An exception that indicates incorrect permissions in $CFG->dataroot
  *
- * @package    core
- * @subpackage lib
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class invalid_dataroot_permissions extends lion_exception {
     /**
@@ -298,10 +269,6 @@ class invalid_dataroot_permissions extends lion_exception {
 /**
  * An exception that indicates that file can not be served
  *
- * @package    core
- * @subpackage lib
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class file_serving_exception extends lion_exception {
     /**
@@ -1582,9 +1549,6 @@ function is_web_crawler() {
  * must be careful referring to classes/functions from there, they may not be
  * defined yet, and we must avoid fatal errors.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.0
  */
 class bootstrap_renderer {
     /**

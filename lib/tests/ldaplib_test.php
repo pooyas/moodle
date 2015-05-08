@@ -5,8 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  Damyon Wiese, Iñaki Arenaza 2014
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

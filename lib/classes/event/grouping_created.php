@@ -3,7 +3,7 @@
 /**
  * Grouping created event.
  *
- * @package    core_group
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Grouping created event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class grouping_created extends base {
 

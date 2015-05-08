@@ -3,7 +3,7 @@
  * Mathjax JS Loader.
  *
  * @package    filter_mathjaxloader
- * @copyright  2015 Pooya Saeedi  <damyon@lion.com>
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 M.filter_mathjaxloader = M.filter_mathjaxloader || {

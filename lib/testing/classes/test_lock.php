@@ -14,10 +14,6 @@ require_once(__DIR__.'/../lib.php');
 /**
  * Tests lock to prevent concurrent executions of the same test suite
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class test_lock {
 

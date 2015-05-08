@@ -3,9 +3,9 @@
 /**
  * Test classes for \core\message\message.
  *
- * @package core_message
+ * @package core
  * @category test
- * @copyright 2015 onwards Ankit Agarwal
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +16,6 @@ global $CFG;
 /**
  * Test script for message class.
  *
- * @package core_message
- * @category test
- * @copyright 2015 onwards Ankit Agarwal
- * 
  */
 class core_message_testcase extends advanced_testcase {
 

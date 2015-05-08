@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'profilefield_textarea', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'profilefield_textarea', language 'en'
  *
  * @package   profilefield_textarea
  * @copyright 2015 Pooya Saeedi

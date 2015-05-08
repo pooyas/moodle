@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Strings for component 'core_enrol', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'core_enrol', language 'en'
  *
- * @package    core_enrol
+ * @package    core
  * @subpackage enrol
  * @copyright  2015 Pooya Saeedi
  * 

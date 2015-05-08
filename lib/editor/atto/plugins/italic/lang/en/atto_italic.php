@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_italic', language 'en'.
  *
- * @package    atto_italic
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage italic
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

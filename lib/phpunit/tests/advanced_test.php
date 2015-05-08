@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test advanced_testcase extra features.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class core_phpunit_advanced_testcase extends advanced_testcase {
 

@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_webdav', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_webdav', language 'en'
  *
  * @package   repository_webdav
  * @copyright 2015 Pooya Saeedi

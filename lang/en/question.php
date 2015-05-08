@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'question', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'question', language 'en'
  *
- * @package   core_question
+ * @package   core
+ * @subpackage question
  * @copyright 2015 Pooya Saeedi
  * 
  */

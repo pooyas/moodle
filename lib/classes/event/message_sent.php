@@ -21,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int messageid: the id of the message.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class message_sent extends base {
     /**

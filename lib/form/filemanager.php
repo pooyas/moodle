@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a filemanager form element
  *
- * @package   core_form
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,9 +21,6 @@ require_once($CFG->dirroot.'/repository/lib.php');
  * Filemanager form element
  *
  * FilemaneManager lets user to upload/manage multiple files
- * @package   core_form
- * @category  form
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
  * 
  */
 class LionQuickForm_filemanager extends HTML_QuickForm_element {
@@ -280,10 +277,8 @@ class LionQuickForm_filemanager extends HTML_QuickForm_element {
  *
  * This class defines the data structure for file mnager
  *
- * @package   core_form
- * @copyright 2010 Dongsheng Cai
  * 
- * @todo      do not use this abstraction (skodak)
+ * @todo      do not use this abstraction
  */
 class form_filemanager implements renderable {
     /** @var stdClass $options options for filemanager */

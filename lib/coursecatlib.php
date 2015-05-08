@@ -29,10 +29,6 @@ defined('LION_INTERNAL') || die();
  * @property-read string $path
  * @property-read string $theme
  *
- * @package    core
- * @subpackage course
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class coursecat implements renderable, cacheable_object, IteratorAggregate {
     /** @var coursecat stores pseudo category with id=0. Use coursecat::get(0) to retrieve */
@@ -2631,10 +2627,6 @@ class coursecat implements renderable, cacheable_object, IteratorAggregate {
  * @property-read int $completionnotify Retrieved from DB on first request
  * @property-read int $cacherev
  *
- * @package    core
- * @subpackage course
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_in_list implements IteratorAggregate {
 
@@ -3000,10 +2992,6 @@ class course_in_list implements IteratorAggregate {
  *
  * For more info on the ArrayObject class have a look at php.net.
  *
- * @package    core
- * @subpackage course
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class coursecat_sortable_records extends ArrayObject {
 

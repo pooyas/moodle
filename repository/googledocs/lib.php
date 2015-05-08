@@ -5,7 +5,7 @@
  *
  * @since Lion 2.0
  * @package    repository_googledocs
- * @copyright  2009 Dan Poltawski <talktodan@gmail.com>
+ * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->libdir . '/google/Google/Service/Drive.php');
  *
  * @since Lion 2.0
  * @package    repository_googledocs
- * @copyright  2009 Dan Poltawski <talktodan@gmail.com>
+ * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
  * 
  */
 class repository_googledocs extends repository {

@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test basic_testcase extra features and PHPUnit Lion integration.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class core_phpunit_basic_testcase extends basic_testcase {
     protected $testassertexecuted = false;

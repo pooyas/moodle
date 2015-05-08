@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Cohort deleted event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class cohort_deleted extends base {
 

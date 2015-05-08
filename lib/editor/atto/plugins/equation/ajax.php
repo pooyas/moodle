@@ -4,7 +4,8 @@
  * Renders text with the active filters and returns it. Used to create previews of equations
  * using whatever tex filters are enabled.
  *
- * @package    atto_equation
+ * @package    atto
+ * @subpackage equation
  * @copyright  2015 Pooya Saeedi
  * 
  */

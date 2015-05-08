@@ -16,10 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * Extend in mod/xxxx/tests/generator/lib.php as class mod_xxxx_generator.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 abstract class testing_module_generator extends component_generator_base {
 

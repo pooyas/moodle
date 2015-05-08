@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string loggedinasusername: username of logged in as user.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_loggedinas extends base {
 

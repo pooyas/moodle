@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'mimetypes', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'mimetypes', language 'en'
  *
  * Strings are used to display human-readable name of mimetype. Some mimetypes share the same
  * string. The following attributes are passed in the parameter when processing the string:
@@ -16,6 +16,7 @@
  *
  * @see       get_mimetypes_array()
  * @see       get_mimetype_description()
+ * 
  * @package   core
  * @copyright 2015 Pooya Saeedi
  * 

@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'grades', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'grades', language 'en'
  *
- * @package   core_grades
+ * @package   core
+ * @subpackage grade
  * @copyright 2015 Pooya Saeedi
  * 
  */

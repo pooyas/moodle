@@ -8,7 +8,7 @@
  *
  * @package    workshopeval
  * @subpackage best
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

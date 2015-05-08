@@ -23,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string publishstate: (optional) the publish state.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class note_deleted extends base {
 

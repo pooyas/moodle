@@ -2,7 +2,7 @@
 
 
 /**
- * @package   lioncore
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */

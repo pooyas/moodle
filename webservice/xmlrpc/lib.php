@@ -5,7 +5,7 @@
  * Lion XML-RPC library
  *
  * @package    webservice_xmlrpc
- * @copyright  2009 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

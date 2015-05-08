@@ -27,10 +27,6 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  * this class instead of behat_base as it provides useful methods to deal
  * with the common filepicker issues.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_files extends behat_base {
 

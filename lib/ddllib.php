@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * This library includes all the required functions used to handle the DB
  * structure (DDL) independently of the underlying RDBMS in use.
@@ -18,12 +16,9 @@
  * This library should be used, exclusively, by the installation and
  * upgrade process of Lion.
  *
- * For further documentation, visit {@link http://docs.lion.org/en/DDL_functions}
- *
  * @package    core
  * @subpackage ddl
- * @copyright  2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- *             2015 Pooya Saeedi                   http://skodak.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

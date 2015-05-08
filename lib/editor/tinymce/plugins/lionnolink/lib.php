@@ -5,8 +5,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Plugin for Lion 'no link' button.
  *
- * @package   tinymce_lionnolink
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage lionnolink
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_lionnolink extends editor_tinymce_plugin {

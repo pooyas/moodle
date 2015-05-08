@@ -3,7 +3,8 @@
 /**
  * Unit tests for /lib/filestorage/tgz_packer.php and tgz_extractor.php.
  *
- * @package core_files
+ * @package   core
+ * @subpackage phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

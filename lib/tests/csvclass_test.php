@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2012 Adrian Greeve
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,8 +5,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Plugin for Lion emoticons.
  *
- * @package   tinymce_lionemoticon
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage lionemoticon
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_lionemoticon extends editor_tinymce_plugin {

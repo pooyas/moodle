@@ -5,8 +5,9 @@ defined('LION_INTERNAL') || die();
 /**
  * Plugin for Lion 'wrap' button.
  *
- * @package   tinymce_wrap
- * @copyright 2013 Damyon Wiese
+ * @package   tinymce
+ * @subpackage wrap
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class tinymce_wrap extends editor_tinymce_plugin {

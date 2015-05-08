@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage auth
- * @copyright  2006 Petr Skoda 
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();
@@ -17,7 +17,7 @@ require_once($CFG->libdir.'/formslib.php');
  *
  * @package    core
  * @subpackage auth
- * @copyright  2006 Petr Skoda 
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class login_forgot_password_form extends lionform {

@@ -14,8 +14,9 @@
 -- along with Lion.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    core_dml
- * @copyright  2009 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    core
+ * @subpackage dml
+ * @copyright  2015 Pooya Saeedi
  * 
  * @version    20091010 (plz, keep this updated for easier reference)
  */

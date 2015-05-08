@@ -3,7 +3,8 @@
 /**
  * Save and load draft text while a user is still editing a form.
  *
- * @package    editor_atto
+ * @package    editor
+ * @subpackage atto
  * @copyright  2015 Pooya Saeedi
  * 
  */

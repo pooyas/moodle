@@ -3,7 +3,6 @@
 /**
  * Check that, as in the coding guidelines, every to-do comment links to a tracker issue.
  *
- * As required by http://docs.lion.org/dev/Coding_style.
  *
  * @package    core
  * @copyright  2015 Pooya Saeedi

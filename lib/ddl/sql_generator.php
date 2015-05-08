@@ -6,9 +6,9 @@
  * The rest of classes will inherit, by default, the same logic.
  * Functions will be overridden as needed to generate correct SQL.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
- *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
+ * @package    core
+ * @subpackage ddl
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Abstract sql generator class, base for all db specific implementations.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
- *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
  * 
  */
 abstract class sql_generator {

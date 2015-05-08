@@ -7,11 +7,8 @@
  * data structures, useful for both ldap authentication (or ldap based
  * authentication like CAS) and enrolment plugins.
  *
- * @author     Iñaki Arenaza
  * @package    core
- * @subpackage lib
  * @copyright  2015 Pooya Saeedi
- * @copyright  2010 onwards Iñaki Arenaza
  * 
  */
 

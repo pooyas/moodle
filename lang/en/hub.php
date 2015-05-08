@@ -4,7 +4,8 @@
  *
  * Hub related strings
  *
- * @package   core_hub
+ * @package   core
+ * @subpackage hub
  * @copyright 2015 Pooya Saeedi
  * 
  */

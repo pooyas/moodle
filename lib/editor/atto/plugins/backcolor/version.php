@@ -3,8 +3,9 @@
 /**
  * Atto text editor integration version file.
  *
- * @package    atto_backcolor
- * @copyright  2014 Rossiani Wijaya  <rwijaya@lion.com>
+ * @package    atto
+ * @subpackage backcolor
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  test
- * @copyright 2013 Tim Gusak <tim.gusak@remote-learner.net>
+ * @copyright 2015 Pooya Saeedo
  * 
  */
 

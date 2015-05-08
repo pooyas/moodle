@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'repository_dropbox', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_dropbox', language 'en'
  *
  * @package   repository_dropbox
  * @copyright 2010 Dongsheng Cai

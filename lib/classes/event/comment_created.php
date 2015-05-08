@@ -23,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int itemid: id of item for which comment is added.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class comment_created extends base {
 

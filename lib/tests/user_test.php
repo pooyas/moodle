@@ -11,9 +11,6 @@
 /**
  * Test core_user class.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_user_testcase extends advanced_testcase {
 

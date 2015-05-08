@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The blog comment created event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class blog_comment_created extends comment_created {
 

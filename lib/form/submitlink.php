@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a submitting to link
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ require_once("$CFG->libdir/form/submit.php");
  *
  * HTML class for a submitting to link
  *
- * @package   core_form
- * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_submitlink extends LionQuickForm_submit {
     /** @var string javascript for submitting element's data */

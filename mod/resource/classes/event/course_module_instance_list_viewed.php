@@ -4,7 +4,7 @@
  * The mod_resource instance list viewed event.
  *
  * @package    mod_resource
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_resource
  * @since      Lion 2.7
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {

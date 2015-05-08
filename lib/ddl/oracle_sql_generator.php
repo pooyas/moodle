@@ -3,9 +3,9 @@
 /**
  * Oracle specific SQL code generator.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
- *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
+ * @package    core
+ * @subpackage ddl
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +18,6 @@ require_once($CFG->libdir.'/ddl/sql_generator.php');
  * It extends XMLDBgenerator so everything can be
  * overridden as needed to generate correct SQL.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
- *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
  * 
  */
 class oracle_sql_generator extends sql_generator {

@@ -6,7 +6,6 @@
  * @package   core
  * @category  phpunit
  * @copyright 2015 Pooya Saeedi
- *  (5)
  */
 
 defined('LION_INTERNAL') || die();
@@ -20,8 +19,6 @@ require_once($CFG->libdir . '/outputlib.php');
  *
  * These tests assume that developer debug mode is on which is enforced by our phpunit integration.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_xhtml_container_stack_testcase extends advanced_testcase {
     public function test_push_then_pop() {

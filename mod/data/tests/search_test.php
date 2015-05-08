@@ -6,7 +6,7 @@
  *
  * @package    mod_data
  * @category   phpunit
- * @copyright  2012 Adrian Greeve
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ require_once($CFG->dirroot . '/lib/csvlib.class.php');
  *                {@see data_get_advanced_search_sql()}
  *
  * @package    mod_data
- * @copyright  2012 Adrian Greeve
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class data_advanced_search_sql_test extends advanced_testcase {

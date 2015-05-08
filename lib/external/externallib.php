@@ -4,9 +4,9 @@
 /**
  * external API for core library
  *
- * @package    core_webservice
+ * @package    core
  * @category   external
- * @copyright  2015 Pooya Saeedi <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,11 +17,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Web service related functions
  *
- * @package    core
- * @category   external
- * @copyright  2015 Pooya Saeedi <jerome@lion.com>
- * 
- * @since Lion 2.4
  */
 class core_external extends external_api {
 

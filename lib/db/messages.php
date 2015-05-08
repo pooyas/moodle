@@ -8,12 +8,9 @@
  * support this.
  *
  * For more information, take a look to the documentation available:
- *     - Message API: {@link http://docs.lion.org/dev/Message_API}
- *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
  * @package   core
- * @category  message
- * @copyright 2008 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -25,7 +25,7 @@ require_once($CFG->libdir.'/filelib.php');
  * 3. Some functions are based on http://code.google.com/p/oauth/
  *
  * @package    core
- * @copyright  2010 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -364,9 +364,6 @@ class oauth_helper {
  *
  * http://tools.ietf.org/html/draft-ietf-oauth-v2-22
  *
- * @package   core
- * @copyright Dan Poltawski <talktodan@gmail.com>
- * 
  */
 abstract class oauth2_client extends curl {
     /** var string client identifier issued to the client */

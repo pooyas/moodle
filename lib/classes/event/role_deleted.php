@@ -23,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string archetype: (optional) role type.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class role_deleted extends base {
     /**

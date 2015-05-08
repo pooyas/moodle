@@ -16,9 +16,6 @@ require_once($CFG->libdir . '/filelib.php');
 /**
  * Unit tests for /lib/classes/filetypes.php.
  *
- * @package core
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_filetypes_testcase extends advanced_testcase {
 

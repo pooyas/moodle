@@ -4,7 +4,7 @@
  * Base class for the settings form for {@link quiz_attempts_report}s.
  *
  * @package   mod_quiz
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Base class for the settings form for {@link quiz_attempts_report}s.
  *
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class mod_quiz_attempts_report_form extends lionform {

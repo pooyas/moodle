@@ -3,8 +3,9 @@
 /**
  * TinyMCE media insert plugin version details.
  *
- * @package   tinymce_lionmedia
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage lionmedia
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

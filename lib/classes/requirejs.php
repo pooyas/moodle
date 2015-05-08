@@ -4,7 +4,7 @@
  * RequireJS helper functions.
  *
  * @package    core
- * @copyright  2015 Damyon Wiese <damyon@lion.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -13,8 +13,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Collection of requirejs related methods.
  *
- * @copyright  2015 Damyon Wiese <damyon@lion.com>
- * 
  */
 class core_requirejs {
 

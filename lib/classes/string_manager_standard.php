@@ -16,9 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * Implements string_manager with getting and printing localised strings
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_string_manager_standard implements core_string_manager {
     /** @var string location of all packs except 'en' */

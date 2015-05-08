@@ -4,15 +4,14 @@
  * Scheduled task abstract class.
  *
  * @package    core
- * @category   task
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\task;
 
 /**
  * Abstract class defining a scheduled task.
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class scheduled_task extends task_base {

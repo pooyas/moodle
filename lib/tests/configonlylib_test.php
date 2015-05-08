@@ -18,10 +18,6 @@ require_once(__DIR__ . '/../configonlylib.php');
 /**
  * Unit tests for config only library functions.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class core_configonlylib_testcase extends advanced_testcase {
 

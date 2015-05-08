@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'theme_base', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'theme_base', language 'en'
  *
  * @package   theme_base
  * @copyright 2015 Pooya Saeedi

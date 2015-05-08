@@ -4,7 +4,7 @@
 /**
  * Abstraction of general file archives.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -14,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Each file archive type must extend this class.
  *
- * @package   core_files
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 abstract class file_archive implements Iterator {
 

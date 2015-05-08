@@ -4,7 +4,8 @@
  * This file contains the strings used by backup
  *
  * @package   core
- * @copyright 2010 Eloy
+ * @subpackage backup
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

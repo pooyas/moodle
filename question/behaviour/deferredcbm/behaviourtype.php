@@ -4,7 +4,7 @@
  * Question behaviour type for deferred feedback with CBM behaviour.
  *
  * @package    qbehaviour_deferredcbm
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once(dirname(__FILE__) . '/../deferredfeedback/behaviourtype.php');
 /**
  * Question behaviour type information for deferred feedback with CBM behaviour.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_deferredcbm_type extends qbehaviour_deferredfeedback_type {

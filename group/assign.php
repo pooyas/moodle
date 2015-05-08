@@ -4,9 +4,10 @@
 /**
  * Add/remove group from grouping.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  * 
- * @package   core_group
  */
 
 require_once('../config.php');

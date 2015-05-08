@@ -19,10 +19,6 @@ defined('LION_INTERNAL') || die();
  * Launch http://127.0.0.1/lib/tests/other/jquerypage.php to
  * verify it actually works in browser.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_jquery_testcase extends basic_testcase {
 

@@ -6,8 +6,8 @@
  *
  * Contains HTML class for an advcheckbox type form element
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,9 +19,6 @@ require_once('HTML/QuickForm/advcheckbox.php');
  * Overloaded {@link HTML_QuickForm_advcheckbox} with default behavior modified for Lion.
  * This will return '0' if not checked and '1' if checked.
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
  * 
  */
 class LionQuickForm_advcheckbox extends HTML_QuickForm_advcheckbox{

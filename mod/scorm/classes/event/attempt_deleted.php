@@ -4,7 +4,7 @@
  * The mod_scorm attempt deleted event.
  *
  * @package    mod_scorm
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_scorm
  * @since      Lion 2.7
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class attempt_deleted extends \core\event\base {

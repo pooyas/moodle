@@ -18,8 +18,9 @@
  * and the sql_generator, so both are able to use its facilities, with the final goal
  * of doing temporary tables support 100% cross-db and transparent within the DB API.
  *
- * @package    core_dml
- * @copyright  2009 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    core
+ * @subpackage dml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

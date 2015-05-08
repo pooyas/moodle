@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'quiz_statistics', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'quiz_statistics', language 'en'
  *
  * @package   quiz_statistics
  * @copyright 2015 Pooya Saeedi

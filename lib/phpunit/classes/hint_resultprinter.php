@@ -14,10 +14,6 @@
  * Helper test listener that prints command necessary
  * for execution of failed test.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class Hint_ResultPrinter extends PHPUnit_TextUI_ResultPrinter {
     public function __construct() {

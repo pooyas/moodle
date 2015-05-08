@@ -3,10 +3,10 @@
 /**
  * DO NOT INCLUDE THIS FILE.
  *
- * @package core_availability
+ * @package core
  * @copyright 2015 Pooya Saeedi
  * 
- * @deprecated Since Lion 2.7
+ * @deprecated 
  */
 
 defined('LION_INTERNAL') || die();

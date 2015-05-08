@@ -4,7 +4,7 @@
 /**
  * Set the mail digest option in a specific forum for a user.
  *
- * @copyright 2013 Andrew Nicols
+ * @copyright 2015 Pooya Saeedi
  * @package   mod_forum
  * 
  */

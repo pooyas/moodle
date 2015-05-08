@@ -4,7 +4,7 @@
  * Plugin capabilities.
  *
  * @package    repository_picasa
- * @copyright  2009 Dan Poltawski
+ * @copyright  2015 Pooya Saeedi
  * @author     Dan Poltawski <talktodan@gmail.com>
  * 
  */

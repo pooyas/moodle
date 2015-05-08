@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for our utf-8 aware text processing.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_text_testcase extends advanced_testcase {
 

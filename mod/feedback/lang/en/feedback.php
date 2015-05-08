@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'feedback', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'feedback', language 'en'
  *
  * @package mod_feedback
  * @copyright 2015 Pooya Saeedi

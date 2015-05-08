@@ -9,10 +9,7 @@
  *
  * @package    core
  * @subpackage lib
- * @author     Alex Smith and others members of the Serving Mathematics project
- * 
- *             {@link http://maths.york.ac.uk/serving_maths}
- *             and others
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

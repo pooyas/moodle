@@ -4,7 +4,7 @@
  * Produces a sample page using JQuery.
  *
  * @package    core
- * @copyright  20014 Petr Skoda
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

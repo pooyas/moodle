@@ -3,8 +3,9 @@
 /**
  * Atto text editor integration version file.
  *
- * @package    atto_noautolink
- * @copyright  2014 Andrew Davis  <andrew@lion.com>
+ * @package    atto
+ * @subpackage noautolink
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -9,7 +9,7 @@ defined('LION_INTERNAL') || die();
  * progress. The Lion progress bar cannot show indeterminate progress,
  * so we do extra output in addition to the bar.
  *
- * @package core_progress
+ * @package core
  * @copyright 2015 Pooya Saeedi
  * 
  */

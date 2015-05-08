@@ -31,11 +31,6 @@ define('TABLE_P_BOTTOM', 2);
 /**#@-*/
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class flexible_table {
 
     var $uniqueid        = NULL;
@@ -1352,11 +1347,6 @@ class flexible_table {
 }
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_sql extends flexible_table {
 
     public $countsql = NULL;
@@ -1530,11 +1520,6 @@ class table_sql extends flexible_table {
 }
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_default_export_format_parent {
     /**
      * @var flexible_table or child class reference pointing to table class
@@ -1579,11 +1564,6 @@ class table_default_export_format_parent {
 }
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_spreadsheet_export_format_parent extends table_default_export_format_parent {
     var $currentrow;
     var $workbook;
@@ -1661,11 +1641,6 @@ class table_spreadsheet_export_format_parent extends table_default_export_format
 }
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_excel_export_format extends table_spreadsheet_export_format_parent {
     var $fileextension = 'xls';
 
@@ -1679,11 +1654,6 @@ class table_excel_export_format extends table_spreadsheet_export_format_parent {
 }
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_ods_export_format extends table_spreadsheet_export_format_parent {
     var $fileextension = 'ods';
     function define_workbook() {
@@ -1695,11 +1665,6 @@ class table_ods_export_format extends table_spreadsheet_export_format_parent {
 }
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_text_export_format_parent extends table_default_export_format_parent {
     protected $seperator = "tab";
     protected $mimetype = 'text/tab-separated-values';
@@ -1752,11 +1717,6 @@ class table_text_export_format_parent extends table_default_export_format_parent
 }
 
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_tsv_export_format extends table_text_export_format_parent {
     protected $seperator = "tab";
     protected $mimetype = 'text/tab-separated-values';
@@ -1764,22 +1724,12 @@ class table_tsv_export_format extends table_text_export_format_parent {
 }
 
 require_once($CFG->libdir . '/csvlib.class.php');
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_csv_export_format extends table_text_export_format_parent {
     protected $seperator = "comma";
     protected $mimetype = 'text/csv';
     protected $ext = '.csv';
 }
 
-/**
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
- */
 class table_xhtml_export_format extends table_default_export_format_parent {
     function start_document($filename) {
         header("Content-Type: application/download\n");

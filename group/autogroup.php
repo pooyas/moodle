@@ -4,8 +4,9 @@
 /**
  * Create and allocate users to groups
  *
- * @package    core_group
- * @copyright  Matt Clarkson mattc@catalyst.net.nz
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

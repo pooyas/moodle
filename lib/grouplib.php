@@ -2,9 +2,9 @@
 
 
 /**
- * @copyright  2015 Pooya Saeedi
  * 
- * @package    core_group
+ * @package    core
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

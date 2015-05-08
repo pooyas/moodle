@@ -6,8 +6,8 @@
  *
  * Contains class for a group of elements used to input a date.
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ require_once($CFG->libdir . '/formslib.php');
  *
  * Emulates lion print_date_selector function
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_date_selector extends LionQuickForm_group {
 

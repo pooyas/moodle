@@ -18,9 +18,6 @@ defined('LION_INTERNAL') || die();
  * that is used in installer before we fetch the wanted
  * language pack from lion.org lang download site.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_string_manager_install implements core_string_manager {
     /** @var string location of pre-install packs for all langs */

@@ -3,8 +3,9 @@
 /**
  * TinyMCE no-link marker plugin version details.
  *
- * @package   tinymce_lionnolink
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage lionnolink
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

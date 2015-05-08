@@ -19,9 +19,6 @@
  *
  * Use sparingly and only with good cause!
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_useragent {
 

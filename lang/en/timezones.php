@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'timezones', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'timezones', language 'en'
  *
  * @package    core
  * @subpackage timezones

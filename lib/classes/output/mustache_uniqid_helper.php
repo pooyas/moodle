@@ -4,8 +4,7 @@
  * Mustache helper that will add JS to the end of the page.
  *
  * @package    core
- * @category   output
- * @copyright  2015 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +14,6 @@ namespace core\output;
  * Lazy create a uniqid per instance of the class. The id is only generated
  * when this class it converted to a string.
  *
- * @copyright  2015 Damyon Wiese
- * 
- * @since      2.9
  */
 class mustache_uniqid_helper {
 

@@ -4,7 +4,7 @@
 /**
  * Utility class for browsing of stored files.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -14,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents an actual file or folder - a row in the file table in the tree navigated by {@link file_browser}.
  *
- * @package   core_files
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class file_info_stored extends file_info {
     /** @var stored_file|virtual_root_file stored_file or virtual_root_file instance */

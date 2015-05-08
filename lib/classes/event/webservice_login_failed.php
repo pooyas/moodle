@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string tokenid: id of token.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class webservice_login_failed extends base {
 

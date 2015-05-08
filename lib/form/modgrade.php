@@ -7,8 +7,8 @@
  * Contains HTML class for a drop down element to select the grade for an activity,
  * used in mod update form
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -24,10 +24,6 @@ require_once($CFG->dirroot.'/lib/grade/grade_scale.php');
  * HTML class for a drop down element to select the grade for an activity,
  * used in mod update form
  *
- * @package   core_form
- * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_modgrade extends LionQuickForm_group{
 

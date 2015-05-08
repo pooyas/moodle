@@ -7,9 +7,8 @@
  * It is recommended to add webservice functions and re-use this script instead of
  * writing any new custom ajax scripts.
  *
- * @since Lion 2.9
  * @package core
- * @copyright 2015 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

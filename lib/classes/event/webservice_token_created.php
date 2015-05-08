@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  *      - bool auto: true if it was automatically created.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class webservice_token_created extends base {
 

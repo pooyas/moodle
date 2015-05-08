@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'choice', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'choice', language 'en'
  *
  * @package   mod_choice
  * @copyright 2015 Pooya Saeedi

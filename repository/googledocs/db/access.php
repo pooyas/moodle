@@ -4,7 +4,7 @@
  * Plugin capabilities.
  *
  * @package    repository_googledocs
- * @copyright  2009 Dan Poltawski <talktodan@gmail.com>
+ * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
  * 
  */
 

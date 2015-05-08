@@ -6,10 +6,8 @@
  * Everything else that is logically namespaced by class is in its own file
  * in lib/portfolio/ directory.
  *
- * Major Contributors
- *     - Penny Leach <penny@catalyst.net.nz>
  *
- * @package core_portfolio
+ * @package core
  * @category portfolio
  * @copyright 2015 Pooya Saeedi
  * 
@@ -56,10 +54,6 @@ require_once($CFG->libdir . '/portfolio/caller.php');
  * </code>
  *{@link http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page} for more information
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class portfolio_add_button {
 

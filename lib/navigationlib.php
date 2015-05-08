@@ -3,7 +3,6 @@
 /**
  * This file contains classes used to manage the navigation structures within Lion.
  *
- * @since      Lion 2.0
  * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
@@ -26,10 +25,6 @@ define('NAVIGATION_SITE_ADMIN_CACHE_NAME', 'navigationsiteadmin');
  * When a node is first created it is created as a leaf, when/if children are added
  * the node then becomes a branch.
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class navigation_node implements renderable {
     /** @var int Used to identify this node a leaf (default) 0 */
@@ -712,10 +707,6 @@ class navigation_node implements renderable {
  * however it was decided that a better solution would be to use a class that
  * implements the standard IteratorAggregate interface.
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class navigation_node_collection implements IteratorAggregate {
     /**
@@ -953,10 +944,6 @@ class navigation_node_collection implements IteratorAggregate {
  * {@link lib/pagelib.php} {@link lion_page::initialise_theme_and_output()}
  * {@link lib/ajax/getnavbranch.php} Called by ajax
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class global_navigation extends navigation_node {
     /** @var lion_page The Lion page this navigation object belongs to. */
@@ -2766,10 +2753,6 @@ class global_navigation extends navigation_node {
  * This has been done only because it shortens the amounts of information that is generated
  * which of course will speed up the response time.. because no one likes laggy AJAX.
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class global_navigation_for_ajax extends global_navigation {
 
@@ -3015,10 +2998,6 @@ class global_navigation_for_ajax extends global_navigation {
  * This class is used to manage the navbar, which is initialised from the navigation
  * object held by PAGE
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class navbar extends navigation_node {
     /** @var bool A switch for whether the navbar is initialised or not */
@@ -3358,10 +3337,6 @@ class navbar extends navigation_node {
  * This class is used to manage the settings options in a tree format (recursively)
  * and was created initially for use with the settings blocks.
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class settings_navigation extends navigation_node {
     /** @var stdClass the current context */
@@ -4600,10 +4575,6 @@ class settings_navigation extends navigation_node {
 /**
  * Class used to populate site admin navigation for ajax.
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class settings_navigation_ajax extends settings_navigation {
     /**
@@ -4640,10 +4611,6 @@ class settings_navigation_ajax extends settings_navigation {
 /**
  * Simple class used to output a navigation branch in XML
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class navigation_json {
     /** @var array An array of different node types */
@@ -4757,10 +4724,6 @@ class navigation_json {
  * $content = $cache->viewdiscussion;
  * </code>
  *
- * @package   core
- * @category  navigation
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class navigation_cache {
     /** @var int represents the time created */

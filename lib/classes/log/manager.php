@@ -18,7 +18,6 @@ defined('LION_INTERNAL') || die();
  * This is intended for reports, use get_log_manager() to get
  * the configured instance.
  *
- * @package core
  */
 interface manager {
     /**

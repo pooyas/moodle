@@ -3,7 +3,7 @@
 /**
  * Form for editing a users profile
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core_user
  */
@@ -17,7 +17,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Class user_editadvanced_form.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_editadvanced_form extends lionform {

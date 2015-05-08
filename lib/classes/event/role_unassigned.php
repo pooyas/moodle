@@ -4,7 +4,6 @@
  * Role unassigned event.
  *
  * @package    core
- * @since      Lion 2.6
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -24,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int itemid: (optional) id of item.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class role_unassigned extends base {
     protected function init() {

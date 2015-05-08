@@ -4,8 +4,7 @@
  * lock unit tests
  *
  * @package    core
- * @category   lock
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for our locking configuration.
  *
- * @package    core
- * @category   lock
- * @copyright  2013 Damyon Wiese
- * 
  */
 class lock_config_testcase extends advanced_testcase {
 

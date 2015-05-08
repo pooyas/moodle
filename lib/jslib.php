@@ -4,8 +4,8 @@
  * This file contains various javascript related functions,
  * all functions here are self contained and can be used in ABORT_AFTER_CONFIG scripts.
  *
- * @package   core_lib
- * @copyright 2015 Pooya Saeedi (skodak)  
+ * @package   core
+ * @copyright 2015 Pooya Saeedi  
  * 
  */
 

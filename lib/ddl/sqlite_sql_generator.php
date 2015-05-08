@@ -3,8 +3,9 @@
 /**
  * Experimental SQLite specific SQL code generator.
  *
- * @package    core_ddl
- * @copyright  2008 Andrei Bautu
+ * @package    core
+ * @subpackage ddl
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

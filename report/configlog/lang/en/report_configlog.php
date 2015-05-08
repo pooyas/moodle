@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'report_configlog', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'report_configlog', language 'en'
  *
  * @package   report
  * @subplugin configlog

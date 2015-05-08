@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Cohort updated event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class cohort_updated extends base {
 

@@ -5,8 +5,7 @@
  *
  * @package    core
  * @subpackage event
- * @copyright  2007 onwards Martin Dougiamas (http://dougiamas.com)
- * @author     Petr Skoda 
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

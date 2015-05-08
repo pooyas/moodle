@@ -4,7 +4,7 @@
  * Installation code for the popup message processor
  *
  * @package   message_popup
- * @copyright 2009 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

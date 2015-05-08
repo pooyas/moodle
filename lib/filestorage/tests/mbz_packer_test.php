@@ -3,7 +3,8 @@
 /**
  * Unit tests for /lib/filestorage/mbz_packer.php.
  *
- * @package core_files
+ * @package   core
+ * @category  phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

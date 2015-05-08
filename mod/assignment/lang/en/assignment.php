@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'assignment', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'assignment', language 'en'
  *
  * @package   mod_assignment
  * @copyright 2015 Pooya Saeedi

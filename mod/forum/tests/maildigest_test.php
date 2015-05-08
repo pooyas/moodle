@@ -6,7 +6,7 @@
  *
  * @package    mod_forum
  * @category   external
- * @copyright  2013 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

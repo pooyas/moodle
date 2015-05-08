@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * HTMLPurifier test case
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class core_htmlpurifier_testcase extends basic_testcase {
 

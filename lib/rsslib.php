@@ -4,7 +4,7 @@
 /**
  * This file contains all the common stuff to be used in RSS System
  *
- * @package    core_rss
+ * @package    core
  * @category   rss
  * @copyright  2015 Pooya Saeedi
  * 

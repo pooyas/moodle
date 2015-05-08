@@ -4,7 +4,6 @@
  * @package    core
  * @subpackage session
  * @copyright  2015 Pooya Saeedi
- * @copyright  2008, 2015 Pooya Saeedi  
  * 
  */
 

@@ -3,7 +3,7 @@
 /**
  * Silly behat_form_select extension.
  *
- * @package    core_form
+ * @package    core
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -19,10 +19,6 @@ require_once(__DIR__  . '/behat_form_select.php');
  * Plain behat_form_select extension as is the same
  * kind of field.
  *
- * @package    core_form
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_form_modvisible extends behat_form_select {
 }

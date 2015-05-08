@@ -3,11 +3,10 @@
 /**
  * Unit tests for the grade API at /lib/classes/grades_external.php
  *
- * @package    core_grades
+ * @package    core
  * @category   external
- * @copyright  2012 Andrew Davis
+ * @copyright  2015 Pooya Saeedi
  * 
- * @since Lion 2.7
  */
 
 defined('LION_INTERNAL') || die();
@@ -21,7 +20,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  *
  * @package core_grades
  * @category external
- * @copyright 2012 Andrew Davis
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_grades_external_testcase extends externallib_advanced_testcase {

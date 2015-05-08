@@ -3,7 +3,8 @@
 /**
  * On-the-fly conversion of Lion lang strings to TinyMCE expected JS format.
  *
- * @package    editor_tinymce
+ * @package    editor
+ * @subpackage tinymce
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -5,8 +5,8 @@
  *
  * Contains HTML class for a searchable select type element
  *
- * @package   core_form
- * @copyright 2009 Jerome Mouneyrac <jerome@mouneyrac.com>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +21,6 @@ require_once('select.php');
  * If ever the select can be reset/unselect/blank/nooption, you will have to add an option "noselected"
  * and manage this special case when you get/set the form data (i.e. $mform->get_data()/$this->set_data($yourobject)).
  *
- * @package   core_form
- * @category  form
- * @copyright 2009 Jerome Mouneyrac
- * 
  */
 class LionQuickForm_searchableselector extends LionQuickForm_select{
     /**

@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Message contact blocked event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class message_contact_blocked extends base {
 

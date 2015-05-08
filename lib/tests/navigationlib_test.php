@@ -6,7 +6,6 @@
  * @package   core
  * @category  phpunit
  * @copyright 2015 Pooya Saeedi
- *  (5)
  */
 
 defined('LION_INTERNAL') || die();

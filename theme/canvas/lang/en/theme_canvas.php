@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'theme_formfactor', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'theme_formfactor', language 'en'
  *
  * @package   theme_canvas
  * @copyright  2010 Patrick Malley

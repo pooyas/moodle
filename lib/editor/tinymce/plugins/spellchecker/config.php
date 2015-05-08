@@ -3,8 +3,9 @@
 /**
  * Spellchecker configuration. (Has been rewritten for Lion.)
  *
- * @package   tinymce_spellchecker
- * @copyright 2012 The Open University
+ * @package   tinymce
+ * @subpackage spellchecker
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

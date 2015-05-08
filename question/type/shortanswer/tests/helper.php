@@ -4,7 +4,7 @@
  * Test helpers for the shortanswer question type.
  *
  * @package    qtype_shortanswer
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

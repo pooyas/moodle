@@ -21,10 +21,6 @@ use Behat\Mink\Exception\ElementNotFoundException as ElementNotFoundException,
 /**
  * Deprecated behat step definitions.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_deprecated extends behat_base {
 

@@ -4,7 +4,7 @@
  * Question behaviour type for manually graded behaviour.
  *
  * @package    qbehaviour_manualgraded
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Question behaviour type information for manually graded behaviour.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_manualgraded_type extends question_behaviour_type {

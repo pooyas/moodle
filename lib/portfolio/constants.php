@@ -3,8 +3,8 @@
 /**
  * This file contains all the defined constants to do with portfolios.
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>, Martin Dougiamas
+ * @package  core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

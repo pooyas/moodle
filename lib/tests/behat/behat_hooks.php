@@ -38,10 +38,6 @@ use Behat\Behat\Event\SuiteEvent as SuiteEvent,
  *
  * Throws generic Exception because they are captured by Behat.
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_hooks extends behat_base {
 

@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'auth', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'auth', language 'en'
  *
- * @package   core_auth
+ * @package   core
+ * @subpackage auth
  * @copyright 2015 Pooya Saeedi
  * 
  */

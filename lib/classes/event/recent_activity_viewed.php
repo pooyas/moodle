@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Event for recent activity page.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class recent_activity_viewed extends base {
 

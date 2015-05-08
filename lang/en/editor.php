@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'editor', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'editor', language 'en'
  *
- * @package   core_editor
+ * @package   core
+ * @subpackage editor
  * @copyright 2015 Pooya Saeedi
  * 
  */

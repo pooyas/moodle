@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage auth
- * @copyright  2006 Petr Skoda 
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

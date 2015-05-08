@@ -3,7 +3,7 @@
 /**
  * Language file for 'badges' component
  *
- * @package    core_badges
+ * @package    core
  * @subpackage badges
  * @copyright  2015 Pooya Saeedi
  * 

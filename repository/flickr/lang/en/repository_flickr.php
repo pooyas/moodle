@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_flickr', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_flickr', language 'en'
  *
  * @package   repository_flickr
  * @copyright 2015 Pooya Saeedi

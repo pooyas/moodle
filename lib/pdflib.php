@@ -42,8 +42,8 @@
  *    $doc->Output();
  * </code>
  *
- * @package     lioncore
- * @copyright   Vy-Shane Sin Fat
+ * @package     core
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 
@@ -138,9 +138,6 @@ require_once(dirname(__FILE__).'/tcpdf/tcpdf.php');
  * Wrapper class that extends TCPDF (lib/tcpdf/tcpdf.php).
  * Lion customisations are done here.
  *
- * @package     lioncore
- * @copyright   Vy-Shane Sin Fat
- * 
  */
 class pdf extends TCPDF {
 

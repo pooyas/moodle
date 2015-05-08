@@ -14,10 +14,6 @@ require_once(__DIR__ . '/../../classes/event/base.php');
 /**
  * Event mock class.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class phpunit_event_mock extends \core\event\base {
 

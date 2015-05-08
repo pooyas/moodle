@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_clear', language 'en'.
  *
- * @package    atto_clear
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage clear
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

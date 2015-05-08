@@ -4,7 +4,7 @@
  * Basic configuration overwrite for Google API.
  *
  * @package   core
- * @copyright Frédéric Massart <fred@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

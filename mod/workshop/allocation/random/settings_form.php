@@ -6,7 +6,7 @@
  *
  * @package    workshopallocation
  * @subpackage random
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  *
  * This is used by {@see workshop_random_allocator::ui()} to set up allocation parameters.
  *
- * @copyright 2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class workshop_random_allocator_form extends lionform {

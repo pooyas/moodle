@@ -6,7 +6,7 @@
  *
  * @package    core_webservice
  * @category   output
- * @copyright  2009 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class core_webservice_renderer extends plugin_renderer_base {

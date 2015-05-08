@@ -6,7 +6,7 @@
  *
  * @package    core
  * @copyright  2015 Pooya Saeedi
- * @deprecated since Lion 2.7
+ * @deprecated
  * 
  */
 
@@ -28,11 +28,6 @@ debugging('core\event\content_viewed has been deprecated. Please extend base eve
  *      - string content: name of the content viewed.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * @deprecated since Lion 2.7
- * 
  */
 abstract class content_viewed extends base {
 

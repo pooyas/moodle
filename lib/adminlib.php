@@ -79,8 +79,6 @@
  *  admin_tree) must be unique on the respective admin_settingpage where it is
  *  used.
  *
- * Original author: Vincenzo K. Marcovecchio
- * Maintainer:      Petr Skoda
  *
  * @package    core
  * @subpackage admin
@@ -3241,7 +3239,6 @@ class admin_setting_configtime extends admin_setting {
 /**
  * Seconds duration setting.
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class admin_setting_configduration extends admin_setting {
@@ -3409,8 +3406,6 @@ class admin_setting_configduration extends admin_setting {
  * Seconds duration setting with an advanced checkbox, that controls a additional
  * $name.'_adv' setting.
  *
- * 
- * @copyright 2015 Pooya Saeedi
  */
 class admin_setting_configduration_with_advanced extends admin_setting_configduration {
     /**
@@ -3433,8 +3428,6 @@ class admin_setting_configduration_with_advanced extends admin_setting_configdur
 /**
  * Used to validate a textarea used for ip addresses
  *
- * 
- * @copyright 2015 Pooya Saeedi 
  */
 class admin_setting_configiplist extends admin_setting_configtextarea {
 
@@ -4323,8 +4316,6 @@ class admin_settings_country_select extends admin_setting_configselect {
  * admin_setting_configselect for the default number of sections in a course,
  * simply so we can lazy-load the choices.
  *
- * @copyright 2011 The Open University
- * 
  */
 class admin_settings_num_course_sections extends admin_setting_configselect {
     public function __construct($name, $visiblename, $description, $defaultsetting) {
@@ -4410,9 +4401,6 @@ class admin_setting_special_backupdays extends admin_setting_configmulticheckbox
 /**
  * Special setting for backup auto destination.
  *
- * @package    core
- * @subpackage admin
- * @copyright  2014 Frédéric Massart - FMCorz.net
  * 
  */
 class admin_setting_special_backup_auto_destination extends admin_setting_configdirectory {
@@ -4682,8 +4670,6 @@ class admin_setting_configtext_with_advanced extends admin_setting_configtext {
 /**
  * Checkbox with an advanced checkbox that controls an additional $name.'_adv' config setting.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class admin_setting_configcheckbox_with_advanced extends admin_setting_configcheckbox {
 
@@ -4709,8 +4695,6 @@ class admin_setting_configcheckbox_with_advanced extends admin_setting_configche
  *
  * This is nearly a copy/paste of admin_setting_configcheckbox_with_adv
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class admin_setting_configcheckbox_with_lock extends admin_setting_configcheckbox {
     /**
@@ -5318,8 +5302,6 @@ class admin_page_managemods extends admin_externalpage {
 /**
  * Special class for enrol plugins management.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class admin_setting_manageenrols extends admin_setting {
     /**
@@ -5668,8 +5650,6 @@ class admin_page_defaultmessageoutputs extends admin_page_managemessageoutputs {
 /**
  * Manage question behaviours page
  *
- * @copyright  2011 The Open University
- * 
  */
 class admin_page_manageqbehaviours extends admin_externalpage {
     /**
@@ -8932,7 +8912,7 @@ class admin_setting_configmultiselect_modules extends admin_setting_configmultis
 /**
  * Admin setting to show if a php extension is enabled or not.
  *
- * @copyright 2013 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class admin_setting_php_extension_enabled extends admin_setting {

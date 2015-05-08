@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Grade report viewed event class.
  *
- * @package    core
- * @since      Lion 2.8
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class grade_report_viewed extends base {
 

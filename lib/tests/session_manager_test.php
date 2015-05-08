@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for session manager class.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_session_manager_testcase extends advanced_testcase {
     public function test_start() {

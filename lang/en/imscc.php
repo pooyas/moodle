@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'imscc', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'imscc', language 'en'
  *
  * @package    core
  * @subpackage imscc

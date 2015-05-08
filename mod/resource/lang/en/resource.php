@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'resource', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'resource', language 'en'
  *
  * @package    mod_resource
  * @copyright  2015 Pooya Saeedi

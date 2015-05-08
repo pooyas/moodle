@@ -20,10 +20,6 @@ require_once($CFG->libdir . '/mathslib.php');
  *
  * Tests for event \core\event\user_graded
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_event_user_graded_testcase extends advanced_testcase {
 

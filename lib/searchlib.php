@@ -28,9 +28,6 @@ define("TOKEN_INSTANCE","8");
 /**
  * Class to hold token/value pairs after they're parsed.
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class search_token {
   private $value;
@@ -62,9 +59,6 @@ class search_token {
  * Using a full-blown lexer is probably overkill for this application, but
  * might be useful for other tasks.
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class search_lexer extends Lexer{
 
@@ -189,9 +183,6 @@ class search_lexer extends Lexer{
  * Most functions in this class should only be called by the lexer, the
  * one exception being getParseArray() which returns the result.
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class search_parser {
     private $tokens;

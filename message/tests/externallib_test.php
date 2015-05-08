@@ -3,7 +3,7 @@
 /**
  * External message functions unit tests
  *
- * @package    core_message
+ * @package    core
  * @category   external
  * @copyright  2015 Pooya Saeedi
  * 

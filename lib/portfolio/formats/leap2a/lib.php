@@ -3,8 +3,9 @@
 /**
  * This file contains the LEAP2a writer used by portfolio_format_leap2a
  *
- * @package core_portfolio
- * @copyright 2009 Penny Leach (penny@liip.ch), Martin Dougiamas
+ * @package    core
+ * @subpackage portfolio
+ * @copyright 2015 Pooya Saeedi
  * 
  *
  */
@@ -23,10 +24,6 @@ defined('LION_INTERNAL') || die();
  * $xmlstr = $writer->to_xml();
  *
  * @todo MDL-31287 - find a way to ensure that all referenced files are included
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach
- * 
  */
 class portfolio_format_leap2a_writer {
 
@@ -195,9 +192,6 @@ class portfolio_format_leap2a_writer {
  *
  * You can create these directly and then add them to the main leap feed object
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach
  * 
  */
 class portfolio_format_leap2a_entry {
@@ -476,9 +470,6 @@ class portfolio_format_leap2a_entry {
 /**
  * Subclass of entry, purely for dealing with files
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach
  * 
  */
 class portfolio_format_leap2a_file extends portfolio_format_leap2a_entry {

@@ -5,7 +5,7 @@
  * Workshop module renderering methods are defined here
  *
  * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Workshop module renderer class
  *
- * @copyright 2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_workshop_renderer extends plugin_renderer_base {

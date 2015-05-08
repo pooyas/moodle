@@ -13,7 +13,7 @@ defined('LION_INTERNAL') || die();
  * The bar can be re-used, i.e. if you end all sections it will disappear,
  * but if you start all sections, a new bar will be output.
  *
- * @package core_progress
+ * @package core
  * @copyright 2015 Pooya Saeedi
  * 
  */

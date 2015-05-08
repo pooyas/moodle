@@ -21,7 +21,7 @@ use Behat\Gherkin\Node\TableNode as TableNode;
  *
  * @package    core_calendar
  * @category   test
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_calendar extends behat_base {

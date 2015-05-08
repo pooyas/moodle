@@ -13,10 +13,6 @@
 /**
  * Message sink.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class phpunit_message_sink {
     /** @var array of records from message_read table */

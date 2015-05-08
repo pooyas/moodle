@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_accessibilityhelper', language 'en'.
  *
- * @package    atto_accessibilityhelper
- * @copyright  2015 Pooya Saeedi  <damyon@lion.com>
+ * @package    atto
+ * @subpackage accessibilityhelper
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

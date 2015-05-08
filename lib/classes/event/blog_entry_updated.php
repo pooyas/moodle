@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
  *
  * Event to be triggered when a blog entry is updated.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class blog_entry_updated extends base {
 

@@ -4,8 +4,7 @@
  * Mustache helper to load strings from string_manager.
  *
  * @package    core
- * @category   output
- * @copyright  2015 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +16,6 @@ use stdClass;
 /**
  * This class will load language strings in a template.
  *
- * @copyright  2015 Damyon Wiese
- * 
- * @since      2.9
  */
 class mustache_string_helper {
 

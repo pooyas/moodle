@@ -3,8 +3,9 @@
 /**
  * Strings used by the plagiarism component
  *
- * @package    core_plagiarism
- * @copyright  2010 Dan Marsden <dan@danmarsden.com>
+ * @package    core
+ * @subpackage plagiarism
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

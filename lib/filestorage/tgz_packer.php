@@ -16,7 +16,7 @@
  * - For path more than 155 characters it may or may not work.
  * - May not contain non-ASCII characters.
  *
- * @package core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */

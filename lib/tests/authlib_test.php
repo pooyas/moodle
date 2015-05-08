@@ -3,7 +3,7 @@
 /**
  * Authentication related tests.
  *
- * @package    core_auth
+ * @package    core
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 

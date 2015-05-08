@@ -3,7 +3,7 @@
 /**
  * Behat message-related steps definitions.
  *
- * @package    core_message
+ * @package    core
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -19,7 +19,7 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Messaging system steps definitions.
  *
- * @package    core_message
+ * @package    core
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

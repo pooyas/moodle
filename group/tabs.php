@@ -3,8 +3,9 @@
 /**
  * Prints navigation tabs
  *
- * @package    core_group
- * @copyright  2015 Pooya Saeedi (http://lion.com)
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  * 
  */
     $row = array();

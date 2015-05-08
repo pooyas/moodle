@@ -11,9 +11,6 @@
  * This way we don't need to keep around old classes, instead creating aliases only when required.
  * One big advantage to this method is that we provide consistent debugging for renamed classes when they are used.
  *
- * @package    core
- * @copyright  2014 Sam Hemelryk
- * 
  */
 
 defined('LION_INTERNAL') || die();

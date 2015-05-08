@@ -4,8 +4,7 @@
  * Perform some custom name mapping for template file names (strip leading component/).
  *
  * @package    core
- * @category   output
- * @copyright  2015 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +15,6 @@ use coding_exception;
 /**
  * Perform some custom name mapping for template file names (strip leading component/).
  *
- * @copyright  2015 Damyon Wiese
- * 
- * @since      2.9
  */
 class mustache_filesystem_loader extends \Mustache_Loader_FilesystemLoader {
 

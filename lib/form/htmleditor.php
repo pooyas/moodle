@@ -6,8 +6,8 @@
  *
  * Contains HTML class for htmleditor type element
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,10 +19,6 @@ require_once("$CFG->libdir/form/textarea.php");
  *
  * HTML class for htmleditor type element
  *
- * @package   core_form
- * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_htmleditor extends LionQuickForm_textarea{
     /** @var string defines the type of editor */

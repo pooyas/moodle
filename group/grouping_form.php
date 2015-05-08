@@ -4,9 +4,9 @@
 /**
  * A form for creating and editing groupings.
  *
- * @copyright 2006 The Open University, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk
- * 
- * @package   core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 
 if (!defined('LION_INTERNAL')) {
@@ -18,9 +18,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Grouping form class
  *
- * @copyright 2006 The Open University, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk
- * 
- * @package   core_group
  */
 class grouping_form extends lionform {
 

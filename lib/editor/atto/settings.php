@@ -3,8 +3,9 @@
 /**
  * Atto admin settings
  *
- * @package    editor_atto
- * @copyright  2013 Damyon Wiese
+ * @package    editor
+ * @subpackage atto
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

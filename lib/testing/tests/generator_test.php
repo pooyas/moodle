@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test data generator
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class core_test_generator_testcase extends advanced_testcase {
     public function test_get_plugin_generator_good_case() {

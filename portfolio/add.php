@@ -4,7 +4,7 @@
  * This file is the main controller to do with the portfolio export wizard.
  *
  * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
+ * @copyright 2015 Pooya Saeedi,
  *            Martin Dougiamas <http://dougiamas.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL
  */

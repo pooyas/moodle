@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'workshopeval_best', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'workshopeval_best', language 'en'
  *
  * @package    workshopeval
  * @subpackage best

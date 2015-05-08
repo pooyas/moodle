@@ -13,10 +13,6 @@
 /**
  * Event redirection sink.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class phpunit_event_sink {
     /** @var \core\event\base[] array of events */

@@ -7,12 +7,10 @@
  * support this.
  *
  * For more information, take a look to the documentation available:
- *     - Events API: {@link http://docs.lion.org/dev/Event_2}
- *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
  * @package   core
  * @category  event
- * @copyright 2007 onwards Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

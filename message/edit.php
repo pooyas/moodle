@@ -3,7 +3,7 @@
 /**
  * Edit user message preferences
  *
- * @package    core_message
+ * @package    core
  * @copyright  2008 Luis Rodrigues and Martin Dougiamas
  * 
  */

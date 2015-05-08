@@ -6,8 +6,8 @@
  *
  * Class to dynamically create an HTML SELECT with all options grouped in optgroups
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ require_once('HTML/QuickForm/element.php');
  *
  * Class to dynamically create an HTML SELECT with all options grouped in optgroups
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_selectgroups extends HTML_QuickForm_element {
 

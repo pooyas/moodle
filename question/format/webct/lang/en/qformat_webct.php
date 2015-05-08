@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_webct', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_webct', language 'en'
  *
  * @package    qformat_webct
  * @copyright  2010 Helen Foster

@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
  * Tests for {@link decompose_update_into_safe_changes()} and
  * {@link update_field_with_unique_index()}.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class datalib_update_with_unique_index_testcase extends advanced_testcase {
 

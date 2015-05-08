@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_gift', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_gift', language 'en'
  *
  * @package    qformat_gift
  * @copyright  2015 Pooya Saeedi

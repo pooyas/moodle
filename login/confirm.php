@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage auth
- * @copyright  1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

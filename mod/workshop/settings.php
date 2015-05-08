@@ -7,7 +7,7 @@
  * The values defined here are often used as defaults for all module instances.
  *
  * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

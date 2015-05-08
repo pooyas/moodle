@@ -4,7 +4,7 @@
  * The mod_survey response submitted event.
  *
  * @package    mod_survey
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_survey
  * @since      Lion 2.7
- * @copyright  2014 Rajesh Taneja <rajesh@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class response_submitted extends \core\event\base {

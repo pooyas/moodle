@@ -11,9 +11,9 @@
  * TODO: separate those functions which form part of the API
  *       from the helper functions.
  *
- * @package lioncore
+ * @package core
  * @subpackage questionbank
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -1243,8 +1243,6 @@ function question_default_export_filename($course, $category) {
  * Converts contextlevels to strings and back to help with reading/writing contexts
  * to/from import/export files.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class context_to_string_translator{
     /**
@@ -1468,8 +1466,6 @@ function question_get_all_capabilities() {
  * Tracks all the contexts related to the one where we are currently editing
  * questions, and provides helper methods to check permissions.
  *
- * @copyright 2007 Jamie Pratt me@jamiep.org
- * 
  */
 class question_edit_contexts {
 

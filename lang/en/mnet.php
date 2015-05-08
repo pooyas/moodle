@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'mnet', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'mnet', language 'en'
  *
- * @package   core_mnet
+ * @package   core
+ * @subpackage mnet
  * @copyright 2015 Pooya Saeedi
  * 
  */

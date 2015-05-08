@@ -22,10 +22,6 @@ define('UPGRADE_LOG_ERROR',  2);
 /**
  * Exception indicating unknown error during upgrade.
  *
- * @package    core
- * @subpackage upgrade
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class upgrade_exception extends lion_exception {
     function __construct($plugin, $version, $debuginfo=NULL) {
@@ -38,10 +34,6 @@ class upgrade_exception extends lion_exception {
 /**
  * Exception indicating downgrade error during upgrade.
  *
- * @package    core
- * @subpackage upgrade
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class downgrade_exception extends lion_exception {
     function __construct($plugin, $oldversion, $newversion) {
@@ -53,10 +45,6 @@ class downgrade_exception extends lion_exception {
 }
 
 /**
- * @package    core
- * @subpackage upgrade
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class upgrade_requires_exception extends lion_exception {
     function __construct($plugin, $pluginversion, $currentlion, $requirelion) {
@@ -70,12 +58,6 @@ class upgrade_requires_exception extends lion_exception {
     }
 }
 
-/**
- * @package    core
- * @subpackage upgrade
- * @copyright  2015 Pooya Saeedi
- * 
- */
 class plugin_defective_exception extends lion_exception {
     function __construct($plugin, $details) {
         global $CFG;
@@ -88,10 +70,6 @@ class plugin_defective_exception extends lion_exception {
  *
  * Note: this should be used only from the upgrade/admin code.
  *
- * @package    core
- * @subpackage upgrade
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class plugin_misplaced_exception extends lion_exception {
     /**
@@ -180,7 +158,6 @@ function upgrade_set_timeout($max_execution_time=300) {
  * Please do not make large upgrade blocks with lots of operations,
  * for example when adding tables keep only one table operation per block.
  *
- * @category upgrade
  * @param bool $result false if upgrade step failed, true if completed
  * @param string or float $version main version
  * @param bool $allowabort allow user to abort script execution here

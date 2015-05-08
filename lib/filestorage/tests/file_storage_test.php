@@ -3,9 +3,9 @@
 /**
  * Unit tests for /lib/filestorage/file_storage.php
  *
- * @package   core_files
+ * @package   core
  * @category  phpunit
- * @copyright 2012 David Mudrak <david@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

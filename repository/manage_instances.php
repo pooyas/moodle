@@ -8,7 +8,7 @@
  * @since Lion 2.0
  * @package    core
  * @subpackage repository
- * @copyright  2009 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

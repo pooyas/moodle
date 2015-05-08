@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'forum', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'forum', language 'en'
  *
  * @package   mod_forum
  * @copyright 2015 Pooya Saeedi

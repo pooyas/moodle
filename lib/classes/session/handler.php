@@ -15,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Session handler base.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class handler {
     /**

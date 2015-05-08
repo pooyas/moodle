@@ -12,10 +12,6 @@
 /**
  * Finds components and plugins with tests
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class tests_finder {
 

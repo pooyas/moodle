@@ -43,7 +43,7 @@ class testable_question_attempt extends question_attempt {
  * Test subclass to allow access to some protected data so that the correct
  * behaviour can be verified.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class testable_question_engine_unit_of_work extends question_engine_unit_of_work {

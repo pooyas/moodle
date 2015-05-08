@@ -3,7 +3,7 @@
 /**
  * Unit tests for the progress classes.
  *
- * @package core_progress
+ * @package core
  * @category phpunit
  * @copyright 2015 Pooya Saeedi
  * 

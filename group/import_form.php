@@ -3,8 +3,9 @@
 /**
  * A form for group import.
  *
- * @package    core_group
- * @copyright  2010 Toyomoyo (http://lion.com)
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,9 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Groups import form class
  *
- * @package    core_group
- * @copyright  2010 Toyomoyo (http://lion.com)
- * 
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 class groups_import_form extends lionform {
 

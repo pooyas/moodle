@@ -20,9 +20,8 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @package   core_install
- * @category  upgrade
- * @copyright 2006 onwards Martin Dougiamas  http://dougiamas.com
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

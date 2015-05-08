@@ -3,7 +3,7 @@
 /**
  * Inbound Message Handlers for core.
  *
- * @package    core_message
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */

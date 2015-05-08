@@ -26,10 +26,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Forms-related steps definitions.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_forms extends behat_base {
 

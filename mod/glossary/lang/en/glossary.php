@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'glossary', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'glossary', language 'en'
  *
  * @package mod_glossary
  * @copyright 2015 Pooya Saeedi

@@ -4,7 +4,7 @@
  * The mod_chat instance list viewed event.
  *
  * @package    mod_chat
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
  *
  * @package    mod_chat
  * @since      Lion 2.7
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {

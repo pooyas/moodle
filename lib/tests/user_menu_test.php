@@ -4,7 +4,7 @@
  * Tests user menu functionality.
  *
  * @package    core
- * @copyright  2015 Jetha Chan <jetha@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_user_menu_testcase extends advanced_testcase {

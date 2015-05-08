@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'workshopallocation_manual', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'workshopallocation_manual', language 'en'
  *
  * @package    workshopallocation
  * @subpackage manual

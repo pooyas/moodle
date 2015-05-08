@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int relateduserid: deprecated since 2.7, please use property relateduserid
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_completed extends base {
     /**

@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'label', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'label', language 'en'
  *
  * @package mod_label
  * @copyright  2015 Pooya Saeedi

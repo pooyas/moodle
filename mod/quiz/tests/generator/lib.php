@@ -6,7 +6,7 @@ defined('LION_INTERNAL') || die();
  * Quiz module test data generator class
  *
  * @package mod_quiz
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_quiz_generator extends testing_module_generator {

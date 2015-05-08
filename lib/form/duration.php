@@ -6,7 +6,7 @@
  *
  * Contains class to create length of time for element.
  *
- * @package   core_form
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -22,10 +22,6 @@ require_once($CFG->libdir . '/form/text.php');
  * HTML class for a length of time. For example, 30 minutes of 4 days. The
  * values returned to PHP is the duration in seconds.
  *
- * @package   core_form
- * @category  form
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class LionQuickForm_duration extends LionQuickForm_group {
    /**

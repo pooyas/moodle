@@ -3,7 +3,8 @@
 /**
  * Subplugin info class.
  *
- * @package   editor_tinymce
+ * @package    editor
+ * @subpackage tinymce
  * @copyright 2015 Pooya Saeedi 
  * 
  */

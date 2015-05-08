@@ -3,7 +3,7 @@
 /**
  * Contains renderer objects for messaging
  *
- * @package    core_message
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
  *
  * Class for rendering various message objects
  *
- * @package    core_message
+ * @package    core
  * @subpackage message
  * @copyright  2015 Pooya Saeedi
  * 

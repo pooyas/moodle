@@ -3,8 +3,9 @@
 /**
  * MSSQL specific recordset.
  *
- * @package    core_dml
- * @copyright  2009 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    core
+ * @subpackage dml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

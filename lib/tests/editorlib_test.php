@@ -5,8 +5,7 @@
  *
  * @package    core_editors
  * @subpackage phpunit
- * @copyright  2013 onwards Martin Dougiamas (http://dougiamas.com)
- * @author     Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

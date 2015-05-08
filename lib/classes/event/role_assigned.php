@@ -23,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int itemid: (optional) id of the item.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class role_assigned extends base {
 

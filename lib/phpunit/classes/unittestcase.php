@@ -3,10 +3,9 @@
 /**
  * Legacy SimpleTest layer.
  *
- * @deprecated since 2.3
+ * @deprecated
  * @package    core
  * @category   phpunit
- * @author     Petr Skoda
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -17,10 +16,9 @@
  *
  * Note: this is supposed to work for very simple tests only.
  *
- * @deprecated since 2.3
+ * @deprecated
  * @package    core
  * @category   phpunit
- * @author     Petr Skoda
  * @copyright  2015 Pooya Saeedi 
  * 
  */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'form', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'form', language 'en'
  *
  * @package    core
  * @subpackage form

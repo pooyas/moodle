@@ -3,7 +3,8 @@
 /**
  * Class tinymce_managefiles_manage_form
  *
- * @package   tinymce_managefiles
+ * @package   tinymce
+ * @subpackage managefiles
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -17,9 +18,6 @@ require_once($CFG->libdir."/formslib.php");
  *
  * No buttons are necessary since the draft area files are saved immediately using AJAX
  *
- * @package   tinymce_managefiles
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class tinymce_managefiles_manage_form extends lionform {
     function definition() {

@@ -3,7 +3,8 @@
 /**
  * Atto custom steps definitions.
  *
- * @package    editor_atto
+ * @package    editor
+ * @subpackage atto
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@
 /**
  * Steps definitions to deal with the atto text editor
  *
- * @package    editor_atto
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_editor_atto extends behat_base {
 

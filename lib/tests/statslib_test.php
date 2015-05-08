@@ -3,9 +3,9 @@
 /**
  * Tests for ../statslib.php
  *
- * @package    core_stats
+ * @package    core
  * @category   phpunit
- * @copyright  2012 Tyler Bannister
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

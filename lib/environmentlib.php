@@ -9,10 +9,10 @@
  * All the info is stored in the admin/environment.xml file,
  * supporting to have an updated version in dataroot/environment
  *
- * @copyright  2015 Pooya Saeedi
  * 
  * @package    core
  * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();
@@ -1192,9 +1192,6 @@ function process_environment_messages($xml, &$result) {
 /**
  * Helper Class to return results to caller
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package lioncore
  */
 class environment_results {
     /**

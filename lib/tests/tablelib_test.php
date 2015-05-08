@@ -17,10 +17,6 @@ require_once($CFG->libdir . '/tablelib.php');
 /**
  * Test some of tablelib.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_tablelib_testcase extends basic_testcase {
     protected function generate_columns($cols) {

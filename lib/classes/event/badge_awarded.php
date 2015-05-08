@@ -11,7 +11,7 @@
  * }
  *
  * @package    core
- * @copyright  2015 James Ballard
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +21,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Event triggered after a badge is awarded to a user.
  *
- * @package    core
- * @since      Lion 2.9
- * @copyright  2015 James Ballard
- * 
  */
 class badge_awarded extends base {
 

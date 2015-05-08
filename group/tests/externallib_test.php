@@ -3,8 +3,9 @@
 /**
  * Group external PHPunit tests
  *
- * @package    core_group
- * @category   external
+ * @package    core
+ * @subpackage group
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.4

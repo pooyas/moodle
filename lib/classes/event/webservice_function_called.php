@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  *      - string function: name of the function.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class webservice_function_called extends base {
 

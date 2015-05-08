@@ -4,16 +4,13 @@
  * Abstract class for common properties of scheduled_task and adhoc_task.
  *
  * @package    core
- * @category   task
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace core\task;
 
 /**
  * Abstract class for common properties of scheduled_task and adhoc_task.
- *
- * @copyright  2013 Damyon Wiese
  * 
  */
 abstract class task_base {

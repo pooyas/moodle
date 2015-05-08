@@ -1421,7 +1421,7 @@ class question_engine_unit_of_work implements question_usage_observer {
 /**
  * The interface implemented by {@link question_file_saver} and {@link question_file_loader}.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface question_response_files {
@@ -1547,7 +1547,7 @@ class question_file_saver implements question_response_files {
  * files to be accessed again later (e.g. when re-grading) using that same
  * API as when doing the original grading.
  *
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_file_loader implements question_response_files {

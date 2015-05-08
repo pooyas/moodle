@@ -3,7 +3,7 @@
 /**
  * This file contains the unittests for the css optimiser in csslib.php
  *
- * @package   core_css
+ * @package   core
  * @category  phpunit
  * @copyright 2015 Pooya Saeedi
  * 
@@ -18,10 +18,6 @@ require_once($CFG->libdir . '/csslib.php');
 /**
  * CSS optimiser test class.
  *
- * @package core_css
- * @category phpunit
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_csslib_testcase extends advanced_testcase {
 

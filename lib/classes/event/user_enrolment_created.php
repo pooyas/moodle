@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  *      - string enrol: name of enrolment instance.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_enrolment_created extends base {
 

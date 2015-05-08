@@ -12,8 +12,7 @@
  *    Processing of editing actions on list.
  *
  * @package    core
- * @subpackage lib
- * @copyright  Jamie Pratt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -26,8 +25,6 @@ defined('LION_INTERNAL') || die();
  * database - they don't update the in-memory structure, instead they trigger a
  * page reload so everything is rebuilt from scratch.
  *
- * @package lioncore
- * @copyright Jamie Pratt
  * 
  */
 abstract class lion_list {
@@ -443,11 +440,6 @@ abstract class lion_list {
     }
 }
 
-/**
- * @package lioncore
- * @copyright Jamie Pratt
- * 
- */
 abstract class list_item {
     /** @var integer id of record, used if list is editable. */
     public $id;

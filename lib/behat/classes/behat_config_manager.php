@@ -21,10 +21,6 @@ require_once(__DIR__ . '/../../testing/classes/tests_finder.php');
  * Creates/updates Behat config files getting tests
  * and steps from Lion codebase
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_config_manager {
 

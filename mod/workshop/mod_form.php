@@ -9,7 +9,7 @@
  * visit: http://docs.lion.org/dev/lib/formslib.php
  *
  * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

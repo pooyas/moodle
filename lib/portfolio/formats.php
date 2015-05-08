@@ -6,10 +6,8 @@
  * They are implemented in php classes rather than just a simpler hash
  * Because it provides an easy way to do subtyping using php inheritance.
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
- *                 Martin Dougiamas <http://dougiamas.com>
- * 
+ * @package   core
+ * @copyright 2015 Pooya Saeedi,
  */
 
 defined('LION_INTERNAL') || die();
@@ -19,11 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Do not use this anywhere in supported_formats
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
- *                 Martin Dougiamas <http://dougiamas.com>
- * 
  *
  */
 abstract class portfolio_format {
@@ -125,9 +118,6 @@ abstract class portfolio_format {
 /**
  * The most basic type - pretty much everything is a subtype
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach <penny@catalyst.net.nz>, Martin Dougiamas
  * 
  */
 class portfolio_format_file extends portfolio_format {
@@ -172,10 +162,6 @@ class portfolio_format_file extends portfolio_format {
 /**
  * Image format, subtype of file.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach
- * 
  */
 class portfolio_format_image extends portfolio_format_file {
     /**
@@ -215,10 +201,6 @@ class portfolio_format_image extends portfolio_format_file {
  *
  * Could be used for an external cms or something in case we want to be really specific.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach
- * 
  */
 class portfolio_format_plainhtml extends portfolio_format_file {
 
@@ -259,10 +241,6 @@ class portfolio_format_plainhtml extends portfolio_format_file {
  *
  * For portfolio plugins that support videos specifically
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach
- * 
  */
 class portfolio_format_video extends portfolio_format_file {
 
@@ -282,10 +260,6 @@ class portfolio_format_video extends portfolio_format_file {
  * Not sure why we would need this yet,
  * but since resource module wants to export it... we can
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach
- * 
  */
 class portfolio_format_text extends portfolio_format_file {
 
@@ -326,10 +300,6 @@ class portfolio_format_text extends portfolio_format_file {
  *
  * These are multipart - eg things with attachments
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach
- * 
  */
 abstract class portfolio_format_rich extends portfolio_format {
 
@@ -350,10 +320,6 @@ abstract class portfolio_format_rich extends portfolio_format {
  * The most commonly used rich format
  * eg inline images
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach
- * 
  */
 class portfolio_format_richhtml extends portfolio_format_rich {
 
@@ -417,10 +383,6 @@ class portfolio_format_richhtml extends portfolio_format_rich {
 /**
  * Class used for leap2a format
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Penny Leach
- * 
  */
 class portfolio_format_leap2a extends portfolio_format_rich {
 
@@ -509,10 +471,6 @@ class portfolio_format_leap2a extends portfolio_format_rich {
  *
  * For portfolio plugins that support PDFs specifically.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Dan Poltawski
- * 
  */
 class portfolio_format_pdf extends portfolio_format_file {
 
@@ -531,10 +489,6 @@ class portfolio_format_pdf extends portfolio_format_file {
  *
  * For portfolio plugins that support documents specifically.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Dan Poltawski
- * 
  */
 class portfolio_format_document extends portfolio_format_file {
 
@@ -553,10 +507,6 @@ class portfolio_format_document extends portfolio_format_file {
  *
  * For portfolio plugins that support spreadsheets specifically.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Dan Poltawski
- * 
  */
 class portfolio_format_spreadsheet extends portfolio_format_file {
 
@@ -575,10 +525,6 @@ class portfolio_format_spreadsheet extends portfolio_format_file {
  *
  * For portfolio plugins that support presentation specifically.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2009 Dan Poltawski
- * 
  */
 class portfolio_format_presentation extends portfolio_format_file {
 

@@ -69,7 +69,6 @@ define('AUTH_LOGIN_UNAUTHORISED', 5);
  * Abstract authentication plugin.
  *
  * 
- * @package lioncore
  */
 class auth_plugin_base {
 

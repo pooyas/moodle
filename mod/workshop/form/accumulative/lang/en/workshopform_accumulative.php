@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'workshopform_accumulative', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'workshopform_accumulative', language 'en'
  *
  * @package    workshopform_accumulative
  * @copyright  2009 David Mudrak <david@lion.com>

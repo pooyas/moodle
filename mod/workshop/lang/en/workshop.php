@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'workshop', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'workshop', language 'en'
  *
  * @package    mod_workshop
  * @copyright  2009 David Mudrak <david@lion.com>

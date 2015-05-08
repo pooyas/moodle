@@ -7,7 +7,7 @@
  * It contains the components that are requried in order to use caching.
  *
  * @package    core
- * @category   cache
+ * @subpackage cache
  * @copyright  2015 Pooya Saeedi
  * 
  */

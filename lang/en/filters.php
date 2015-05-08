@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'filters', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'filters', language 'en'
  *
- * @package   core_filters
+ * @package   core
+ * @subpackage filters
  * @copyright 2015 Pooya Saeedi
  * 
  */

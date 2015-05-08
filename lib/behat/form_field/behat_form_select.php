@@ -3,7 +3,7 @@
 /**
  * Single select form field class.
  *
- * @package    core_form
+ * @package    core
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -16,10 +16,6 @@ require_once(__DIR__  . '/behat_form_field.php');
 /**
  * Single select form field.
  *
- * @package    core_form
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_form_select extends behat_form_field {
 

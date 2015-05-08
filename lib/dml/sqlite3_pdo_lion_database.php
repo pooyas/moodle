@@ -3,8 +3,9 @@
 /**
  * Experimental pdo database class.
  *
- * @package    core_dml
- * @copyright  2008 Andrei Bautu
+ * @package    core
+ * @subpackage dml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ require_once(__DIR__.'/pdo_lion_database.php');
 /**
  * Experimental pdo database class
  *
- * @package    core_dml
- * @copyright  2008 Andrei Bautu
- * 
  */
 class sqlite3_pdo_lion_database extends pdo_lion_database {
     protected $database_file_extension = '.sq3.php';

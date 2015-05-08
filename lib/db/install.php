@@ -8,8 +8,8 @@
  * There is a mnet section in the middle which refers to lion (mahara) network
  *
  *
- * @package   core_install
- * @category  upgrade
+ * @package   core
+ * @subpackage install
  * @copyright 2015 Pooya Saeedi
  * 
  */

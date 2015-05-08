@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'page', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'page', language 'en'
  *
  * @package   mod_page
  * @copyright 2015 Pooya Saeedi

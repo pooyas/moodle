@@ -20,10 +20,6 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
 /**
  * Steps definitions to set up permissions to capabilities.
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_permissions extends behat_base {
 

@@ -29,10 +29,6 @@ use Behat\Behat\Exception\PendingException as PendingException;
  * 'process_$elementname($options)' method and use the data generator from there if possible.
  *
  * @todo      If the available elements list grows too much this class must be split into smaller pieces
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_data_generators extends behat_base {
 

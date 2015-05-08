@@ -5,7 +5,7 @@
  *
  * @package   core_user
  * @category  user
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,7 +14,7 @@ require_once($CFG->dirroot.'/user/filters/lib.php');
 /**
  * User filter based on values of custom profile fields.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_profilefield extends user_filter_type {

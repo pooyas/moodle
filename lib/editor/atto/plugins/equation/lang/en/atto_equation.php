@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_equation', language 'en'.
  *
- * @package    atto_equation
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage equation
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

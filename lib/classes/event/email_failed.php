@@ -4,8 +4,7 @@
  * Email failed event.
  *
  * @package    core
- * @since      Lion 2.7
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Email failed event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2013 2015 Pooya Saeedi
- * 
  */
 class email_failed extends base {
 

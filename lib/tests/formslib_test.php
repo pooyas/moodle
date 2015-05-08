@@ -3,7 +3,7 @@
 /**
  * Unit tests for /lib/formslib.php.
  *
- * @package   core_form
+ * @package   core
  * @category  phpunit
  * @copyright 2015 Pooya Saeedi
  * 

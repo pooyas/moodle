@@ -13,9 +13,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Shutdown management class.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_shutdown_manager {
     /** @var array list of custom callbacks */

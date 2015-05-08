@@ -8,7 +8,7 @@
  * progress is indeterminate which means that the progress function is called
  * periodically but without information on completion.
  *
- * @package core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -11,9 +11,6 @@
 /**
  * User agent test suite.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_useragent_testcase extends basic_testcase {
 

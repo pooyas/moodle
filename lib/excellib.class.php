@@ -3,9 +3,9 @@
 /**
  * Excel writer abstraction layer.
  *
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
- * @package    core
  */
 
 defined('LION_INTERNAL') || die();
@@ -16,9 +16,6 @@ defined('LION_INTERNAL') || die();
  * This class acts as a wrapper around another library
  * maintaining Lion functions isolated from underlying code.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package lioncore
  */
 class LionExcelWorkbook {
     /** @var PHPExcel */
@@ -130,9 +127,6 @@ class LionExcelWorkbook {
  * This class acts as a wrapper around another library
  * maintaining Lion functions isolated from underlying code.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package   core
  */
 class LionExcelWorksheet {
     /** @var PHPExcel_Worksheet */
@@ -429,9 +423,6 @@ class LionExcelWorksheet {
  * A big part of this class acts as a wrapper over other libraries
  * maintaining Lion functions isolated from underlying code.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package lioncore
  */
 class LionExcelFormat {
     /** @var array */

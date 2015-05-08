@@ -4,8 +4,7 @@
  * Postgres advisory locking factory.
  *
  * @package    core
- * @category   lock
- * @copyright  Damyon Wiese 2013
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,10 +22,6 @@ defined('LION_INTERNAL') || die();
  * done by storing the strings in the lock_db table and using the auto-id returned. There is a static cache for
  * id's in this function.
  *
- * @package   core
- * @category  lock
- * @copyright Damyon Wiese 2013
- * 
  */
 class postgres_lock_factory implements lock_factory {
 

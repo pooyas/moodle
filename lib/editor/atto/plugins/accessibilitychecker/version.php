@@ -3,8 +3,9 @@
 /**
  * Atto text editor integration version file.
  *
- * @package    atto_accessibilitychecker
- * @copyright  2015 Pooya Saeedi  <damyon@lion.com>
+ * @package    atto
+ * @subpackage accessibilitychecker
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

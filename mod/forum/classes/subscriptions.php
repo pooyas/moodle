@@ -4,7 +4,7 @@
  * Forum subscription manager.
  *
  * @package    mod_forum
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Forum subscription manager.
  *
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class subscriptions {

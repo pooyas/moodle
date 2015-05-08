@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  *      - array reset_options: all reset options settings including courseid.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_reset_ended extends base {
 

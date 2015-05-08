@@ -14,10 +14,6 @@ require_once(__DIR__.'/../../testing/classes/util.php');
 /**
  * Collection of utility methods.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class phpunit_util extends testing_util {
     /**

@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'repository', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository', language 'en'
  *
- * @package   core_repository
+ * @package   core
+ * @subpackage repository
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -14,26 +14,22 @@
  *   Please submit all problems or questions to the Help Forum on my project page:
  *     {@link http://sourceforge.net/forum/forum.php?forum_id=469652}
  *
- * Modified by Dongsheng Cai <dongsheng@lion.com>
  * ChangeLog:
  *   1. Remove PEAR HTTP LIB, use curl.class.php (created by myself)
  *   2. Remove PEAR DB LIB
  *   3. Remove all cache code, it will implement in curl class.
  *   4. Clean up session code
  *
- * Modified by David Mudrak <david@lion.com>
  * ChangeLog:
  *   1. upload() method uses Lion stored_file
  *   2. upload() method supports all params provided by http://www.flickr.com/services/api/upload.api.html
  *
- * @package lioncore
+ * @package    core
  * @subpackage 3rd-party
  */
 
 /**
  * Flickr Class
- * @package lioncore
- * @subpackage 3rd-party
  */
 class phpFlickr {
     var $api_key;

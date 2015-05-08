@@ -4,7 +4,7 @@
 /**
  * Utility class for browsing of files.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -39,7 +39,7 @@ require_once("$CFG->libdir/filebrowser/file_info_context_module.php");
  *
  * Always use this abstraction when you need to access module files from core code.
   *
- * @package   core_files
+ * @package   core
  * @category  files
  * @copyright 2015 Pooya Saeedi 
  * 

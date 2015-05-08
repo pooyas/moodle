@@ -20,10 +20,6 @@ defined('LION_INTERNAL') || die();
  *      - string sessionid: (optional) session id.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_loggedout extends base {
 

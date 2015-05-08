@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'role', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'role', language 'en'
  *
- * @package   core_role
+ * @package   core
+ * @subpackage role
  * @copyright 2015 Pooya Saeedi
  * 
  */

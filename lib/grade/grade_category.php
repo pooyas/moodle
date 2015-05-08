@@ -3,8 +3,8 @@
 /**
  * Definition of a class to represent a grade category
  *
- * @package   core_grades
- * @copyright 2006 Nicolas Connault
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +15,6 @@ require_once('grade_object.php');
 /**
  * grade_category is an object mapped to DB table {prefix}grade_categories
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class grade_category extends grade_object {
     /**

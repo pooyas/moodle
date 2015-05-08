@@ -16,9 +16,6 @@ defined('LION_INTERNAL') || die();
  * Interface describing class which is responsible for getting
  * of localised strings from language packs.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 interface core_string_manager {
     /**

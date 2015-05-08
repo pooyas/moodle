@@ -6,7 +6,6 @@
  * @package   core
  * @category  phpunit
  * @copyright 2015 Pooya Saeedi
- *  (5)
  */
 
 defined('LION_INTERNAL') || die();
@@ -17,8 +16,6 @@ require_once($CFG->libdir . '/outputlib.php');
 /**
  * Tests the theme config class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_theme_config_testcase extends advanced_testcase {
     /**

@@ -3,8 +3,8 @@
 /**
  * Variable Envelope Return Path management.
  *
- * @package    core_message
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @package    core
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Variable Envelope Return Path manager class.
  *
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
- * 
  */
 class manager {
 

@@ -16,10 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * Tests for event \core\event\grade_deleted
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_event_grade_deleted_testcase extends advanced_testcase {
 

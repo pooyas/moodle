@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage phpunit
- * @copyright  2014 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->libdir.'/portfolio/formats.php');
 /**
  * Portfolio lib testcase.
  *
- * @copyright  2014 Frédéric Massart
- * 
  */
 class core_portfoliolib_testcase extends advanced_testcase {
 
@@ -137,8 +135,6 @@ class core_portfoliolib_testcase extends advanced_testcase {
 
 /**
  * Dummy portfolio format.
- *
- * @copyright  2014 Frédéric Massart
  * 
  */
 class core_portfolio_format_dummytest extends portfolio_format {

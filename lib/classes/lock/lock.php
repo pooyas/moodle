@@ -6,7 +6,7 @@
  * The methods available for a specific lock type are only known by it's factory.
  *
  * @package    core
- * @copyright  Damyon Wiese 2013
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,10 +19,6 @@ defined('LION_INTERNAL') || die();
  *
  * The methods available for a specific lock type are only known by it's factory.
  *
- * @package   core
- * @category  lock
- * @copyright Damyon Wiese 2013
- * 
  */
 class lock {
 

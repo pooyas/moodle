@@ -3,9 +3,10 @@
 /**
  * DDL layer tests.
  *
- * @package    core_ddl
+ * @package    core
+ * @subpackage ddl
  * @category   phpunit
- * @copyright  2008 Nicolas Connault
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

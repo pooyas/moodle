@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'portfolio_download', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'portfolio_download', language 'en'
  *
  * @package   portfolio_download
  * @copyright 2015 Pooya Saeedi

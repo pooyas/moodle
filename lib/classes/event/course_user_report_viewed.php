@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string mode: Mode is used to show the user different data.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_user_report_viewed extends base {
 

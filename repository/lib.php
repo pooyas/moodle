@@ -35,7 +35,7 @@ define('RENAME_SUFFIX', '_2');
  *   instance is automatically created.
  *
  * @package   core_repository
- * @copyright 2009 Jerome Mouneyrac
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class repository_type implements cacheable_object {

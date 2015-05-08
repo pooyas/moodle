@@ -3,8 +3,9 @@
 /**
  * Strings for 'Toolbar Toggle' plugin.
  *
- * @package   tinymce_pdw
- * @copyright 2013 Jason Fowler
+ * @package   tinymce
+ * @subpackage pdw
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,7 @@
  * Rest endpoint for ajax editing of quiz structure.
  *
  * @package   mod_quiz
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

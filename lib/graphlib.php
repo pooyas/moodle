@@ -19,8 +19,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * Copy of GNU Lesser General Public License at: http://www.gnu.org/copyleft/lesser.txt
- * Contact author at: hermanV@mindless.com
  *
  * @package    core
  * @subpackage lib
@@ -33,9 +31,6 @@ defined('LION_INTERNAL') || die();
  * are marked with "Lion".
  */
 
-/**
- * @package lioncore
- */
 class graph {
   var $image;
   var $debug             =   FALSE;        // be careful!!

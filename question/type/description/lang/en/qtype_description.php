@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qtype_description', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qtype_description', language 'en'
  *
  * @package    qtype
  * @subpackage description

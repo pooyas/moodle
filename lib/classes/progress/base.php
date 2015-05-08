@@ -10,7 +10,7 @@ defined('LION_INTERNAL') || die();
  * Subclasses should generally override the {@link current_progress} function which
  * summarises all progress information.
  *
- * @package core_progress
+ * @package core
  * @copyright 2015 Pooya Saeedi
  * 
  */

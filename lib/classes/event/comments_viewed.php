@@ -17,10 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * This class has to be extended by any event which is triggered while viewing comment.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class comments_viewed extends base {
 

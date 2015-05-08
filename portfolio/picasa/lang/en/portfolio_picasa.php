@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'portfolio_picasa', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'portfolio_picasa', language 'en'
  *
  * @package   portfolio_picasa
  * @copyright 2015 Pooya Saeedi

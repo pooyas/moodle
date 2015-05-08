@@ -8,11 +8,8 @@
  * support this.
  *
  * For more information, take a look to the documentation available:
- *     - Logging API: {@link http://docs.lion.org/dev/Logging_API}
- *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
  * @package   core
- * @category  log
  * @copyright 2015 Pooya Saeedi
  * 
  */

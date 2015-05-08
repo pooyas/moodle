@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'rating', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'rating', language 'en'
  *
- * @package   core_rating
+ * @package   core
+ * @subpackage rating
  * @copyright 2015 Pooya Saeedi
  * 
  */

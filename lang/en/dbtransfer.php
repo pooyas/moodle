@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'dbtransfer', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'dbtransfer', language 'en'
  *
  * @package   core
  * @subpackage dbtransfer

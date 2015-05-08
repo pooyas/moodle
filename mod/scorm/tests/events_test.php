@@ -4,7 +4,7 @@
  * This file contains tests for scorm events.
  *
  * @package    mod_scorm
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ require_once($CFG->dirroot . '/mod/scorm/lib.php');
  * Test class for various events related to Scorm.
  *
  * @package    mod_scorm
- * @copyright  2013 onwards Ankit Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class mod_scorm_event_testcase extends advanced_testcase {

@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * Bulk group creation registration script from a comma separated file
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * 
- * @package core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

@@ -3,9 +3,8 @@
 /**
  * Definition of a grade object class for grade item, grade category etc to inherit from
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2006 Nicolas Connault
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,10 +13,6 @@ defined('LION_INTERNAL') || die();
 /**
  * An abstract object that holds methods and attributes common to all grade_* objects defined here.
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2006 Nicolas Connault
- * 
  */
 abstract class grade_object {
     /**

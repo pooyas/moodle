@@ -3,7 +3,7 @@
 /**
  * Generic lionforms field.
  *
- * @package    core_form
+ * @package    core
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -19,10 +19,6 @@ use Behat\Mink\Session as Session,
  *
  * Basically an interface with Mink session.
  *
- * @package    core_form
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_form_field {
 

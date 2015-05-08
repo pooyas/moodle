@@ -21,10 +21,6 @@ require_once(__DIR__ . '/../../filelib.php');
 /**
  * Init/reset utilities for Behat database and dataroot
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_util extends testing_util {
 

@@ -6,7 +6,7 @@
  * Syntax:   pix.php/groupid/f1.jpg or pix.php/groupid/f2.jpg
  *     OR:   ?file=groupid/f1.jpg or ?file=groupid/f2.jpg
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core_user
  */

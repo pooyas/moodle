@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * This library contains all the Data Manipulation Language (DML) functions
  * used to interact with the DB
@@ -19,7 +17,6 @@
  * (feel free to modify, improve and document such page, thanks!)
  *
  * @package    core
- * @category   dml
  * @subpackage dml
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -40,11 +37,6 @@ define('MUST_EXIST', 2);
 /**
  * DML exception class, use instead of error() in dml code.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_exception extends lion_exception {
     /**
@@ -60,11 +52,6 @@ class dml_exception extends lion_exception {
 /**
  * DML db connection exception - triggered if database not accessible.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_connection_exception extends dml_exception {
     /**
@@ -80,11 +67,6 @@ class dml_connection_exception extends dml_exception {
 /**
  * DML db session wait exception - triggered when session lock request times out.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_sessionwait_exception extends dml_exception {
     /**
@@ -98,11 +80,6 @@ class dml_sessionwait_exception extends dml_exception {
 /**
  * DML read exception - triggered by some SQL syntax errors, etc.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_read_exception extends dml_exception {
     /** @var string The name of the string from error.php to print.*/
@@ -130,11 +107,6 @@ class dml_read_exception extends dml_exception {
 /**
  * Caused by multiple records found in get_record() call.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_multiple_records_exception extends dml_exception {
     /** @var string The SQL that ran just before this read error.*/
@@ -156,11 +128,6 @@ class dml_multiple_records_exception extends dml_exception {
 /**
  * Caused by missing record that is required for normal operation.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_missing_record_exception extends dml_exception {
     /** @var string A table's name.*/
@@ -209,11 +176,6 @@ class dml_missing_record_exception extends dml_exception {
 /**
  * DML write exception - triggered by some SQL syntax errors, etc.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_write_exception extends dml_exception {
     /** @var string The name of the string from error.php to print.*/
@@ -243,11 +205,6 @@ class dml_write_exception extends dml_exception {
  *
  * @todo MDL-20625 Use the info from $transaction for debugging purposes.
  *
- * @package    core
- * @category   dml
- * @subpackage dml
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class dml_transaction_exception extends dml_exception {
     /** @var lion_transaction An instance of a transaction.*/

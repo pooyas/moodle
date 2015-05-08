@@ -88,7 +88,6 @@ LICENSE
 
 /**
  * This class was heavily modified in order to get usefull spreadsheet emulation ;-)
- * skodak
  *
  */
 

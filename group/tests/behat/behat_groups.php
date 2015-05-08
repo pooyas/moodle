@@ -3,7 +3,8 @@
 /**
  * Behat groups-related steps definitions.
  *
- * @package    core_group
+ * @package    core
+ * @subpackage group
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -18,9 +19,6 @@ use Behat\Mink\Exception\ElementNotFoundException as ElementNotFoundException;
 /**
  * Groups-related steps definitions.
  *
- * @package    core_group
- * @category   test
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class behat_groups extends behat_base {

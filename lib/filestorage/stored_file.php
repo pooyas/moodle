@@ -4,7 +4,7 @@
 /**
  * Definition of a class stored_file.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -19,11 +19,6 @@ require_once($CFG->dirroot . '/lib/filestorage/file_progress.php');
  * Since Lion 2.0 file contents are stored in sha1 pool and
  * all other file information is stored in new "files" database table.
  *
- * @package   core_files
- * @category  files
- * @copyright 2015 Pooya Saeedi 
- * 
- * @since     Lion 2.0
  */
 class stored_file {
     /** @var file_storage file storage pool instance */

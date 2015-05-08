@@ -3,9 +3,9 @@
 /**
  * Grade object tests.
  *
- * @package    core_grades
+ * @package    core
  * @category   phpunit
- * @copyright  2014 Frédéric Massart - FMCorz.net
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +16,6 @@ require_once(__DIR__ . '/fixtures/lib.php');
 /**
  * Grade object testcase.
  *
- * @package    core_grades
- * @category   phpunit
- * @copyright  2014 Frédéric Massart - FMCorz.net
- * 
  */
 class core_grade_object_testcase extends grade_base_testcase {
 

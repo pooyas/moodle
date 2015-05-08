@@ -5,7 +5,7 @@
  * Lion SOAP library
  *
  * @package    webservice_soap
- * @copyright  2009 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

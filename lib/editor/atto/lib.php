@@ -3,8 +3,9 @@
 /**
  * YUI text editor integration.
  *
- * @package    editor_atto
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    editor
+ * @subpackage atto
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 
@@ -12,7 +13,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * This is the texteditor implementation.
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
  * 
  */
 class atto_texteditor extends texteditor {

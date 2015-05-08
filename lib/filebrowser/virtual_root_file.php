@@ -4,7 +4,7 @@
 /**
  * Class simulating empty directories.
  *
- * @package    core_files
+ * @package    core
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -14,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents the root directory of an empty file area in the tree navigated by {@link file_browser}.
  *
- * @package    core_files
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class virtual_root_file {
     /** @var int context id */

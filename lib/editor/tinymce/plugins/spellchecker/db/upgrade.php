@@ -3,7 +3,8 @@
 /**
  * Spellchecker upgrade script.
  *
- * @package   tinymce_spellchecker
+ * @package   tinymce
+ * @subpackage spellchecker
  * @copyright 2015 Pooya Saeedi 
  * 
  */

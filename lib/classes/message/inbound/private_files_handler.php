@@ -3,7 +3,7 @@
 /**
  * A Handler to store attachments sent in e-mails as private files.
  *
- * @package    core_message
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A Handler to store attachments sent in e-mails as private files.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class private_files_handler extends handler {
 

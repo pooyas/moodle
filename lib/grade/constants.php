@@ -3,8 +3,7 @@
 /**
  * Definitions of constants for gradebook
  *
- * @package   core_grades
- * @category  grade
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */

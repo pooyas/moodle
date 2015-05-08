@@ -4,7 +4,7 @@
  * Lion implementation of LESS.
  *
  * @package    core
- * @copyright  2014 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +15,6 @@ Less_Autoloader::register();
 /**
  * Lion LESS compiler class.
  *
- * @package    core
- * @copyright  2014 Frédéric Massart
- * 
  */
 class core_lessc extends Less_Parser {
 

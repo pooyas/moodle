@@ -5,7 +5,6 @@
  *
  * @package    core
  * @copyright  2015 Pooya Saeedi 
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL 3 or later
  */
 
 defined('LION_INTERNAL') || die();

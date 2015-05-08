@@ -4,7 +4,7 @@
 /**
  * Support for external API
  *
- * @package    core_webservice
+ * @package    core
  * @copyright  2015 Pooya Saeedik
  * 
  */
@@ -106,10 +106,6 @@ function external_function_info($function, $strictness=MUST_EXIST) {
 /**
  * Exception indicating user is not allowed to use external function in the current context.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class restricted_context_exception extends lion_exception {
     /**
@@ -125,10 +121,6 @@ class restricted_context_exception extends lion_exception {
 /**
  * Base class for external api methods.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class external_api {
 
@@ -394,10 +386,6 @@ class external_api {
 /**
  * Common ancestor of all parameter description classes
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 abstract class external_description {
     /** @var string Description of element */
@@ -427,10 +415,6 @@ abstract class external_description {
 /**
  * Scalar value description class
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class external_value extends external_description {
 
@@ -461,10 +445,6 @@ class external_value extends external_description {
 /**
  * Associative array description class
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class external_single_structure extends external_description {
 
@@ -490,10 +470,6 @@ class external_single_structure extends external_description {
 /**
  * Bulk array description class.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class external_multiple_structure extends external_description {
 
@@ -519,10 +495,6 @@ class external_multiple_structure extends external_description {
 /**
  * Description of top level - PHP function parameters.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class external_function_parameters extends external_single_structure {
 }
@@ -625,10 +597,6 @@ function external_delete_descriptions($component) {
 /**
  * Standard Lion web service warnings
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedi
- * 
- * @since Lion 2.3
  */
 class external_warnings extends external_multiple_structure {
 
@@ -660,10 +628,6 @@ class external_warnings extends external_multiple_structure {
  * This should be used all the time in external xxx_params()/xxx_returns functions
  * as it is the standard way to implement text format param/return values.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedi
- * 
- * @since Lion 2.3
  */
 class external_format_value extends external_value {
 
@@ -744,10 +708,6 @@ function external_format_text($text, $textformat, $contextid, $component, $filea
  *
  * We use singleton to encapsulate the "logic"
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedi
- * 
- * @since Lion 2.3
  */
 class external_settings {
 

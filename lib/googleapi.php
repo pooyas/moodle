@@ -4,7 +4,7 @@
  * Simple implementation of some Google API functions for Lion.
  *
  * @package   core
- * @copyright Dan Poltawski <talktodan@gmail.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,10 +19,6 @@ require_once($CFG->libdir.'/oauthlib.php');
  * Docs for this can be found here:
  * {@link http://code.google.com/apis/documents/docs/2.0/developers_guide_protocol.html}
  *
- * @package    core
- * @subpackage lib
- * @copyright Dan Poltawski <talktodan@gmail.com>
- * 
  */
 class google_docs {
     /** @var string Realm for authentication, need both docs and spreadsheet realm */
@@ -201,9 +197,6 @@ class google_docs {
  * Docs for this can be found here:
  * {@link http://code.google.com/apis/picasaweb/developers_guide_protocol.html}
  *
- * @package   core
- * @copyright Dan Poltawski <talktodan@gmail.com>
- * 
  */
 class google_picasa {
     /** @var string Realm for authentication */
@@ -404,9 +397,6 @@ class google_picasa {
 /**
  * OAuth 2.0 client for Google Services
  *
- * @package   core
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class google_oauth extends oauth2_client {
     /**

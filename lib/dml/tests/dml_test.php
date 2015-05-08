@@ -3,9 +3,10 @@
 /**
  * DML layer tests.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @category   phpunit
- * @copyright  2008 Nicolas Connault
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

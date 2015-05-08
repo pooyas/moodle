@@ -3,8 +3,8 @@
 /**
  * Incoming Message address manager.
  *
- * @package    core_message
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @package    core
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Incoming Message address manager.
  *
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
- * 
  */
 class address_manager {
 

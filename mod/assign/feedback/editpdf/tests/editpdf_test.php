@@ -5,7 +5,7 @@
  *
  * @package    assignfeedback_editpdf
  * @category   phpunit
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ require_once($CFG->dirroot . '/mod/assign/tests/base_test.php');
 /**
  * Unit tests for assignfeedback_editpdf\comments_quick_list
  *
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class assignfeedback_editpdf_testcase extends mod_assign_base_testcase {

@@ -6,8 +6,7 @@
  * All background tasks should extend this class.
  *
  * @package    core
- * @category   task
- * @copyright  2013 Damyon Wiese
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +14,6 @@ namespace core\task;
 
 /**
  * Abstract class defining an adhoc task.
- * @copyright  2013 Damyon Wiese
- * 
  */
 abstract class adhoc_task extends task_base {
 

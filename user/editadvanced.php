@@ -3,7 +3,7 @@
 /**
  * Allows you to edit a users profile
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package core_user
  */

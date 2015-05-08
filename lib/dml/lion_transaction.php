@@ -3,7 +3,8 @@
 /**
  * Delegated database transaction support.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Delegated transaction class.
  *
- * @package    core_dml
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class lion_transaction {
     /** @var array The debug_backtrace() returned array.*/

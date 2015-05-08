@@ -3,7 +3,8 @@
 /**
  * Native MariaDB class representing lion database interface.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,9 +19,6 @@ require_once(__DIR__.'/mysqli_native_lion_temptables.php');
 /**
  * Native MariaDB class representing lion database interface.
  *
- * @package    core_dml
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mariadb_native_lion_database extends mysqli_native_lion_database {
 

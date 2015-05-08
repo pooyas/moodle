@@ -4,7 +4,6 @@
  * Role assignments updated event.
  *
  * @package    core
- * @since      Lion 2.6
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Role assignments updated event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class role_allow_assign_updated extends base {
     /**

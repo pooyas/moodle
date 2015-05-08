@@ -3,7 +3,7 @@
 /**
  * Library functions for managing text filter plugins.
  *
- * @package    core_filter
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -34,9 +34,6 @@ define('TEXTFILTER_EXCL_SEPARATOR', '-%-');
  *
  * This class is a singleton.
  *
- * @package    core_filter
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class filter_manager {
     /**
@@ -249,9 +246,6 @@ class filter_manager {
  *
  * @todo Document this class
  *
- * @package    core_filter
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class null_filter_manager {
     /**
@@ -281,9 +275,6 @@ class null_filter_manager {
  *
  * @todo Document this class
  *
- * @package    core_filter
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class performance_measuring_filter_manager extends filter_manager {
     /** @var int */
@@ -355,9 +346,6 @@ class performance_measuring_filter_manager extends filter_manager {
  * Base class for text filters. You just need to override this class and
  * implement the filter method.
  *
- * @package    core_filter
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class lion_text_filter {
     /** @var object The context we are in. */
@@ -416,10 +404,6 @@ abstract class lion_text_filter {
  * for how to process it.  Filters can create an array of these to pass
  * to the filter_phrases function below.
  *
- * @package    core
- * @subpackage filter
- * @copyright  2015 Pooya Saeedi
- * 
  **/
 class filterobject {
     /** @var string */

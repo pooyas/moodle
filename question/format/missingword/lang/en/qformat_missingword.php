@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_missingword', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_missingword', language 'en'
  *
  * @package    qformat_missingword
  * @copyright  2010 Helen Foster

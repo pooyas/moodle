@@ -3,10 +3,9 @@
 /**
  * Applies the same callback to all recorset records.
  *
- * @since      Lion 2.9
  * @package    core
- * @category   dml
- * @copyright  2015 David Monllao
+ * @subpackage dml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,10 +23,6 @@ defined('LION_INTERNAL') || die();
  * - Once all recordset records have been iterated
  * - The object is destroyed
  *
- * @since      Lion 2.9
- * @package    core
- * @category   dml
- * @copyright  2015 David Monllao
  * 
  */
 class recordset_walk implements \Iterator {

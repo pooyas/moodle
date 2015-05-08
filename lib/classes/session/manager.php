@@ -21,9 +21,6 @@ defined('LION_INTERNAL') || die();
  * - session_write_close() - use \core\session\manager::write_close() instead.
  * - session_destroy() - use require_logout() instead.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class manager {
     /** @var handler $handler active session handler instance */

@@ -3,9 +3,8 @@
 /**
  * Definition of grade outcome class
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2006 Nicolas Connault
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +17,6 @@ require_once('grade_object.php');
  *
  * It is responsible for handling its DB representation, modifying and returning its metadata.
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2006 Nicolas Connault
- * 
  */
 class grade_outcome extends grade_object {
     /**

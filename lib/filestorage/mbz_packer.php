@@ -13,7 +13,7 @@
  * support UTF-8 (like the current .tar.gz packer, and possibly external zip
  * software in some cases if used) can be used by this packer.
  *
- * @package core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -25,10 +25,6 @@ require_once("$CFG->libdir/filestorage/file_packer.php");
 /**
  * Utility class - handles all packing/unpacking of .mbz files.
  *
- * @package core_files
- * @category files
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mbz_packer extends file_packer {
     /**

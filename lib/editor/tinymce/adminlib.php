@@ -3,7 +3,8 @@
 /**
  * TinyMCE admin setting stuff.
  *
- * @package   editor_tinymce
+ * @package    editor
+ * @subpackage tinymce
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Special class for TinyMCE subplugin administration.
  *
- * @package   editor_tinymce
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class tiynce_subplugins_settings extends admin_setting {
     public function __construct() {

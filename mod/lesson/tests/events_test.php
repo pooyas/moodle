@@ -5,7 +5,7 @@
  *
  * @package    mod_lesson
  * @category   test
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

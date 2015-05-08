@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_boxnet', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_boxnet', language 'en'
  *
  * @package   repository_boxnet
  * @copyright 2015 Pooya Saeedi

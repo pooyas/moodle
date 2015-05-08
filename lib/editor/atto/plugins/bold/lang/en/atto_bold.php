@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_bold', language 'en'.
  *
- * @package    atto_bold
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage bold
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

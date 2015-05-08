@@ -3,8 +3,8 @@
 /**
  * This file is serving optimised JS
  *
- * @package    core_lib
- * @copyright  2015 Pooya Saeedi (skodak)
+ * @package    core
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

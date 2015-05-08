@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * User added to a cohort event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class cohort_member_added extends base {
 

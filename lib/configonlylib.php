@@ -9,7 +9,7 @@
  * if you define ABORT_AFTER_CONFIG_CANCEL and require the setup.php
  *
  * @package   core
- * @copyright 2015 Pooya Saeedi (skodak)
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

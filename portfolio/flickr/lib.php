@@ -4,7 +4,7 @@
 /**
  * @package    portfolio
  * @subpackage flickr
- * @copyright  2008 Nicolas Connault
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

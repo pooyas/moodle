@@ -4,7 +4,7 @@
  * This file defines a base class for all assessment forms
  *
  * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

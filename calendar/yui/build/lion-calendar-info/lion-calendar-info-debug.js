@@ -6,7 +6,7 @@ YUI.add('lion-calendar-info', function (Y, NAME) {
  *
  * @module     lion-core_calendar-info
  * @package    core_calendar
- * @copyright  2015 Pooya Saeedi <andrew@nicols.co.uk>
+ * @copyright  2015 Pooya Saeedi 
  * 
  * @main       lion-core_calendar-info
  */

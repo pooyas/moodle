@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a checkbox type element
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ require_once('HTML/QuickForm/checkbox.php');
  * checkbox, which lets previous set value override submitted value if checkbox is not checked
  * and no value is submitted
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_checkbox extends HTML_QuickForm_checkbox{
     /** @var string html for help button, if empty then no help */

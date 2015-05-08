@@ -3,7 +3,7 @@
 /**
  * This debug script is used during zip support development.
  *
- * @package    core_files
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */

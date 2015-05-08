@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Course module completion event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_module_completion_updated extends base {
 

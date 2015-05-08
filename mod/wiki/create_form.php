@@ -19,7 +19,7 @@
  * This file contains all necessary code to define and process an edit form
  *
  * @package mod_wiki
- * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright 2015 Pooya Saeedi
  *
  * 
  */

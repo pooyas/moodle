@@ -5,7 +5,6 @@
  * This file is used to deliver a branch from the site administration
  * in XML format back to a page from an AJAX call
  *
- * @since Lion 2.6
  * @package core
  * @copyright 2015 Pooya Saeedi
  * 

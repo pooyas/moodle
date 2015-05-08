@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * Create group OR edit group settings.
  *
- * @copyright 2006 The Open University, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk
- * 
- * @package   core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

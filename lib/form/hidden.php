@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a hidden type element
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ require_once('HTML/QuickForm/hidden.php');
  *
  * HTML class for a hidden type element
  *
- * @package   core_form
- * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_hidden extends HTML_QuickForm_hidden{
     /** @var string html for help button, if empty then no help */

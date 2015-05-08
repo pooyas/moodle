@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_table', language 'en'.
  *
- * @package    atto_table
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage table
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

@@ -4,7 +4,7 @@
  * Unit tests for the Embedded answer (Cloze) question importer.
  *
  * @package   qformat_multianswer
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the Embedded answer (Cloze) question importer.
  *
- * @copyright 2012 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qformat_multianswer_test extends question_testcase {

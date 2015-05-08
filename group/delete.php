@@ -1,11 +1,11 @@
 <?php
 
-
 /**
  * Delete group
  *
- * @package   core_group
- * @copyright 2008 The Open University, s.marshall AT open.ac.uk
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

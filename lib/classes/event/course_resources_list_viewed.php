@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Event for viewing the list of course resources.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_resources_list_viewed extends base {
 

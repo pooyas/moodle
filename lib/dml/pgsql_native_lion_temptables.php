@@ -5,7 +5,8 @@
  * are named differently than normal tables. Also used to be able to retrieve
  * temp table names included in the get_tables() method of the DB.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi
  * 
  */

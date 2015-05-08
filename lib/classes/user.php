@@ -14,9 +14,6 @@ defined('LION_INTERNAL') || die();
  * User class to access user details.
  *
  * @todo       move api's from user/lib.php and depreciate old ones.
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_user {
     /**

@@ -3,7 +3,8 @@
 /**
  * Abstract recordset.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi 
  * 
  */

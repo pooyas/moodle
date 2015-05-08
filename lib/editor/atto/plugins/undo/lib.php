@@ -3,8 +3,9 @@
 /**
  * Atto text editor undo plugin lib.
  *
- * @package    atto_undo
- * @copyright  2014 Jerome Mouneyrac
+ * @package    atto
+ * @subpackage undo
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

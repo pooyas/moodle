@@ -3,8 +3,9 @@
 /**
  * Atto text editor manage files plugin form.
  *
- * @package   atto_managefiles
- * @copyright 2014 Frédéric Massart
+ * @package   atto
+ * @subpackage managefiles
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->libdir."/formslib.php");
  *
  * No buttons are necessary since the draft area files are saved immediately using AJAX.
  *
- * @package   atto_managefiles
- * @copyright 2014 Frédéric Massart
- * 
  */
 class atto_managefiles_manage_form extends lionform {
 

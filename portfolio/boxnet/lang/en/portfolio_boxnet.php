@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'portfolio_boxnet', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'portfolio_boxnet', language 'en'
  *
  * @package   portfolio_boxnet
  * @copyright 2015 Pooya Saeedi

@@ -4,7 +4,7 @@
  * Course deleted event.
  *
  * @package    core
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string idnumber: (optional) id number of course.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2013 2015 Pooya Saeedi
- * 
  */
 class course_deleted extends base {
 

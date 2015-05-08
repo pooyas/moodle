@@ -5,8 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  (C) 2013 onwards Remote Learner.net Inc (http://www.remote-learner.net)
- * @author     Brent Boghosian (brent.boghosian@remote-learner.net)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

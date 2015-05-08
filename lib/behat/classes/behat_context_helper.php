@@ -17,10 +17,6 @@ use Behat\Mink\Session as Session,
 /**
  * Helper to get behat contexts.
  *
- * @package    core
- * @category   test
- * @copyright  2014 2015 Pooya Saeedi
- * 
  */
 class behat_context_helper {
 

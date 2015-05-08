@@ -3,8 +3,9 @@
 /**
  * Manage files in user draft area attached to texteditor.
  *
- * @package   atto_managefiles
- * @copyright 2014 Frédéric Massart
+ * @package    atto
+ * @subpackage managefiles
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

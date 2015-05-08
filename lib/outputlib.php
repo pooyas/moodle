@@ -3,9 +3,6 @@
 /**
  * Functions for generating the HTML that Lion should output.
  *
- * Please see http://docs.lion.org/en/Developement:How_Lion_outputs_HTML
- * for an overview.
- *
  * @copyright 2015 Pooya Saeedi
  * 
  * @package core
@@ -98,11 +95,6 @@ function theme_get_revision() {
  * However, normally you don't need to bother, because lion_page (that is, $PAGE)
  * will create one for you, accessible as $PAGE->theme.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class theme_config {
 
@@ -1958,11 +1950,6 @@ class theme_config {
  * without the matching closing HTML, you should push the necessary close tags
  * onto the stack.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class xhtml_container_stack {
 

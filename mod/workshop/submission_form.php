@@ -5,7 +5,7 @@
  * Submit an assignment or edit the already submitted work
  *
  * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

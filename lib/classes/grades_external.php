@@ -3,10 +3,9 @@
 /**
  * Core grades external functions
  *
- * @package    core_grades
- * @copyright  2012 Andrew Davis
+ * @package    core
+ * @copyright  2015 Pooya Saeedi
  * 
- * @since Lion 2.7
  */
 
 defined('LION_INTERNAL') || die;

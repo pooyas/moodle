@@ -29,10 +29,6 @@ defined('LION_INTERNAL') || die();
  *      - string content: the content.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class assessable_uploaded extends base {
 

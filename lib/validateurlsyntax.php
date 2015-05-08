@@ -145,7 +145,7 @@
  * Alternate Commercial Licenses:
  * For information in regards to alternate licensing, contact me.
  *
- * @package lioncore
+ * @package  core
  * @copyright Copyright 2004, Rod Apeldoorn {@link http://www.canowhoopass.com/}
  * 
  */

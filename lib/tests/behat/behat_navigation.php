@@ -19,10 +19,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Steps definitions to navigate through the navigation tree nodes.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_navigation extends behat_base {
 

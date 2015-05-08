@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2010 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->libdir . '/outputcomponents.php');
 /**
  * Unit tests for the html_writer class.
  *
- * @copyright 2010 Tim Hunt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_html_writer_testcase extends basic_testcase {

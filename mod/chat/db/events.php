@@ -5,7 +5,7 @@
  *
  * @package mod_chat
  * @category event
- * @copyright 2010 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

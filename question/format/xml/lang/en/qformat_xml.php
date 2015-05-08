@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_xml', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_xml', language 'en'
  *
  * @package    qformat_xml
  * @copyright  2015 Pooya Saeedi

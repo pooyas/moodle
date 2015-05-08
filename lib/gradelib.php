@@ -3,7 +3,7 @@
 /**
  * Library of functions for gradebook - both public and internal
  *
- * @package   core_grades
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */

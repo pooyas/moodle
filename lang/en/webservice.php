@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'webservice', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'webservice', language 'en'
  *
- * @package   core_webservice
+ * @package   core
+ * @subpackage webservice
  * @copyright 2015 Pooya Saeedi
  * 
  */

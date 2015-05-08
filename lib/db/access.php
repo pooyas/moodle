@@ -29,12 +29,10 @@
  * The variable name for the capability definitions array is $capabilities
  *
  * For more information, take a look to the documentation available:
- *     - Access API: {@link http://docs.lion.org/dev/Access_API}
- *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
- * @package   core_access
- * @category  access
- * @copyright 2006 onwards Martin Dougiamas  http://dougiamas.com
+ * @package   core
+ * @subpackage access
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

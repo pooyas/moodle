@@ -3,11 +3,8 @@
 /**
  * Interface and classes for creating appropriate renderers for various parts of Lion.
  *
- * Please see http://docs.lion.org/en/Developement:How_Lion_outputs_HTML
- * for an overview.
  *
  * @copyright 2015 Pooya Saeedi
- * @license  http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @package core
  * @category output
  */
@@ -45,11 +42,6 @@ define('RENDERER_TARGET_HTMLEMAIL', 'htmlemail');
  * A renderer factory must also have a constructor that takes a theme_config object.
  * (See {@link renderer_factory_base::__construct} for an example.)
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 interface renderer_factory {
 
@@ -91,11 +83,6 @@ interface renderer_factory {
  * It also has a method to get the name of, and include the renderer.php with
  * the definition of, the standard renderer class for a given module.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 abstract class renderer_factory_base implements renderer_factory {
     /**
@@ -267,11 +254,6 @@ abstract class renderer_factory_base implements renderer_factory {
  *
  * It simply returns an instance of the appropriate standard renderer class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class standard_renderer_factory extends renderer_factory_base {
 
@@ -340,11 +322,6 @@ class standard_renderer_factory extends renderer_factory_base {
  * parenttheme_component_renderer, instead of a component_renderer,
  * if either of those classes exist.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class theme_overridden_renderer_factory extends renderer_factory_base {
 

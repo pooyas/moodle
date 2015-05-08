@@ -17,10 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Class for event to be triggered when a note is viewed.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class notes_viewed extends base {
 

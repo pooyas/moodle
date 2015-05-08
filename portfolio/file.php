@@ -6,7 +6,7 @@
  * this is the script that serves up the export file to them.
  *
  * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
+ * @copyright 2015 Pooya Saeedi,
  *            Martin Dougiamas <http://dougiamas.com>
  * 
  */

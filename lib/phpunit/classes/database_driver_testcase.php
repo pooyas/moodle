@@ -26,10 +26,6 @@
  * );
  * define('PHPUNIT_TEST_DRIVER')=1; //number is index in the previous array
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 abstract class database_driver_testcase extends PHPUnit_Framework_TestCase {
     /** @var lion_database connection to extra database */

@@ -21,9 +21,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Memcache based session handler.
  *
- * @package core
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class memcache extends handler {
     /** @var string $savepath save_path string  */

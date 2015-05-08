@@ -8,9 +8,8 @@
  * 
  * Thanks, guys!
  *
- * @package   lioncore
- * @copyright Markus Baker, Harry Fuecks and Matt Mitchell
- * @license   Public Domain {@link http://sourceforge.net/projects/lamplib}
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  */
 
     /** LEXER_ENTER = 1 */

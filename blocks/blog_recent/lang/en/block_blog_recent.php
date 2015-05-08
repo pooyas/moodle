@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'block_blog_recent', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'block_blog_recent', language 'en'
  *
  * @package    block
  * @subpackage blog_recent

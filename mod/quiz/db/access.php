@@ -4,7 +4,7 @@
  * Capability definitions for the quiz module.
  *
  * @package    mod_quiz
- * @copyright  2006 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

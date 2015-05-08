@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a text type element
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +18,6 @@ require_once("HTML/QuickForm/text.php");
  *
  * HTML class for a text type element
  *
- * @package   core_form
- * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * 
  */
 class LionQuickForm_text extends HTML_QuickForm_text{
     /** @var string html for help button, if empty then no help */

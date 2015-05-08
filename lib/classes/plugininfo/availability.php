@@ -14,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class for availability plugins.
  *
- * @package core
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class availability extends base {
     public static function get_enabled_plugins() {

@@ -4,9 +4,7 @@
  * modinfolib.php - Functions/classes relating to cached information about module instances on
  * a course.
  * @package    core
- * @subpackage lib
- * 
- * @author     sam marshall
+ * @copyright  2015 Pooya Saeedi 
  */
 
 

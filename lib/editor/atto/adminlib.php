@@ -3,8 +3,9 @@
 /**
  * Atto admin setting stuff.
  *
- * @package   editor_atto
- * @copyright 2014 Jerome Mouneyrac
+ * @package   editor
+ * @subpackage atto
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Admin setting for toolbar.
  *
- * @package    editor_atto
- * @copyright  2014 Frédéric Massart
- * 
  */
 class editor_atto_toolbar_setting extends admin_setting_configtextarea {
 
@@ -86,9 +84,6 @@ class editor_atto_toolbar_setting extends admin_setting_configtextarea {
 /**
  * Special class for Atto plugins administration.
  *
- * @package   editor_atto
- * @copyright 2014 Jerome Mouneyrac
- * 
  */
 class editor_atto_subplugins_setting extends admin_setting {
 

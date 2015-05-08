@@ -5,7 +5,7 @@
  * Do not call directly; use methods in tgz_packer.
  *
  * @see tgz_packer
- * @package core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */

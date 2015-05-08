@@ -5,7 +5,7 @@
  *
  * @package    core
  * @category   phpunit
- * @copyright  2013 Andrew Nicols
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,10 +13,6 @@
 /**
  * phpmailer message sink.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2013 Andrew Nicols
- * 
  */
 class phpunit_phpmailer_sink {
     /**

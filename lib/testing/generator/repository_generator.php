@@ -14,11 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Repository data generator class
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
- * @since      Lion 2.5.1
  */
 class testing_repository_generator extends component_generator_base {
 

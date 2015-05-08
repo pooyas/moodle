@@ -17,9 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * @deprecated since 2.7 - use new file pickers instead
  *
- * @package   lioncore
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class upload_manager {
 

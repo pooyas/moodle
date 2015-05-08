@@ -3,8 +3,9 @@
 /**
  * Native mssql class representing lion database interface.
  *
- * @package    core_dml
- * @copyright  2009 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    core
+ * @subpackage dml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ require_once(__DIR__.'/mssql_native_lion_temptables.php');
 /**
  * Native mssql class representing lion database interface.
  *
- * @package    core_dml
- * @copyright  2009 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * 
  */
 class mssql_native_lion_database extends lion_database {
 

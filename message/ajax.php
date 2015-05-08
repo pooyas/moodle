@@ -3,7 +3,7 @@
 /**
  * Ajax point of entry for messaging API.
  *
- * @package    core_message
+ * @package    core
  * @copyright  2015 Frédéric Massart - FMCorz.net
  * 
  */

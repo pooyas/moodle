@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'webservice_xmlrpc', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'webservice_xmlrpc', language 'en'
  *
  * @package    webservice_xmlrpc
  * @category   string

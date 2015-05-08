@@ -1,11 +1,11 @@
 <?php
 
-
 /**
  * Auto group form
  *
- * @package    core_group
- * @copyright  2007 mattc-catalyst (http://lion.com)
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 if (!defined('LION_INTERNAL')) {
@@ -18,8 +18,6 @@ require_once($CFG->dirroot.'/cohort/lib.php');
 /**
  * Auto group form class
  *
- * @package    core_group
- * @copyright  2007 mattc-catalyst (http://lion.com)
  * 
  */
 class autogroup_form extends lionform {

@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'calendar', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'calendar', language 'en'
  *
- * @package   core_calendar
+ * @package   core
+ * @subpackage calendar
  * @copyright 2015 Pooya Saeedi
  * 
  */

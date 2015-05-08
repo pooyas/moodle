@@ -6,7 +6,7 @@
  *
  * @package     workshopallocation_scheduled
  * @subpackage  mod_workshop
- * @copyright   2012 David Mudrak <david@lion.com>
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

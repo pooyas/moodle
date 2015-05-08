@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Group member removed event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class group_member_removed extends base {
 

@@ -5,7 +5,7 @@
  *
  * @package   core_user
  * @category  user
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ require_once($CFG->dirroot.'/user/filters/checkbox.php');
 /**
  * User filtering wrapper class.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filtering {
@@ -233,7 +233,7 @@ class user_filtering {
 /**
  * The base user filter class. All abstract classes must be implemented.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_type {

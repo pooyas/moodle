@@ -3,7 +3,7 @@
 /**
  * A page displaying the user's contacts and messages
  *
- * @package    core_message
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */

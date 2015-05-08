@@ -108,7 +108,7 @@
  * DB need to ensure that the default role caps
  * are dealt with appropriately.
  *
- * @package    core_access
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -4988,11 +4988,6 @@ function role_change_permission($roleid, $context, $capname, $permission) {
  * This class is derived from stdClass for backwards compatibility with
  * odl $context record that was returned from DML $DB->get_record()
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  *
  * @property-read int $id context id
  * @property-read int $contextlevel CONTEXT_SYSTEM, CONTEXT_COURSE, etc.
@@ -5799,11 +5794,6 @@ abstract class context extends stdClass implements IteratorAggregate {
  *
  * Thank you Tim Hunt for helping me with this nasty trick.
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  */
 class context_helper extends context {
 
@@ -6075,11 +6065,6 @@ class context_helper extends context {
 /**
  * System context class
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  */
 class context_system extends context {
     /**
@@ -6316,11 +6301,6 @@ class context_system extends context {
 /**
  * User context class
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  */
 class context_user extends context {
     /**
@@ -6503,11 +6483,6 @@ class context_user extends context {
 /**
  * Course category context class
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  */
 class context_coursecat extends context {
     /**
@@ -6735,11 +6710,6 @@ class context_coursecat extends context {
 /**
  * Course context class
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  */
 class context_course extends context {
     /**
@@ -6957,11 +6927,6 @@ class context_course extends context {
 /**
  * Course module context class
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  */
 class context_module extends context {
     /**
@@ -7199,11 +7164,6 @@ class context_module extends context {
 /**
  * Block context class
  *
- * @package   core_access
- * @category  access
- * @copyright Petr Skoda 
- * 
- * @since     Lion 2.2
  */
 class context_block extends context {
     /**

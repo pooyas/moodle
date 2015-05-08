@@ -4,10 +4,9 @@
 /**
  * plagiarismlib.php - Contains core Plagiarism related functions.
  *
- * @since Lion 2.0
  * @package    core
  * @subpackage plagiarism
- * @copyright  2010 Dan Marsden http://danmarsden.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

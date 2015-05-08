@@ -229,7 +229,7 @@ class theme_bootstrapbase_core_renderer extends core_renderer {
  * bootstrap look and feel.
  *
  * @package    theme_bootstrapbase
- * @copyright  2014 Sam Hemelryk
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class theme_bootstrapbase_core_renderer_maintenance extends core_renderer_maintenance {

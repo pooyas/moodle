@@ -3,8 +3,9 @@
 /**
  * Strings for 'wrap' plugin.
  *
- * @package   tinymce_wrap
- * @copyright 2013 Damyon Wiese
+ * @package   tinymce
+ * @subpackage wrap
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

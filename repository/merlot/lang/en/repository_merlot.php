@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_merlot', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_merlot', language 'en'
  *
  * @package   repository_merlot
  * @copyright 2015 Pooya Saeedi

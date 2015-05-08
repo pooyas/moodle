@@ -9,13 +9,9 @@
  * install or upgrade operation. All plugins support this.
  *
  * For more information, take a look to the documentation available:
- *     - Webservices API: {@link http://docs.lion.org/dev/Web_services_API}
- *     - External API: {@link http://docs.lion.org/dev/External_functions_API}
- *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
- * @package    core_webservice
- * @category   webservice
- * @copyright  2015 Pooya Saeedik
+ * @package    core
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,8 @@
  *
  * Note: use editor/tinymce/extra/tools/update_lang_files.php script to import strings from upstream JS lang files.
  *
- * @package    editor_tinymce
+ * @package    editor
+ * @subpackage tinymce
  * @copyright  2015 Pooya Saeedi
  * 
  */

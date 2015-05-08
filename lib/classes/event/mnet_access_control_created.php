@@ -4,8 +4,7 @@
  * Mnet access control created event.
  *
  * @package    core
- * @since      Lion 2.7
- * @copyright  2013 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string accessctrl: the access control value.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2013 2015 Pooya Saeedi
- * 
  */
 class mnet_access_control_created extends base {
 

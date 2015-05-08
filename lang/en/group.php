@@ -1,11 +1,10 @@
 <?php
 
 /**
- * Strings for component 'group', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'group', language 'en'
  *
  * @package   core
- * @copyright 2006 The Open University
- * @author    J.White AT open.ac.uk
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

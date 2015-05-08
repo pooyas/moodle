@@ -3,9 +3,8 @@
 /**
  * Definition of a class to represent an individual user's grade
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2006 Nicolas Connault
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +15,6 @@ require_once('grade_object.php');
 /**
  * grade_grades is an object mapped to DB table {prefix}grade_grades
  *
- * @package   core_grades
- * @category  grade
- * @copyright 2006 Nicolas Connault
- * 
  */
 class grade_grade extends grade_object {
 

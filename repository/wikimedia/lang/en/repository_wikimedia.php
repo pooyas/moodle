@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_wikimedia', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_wikimedia', language 'en'
  *
  * @package   repository_wikimedia
  * @copyright 2015 Pooya Saeedi

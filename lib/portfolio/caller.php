@@ -4,10 +4,10 @@
  * This file contains the base classes that are extended to create portfolio export functionality.
  *
  * For places in lion that want to
- * add export functionality to subclass from {@link http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page}
+ * add export functionality to subclass from
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>, Martin Dougiamas
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,13 +16,8 @@ defined('LION_INTERNAL') || die();
 /**
  * Base class for callers
  *
- * @link See http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page
  * @see also portfolio_module_caller_base
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 abstract class portfolio_caller_base {
 
@@ -480,9 +475,6 @@ abstract class portfolio_caller_base {
  * {@link http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page}
  * @see also portfolio_caller_base
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
  * 
  */
 abstract class portfolio_module_caller_base extends portfolio_caller_base {

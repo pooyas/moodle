@@ -7,7 +7,7 @@
  * The design is based on Excel writer abstraction by Eloy Lafuente and others.
  *
  * @package   core
- * @copyright 2006 Petr Skoda 
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * ODS workbook abstraction.
  *
- * @package   core
- * @copyright 2006 Petr Skoda 
  * 
  */
 class LionODSWorkbook {
@@ -78,9 +76,6 @@ class LionODSWorkbook {
 /**
  * ODS Cell abstraction.
  *
- * @package   core
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class LionODSCell {
     public $value;
@@ -93,9 +88,6 @@ class LionODSCell {
 /**
  * ODS Worksheet abstraction.
  *
- * @package   core
- * @copyright 2006 Petr Skoda 
- * 
  */
 class LionODSWorksheet {
     public $data = array();
@@ -394,9 +386,6 @@ class LionODSWorksheet {
 /**
  * ODS cell format abstraction.
  *
- * @package   core
- * @copyright 2006 Petr Skoda 
- * 
  */
 class LionODSFormat {
     public $id;
@@ -800,9 +789,6 @@ class LionODSFormat {
 /**
  * ODS file writer.
  *
- * @package   core
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class LionODSWriter {
     protected $worksheets;

@@ -6,7 +6,7 @@
  *
  * Contains class to create preffered editor form element
  *
- * @package   core_form
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -22,10 +22,6 @@ require_once($CFG->dirroot.'/repository/lib.php');
  *
  * It creates preffered editor (textbox/TinyMce) form element for the format (Text/HTML) selected.
  *
- * @package   core_form
- * @category  form
- * @copyright 2015 Pooya Saeedi
- * 
  * @todo      MDL-29421 element Freezing
  * @todo      MDL-29426 ajax format conversion
  */

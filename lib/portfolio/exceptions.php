@@ -3,8 +3,8 @@
 /**
  * This file contains all the portfolio exception classes.
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,  Martin Dougiamas
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,20 +16,12 @@ defined('LION_INTERNAL') || die();
  * Sometimes caught and re-thrown as portfolio_export_exception
  * @see portfolio_export_exception
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 class portfolio_exception extends lion_exception {}
 
 /**
  * Exception to throw during an export - will clean up session and tempdata
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 class portfolio_export_exception extends portfolio_exception {
 
@@ -82,10 +74,6 @@ class portfolio_export_exception extends portfolio_exception {
  * Usually caught and rethrown as portfolio_export_exception
  * @see portfolio_export_exception
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 class portfolio_caller_exception extends portfolio_exception {}
 
@@ -95,29 +83,17 @@ class portfolio_caller_exception extends portfolio_exception {}
  * Usually caught and rethrown as portfolio_export_exception
  * @see portfolio_export_exception
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 class portfolio_plugin_exception extends portfolio_exception {}
 
 /**
  * Exception for interacting with the button class
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 class portfolio_button_exception extends portfolio_exception {}
 
 /**
  * Leap2a exception - for invalid api calls
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 class portfolio_format_leap2a_exception extends portfolio_exception {}

@@ -23,10 +23,6 @@
  * vendor/bin/phpunit lib/tests/component_test.php
  * vendor/bin/phpunit core_component_testcase lib/tests/component_test.php
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class phpunit_autoloader implements PHPUnit_Runner_TestSuiteLoader {
     public function load($suiteClassName, $suiteClassFile = '') {

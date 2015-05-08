@@ -3,8 +3,9 @@
 /**
  * Atto text editor integration version file.
  *
- * @package    atto_orderedlist
- * @copyright  2013 Damyon Wiese  <damyon@lion.com>
+ * @package    atto
+ * @subpackage orderedlist
+ * @copyright  2015 Pooya Saeedi  
  * 
  */
 

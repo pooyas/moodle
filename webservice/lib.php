@@ -5,7 +5,7 @@
  * Web services utility functions and classes
  *
  * @package    core_webservice
- * @copyright  2009 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -30,7 +30,7 @@ define('WEBSERVICE_AUTHMETHOD_SESSION_TOKEN', 2);
  * General web service library
  *
  * @package    core_webservice
- * @copyright  2010 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2010 Jerome Mouneyrac 
  * 
  */
 class webservice {
@@ -1089,7 +1089,7 @@ abstract class webservice_server implements webservice_server_interface {
  * Special abstraction of our services that allows interaction with stock Zend ws servers.
  *
  * @package    core_webservice
- * @copyright  2009 Jerome Mouneyrac <jerome@lion.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 abstract class webservice_zend_server extends webservice_server {

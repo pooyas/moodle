@@ -5,7 +5,7 @@
  *
  * @package   core_user
  * @category  user
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,7 +13,7 @@ require_once($CFG->libdir.'/formslib.php');
 
 /**
  * Class user_add_filter_form
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_add_filter_form extends lionform {
@@ -47,7 +47,7 @@ class user_add_filter_form extends lionform {
 
 /**
  * Class user_active_filter_form
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_active_filter_form extends lionform {

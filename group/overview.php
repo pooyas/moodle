@@ -1,12 +1,11 @@
 <?php
 
-
 /**
  * Print an overview of groupings & group membership
  *
- * @copyright  Matt Clarkson mattc@catalyst.net.nz
- * 
- * @package    core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');

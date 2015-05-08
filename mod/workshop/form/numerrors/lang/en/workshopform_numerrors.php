@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'workshopform_numerrors', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'workshopform_numerrors', language 'en'
  *
  * @package    workshopform_numerrors
  * @copyright  2009 David Mudrak <david@lion.com>

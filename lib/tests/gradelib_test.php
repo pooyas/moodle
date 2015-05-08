@@ -3,9 +3,9 @@
 /**
  * Unit tests for /lib/gradelib.php.
  *
- * @package   core_grade
+ * @package   core
  * @category  phpunit
- * @copyright 2012 Andrew Davis
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

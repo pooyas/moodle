@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Grouping updated event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class grouping_updated extends base {
 

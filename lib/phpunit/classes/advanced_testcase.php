@@ -13,10 +13,6 @@
 /**
  * Advanced PHPUnit test case customised for Lion.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 abstract class advanced_testcase extends PHPUnit_Framework_TestCase {
     /** @var bool automatically reset everything? null means log changes */

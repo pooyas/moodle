@@ -15,7 +15,7 @@ require_once($CFG->dirroot.'/user/filters/lib.php');
 
 /**
  * Generic filter for cohort membership.
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_cohort extends user_filter_type {

@@ -19,9 +19,6 @@ defined('LION_INTERNAL') || die();
  *
  * This contains functions that are shared between two or more handlers.
  *
- * @package core
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class util {
     /**

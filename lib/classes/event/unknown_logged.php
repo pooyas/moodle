@@ -4,7 +4,6 @@
  * Unknown event.
  *
  * @package    core
- * @since      Lion 2.7
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unknown event class.
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class unknown_logged extends base {
     public function init() {

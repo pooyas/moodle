@@ -3,8 +3,7 @@
 /**
  * New messaging manager class.
  *
- * @package   core_message
- * @since     Lion 2.8
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  * 
@@ -21,10 +20,6 @@ defined('LION_INTERNAL') || die();
  *
  * @access private
  *
- * @package   core_message
- * @since     Lion 2.8
- * @copyright 2015 Pooya Saeedi
- * 
  * 
  */
 class manager {

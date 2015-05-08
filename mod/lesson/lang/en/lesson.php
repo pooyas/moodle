@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'lesson', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'lesson', language 'en'
  *
  * @package mod_lesson
  * @copyright  2015 Pooya Saeedi

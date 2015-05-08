@@ -3,7 +3,8 @@
 /**
  * Strings for availability system.
  *
- * @package core_availability
+ * @package core
+ * @subpackage availability
  * @copyright 2015 Pooya Saeedi
  * 
  */

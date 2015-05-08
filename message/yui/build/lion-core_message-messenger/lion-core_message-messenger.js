@@ -5,7 +5,7 @@ YUI.add('lion-core_message-messenger', function (Y, NAME) {
  * Messenger constants.
  *
  * @module     lion-core_message-messenger
- * @package    core_message
+ * @package    core
  * @copyright  2015 Frédéric Massart - FMCorz.net
  * 
  */
@@ -31,7 +31,7 @@ var SELECTORS = {};
  * Messenger manager.
  *
  * @module     lion-core_message-messenger
- * @package    core_message
+ * @package    core
  * @copyright  2015 Frédéric Massart - FMCorz.net
  * 
  */
@@ -140,7 +140,7 @@ Y.namespace('M.core_message.messenger').init = function(config) {
  * Send message dialog.
  *
  * @module     lion-core_message-messenger
- * @package    core_message
+ * @package    core
  * @copyright  2015 Frédéric Massart - FMCorz.net
  * 
  */

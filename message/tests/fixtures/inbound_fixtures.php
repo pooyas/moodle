@@ -3,7 +3,7 @@
 /**
  * Fixtures for Inbound Message tests.
  *
- * @package    core_message
+ * @package    core
  * @copyright  2015 Pooya Saeedi
  * 
  */

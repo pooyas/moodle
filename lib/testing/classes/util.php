@@ -13,10 +13,6 @@
 /**
  * Utils for test sites creation
  *
- * @package   core
- * @category  test
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 abstract class testing_util {
 

@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Web service service user removed event class.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class webservice_service_user_removed extends base {
 

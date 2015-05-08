@@ -4,7 +4,7 @@
  * Lion's lib to use for the Google API.
  *
  * @package    core
- * @copyright  2014 Frédéric Massart - FMCorz.net
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

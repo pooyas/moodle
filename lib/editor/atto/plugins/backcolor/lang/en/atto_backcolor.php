@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_backcolor', language 'en'.
  *
- * @package    atto_backcolor
- * @copyright  2014 Rossiani Wijaya  <rwijaya@lion.com>
+ * @package    atto
+ * @subpackage backcolor
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

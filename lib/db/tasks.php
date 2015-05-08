@@ -8,8 +8,7 @@
  * support this.
  *
  * @package   core
- * @category  task
- * @copyright 2013 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

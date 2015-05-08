@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Event when user profile is updated.
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_updated extends base {
 

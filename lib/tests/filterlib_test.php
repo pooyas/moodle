@@ -4,7 +4,7 @@
  * Tests for the parts of ../filterlib.php that involve loading the configuration
  * from, and saving the configuration to, the database.
  *
- * @package   core_filter
+ * @package   core
  * @category  phpunit
  * @copyright 2015 Pooya Saeedi
  * 

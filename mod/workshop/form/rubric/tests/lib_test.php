@@ -5,7 +5,7 @@
  *
  * @package    workshopform_rubric
  * @category   phpunit
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

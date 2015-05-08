@@ -3,8 +3,9 @@
 /**
  * Strings for component 'atto_charmap', language 'en'.
  *
- * @package    atto_charmap
- * @copyright  2014 Frédéric Massart
+ * @package    atto
+ * @subpackage charmap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

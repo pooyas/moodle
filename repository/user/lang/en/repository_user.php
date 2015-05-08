@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'repository_user', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'repository_user', language 'en'
  *
  * @package   repository_user
  * @copyright 2010 Dongsheng Cai

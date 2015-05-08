@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int coursesectionnumber: (optional) The course section number.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_viewed extends base {
 

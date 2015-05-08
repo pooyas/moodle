@@ -6,7 +6,7 @@
  *
  * Element-container for advanced grading custom input
  *
- * @package   core_form
+ * @package   core
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -28,10 +28,6 @@ if (class_exists('HTML_QuickForm')) {
  * thrown.
  * This object is responsible for implementing functions to render element html and validate it
  *
- * @package   core_form
- * @category  form
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class LionQuickForm_grading extends HTML_QuickForm_input{
     /** @var string html for help button, if empty then no help */

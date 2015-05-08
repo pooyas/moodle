@@ -4,7 +4,7 @@
  * Locallib.
  *
  * @package    repository_alfresco
- * @copyright  2014 Frédéric Massart
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

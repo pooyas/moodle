@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'debug', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'debug', language 'en'
  *
  * @package   core
  * @copyright 2015 Pooya Saeedi

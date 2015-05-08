@@ -3,7 +3,7 @@
 /**
  * Strings for the advanced grading methods subsystem
  *
- * @package    core_grading
+ * @package    core
  * @subpackage grading
  * @copyright  2015 Pooya Saeedi
  * 

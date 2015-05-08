@@ -15,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Database based session handler.
  *
- * @package    core
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class database extends handler {
     /** @var \stdClass $record session record */

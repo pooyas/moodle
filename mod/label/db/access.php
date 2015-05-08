@@ -4,7 +4,7 @@
  * Capability definitions for the label module.
  *
  * @package    mod_label
- * @copyright  2012 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
 

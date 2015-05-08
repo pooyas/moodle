@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage lib
- * @copyright  Howard Miller, 2005
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -30,11 +30,6 @@ define( "LIST_ORDERED", 3 ); // ordered list active
 define( "LIST_DEFINITION", 4 ); // definition list active
 /**#@-*/
 
-/**
- * @package   lioncore
- * @copyright Howard Miller, 2005
- * 
- */
 class WikiToMarkdown {
 
   var $block_state;

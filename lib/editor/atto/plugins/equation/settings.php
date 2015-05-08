@@ -3,8 +3,9 @@
 /**
  * Settings that allow configuration of the list of tex examples in the equation editor.
  *
- * @package    atto_equation
- * @copyright  2013 Damyon Wiese
+ * @package    atto
+ * @subpackage equation
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

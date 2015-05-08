@@ -3,9 +3,9 @@
 /**
  * Unit tests for (some of) ../questionlib.php.
  *
- * @package    core_question
+ * @package    core
  * @category   phpunit
- * @copyright  2006 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,8 +23,6 @@ require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');
 /**
  * Unit tests for (some of) ../questionlib.php.
  *
- * @copyright  2006 The Open University
- * 
  */
 class core_questionlib_testcase extends advanced_testcase {
 

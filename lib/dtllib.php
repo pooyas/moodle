@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * DTL == Database Transfer Library
  *
@@ -10,7 +8,7 @@
  *
  * @package    core
  * @subpackage dtl
- * @copyright  2008 Andrei Bautu
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

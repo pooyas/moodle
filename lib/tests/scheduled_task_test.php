@@ -5,7 +5,7 @@
  *
  * @package   core
  * @category  phpunit
- * @copyright 2013 Damyon Wiese
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +15,6 @@ require_once(__DIR__ . '/fixtures/task_fixtures.php');
 /**
  * Test class for scheduled task.
  *
- * @package core
- * @category task
- * @copyright 2013 Damyon Wiese
- * 
  */
 class core_scheduled_task_testcase extends advanced_testcase {
 

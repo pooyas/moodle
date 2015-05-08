@@ -22,12 +22,6 @@ defined('LION_INTERNAL') || die();
  * some more significant components like $PAGE->theme, $PAGE->requires,
  * $PAGE->blocks, etc.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category page
- *
  * The following properties are alphabetical. Please keep it that way so that its
  * easy to maintain.
  *

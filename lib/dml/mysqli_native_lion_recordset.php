@@ -3,7 +3,8 @@
 /**
  * Mysqli specific recordset.
  *
- * @package    core_dml
+ * @package    core
+ * @subpackage dml
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -15,10 +16,6 @@ require_once(__DIR__.'/lion_recordset.php');
 /**
  * Mysqli specific lion recordset class
  *
- * @package    core
- * @subpackage dml_driver
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class mysqli_native_lion_recordset extends lion_recordset {
 

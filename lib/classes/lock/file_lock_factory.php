@@ -8,8 +8,7 @@
  * lock will block indefinitely instead of timing out.
  *
  * @package    core
- * @category   lock
- * @copyright  Damyon Wiese 2013
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,10 +23,6 @@ defined('LION_INTERNAL') || die();
  * NFS, exotic shared storage and exotic server OSes (like windows). On windows, a second attempt to get a
  * lock will block indefinitely instead of timing out.
  *
- * @package   core
- * @category  lock
- * @copyright Damyon Wiese 2013
- * 
  */
 class file_lock_factory implements lock_factory {
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'qformat_examview', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'qformat_examview', language 'en'
  *
  * @package    qformat_examview
  * @copyright  2010 Helen Foster

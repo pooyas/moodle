@@ -4,7 +4,7 @@
  * Customised version of phpmailer for Lion
  *
  * @package    core
- * @author     Dan Poltawski <talktodan@gmail.com>
+ * @author     2015 Pooya Saeedi
  * 
  */
 
@@ -24,9 +24,6 @@ require_once($CFG->libdir.'/phpmailer/class.smtp.php');
  * in order to make sensible configuration choices,
  * and behave in a way which is friendly to lion.
  *
- * @copyright 2009 Dan Poltawski <talktodan@gmail.com>
- * 
- * @since     Lion 2.0
  */
 class lion_phpmailer extends PHPMailer {
 

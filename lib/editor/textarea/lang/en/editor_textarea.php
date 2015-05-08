@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'editor_textarea', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'editor_textarea', language 'en'
  *
  * @package    editor
  * @subpackage textarea

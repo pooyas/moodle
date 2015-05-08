@@ -6,8 +6,8 @@
  *
  * Contains HTML class for a drop down element to select a question category.
  *
- * @package   core_form
- * @copyright 2007 Tim Hunt
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ require_once("$CFG->libdir/questionlib.php");
  *
  * HTML class for a drop down element to select a question category.
  *
- * @package   core_form
- * @category  form
- * @copyright 2007 Tim Hunt
- * 
  */
 class LionQuickForm_questioncategory extends LionQuickForm_selectgroups {
     /** @var array default options for question categories */

@@ -15,10 +15,6 @@
  *
  * It is intended for isolated tests that do not modify database or any globals.
  *
- * @package    core
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 abstract class basic_testcase extends PHPUnit_Framework_TestCase {
 

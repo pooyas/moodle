@@ -3,8 +3,9 @@
 /**
  * TinyMCE image insert/edit plugin version details.
  *
- * @package   tinymce_pdw
- * @copyright 2013 Jason Fowler
+ * @package   tinymce
+ * @subpackage pdw
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

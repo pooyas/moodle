@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Strings for component 'iso6392', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'iso6392', language 'en'
  *
  * Note:
  *  - the list of languages was downloaded from http://www.loc.gov/standards/iso639-2/ascii_8bits.html
@@ -10,7 +10,7 @@
  *
  * @package    core
  * @subpackage iso6392
- * @copyright  2010 onwards Martin Dougiamas  {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

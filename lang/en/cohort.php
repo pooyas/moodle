@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Strings for component 'cohort', language 'en', branch 'LION_20_STABLE'
+ * Strings for component 'cohort', language 'en'
  *
- * @package    core_cohort
+ * @package    core
  * @subpackage cohort
- * @copyright  2015 Pooya Saeedi (info@skodak.org)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

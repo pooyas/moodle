@@ -3,7 +3,8 @@
 /**
  * Displays the TinyMCE popup window to insert a Lion emoticon
  *
- * @package   tinymce_lionemoticon
+ * @package   tinymce
+ * @subpackage lionemoticon
  * @copyright 2015 Pooya Saeedi
  * 
  */

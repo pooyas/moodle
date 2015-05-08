@@ -3,10 +3,9 @@
 /**
  * Strings for core_completion subsystem.
  *
- * @package     core_completion
- * @category    string
- * @copyright   &copy; 2008 The Open University
- * @author      Sam Marshall
+ * @package     core
+ * @subpackage  completion
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

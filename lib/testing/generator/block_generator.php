@@ -16,10 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * Extend in blocks/xxxx/tests/generator/lib.php as class block_xxxx_generator.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 abstract class testing_block_generator extends component_generator_base {
     /** @var number of created instances */

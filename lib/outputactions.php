@@ -3,8 +3,6 @@
 /**
  * Classes representing JS event handlers, used by output components.
  *
- * Please see http://docs.lion.org/en/Developement:How_Lion_outputs_HTML
- * for an overview.
  *
  * @package core
  * @category output
@@ -17,11 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Helper class used by other components that involve an action on the page (URL or JS).
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class component_action {
 
@@ -67,11 +60,6 @@ class component_action {
 /**
  * Confirm action
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class confirm_action extends component_action {
     /**
@@ -100,11 +88,6 @@ class confirm_action extends component_action {
 /**
  * Component action for a popup window.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since Lion 2.0
- * @package core
- * @category output
  */
 class popup_action extends component_action {
 

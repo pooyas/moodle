@@ -17,10 +17,6 @@ require_once($CFG->libdir . '/outputfactories.php');
 /**
  * This is renderer factory testing of the classname autoloading.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @package core
- * @category phpunit
  */
 class test_output_factory extends renderer_factory_base {
 

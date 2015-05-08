@@ -7,7 +7,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Progress handler that ignores progress entirely.
  *
- * @package core_progress
+ * @package core
  * @copyright 2015 Pooya Saeedi
  * 
  */

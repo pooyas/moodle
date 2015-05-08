@@ -3,9 +3,8 @@
 /**
  * This file contains all the form definitions used by the portfolio code.
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
- *            Martin Dougiamas (http://dougiamas.com)
+ * @package   core
+ * @copyright 2015 Pooya Saeedi,
  * 
  */
 
@@ -21,13 +20,6 @@ require_once ($CFG->libdir.'/formslib.php');
  * Plugins and callers don't get to define their own class
  * as we have to handle form elements from both places
  * See the docs here for more information:
- * http://docs.lion.org/dev/Writing_a_Portfolio_Plugin#has_export_config
- * http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page#has_export_config
- *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 final class portfolio_export_form extends lionform {
 
@@ -118,11 +110,6 @@ final class portfolio_export_form extends lionform {
  *
  * This form is extendable by plugins who want the admin to be able to configure more than just the name of the instance.
  * This is NOT done by subclassing this class, see the docs for portfolio_plugin_base for more information:
- * {@link http://docs.lion.org/dev/Writing_a_Portfolio_Plugin#has_admin_config}
- *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
  * 
  */
 final class portfolio_admin_form extends lionform {
@@ -234,11 +221,6 @@ final class portfolio_admin_form extends lionform {
  * This is the form for letting the user configure an instance of a plugin.
  * In order to extend this, you don't subclass this in the plugin..
  * see the docs in portfolio_plugin_base for more information:
- * {@link http://docs.lion.org/dev/Writing_a_Portfolio_Plugin#has_user_config}
- *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
  * 
  */
 final class portfolio_user_form extends lionform {
@@ -288,10 +270,6 @@ final class portfolio_user_form extends lionform {
  * This is not used by portfolio_add_button, but on the first step of the export,
  * if the plugin instance has not yet been selected.
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * 
  */
 class portfolio_instance_select extends lionform {
 

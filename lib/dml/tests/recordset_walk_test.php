@@ -4,8 +4,9 @@
  * Test \core\dml\recordset_walk.
  *
  * @package    core
- * @category   dml
- * @copyright  2015 David Monllao
+ * @subpackage dml
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test case for recordset_walk.
  *
- * @package    core
- * @category   dml
- * @copyright  2015 David Monllao
- * 
  */
 class core_recordset_walk_testcase extends advanced_testcase {
 

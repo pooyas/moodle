@@ -3,7 +3,7 @@
 /**
  * Implementation of zip packer.
  *
- * @package   core_files
+ * @package   core
  * @copyright 2015 Pooya Saeedi 
  * 
  */
@@ -16,10 +16,6 @@ require_once("$CFG->libdir/filestorage/zip_archive.php");
 /**
  * Utility class - handles all zipping and unzipping operations.
  *
- * @package   core_files
- * @category  files
- * @copyright 2015 Pooya Saeedi 
- * 
  */
 class zip_packer extends file_packer {
 

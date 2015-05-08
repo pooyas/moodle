@@ -21,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - string username: name of user.
  * }
  *
- * @package    core
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_loggedin extends base {
 

@@ -3,9 +3,8 @@
 /**
  * This file contains the class definition for the exporter object.
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- *            Martin Dougiamas  <http://dougiamas.com>
+ * @package   core
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -22,10 +21,6 @@ defined('LION_INTERNAL') || die();
  * @see copy_existing_file - copy an existing file into the export filearea
  * @see get_tempfiles - return list of all files in the export filearea
  *
- * @package core_portfolio
- * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- *            Martin Dougiamas  <http://dougiamas.com>
  * 
  */
 class portfolio_exporter {
