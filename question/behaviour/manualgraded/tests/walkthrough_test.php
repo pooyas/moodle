@@ -21,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the manual graded behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_manualgraded_walkthrough_testcase extends qbehaviour_walkthrough_test_base {
     public function test_manual_graded_essay() {

@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedsimple
- * @copyright  2009 Pierre Pichet
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/calculated/questiontype.php');
 /**
  * The simple calculated question type.
  *
- * @copyright  2009 Pierre Pichet
- * 
  */
 class qtype_calculatedsimple extends qtype_calculated {
 

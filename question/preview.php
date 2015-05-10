@@ -10,8 +10,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  Alex Smith {@link http://maths.york.ac.uk/serving_maths} and
- *      numerous contributors.
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

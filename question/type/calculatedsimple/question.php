@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/calculated/question.php');
 /**
  * Represents a simple calculated question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculatedsimple_question extends qtype_calculated_question {
 }

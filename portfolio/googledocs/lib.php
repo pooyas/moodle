@@ -3,8 +3,9 @@
 /**
  * Google Documents Portfolio Plugin
  *
- * @author Dan Poltawski <talktodan@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package portfolio
+ * @subpackage googledocs
+ * @copyright  2015 Pooya Saeedi
  */
 require_once($CFG->libdir.'/portfolio/plugin.php');
 require_once($CFG->libdir.'/googleapi.php');

@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage multianswer
- * @copyright  2010 Pierre Pichet
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +21,6 @@ require_once($CFG->dirroot . '/question/type/shortanswer/renderer.php');
  * the task of display their input elements and status
  * feedback, grade, correct answer(s)
  *
- * @copyright 2010 Pierre Pichet
- * 
  */
 class qtype_multianswer_renderer extends qtype_renderer {
 
@@ -94,8 +92,6 @@ class qtype_multianswer_renderer extends qtype_renderer {
  * Subclass for generating the bits of output specific to shortanswer
  * subquestions.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
 
@@ -157,8 +153,6 @@ abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
  * Subclass for generating the bits of output specific to shortanswer
  * subquestions.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_multianswer_textfield_renderer extends qtype_multianswer_subq_renderer_base {
 
@@ -238,8 +232,6 @@ class qtype_multianswer_textfield_renderer extends qtype_multianswer_subq_render
 /**
  * Render an embedded multiple-choice question that is displayed as a select menu.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_multianswer_multichoice_inline_renderer
         extends qtype_multianswer_subq_renderer_base {
@@ -307,8 +299,6 @@ class qtype_multianswer_multichoice_inline_renderer
  * Render an embedded multiple-choice question vertically, like for a normal
  * multiple-choice question.
  *
- * @copyright  2010 Pierre Pichet
- * 
  */
 class qtype_multianswer_multichoice_vertical_renderer extends qtype_multianswer_subq_renderer_base {
 
@@ -432,8 +422,6 @@ class qtype_multianswer_multichoice_vertical_renderer extends qtype_multianswer_
  * Render an embedded multiple-choice question vertically, like for a normal
  * multiple-choice question.
  *
- * @copyright  2010 Pierre Pichet
- * 
  */
 class qtype_multianswer_multichoice_horizontal_renderer
         extends qtype_multianswer_multichoice_vertical_renderer {

@@ -3,9 +3,9 @@
 /**
  * Serve question type files
  *
- * @since      Lion 2.0
- * @package    qtype_calculatedsimple
- * @copyright  Dongsheng Cai <dongsheng@lion.com>
+ * @package    qtype
+ * @subpackage calculatedsimple
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +15,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Checks file access for simple calculated questions.
- *
- * @package  qtype_calculatedsimple
- * @category files
  *
  * @param stdClass $course
  * @param stdClass $cm

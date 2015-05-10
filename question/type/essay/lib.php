@@ -3,9 +3,9 @@
 /**
  * Serve question type files
  *
- * @since      Lion 2.0
- * @package    qtype_essay
- * @copyright  Dongsheng Cai <dongsheng@lion.com>
+ * @package    qtype
+ * @subpackage essay
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Checks file access for essay questions.
  *
- * @package  qtype_essay
- * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
  * @param stdClass $context context object

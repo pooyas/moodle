@@ -4,7 +4,8 @@
 /**
  * Strings for component 'portfolio_download', language 'en'
  *
- * @package   portfolio_download
+ * @package   portfolio
+ * @subpackage download
  * @copyright 2015 Pooya Saeedi
  * 
  */

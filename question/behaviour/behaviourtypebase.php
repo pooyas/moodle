@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * This class represents the type of behaviour, rather than the instance of the
  * behaviour which control a particular question attempt.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class question_behaviour_type {
     /**

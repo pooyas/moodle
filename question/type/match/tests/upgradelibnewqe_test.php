@@ -4,7 +4,9 @@
  * Tests of the upgrade to the new Lion question engine for attempts at
  * match questions.
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -19,8 +21,6 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of match question attempts.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_match_attempt_upgrader_test extends question_attempt_upgrader_test_base {
 

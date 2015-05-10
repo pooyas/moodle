@@ -3,8 +3,10 @@
 /**
  * Unit tests for the radom shortanswer matching question definition classes.
  *
- * @package   qtype_randomsamatch
- * @copyright 2013 Jean-Michel Vedrine
+ * @package   qtype
+ * @subpackage randomsamatch
+ * @category   phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the random shortanswer matching question definition class.
  *
- * @copyright 2013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_question_test extends advanced_testcase {
 

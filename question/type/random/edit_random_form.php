@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage random
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * random editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class qtype_random_edit_form extends question_edit_form {
     /**

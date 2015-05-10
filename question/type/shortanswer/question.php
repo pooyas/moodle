@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents a short answer question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_shortanswer_question extends question_graded_by_strategy
         implements question_response_answer_comparer {

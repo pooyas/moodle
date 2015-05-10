@@ -3,8 +3,9 @@
 /**
  * Random question type upgrade code.
  *
- * @package    qtype_random
- * @copyright  2014 Eric Merrill
+ * @package    qtype
+ * @subpackage random
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

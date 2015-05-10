@@ -6,7 +6,7 @@
  *
  * @package   repository_user
  * @copyright 2010 Dongsheng Cai
- * @author    Dongsheng Cai <dongsheng@lion.com>
+ * @author    2015 Pooya Saeedi
  * 
  */
 

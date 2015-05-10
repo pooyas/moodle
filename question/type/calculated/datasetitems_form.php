@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculated
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/edit_question_form.php');
 /**
  * Calculated question data set items editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class question_dataset_dependent_items_form extends question_wizard_form {
     /**

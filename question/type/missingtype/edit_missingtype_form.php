@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage missingtype
- * @copyright  2007 Jamie Pratt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * This question renderer class is used when the actual question type of this
  * question cannot be found.
  *
- * @copyright  2007 Jamie Pratt
- * 
  */
 class qtype_missingtype_edit_form extends question_edit_form {
     public function __construct($submiturl, $question, $category, $contexts, $formeditable = true) {

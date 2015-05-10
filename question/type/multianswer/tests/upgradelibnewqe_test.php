@@ -20,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of multianswer question attempts.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_multianswer_attempt_upgrader_test extends question_attempt_upgrader_test_base {
     public function test_multianswer_adaptivenopenalty_qsession104() {

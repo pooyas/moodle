@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @package    qtype_match
+ * @package    qtype
+ * @subpackage match
  * @copyright  2015 Pooya Saeedi
  * 
  */

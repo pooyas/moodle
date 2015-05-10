@@ -3,8 +3,9 @@
 /**
  * Unit tests for the parts of {@link question_engine_data_mapper} related to reporting.
  *
- * @package   core_question
- * @category  test
+ * @package   core
+ * @subpackage question
+ * @category  phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the parts of {@link question_engine_data_mapper} related to reporting.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class question_engine_data_mapper_reporting_testcase extends qbehaviour_walkthrough_test_base {
 

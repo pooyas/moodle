@@ -5,7 +5,7 @@
  *
  * @package    repository_equella
  * @copyright  2012 Dongsheng Cai {@link http://dongsheng.org}
- * @author     Dongsheng Cai <dongsheng@lion.com>
+ * @author     2015 Pooya Saeedi
  * 
  */
 

@@ -6,7 +6,6 @@
  * @package    core
  * @subpackage questiontypes
  * @copyright  2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
 
@@ -52,8 +51,6 @@ abstract class question_wizard_form extends lionform {
  * class that inherits from this one, and implements the definition_inner()
  * method.
  *
- * @copyright  2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 abstract class question_edit_form extends question_wizard_form {
     const DEFAULT_NUM_HINTS = 2;

@@ -14,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Provides the information to backup randomsamatch questions
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_qtype_randomsamatch_plugin extends backup_qtype_plugin {
 

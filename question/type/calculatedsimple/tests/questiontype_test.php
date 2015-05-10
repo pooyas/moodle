@@ -3,7 +3,8 @@
 /**
  * Unit tests for the calculatedsimple question type class.
  *
- * @package    qtype_calculatedsimple
+ * @package    qtype
+ * @subpackage calculatedsimple
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,8 +22,6 @@ require_once($CFG->dirroot . '/question/type/calculatedsimple/edit_calculatedsim
 /**
  * Unit tests for the calculatedsimple question type class.
  *
- * @copyright  2007 The Open University
- * 
  */
 class qtype_calculatedsimple_test extends advanced_testcase {
     public static $includecoverage = array(

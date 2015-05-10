@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
  * restore plugin class that provides the necessary information
  * needed to restore one calculated qtype plugin
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_qtype_calculated_plugin extends restore_qtype_plugin {
 

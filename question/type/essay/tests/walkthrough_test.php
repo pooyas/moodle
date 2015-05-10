@@ -3,7 +3,9 @@
 /**
  * This file contains tests that walks essay questions through some attempts.
  *
- * @package   qtype_essay
+ * @package   qtype
+ * @subpackage essay
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

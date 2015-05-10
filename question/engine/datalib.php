@@ -25,7 +25,8 @@
  *    is 0 except when re-grading, and when regrading, there are many more inserts
  *    into question_attempt_step_data than deletes, so it is really hardly worth it.
  *
- * @package    core_question
+ * @package   core
+ * @subpackage question
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -38,8 +39,6 @@ defined('LION_INTERNAL') || die();
  * This class controls the loading and saving of question engine data to and from
  * the database.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_engine_data_mapper {
     /**
@@ -1194,8 +1193,6 @@ ORDER BY
  * changes to a {@link question_usage_by_activity}, and its constituent parts,
  * so that the changes can be saved to the database when {@link save()} is called.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_engine_unit_of_work implements question_usage_observer {
     /** @var question_usage_by_activity the usage being tracked. */
@@ -1421,8 +1418,6 @@ class question_engine_unit_of_work implements question_usage_observer {
 /**
  * The interface implemented by {@link question_file_saver} and {@link question_file_loader}.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 interface question_response_files {
     /**
@@ -1441,8 +1436,6 @@ interface question_response_files {
  * if this question attempt will actually be saved in the database until later,
  * when the {@link question_engine_unit_of_work} is saved, if it is.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_file_saver implements question_response_files {
     /** @var int the id of the draft file area to save files from. */
@@ -1547,8 +1540,6 @@ class question_file_saver implements question_response_files {
  * files to be accessed again later (e.g. when re-grading) using that same
  * API as when doing the original grading.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_file_loader implements question_response_files {
     /** @var question_attempt_step the step that these files belong to. */
@@ -1641,8 +1632,6 @@ class question_file_loader implements question_response_files {
  * FROM $qubaids->from_question_attempts('qa')
  * WHERE $qubaids->where() AND qa.slot = 1
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class qubaid_condition {
 
@@ -1687,8 +1676,6 @@ abstract class qubaid_condition {
  * This class represents a restriction on the set of question_usage ids to include
  * in a larger database query based on an explicit list of ids.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qubaid_list extends qubaid_condition {
     /** @var array of ids. */
@@ -1758,8 +1745,6 @@ class qubaid_list extends qubaid_condition {
  *
  * where $from, $usageidcolumn and $where are the arguments to the constructor.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qubaid_join extends qubaid_condition {
     public $from;

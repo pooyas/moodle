@@ -4,8 +4,9 @@
 /**
  * A search class to control whether hidden / deleted questions are hidden in the list.
  *
- * @package   core_question
- * @copyright 2013 Ray Morris
+ * @package   core
+ * @subpackage question
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * This class controls whether hidden / deleted questions are hidden in the list.
  *
- * @copyright 2013 Ray Morris
- * 
  */
 class hidden_condition extends condition {
     /** @var bool Whether to include old "deleted" questions. */

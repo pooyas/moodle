@@ -3,7 +3,8 @@
 /**
  * Question behaviour type for immediate feedback with CBM behaviour.
  *
- * @package    qbehaviour_adaptive
+ * @package    qbehaviour
+ * @subpackage adaptive
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -17,8 +18,6 @@ require_once(dirname(__FILE__) . '/../deferredcbm/behaviourtype.php');
 /**
  * Question behaviour type information for immediate feedback with CBM.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_immediatecbm_type extends qbehaviour_deferredcbm_type {
 

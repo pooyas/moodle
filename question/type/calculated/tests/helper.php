@@ -5,6 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculated
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,8 +23,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Test helper class for the calculated question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculated_test_helper extends question_test_helper {
     public function get_test_questions() {
@@ -113,8 +112,6 @@ class qtype_calculated_test_helper extends question_test_helper {
  * Test implementation of {@link qtype_calculated_dataset_loader}. Gets the values
  * from an array passed to the constructor, rather than querying the database.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculated_test_dataset_loader extends qtype_calculated_dataset_loader{
     protected $valuesets;

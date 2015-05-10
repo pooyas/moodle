@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/type/questiontypebase.php');
 /**
  * Unit tests for the question definition base classes.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class test_response_answer_comparer implements question_response_answer_comparer {
     protected $answers = array();
@@ -41,8 +39,6 @@ class test_response_answer_comparer implements question_response_answer_comparer
 /**
  * Tests for {@link question_first_matching_answer_grading_strategy}.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_first_matching_answer_grading_strategy_test extends advanced_testcase {
     protected function setUp() {
@@ -85,8 +81,6 @@ class question_first_matching_answer_grading_strategy_test extends advanced_test
 /**
  * Test for question_hint and subclasses.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_hint_test extends advanced_testcase {
     public function test_basic() {

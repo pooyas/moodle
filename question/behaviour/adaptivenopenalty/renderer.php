@@ -20,8 +20,6 @@ require_once(dirname(__FILE__) . '/../adaptive/renderer.php');
  * Renderer for outputting parts of a question belonging to the legacy
  * adaptive (no penalties) behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_adaptivenopenalty_renderer extends qbehaviour_adaptive_renderer {
     protected function grading_details(qbehaviour_adaptive_mark_details $details, question_display_options $options) {

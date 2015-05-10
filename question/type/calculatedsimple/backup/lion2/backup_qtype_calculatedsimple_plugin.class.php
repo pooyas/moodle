@@ -17,8 +17,6 @@ require_once($CFG->dirroot .
 /**
  * Provides the information to backup calculatedsimple questions
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_qtype_calculatedsimple_plugin extends backup_qtype_calculated_plugin {
 }

@@ -3,7 +3,9 @@
 /**
  * Unit tests for the Lion XML format.
  *
- * @package    qformat_xml
+ * @package    qformat
+ * @subpackage xml
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +22,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qformat_xml_test extends question_testcase {
     public function assert_same_xml($expectedxml, $xml) {

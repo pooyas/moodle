@@ -3,7 +3,9 @@
 /**
  * Events tests.
  *
- * @package core_question
+ * @package core
+ * @subpackage question
+ * @category phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

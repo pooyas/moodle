@@ -3,8 +3,9 @@
 /**
  * Defines the editing form for the match question type.
  *
- * @package   qtype_match
- * @copyright 2007 Jamie Pratt me@jamiep.org
+ * @package   qtype
+ * @subpackage match
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Match question type editing form definition.
  *
- * @copyright 2007 Jamie Pratt me@jamiep.org
- * 
  */
 class qtype_match_edit_form extends question_edit_form {
 

@@ -6,7 +6,7 @@
  * @package    repository
  * @subpackage flickr_public
  * @copyright  2009 Dongsheng Cai
- * @author     Dongsheng Cai <dongsheng@lion.com>
+ * @author     2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Unit tests for parts of {@link question_engine_data_mapper}.
  *
- * @package   core_question
- * @category  test
+ * @package   core
+ * @subpackage question
+ * @category  phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -25,8 +26,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
  * tested elsewhere, e.g. by {@link question_usage_autosave_test}. We do not
  * re-test them here.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class question_engine_data_mapper_testcase extends qbehaviour_walkthrough_test_base {
 

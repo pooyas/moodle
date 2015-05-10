@@ -3,7 +3,8 @@
 /**
  * Googledocs portfolio upgrade script.
  *
- * @package   portfolio_googledocs
+ * @package   portfolio
+ * @subpackage googledocs
  * @copyright 2015 Pooya Saeedi
  * 
  */

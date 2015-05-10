@@ -3,7 +3,8 @@
 /**
  * Version information for the calculated question type.
  *
- * @package    qformat_gift
+ * @package    qformat
+ * @subpackage gift
  * @copyright  2015 Pooya Saeedi
  * 
  */

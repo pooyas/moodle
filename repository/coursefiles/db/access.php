@@ -5,7 +5,7 @@
  *
  * @package    repository_coursefiles
  * @copyright  2010 Dongsheng Cai
- * @author     Dongsheng Cai <dongsheng@lion.com>
+ * @author     2015 Pooya Saeedi
  * 
  */
 

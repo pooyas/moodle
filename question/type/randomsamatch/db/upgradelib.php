@@ -3,8 +3,9 @@
 /**
  * Upgrade library code for the randomsamatch question type.
  *
- * @package   qtype_randomsamatch
- * @copyright 2013 Jean-Michel Vedrine
+ * @package   qtype
+ * @subpackage randomsamatch
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +19,6 @@ defined('LION_INTERNAL') || die();
  *
  * This class is used by the code in question/engine/upgrade/upgradelib.php.
  *
- * @copyright 2013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_qe2_attempt_updater extends question_qtype_attempt_updater {
     /** @var array of question stems. */

@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Form to export questions from the question bank.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class question_export_form extends lionform {
 

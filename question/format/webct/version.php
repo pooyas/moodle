@@ -3,7 +3,8 @@
 /**
  * Version information for the Web CT question import format.
  *
- * @package    qformat_webct
+ * @package    qformat
+ * @subpackage webct
  * @copyright  2015 Pooya Saeedi
  * 
  */

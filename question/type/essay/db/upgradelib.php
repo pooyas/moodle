@@ -19,8 +19,6 @@ defined('LION_INTERNAL') || die();
  *
  * This class is used by the code in question/engine/upgrade/upgradelib.php.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_essay_qe2_attempt_updater extends question_qtype_attempt_updater {
     public function right_answer() {

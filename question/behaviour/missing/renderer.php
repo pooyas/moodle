@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * Renderer for outputting parts of a question when the actual behaviour
  * used is not available.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_missing_renderer extends qbehaviour_renderer {
     public function controls(question_attempt $qa, question_display_options $options) {

@@ -1,5 +1,5 @@
 // YUI3 File Picker module for lion
-// Author: Dongsheng Cai <dongsheng@lion.com>
+// Author: 2015 Pooya Saeedi
 
 /**
  *

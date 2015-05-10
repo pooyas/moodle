@@ -6,6 +6,7 @@
  *
  * @package    qtype
  * @subpackage numerical
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of numerical question attempts.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_attempt_upgrader_test extends question_attempt_upgrader_test_base {
 

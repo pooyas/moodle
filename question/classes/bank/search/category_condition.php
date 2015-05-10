@@ -4,8 +4,9 @@
 /**
  * A search class to control from which category questions are listed.
  *
- * @package   core_question
- * @copyright 2013 Ray Morris
+ * @package   core
+ * @subpackage question
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  *  This class controls from which category questions are listed.
  *
- * @copyright 2013 Ray Morris
- * 
  */
 class category_condition extends condition {
     /** @var \stdClass The course record. */

@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculated
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/numerical/edit_numerical_form.php')
 /**
  * Calculated question type editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class qtype_calculated_edit_form extends qtype_numerical_edit_form {
     /**

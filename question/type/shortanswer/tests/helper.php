@@ -3,7 +3,8 @@
 /**
  * Test helpers for the shortanswer question type.
  *
- * @package    qtype_shortanswer
+ * @package    qtype
+ * @subpackage shortanswer
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the shortanswer question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_shortanswer_test_helper extends question_test_helper {
     public function get_test_questions() {

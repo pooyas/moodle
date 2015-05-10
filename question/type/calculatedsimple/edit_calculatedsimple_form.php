@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedsimple
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/calculated/edit_calculated_form.php
 /**
  * Editing form for the calculated simplequestion type.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class qtype_calculatedsimple_edit_form extends qtype_calculated_edit_form {
     /**

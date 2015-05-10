@@ -18,8 +18,6 @@ require_once($CFG->libdir . '/questionlib.php');
 /**
  * The description 'question' type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_description extends question_type {
     public function is_real_question_type() {

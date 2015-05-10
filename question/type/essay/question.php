@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents an essay question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_essay_question extends question_with_responses {
 

@@ -3,8 +3,10 @@
 /**
  * Unit tests for the Lion Blackboard V6+ format.
  *
- * @package    qformat_blackboard_six
- * @copyright  2012 Jean-Michel Vedrine
+ * @package    qformat
+ * @subpackage blackboard_six
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +23,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the blackboard question import format.
  *
- * @copyright  2012 Jean-Michel Vedrine
- * 
  */
 class qformat_blackboard_six_pool_test extends question_testcase {
 

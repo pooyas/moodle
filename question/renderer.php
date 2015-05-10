@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * This renderer outputs parts of the question bank.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_question_bank_renderer extends plugin_renderer_base {
 

@@ -32,8 +32,6 @@ defined('LION_INTERNAL') || die();
  *
  * Instances of this class correspond to rows in the question_usages table.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_usage_by_activity {
     /**
@@ -880,8 +878,6 @@ class question_usage_by_activity {
  * To create an instance of this class, use
  * {@link question_usage_by_activity::get_attempt_iterator()}
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_attempt_iterator implements Iterator, ArrayAccess {
     /** @var question_usage_by_activity that we are iterating over. */
@@ -945,8 +941,6 @@ class question_attempt_iterator implements Iterator, ArrayAccess {
  * A question behaviour controls the flow of actions a student can
  * take as they work through a question, and later, as a teacher manually grades it.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 interface question_usage_observer {
     /** Called when a field of the question_usage_by_activity is changed. */
@@ -994,8 +988,6 @@ interface question_usage_observer {
  * Null implmentation of the {@link question_usage_watcher} interface.
  * Does nothing.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_usage_null_observer implements question_usage_observer {
     public function notify_modified() {

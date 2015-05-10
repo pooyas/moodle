@@ -6,6 +6,7 @@
  *
  * @package    qtype
  * @subpackage multianswer
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -17,8 +18,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for qtype_multianswer_question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_multianswer_question_test extends advanced_testcase {
     public function test_get_expected_data() {

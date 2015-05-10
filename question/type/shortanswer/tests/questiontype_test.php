@@ -3,7 +3,8 @@
 /**
  * Unit tests for the shortanswer question type class.
  *
- * @package    qtype_shortanswer
+ * @package    qtype
+ * @subpackage shortanswer
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once($CFG->dirroot . '/question/type/shortanswer/edit_shortanswer_form.p
 /**
  * Unit tests for the shortanswer question type class.
  *
- * @copyright  2007 The Open University
- * 
  */
 class qtype_shortanswer_test extends advanced_testcase {
     public static $includecoverage = array(

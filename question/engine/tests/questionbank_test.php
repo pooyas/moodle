@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,8 +20,6 @@ require_once(dirname(__FILE__) . '/../lib.php');
 /**
  *Unit tests for the {@link question_bank} class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_bank_test extends advanced_testcase {
 

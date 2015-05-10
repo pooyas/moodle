@@ -5,8 +5,7 @@
  *
  * @package    qtype
  * @subpackage multianswer
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -18,8 +17,6 @@ require_once($CFG->dirroot . '/question/type/numerical/questiontype.php');
 /**
  * Form for editing multi-answer questions.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class qtype_multianswer_edit_form extends question_edit_form {
 

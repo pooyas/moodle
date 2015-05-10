@@ -3,8 +3,9 @@
 /**
  * Strings for component 'qformat_blackboard_six', language 'en'
  *
- * @package    qformat_blackboard_six
- * @copyright  2010 Helen Foster
+ * @package    qformat
+ * @subpackage blackboard_six
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

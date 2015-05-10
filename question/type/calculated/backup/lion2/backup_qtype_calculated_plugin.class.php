@@ -14,7 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Provides the information to backup calculated questions
  *
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class backup_qtype_calculated_plugin extends backup_qtype_plugin {

@@ -3,8 +3,9 @@
 /**
  * XHTML question exporter.
  *
- * @package    qformat_xhtml
- * @copyright  2005 Howard Miller
+ * @package    qformat
+ * @subpackage xhtml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ defined('LION_INTERNAL') || die();
  *
  * Exports questions as static HTML.
  *
- * @copyright  2005 Howard Miller
- * 
  */
 class qformat_xhtml extends qformat_default {
 

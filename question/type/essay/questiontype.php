@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage essay
- * @copyright  2005 Mark Nielsen
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->libdir . '/questionlib.php');
 /**
  * The essay question type.
  *
- * @copyright  2005 Mark Nielsen
- * 
  */
 class qtype_essay extends question_type {
     public function is_manual_graded() {

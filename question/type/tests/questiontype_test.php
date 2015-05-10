@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/type/questiontypebase.php');
 /**
  * Tests for some of ../questionbase.php
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_type_test extends advanced_testcase {
     public static $includecoverage = array('question/type/questiontypebase.php');

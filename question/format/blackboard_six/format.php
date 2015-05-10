@@ -3,8 +3,9 @@
 /**
  * Blackboard V5 and V6 question importer.
  *
- * @package    qformat_blackboard_six
- * @copyright  2005 Michael Penney
+ * @package    qformat
+ * @subpackage blackboard_six
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,6 @@ require_once($CFG->dirroot . '/question/format/blackboard_six/formatpool.php');
 /**
  * Class to represent a Blackboard file.
  *
- * @package    qformat_blackboard_six
- * @copyright  2005 Michael Penney
- * 
  */
 class qformat_blackboard_six_file {
     /** @var int type of file being imported, one of the constants FILETYPE_QTI or FILETYPE_POOL. */
@@ -34,9 +32,6 @@ class qformat_blackboard_six_file {
 /**
  * Blackboard Six QTI file importer class.
  *
- * @package    qformat_blackboard_six
- * @copyright  2005 Michael Penney
- * 
  */
 class qformat_blackboard_six extends qformat_blackboard_six_base {
     /** @var int Blackboard assessment qti files were always imported by the blackboard_six plugin. */

@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
  * Restore plugin class that provides the necessary information
  * needed to restore one match qtype plugin.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_qtype_match_plugin extends restore_qtype_plugin {
 

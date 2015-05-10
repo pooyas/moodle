@@ -4,10 +4,9 @@
 /**
  * lib.php - Contains Plagiarism base class used by plugins.
  *
- * @since Lion 2.0
  * @package    core
  * @subpackage plagiarism
- * @copyright  2010 Dan Marsden http://danmarsden.com
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

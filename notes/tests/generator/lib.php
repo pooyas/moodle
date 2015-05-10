@@ -3,7 +3,8 @@
 /**
  * core_notes data generator.
  *
- * @package    core_notes
+ * @package    core
+ * @subpackage notes
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * core_notes data generator class.
  *
- * @package    core_notes
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_notes_generator extends component_generator_base {
 

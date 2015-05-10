@@ -8,6 +8,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */

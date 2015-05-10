@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage essay
- * @copyright  2005 Mark Nielsen
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

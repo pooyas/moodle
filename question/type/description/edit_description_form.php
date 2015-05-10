@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage description
- * @copyright  2007 Jamie Pratt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Description editing form definition.
  *
- * @copyright  2007 Jamie Pratt
- * 
  */
 class qtype_description_edit_form extends question_edit_form {
     /**

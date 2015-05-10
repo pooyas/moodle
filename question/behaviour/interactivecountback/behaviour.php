@@ -44,8 +44,6 @@ require_once(dirname(__FILE__) . '/../interactive/behaviour.php');
  * question type. The point is that the final grade can take into account all
  * of the tries the student made.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_interactivecountback extends qbehaviour_interactive {
 

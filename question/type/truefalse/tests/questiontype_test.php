@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage truefalse
- * @copyright  2007 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +21,6 @@ require_once($CFG->dirroot . '/question/type/truefalse/edit_truefalse_form.php')
 /**
  * Unit tests for the true-false question definition class.
  *
- * @copyright  2007 The Open University
- * 
  */
 class qtype_truefalse_test extends advanced_testcase {
     protected $qtype;

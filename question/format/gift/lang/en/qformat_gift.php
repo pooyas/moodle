@@ -3,7 +3,8 @@
 /**
  * Strings for component 'qformat_gift', language 'en'
  *
- * @package    qformat_gift
+ * @package    qformat
+ * @subpackage gift
  * @copyright  2015 Pooya Saeedi
  * 
  */

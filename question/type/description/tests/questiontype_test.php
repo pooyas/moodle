@@ -3,7 +3,8 @@
 /**
  * Unit tests for the description question type class.
  *
- * @package    qtype_description
+ * @package    qtype
+ * @subpackage description
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,8 +22,6 @@ require_once($CFG->dirroot . '/question/type/description/edit_description_form.p
 /**
  * Unit tests for the description question type class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_description_test extends advanced_testcase {
     protected $qtype;

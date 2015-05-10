@@ -3,8 +3,9 @@
 /**
  * Matching question renderer class.
  *
- * @package   qtype_randomsamatch
- * @copyright 2013 Jean-Michel Vedrine
+ * @package   qtype
+ * @subpackage randomsamatch
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ require_once($CFG->dirroot . '/question/type/match/renderer.php');
 /**
  * Generates the output for randomsamatch questions.
  *
- * @copyright 2013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_renderer extends qtype_match_renderer {
     public function format_stem_text($qa, $stemid) {

@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Interactive behaviour renderer.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_interactive_renderer extends qbehaviour_renderer {
     public function controls(question_attempt $qa, question_display_options $options) {

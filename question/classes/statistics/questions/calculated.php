@@ -5,8 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  2013 Open University
- * @author     2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * This class is used to return the stats as calculated by {@link \core_question\statistics\questions\calculator}
  *
- * @copyright 2013 Open University
- * @author    2015 Pooya Saeedi
  * 
  */
 class calculated {

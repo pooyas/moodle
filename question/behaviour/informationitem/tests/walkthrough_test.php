@@ -6,6 +6,7 @@
  *
  * @package    qbehaviour
  * @subpackage informationitem
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,8 +22,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the information item behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_informationitem_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_informationitem_feedback_description() {

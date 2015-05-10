@@ -27,8 +27,6 @@ defined('LION_INTERNAL') || die();
  * possible. A warning is shown that behaviour specific bits may be missing.
  * Any attempt to process anything causes an exception to be thrown.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_missing extends question_behaviour {
 

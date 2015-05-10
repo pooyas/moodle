@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the autosave parts of the {@link question_usage} class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class question_usage_autosave_test extends qbehaviour_walkthrough_test_base {
 

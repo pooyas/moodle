@@ -12,7 +12,7 @@
  * of the public profile.
  *
  * @package    core_user
- * @copyright  2010 Remote-Learner.net
+ * @copyright  2015 Pooya Saeedi
  * @author     Hubert Chathi <hubert@remote-learner.net>
  * @author     Olav Jordan <olav.jordan@remote-learner.net>
  * 

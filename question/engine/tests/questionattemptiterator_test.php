@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * This file contains tests for the {@link question_attempt_iterator} class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_attempt_iterator_test extends advanced_testcase {
     private $quba;

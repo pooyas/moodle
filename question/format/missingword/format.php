@@ -3,7 +3,8 @@
 /**
  * Missing word question importer.
  *
- * @package    qformat_missingword
+ * @package    qformat
+ * @subpackage missingword
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -32,8 +33,6 @@ defined('LION_INTERNAL') || die();
  *    This is {=the best answer#comment on the best answer ~75%a good
  *    answer#comment on the good answer ~a wrong one#comment on the bad answer}
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qformat_missingword extends qformat_default {
 

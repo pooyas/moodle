@@ -3,7 +3,8 @@
 /**
  * Strings for component 'qformat_xml', language 'en'
  *
- * @package    qformat_xml
+ * @package    qformat
+ * @subpackage xml
  * @copyright  2015 Pooya Saeedi
  * 
  */

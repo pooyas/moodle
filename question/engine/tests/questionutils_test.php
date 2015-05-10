@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,8 +20,6 @@ require_once(dirname(__FILE__) . '/../lib.php');
 /**
  * Unit tests for the {@link question_utils} class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_utils_test extends advanced_testcase {
     public function test_arrays_have_same_keys_and_values() {

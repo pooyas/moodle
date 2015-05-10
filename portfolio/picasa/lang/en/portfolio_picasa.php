@@ -3,7 +3,8 @@
 /**
  * Strings for component 'portfolio_picasa', language 'en'
  *
- * @package   portfolio_picasa
+ * @package   portfolio
+ * @subpackage picasa
  * @copyright 2015 Pooya Saeedi
  * 
  */

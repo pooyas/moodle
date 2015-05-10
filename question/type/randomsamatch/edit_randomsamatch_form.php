@@ -3,9 +3,9 @@
 /**
  * Defines the editing form for the randomsamatch question type.
  *
- * @package    qtype_randomsamatch
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    qtype
+ * @subpackage randomsamatch
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * randomsamatch editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class qtype_randomsamatch_edit_form extends question_edit_form {
     protected function definition_inner($mform) {

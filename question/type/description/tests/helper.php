@@ -3,7 +3,8 @@
 /**
  * Test helper code for the description question type.
  *
- * @package    qtype_description
+ * @package    qtype
+ * @subpackage description
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the description question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_description_test_helper extends question_test_helper {
     public function get_test_questions() {

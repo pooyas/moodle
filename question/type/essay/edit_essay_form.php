@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage essay
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Essay question type editing form.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class qtype_essay_edit_form extends question_edit_form {
 

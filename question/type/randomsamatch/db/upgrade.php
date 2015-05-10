@@ -3,8 +3,9 @@
 /**
  * Matching question type upgrade code.
  *
- * @package   qtype_randomsamatch
- * @copyright 2013 Jean-Michel Vedrine
+ * @package   qtype
+ * @subpackage randomsamatch
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

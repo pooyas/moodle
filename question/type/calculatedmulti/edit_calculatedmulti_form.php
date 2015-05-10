@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedmulti
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Calculated multiple-choice question editing form.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class qtype_calculatedmulti_edit_form extends question_edit_form {
     /**

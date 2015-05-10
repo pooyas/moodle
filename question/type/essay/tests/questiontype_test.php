@@ -5,6 +5,7 @@
  *
  * @package    qtype
  * @subpackage essay
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */

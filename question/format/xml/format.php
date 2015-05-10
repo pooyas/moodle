@@ -3,7 +3,8 @@
 /**
  * Code for exporting questions as Lion XML.
  *
- * @package    qformat_xml
+ * @package    qformat
+ * @subpackage xml
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -25,9 +26,6 @@ if (!class_exists('qformat_default')) {
 /**
  * Importer for Lion XML question format.
  *
- * See http://docs.lion.org/en/Lion_XML_format for a description of the format.
- *
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class qformat_xml extends qformat_default {

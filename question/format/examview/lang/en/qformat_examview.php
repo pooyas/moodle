@@ -3,8 +3,9 @@
 /**
  * Strings for component 'qformat_examview', language 'en'
  *
- * @package    qformat_examview
- * @copyright  2010 Helen Foster
+ * @package    qformat
+ * @subpackage examview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

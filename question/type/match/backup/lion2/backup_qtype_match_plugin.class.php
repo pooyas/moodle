@@ -14,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Provides the information to backup match questions.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_qtype_match_plugin extends backup_qtype_plugin {
 

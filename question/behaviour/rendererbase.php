@@ -19,8 +19,6 @@ defined('LION_INTERNAL') || die();
  * The methods in this class are mostly called from {@link core_question_renderer}
  * which coordinates the overall output of questions.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class qbehaviour_renderer extends plugin_renderer_base {
     /**

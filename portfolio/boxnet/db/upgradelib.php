@@ -3,7 +3,8 @@
 /**
  * Locallib.
  *
- * @package    portfolio_boxnet
+ * @package    portfolio
+ * @subpackage boxnet
  * @copyright  2015 Pooya Saeedi
  * 
  */

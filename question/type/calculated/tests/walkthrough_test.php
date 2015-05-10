@@ -5,6 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculated
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the calculated question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculated_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_interactive() {

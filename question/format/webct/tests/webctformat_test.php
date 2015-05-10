@@ -3,8 +3,10 @@
 /**
  * Unit tests for Web CT question importer.
  *
- * @package    qformat_webct
- * @copyright  2013 Jean-Michel Vedrine
+ * @package    qformat
+ * @subpackage webct
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +23,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the webct question import format.
  *
- * @copyright  2013 Jean-Michel Vedrine
- * 
  */
 class qformat_webct_test extends question_testcase {
 

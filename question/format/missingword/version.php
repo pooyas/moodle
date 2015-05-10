@@ -3,7 +3,8 @@
 /**
  * Version information for the calculated question type.
  *
- * @package    qformat_missingword
+ * @package    qformat
+ * @subpackage missingword
  * @copyright  2015 Pooya Saeedi
  * 
  */

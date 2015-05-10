@@ -20,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Walkthrough tests for the truefalse question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_truefalse_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_false_right_does_not_show_feedback_when_not_answered() {

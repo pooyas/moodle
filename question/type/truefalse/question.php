@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents a true-false question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_truefalse_question extends question_graded_automatically {
     public $rightanswer;

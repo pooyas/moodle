@@ -3,9 +3,10 @@
 /**
  * This file contains tests for the interactive with multiple tries behaviour type class.
  *
- * @package   qbehaviour_interactive
- * @category  test
- * @copyright 2015 The Open University
+ * @package   qbehaviour
+ * @subpackage interactive
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the interactive with multiple tries behaviour type class.
  *
- * @copyright  2015 The Open University
- * 
  */
 class qbehaviour_interactive_type_test extends basic_testcase {
 

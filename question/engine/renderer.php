@@ -18,8 +18,6 @@ defined('LION_INTERNAL') || die();
  * {@link qbehaviour_renderer} and a {@link qtype_renderer} to output the
  * type-specific bits. The main entry point is the {@link question()} method.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_question_renderer extends plugin_renderer_base {
     public function get_page() {

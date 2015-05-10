@@ -9,7 +9,7 @@
  * Requires $CFG->amf_introspection = true for security.
  *
  * @package    webservice_amf
- * @copyright  2009 Penny Leach <penny@liip.ch>
+ * @copyright  2015 Pooya Saeedi <penny@liip.ch>
  * 
  */
 

@@ -4,9 +4,8 @@
 /**
  * This file contains the mnet services for the mahara portfolio plugin
  *
- * @since Lion 2.0
- * @package lioncore
- * @subpackage portfolio
+ * @package    portfolio
+ * @subpackage mahara
  * @copyright 2015 Pooya Saeedi
  * 
  */

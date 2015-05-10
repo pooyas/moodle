@@ -3,8 +3,9 @@
 /**
  * Test helpers for the randomsamatch question type.
  *
- * @package    qtype_randomsamatch
- * @copyright  2013 Jean-Michel Vedrine
+ * @package    qtype
+ * @subpackage randomsamatch
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Test helper class for the randomsamatch question type.
  *
- * @copyright  2013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_test_helper extends question_test_helper {
     public function get_test_questions() {
@@ -97,8 +96,6 @@ class qtype_randomsamatch_test_helper extends question_test_helper {
  * Test implementation of {@link qtype_randomsamatch_question_loader}. Gets the questions
  * from an array passed to the constructor, rather than querying the database.
  *
- * @copyright  2013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_test_question_loader extends qtype_randomsamatch_question_loader {
     /** @var array hold available shortanswers questions to choose from. */

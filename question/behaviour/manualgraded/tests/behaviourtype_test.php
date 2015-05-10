@@ -3,9 +3,10 @@
 /**
  * This file contains tests for the manually graded behaviour type class.
  *
- * @package   qbehaviour_manualgraded
- * @category  test
- * @copyright 2015 The Open University
+ * @package   qbehaviour
+ * @subpackage manualgraded
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the manually graded behaviour type class.
  *
- * @copyright  2015 The Open University
- * 
  */
 class qbehaviour_manualgraded_type_test extends basic_testcase {
 

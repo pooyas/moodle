@@ -21,8 +21,6 @@ defined('LION_INTERNAL') || die();
  *
  * TODO update for the changes in Lion 2.0.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_qe2_attempt_updater extends question_qtype_attempt_updater {
     public function right_answer() {

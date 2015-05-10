@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage multianswer
- * @copyright  2010 Pierre Pichet
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,8 +22,6 @@ require_once($CFG->dirroot . '/question/type/multichoice/question.php');
  * You can think of it as an application of the composite pattern to qusetion
  * types.
  *
- * @copyright  2010 Pierre Pichet
- * 
  */
 class qtype_multianswer_question extends question_graded_automatically_with_countback {
     /** @var array of question_graded_automatically. */

@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/type/calculated/question.php');
 /**
  * Test helper class for the calculated multiple-choice question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculatedmulti_test_helper extends question_test_helper {
     public function get_test_questions() {

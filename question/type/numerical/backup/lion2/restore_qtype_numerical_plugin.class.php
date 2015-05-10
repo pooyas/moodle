@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
  * restore plugin class that provides the necessary information
  * needed to restore one numerical qtype plugin
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_qtype_numerical_plugin extends restore_qtype_plugin {
 

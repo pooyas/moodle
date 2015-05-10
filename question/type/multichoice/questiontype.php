@@ -19,8 +19,6 @@ require_once($CFG->libdir . '/questionlib.php');
 /**
  * The multiple choice question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_multichoice extends question_type {
     public function get_question_options($question) {

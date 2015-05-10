@@ -22,8 +22,6 @@ defined('LION_INTERNAL') || die();
  * student to change their answer any more, but the student gets full feedback
  * straight away.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_immediatefeedback extends question_behaviour_with_save {
     const IS_ARCHETYPAL = true;

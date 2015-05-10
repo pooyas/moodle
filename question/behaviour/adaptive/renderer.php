@@ -18,8 +18,6 @@ defined('LION_INTERNAL') || die();
  * Renderer for outputting parts of a question belonging to the legacy
  * adaptive behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_adaptive_renderer extends qbehaviour_renderer {
 

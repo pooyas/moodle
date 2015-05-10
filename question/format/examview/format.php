@@ -3,8 +3,9 @@
 /**
  * Examview question importer.
  *
- * @package    qformat_examview
- * @copyright  2005 Howard Miller
+ * @package    qformat
+ * @subpackage examview
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->libdir . '/xmlize.php');
 /**
  * Examview question importer.
  *
- * @copyright  2005 Howard Miller
- * 
  */
 class qformat_examview extends qformat_based_on_xml {
 

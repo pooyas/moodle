@@ -4,7 +4,8 @@
 /**
  * This file contains tests that just test the display mark/penalty information.
  *
- * @package   qbehaviour_adaptive
+ * @package   qbehaviour
+ * @subpackage phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/../behaviour.php');
 /**
  * Unit tests for the adaptive behaviour the display of mark/penalty information.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qbehaviour_adaptive_mark_display_test extends basic_testcase {
     /** @var qbehaviour_adaptive_renderer the renderer to test. */

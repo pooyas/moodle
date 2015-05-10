@@ -4,10 +4,9 @@
 /**
  * This file contains the class definition for the mahara portfolio plugin
  *
- * @since Lion 2.0
- * @package lioncore
- * @subpackage portfolio
- * @copyright 2009 Penny Leach
+ * @package portfolio
+ * @subpackage mahara
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package    repository_webdav
  * @copyright  2009 Dongsheng Cai
- * @author     Dongsheng Cai <dongsheng@lion.com>
+ * @author     2015 Pooya Saeedi
  * 
  */
 

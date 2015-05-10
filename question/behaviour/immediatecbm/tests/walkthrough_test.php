@@ -21,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the immediate cbm behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_immediatecbm_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_immediatecbm_feedback_multichoice_right() {

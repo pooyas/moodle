@@ -3,10 +3,9 @@
 /**
  * This file contains the version information for the mahara portfolio plugin
  *
- * @since      Lion 2.0
  * @package    portfolio
  * @subpackage mahara
- * @copyright  2009 Penny Leach
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

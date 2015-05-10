@@ -3,8 +3,9 @@
 /**
  * Matching question definition class.
  *
- * @package   qtype_randomsamatch
- * @copyright 2013 Jean-Michel Vedrine
+ * @package   qtype
+ * @subpackage randomsamatch
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ require_once($CFG->dirroot . '/question/type/match/question.php');
 /**
  * Represents a randomsamatch question.
  *
- * @copyright 22013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_question extends qtype_match_question {
     /** @var qtype_randomsamatch_question_loader helper for loading the shortanswer questions. */
@@ -88,8 +87,6 @@ class qtype_randomsamatch_question extends qtype_match_question {
 /**
  * This class is responsible for loading the questions that a question needs from the database.
  *
- * @copyright  2013 Jean-Michel vedrine
- * 
  */
 class qtype_randomsamatch_question_loader {
     /** @var array hold available shortanswers questionid to choose from. */

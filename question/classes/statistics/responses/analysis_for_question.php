@@ -4,9 +4,9 @@
  * This file contains the code to analyse all the responses to a particular
  * question.
  *
- * @package    core_question
- * @copyright  2013 Open University
- * @author     2015 Pooya Saeedi
+ * @package   core
+ * @subpackage question
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -34,10 +34,6 @@ defined('LION_INTERNAL') || die();
  * - Then within each class analysis there are analysis for each actual response
  * {@link \core_question\statistics\responses\analysis_for_actual_response}.
  *
- * @package    core_question
- * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
- * 
  */
 class analysis_for_question {
 

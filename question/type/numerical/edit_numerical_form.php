@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage numerical
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/type/numerical/questiontype.php');
 /**
  * numerical editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class qtype_numerical_edit_form extends question_edit_form {
     /** @var int we always show at least this many sets of unit fields. */

@@ -3,7 +3,8 @@
 /**
  * Question behaviour type for interactive behaviour with count-back scoring behaviour.
  *
- * @package    qbehaviour_interactivecountback
+ * @package    qbehaviour
+ * @subpackage interactivecountback
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -17,8 +18,6 @@ require_once(dirname(__FILE__) . '/../interactive/behaviourtype.php');
 /**
  * Question behaviour type information for interactive behaviour with count-back scoring.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_interactivecountback_type extends qbehaviour_interactive_type {
     public function is_archetypal() {

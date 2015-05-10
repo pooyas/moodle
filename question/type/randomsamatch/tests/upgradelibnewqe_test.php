@@ -4,8 +4,10 @@
  * Tests of the upgrade to the new Lion question engine for attempts at
  * randomsamatch questions.
  *
- * @package    qtype_randomsamatch
- * @copyright  2013 Jean-Michel Vedrine
+ * @package    qtype
+ * @subpackage randomsamatch
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,8 +21,6 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of randomsamatch question attempts.
  *
- * @copyright  2013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_attempt_upgrader_test extends question_attempt_upgrader_test_base {
     public function test_randomsamatch_deferredfeedback_qsession1() {

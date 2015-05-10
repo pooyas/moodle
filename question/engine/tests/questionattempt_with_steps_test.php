@@ -8,6 +8,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -23,8 +24,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * These tests use a standard fixture of a {@link question_attempt} with three steps.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_attempt_with_steps_test extends advanced_testcase {
     private $question;

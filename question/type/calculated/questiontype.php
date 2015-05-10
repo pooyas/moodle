@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
 /**
  * The calculated question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculated extends question_type {
     /** Regular expression that finds the formulas in content. */

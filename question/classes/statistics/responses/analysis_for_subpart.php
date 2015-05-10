@@ -4,10 +4,9 @@
  *
  * Data structure to count responses for each of the sub parts of a question.
  *
- * @package    core_question
+ * @package   core
+ * @subpackage question
  * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
- * 
  */
 
 namespace core_question\statistics\responses;
@@ -26,10 +25,6 @@ namespace core_question\statistics\responses;
  * - Then within each class analysis there are analysis for each actual response
  * {@link \core_question\statistics\responses\analysis_for_actual_response}.
  *
- * @package    core_question
- * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
- * 
  */
 class analysis_for_subpart {
 

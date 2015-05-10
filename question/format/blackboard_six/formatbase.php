@@ -3,8 +3,9 @@
 /**
  * Blackboard V5 and V6 question importer.
  *
- * @package    qformat_blackboard_six
- * @copyright  2012 Jean-Michel Vedrine
+ * @package    qformat
+ * @subpackage blackboard_six
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Base class question import format for zip files with images
  *
- * @package    qformat_blackboard_six
- * @copyright  2012 Jean-Michel Vedrine
- * 
  */
 class qformat_blackboard_six_base extends qformat_based_on_xml {
     /** @var string path to path to root of image tree in unzipped archive. */

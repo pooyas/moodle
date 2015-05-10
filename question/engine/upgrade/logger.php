@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,8 +19,6 @@ defined('LION_INTERNAL') || die();
  * during the question engine database database upgrade, to facilitate reviewing
  * them.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_engine_assumption_logger {
     protected $handle;
@@ -64,8 +63,6 @@ class question_engine_assumption_logger {
 /**
  * Subclass of question_engine_assumption_logger that does nothing, for testing.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class dummy_question_engine_assumption_logger extends question_engine_assumption_logger {
     protected $attemptid;

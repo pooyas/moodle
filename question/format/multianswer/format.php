@@ -3,8 +3,9 @@
 /**
  * Embedded answer (Cloze) question importer.
  *
- * @package   qformat_multianswer
- * @copyright 2003 Henrik Kaipe
+ * @package   qformat
+ * @subpackage multianswer
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * Importer that imports a text file containing a single Multianswer question
  * from a text file.
  *
- * @copyright 2003 Henrik Kaipe
- * 
  */
 class qformat_multianswer extends qformat_default {
 

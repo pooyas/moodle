@@ -14,8 +14,6 @@ namespace core_question\bank;
 /**
  * Base class for representing a column in a {@link question_bank_view}.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 
 abstract class column_base {

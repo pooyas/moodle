@@ -7,7 +7,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  2007 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

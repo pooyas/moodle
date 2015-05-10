@@ -3,7 +3,8 @@
 /**
  * Strings for component 'portfolio_googledocs', language 'en'
  *
- * @package   portfolio_googledocs
+ * @package   portfolio
+ * @subpackage googledocs
  * @copyright 2015 Pooya Saeedi
  * 
  */

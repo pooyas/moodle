@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
 /**
  * Represents a calculated question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculated_question extends qtype_numerical_question
         implements qtype_calculated_question_with_expressions {

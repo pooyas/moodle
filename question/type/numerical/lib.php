@@ -3,9 +3,9 @@
 /**
  * Serve question type files
  *
- * @since      Lion 2.0
- * @package    qtype_numerical
- * @copyright  Dongsheng Cai <dongsheng@lion.com>
+ * @package    qtype
+ * @subpackage numerical
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Checks file access for numerical questions.
  *
- * @package  qtype_numerical
- * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
  * @param stdClass $context context object

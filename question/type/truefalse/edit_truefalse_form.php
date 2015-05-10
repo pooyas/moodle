@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage truefalse
- * @copyright  2007 Jamie Pratt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,8 +19,6 @@ require_once($CFG->dirroot.'/question/type/edit_question_form.php');
 /**
  * True-false question editing form definition.
  *
- * @copyright  2007 Jamie Pratt
- * 
  */
 class qtype_truefalse_edit_form extends question_edit_form {
     /**

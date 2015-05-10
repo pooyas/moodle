@@ -5,9 +5,9 @@
  * for the remote system to request the file for lion,
  * this is the script that serves up the export file to them.
  *
- * @package core_portfolio
- * @copyright 2015 Pooya Saeedi,
- *            Martin Dougiamas <http://dougiamas.com>
+ * @package   core
+ * @subpackage portfolio
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 require_once(dirname(dirname(__FILE__)) . '/config.php');

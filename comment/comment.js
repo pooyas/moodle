@@ -1,7 +1,7 @@
 
 /**
  * Comment Helper
- * @author Dongsheng Cai <dongsheng@lion.com>
+ * @author 2015 Pooya Saeedi
  */
 M.core_comment = {
     /**

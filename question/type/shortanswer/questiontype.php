@@ -20,8 +20,6 @@ require_once($CFG->dirroot . '/question/type/shortanswer/question.php');
 /**
  * The short answer question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_shortanswer extends question_type {
     public function extra_question_fields() {

@@ -18,8 +18,6 @@ defined('LION_INTERNAL') || die();
  *
  * This is the old version of interactive mode.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_adaptive extends question_behaviour_with_multiple_tries {
     const IS_ARCHETYPAL = true;
@@ -268,8 +266,6 @@ class qbehaviour_adaptive extends question_behaviour_with_multiple_tries {
  * This class encapsulates all the information about the current state-of-play
  * scoring-wise. It is used to communicate between the beahviour and the renderer.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_adaptive_mark_details {
     /** @var question_state the current state of the question. */

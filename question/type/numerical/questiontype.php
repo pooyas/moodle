@@ -23,8 +23,6 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
  * This class contains some special features in order to make the
  * question type embeddable within a multianswer (cloze) question
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_numerical extends question_type {
     const UNITINPUT = 0;
@@ -475,8 +473,6 @@ class qtype_numerical extends question_type {
 /**
  * This class processes numbers with units.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_answer_processor {
     /** @var array unit name => multiplier. */

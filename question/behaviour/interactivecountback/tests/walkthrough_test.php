@@ -6,6 +6,7 @@
  *
  * @package    qbehaviour
  * @subpackage interactivecountback
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,8 +22,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the interactive with countback behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_interactivecountback_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_interactive_feedback_match_reset() {

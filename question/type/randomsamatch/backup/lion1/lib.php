@@ -3,8 +3,9 @@
 /**
  * Serve question type files
  *
- * @package    qtype_randomsamatch
- * @copyright  2013 Jean-Michel Vedrine
+ * @package    qtype
+ * @subpackage randomsamatch
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Random shortanswer matching question type conversion handler.
  *
- * @copyright  2013 Jean-Michel Vedrine
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class lion1_qtype_randomsamatch_handler extends lion1_qtype_handler {
 

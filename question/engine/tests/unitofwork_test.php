@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the {@link question_engine_unit_of_work} class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_engine_unit_of_work_test extends data_loading_method_test_base {
     /** @var question_usage_by_activity the test question usage. */

@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents a description 'question'.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_description_question extends question_information_item {
 }

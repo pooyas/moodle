@@ -3,8 +3,9 @@
 /**
  * Post-install script for the manual graded question behaviour.
  *
- * @package   qbehaviour_manualgraded
- * @copyright 2013 The Open Universtiy
+ * @package   qbehaviour
+ * @subpackage manualgraded
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

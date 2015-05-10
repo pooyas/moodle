@@ -3,7 +3,8 @@
 /**
  * Question type class for the randomsamatch question type.
  *
- * @package    qtype_randomsamatch
+ * @package    qtype
+ * @subpackage randomsamatch
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
  * TODO: Make sure short answer questions chosen by a randomsamatch question
  * can not also be used by a random question
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_randomsamatch extends question_type {
     /**

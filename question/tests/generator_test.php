@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test data generator
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_question_generator_testcase extends advanced_testcase {
     public function test_create() {

@@ -7,9 +7,7 @@
  *
  * @package    core
  * @subpackage my
- * @copyright  2010 Remote-Learner.net
- * @author     Hubert Chathi <hubert@remote-learner.net>
- * @author     Olav Jordan <olav.jordan@remote-learner.net>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

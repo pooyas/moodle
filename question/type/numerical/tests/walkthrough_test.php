@@ -5,6 +5,7 @@
  *
  * @package    qtype
  * @subpackage numerical
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once($CFG->dirroot . '/question/type/numerical/tests/helper.php');
 /**
  * Unit tests for the numerical question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_interactive_currency() {

@@ -20,8 +20,6 @@ defined('LION_INTERNAL') || die();
  * we use this question type class instead so that some of the information about
  * this question can be seen, and the rest of the system keeps working.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_missingtype extends question_type {
     public function menu_name() {

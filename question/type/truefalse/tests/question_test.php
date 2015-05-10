@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the true-false question definition class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_truefalse_question_test extends advanced_testcase {
     public function test_is_complete_response() {

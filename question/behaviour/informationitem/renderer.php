@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * Renderer for outputting parts of a question belonging to the information
  * item behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_informationitem_renderer extends qbehaviour_renderer {
     public function controls(question_attempt $qa, question_display_options $options) {

@@ -25,8 +25,6 @@ require_once(dirname(__FILE__) . '/../immediatefeedback/behaviour.php');
  * Once the qustion is submitted, it is not possible for the student to change
  * their answer any more. The student's degree of certainty affects their score.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_immediatecbm extends qbehaviour_immediatefeedback {
     public function get_min_fraction() {

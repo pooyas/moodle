@@ -25,8 +25,6 @@ require_once(dirname(__FILE__) . '/../deferredfeedback/behaviour.php');
  * when the whole attempt is finished, their answer is graded. Their degree
  * of certainty affects their score.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_deferredcbm extends qbehaviour_deferredfeedback {
     const IS_ARCHETYPAL = true;

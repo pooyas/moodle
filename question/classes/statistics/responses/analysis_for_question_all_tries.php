@@ -3,9 +3,9 @@
 /**
  * This file contains a class to analyse all the responses for multiple tries at a particular question.
  *
- * @package    core_question
+ * @package   core
+ * @subpackage question
  * @copyright  2015 Pooya Saeedi
- * @author     2015 Pooya Saeedi
  * 
  */
 
@@ -27,10 +27,6 @@ namespace core_question\statistics\responses;
  * - Then within each class analysis there are analysis for each actual response
  * {@link \core_question\statistics\responses\analysis_for_actual_response}.
  *
- * @package    core_question
- * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
- * 
  */
 class analysis_for_question_all_tries extends analysis_for_question{
     /**

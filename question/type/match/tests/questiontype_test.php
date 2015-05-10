@@ -3,7 +3,9 @@
 /**
  * Unit tests for the matching question definition class.
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -21,8 +23,6 @@ require_once($CFG->dirroot . '/question/type/match/edit_match_form.php');
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_match_test extends advanced_testcase {
     /** @var qtype_match instance of the question type class to test. */

@@ -4,7 +4,8 @@
 /**
  * Strings for component 'portfolio_boxnet', language 'en'
  *
- * @package   portfolio_boxnet
+ * @package   portfolio
+ * @subpackage boxnet
  * @copyright 2015 Pooya Saeedi
  * 
  */

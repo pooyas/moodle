@@ -30,7 +30,6 @@ namespace core_question\bank;
  *    and sorted in the right order.
  *  + outputting table headers.
  *
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class view {

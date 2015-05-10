@@ -21,8 +21,6 @@ require_once(dirname(__FILE__) . '/../upgradelib.php');
 /**
  * Subclass of question_engine_attempt_upgrader to help with testing.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class test_question_engine_attempt_upgrader extends question_engine_attempt_upgrader {
     public function prevent_timeout() {
@@ -38,8 +36,6 @@ class test_question_engine_attempt_upgrader extends question_engine_attempt_upgr
 /**
  * Subclass of question_engine_upgrade_question_loader for unit testing.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class test_question_engine_upgrade_question_loader extends question_engine_upgrade_question_loader {
     public function put_question_in_cache($question) {
@@ -76,8 +72,6 @@ class test_question_engine_upgrade_question_loader extends question_engine_upgra
  * Base class for tests that thest the upgrade of one particular attempt and
  * one question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class question_attempt_upgrader_test_base extends advanced_testcase {
     protected $updater;

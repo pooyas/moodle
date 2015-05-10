@@ -4,10 +4,9 @@
 /**
  * This file is the landing point for returning to lion after authenticating at mahara
  *
- * @since Lion 2.0
- * @package lioncore
- * @subpackage portfolio
- * @copyright 2009 Penny Leach
+ * @package    portfolio
+ * @subpackage mahara
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 require_once(dirname(dirname(dirname(__FILE__))). '/config.php');

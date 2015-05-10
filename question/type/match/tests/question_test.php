@@ -3,7 +3,9 @@
 /**
  * Unit tests for the matching question definition classes.
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -18,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_match_question_test extends advanced_testcase {
 

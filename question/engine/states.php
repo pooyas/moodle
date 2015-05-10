@@ -19,8 +19,6 @@ defined('LION_INTERNAL') || die();
  *
  * There are also some useful methods for testing and manipulating states.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class question_state {
     /**#@+
@@ -272,8 +270,6 @@ abstract class question_state {
 /**#@+
  * Specific question_state subclasses.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_state_notstarted extends question_state {
     public function is_finished() {

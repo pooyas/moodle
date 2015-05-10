@@ -3,9 +3,10 @@
 /**
  * This file contains tests for the immediate feedback behaviour type class.
  *
- * @package   qbehaviour_immediatefeedback
- * @category  test
- * @copyright 2015 The Open University
+ * @package   qbehaviour
+ * @subpackage immediatefeedback
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the immediate feedback behaviour type class.
  *
- * @copyright  2015 The Open University
- * 
  */
 class qbehaviour_immediatefeedback_type_test extends basic_testcase {
 

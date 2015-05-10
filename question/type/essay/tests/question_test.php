@@ -5,6 +5,7 @@
  *
  * @package    qtype
  * @subpackage essay
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_essay_question_test extends advanced_testcase {
     public function test_get_question_summary() {

@@ -3,7 +3,9 @@
 /**
  * Test helpers for the match question type.
  *
- * @package    qtype_match
+ * @package    qtype
+ * @subpackage match
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,8 +20,6 @@ require_once($CFG->dirroot . '/question/type/match/question.php');
 /**
  * Test helper class for the match question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_match_test_helper extends question_test_helper {
     public function get_test_questions() {

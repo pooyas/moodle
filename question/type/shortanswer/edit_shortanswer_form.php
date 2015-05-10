@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage shortanswer
- * @copyright  2007 Jamie Pratt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Short answer question editing form definition.
  *
- * @copyright  2007 Jamie Pratt
- * 
  */
 class qtype_shortanswer_edit_form extends question_edit_form {
 

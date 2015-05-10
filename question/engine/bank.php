@@ -24,8 +24,6 @@ require_once(dirname(__FILE__) . '/../type/questiontypebase.php');
  *
  * It provides functions for managing question types and question definitions.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class question_bank {
     // TODO: This limit can be deleted if someday we move all TEXTS to BIG ones. MDL-19603
@@ -418,8 +416,6 @@ abstract class question_bank {
 /**
  * Class for loading questions according to various criteria.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_finder implements cache_data_source {
     /** @var question_finder the singleton instance of this class. */

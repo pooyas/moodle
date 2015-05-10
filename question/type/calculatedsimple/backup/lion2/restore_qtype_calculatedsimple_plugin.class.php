@@ -18,8 +18,6 @@ require_once($CFG->dirroot .
  * restore plugin class that provides the necessary information
  * needed to restore one calculatedsimple qtype plugin
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_qtype_calculatedsimple_plugin extends restore_qtype_calculated_plugin {
 }

@@ -3,10 +3,9 @@
 /**
  * This file is the main controller to do with the portfolio export wizard.
  *
- * @package core_portfolio
- * @copyright 2015 Pooya Saeedi,
- *            Martin Dougiamas <http://dougiamas.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL
+ * @package   core
+ * @subpackage portfolio
+ * @copyright 2015 Pooya Saeedi
  */
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 

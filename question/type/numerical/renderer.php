@@ -4,7 +4,8 @@
 /**
  * Numerical question renderer class.
  *
- * @package qtype_numerical
+ * @package qtype
+ * @subpackage numerical
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -13,8 +14,6 @@
 /**
  * Generates the output for short answer questions.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_renderer extends qtype_renderer {
     public function formulation_and_controls(question_attempt $qa,

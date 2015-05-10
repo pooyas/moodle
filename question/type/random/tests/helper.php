@@ -3,9 +3,9 @@
 /**
  * Test helpers for the random question type.
  *
- * @package    qtype_random
+ * @package    qtype
+ * @subpackage random
  * @copyright  2015 Pooya Saeedi
- * @author     2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the random question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_random_test_helper extends question_test_helper {
     public function get_test_questions() {

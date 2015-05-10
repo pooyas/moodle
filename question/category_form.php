@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  2007 Jamie Pratt me@jamiep.org
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +18,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Form for editing qusetions categories (name, description, etc.)
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * 
  */
 class question_category_edit_form extends lionform {
 

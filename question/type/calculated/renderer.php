@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/numerical/renderer.php');
 /**
  * Generates the output for calculated questions.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculated_renderer extends qtype_numerical_renderer {
     public function correct_response(question_attempt $qa) {

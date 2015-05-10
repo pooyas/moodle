@@ -7,6 +7,7 @@
  *
  * @package    qbehaviour
  * @subpackage adaptive
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,8 +23,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the adaptive behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_adaptive_walkthrough_test extends qbehaviour_walkthrough_test_base {
     protected function get_contains_penalty_info_expectation($penalty) {

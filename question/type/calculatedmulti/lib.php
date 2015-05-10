@@ -3,9 +3,9 @@
 /**
  * Serve question type files
  *
- * @since      Lion 2.0
- * @package    qtype_calculatedmulti
- * @copyright  Dongsheng Cai <dongsheng@lion.com>
+ * @package    qtype
+ * @subpackage calculatedmulti
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

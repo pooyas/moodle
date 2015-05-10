@@ -3,9 +3,9 @@
 /**
  * Serve question type files
  *
- * @since      Lion 2.0
- * @package    qtype_truefalse
- * @copyright  2010 The Open Unviersity
+ * @package    qtype
+ * @subpackage truefalse
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Checks file access for true-false questions.
- * @package  qtype_truefalse
- * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
  * @param stdClass $context context object

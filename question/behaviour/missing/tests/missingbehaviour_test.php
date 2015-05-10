@@ -21,8 +21,6 @@ require_once(dirname(__FILE__) . '/../behaviour.php');
 /**
  * Unit tests for the 'missing' behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_missing_test extends advanced_testcase {
     public function test_missing_cannot_start() {

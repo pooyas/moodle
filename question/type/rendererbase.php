@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Renderer base classes for question types.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class qtype_renderer extends plugin_renderer_base {
     /**
@@ -227,8 +225,6 @@ abstract class qtype_renderer extends plugin_renderer_base {
 /**
  * Renderer base classes for question types.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class qtype_with_combined_feedback_renderer extends qtype_renderer {
     protected function combined_feedback(question_attempt $qa) {

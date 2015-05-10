@@ -4,8 +4,9 @@
 /**
  * Unit tests for the numerical question definition class.
  *
- * @package lioncore
+ * @package core
  * @subpackage questiontypes
+ * @category phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

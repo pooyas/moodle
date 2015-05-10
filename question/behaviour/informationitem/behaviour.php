@@ -20,8 +20,6 @@ defined('LION_INTERNAL') || die();
  * and the question type is marked complete the first time the user navigates
  * away from a page that contains that question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_informationitem extends question_behaviour {
 

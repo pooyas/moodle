@@ -4,8 +4,9 @@
 /**
  * Defines an abstract class for filtering/searching the question bank.
  *
- * @package   core_question
- * @copyright 2013 Ray Morris
+ * @package   core
+ * @subpackage question
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +17,6 @@ defined('LION_INTERNAL') || die();
  * An abstract class for filtering/searching questions.
  *
  * See also {@link question_bank_view::init_search_conditions()}.
- * @copyright 2013 Ray Morris
  * 
  */
 abstract class condition {

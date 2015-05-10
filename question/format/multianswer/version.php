@@ -3,7 +3,8 @@
 /**
  * Version information for the calculated question type.
  *
- * @package    qformat_multianswer
+ * @package    qformat
+ * @subpackage multianswer
  * @copyright  2015 Pooya Saeedi
  * 
  */

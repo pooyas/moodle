@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents a numerical question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_question extends question_graded_automatically {
     /** @var array of question_answer. */
@@ -295,8 +293,6 @@ class qtype_numerical_question extends question_graded_automatically {
  * Subclass of {@link question_answer} with the extra information required by
  * the numerical question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_answer extends question_answer {
     /** @var float allowable margin of error. */

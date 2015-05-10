@@ -23,8 +23,6 @@ require_once($CFG->dirroot . '/question/move_form.php');
 /**
  * Class representing a list of question categories
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_category_list extends lion_list {
     public $table = "question_categories";
@@ -55,8 +53,6 @@ class question_category_list extends lion_list {
 /**
  * An item in a list of question categories.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_category_list_item extends list_item {
     public function set_icon_html($first, $last, $lastitem){
@@ -115,8 +111,6 @@ class question_category_list_item extends list_item {
 /**
  * Class representing q question category
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_category_object {
 

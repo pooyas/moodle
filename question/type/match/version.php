@@ -3,7 +3,8 @@
 /**
  * Version information for the matching question type.
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
  * @copyright 2015 Pooya Saeedi
  * 
  */

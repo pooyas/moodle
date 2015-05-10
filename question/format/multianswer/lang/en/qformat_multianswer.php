@@ -3,8 +3,9 @@
 /**
  * Strings for component 'qformat_multianswer', language 'en'
  *
- * @package    qformat_multianswer
- * @copyright  2010 Helen Foster
+ * @package    qformat
+ * @subpackage multianswer
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

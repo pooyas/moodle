@@ -4,9 +4,9 @@
  * A collection of all the question statistics calculated for an activity instance ie. the stats calculated for slots and
  * sub-questions and variants of those questions.
  *
- * @package    core_question
+ * @package    core
+ * @subpackage question
  * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
  * 
  */
 
@@ -15,10 +15,6 @@ namespace core_question\statistics\questions;
 /**
  * A collection of all the question statistics calculated for an activity instance.
  *
- * @package    core_question
- * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
- * 
  */
 class all_calculated_for_qubaid_condition {
 

@@ -3,7 +3,8 @@
 /**
  * Version information for the randomsamatch question type.
  *
- * @package    qtype_randomsamatch
+ * @package    qtype
+ * @subpackage randomsamatch
  * @copyright  2015 Pooya Saeedi
  * 
  */

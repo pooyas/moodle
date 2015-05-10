@@ -3,7 +3,8 @@
 /**
  * Picasa portfolio upgrade script.
  *
- * @package   portfolio_picasa
+ * @package   portfolio
+ * @subpackage picasa
  * @copyright 2015 Pooya Saeedi
  * 
  */

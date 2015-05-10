@@ -3,9 +3,9 @@
 /**
  * Aiken format question importer.
  *
- * @package    qformat_aiken
- * @copyright  2003 Tom Robb <tom@robb.net>
- * 
+ * @package    qformat
+ * @subpackage aiken
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -34,8 +34,6 @@ defined('LION_INTERNAL') || die();
  * Be sure to word "All of the above" type choices like "All of these" in
  * case choices are being shuffled.
  *
- * @copyright  2003 Tom Robb <tom@robb.net>
- * 
  */
 class qformat_aiken extends qformat_default {
 

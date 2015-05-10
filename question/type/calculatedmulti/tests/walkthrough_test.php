@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the calculated multiple-choice question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculatedmulti_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_interactive() {

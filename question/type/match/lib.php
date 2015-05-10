@@ -3,9 +3,9 @@
 /**
  * Serve question type files
  *
- * @since      Lion 2.0
- * @package    qtype_match
- * @copyright  Dongsheng Cai <dongsheng@lion.com>
+ * @package    qtype
+ * @subpackage match
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Checks file access for matching questions.
- * @package  qtype_match
- * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
  * @param stdClass $context context object

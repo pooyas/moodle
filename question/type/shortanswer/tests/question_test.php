@@ -20,8 +20,6 @@ require_once($CFG->dirroot . '/question/type/shortanswer/question.php');
 /**
  * Unit tests for the short answer question definition class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_shortanswer_question_test extends advanced_testcase {
     public function test_compare_string_with_wildcard() {

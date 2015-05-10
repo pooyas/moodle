@@ -3,7 +3,8 @@
 /**
  * Matching question definition class.
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents a matching question.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_match_question extends question_graded_automatically_with_countback {
     /** @var boolean Whether the question stems should be shuffled. */

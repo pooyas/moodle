@@ -3,9 +3,10 @@
 /**
  * This file contains tests for the deferred feedback behaviour type class.
  *
- * @package   qbehaviour_deferredfeedback
- * @category  test
- * @copyright 2015 The Open University
+ * @package   qbehaviour
+ * @subpackage deferredfeedback
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the deferred feedback behaviour type class.
  *
- * @copyright  2015 The Open University
- * 
  */
 class qbehaviour_deferredfeedback_type_test extends qbehaviour_walkthrough_test_base {
 

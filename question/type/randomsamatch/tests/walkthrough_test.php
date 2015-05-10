@@ -4,8 +4,10 @@
  * This file contains tests that walks a question through the interactive
  * behaviour.
  *
- * @package   qtype_randomsamatch
- * @copyright 2013 Jean-Michel Vedrine
+ * @package   qtype
+ * @subpackage randomsamatch
+ * @category   phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,8 +21,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the randomsamatch question type.
  *
- * @copyright 2013 Jean-Michel Vedrine
- * 
  */
 class qtype_randomsamatch_walkthrough_test extends qbehaviour_walkthrough_test_base {
 

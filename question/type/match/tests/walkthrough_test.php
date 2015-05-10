@@ -4,7 +4,9 @@
  * This file contains tests that walks a question through the interactive
  * behaviour.
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -19,8 +21,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question type.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_match_walkthrough_test extends qbehaviour_walkthrough_test_base {
 

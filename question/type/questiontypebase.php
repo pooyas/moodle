@@ -28,8 +28,6 @@ require_once($CFG->dirroot . '/question/engine/lib.php');
  * interface to meet their needs, rather the freeze the API prematurely and
  * condem everyone to working round a clunky interface for ever afterwards.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_type {
     protected $fileoptions = array(
@@ -1411,8 +1409,6 @@ class question_type {
  * This class is used in the return value from
  * {@link question_type::get_possible_responses()}.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_possible_response {
     /**

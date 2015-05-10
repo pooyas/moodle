@@ -3,8 +3,9 @@
 /**
  * Blackboard V5 and V6 question importer.
  *
- * @package    qformat_blackboard_six
- * @copyright  2003 Scott Elliott
+ * @package    qformat
+ * @subpackage blackboard_six
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->libdir . '/xmlize.php');
 /**
  * Blackboard pool question importer class.
  *
- * @package    qformat_blackboard_six
- * @copyright  2003 Scott Elliott
- * 
  */
 class qformat_blackboard_six_pool extends qformat_blackboard_six_base {
     /**

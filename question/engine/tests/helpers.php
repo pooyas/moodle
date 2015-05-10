@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once($CFG->dirroot . '/lib/phpunit/lib.php');
 /**
  * Makes some protected methods of question_attempt public to facilitate testing.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class testable_question_attempt extends question_attempt {
     public function add_step(question_attempt_step $step) {
@@ -43,8 +42,6 @@ class testable_question_attempt extends question_attempt {
  * Test subclass to allow access to some protected data so that the correct
  * behaviour can be verified.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class testable_question_engine_unit_of_work extends question_engine_unit_of_work {
     public function get_modified() {
@@ -76,8 +73,6 @@ class testable_question_engine_unit_of_work extends question_engine_unit_of_work
 /**
  * Base class for question type test helpers.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class question_test_helper {
     /**
@@ -115,8 +110,6 @@ abstract class question_test_helper {
  * This class creates questions of various types, which can then be used when
  * testing.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class test_question_maker {
     const STANDARD_OVERALL_CORRECT_FEEDBACK = 'Well done!';
@@ -436,8 +429,6 @@ class test_question_maker {
 /**
  * Helper for tests that need to simulate records loaded from the database.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class testing_db_record_builder {
     public static function build_db_records(array $table) {
@@ -462,8 +453,6 @@ abstract class testing_db_record_builder {
  * Helper base class for tests that need to simulate records loaded from the
  * database.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class data_loading_method_test_base extends advanced_testcase {
     public function build_db_records(array $table) {
@@ -662,8 +651,6 @@ class question_no_pattern_expectation {
  * Helper base class for tests that walk a question through a sequents of
  * interactions under the control of a particular behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class qbehaviour_walkthrough_test_base extends question_testcase {
     /** @var question_display_options */
@@ -1149,8 +1136,6 @@ abstract class qbehaviour_walkthrough_test_base extends question_testcase {
  *  question/engine/tests/testquestionattemptstep.php for an example of how
  *  this is used.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_test_recordset extends lion_recordset {
     protected $records;

@@ -3,7 +3,8 @@
 /**
  * Tests for notes events.
  *
- * @package    core_notes
+ * @package    core
+ * @subpackage notes
  * @copyright  2015 Pooya Saeedi
  * .
  */
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * Class for tests related to notes events.
  *
- * @package    core_notes
- * @copyright  2015 Pooya Saeedi
- * .
  */
 class core_notes_events_testcase extends advanced_testcase {
 

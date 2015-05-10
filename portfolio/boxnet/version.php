@@ -5,6 +5,7 @@
  *
  * @package    portfolio
  * @subpackage boxnet
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -5,6 +5,7 @@
  *
  * @package    qtype
  * @subpackage numerical
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,8 +22,6 @@ require_once($CFG->dirroot . '/question/type/numerical/edit_numerical_form.php')
 /**
  * Unit tests for question/type/numerical/questiontype.php.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_numerical_test extends advanced_testcase {
     public static $includecoverage = array(

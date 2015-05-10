@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/type/calculated/question.php');
 /**
  * Represents a calculated multiple-choice multiple-response question.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculatedmulti_single_question extends qtype_multichoice_single_question
         implements qtype_calculated_question_with_expressions {

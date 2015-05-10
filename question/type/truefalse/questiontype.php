@@ -18,8 +18,6 @@ require_once($CFG->libdir . '/questionlib.php');
 /**
  * The true-false question type class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_truefalse extends question_type {
     public function save_question_options($question) {

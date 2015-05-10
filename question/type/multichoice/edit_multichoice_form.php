@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage multichoice
- * @copyright  2007 Jamie Pratt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Multiple choice editing form definition.
  *
- * @copyright  2007 Jamie Pratt
- * 
  */
 class qtype_multichoice_edit_form extends question_edit_form {
     /**

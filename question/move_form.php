@@ -18,8 +18,6 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Form for moving questions between categories.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_move_form extends lionform {
     protected function definition() {

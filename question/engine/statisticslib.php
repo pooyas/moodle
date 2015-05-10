@@ -6,7 +6,6 @@
  * @package    core
  * @subpackage questionbank
  * @copyright  2015 Pooya Saeedi
- * @author     2015 Pooya Saeedi
  * 
  */
 

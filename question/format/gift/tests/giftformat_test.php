@@ -3,7 +3,9 @@
 /**
  * Unit tests for the Lion GIFT format.
  *
- * @package    qformat_gift
+ * @package    qformat
+ * @subpackage gift
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,8 +23,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the GIFT import/export format.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qformat_gift_test extends question_testcase {
     public function assert_same_gift($expectedtext, $text) {

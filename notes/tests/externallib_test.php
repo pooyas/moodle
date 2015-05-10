@@ -3,7 +3,8 @@
 /**
  * External notes functions unit tests
  *
- * @package    core_notes
+ * @package    core
+ * @subpackage notes
  * @category   external
  * @copyright  2015 Pooya Saeedi
  * 

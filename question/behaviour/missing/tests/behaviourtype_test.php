@@ -3,9 +3,10 @@
 /**
  * This file contains tests for the missing behaviour type stand-in class.
  *
- * @package   qbehaviour_missing
- * @category  test
- * @copyright 2015 The Open University
+ * @package   qbehaviour
+ * @subpackage missing
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the missing behaviour type stand-in  class.
  *
- * @copyright  2015 The Open University
- * 
  */
 class qbehaviour_missing_type_test extends basic_testcase {
 

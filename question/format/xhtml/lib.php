@@ -3,7 +3,8 @@
 /**
  * Standard plugin entry points of the HTML question export format.
  *
- * @package   qformat_xhtml
+ * @package   qformat
+ * @subpackage xhtml
  * @copyright 2015 Pooya Saeedi
  * 
  */

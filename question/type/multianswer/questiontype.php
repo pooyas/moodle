@@ -18,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/multichoice/question.php');
 /**
  * The multi-answer question type class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_multianswer extends question_type {
 

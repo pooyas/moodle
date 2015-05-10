@@ -3,7 +3,8 @@
 /**
  * Question type class for the matching question type.
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -18,8 +19,6 @@ require_once($CFG->dirroot . '/question/engine/lib.php');
 /**
  * The matching question type class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class qtype_match extends question_type {
 

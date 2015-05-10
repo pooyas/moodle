@@ -3,8 +3,9 @@
 /**
  * Web CT question importer.
  *
- * @package    qformat_webct
- * @copyright  2004 ASP Consulting http://www.asp-consulting.net
+ * @package    qformat
+ * @subpackage webct
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

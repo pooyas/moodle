@@ -16,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Base class for question import and export formats.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qformat_default {
 

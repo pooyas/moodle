@@ -5,7 +5,7 @@
  * wikimedia class
  * class for communication with Wikimedia Commons API
  *
- * @author Dongsheng Cai <dongsheng@lion.com>, Raul Kern <raunator@gmail.com>
+ * @author 2015 Pooya Saeedi, Raul Kern <raunator@gmail.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 

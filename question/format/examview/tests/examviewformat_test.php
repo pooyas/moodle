@@ -3,8 +3,10 @@
 /**
  * Unit tests for the Lion Examview format.
  *
- * @package    qformat_examview
- * @copyright  2012 jean-Michel Vedrine
+ * @package    qformat
+ * @subpackage examview
+ * @category   phpunit
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +23,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the examview question import format.
  *
- * @copyright  2012 Jean-Michel Vedrine
- * 
  */
 class qformat_examview_test extends question_testcase {
 

@@ -3,8 +3,9 @@
 /**
  * Strings for component 'qformat_aiken', language 'en'
  *
- * @package    qformat_aiken
- * @copyright  2010 Helen Foster
+ * @package    qformat
+ * @subpackage aiken
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

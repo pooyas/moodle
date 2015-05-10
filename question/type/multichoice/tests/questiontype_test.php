@@ -3,7 +3,9 @@
 /**
  * Unit tests for the mulitple choice question definition class.
  *
- * @package    qtype_multichoice
+ * @package    qtype
+ * @subpackage multichoice
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +22,6 @@ require_once($CFG->dirroot . '/question/type/multichoice/edit_multichoice_form.p
 /**
  * Unit tests for the multiple choice question definition class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_multichoice_test extends advanced_testcase {
     protected $qtype;

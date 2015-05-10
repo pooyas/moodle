@@ -3,8 +3,9 @@
 /**
  * Strings for component 'qformat_missingword', language 'en'
  *
- * @package    qformat_missingword
- * @copyright  2010 Helen Foster
+ * @package    qformat
+ * @subpackage missingword
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

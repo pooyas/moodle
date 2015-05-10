@@ -6,6 +6,7 @@
  *
  * @package    qbehaviour
  * @subpackage deferredcbm
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */

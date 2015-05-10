@@ -3,8 +3,9 @@
 /**
  * Strings for component 'qformat_xhtml', language 'en'
  *
- * @package    qformat_xhtml
- * @copyright  2010 Helen Foster
+ * @package    qformat
+ * @subpackage xhtml
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

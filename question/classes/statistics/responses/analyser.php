@@ -3,8 +3,8 @@
 /**
  * This file contains the code to analyse all the responses to a particular question.
  *
- * @package    core_question
- * @copyright  2015 Pooya Saeedi
+ * @package   core
+ * @subpackage question
  * @author     2015 Pooya Saeedi
  * 
  */
@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * This class can compute, store and cache the analysis of the responses to a particular question.
  *
- * @package    core_question
- * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
- * 
  */
 class analyser {
     /**

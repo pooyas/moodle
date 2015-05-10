@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the question_usage_by_activity class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_usage_by_activity_test extends advanced_testcase {
 
@@ -150,8 +149,6 @@ class question_usage_by_activity_test extends advanced_testcase {
 /**
  * Unit tests for loading data into the {@link question_usage_by_activity} class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_usage_db_test extends data_loading_method_test_base {
     public function test_load() {

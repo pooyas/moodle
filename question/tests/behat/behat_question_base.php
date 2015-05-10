@@ -3,7 +3,8 @@
 /**
  * Behat question-related helper code.
  *
- * @package    core_question
+ * @package   core
+ * @subpackage question
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -21,10 +22,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Steps definitions related with the question bank management.
  *
- * @package    core_question
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_question_base extends behat_base {
 

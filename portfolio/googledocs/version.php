@@ -5,7 +5,7 @@
  *
  * @package    portfolio
  * @subpackage googledocs
- * 
+ * @copyright  2015 Pooya Saeedi 
  */
 
 defined('LION_INTERNAL') || die();

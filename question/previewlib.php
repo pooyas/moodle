@@ -18,8 +18,6 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Settings form for the preview options.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class preview_options_form extends lionform {
     public function definition() {
@@ -89,8 +87,6 @@ class preview_options_form extends lionform {
  * Displays question preview options as default and set the options
  * Setting default, getting and setting user preferences in question preview options.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_preview_options extends question_display_options {
     /** @var string the behaviour to use for this preview. */

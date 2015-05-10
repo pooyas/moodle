@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the multianswer question type.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_multianswer_walkthrough_test extends qbehaviour_walkthrough_test_base {
 

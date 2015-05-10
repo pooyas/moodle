@@ -3,9 +3,9 @@
 /**
  * Serve question type files
  *
- * @since      Lion 2.0
- * @package    qtype_shortanswer
- * @copyright  Dongsheng Cai <dongsheng@lion.com>
+ * @package    qtype
+ * @subpackage shortanswer
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Checks file access for short answer questions.
- * @package  qtype_shortanswer
- * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
  * @param stdClass $context context object

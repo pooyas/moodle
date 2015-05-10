@@ -5,6 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ require_once($CFG->dirroot . '/question/format.php');
 /**
  * Subclass to make it easier to test qformat_default.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class testable_qformat extends qformat_default {
     public function assemble_category_path($names) {
@@ -37,8 +36,6 @@ class testable_qformat extends qformat_default {
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qformat_default_test extends advanced_testcase {
     public function test_assemble_category_path() {

@@ -3,9 +3,10 @@
 /**
  * This file contains tests for the immediate feedback with CBM behaviour type class.
  *
- * @package   qbehaviour_immediatecbm
- * @category  test
- * @copyright 2015 The Open University
+ * @package   qbehaviour
+ * @subpackage immediatecbm
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the immediate feedback with CBM behaviour type class.
  *
- * @copyright  2015 The Open University
- * 
  */
 class qbehaviour_immediatecbm_type_test extends qbehaviour_walkthrough_test_base {
 

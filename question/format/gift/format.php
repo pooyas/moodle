@@ -3,8 +3,9 @@
 /**
  * GIFT format question importer/exporter.
  *
- * @package    qformat_gift
- * @copyright  2003 Paul Tsuchido Shew
+ * @package    qformat
+ * @subpackage gift
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -42,8 +43,6 @@ defined('LION_INTERNAL') || die();
  * the missingword format, which included code from Thomas Robb
  * and others. Paul Tsuchido Shew wrote this filter in December 2003.
  *
- * @copyright  2003 Paul Tsuchido Shew
- * 
  */
 class qformat_gift extends qformat_default {
 

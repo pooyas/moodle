@@ -3,8 +3,9 @@
 /**
  * Strings for component 'qformat_webct', language 'en'
  *
- * @package    qformat_webct
- * @copyright  2010 Helen Foster
+ * @package    qformat
+ * @subpackage webct
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

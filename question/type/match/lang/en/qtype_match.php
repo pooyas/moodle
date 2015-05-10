@@ -3,7 +3,8 @@
 /**
  * Strings for component 'qtype_match', language 'en'
  *
- * @package   qtype_match
+ * @package   qtype
+ * @subpackage match
  * @copyright 2015 Pooya Saeedi
  * 
  */

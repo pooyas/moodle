@@ -20,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of calculated multiple-choice question attempts.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculatedmulti_attempt_upgrader_test extends question_attempt_upgrader_test_base {
     public function test_calculatedmulti_adaptive_qsession96() {

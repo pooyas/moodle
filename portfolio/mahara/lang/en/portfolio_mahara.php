@@ -4,7 +4,8 @@
 /**
  * Strings for component 'portfolio_mahara', language 'en'
  *
- * @package   portfolio_mahara
+ * @package   portfolio
+ * @subpackage mahara
  * @copyright 2015 Pooya Saeedi
  * 
  */

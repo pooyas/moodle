@@ -20,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for qtype_calculatedmulti_definition.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculatedmulti_question_test extends advanced_testcase {
     public function test_is_complete_response() {

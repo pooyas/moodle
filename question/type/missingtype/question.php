@@ -21,8 +21,6 @@ defined('LION_INTERNAL') || die();
  * sure at the moment. Perhaps it is important for it to work with as many
  * behaviours as possible.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_missingtype_question extends question_definition
         implements question_automatically_gradable {

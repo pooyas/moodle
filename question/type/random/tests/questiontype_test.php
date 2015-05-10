@@ -5,6 +5,7 @@
  *
  * @package    qtype
  * @subpackage random
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,8 +20,6 @@ require_once($CFG->dirroot . '/question/type/random/questiontype.php');
 /**
  * Unit tests for the random question type class.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_random_test extends advanced_testcase {
     protected $qtype;

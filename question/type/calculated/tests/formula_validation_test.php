@@ -3,7 +3,9 @@
 /**
  * Unit tests for formula validation code.
  *
- * @package    qtype_calculated
+ * @package    qtype
+ * @subpackage calculated
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,8 +20,6 @@ require_once($CFG->dirroot . '/question/type/calculated/questiontype.php');
 /**
  * Unit tests for formula validation code.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qtype_calculated_formula_validation_testcase extends basic_testcase {
     protected function assert_nonempty_string($actual) {

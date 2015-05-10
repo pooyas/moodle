@@ -17,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * Renderer for outputting parts of a question belonging to the deferred
  * feedback behaviour.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class qbehaviour_deferredfeedback_renderer extends qbehaviour_renderer {
 }
