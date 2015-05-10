@@ -3,11 +3,11 @@
 /**
  * User external PHPunit tests
  *
- * @package    core_user
+ * @package    core
+ * @subpackage user
  * @category   external
  * @copyright  2015 Pooya Saeedi
  * 
- * @since Lion 2.4
  */
 
 defined('LION_INTERNAL') || die();

@@ -3,9 +3,9 @@
 /**
  * Web service test client.
  *
- * @package   core_webservice
+ * @package   core
+ * @subpackage webservice
  * @copyright 2015 Pooya Saeedi
- * @author    Jerome Mouneyrac
  * 
  */
 

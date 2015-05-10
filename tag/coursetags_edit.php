@@ -4,9 +4,9 @@
 /**
  * Displays personal tags for a course with some editing facilites
  *
- * @package    core_tag
- * @category   tag
- * @copyright  2007 j.beedell@open.ac.uk
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

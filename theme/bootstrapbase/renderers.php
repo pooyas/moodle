@@ -3,8 +3,9 @@
 /**
  * Renderers to align Lion's HTML with that expected by Bootstrap
  *
- * @package    theme_bootstrapbase
- * @copyright  2013
+ * @package    theme
+ * @subpackage bootstrapbase
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * minimalistic edit form
  *
- * @package   core_user
+ * @package   core
+ * @subpackage user
  * @category  files
  * @copyright 2015 Pooya Saeedi
  * 
@@ -15,8 +16,6 @@ require_once("$CFG->libdir/formslib.php");
 
 /**
  * Class user_files_form
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class user_files_form extends lionform {
 

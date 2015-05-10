@@ -4,7 +4,8 @@
 /**
  * AMF web service entry point. The authentication is done via tokens.
  *
- * @package    webservice_amf
+ * @package    webservice
+ * @subpackage amf
  * @copyright  2015 Pooya Saeedi
  * 
  */

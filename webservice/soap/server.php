@@ -4,7 +4,8 @@
 /**
  * SOAP web service entry point. The authentication is done via tokens.
  *
- * @package    webservice_soap
+ * @package    webservice
+ * @subpackage soap
  * @copyright  2015 Pooya Saeedi
  * 
  */

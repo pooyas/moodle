@@ -4,9 +4,10 @@
 /**
  * Strings for component 'webservice_xmlrpc', language 'en'
  *
- * @package    webservice_xmlrpc
+ * @package    webservice
+ * @subpackage xmlrpc
  * @category   string
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

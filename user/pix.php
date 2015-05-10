@@ -3,7 +3,8 @@
 /**
  * BC user image location
  *
- * @package   core_user
+ * @package   core
+ * @subpackage user
  * @category  files
  * @copyright 2015 Pooya Saeedi
  * 

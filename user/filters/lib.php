@@ -3,8 +3,8 @@
 /**
  * This file contains the User Filter API.
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -24,8 +24,6 @@ require_once($CFG->dirroot.'/user/filters/checkbox.php');
 /**
  * User filtering wrapper class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class user_filtering {
     /** @var array */
@@ -233,8 +231,6 @@ class user_filtering {
 /**
  * The base user filter class. All abstract classes must be implemented.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class user_filter_type {
     /**

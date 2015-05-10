@@ -3,7 +3,8 @@
 /**
  * This script implements some useful svg manipulation tricks.
  *
- * @package    theme_base
+ * @package    theme
+ * @subpackage base
  * @subpackage cli
  * @copyright  2015 Pooya Saeedi 
  * 

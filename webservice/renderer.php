@@ -4,7 +4,8 @@
 /**
  * Web service documentation renderer.
  *
- * @package    core_webservice
+ * @package    core
+ * @subpackage webservice
  * @category   output
  * @copyright  2015 Pooya Saeedi 
  * 

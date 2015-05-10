@@ -3,9 +3,9 @@
 /**
  * Unit tests for user/profile/lib.php.
  *
- * @package core_user
+ * @package core
+ * @subpackage user
  * @copyright 2015 Pooya Saeedi
- * @licensehttp://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,9 +15,6 @@ global $CFG;
 /**
  * Unit tests for user/profile/lib.php.
  *
- * @package core_user
- * @copyright 2015 Pooya Saeedi
- * @licensehttp://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_user_profilelib_testcase extends advanced_testcase {
     /**

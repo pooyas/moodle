@@ -3,8 +3,9 @@
 /**
  * This file contains the Field Form used for profile fields.
  *
- * @package core_user
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Class field_form
  *
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * 
  */
 class field_form extends lionform {
 

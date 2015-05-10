@@ -3,7 +3,8 @@
 /**
  * Code for ajax user selectors.
  *
- * @package   core_user
+ * @package   core
+ * @subpackage user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -20,7 +21,6 @@ define('USER_SELECTOR_DEFAULT_ROWS', 20);
  * user selector has name="myid", then the div myid_wrapper must have a width
  * specified.
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class user_selector_base {
@@ -648,8 +648,6 @@ abstract class user_selector_base {
 /**
  * Base class to avoid duplicating code.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 abstract class groups_user_selector_base extends user_selector_base {
     /** @var int */
@@ -723,8 +721,6 @@ abstract class groups_user_selector_base extends user_selector_base {
  *
  * Used on the add group memebers page.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class group_members_selector extends groups_user_selector_base {
 
@@ -751,8 +747,6 @@ class group_members_selector extends groups_user_selector_base {
  *
  * Used on the add group members page.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class group_non_members_selector extends groups_user_selector_base {
     /**

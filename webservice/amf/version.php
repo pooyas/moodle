@@ -4,8 +4,9 @@
 /**
  * Version details
  *
- * @package    webservice_amf
- * @copyright  2015 Pooya Saeedik
+ * @package    webservice
+ * @subpackage amf
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

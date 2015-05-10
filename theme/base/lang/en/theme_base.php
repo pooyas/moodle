@@ -3,7 +3,8 @@
 /**
  * Strings for component 'theme_base', language 'en'
  *
- * @package   theme_base
+ * @package   theme
+ * @subpackage base
  * @copyright 2015 Pooya Saeedi
  * 
  */

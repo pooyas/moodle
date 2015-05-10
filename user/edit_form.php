@@ -5,7 +5,8 @@
  *
  * @copyright 2015 Pooya Saeedi
  * 
- * @package core_user
+ * @package core
+ * @subpackage user
  */
 
 if (!defined('LION_INTERNAL')) {
@@ -17,8 +18,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Class user_edit_form.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class user_edit_form extends lionform {
 

@@ -3,7 +3,8 @@
 /**
  * This file contains helper classes for testing the web service and external files.
  *
- * @package    core_webservice
+ * @package    core
+ * @subpackage webservice
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Helper base class for external tests. Helpfull to test capabilities.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class externallib_advanced_testcase extends advanced_testcase {
 

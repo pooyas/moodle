@@ -4,7 +4,8 @@
 /**
  * Index page of the AMF test client
  *
- * @package    webservice_amf
+ * @package    webservice
+ * @subpackage amf
  * @copyright  2009 Jamie Pratt
  * 
  */

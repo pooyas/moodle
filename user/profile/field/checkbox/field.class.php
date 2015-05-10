@@ -3,16 +3,15 @@
 /**
  * Strings for component 'profilefield_checkbox', language 'en'
  *
- * @package   profilefield_checkbox
- * @copyright  2008 onwards Shane Elliot {@link http://pukunui.com}
+ * @package   profilefield
+ * @subpackage checkbox
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Class profile_field_checkbox
  *
- * @copyright  2008 onwards Shane Elliot {@link http://pukunui.com}
- * 
  */
 class profile_field_checkbox extends profile_field_base {
 

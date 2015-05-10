@@ -24,14 +24,14 @@
  *
  * Tag set will create tags that need to be created.
  *
- * @package    core_tag
- * @category   tag
+ * @package    core
+ * @subpackage tag
  * @todo       MDL-31090 turn this into a full-fledged categorization system. This could start by
  *             modifying (removing, probably) the 'tag type' to use another table describing the
  *             relationship between tags (parents, sibling, etc.), which could then be merged with
  *             the 'course categorization' system.
  * @see        http://www.php.net/manual/en/function.urlencode.php
- * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -93,7 +93,8 @@ define('TAG_RELATED_CORRELATED', 2);
  *
  * This function is meant to be fed the string coming up from the user interface, which contains all tags assigned to a record.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @category tag
  * @access public
  * @param string $record_type the type of record to tag ('post' for blogs, 'user' for users, 'tag' for tags, etc.)
@@ -166,7 +167,8 @@ function tag_set($record_type, $record_id, $tags, $component = null, $contextid 
 /**
  * Adds a tag to a record, without overwriting the current tags.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @category tag
  * @access public
  * @param string $record_type the type of record to tag ('post' for blogs, 'user' for users, etc.)
@@ -190,7 +192,8 @@ function tag_set_add($record_type, $record_id, $tag, $component = null, $context
 /**
  * Removes a tag from a record, without overwriting other current tags.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @category tag
  * @access public
  * @param string $record_type the type of record to tag ('post' for blogs, 'user' for users, etc.)
@@ -319,7 +322,8 @@ function tag_get($field, $value, $returnfields='id, name, rawname') {
  * data in a comma-separated string, for instances such as needing to simply display a list of tags to the end user. This should
  * really be called tag_get_tag_instances().
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @category tag
  * @access public
  * @param string $record_type the record type for which we want to get the tags
@@ -904,7 +908,8 @@ function tag_find_records($tag, $type, $limitfrom='', $limitnum='') {
  * Adds one or more tag in the database.  This function should not be called directly : you should
  * use tag_set.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   mixed    $tags     one tag, or an array of tags, to be created
  * @param   string   $type     type of tag to be created ("default" is the default value and "official" is the only other supported
@@ -959,7 +964,8 @@ function tag_add($tags, $type="default") {
 /**
  * Assigns a tag to a record; if the record already exists, the time and ordering will be updated.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access private
  * @param string $record_type the type of the record that will be tagged
  * @param int $record_id the id of the record that will be tagged
@@ -1026,7 +1032,8 @@ function tag_assign($record_type, $record_id, $tagid, $ordering, $userid = 0, $c
 /**
  * Function that returns tags that start with some text, for use by the autocomplete feature
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   string   $text string that the tag names will be matched against
  * @return  mixed    an array of objects, or false if no records were found or an error occured.
@@ -1045,7 +1052,8 @@ function tag_autocomplete($text) {
  * done once in a while, perhaps on an occasional cron run.  On a site with lots of tags, this could become an expensive function to
  * call: don't run at peak time.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @todo    MDL-31212 Update tag cleanup sql so that it supports multiple types of tags
  */
@@ -1173,7 +1181,8 @@ function tag_bulk_delete_instances($instances) {
  * The rationale for the 'tag_correlation' table is performance. It works as a cache for a potentially heavy load query done at the
  * 'tag_instance' table. So, the 'tag_correlation' table stores redundant information derived from the 'tag_instance' table.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   int      $mincorrelation Only tags with more than $mincorrelation correlations will be identified.
  */
@@ -1257,7 +1266,8 @@ function tag_compute_correlations($mincorrelation = 2) {
  *
  * The tag correlation object needs have both a tagid property and a correlatedtags property that is an array.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   stdClass $tagcorrelation
  * @return  int/bool The id of the tag correlation that was just processed or false.
@@ -1284,7 +1294,8 @@ function tag_process_computed_correlation(stdClass $tagcorrelation) {
 /**
  * Tasks that should be performed at cron time
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access private
  */
 function tag_cron() {
@@ -1295,7 +1306,8 @@ function tag_cron() {
 /**
  * Search for tags with names that match some text
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   string        $text      escaped string that the tag names will be matched against
  * @param   bool          $ordered   If true, tags are ordered by their popularity. If false, no ordering.
@@ -1327,7 +1339,8 @@ function tag_find_tags($text, $ordered=true, $limitfrom='', $limitnum='') {
 /**
  * Get the name of a tag
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   mixed    $tagids the id of the tag, or an array of ids
  * @return  mixed    string name of one tag, or id-indexed array of strings
@@ -1354,7 +1367,8 @@ function tag_get_name($tagids) {
  * Returns the correlated tags of a tag, retrieved from the tag_correlation table. Make sure cron runs, otherwise the table will be
  * empty and this function won't return anything.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   int      $tag_id   is a single tag id
  * @param   int      $limitnum this parameter does not appear to have any function???
@@ -1385,7 +1399,8 @@ function tag_get_correlated($tag_id, $limitnum=null) {
 /**
  * Function that normalizes a list of tag names.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   array/string $rawtags array of tags, or a single tag.
  * @param   int          $case    case to use for returned value (default: lower case). Either TAG_CASE_LOWER (default) or TAG_CASE_ORIGINAL
@@ -1425,7 +1440,8 @@ function tag_normalize($rawtags, $case = TAG_CASE_LOWER) {
 /**
  * Count how many records are tagged with a specific tag.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   string   $record_type record to look for ('post', 'user', etc.)
  * @param   int      $tagid       is a single tag id
@@ -1439,7 +1455,8 @@ function tag_record_count($record_type, $tagid) {
 /**
  * Determine if a record is tagged with a specific tag
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   string   $record_type the record type to look for
  * @param   int      $record_id   the record id to look for
@@ -1539,7 +1556,8 @@ function tag_unset_flag($tagids) {
 /**
  * Return a list of page types
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   string   $pagetype       current page type
  * @param   stdClass $parentcontext  Block's parent context

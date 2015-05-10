@@ -3,15 +3,14 @@
 /**
  * Yes/No (boolean) filter.
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
 
 /**
  * Generic yes/no filter with radio buttons for integer fields.
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_yesno extends user_filter_simpleselect {

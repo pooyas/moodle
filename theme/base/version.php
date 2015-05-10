@@ -3,7 +3,8 @@
 /**
  * Theme version info
  *
- * @package    theme_base
+ * @package    theme
+ * @subpackage base
  * @copyright  2015 Pooya Saeedi  
  * 
  */

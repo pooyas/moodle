@@ -4,7 +4,8 @@
 /**
  * Lion SOAP library
  *
- * @package    webservice_soap
+ * @package    webservice
+ * @subpackage soap
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,9 +17,6 @@ require_once 'Zend/Soap/Client.php';
  *
  * It has been implemented for unit testing purpose (all protocols have similar client)
  *
- * @package    webservice_soap
- * @copyright  2010 Jerome Mouneyrac
- * 
  */
 class webservice_soap_client extends Zend_Soap_Client {
 

@@ -3,15 +3,15 @@
 /**
  * This file contains the profile_define_base class.
  *
- * @package core_user
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Class profile_define_base
  *
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
  * 
  */
 class profile_define_base {

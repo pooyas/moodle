@@ -3,16 +3,14 @@
 /**
  * This file contains the datetime profile field definition class.
  *
- * @package profilefield_datetime
- * @copyright 2010 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package   profilefield
+ * @subpackage datetime
+ * @copyright 2015 Pooya Saeedi
  */
 
 /**
  * Define datetime fields.
  *
- * @copyright 2010 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class profile_define_datetime extends profile_define_base {
 

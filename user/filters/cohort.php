@@ -3,8 +3,8 @@
 /**
  * Cohort filter.
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -15,7 +15,6 @@ require_once($CFG->dirroot.'/user/filters/lib.php');
 
 /**
  * Generic filter for cohort membership.
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_cohort extends user_filter_type {

@@ -8,7 +8,8 @@
  *
  * @copyright 2015 Pooya Saeedi
  * 
- * @package core_user
+ * @package core
+ * @subpackage user
  */
 
 // Disable lion specific debug messages and any errors in output.

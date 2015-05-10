@@ -3,7 +3,8 @@
 /**
  * Unit tests for user/lib.php.
  *
- * @package    core_user
+ * @package    core
+ * @subpackage user
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -17,9 +18,6 @@ require_once($CFG->dirroot.'/user/lib.php');
 /**
  * Unit tests for user lib api.
  *
- * @package    core_user
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_userliblib_testcase extends advanced_testcase {

@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for Web service events.
  *
- * @package    webservice
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_webservice_events_testcase extends advanced_testcase {
 

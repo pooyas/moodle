@@ -4,7 +4,7 @@
 /**
  * Displays help via AJAX call
  *
- * @copyright 2013 onwards Andrew Nicols
+ * @copyright 2015 Pooya Saeedi
  * @package   core
  * 
  */

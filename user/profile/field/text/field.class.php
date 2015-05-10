@@ -3,15 +3,15 @@
 /**
  * Text profile field.
  *
- * @package    profilefield_text
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package    profilefield
+ * @subpackage text
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Class profile_field_text
  *
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
  * 
  */
 class profile_field_text extends profile_field_base {

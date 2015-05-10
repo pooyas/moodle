@@ -3,8 +3,8 @@
 /**
  * Profile field filter.
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -14,7 +14,6 @@ require_once($CFG->dirroot.'/user/filters/lib.php');
 /**
  * User filter based on values of custom profile fields.
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_profilefield extends user_filter_type {

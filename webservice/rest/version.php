@@ -4,7 +4,8 @@
 /**
  * Version details
  *
- * @package    webservice_rest
+ * @package    webservice
+ * @subpackage rest
  * @copyright  2015 Pooya Saeedi
  * 
  */

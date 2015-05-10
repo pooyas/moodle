@@ -12,7 +12,8 @@
  * in our theme.
  *
  * @see        theme_clean_get_html_for_settings
- * @package    theme_more
+ * @package    theme
+ * @subpackage more
  * @copyright  2015 Pooya Saeedi
  * 
  */

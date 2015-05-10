@@ -9,7 +9,8 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 /**
  * External course functions unit tests
  *
- * @package    core_webservice
+ * @package    core
+ * @subpackage webservice
  * @category   external
  * @copyright  2015 Pooya Saeedi
  * 

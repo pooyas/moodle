@@ -3,8 +3,9 @@
 /**
  * Strings for component 'theme_formfactor', language 'en'
  *
- * @package   theme_canvas
- * @copyright  2010 Patrick Malley
+ * @package   theme
+ * @subpackage canvas
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

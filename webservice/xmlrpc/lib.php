@@ -4,7 +4,8 @@
 /**
  * Lion XML-RPC library
  *
- * @package    webservice_xmlrpc
+ * @package    webservice
+ * @subpackage xmlrpc
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,8 +17,6 @@ require_once 'Zend/XmlRpc/Client.php';
  *
  * It has been implemented for unit testing purpose (all protocols have similar client)
  *
- * @package    webservice_xmlrpc
- * @copyright  2010 Jerome Mouneyrac
  * 
  */
 class webservice_xmlrpc_client extends Zend_XmlRpc_Client {

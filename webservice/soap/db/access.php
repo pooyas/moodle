@@ -4,9 +4,10 @@
 /**
  * SOAP server related capabilities
  *
- * @package    webservice_soap
+ * @package    webservice
+ * @subpackage soap
  * @category   access
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

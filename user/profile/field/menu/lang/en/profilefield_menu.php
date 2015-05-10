@@ -3,7 +3,8 @@
 /**
  * Strings for component 'profilefield_menu', language 'en'
  *
- * @package   profilefield_menu
+ * @package   profilefield
+ * @subpackage menu
  * @copyright 2015 Pooya Saeedi
  * 
  */

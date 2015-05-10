@@ -3,7 +3,8 @@
 /**
  * The embedded layout for the base theme.
  *
- * @package   theme_base
+ * @package   theme
+ * @subpackage base
  * @copyright 2015 Pooya Saeedi
  * 
  */

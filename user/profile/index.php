@@ -2,8 +2,9 @@
 
 /**
  * Manage user profile fields.
- * @package core_user
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

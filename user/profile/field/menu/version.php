@@ -3,8 +3,9 @@
 /**
  * Menu profile field version information.
  *
- * @package    profilefield_menu
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package    profilefield
+ * @subpackage menu
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

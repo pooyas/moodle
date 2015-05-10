@@ -10,10 +10,9 @@
  * DO NOT COPY THIS TO START NEW THEMES!
  * Start with another theme, like "standard".
  *
- * For full information about creating Lion themes, see:
- *  http://docs.lion.org/dev/Themes_2.0
  *
- * @package   theme_base
+ * @package   theme
+ * @subpackage base
  * @copyright 2015 Pooya Saeedi
  * 
  */

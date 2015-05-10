@@ -3,7 +3,8 @@
 /**
  * Theme More lib.
  *
- * @package    theme_more
+ * @package    theme
+ * @subpackage more
  * @copyright  2015 Pooya Saeedi
  * 
  */

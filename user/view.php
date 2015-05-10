@@ -3,7 +3,8 @@
 /**
  * Display profile for a particular user
  *
- * @package core_user
+ * @package core
+ * @subpackage user
  * @copyright 2015 Pooya Saeedi
  * 
  */

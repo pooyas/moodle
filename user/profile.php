@@ -11,10 +11,9 @@
  * This script implements the user's view of the public profile, and allows editing
  * of the public profile.
  *
- * @package    core_user
+ * @package    core
+ * @subpackage user
  * @copyright  2015 Pooya Saeedi
- * @author     Hubert Chathi <hubert@remote-learner.net>
- * @author     Olav Jordan <olav.jordan@remote-learner.net>
  * 
  */
 

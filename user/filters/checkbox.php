@@ -6,8 +6,8 @@
  * This will create generic filter with checkbox option and can be used for
  * disabling other elements for specific condition.
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -18,7 +18,6 @@ require_once($CFG->dirroot.'/user/filters/lib.php');
 
 /**
  * Generic filter based for checkbox and can be used for disabling items
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_checkbox extends user_filter_type {

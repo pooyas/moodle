@@ -3,7 +3,8 @@
 /**
  * Provides user rendering functionality such as printing private files tree and displaying a search utility
  *
- * @package    core_user
+ * @package    core
+ * @subpackage user
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,7 +13,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Provides user rendering functionality such as printing private files tree and displaying a search utility
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_user_renderer extends plugin_renderer_base {
@@ -154,7 +154,6 @@ class core_user_renderer extends plugin_renderer_base {
 
 /**
  * User files tree
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class user_files_tree implements renderable {

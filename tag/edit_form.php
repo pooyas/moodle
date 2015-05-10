@@ -2,9 +2,9 @@
 
 
 /**
- * @package    core_tag
- * @category   tag
- * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,10 +17,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * Defines the form for editing tags
  *
- * @package    core_tag
- * @category   tag
- * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
- * 
  */
 class tag_edit_form extends lionform {
 

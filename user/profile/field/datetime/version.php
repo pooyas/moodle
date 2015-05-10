@@ -3,9 +3,9 @@
 /**
  * Version information for the datetime field.
  *
- * @package profilefield_datetime
- * @copyright 2010 2015 Pooya Saeedi
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package   profilefield
+ * @subpackage datetime
+ * @copyright 2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

@@ -3,8 +3,8 @@
 /**
  * Course role filter
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -13,7 +13,6 @@ require_once($CFG->dirroot .'/user/filters/lib.php');
 
 /**
  * User filter based on roles in a course identified by its shortname.
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_courserole extends user_filter_type {

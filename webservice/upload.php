@@ -15,7 +15,8 @@
  *              to a draft area in separate requests. If it is 0, a new draftid will be generated.
  *              For private files, this is ignored.
  *
- * @package    core_webservice
+ * @package    core
+ * @subpackage webservice
  * @copyright  2015 Pooya Saeedi
  * 
  */

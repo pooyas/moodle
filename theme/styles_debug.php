@@ -4,7 +4,7 @@
  * This file is responsible for serving of individual style sheets in designer mode.
  *
  * @package   core
- * @copyright 2015 Pooya Saeedi (skodak)  
+ * @copyright 2015 Pooya Saeedi  
  * 
  */
 

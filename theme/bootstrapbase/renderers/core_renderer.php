@@ -3,8 +3,9 @@
 /**
  * Renderers to align Lion's HTML with that expected by Bootstrap
  *
- * @package    theme_bootstrapbase
- * @copyright  2012 Bas Brands, www.basbrands.nl
+ * @package    theme
+ * @subpackage bootstrapbase
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -228,7 +229,8 @@ class theme_bootstrapbase_core_renderer extends core_renderer {
  * We override it in order to style those scenarios consistently with the regular
  * bootstrap look and feel.
  *
- * @package    theme_bootstrapbase
+ * @package    theme
+ * @subpackage bootstrapbase
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -4,7 +4,8 @@
 /**
  * Web services utility functions and classes
  *
- * @package    core_webservice
+ * @package    core
+ * @subpackage webservice
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -29,9 +30,6 @@ define('WEBSERVICE_AUTHMETHOD_SESSION_TOKEN', 2);
 /**
  * General web service library
  *
- * @package    core_webservice
- * @copyright  2010 Jerome Mouneyrac 
- * 
  */
 class webservice {
 
@@ -722,9 +720,6 @@ class webservice {
  * you should not use this exception if you want to let the client implement
  * some code logic against an access error.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
  */
 class webservice_access_exception extends lion_exception {
 
@@ -759,9 +754,6 @@ function webservice_protocol_is_enabled($protocol) {
 /**
  * Mandatory interface for all test client classes.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
  */
 interface webservice_test_client_interface {
 
@@ -779,9 +771,6 @@ interface webservice_test_client_interface {
 /**
  * Mandatory interface for all web service protocol classes
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
  */
 interface webservice_server_interface {
 
@@ -794,9 +783,6 @@ interface webservice_server_interface {
 /**
  * Abstract web service base class.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
  */
 abstract class webservice_server implements webservice_server_interface {
 
@@ -1088,9 +1074,6 @@ abstract class webservice_server implements webservice_server_interface {
 /**
  * Special abstraction of our services that allows interaction with stock Zend ws servers.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 abstract class webservice_zend_server extends webservice_server {
 
@@ -1549,9 +1532,6 @@ class '.$classname.' {
  *
  * This class handles both simple and token authentication.
  *
- * @package    core_webservice
- * @copyright  2015 Pooya Saeedik
- * 
  */
 abstract class webservice_base_server extends webservice_server {
 

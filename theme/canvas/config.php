@@ -10,11 +10,10 @@
  * DO NOT COPY THIS TO START NEW THEMES!
  * Start with another theme, like "standard".
  *
- * For full information about creating Lion themes, see:
- *  http://docs.lion.org/dev/Themes_2.0
  *
- * @package   theme_canvas
- * @copyright 2010 Patrick Malley
+ * @package   theme
+ * @subpackage canvas
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

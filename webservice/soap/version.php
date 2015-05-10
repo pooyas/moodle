@@ -4,8 +4,9 @@
 /**
  * Version details
  *
- * @package    webservice_soap
- * @copyright  2015 Pooya Saeedik
+ * @package    webservice
+ * @subpackage soap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

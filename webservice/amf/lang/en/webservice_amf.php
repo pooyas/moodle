@@ -4,9 +4,10 @@
 /**
  * Strings for component 'webservice_amf', language 'en'
  *
- * @package    webservice_amf
+ * @package    webservice
+ * @subpackage amf
  * @category   string
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

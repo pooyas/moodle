@@ -4,7 +4,8 @@
 /**
  * Lion REST library
  *
- * @package    webservice_rest
+ * @package    webservice
+ * @subpackage rest
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@
  *
  * It has been implemented for unit testing purpose (all protocols have similar client)
  *
- * @package    webservice_rest
- * @copyright  2010 Jerome Mouneyrac
- * 
  */
 class webservice_rest_client {
 

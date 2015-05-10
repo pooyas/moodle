@@ -3,8 +3,8 @@
 /**
  * Text field filter
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -13,7 +13,6 @@ require_once($CFG->dirroot.'/user/filters/lib.php');
 
 /**
  * Generic filter for text fields.
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_filter_text extends user_filter_type {

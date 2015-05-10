@@ -3,9 +3,10 @@
 /**
  * External user API
  *
- * @package    core_user
+ * @package    core
+ * @subpackage user
  * @category   external
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,11 +15,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * User external functions
  *
- * @package    core_user
- * @category   external
- * @copyright  2015 Pooya Saeedi
- * 
- * @since Lion 2.2
  */
 class core_user_external extends external_api {
 
@@ -1220,10 +1216,6 @@ class core_user_external extends external_api {
  /**
   * Deprecated user external functions
   *
-  * @package    core_user
-  * @copyright  2015 Pooya Saeedik
-  * 
-  * @since Lion 2.0
   * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
   * @see core_user_external
   */

@@ -3,16 +3,15 @@
 /**
  * Textarea profile field define.
  *
- * @package   profilefield_textarea
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package   profilefield
+ * @subpackage textarea
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Class profile_field_textarea.
  *
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
- * 
  */
 class profile_field_textarea extends profile_field_base {
 

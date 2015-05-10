@@ -4,9 +4,9 @@
 /**
  * coursetags_add.php
  *
- * @package    core_tag
- * @category   tag
- * @copyright  2007 j.beedell@open.ac.uk
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

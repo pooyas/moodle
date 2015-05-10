@@ -4,9 +4,10 @@
 /**
  * AMF server capabilities.
  *
- * @package    webservice_amf
+ * @package    webservice
+ * @subpackage amf
  * @category   access
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

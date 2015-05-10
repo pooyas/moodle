@@ -4,8 +4,9 @@
 /**
  * SOAP web service implementation classes and methods.
  *
- * @package    webservice_soap
- * @copyright  2015 Pooya Saeedik
+ * @package    webservice
+ * @subpackage soap
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +16,6 @@ require_once 'Zend/Soap/Server.php';
 /**
  * The Zend XMLRPC server but with a fault that returns debuginfo
  *
- * @package    webservice_soap
- * @copyright  2015 Pooya Saeedi
- * 
- * @since Lion 2.2
  */
 class lion_zend_soap_server extends Zend_Soap_Server {
 
@@ -138,10 +135,6 @@ class lion_zend_soap_server extends Zend_Soap_Server {
 /**
  * SOAP service server implementation.
  *
- * @package    webservice_soap
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class webservice_soap_server extends webservice_zend_server {
 
@@ -288,10 +281,6 @@ class '.$classname.' {
 /**
  * SOAP test client class
  *
- * @package    webservice_soap
- * @copyright  2015 Pooya Saeedik
- * 
- * @since Lion 2.0
  */
 class webservice_soap_test_client implements webservice_test_client_interface {
 

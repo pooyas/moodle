@@ -6,11 +6,10 @@
  * DO NOT MODIFY THIS THEME!
  * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
  *
- * For full information about creating Lion themes, see:
- * http://docs.lion.org/dev/Themes_2.0
  *
- * @package   theme_clean
- * @copyright 2013 Lion, lion.org
+ * @package   theme
+ * @subpackage clean
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

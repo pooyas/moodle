@@ -3,7 +3,8 @@
 /**
  * Events tests.
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @category test
  * @copyright 2015 Pooya Saeedi
  * 

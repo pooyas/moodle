@@ -4,9 +4,9 @@
 /**
  * Lion tag local library - output functions
  *
- * @package    core_tag
- * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->dirroot.'/tag/lib.php');
@@ -15,9 +15,6 @@ require_once($CFG->libdir.'/filelib.php');
 /**
  * Prints or returns a HTML tag cloud with varying classes styles depending on the popularity and type of each tag.
  *
- * @package  core_tag
- * @access   public
- * @category tag
  * @param    array     $tagset Array of tags to display
  * @param    int       $nr_of_tags Limit for the number of tags to return/display, used if $tagset is null
  * @param    bool      $return     if true the function will return the generated tag cloud instead of displaying it.
@@ -96,7 +93,8 @@ function tag_print_cloud($tagset=null, $nr_of_tags=150, $return=false, $sort='')
  * This function is used by print_tag_cloud, to usort() the tags in the cloud. See php.net/usort for the parameters documentation.
  * This was originally in blocks/blog_tags/block_blog_tags.php, named blog_tags_sort().
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  private
  * @param   string $a Tag name to compare against $b
  * @param   string $b Tag name to compare against $a
@@ -123,7 +121,8 @@ function tag_cloud_sort($a, $b) {
 /**
  * Prints a box with the description of a tag and its related tags
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @access  public
  * @todo    MDL-31149 create a system setting for $max_tags_displayed, instead of using an in code literal
  * @param   stdClass    $tag_object

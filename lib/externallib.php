@@ -5,7 +5,7 @@
  * Support for external API
  *
  * @package    core
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -2039,7 +2039,7 @@ class core_course_external extends external_api {
  * Deprecated course external functions
  *
  * @package    core_course
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.0
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.

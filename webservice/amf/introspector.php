@@ -8,8 +8,9 @@
  * returns a list of their available methods.
  * Requires $CFG->amf_introspection = true for security.
  *
- * @package    webservice_amf
- * @copyright  2015 Pooya Saeedi <penny@liip.ch>
+ * @package    webservice
+ * @subpackage amf
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -17,8 +18,6 @@
 /**
  * Provides a function to get details of methods available on another class.
  *
- * @package    webservice_amf
- * @copyright  HP
  * 
  */
 class MethodDescriptor {

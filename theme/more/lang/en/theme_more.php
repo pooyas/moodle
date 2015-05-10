@@ -3,7 +3,8 @@
 /**
  * Theme More lang file.
  *
- * @package    theme_more
+ * @package    theme
+ * @subpackage more
  * @copyright  2015 Pooya Saeedi
  * 
  */

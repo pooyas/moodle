@@ -4,9 +4,10 @@
 /**
  * Strings for component 'webservice_soap', language 'en'
  *
- * @package    webservice_soap
+ * @package    webservice
+ * @subpackage soap
  * @category   string
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

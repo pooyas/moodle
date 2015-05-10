@@ -4,9 +4,10 @@
 /**
  * XML-RPC server related capabilities
  *
- * @package    webservice_xmlrpc
+ * @package    webservice
+ * @subpackage xmlrpc
  * @category   access
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

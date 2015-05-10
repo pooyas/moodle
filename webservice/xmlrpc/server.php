@@ -4,7 +4,8 @@
 /**
  * XML-RPC web service entry point. The authentication is done via tokens.
  *
- * @package    webservice_xmlrpc
+ * @package    webservice
+ * @subpackage xmlrpc
  * @copyright  2015 Pooya Saeedi
  * 
  */

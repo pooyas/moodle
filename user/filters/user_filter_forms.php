@@ -3,8 +3,8 @@
 /**
  * This file contains forms used to filter user.
  *
- * @package   core_user
- * @category  user
+ * @package   core
+ * @subpackage  user
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -13,7 +13,6 @@ require_once($CFG->libdir.'/formslib.php');
 
 /**
  * Class user_add_filter_form
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class user_add_filter_form extends lionform {

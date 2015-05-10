@@ -4,8 +4,9 @@
 /**
  * AMF web service entry point. The authentication is done via username/password.
  *
- * @package    webservice_amf
- * @copyright  2015 Pooya Saeedik
+ * @package    webservice
+ * @subpackage amf
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,14 +4,13 @@
  * Menu profile field definition.
  *
  * @package    profilefield_menu
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Class profile_define_menu
  *
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
  * 
  */
 class profile_define_menu extends profile_define_base {

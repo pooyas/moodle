@@ -19,8 +19,6 @@ require(__DIR__.'/mdeploy.php');
 /**
  * Provides testable input options.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class input_fake_provider extends input_provider {
 
@@ -50,8 +48,6 @@ class input_fake_provider extends input_provider {
 /**
  * Testable subclass.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class testable_input_manager extends input_manager {
 
@@ -74,8 +70,6 @@ class testable_input_manager extends input_manager {
 /**
  * Testable subclass
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class testable_worker extends worker {
 
@@ -109,8 +103,6 @@ class testable_worker extends worker {
 /**
  * Test cases for the mdeploy utility
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mdeploytest extends PHPUnit_Framework_TestCase {
 

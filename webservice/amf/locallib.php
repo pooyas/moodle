@@ -4,8 +4,9 @@
 /**
  * AMF web service implementation classes and methods.
  *
- * @package    webservice_amf
- * @copyright  2015 Pooya Saeedik
+ * @package    webservice
+ * @subpackage amf
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,6 @@ require_once 'Zend/Amf/Server.php';
  *
  * Used when an externallib function does not return values of the expected structure.
  *
- * @package    webservice_amf
- * @copyright  2010 Jamie Pratt
- * 
  */
 class invalid_return_value_exception extends lion_exception {
 
@@ -37,9 +35,6 @@ class invalid_return_value_exception extends lion_exception {
 /**
  * AMF service server implementation.
  *
- * @package    webservice_amf
- * @copyright  2015 Pooya Saeedik
- * 
  */
 class webservice_amf_server extends webservice_zend_server {
 
@@ -168,9 +163,6 @@ class webservice_amf_server extends webservice_zend_server {
 /**
  * Zend Amf server with a different fault management
  *
- * @package    webservice_amf
- * @copyright  2010 Jamie Pratt
- * 
  */
 class Lion_Amf_Server extends Zend_Amf_Server{
 

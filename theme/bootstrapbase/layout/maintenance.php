@@ -9,8 +9,9 @@
  * If you are modifying this file please be extremely careful, one wrong API call and you could end up
  * breaking installation or upgrade unwittingly.
  *
- * @package   theme_bootstrapbase
- * @copyright 2012 Bas Brands, www.basbrands.nl
+ * @package   theme
+ * @subpackage bootstrapbase
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

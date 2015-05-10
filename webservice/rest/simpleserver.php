@@ -4,7 +4,8 @@
 /**
  * REST web service entry point. The authentication is done via username/password.
  *
- * @package    webservice_rest
+ * @package    webservice
+ * @subpackage rest
  * @copyright  2015 Pooya Saeedi
  * 
  */

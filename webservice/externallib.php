@@ -4,7 +4,8 @@
 /**
  * external API for mobile web services
  *
- * @package    core_webservice
+ * @package    core
+ * @subpackage webservice
  * @category   external
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -17,11 +18,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Web service related functions
  *
- * @package    core_webservice
- * @category   external
- * @copyright  2015 Pooya Saeedi 
- * 
- * @since Lion 2.2
  */
 class core_webservice_external extends external_api {
 
@@ -223,10 +219,6 @@ class core_webservice_external extends external_api {
 /**
  * Deprecated web service related functions
  *
- * @package    core_webservice
- * @category   external
- * @copyright  2015 Pooya Saeedi 
- * 
  * @deprecated Lion 2.2 MDL-29106 - please do not use this class any more.
  * @see core_webservice_external
  * @since Lion 2.1

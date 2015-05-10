@@ -3,14 +3,14 @@
 /**
  * Checkbox profile field
  *
- * @package   profilefield_checkbox
- * @copyright  2008 onwards Shane Elliot {@link http://pukunui.com}
+ * @package   profilefield
+ * @subpackage checkbox
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Class profile_define_checkbox
- * @copyright  2008 onwards Shane Elliot {@link http://pukunui.com}
  * 
  */
 class profile_define_checkbox extends profile_define_base {

@@ -3,8 +3,9 @@
 /**
  * Strings for component 'theme_clean', language 'en'
  *
- * @package   theme_clean
- * @copyright 2013 Lion, lion.org
+ * @package   theme
+ * @subpackage clean
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

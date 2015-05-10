@@ -3,8 +3,9 @@
 /**
  * A  secure layout for the Bootstrapbase theme.
  *
- * @package   theme_bootstrapbase
- * @copyright 2012 Bas Brands, www.basbrands.nl
+ * @package   theme
+ * @subpackage bootstrapbase
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

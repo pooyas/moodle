@@ -3,10 +3,9 @@
 /**
  * Theme version info
  *
- * @package    theme_bootstrapbase
- * @copyright  2013 Bas Brands, www.basbrands.nl
- * @author     Bas Brands
- * @author     David Scotson
+ * @package    theme
+ * @subpackage bootstrapbase
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

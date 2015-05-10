@@ -3,8 +3,9 @@
 /**
  * Text profile field version information.
  *
- * @package    profilefield_text
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package    profilefield
+ * @subpackage text
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

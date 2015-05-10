@@ -4,8 +4,9 @@
 /**
  * coursetagslib.php
  *
- * @package    core_tag
- * @copyright  2007 j.beedell@open.ac.uk
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -294,7 +295,8 @@ function coursetag_get_tagged_courses($tagid) {
 /**
  * Course tagging function used only during the deletion of a course (called by lib/lionlib.php) to clean up associated tags
  *
- * @package core_tag
+ * @package core
+ * @subpackage tag
  * @param   int      $courseid     the course we wish to delete tag instances from
  * @param   bool     $showfeedback if we should output a notification of the delete to the end user
  */

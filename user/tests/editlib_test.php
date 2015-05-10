@@ -3,7 +3,8 @@
 /**
  * Unit tests for user/editlib.php.
  *
- * @package    core_user
+ * @package    core
+ * @subpackage user
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -17,10 +18,6 @@ require_once($CFG->dirroot.'/user/editlib.php');
 /**
  * Unit tests for user editlib api.
  *
- * @package    core_user
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_user_editlib_testcase extends advanced_testcase {
 

@@ -3,8 +3,9 @@
 /**
  * Strings for component 'theme_bootstrap', language 'en', branch 'LION_23_STABLE'
  *
- * @package   theme_bootstrapbase
- * @copyright 2012 Bas Brands, www.basbrands.nl
+ * @package   theme
+ * @subpackage bootstrapbase
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Version information for the textarea profile field.
  *
- * @package    profilefield_textarea
- * @copyright  2007 onwards Shane Elliot {@link http://pukunui.com}
+ * @package    profilefield
+ * @subpackage textarea
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

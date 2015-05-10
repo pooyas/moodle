@@ -3,8 +3,9 @@
 /**
  * Version information for the checkbox profile field type.
  *
- * @package    profilefield_checkbox
- * @copyright  2008 onwards Shane Elliot {@link http://pukunui.com}
+ * @package    profilefield
+ * @subpackage checkbox
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

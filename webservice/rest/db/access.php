@@ -4,9 +4,10 @@
 /**
  * REST server related capabilities
  *
- * @package    webservice_rest
+ * @package    webservice
+ * @subpackage rest
  * @category   access
- * @copyright  2015 Pooya Saeedik
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

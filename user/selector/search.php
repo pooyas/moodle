@@ -3,7 +3,8 @@
 /**
  * Code to search for users in response to an ajax call from a user selector.
  *
- * @package core_user
+ * @package core
+ * @subpackage user
  * @copyright 2015 Pooya Saeedi
  * 
  */

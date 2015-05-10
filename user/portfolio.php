@@ -5,7 +5,8 @@
  *
  * @copyright 2015 Pooya Saeedi
  * 
- * @package core_user
+ * @package core
+ * @subpackage user
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
