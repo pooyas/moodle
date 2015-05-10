@@ -532,7 +532,7 @@ class core_filelib_testcase extends advanced_testcase {
     /**
      * Testing prepare draft area
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
+     * @copyright 2015 Pooya Saeedi
      * 
      */
     public function test_prepare_draft_area() {
@@ -643,7 +643,7 @@ class core_filelib_testcase extends advanced_testcase {
     /**
      * Testing deleting original files.
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
+     * @copyright 2015 Pooya Saeedi
      * 
      */
     public function test_delete_original_file_from_draft() {

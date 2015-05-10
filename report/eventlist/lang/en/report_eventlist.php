@@ -3,7 +3,8 @@
 /**
  * Strings for component 'report_event', language 'en', branch 'LION_27_STABLE'
  *
- * @package    report_eventlist
+ * @package    report
+ * @subpackage eventlist
  * @copyright  2015 Pooya Saeedi
  * 
  */

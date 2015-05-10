@@ -3,7 +3,8 @@
 /**
  * Picasa repository data generator
  *
- * @package    repository_picasa
+ * @package    repository
+ * @subpackage picasa
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,9 +13,6 @@
 /**
  * Picasa repository data generator class
  *
- * @package    repository_picasa
- * @category   test
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class repository_picasa_generator extends testing_repository_generator {

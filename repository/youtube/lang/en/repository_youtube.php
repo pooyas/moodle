@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_youtube', language 'en'
  *
- * @package   repository_youtube
+ * @package   repository
+ * @subpackage youtube
  * @copyright 2015 Pooya Saeedi
  * 
  */

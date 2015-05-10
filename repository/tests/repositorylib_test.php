@@ -5,7 +5,7 @@
  *
  * @package   repository
  * @category  phpunit
- * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,6 @@ class core_repositorylib_testcase extends advanced_testcase {
     /**
      * Installing repository tests
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
      */
     public function test_install_repository() {
         global $CFG, $DB;

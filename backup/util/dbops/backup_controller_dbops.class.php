@@ -485,7 +485,7 @@ abstract class backup_controller_dbops extends backup_dbops {
     /**
      * Given the backupid, detect if the backup contains references to external contents
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
+     * @copyright 2015 Pooya Saeedi
      * @return int
      */
     public static function backup_includes_file_references($backupid) {

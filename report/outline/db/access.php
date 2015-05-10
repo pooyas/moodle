@@ -3,7 +3,8 @@
 /**
  * Capabilities
  *
- * @package    report_outline
+ * @package    report
+ * @subpackage outline
  * @copyright  2015 Pooya Saeedi
  * 
  */

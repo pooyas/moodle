@@ -3,7 +3,8 @@
 /**
  * The report_loglive report viewed event.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The report_loglive report viewed event class.
  *
- * @package    report_loglive
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

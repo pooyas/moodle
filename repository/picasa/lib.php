@@ -3,9 +3,9 @@
 /**
  * This plugin is used to access picasa pictures
  *
- * @since Lion 2.0
- * @package    repository_picasa
- * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
+ * @package    repository
+ * @subpackage picasa
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 require_once($CFG->dirroot . '/repository/lib.php');
@@ -14,12 +14,6 @@ require_once($CFG->libdir.'/googleapi.php');
 /**
  * Picasa Repository Plugin
  *
- * @since Lion 2.0
- * @package    repository
- * @subpackage picasa
- * @copyright  2015 Pooya Saeedi
- * @author     Dan Poltawski <talktodan@gmail.com>
- * 
  */
 class repository_picasa extends repository {
     private $googleoauth = null;

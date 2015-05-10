@@ -250,7 +250,7 @@ class core_files_file_storage_testcase extends advanced_testcase {
     /**
      * Make sure renaming is working
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
+     * @copyright 2015 Pooya Saeedi
      */
     public function test_file_renaming() {
         global $CFG;
@@ -295,7 +295,7 @@ class core_files_file_storage_testcase extends advanced_testcase {
     /**
      * Create file from reference tests
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
+     * @copyright 2015 Pooya Saeedi
      */
     public function test_create_file_from_reference() {
         global $CFG, $DB;

@@ -3,7 +3,8 @@
 /**
  * Listing of all sessions for current user.
  *
- * @package   report_usersessions
+ * @package   report
+ * @subpackage usersessions
  * @copyright 2015 Pooya Saeedi
  * 
  * 

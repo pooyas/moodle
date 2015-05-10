@@ -3,8 +3,9 @@
 /**
  * Log report renderer.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
+ * @package    report
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +15,6 @@ use core\log\manager;
 /**
  * Report log renderable class.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
- * 
  */
 class report_log_renderable implements renderable {
     /** @var manager log manager */

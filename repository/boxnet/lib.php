@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access box.net repository
  *
- * @since Lion 2.0
- * @package    repository_boxnet
+ * @package    repository
+ * @subpackage areafiles
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +14,6 @@ require_once($CFG->libdir . '/boxlib.php');
 /**
  * repository_boxnet class implements box.net client
  *
- * @since Lion 2.0
- * @package    repository_boxnet
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_boxnet extends repository {
 

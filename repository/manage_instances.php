@@ -5,7 +5,6 @@
 /**
  * This file is used to manage repositories
  *
- * @since Lion 2.0
  * @package    core
  * @subpackage repository
  * @copyright  2015 Pooya Saeedi

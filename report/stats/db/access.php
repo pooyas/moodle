@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    report_stats
- * @copyright  1999 onwards  Martin Dougiamas  http://lion.com
+ * @package    report
+ * @subpackage stats
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

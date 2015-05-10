@@ -3,7 +3,8 @@
 /**
  * WebDAV repository data generator
  *
- * @package    repository_webdav
+ * @package    repository
+ * @subpackage webdav
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * WebDAV repository data generator class
  *
- * @package    repository_webdav
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_webdav_generator extends testing_repository_generator {
 

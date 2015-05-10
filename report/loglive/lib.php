@@ -5,7 +5,8 @@
  *
  * NOTE: page type not included because there can not be any blocks in popups
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi
  * 
  */

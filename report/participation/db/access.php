@@ -3,7 +3,8 @@
 /**
  * Capabilities
  *
- * @package    report_participation
+ * @package    report
+ * @subpackage participation
  * @copyright  2015 Pooya Saeedi
  * 
  */

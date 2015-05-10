@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access youtube videos
  *
- * @since Lion 2.0
- * @package    repository_youtube
+ * @package    repository
+ * @subpackage youtube
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,10 +13,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * repository_youtube class
  *
- * @since Lion 2.0
- * @package    repository_youtube
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 
 class repository_youtube extends repository {

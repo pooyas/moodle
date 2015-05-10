@@ -3,8 +3,9 @@
 /**
  * Installation file for the wikimedia repository
  *
- * @package    repository_wikimedia
- * @category   repository
+ * @package    repository
+ * @subpackage wikimedia
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

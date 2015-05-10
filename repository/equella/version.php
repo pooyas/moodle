@@ -3,9 +3,9 @@
 /**
  * Version information for equella repository.
  *
- * @since Lion 2.3
- * @package    repository_equella
- * @copyright  2012 Dongsheng Cai {@link http://dongsheng.org}
+ * @package    repository
+ * @subpackage equella
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

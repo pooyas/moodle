@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access local files
  *
- * @since Lion 2.0
- * @package    repository_local
+ * @package    repository
+ * @subpackage local
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,11 +13,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * repository_local class is used to browse lion files
  *
- * @since Lion 2.0
- * @package    repository_local
- * @copyright  2015 Pooya Saeedi
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_local extends repository {
     /**

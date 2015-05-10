@@ -5,7 +5,8 @@
  *
  * This file contains links and settings used by report_loglive
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi
  * 
  */

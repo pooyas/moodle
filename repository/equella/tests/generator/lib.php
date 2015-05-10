@@ -3,8 +3,9 @@
 /**
  * Equella repository data generator
  *
- * @package    repository_equella
- * @category   test
+ * @package    repository
+ * @subpackage equella
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Equella repository data generator class
  *
- * @package    repository_equella
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_equella_generator extends testing_repository_generator {
 

@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_coursefiles', language 'en'
  *
- * @package   repository_coursefiles
+ * @package   repository
+ * @subpackage coursefiles
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Capabilities
  *
- * @package    report_questioninstances
+ * @package    report
+ * @subpackage questioninstances
  * @copyright  2015 Pooya Saeedi
  * 
  */

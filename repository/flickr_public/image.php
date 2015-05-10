@@ -7,7 +7,6 @@
  * @package    repository
  * @subpackage flickr_public
  * @author     2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class lion_image {
     private $imagepath;

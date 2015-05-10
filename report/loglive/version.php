@@ -5,7 +5,8 @@
  *
  * This file contains version information about report_loglive
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi
  * 
  */

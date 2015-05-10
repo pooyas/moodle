@@ -3,8 +3,9 @@
 /**
  * Strings for component 'repository_dropbox', language 'en'
  *
- * @package   repository_dropbox
- * @copyright 2010 Dongsheng Cai
+ * @package   repository
+ * @subpackage dropbox
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

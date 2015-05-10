@@ -3,7 +3,8 @@
 /**
  * Tests for report library functions.
  *
- * @package    report_stats
+ * @package    report
+ * @subpackage stats
  * @copyright  2015 Pooya Saeedi 
  * .
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class report_stats_lib_testcase
  *
- * @package    report_stats
- * @copyright  2015 Pooya Saeedi 
- * .
  */
 class report_stats_lib_testcase extends advanced_testcase {
 

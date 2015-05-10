@@ -3,7 +3,8 @@
 /**
  * Locallib.
  *
- * @package    repository_alfresco
+ * @package    repository
+ * @subpackage alfresco
  * @copyright  2015 Pooya Saeedi
  * 
  */

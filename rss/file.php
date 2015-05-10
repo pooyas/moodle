@@ -7,8 +7,8 @@
  * then finds and calls a function in the relevant component to
  * actually check security and create the RSS stream
  *
- * @package    core_rss
- * @category   rss
+ * @package    core
+ * @subpackage rss
  * @copyright  2015 Pooya Saeedi
  * 
  */

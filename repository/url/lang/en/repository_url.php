@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_url', language 'en'
  *
- * @package   repository_url
+ * @package   repository
+ * @subpackage url
  * @copyright 2015 Pooya Saeedi
  * 
  */

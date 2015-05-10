@@ -3,7 +3,8 @@
 /**
  * Google Docs repository data generator
  *
- * @package    repository_googledocs
+ * @package    repository
+ * @subpackage googledocs
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,9 +13,6 @@
 /**
  * Google Docs repository data generator class
  *
- * @package    repository_googledocs
- * @category   test
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class repository_googledocs_generator extends testing_repository_generator {

@@ -3,7 +3,8 @@
 /**
  * The report_questioninstances report viewed event.
  *
- * @package    report_questioninstances
+ * @package    report
+ * @subpackage questioninstances
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - string requestedqtype: Requested question type.
  * }
  *
- * @package    report_questioninstances
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

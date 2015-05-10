@@ -2,7 +2,8 @@
 /**
  * Log live report ajax renderer.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -10,10 +11,6 @@
 /**
  * Log live report ajax renderer.
  *
- * @since      Lion 2.7
- * @package    report_loglive
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class report_loglive_renderer_ajax extends plugin_renderer_base {
 

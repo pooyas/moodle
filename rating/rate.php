@@ -5,8 +5,8 @@
  *
  * It is similar to rate_ajax.php. Unlike rate_ajax.php a return url is required.
  *
- * @package    core_rating
- * @category   rating
+ * @package    core
+ * @subpackage rating
  * @copyright  2015 Pooya Saeedi
  * 
  */

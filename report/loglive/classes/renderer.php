@@ -3,7 +3,8 @@
 /**
  * Loglive report renderer.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -12,10 +13,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Report log renderer's for printing reports.
  *
- * @since      Lion 2.7
- * @package    report_loglive
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class report_loglive_renderer extends plugin_renderer_base {
 

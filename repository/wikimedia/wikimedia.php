@@ -5,8 +5,7 @@
  * wikimedia class
  * class for communication with Wikimedia Commons API
  *
- * @author 2015 Pooya Saeedi, Raul Kern <raunator@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @copyright 2015 Pooya Saeedi
  */
 
 define('WIKIMEDIA_THUMBS_PER_PAGE', 24);

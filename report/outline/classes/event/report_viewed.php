@@ -3,7 +3,8 @@
 /**
  * The report_outline outline report viewed event.
  *
- * @package    report_outline
+ * @package    report
+ * @subpackage outline
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - string mode: display mode.
  * }
  *
- * @package    report_outline
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

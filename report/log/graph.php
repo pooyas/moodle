@@ -5,7 +5,8 @@
  *
  * Generates an image representing the log data in a graphical manner for a user.
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi
  * 
  */

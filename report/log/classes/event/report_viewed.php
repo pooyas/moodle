@@ -3,7 +3,8 @@
 /**
  * The report_log report viewed event.
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -24,10 +25,6 @@ defined('LION_INTERNAL') || die();
  *      - string logformat: Log format in which logs were displayed.
  * }
  *
- * @package    report_log
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

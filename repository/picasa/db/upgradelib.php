@@ -3,7 +3,8 @@
 /**
  * Picasa repository upgrade script.
  *
- * @package   repository_picasa
+ * @package   repository
+ * @subpackage picasa
  * @copyright 2015 Pooya Saeedi
  * 
  */

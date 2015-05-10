@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Repository generator tests class
  *
- * @package   repository
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_repository_generator_testcase extends advanced_testcase {
 

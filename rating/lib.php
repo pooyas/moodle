@@ -3,7 +3,7 @@
 /**
  * A class representing a single rating and containing some static methods for manipulating ratings
  *
- * @package    core_rating
+ * @package    core
  * @subpackage rating
  * @copyright  2015 Pooya Saeedi
  * 
@@ -23,11 +23,6 @@ define ('RATING_DEFAULT_SCALE', 5);
 /**
  * The rating class represents a single rating by a single user
  *
- * @package   core_rating
- * @category  rating
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.0
  */
 class rating implements renderable {
 
@@ -351,11 +346,6 @@ class rating implements renderable {
 /**
  * The rating_manager class provides the ability to retrieve sets of ratings from the database
  *
- * @package   core_rating
- * @category  rating
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.0
  */
 class rating_manager {
 
@@ -1042,11 +1032,6 @@ class rating_manager {
 /**
  * The rating_exception class for exceptions specific to the ratings system
  *
- * @package   core_rating
- * @category  rating
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.0
  */
 class rating_exception extends lion_exception {
     /**

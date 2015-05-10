@@ -3,9 +3,11 @@
 /**
  * Tests for report library functions.
  *
- * @package    report_participation
+ * @package    report
+ * @subpackage participation
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
- * .
+ *
  */
 
 defined('LION_INTERNAL') || die();
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class report_participation_lib_testcase
  *
- * @package    report_participation
- * @copyright  2015 Pooya Saeedi 
- * .
  */
 class report_participation_lib_testcase extends advanced_testcase {
 

@@ -3,7 +3,8 @@
 /**
  * Creating a default instance of areafiles repository on install
  *
- * @package    repository_areafiles
+ * @package    repository
+ * @subpackage areafiles
  * @copyright  2015 Pooya Saeedi
  * 
  */

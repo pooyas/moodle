@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_s3', language 'en'
  *
- * @package   repository_s3
+ * @package   repository
+ * @subpackage s3
  * @copyright 2015 Pooya Saeedi
  * 
  */

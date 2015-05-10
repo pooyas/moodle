@@ -3,7 +3,8 @@
 /**
  * Recent repository data generator
  *
- * @package    repository_recent
+ * @package    repository
+ * @subpackage recent
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * Recent repository data generator class
  *
- * @package    repository_recent
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_recent_generator extends testing_repository_generator {
 

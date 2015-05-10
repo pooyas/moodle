@@ -3,9 +3,9 @@
 /**
  * Functions for operating with the skydrive API
  *
- * @package    repository_skydrive
- * @copyright  2012 Lancaster University Network Services Ltd
- * @author     Dan Poltawski <dan.poltawski@luns.net.uk>
+ * @package    repository
+ * @subpackage skydrive
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ require_once($CFG->libdir.'/oauthlib.php');
  * This uses the microsfot API defined in
  * http://msdn.microsoft.com/en-us/library/hh243648.aspx
  *
- * @package    repository_skydrive
- * @copyright  2012 Lancaster University Network Services Ltd
- * @author     Dan Poltawski <dan.poltawski@luns.net.uk>
- * 
  */
 class microsoft_skydrive extends oauth2_client {
     /** @var string OAuth 2.0 scope */

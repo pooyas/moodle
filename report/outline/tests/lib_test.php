@@ -3,9 +3,11 @@
 /**
  * Tests for report library functions.
  *
- * @package    report_outline
+ * @package    report
+ * @subpackage outline
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
- * .
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class report_outline_lib_testcase
  *
- * @package    report_outline
- * @copyright  2015 Pooya Saeedi 
- * .
  */
 class report_outline_lib_testcase extends advanced_testcase {
 

@@ -3,7 +3,8 @@
 /**
  * A page to display a list of ratings for a given item (forum post etc)
  *
- * @package    core_rating
+ * @package    core
+ * @subpackage rating
  * @category   rating
  * @copyright  2015 Pooya Saeedi
  * 

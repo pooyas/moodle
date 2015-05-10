@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access coursefiles repository
  *
- * @since Lion 2.0
- * @package    repository_coursefiles
+ * @package    repository
+ * @subpackage coursefiles
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,10 +13,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * repository_coursefiles class is used to browse course files
  *
- * @since Lion 2.0
- * @package    repository_coursefiles
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_coursefiles extends repository {
 

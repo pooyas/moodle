@@ -3,9 +3,9 @@
 /**
  * Version details
  *
- * @package    repository_dropbox
- * @copyright  2010 Dongsheng Cai
- * @author     2015 Pooya Saeedi
+ * @package    repository
+ * @subpackage dropbox
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

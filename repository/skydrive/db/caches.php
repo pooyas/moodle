@@ -3,7 +3,8 @@
 /**
  * Cache definitions.
  *
- * @package    repository_skydrive
+ * @package    repository
+ * @subpackage skydrive
  * @copyright  2015 Pooya Saeedi
  * 
  */

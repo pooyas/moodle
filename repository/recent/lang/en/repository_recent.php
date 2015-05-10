@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_recent', language 'en'
  *
- * @package   lioncore
+ * @package   repository
+ * @subpackage recent
  * @copyright 2015 Pooya Saeedi
  * 
  */

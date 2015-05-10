@@ -3,7 +3,8 @@
 /**
  * Merlot repository data generator
  *
- * @package    repository_merlot
+ * @package    repository
+ * @subpackage merlot
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * Merlot repository data generator class
  *
- * @package    repository_merlot
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_merlot_generator extends testing_repository_generator {
 

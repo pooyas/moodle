@@ -3,7 +3,8 @@
 /**
  * Display user activity reports for a course (totals)
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi
  * 
  */

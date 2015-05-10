@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_merlot', language 'en'
  *
- * @package   repository_merlot
+ * @package   repository
+ * @subpackage merlot
  * @copyright 2015 Pooya Saeedi
  * 
  */

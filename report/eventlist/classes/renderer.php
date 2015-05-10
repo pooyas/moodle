@@ -3,7 +3,8 @@
 /**
  * Event report renderer.
  *
- * @package    report_eventlist
+ * @package    report
+ * @subpackage eventlist
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Renderer for event report.
  *
- * @package    report_eventlist
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_eventlist_renderer extends plugin_renderer_base {
 

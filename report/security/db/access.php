@@ -3,7 +3,8 @@
 /**
  * Capabilities
  *
- * @package    report_security
+ * @package    report
+ * @subpackage security
  * @copyright  2015 Pooya Saeedi
  * 
  */

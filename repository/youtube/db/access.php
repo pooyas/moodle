@@ -3,9 +3,9 @@
 /**
  * Plugin capabilities.
  *
- * @package    repository_youtube
- * @copyright  2009 Dongsheng Cai
- * @author     2015 Pooya Saeedi
+ * @package    repository
+ * @subpackage youtube
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

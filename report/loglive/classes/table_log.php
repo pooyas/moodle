@@ -3,7 +3,8 @@
 /**
  * Table log for displaying logs.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -14,10 +15,6 @@ require_once($CFG->libdir . '/tablelib.php');
 /**
  * Table log class for displaying logs.
  *
- * @since      Lion 2.7
- * @package    report_loglive
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class report_loglive_table_log extends table_sql {
 

@@ -5,7 +5,8 @@
  *
  * This file generates live view of recent logs.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi
  * 
  */

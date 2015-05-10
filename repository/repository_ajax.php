@@ -4,9 +4,8 @@
 /**
  * The Web service script that is called from the filepicker front end
  *
- * @since Lion 2.0
  * @package    repository
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

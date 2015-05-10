@@ -7,7 +7,8 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Event list filter form.
  *
- * @package   report_eventlist
+ * @package   report
+ * @subpackage eventlist
  * @copyright 2015 Pooya Saeedi
  * 
  */

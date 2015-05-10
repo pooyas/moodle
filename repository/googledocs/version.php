@@ -5,7 +5,7 @@
  *
  * @package    repository
  * @subpackage googledocs
- * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

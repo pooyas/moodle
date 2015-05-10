@@ -4,8 +4,8 @@
 /**
  * This plugin is used to upload files
  *
- * @since Lion 2.0
- * @package    repository_upload
+ * @package    repository
+ * @subpackage upload
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +14,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * A repository plugin to allow user uploading files
  *
- * @since Lion 2.0
- * @package    repository_upload
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 
 class repository_upload extends repository {

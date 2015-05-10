@@ -3,7 +3,8 @@
 /**
  * The report_completion report viewed event.
  *
- * @package    report_completion
+ * @package    report
+ * @subpackage completion
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The report_completion report viewed event class.
  *
- * @package    report_completion
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class report_viewed extends \core\event\base {
 

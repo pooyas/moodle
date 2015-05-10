@@ -5,7 +5,8 @@
  *
  * Defines the APIs used by log reports
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi
  * 
  */

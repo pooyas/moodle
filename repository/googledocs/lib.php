@@ -3,9 +3,9 @@
 /**
  * This plugin is used to access Google Drive.
  *
- * @since Lion 2.0
- * @package    repository_googledocs
- * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
+ * @package    repository
+ * @subpackage googledocs
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -18,10 +18,6 @@ require_once($CFG->libdir . '/google/Google/Service/Drive.php');
 /**
  * Google Docs Plugin
  *
- * @since Lion 2.0
- * @package    repository_googledocs
- * @copyright  2015 Pooya Saeedi <talktodan@gmail.com>
- * 
  */
 class repository_googledocs extends repository {
 

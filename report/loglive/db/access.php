@@ -5,7 +5,8 @@
  *
  * This files lists capabilites related to report_logline
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi
  * 
  */

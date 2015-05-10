@@ -3,9 +3,9 @@
 /**
  * Capability definitions for skydrive repository
  *
- * @package    repository_skydrive
- * @copyright  2012 Lancaster University Network Services Ltd
- * @author     Dan Poltawski <dan.poltawski@luns.net.uk>
+ * @package    repository
+ * @subpackage skydrive
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 $capabilities = array(

@@ -3,8 +3,9 @@
 /**
  * File system repository data generator
  *
- * @package    repository_filesystem
- * @category   test
+ * @package    repository
+ * @subpackage filesystem
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * File system repository data generator class
  *
- * @package    repository_filesystem
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_filesystem_generator extends testing_repository_generator {
 

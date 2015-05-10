@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_flickr_public', language 'en'
  *
- * @package   repository_flickr_public
+ * @package   repository
+ * @subpackage flickr_public
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_webdav', language 'en'
  *
- * @package   repository_webdav
+ * @package   repository
+ * @subpackage webdav
  * @copyright 2015 Pooya Saeedi
  * 
  */

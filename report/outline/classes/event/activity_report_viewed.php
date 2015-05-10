@@ -3,7 +3,8 @@
 /**
  * The report_outline activity report viewed event.
  *
- * @package    report_outline
+ * @package    report
+ * @subpackage outline
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The report_outline activity report viewed event class.
  *
- * @package    report_outline
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class activity_report_viewed extends \core\event\base {
 

@@ -3,8 +3,9 @@
 /**
  * Dropbox repository data generator
  *
- * @package    repository_dropbox
- * @category   test
+ * @package    repository
+ * @subpackage dropbox
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Dropbox repository data generator class
  *
- * @package    repository_dropbox
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_dropbox_generator extends testing_repository_generator {
 

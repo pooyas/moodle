@@ -3,7 +3,8 @@
 /**
  * Report capabilities
  *
- * @package    report_courseoverview
+ * @package    report
+ * @subpackage courseoverview
  * @copyright  2015 Pooya Saeedi
  * 
  */

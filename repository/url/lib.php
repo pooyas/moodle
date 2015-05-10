@@ -4,8 +4,8 @@
 /**
  * This plugin is used to access files by providing an url
  *
- * @since Lion 2.0
- * @package    repository_url
+ * @package    repository
+ * @subpackage url
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,10 +16,6 @@ require_once(dirname(__FILE__).'/locallib.php');
  * repository_url class
  * A subclass of repository, which is used to download a file from a specific url
  *
- * @since Lion 2.0
- * @package    repository_url
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_url extends repository {
     var $processedfiles = array();

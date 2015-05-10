@@ -3,7 +3,8 @@
 /**
  * The report_participation report viewed event.
  *
- * @package    report_participation
+ * @package    report
+ * @subpackage participation
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -24,10 +25,6 @@ defined('LION_INTERNAL') || die();
  *      - string action: (optional) action viewed.
  * }
  *
- * @package    report_participation
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

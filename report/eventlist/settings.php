@@ -3,7 +3,8 @@
 /**
  * Adds the event list link to the admin tree
  *
- * @package    report_eventlist
+ * @package    report
+ * @subpackage eventlist
  * @copyright  2015 Pooya Saeedi
  * 
  */

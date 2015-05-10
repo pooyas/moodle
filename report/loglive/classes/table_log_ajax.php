@@ -3,7 +3,8 @@
 /**
  * Table log for generating data in ajax mode.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -13,10 +14,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Table log class for generating data in ajax mode.
  *
- * @since      Lion 2.7
- * @package    report_loglive
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class report_loglive_table_log_ajax extends report_loglive_table_log {
 

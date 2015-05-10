@@ -6,7 +6,6 @@
  * @package    repository
  * @subpackage picasa
  * @copyright  2015 Pooya Saeedi
- * @author     Dan Poltawski <talktodan@gmail.com>
  * 
  */
 

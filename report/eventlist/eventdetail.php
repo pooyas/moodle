@@ -3,7 +3,8 @@
 /**
  * Event developer detail.
  *
- * @package   report_eventlist
+ * @package   report
+ * @subpackage eventlist
  * @copyright 2015 Pooya Saeedi
  * 
  */

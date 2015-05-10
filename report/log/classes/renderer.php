@@ -3,8 +3,9 @@
 /**
  * Log report renderer.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
+ * @package    report
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die;
@@ -12,9 +13,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Report log renderer's for printing reports.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
- * 
  */
 class report_log_renderer extends plugin_renderer_base {
 

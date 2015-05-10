@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access files on server file system
  *
- * @since Lion 2.0
- * @package    repository_filesystem
+ * @package    repository
+ * @subpackage filesystem
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,9 +18,6 @@ require_once($CFG->libdir . '/filelib.php');
  * *NOTE* for security issue, we use a fixed repository path
  * which is %liondata%/repository
  *
- * @package    repository
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_filesystem extends repository {
 

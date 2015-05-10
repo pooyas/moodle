@@ -5,8 +5,7 @@
  *
  * @package    repository
  * @subpackage coursefiles
- * @copyright  2010 Dongsheng Cai
- * @author     2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * Displays different views of the logs.
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -5,7 +5,8 @@
  *
  * This File contains information about the current version of report/logs
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi
  * 
  */

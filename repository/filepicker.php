@@ -5,7 +5,6 @@
 /**
  * This file is used to browse repositories in non-javascript mode
  *
- * @since Lion 2.0
  * @package    core
  * @subpackage repository
  * @copyright  2015 Pooya Saeedi

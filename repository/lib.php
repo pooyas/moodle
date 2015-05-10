@@ -3,9 +3,9 @@
 /**
  * This file contains classes used to manage the repository plugins in Lion
  *
- * @since Lion 2.0
- * @package   core_repository
- * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
+ * @package   core
+ * @subpackage repository
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -34,9 +34,6 @@ define('RENAME_SUFFIX', '_2');
  * - When you create a type for a plugin that can't have multiple instances, a
  *   instance is automatically created.
  *
- * @package   core_repository
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class repository_type implements cacheable_object {
 
@@ -474,9 +471,6 @@ class repository_type implements cacheable_object {
  * To create repository plugin, see: {@link http://docs.lion.org/dev/Repository_plugins}
  * See an example: {@link repository_boxnet}
  *
- * @package   core_repository
- * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 abstract class repository implements cacheable_object {
     /**
@@ -2819,9 +2813,6 @@ abstract class repository implements cacheable_object {
 /**
  * Exception class for repository api
  *
- * @since Lion 2.0
- * @package   core_repository
- * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
  * 
  */
 class repository_exception extends lion_exception {
@@ -2830,9 +2821,6 @@ class repository_exception extends lion_exception {
 /**
  * This is a class used to define a repository instance form
  *
- * @since Lion 2.0
- * @package   core_repository
- * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
  * 
  */
 final class repository_instance_form extends lionform {
@@ -2950,10 +2938,6 @@ final class repository_instance_form extends lionform {
 /**
  * This is a class used to define a repository type setting form
  *
- * @since Lion 2.0
- * @package   core_repository
- * @copyright 2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 final class repository_type_form extends lionform {
     /** @var stdClass repository instance */

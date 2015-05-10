@@ -3,7 +3,8 @@
 /**
  * Steps definitions for the upload repository type.
  *
- * @package    repository_upload
+ * @package    repository
+ * @subpackage upload
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -21,10 +22,6 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  *
  * Extends behat_files rather than behat_base as is file-related.
  *
- * @package    repository_upload
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_repository_upload extends behat_files {
 

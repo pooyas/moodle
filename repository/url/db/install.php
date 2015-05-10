@@ -3,8 +3,10 @@
 /**
  * Installation for the URL repository
  *
- * @package    repository_url
+ * @package    repository
+ * @subpackage url
  * @category   repository
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

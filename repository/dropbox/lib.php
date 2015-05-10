@@ -3,9 +3,8 @@
 /**
  * This plugin is used to access user's dropbox files
  *
- * @since Lion 2.0
- * @package    repository_dropbox
- * @copyright  2015 Pooya Saeedi
+ * @package    repository
+ * @subpackage dropbox
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,9 +14,6 @@ require_once(dirname(__FILE__).'/locallib.php');
 /**
  * Repository to access Dropbox files
  *
- * @package    repository_dropbox
- * @copyright  2010 Dongsheng Cai
- * 
  */
 class repository_dropbox extends repository {
     /** @var dropbox the instance of dropbox client */

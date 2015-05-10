@@ -3,7 +3,8 @@
 /**
  * The report_stats user report viewed event.
  *
- * @package    report_stats
+ * @package    report
+ * @subpackage stats
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The report_stats user report viewed event class.
  *
- * @package    report_stats
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_report_viewed extends \core\event\base {
 

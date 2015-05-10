@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access flickr pictures
  *
- * @since Lion 2.0
- * @package    repository_flickr_public
+ * @package    repository
+ * @subpackage flickr_public
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,9 +18,6 @@ require_once(dirname(__FILE__) . '/image.php');
  * You can set up a public account in admin page, so everyone can access
  * flickr photos from this plugin
  *
- * @since Lion 2.0
- * @package    repository_flickr_public
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
  * 
  */
 class repository_flickr_public extends repository {

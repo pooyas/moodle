@@ -3,7 +3,8 @@
 /**
  * Alfresco repository data generator
  *
- * @package    repository_alfresco
+ * @package    repository
+ * @subpackage alfresco
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * Alfresco repository data generator class
  *
- * @package    repository_alfresco
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_alfresco_generator extends testing_repository_generator {
 

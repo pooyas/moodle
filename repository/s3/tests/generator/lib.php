@@ -3,7 +3,8 @@
 /**
  * Amazon S3 repository data generator
  *
- * @package    repository_s3
+ * @package    repository
+ * @subpackage s3
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * Amazon S3 repository data generator class
  *
- * @package    repository_s3
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_s3_generator extends testing_repository_generator {
 

@@ -4,8 +4,8 @@
 /**
  * This plugin is used to access wikimedia files
  *
- * @since Lion 2.0
- * @package    repository_wikimedia
+ * @package    repository
+ * @subpackage wikimedia
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,10 +16,6 @@ require_once(dirname(__FILE__) . '/wikimedia.php');
  * repository_wikimedia class
  * This is a class used to browse images from wikimedia
  *
- * @since Lion 2.0
- * @package    repository_wikimedia
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 
 class repository_wikimedia extends repository {

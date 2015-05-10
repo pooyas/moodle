@@ -3,7 +3,8 @@
 /**
  * Unit tests for rating/lib.php
  *
- * @package    core_ratings
+ * @package    core
+ * @subpackage ratings
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

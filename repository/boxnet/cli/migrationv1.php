@@ -3,7 +3,8 @@
 /**
  * Box.net migration CLI script.
  *
- * @package    repository_boxnet
+ * @package    repository
+ * @subpackage areafiles
  * @copyright  2015 Pooya Saeedi
  * 
  */

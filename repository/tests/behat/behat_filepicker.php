@@ -3,7 +3,8 @@
 /**
  * Filemanager and filepicker manipulation steps definitions.
  *
- * @package    core_filepicker
+ * @package    core
+ * @subpackage filepicker
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -21,10 +22,6 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  *
  * Extends behat_files rather than behat_base as is file-related.
  *
- * @package    core_filepicker
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_filepicker extends behat_files {
 

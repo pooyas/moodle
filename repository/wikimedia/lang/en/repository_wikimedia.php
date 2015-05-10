@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_wikimedia', language 'en'
  *
- * @package   repository_wikimedia
+ * @package   repository
+ * @subpackage wikimedia
  * @copyright 2015 Pooya Saeedi
  * 
  */

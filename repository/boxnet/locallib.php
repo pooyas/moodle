@@ -3,7 +3,8 @@
 /**
  * Box.net locallib.
  *
- * @package    repository_boxnet
+ * @package    repository
+ * @subpackage areafiles
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -4,8 +4,8 @@
 /**
  * This plugin is used to access webdav files
  *
- * @since Lion 2.0
- * @package    repository_webdav
+ * @package    repository
+ * @subpackage webdav
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +15,6 @@ require_once($CFG->libdir.'/webdavlib.php');
 /**
  * repository_webdav class
  *
- * @since Lion 2.0
- * @package    repository_webdav
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_webdav extends repository {
     public function __construct($repositoryid, $context = SYSCONTEXTID, $options = array()) {

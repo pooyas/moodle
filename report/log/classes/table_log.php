@@ -3,8 +3,9 @@
 /**
  * Table log for displaying logs.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
+ * @package    report
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Table log class for displaying logs.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
- * 
  */
 class report_log_table_log extends table_sql {
 

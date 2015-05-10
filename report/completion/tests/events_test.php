@@ -3,7 +3,9 @@
 /**
  * Tests for report completion events.
  *
- * @package    report_completion
+ * @package    report
+ * @subpackage completion
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * .
  */
@@ -15,9 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Class for tests related to completion report events.
  *
- * @package    report_completion
- * @copyright  2015 Pooya Saeedi
- * .
  */
 class report_completion_events_testcase extends advanced_testcase {
 

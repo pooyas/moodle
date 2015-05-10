@@ -3,7 +3,8 @@
 /**
  * Flickr Public repository data generator
  *
- * @package    repository_flickr_public
+ * @package    repository
+ * @subpackage flickr_public
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * Flickr Public repository data generator class
  *
- * @package    repository_flickr_public
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_flickr_public_generator extends testing_repository_generator {
 

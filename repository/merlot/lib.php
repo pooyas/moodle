@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access merlot files
  *
- * @since Lion 2.0
- * @package    repository_merlot
+ * @package    repository
+ * @subpackage merlot
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,10 +13,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * repository_merlot is used to search merlot.org in lion
  *
- * @since Lion 2.0
- * @package    repository_merlot
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_merlot extends repository {
 

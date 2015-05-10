@@ -3,10 +3,9 @@
 /**
  * Plugin capabilities.
  *
- * @package    repository_wikimedia
- * @copyright  2009 Dongsheng Cai
- * @author     2015 Pooya Saeedi
- * 
+ * @package    repository
+ * @subpackage wikimedia
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

@@ -11,7 +11,6 @@
 /**
  * This file is used to manage draft files in non-javascript browsers
  *
- * @since Lion 2.0
  * @package    core
  * @subpackage repository
  * @copyright  2015 Pooya Saeedi

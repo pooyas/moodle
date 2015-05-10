@@ -5,7 +5,8 @@
  *
  * Contains code that are run during the installation of report/logs
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi 
  * 
  */

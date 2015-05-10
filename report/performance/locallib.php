@@ -3,8 +3,9 @@
 /**
  * This file contains classes for report_performance
  *
- * @package   report_performance
- * @copyright 2013 Rajesh Taneja
+ * @package   report
+ * @subpackage performance
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Class defining issue result.
  *
- * @package   report_performance
- * @copyright 2013 Rajesh Taneja
- * 
  */
 class report_performance_issue {
     /** @var string issue identifier */
@@ -37,9 +35,6 @@ class report_performance_issue {
 /**
  * This contains functions to get list of issues and there results.
  *
- * @package   report_performance
- * @copyright 2013 Rajesh Taneja
- * 
  */
 class report_performance {
     /**

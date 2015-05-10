@@ -3,8 +3,9 @@
 /**
  * Box.net repository data generator
  *
- * @package    repository_boxnet
- * @category   test
+ * @package    repository
+ * @subpackage areafiles
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Box.net repository data generator class
  *
- * @package    repository_boxnet
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class repository_boxnet_generator extends testing_repository_generator {
 

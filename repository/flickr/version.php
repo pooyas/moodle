@@ -5,8 +5,7 @@
  *
  * @package    repository
  * @subpackage flickr
- * @copyright  2009 Dongsheng Cai
- * @author     2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

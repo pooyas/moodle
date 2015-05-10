@@ -3,7 +3,8 @@
 /**
  * Ajax responder page.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
  * @copyright  2015 Pooya Saeedi 
  * 
  */

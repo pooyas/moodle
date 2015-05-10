@@ -3,9 +3,11 @@
 /**
  * Tests for report log live events.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
- * .
+ * 
  */
 
 defined('LION_INTERNAL') || die();
@@ -15,9 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Class for tests related to log live events.
  *
- * @package    report_loglive
- * @copyright  2015 Pooya Saeedi
- * .
  */
 class report_loglive_events_testcase extends advanced_testcase {
 

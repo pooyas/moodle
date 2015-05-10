@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access flickr pictures
  *
- * @since Lion 2.0
- * @package    repository_flickr
+ * @package    repository
+ * @subpackage flickr
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +14,6 @@ require_once($CFG->libdir.'/flickrlib.php');
 /**
  * This plugin is used to access user's private flickr repository
  *
- * @since Lion 2.0
- * @package    repository_flickr
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_flickr extends repository {
     private $flickr;

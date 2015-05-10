@@ -5,8 +5,8 @@
  *
  * It is similar to rate.php. Unlike rate.php a return url is NOT required.
  *
- * @package    core_rating
- * @category   rating
+ * @package    core
+ * @subpackage rating
  * @copyright  2015 Pooya Saeedi
  * 
  */

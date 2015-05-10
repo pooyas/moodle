@@ -6,7 +6,8 @@
  * If {@link repository_dropbox::send_thumbnail()} can not display image
  * the default 64x64 filetype icon is returned
  *
- * @package    repository_dropbox
+ * @package    repository
+ * @subpackage dropbox
  * @copyright  2015 Pooya Saeedi
  * 
  */

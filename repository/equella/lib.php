@@ -3,9 +3,9 @@
 /**
  * This plugin is used to access equella repositories.
  *
- * @since Lion 2.3
- * @package    repository_equella
- * @copyright  2012 Dongsheng Cai {@link http://dongsheng.org}
+ * @package    repository
+ * @subpackage equella
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +16,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * repository_equella class implements equella_client
  *
- * @since Lion 2.3
- * @package    repository_equella
- * @copyright  2012 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_equella extends repository {
     /** @var array mimetype filter */

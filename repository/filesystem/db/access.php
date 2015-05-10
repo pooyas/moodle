@@ -3,9 +3,9 @@
 /**
  * Plugin capabilities.
  *
- * @package    repository_filesystem
- * @copyright  2009 Dongsheng Cai
- * @author     2015 Pooya Saeedi
+ * @package    repository
+ * @subpackage filesystem
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

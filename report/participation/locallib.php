@@ -3,7 +3,8 @@
 /**
  * This file contains functions used by the participation reports
  *
- * @package   report_participation
+ * @package   report
+ * @subpackage participation
  * @copyright 2015 Pooya Saeedi
  * 
  */

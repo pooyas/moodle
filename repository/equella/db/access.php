@@ -3,9 +3,9 @@
 /**
  * Capabilities for equella repository.
  *
- * @package    repository_equella
- * @copyright  2012 Dongsheng Cai {@link http://dongsheng.org}
- * @author     2015 Pooya Saeedi
+ * @package    repository
+ * @subpackage equella
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

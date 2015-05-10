@@ -6,7 +6,6 @@
  * @package    report
  * @subpackage completion
  * @copyright  2015 Pooya Saeedi
- * @author     Aaron Barnes <aaronb@catalyst.net.nz>
  * 
  */
 

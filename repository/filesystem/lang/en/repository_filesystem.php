@@ -4,7 +4,8 @@
 /**
  * Strings for component 'repository_filesystem', language 'en'
  *
- * @package   repository_filesystem
+ * @package   repository
+ * @subpackage filesystem
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Lib API functions.
  *
- * @package   report_usersessions
+ * @package   report
+ * @subpackage usersessions
  * @copyright 2015 Pooya Saeedi
  * 
  * 

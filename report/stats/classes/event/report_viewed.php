@@ -3,7 +3,8 @@
 /**
  * The report_stats report viewed event.
  *
- * @package    report_stats
+ * @package    report
+ * @subpackage stats
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int mode: (optional) Report mode.
  * }
  *
- * @package    report_stats
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

@@ -3,8 +3,9 @@
 /**
  * Unit tests for the URL repository.
  *
- * @package   repository_url
- * @copyright 2014 John Okely
+ * @package   repository
+ * @subpackage url
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->dirroot . '/repository/url/lib.php');
 /**
  * URL repository test case.
  *
- * @copyright 2014 John Okely
- * 
  */
 class repository_url_lib_testcase extends advanced_testcase {
 

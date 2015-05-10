@@ -5,7 +5,8 @@
  *
  * This files lists the functions that are used during the log report generation.
  *
- * @package    report_log
+ * @package    report
+ * @subpackage log
  * @copyright  2015 Pooya Saeedi
  * 
  */

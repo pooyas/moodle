@@ -3,8 +3,9 @@
 /**
  * Capabilities
  *
- * @package   report_performance
- * @copyright 2013 Rajesh Taneja
+ * @package   report
+ * @subpackage performance
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

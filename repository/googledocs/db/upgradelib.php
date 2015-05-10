@@ -3,7 +3,8 @@
 /**
  * Googledocs repository upgrade script.
  *
- * @package   repository_googledocs
+ * @package   repository
+ * @subpackage googledocs
  * @copyright 2015 Pooya Saeedi
  * 
  */

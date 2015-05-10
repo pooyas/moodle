@@ -3,8 +3,8 @@
 /**
  * This plugin is used to access alfresco repository
  *
- * @since Lion 2.0
- * @package    repository_alfresco
+ * @package    repository
+ * @subpackage alfresco
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +14,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
  * repository_alfresco class
  * This is a class used to browse files from alfresco
  *
- * @since      Lion 2.0
- * @package    repository_alfresco
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * 
  */
 class repository_alfresco extends repository {
     private $ticket = null;

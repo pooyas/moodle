@@ -3,11 +3,9 @@
 /**
  * A helper class to access dropbox resources
  *
- * @since Lion 2.0
- * @package    repository_dropbox
+ * @package    repository
+ * @subpackage dropbox
  * @copyright  2015 Pooya Saeedi
- * @copyright  2010 Dongsheng Cai
- * @author     2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +15,6 @@ require_once($CFG->libdir.'/oauthlib.php');
 /**
  * Authentication class to access Dropbox API
  *
- * @package    repository_dropbox
- * @copyright  2010 Dongsheng Cai
- * 
  */
 class dropbox extends oauth_helper {
     /** @var string dropbox access type, can be dropbox or sandbox */

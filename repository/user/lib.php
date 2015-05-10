@@ -4,8 +4,8 @@
 /**
  * This plugin is used to access user's private files
  *
- * @since Lion 2.0
- * @package    repository_user
+ * @package    repository
+ * @subpackage user
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +14,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * repository_user class is used to browse user private files
  *
- * @since     Lion 2.0
- * @package   repository_user
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class repository_user extends repository {
 

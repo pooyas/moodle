@@ -765,7 +765,7 @@ class core_backup_renderer extends plugin_renderer_base {
 /**
  * Data structure representing backup files viewer
  *
- * @copyright 2010 Dongsheng Cai
+ * @copyright 2015 Pooya Saeedi
  * 
  * @since     Lion 2.0
  */

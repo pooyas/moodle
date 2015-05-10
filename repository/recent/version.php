@@ -5,8 +5,7 @@
  *
  * @package    repository
  * @subpackage recent
- * @copyright  2010 Dongsheng Cai
- * @author     2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

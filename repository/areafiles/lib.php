@@ -3,7 +3,8 @@
 /**
  * Class repository_areafiles
  *
- * @package   repository_areafiles
+ * @package   repository
+ * @subpackage areafiles
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * Main class responsible for files listing in repostiory_areafiles
  *
- * @package   repository_areafiles
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class repository_areafiles extends repository {
     /**

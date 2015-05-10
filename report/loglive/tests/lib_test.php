@@ -3,7 +3,9 @@
 /**
  * Tests for report library functions.
  *
- * @package    report_loglive
+ * @package    report
+ * @subpackage loglive
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * .
  */
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class report_loglive_lib_testcase
  *
- * @package    report_loglive
- * @copyright  2015 Pooya Saeedi 
- * .
  */
 class report_loglive_lib_testcase extends advanced_testcase {
 

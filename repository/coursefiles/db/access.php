@@ -3,10 +3,9 @@
 /**
  * Plugin capabilities.
  *
- * @package    repository_coursefiles
- * @copyright  2010 Dongsheng Cai
- * @author     2015 Pooya Saeedi
- * 
+ * @package    repository
+ * @subpackage coursefiles
+ * @copyright  2015 Pooya Saeedi
  */
 
 defined('LION_INTERNAL') || die();

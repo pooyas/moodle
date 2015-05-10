@@ -3,8 +3,9 @@
 /**
  * Installation file for the Youtube repository.
  *
- * @package    repository_youtube
- * @category   repository
+ * @package    repository
+ * @subpackage youtube
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
