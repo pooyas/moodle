@@ -3,8 +3,9 @@
 /**
  * Unit tests for the quiz class.
  *
- * @package   mod_quiz
- * @copyright 2008 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,9 +19,7 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 /**
  * Unit tests for the quiz class
  *
- * @copyright  2008 The Open University
- * 
- */
+s */
 class mod_quiz_class_testcase extends basic_testcase {
     public function test_cannot_review_message() {
         $quiz = new stdClass();

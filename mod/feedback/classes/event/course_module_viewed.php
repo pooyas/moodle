@@ -3,7 +3,8 @@
 /**
  * The mod_feedback course module viewed event.
  *
- * @package    mod_feedback
+ * @package    mod
+ * @subpackage feedback
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int anonymous if feedback is anonymous.
  * }
  *
- * @package    mod_feedback
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_module_viewed extends \core\event\course_module_viewed {
 

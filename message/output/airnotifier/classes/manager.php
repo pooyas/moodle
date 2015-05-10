@@ -3,11 +3,11 @@
 /**
  * Airnotifier manager class
  *
- * @package    message_airnotifier
+ * @package    message
+ * @subpackage airnotifier
  * @category   external
  * @copyright  2015 Pooya Saeedi 
  * 
- * @since Lion 2.7
  */
 
 defined('LION_INTERNAL') || die;
@@ -15,8 +15,6 @@ defined('LION_INTERNAL') || die;
 /**
  * Airnotifier helper manager class
  *
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class message_airnotifier_manager {
 

@@ -4,7 +4,7 @@
  * Version information for the Web CT question import format.
  *
  * @package    qformat_webct
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

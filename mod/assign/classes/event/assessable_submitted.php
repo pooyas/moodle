@@ -3,7 +3,8 @@
 /**
  * The mod_assign assessable submitted event.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,9 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - bool submission_editable: is submission editable.
  * }
  *
- * @package    mod_assign
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class assessable_submitted extends base {

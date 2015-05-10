@@ -4,7 +4,8 @@
 /**
  * Strings for component 'folder', language 'en'
  *
- * @package   mod_folder
+ * @package    mod
+ * @subpackage folder
  * @copyright 2015 Pooya Saeedi
  * 
  */

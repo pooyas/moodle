@@ -4,7 +4,8 @@
 /**
  * Defines backup_folder_activity_task class
  *
- * @package   mod_folder
+ * @package    mod
+ * @subpackage folder
  * @category  backup
  * @copyright 2015 Pooya Saeedi
  * 

@@ -4,7 +4,8 @@
 /**
  * Submit an assignment or edit the already submitted work
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

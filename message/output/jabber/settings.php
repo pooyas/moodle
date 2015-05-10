@@ -3,7 +3,8 @@
 /**
  * Jabber configuration page
  *
- * @package    message_jabber
+ * @package   message
+ * @subpackage jabber
  * @copyright  2015 Pooya Saeedi
  * 
  */

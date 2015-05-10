@@ -4,7 +4,8 @@
 /**
  * View a single (usually the own) submission, submit own work.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

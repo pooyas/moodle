@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage truefalse
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Test helper class for the truefalse question type.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_truefalse_test_helper extends question_test_helper {

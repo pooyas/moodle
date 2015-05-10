@@ -3,8 +3,9 @@
 /**
  * This page prints a summary of a quiz attempt before it is submitted.
  *
- * @package   mod_quiz
- * @copyright 2009 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

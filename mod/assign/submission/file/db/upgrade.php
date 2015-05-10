@@ -3,8 +3,9 @@
 /**
  * Upgrade code for install
  *
- * @package   assignsubmission_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignsubmission
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

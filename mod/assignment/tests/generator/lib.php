@@ -3,7 +3,8 @@
 /**
  * mod_assignment data generator
  *
- * @package    mod_assignment
+ * @package    mod
+ * @subpackage assignment
  * @category   test
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Assignment module data generator class
  *
- * @package    mod_assignment
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class mod_assignment_generator extends testing_module_generator {
 

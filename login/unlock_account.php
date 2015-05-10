@@ -3,7 +3,8 @@
 /**
  * Reset locked-out accounts.
  *
- * @package    core_auth
+ * @package    core
+ * @subpackage auth
  * @copyright  2015 Pooya Saeedi 
  * 
  */

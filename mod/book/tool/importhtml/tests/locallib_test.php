@@ -3,7 +3,8 @@
 /**
  * booktool_importhtml tests.
  *
- * @package    booktool_importhtml
+ * @package    booktool
+ * @subpackage importhtml
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -17,10 +18,6 @@ require_once($CFG->dirroot.'/mod/book/tool/importhtml/locallib.php');
 /**
  * booktool_importhtml tests class.
  *
- * @package    booktool_importhtml
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class booktool_importhtml_locallib_testcase extends advanced_testcase {
 

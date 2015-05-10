@@ -4,9 +4,10 @@
 /**
  * This file is part of the Database module for Lion
  *
- * @copyright 2005 Martin Dougiamas  http://dougiamas.com
+ * @package mod
+ * @subpackage data
+ * @copyright 2015 Pooya Saeedi
  * 
- * @package mod_data
  */
 
 define('NO_LION_COOKIES', true); // session not used here

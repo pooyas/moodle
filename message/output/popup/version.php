@@ -3,8 +3,9 @@
 /**
  * Popup message processor version information
  *
- * @package   message_popup
- * @copyright 2008 Luis Rodrigues
+ * @package   message
+ * @subpackage popup
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Form for moving questions between categories.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_move_form extends lionform {

@@ -3,7 +3,9 @@
 /**
  * The module forums tests
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */

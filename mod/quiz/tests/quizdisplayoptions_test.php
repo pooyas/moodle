@@ -3,9 +3,10 @@
 /**
  * Unit tests for the mod_quiz_display_options class.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @category   phpunit
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +20,6 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 /**
  * Unit tests for {@link mod_quiz_display_options}.
  *
- * @copyright  2010 The Open University
  * 
  */
 class mod_quiz_display_options_testcase extends basic_testcase {

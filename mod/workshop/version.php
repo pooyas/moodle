@@ -3,7 +3,8 @@
 /**
  * Defines the version of workshop
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

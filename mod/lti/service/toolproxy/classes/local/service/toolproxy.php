@@ -3,9 +3,10 @@
 /**
  * This file contains a class definition for the Tool Proxy service
  *
- * @package    ltiservice_toolproxy
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    ltiservice
+ * @subpackage toolproxy
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 
@@ -17,10 +18,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A service implementing the Tool Proxy.
  *
- * @package    ltiservice_toolproxy
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 class toolproxy extends \mod_lti\local\ltiservice\service_base {
 

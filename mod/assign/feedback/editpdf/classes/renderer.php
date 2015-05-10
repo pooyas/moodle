@@ -3,7 +3,8 @@
 /**
  * This file contains the definition for the library class for edit PDF renderer.
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A custom renderer class that extends the plugin_renderer_base and is used by the editpdf feedback plugin.
  *
- * @package assignfeedback_editpdf
- * @copyright 2013 Davo Smith
- * 
  */
 class assignfeedback_editpdf_renderer extends plugin_renderer_base {
 

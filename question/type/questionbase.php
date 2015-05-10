@@ -23,7 +23,7 @@
  *
  * @package    core
  * @subpackage questiontypes
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -39,7 +39,7 @@ defined('LION_INTERNAL') || die();
  * more specific classes {@link question_with_responses},
  * {@link question_graded_automatically} or {@link question_information_item}.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_definition {
@@ -403,7 +403,7 @@ abstract class question_definition {
  * This class represents a 'question' that actually does not allow the student
  * to respond, like the description 'question' type.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_information_item extends question_definition {
@@ -436,7 +436,7 @@ class question_information_item extends question_definition {
  * Interface that a {@link question_definition} must implement to be usable by
  * the manual graded behaviour.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface question_manually_gradable {
@@ -486,7 +486,7 @@ interface question_manually_gradable {
  * This class is used in the return value from
  * {@link question_manually_gradable::classify_response()}.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_classified_response {
@@ -522,7 +522,7 @@ class question_classified_response {
  * Interface that a {@link question_definition} must implement to be usable by
  * the various automatic grading behaviours.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface question_automatically_gradable extends question_manually_gradable {
@@ -579,7 +579,7 @@ interface question_automatically_gradable extends question_manually_gradable {
  * Interface that a {@link question_definition} must implement to be usable by
  * the interactivecountback behaviour.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface question_automatically_gradable_with_countback extends question_automatically_gradable {
@@ -601,7 +601,7 @@ interface question_automatically_gradable_with_countback extends question_automa
  * This class represents a real question. That is, one that is not a
  * {@link question_information_item}.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_with_responses extends question_definition
@@ -615,7 +615,7 @@ abstract class question_with_responses extends question_definition
 /**
  * This class represents a question that can be graded automatically.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_graded_automatically extends question_with_responses
@@ -690,7 +690,7 @@ abstract class question_graded_automatically extends question_with_responses
  * This class represents a question that can be graded automatically with
  * countback grading in interactive mode.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_graded_automatically_with_countback
@@ -711,7 +711,7 @@ abstract class question_graded_automatically_with_countback
  * This class represents a question that can be graded automatically by using
  * a {@link question_grading_strategy}.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_graded_by_strategy extends question_graded_automatically {
@@ -782,7 +782,7 @@ abstract class question_graded_by_strategy extends question_graded_automatically
  * Class to represent a question answer, loaded from the question_answers table
  * in the database.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_answer {
@@ -826,7 +826,7 @@ class question_answer {
  * Class to represent a hint associated with a question.
  * Used by iteractive mode, etc. A question has an array of these.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_hint {
@@ -873,7 +873,7 @@ class question_hint {
  * choice with multile answers, where there are options for whether to show the
  * number of parts right at each stage, and to reset the wrong parts.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_hint_with_parts extends question_hint {
@@ -921,7 +921,7 @@ class question_hint_with_parts extends question_hint {
  * This question_grading_strategy interface. Used to share grading code between
  * questions that that subclass {@link question_graded_by_strategy}.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface question_grading_strategy {
@@ -946,7 +946,7 @@ interface question_grading_strategy {
  * implement if it is to be graded by the
  * {@link question_first_matching_answer_grading_strategy}.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface question_response_answer_comparer {
@@ -968,7 +968,7 @@ interface question_response_answer_comparer {
  * that matches the given response. It returns the first answer with fraction 1.0
  * when asked for the correct answer.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_first_matching_answer_grading_strategy implements question_grading_strategy {

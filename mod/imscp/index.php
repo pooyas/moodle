@@ -3,8 +3,9 @@
 /**
  * List of file imscps in course
  *
- * @package mod_imscp
- * @copyright  2009 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package mod
+ * @subpackage imscp
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

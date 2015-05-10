@@ -4,7 +4,8 @@
 /**
  * Generic forms used for page selection
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/
@@ -14,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Question selection form
  *
- * @copyright  2015 Pooya Saeedi
- * 
  **/
 class lesson_add_page_form_selection extends lesson_add_page_form_base {
 

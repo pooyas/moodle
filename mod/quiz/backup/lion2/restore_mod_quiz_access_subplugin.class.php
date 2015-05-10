@@ -3,8 +3,9 @@
 /**
  * Restore code for the quizaccess_honestycheck plugin.
  *
- * @package   mod_quiz
- * @copyright 2011 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * Base class for restoring up all the quiz settings and attempt data for an
  * access rule quiz sub-plugin.
  *
- * @copyright  2011 The Open University
- * 
  */
 class restore_mod_quiz_access_subplugin extends restore_subplugin {
 

@@ -3,7 +3,8 @@
 /**
  * A column type for the add this question to the quiz action.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @category  question
  * @copyright 2015 Pooya Saeedi
  * 
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A column type for the add this question to the quiz action.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class add_action_column extends \core_question\bank\action_column_base {
     /** @var string caches a lang string used repeatedly. */

@@ -3,8 +3,9 @@
 /**
  * This file contains the classes for the admin settings of the assign module.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->libdir . '/adminlib.php');
 /**
  * Admin external page that displays a list of the installed submission plugins.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_admin_page_manage_assign_plugins extends admin_externalpage {
 
@@ -72,9 +70,6 @@ class assign_admin_page_manage_assign_plugins extends admin_externalpage {
 /**
  * Class that handles the display and configuration of the list of submission plugins.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class assign_plugin_manager {
 

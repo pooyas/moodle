@@ -4,7 +4,8 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package    mod_choice
+ * @package    mod
+ * @subpackage choice
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage essay
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_question_test extends advanced_testcase {

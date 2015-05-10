@@ -3,7 +3,8 @@
 /**
  * mod_book data generator.
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_book data generator class.
  *
- * @package    mod_book
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_book_generator extends testing_module_generator {
 

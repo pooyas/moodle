@@ -3,7 +3,8 @@
 /**
  * Version information
  *
- * @package   mod_chat
+ * @package   mod
+ * @subpackage chat
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Book module log events definition
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @copyright  2015 Pooya Saeedi
  * 
  */

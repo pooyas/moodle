@@ -3,7 +3,8 @@
 /**
  * The mod_quiz report viewed event.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string reportname: the name of the report.
  * }
  *
- * @package    mod_quiz
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

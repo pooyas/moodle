@@ -3,8 +3,9 @@
 /**
  * External airnotifier functions unit tests
  *
- * @package    message_airnotifier
- * @category   external
+ * @package    message
+ * @subpackage airnotifier
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -18,10 +19,6 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 /**
  * External airnotifier functions unit tests
  *
- * @package    message_airnotifier
- * @category   external
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class message_airnotifier_external_testcase extends externallib_advanced_testcase {
 

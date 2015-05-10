@@ -3,9 +3,9 @@
 /**
  * This file contains an abstract definition of an LTI service
  *
- * @package    mod_lti
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,10 +24,6 @@ use lion\mod\lti as lti;
 /**
  * The mod_lti\local\ltiservice\service_base class.
  *
- * @package    mod_lti
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 abstract class service_base {
 

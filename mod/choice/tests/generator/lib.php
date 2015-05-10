@@ -3,9 +3,10 @@
 /**
  * mod_choice data generator.
  *
- * @package mod_choice
+ * @package mod
+ * @subpackage choice
  * @category test
- * @copyright 2013 Adrian Greeve <adrian@lion.com>
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_choice data generator class.
  *
- * @package mod_choice
- * @category test
- * @copyright 2013 Adrian Greeve <adrian@lion.com>
  * 
  */
 class mod_choice_generator extends testing_module_generator {

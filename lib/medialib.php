@@ -40,7 +40,7 @@ if (!defined('CORE_MEDIA_AUDIO_WIDTH')) {
 /**
  * Constants and static utility functions for use with core_media_renderer.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class core_media {
@@ -203,7 +203,7 @@ abstract class core_media {
  * function. The new player class should then of course be defined within the
  * custom theme or other suitable location, not in this file.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class core_media_player {
@@ -385,7 +385,7 @@ abstract class core_media_player {
  *
  * As opposed to media files.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class core_media_player_external extends core_media_player {
@@ -464,7 +464,7 @@ abstract class core_media_player_external extends core_media_player {
 /**
  * Player that embeds Vimeo links.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_vimeo extends core_media_player_external {
@@ -507,7 +507,7 @@ OET;
 /**
  * Player that creates YouTube embedding.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_youtube extends core_media_player_external {
@@ -613,7 +613,7 @@ OET;
 /**
  * Player that creates YouTube playlist embedding.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_youtube_playlist extends core_media_player_external {
@@ -665,7 +665,7 @@ OET;
 /**
  * MP3 player inserted using JavaScript.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_mp3 extends core_media_player {
@@ -707,7 +707,7 @@ class core_media_player_mp3 extends core_media_player {
 /**
  * Flash video player inserted using JavaScript.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_flv extends core_media_player {
@@ -751,7 +751,7 @@ class core_media_player_flv extends core_media_player {
 /**
  * Embeds Windows Media Player using object tag.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_wmp extends core_media_player {
@@ -827,7 +827,7 @@ OET;
 /**
  * Media player using object tag and QuickTime player.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_qt extends core_media_player {
@@ -895,7 +895,7 @@ OET;
  *
  * Hopefully nobody is using this obsolete format any more!
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_rm extends core_media_player {
@@ -954,7 +954,7 @@ OET;
  * Code should only set this option if it has verified that the data was
  * embedded by a trusted user (e.g. in trust text).
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_swf extends core_media_player {
@@ -1016,7 +1016,7 @@ OET;
 /**
  * Player that creates HTML5 <video> tag.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_html5video extends core_media_player {
@@ -1135,7 +1135,7 @@ OET;
 /**
  * Player that creates HTML5 <audio> tag.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_html5audio extends core_media_player {
@@ -1218,7 +1218,7 @@ OET;
  *
  * Always enabled, used as the last fallback.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class core_media_player_link extends core_media_player {

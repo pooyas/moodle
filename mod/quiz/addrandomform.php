@@ -3,8 +3,9 @@
 /**
  * Defines the Lion forum used to add random questions to the quiz.
  *
- * @package   mod_quiz
- * @copyright 2008 Olli Savolainen
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * The add random questions form.
  *
- * @copyright  1999 onwards Martin Dougiamas and others {@link http://lion.com}
- * 
  */
 class quiz_add_random_form extends lionform {
 

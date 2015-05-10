@@ -3,7 +3,8 @@
 /**
  * The mod_forum read tracking enabled event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int forumid: The id of the forum which readtracking has been enabled on.
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class readtracking_enabled extends \core\event\base {
     /**

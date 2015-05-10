@@ -2,8 +2,9 @@
 /**
  * Core Report class of graphs reporting plugin
  *
- * @package    scormreport_graphs
- * @copyright  2012 Ankit Kumar Agarwal
+ * @package    scormreport
+ * @subpackage graphs
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Main class to control the graphs reporting
  *
- * @package    scormreport_graphs
- * @copyright  2012 Ankit Kumar Agarwal
- * 
  */
 
 class report extends \mod_scorm\report {

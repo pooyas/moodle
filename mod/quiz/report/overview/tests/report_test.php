@@ -3,7 +3,9 @@
 /**
  * Tests for the quiz overview report.
  *
- * @package   quiz_overview
+ * @package   quiz
+ * @subpackage overview
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

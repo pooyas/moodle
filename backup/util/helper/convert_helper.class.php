@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage backup-convert
- * @copyright  2011 Mark Nielsen <mark@lionrooms.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

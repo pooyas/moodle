@@ -3,7 +3,8 @@
 /**
  * The mod_glossary entry created event.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - string concept: (optional) the concept of created entry.
  * }
  *
- * @package    mod_glossary
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class entry_created extends \core\event\base {
     /**

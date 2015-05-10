@@ -3,9 +3,9 @@
 /**
  * Upgrade code for popup message processor
  *
- * @package   message_popup
- * @copyright 2008 Luis Rodrigues
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package   message
+ * @subpackage popup
+ * @copyright 2015 Pooya Saeedi
  */
 
 /**

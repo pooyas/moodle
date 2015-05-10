@@ -2,8 +2,9 @@
 
 /**
  * Post-install script for the quiz responses report.
- * @package   quiz_responses
- * @copyright 2013 Tim Hunt
+ * @package   quiz
+ * @subpackage responses
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

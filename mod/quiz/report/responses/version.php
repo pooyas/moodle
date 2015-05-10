@@ -3,8 +3,9 @@
 /**
  * Quiz responses report version information.
  *
- * @package   quiz_responses
- * @copyright 2011 Tim Hunt
+ * @package   quiz
+ * @subpackage responses
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

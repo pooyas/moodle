@@ -5,9 +5,9 @@
  * Local library file for Lesson.  These are non-standard functions that are used
  * only by Lesson.
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright 2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  **/
 
 /** Make sure this isn't being directly accessed */

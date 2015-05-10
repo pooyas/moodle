@@ -4,7 +4,8 @@
 /**
  * Defines backup_forum_activity_task class
  *
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @category  backup
  * @copyright 2015 Pooya Saeedi
  * 

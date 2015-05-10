@@ -3,8 +3,9 @@
 /**
  * This file renders the quiz overview graph.
  *
- * @package   quiz_overview
- * @copyright 2008 Jamie Pratt
+ * @package   quiz
+ * @subpackage overview
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * The mod_wiki map viewed event.
  *
- * @package    mod_wiki
+ * @package    mod
+ * @subpackage wiki
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int option: map option viewed.
  * }
  *
- * @package    mod_wiki
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class page_map_viewed extends \core\event\base {
     /**

@@ -3,7 +3,8 @@
 /**
  * The mod_scorm report viewed event.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string mode: Mode of the report viewed.
  * }
  *
- * @package    mod_scorm
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_viewed extends \core\event\base {
 

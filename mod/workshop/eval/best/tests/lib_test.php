@@ -3,7 +3,8 @@
 /**
  * Unit tests for grading evaluation method "best"
  *
- * @package    workshopeval_best
+ * @package    workshopeval
+ * @subpackage best
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

@@ -3,9 +3,9 @@
 /**
  * Defines the renderer for the scorm module.
  *
- * @package mod_scorm
- * @copyright 2013 Dan Marsden
- * @author Dan Marsden <dan@danmarsden.com>
+ * @package mod
+ * @subpackage scorm
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The renderer for the scorm module.
  *
- * @copyright 2013 Dan Marsden
- * 
  */
 class mod_scorm_renderer extends plugin_renderer_base {
     public function view_user_heading($user, $course, $baseurl, $attempt, $attemptids) {
@@ -67,7 +65,7 @@ class mod_scorm_renderer extends plugin_renderer_base {
 /**
  * Component representing a SCORM attempts bar.
  *
- * @copyright 2013 Dan Marsden
+ * @copyright 2015 Pooya Saeedi
  * 
  * @package mod_scorm
  */

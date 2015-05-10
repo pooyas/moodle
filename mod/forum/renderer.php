@@ -4,7 +4,8 @@
 /**
  * This file contains a custom renderer class used by the forum module.
  *
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@
  * A custom renderer class that extends the plugin_renderer_base and
  * is used by the forum module.
  *
- * @package   mod_forum
- * @copyright 2015 Pooya Saeedi
- * 
  **/
 class mod_forum_renderer extends plugin_renderer_base {
 

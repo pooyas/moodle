@@ -4,7 +4,8 @@
 /**
  * This file defines an mform to assess a submission by comments grading strategy
  *
- * @package    workshopform_comments
+ * @package    workshopform
+ * @subpackage comments
  * @copyright  2015 Pooya Saeedi
  * 
  */

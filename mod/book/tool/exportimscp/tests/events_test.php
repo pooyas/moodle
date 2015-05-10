@@ -3,7 +3,8 @@
 /**
  * Events tests.
  *
- * @package    booktool_exportimscp
+ * @package    booktool
+ * @subpackage exportimscp
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -15,10 +16,6 @@ global $CFG;
 /**
  * Events tests class.
  *
- * @package    booktool_exportimscp
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class booktool_exportimscp_events_testcase extends advanced_testcase {
 

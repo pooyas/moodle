@@ -3,8 +3,9 @@
 /**
  * This file contains the upgrade code to upgrade from mod_assignment to mod_assign
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -24,9 +25,6 @@ define('ASSIGN_MAX_UPGRADE_TIME_SECS', 300);
 /**
  * Class to manage upgrades from mod_assignment to mod_assign
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_upgrade_manager {
 

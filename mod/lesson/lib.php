@@ -4,7 +4,8 @@
 /**
  * Standard library of functions and constants for lesson
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/
@@ -874,7 +875,8 @@ function lesson_get_import_export_formats($type) {
 /**
  * Serves the lesson attachments. Implements needed access control ;-)
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object

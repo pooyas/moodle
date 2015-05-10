@@ -16,7 +16,7 @@ require_once 'Zend/Soap/Server.php';
  * The Zend XMLRPC server but with a fault that returns debuginfo
  *
  * @package    webservice_soap
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.2
  */

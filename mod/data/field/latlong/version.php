@@ -3,7 +3,7 @@
 /**
  * @package    datafield
  * @subpackage latlong
- * @copyright  2006 Dan Stowell
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

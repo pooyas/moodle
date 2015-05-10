@@ -3,7 +3,8 @@
 /**
  * The assignsubmission_file assessable uploaded event.
  *
- * @package    assignsubmission_file
+ * @package    assignsubmission
+ * @subpackage file
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The assignsubmission_file assessable uploaded event class.
  *
- * @package    assignsubmission_file
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class assessable_uploaded extends \core\event\assessable_uploaded {
 

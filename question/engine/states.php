@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  *
  * There are also some useful methods for testing and manipulating states.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_state {
@@ -272,7 +272,7 @@ abstract class question_state {
 /**#@+
  * Specific question_state subclasses.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_state_notstarted extends question_state {

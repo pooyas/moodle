@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_wiki
- * @author     Jordi Piguillem
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

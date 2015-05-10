@@ -4,7 +4,7 @@
  * This file was replaced by index.php in Lion 2.0 and now simply redirects to index.php
  *
  * @package    core
- * @copyright  2005 Luis Rodrigues and Martin Dougiamas
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -7,7 +7,8 @@
  * This code fragment is called by lion_needs_upgrading() and
  * /admin/index.php
  *
- * @package    workshopform_comments
+ * @package    workshopform
+ * @subpackage comments
  * @copyright  2015 Pooya Saeedi
  * 
  */

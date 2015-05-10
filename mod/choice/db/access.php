@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_choice
- * @copyright  2006 Martin Dougiamas
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

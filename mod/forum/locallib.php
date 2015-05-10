@@ -9,7 +9,8 @@ require_once($CFG->dirroot . '/mod/forum/lib.php');
 require_once($CFG->libdir . '/portfolio/caller.php');
 
 /**
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright 2015 Pooya Saeedi
  * 
  */

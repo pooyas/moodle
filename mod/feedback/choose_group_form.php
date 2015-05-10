@@ -3,9 +3,9 @@
 /**
  * prints the form to choose the group you want to analyse
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 //This file can be deleted

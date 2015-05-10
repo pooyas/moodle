@@ -3,7 +3,8 @@
 /**
  * Definition of log events
  *
- * @package    mod_imscp
+ * @package    mod
+ * @subpackage imscp
  * @category   log
  * @copyright  2015 Pooya Saeedi
  * 

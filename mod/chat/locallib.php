@@ -8,7 +8,8 @@ require_once($CFG->dirroot . '/mod/chat/lib.php');
 require_once($CFG->libdir . '/portfolio/caller.php');
 
 /**
- * @package   mod_chat
+ * @package   mod
+ * @subpackage chat
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -141,9 +142,6 @@ class chat_portfolio_caller extends portfolio_module_caller_base {
 /**
  * A chat event such a user entering or leaving a chat activity
  *
- * @package    mod_chat
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class event_message implements renderable {
 
@@ -183,9 +181,6 @@ class event_message implements renderable {
 /**
  * A chat message from a user
  *
- * @package    mod_chat
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_message implements renderable {
 

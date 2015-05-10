@@ -3,8 +3,9 @@
 /**
  * Helper functions for the quiz reports.
  *
- * @package   mod_quiz
- * @copyright 2008 Jamie Pratt
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

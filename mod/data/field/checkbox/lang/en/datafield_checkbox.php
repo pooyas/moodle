@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'datafield_checkbox', language 'en', branch 'master'
+ * Strings for component 'datafield_checkbox', language 'en'
  *
  * @package    datafield
  * @subpackage checkbox

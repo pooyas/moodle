@@ -3,7 +3,8 @@
 /**
  * mod_workshop generator tests
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * Genarator tests class for mod_workshop.
  *
- * @package    mod_workshop
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_workshop_generator_testcase extends advanced_testcase {
 

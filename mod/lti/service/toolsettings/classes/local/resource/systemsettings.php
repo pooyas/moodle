@@ -3,9 +3,10 @@
 /**
  * This file contains a class definition for the System Settings resource
  *
- * @package    ltiservice_toolsettings
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    ltiservice
+ * @subpackage toolsettings
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 
@@ -19,10 +20,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A resource implementing the System-level (ToolProxy) Settings.
  *
- * @package    ltiservice_toolsettings
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 class systemsettings extends \mod_lti\local\ltiservice\resource_base {
 

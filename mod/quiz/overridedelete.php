@@ -3,8 +3,9 @@
 /**
  * This page handles deleting quiz overrides
  *
- * @package    mod_quiz
- * @copyright  2010 Matt Petro
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

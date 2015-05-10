@@ -3,9 +3,9 @@
 /**
  * Upgrade code for email message processor
  *
- * @package    message_email
- * @copyright  2008 Luis Rodrigues
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package   message
+ * @subpackage email
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**

@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'datafield_textarea', language 'en', branch 'master'
+ * Strings for component 'datafield_textarea', language 'en'
  *
  * @package    datafield
  * @subpackage textarea

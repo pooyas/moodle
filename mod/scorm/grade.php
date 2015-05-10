@@ -3,9 +3,10 @@
 /**
  * Redirect the user based on their capabilities to either a scorm activity or to scorm reports
  *
- * @package   mod_scorm
+ * @package   mod
+ * @subpackage scorm
  * @category  grade
- * @copyright 2010 onwards Dan Marsden
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

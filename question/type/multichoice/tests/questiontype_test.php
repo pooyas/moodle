@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/type/multichoice/edit_multichoice_form.p
 /**
  * Unit tests for the multiple choice question definition class.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_test extends advanced_testcase {

@@ -3,7 +3,8 @@
 /**
  * IMS CP module admin settings and defaults
  *
- * @package mod_imscp
+ * @package mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi  
  * 
  */

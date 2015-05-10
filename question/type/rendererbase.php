@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questiontypes
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Renderer base classes for question types.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qtype_renderer extends plugin_renderer_base {
@@ -227,7 +227,7 @@ abstract class qtype_renderer extends plugin_renderer_base {
 /**
  * Renderer base classes for question types.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qtype_with_combined_feedback_renderer extends qtype_renderer {

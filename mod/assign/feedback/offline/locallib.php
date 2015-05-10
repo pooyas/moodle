@@ -4,8 +4,9 @@
  * This file contains the definition for the library class for file feedback plugin
  *
  *
- * @package   assignfeedback_offline
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage offline
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->dirroot.'/grade/grading/lib.php');
 /**
  * library class for file feedback plugin extending feedback plugin base class
  *
- * @package   assignfeedback_offline
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_feedback_offline extends assign_feedback_plugin {
 

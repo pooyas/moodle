@@ -3,7 +3,8 @@
 /**
  * Book IMSCP export plugin version info
  *
- * @package    booktool_exportimscp
+ * @package    booktool
+ * @subpackage exportimscp
  * @copyright  2015 Pooya Saeedi 
  * 
  */

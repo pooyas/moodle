@@ -4,8 +4,9 @@
  * The file defines a base class that can be used to build a report like the
  * overview or responses report, that has one row per attempt.
  *
- * @package   mod_quiz
- * @copyright 2010 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +19,6 @@ require_once($CFG->libdir.'/tablelib.php');
 /**
  * Base class for quiz reports that are basically a table with one row for each attempt.
  *
- * @copyright 2010 The Open University
- * 
  */
 abstract class quiz_attempts_report extends quiz_default_report {
     /** @var int default page size for reports. */

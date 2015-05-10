@@ -6,7 +6,7 @@
  *
  * @package    qbehaviour
  * @subpackage interactive
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Interactive behaviour renderer.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_interactive_renderer extends qbehaviour_renderer {

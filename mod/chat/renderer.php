@@ -3,7 +3,8 @@
 /**
  * Chat module rendering methods
  *
- * @package    mod_chat
+ * @package    mod
+ * @subpackage chat
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Chat module renderer class
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mod_chat_renderer extends plugin_renderer_base {
 

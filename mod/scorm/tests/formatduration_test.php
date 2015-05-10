@@ -2,12 +2,13 @@
 
 defined('LION_INTERNAL') || die;
 
-/*
+/**
  * Unit tests for scorm_formatduration function from locallib.php
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @category   phpunit
- * @copyright  2009 Dan Marsden
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,9 +3,10 @@
 /**
  * Defines backup_chat_activity_task class
  *
- * @package     mod_chat
+ * @package     mod
+ * @subpackage  chat
  * @category    backup
- * @copyright   2010 onwards Dongsheng Cai <dongsheng@lion.com>
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

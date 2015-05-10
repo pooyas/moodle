@@ -3,8 +3,9 @@
 /**
  * Strings for component 'feedback_offline', language 'en'
  *
- * @package   assignfeedback_offline
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage offline
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

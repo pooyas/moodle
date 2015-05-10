@@ -4,7 +4,8 @@
 /**
  * Strings for component 'survey', language 'en'
  *
- * @package   mod_survey
+ * @package   mod
+ * @subpackage survey
  * @copyright 2015 Pooya Saeedi
  * 
  */

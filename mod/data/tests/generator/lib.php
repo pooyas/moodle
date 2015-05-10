@@ -3,7 +3,8 @@
 /**
  * mod_data data generator
  *
- * @package    mod_data
+ * @package    mod
+ * @subpackage data
  * @category   test
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Database module data generator class
  *
- * @package    mod_data
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class mod_data_generator extends testing_module_generator {
 

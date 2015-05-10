@@ -3,8 +3,9 @@
 /**
  * This file contains the definition for the grading table which subclassses easy_table
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->dirroot.'/mod/assign/locallib.php');
 /**
  * Extends table_sql to provide a table of assignment submissions
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_grading_table extends table_sql implements renderable {
     /** @var assign $assignment */

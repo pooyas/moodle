@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedmulti
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/question/type/multichoice/renderer.php');
 /**
  * Generates the output for calculated multiple-choice questions.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedmulti_renderer extends qtype_numerical_renderer {

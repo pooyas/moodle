@@ -3,8 +3,9 @@
 /**
  * This file contains the definition for the library class for online comment submission plugin
  *
- * @package assignsubmission_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package    assignsubmission
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -16,9 +17,6 @@
 /**
  * Library class for comment submission plugin extending submission plugin base class
  *
- * @package assignsubmission_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_submission_comments extends assign_submission_plugin {
 

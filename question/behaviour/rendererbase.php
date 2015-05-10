@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbehaviours
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  * The methods in this class are mostly called from {@link core_question_renderer}
  * which coordinates the overall output of questions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qbehaviour_renderer extends plugin_renderer_base {

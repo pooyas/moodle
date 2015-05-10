@@ -4,7 +4,8 @@
  * This page prints a review of a particular question attempt.
  * This page is expected to only be used in a popup window.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

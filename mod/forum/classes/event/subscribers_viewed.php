@@ -3,7 +3,8 @@
 /**
  * The mod_forum subscribers list viewed event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int forumid: The id of the forum which the subscriberslist has been viewed.
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class subscribers_viewed extends \core\event\base {
 

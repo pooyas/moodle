@@ -3,8 +3,9 @@
 /**
  * This file defines the admin settings for this plugin
  *
- * @package   assignsubmission_onlinetext
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignsubmission
+ * @subpackage onlinetext
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

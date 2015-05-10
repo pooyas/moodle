@@ -3,7 +3,8 @@
 /**
  * The mod_lti instance list viewed event.
  *
- * @package    mod_lti
+ * @package    mod
+ * @subpackage lti
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_lti instance list viewed event class.
  *
- * @package    mod_lti
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 
 class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {

@@ -3,9 +3,8 @@
 /**
  * Book IMSCP export plugin
  *
- * @package    booktool_exportimscp
- * @copyright  2001-3001 Antonio Vicent          {@link http://ludens.es}
- * @copyright  2001-3001 Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    booktool
+ * @subpackage exportimscp
  * @copyright  2015 Pooya Saeedi                   
  * 
  */

@@ -4,7 +4,8 @@
 /**
  * Defines backup_label_activity_task class
  *
- * @package     mod_label
+ * @package     mod
+ * @subpackage label
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

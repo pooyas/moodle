@@ -3,10 +3,10 @@
 /**
  * mod_lti data generator
  *
- * @package    mod_lti
+ * @package    mod
+ * @subpackage lti
  * @category   test
- * @copyright  Copyright (c) 2012 Lionrooms Inc. (http://www.lionrooms.com)
- * @author     Mark Nielsen
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * LTI module data generator class
  *
- * @package    mod_lti
- * @category   test
- * @copyright  Copyright (c) 2012 Lionrooms Inc. (http://www.lionrooms.com)
- * @author     Mark Nielsen
  * 
  */
 class mod_lti_generator extends testing_module_generator {

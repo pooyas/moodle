@@ -3,8 +3,9 @@
 /**
  * Events tests.
  *
- * @package    assignsubmission_comments
- * @category   test
+ * @package    assignsubmission
+ * @subpackage comments
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,10 +20,6 @@ require_once($CFG->dirroot . '/mod/assign/tests/base_test.php');
 /**
  * Events tests class.
  *
- * @package    assignsubmission_comments
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class assignsubmission_comments_events_testcase extends mod_assign_base_testcase {
 

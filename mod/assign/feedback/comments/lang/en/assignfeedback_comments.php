@@ -3,8 +3,9 @@
 /**
  * Strings for component 'assignfeedback_comments', language 'en'
  *
- * @package   assignfeedback_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

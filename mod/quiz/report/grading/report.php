@@ -3,8 +3,9 @@
 /**
  * This file defines the quiz manual grading report class.
  *
- * @package   quiz_grading
- * @copyright 2006 Gustav Delius
+ * @package   quiz
+ * @subpackage grading
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,8 +22,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/grading/gradingsettings_form.php'
  * - List question that might need manual grading (or optionally all questions).
  * - Provide an efficient UI to grade all attempts at a particular question.
  *
- * @copyright 2006 Gustav Delius
- * 
  */
 class quiz_grading_report extends quiz_default_report {
     const DEFAULT_PAGE_SIZE = 5;

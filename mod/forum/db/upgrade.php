@@ -22,7 +22,8 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright 2015 Pooya Saeedi
  * 
  */

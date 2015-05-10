@@ -16,7 +16,7 @@
  *              For private files, this is ignored.
  *
  * @package    core_webservice
- * @copyright  2011 Dongsheng Cai <dongsheng@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

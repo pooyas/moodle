@@ -4,7 +4,8 @@
 /**
  * This file defines a class with rubric grading strategy logic
  *
- * @package    workshopform_rubric
+ * @package    workshopform
+ * @subpackage rubric
  * @copyright  2015 Pooya Saeedi
  * 
  */

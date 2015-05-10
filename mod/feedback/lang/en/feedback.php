@@ -3,7 +3,8 @@
 /**
  * Strings for component 'feedback', language 'en'
  *
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
  * @copyright 2015 Pooya Saeedi
  * 
  */

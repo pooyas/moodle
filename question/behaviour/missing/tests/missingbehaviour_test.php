@@ -5,7 +5,7 @@
  *
  * @package    qbehaviour
  * @subpackage missing
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once(dirname(__FILE__) . '/../behaviour.php');
 /**
  * Unit tests for the 'missing' behaviour.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_missing_test extends advanced_testcase {

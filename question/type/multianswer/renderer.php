@@ -94,7 +94,7 @@ class qtype_multianswer_renderer extends qtype_renderer {
  * Subclass for generating the bits of output specific to shortanswer
  * subquestions.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
@@ -157,7 +157,7 @@ abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
  * Subclass for generating the bits of output specific to shortanswer
  * subquestions.
  *
- * @copyright 2011 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_multianswer_textfield_renderer extends qtype_multianswer_subq_renderer_base {
@@ -238,7 +238,7 @@ class qtype_multianswer_textfield_renderer extends qtype_multianswer_subq_render
 /**
  * Render an embedded multiple-choice question that is displayed as a select menu.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multianswer_multichoice_inline_renderer

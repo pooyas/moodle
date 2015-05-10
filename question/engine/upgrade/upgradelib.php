@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -23,7 +23,7 @@ require_once($CFG->dirroot . '/question/engine/upgrade/behaviourconverters.php')
  * This class manages upgrading all the question attempts from the old database
  * structure to the new question engine.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_engine_attempt_upgrader {
@@ -256,7 +256,7 @@ class question_engine_attempt_upgrader {
  * This class deals with loading (and caching) question definitions during the
  * question engine upgrade.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_engine_upgrade_question_loader {
@@ -351,7 +351,7 @@ class question_engine_upgrade_question_loader {
  * Base class for the classes that convert the question-type specific bits of
  * the attempt data.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_qtype_attempt_updater {

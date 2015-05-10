@@ -3,7 +3,8 @@
 /**
  * Classes to enforce the various access rules that can apply to a quiz.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -16,9 +17,6 @@ defined('LION_INTERNAL') || die();
  * This class keeps track of the various access rules that apply to a particular
  * quiz, with convinient methods for seeing whether access is allowed.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.2
  */
 class quiz_access_manager {
     /** @var quiz the quiz settings object. */

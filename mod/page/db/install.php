@@ -9,7 +9,8 @@
  *  - lib.php/modulename_install() post installation hook
  *  - partially defaults.php
  *
- * @package mod_page
+ * @package mod
+ * @subpackage page
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'datafield_latlong', language 'en', branch 'master'
+ * Strings for component 'datafield_latlong', language 'en'
  *
  * @package    datafield
  * @subpackage latlong

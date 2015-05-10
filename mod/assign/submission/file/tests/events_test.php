@@ -3,7 +3,8 @@
 /**
  * Contains the event tests for the plugin.
  *
- * @package   assignsubmission_file
+ * @package   assignsubmission
+ * @subpackage file
  * @copyright 2015 Pooya Saeedi
  * 
  */

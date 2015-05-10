@@ -3,7 +3,8 @@
 /**
  * Capability definitions for the imscp module.
  *
- * @package    mod_imscp
+ * @package    mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi  
  * 
  */

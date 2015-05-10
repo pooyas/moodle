@@ -22,7 +22,7 @@ require_once($CFG->dirroot . '/grade/report/user/externallib.php');
  *
  * @package    gradereport_user
  * @category   external
- * @copyright  2015 Juan Leyva <juan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class gradereport_user_externallib_testcase extends externallib_advanced_testcase {

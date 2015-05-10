@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_feedback
- * @copyright  Andreas Grabs
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

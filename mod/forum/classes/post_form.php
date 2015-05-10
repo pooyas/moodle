@@ -4,8 +4,9 @@
 /**
  * File containing the form definition to post in the forum.
  *
- * @package   mod_forum
- * @copyright Jamie Pratt <me@jamiep.org>
+ * @package    mod
+ * @subpackage forum
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,9 @@ require_once($CFG->dirroot . '/repository/lib.php');
 /**
  * Class to post in a forum.
  *
- * @package   mod_forum
- * @copyright Jamie Pratt <me@jamiep.org>
+ * @package    mod
+ * @subpackage forum
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_forum_post_form extends lionform {

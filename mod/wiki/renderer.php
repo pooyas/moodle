@@ -4,7 +4,8 @@
 /**
  * Lion Wiki 2.0 Renderer
  *
- * @package   mod_wiki
+ * @package   mod
+ * @subpackage wiki
  * @copyright 2015 Pooya Saeedi
  * 
  */

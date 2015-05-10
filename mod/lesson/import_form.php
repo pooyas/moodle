@@ -4,7 +4,8 @@
 /**
  * Form used to select a file and file format for the import
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/
@@ -13,7 +14,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * Form used to select a file and file format for the import
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class lesson_import_form extends lionform {

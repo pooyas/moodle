@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package    mod_scorm
- * @subpackage backup-lion2
+ * @package    mod
+ * @subpackage scorm
+ * @category backup-lion2
  * @copyright  2015 Pooya Saeedi
  * 
  */

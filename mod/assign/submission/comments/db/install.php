@@ -3,8 +3,9 @@
 /**
  * Post-install code for the submission_comments module.
  *
- * @package assignsubmission_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package    assignsubmission
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

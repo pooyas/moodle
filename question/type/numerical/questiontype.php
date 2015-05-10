@@ -475,7 +475,7 @@ class qtype_numerical extends question_type {
 /**
  * This class processes numbers with units.
  *
- * @copyright 2010 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_numerical_answer_processor {

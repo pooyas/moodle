@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedsimple
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/calculated/tests/helper.php');
 /**
  * Test helper class for the simple calculated question type.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedsimple_test_helper extends question_test_helper {

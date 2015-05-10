@@ -3,8 +3,9 @@
 /**
  * This file defines the quiz responses report class.
  *
- * @package   quiz_responses
- * @copyright 2006 Jean-Michel Vedrine
+ * @package   quiz
+ * @subpackage responses
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -29,7 +30,7 @@ require_once($CFG->dirroot . '/mod/quiz/report/responses/first_or_all_responses_
  * Like the overview report, there are options for showing students with/without
  * attempts, and for deleting selected attempts.
  *
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class quiz_responses_report extends quiz_attempts_report {

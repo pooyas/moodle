@@ -3,9 +3,9 @@
 /**
  * This file contains an abstract definition of an LTI resource
  *
- * @package    mod_lti
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +20,6 @@ require_once($CFG->dirroot . '/mod/lti/locallib.php');
 /**
  * The mod_lti\local\ltiservice\resource_base class.
  *
- * @package    mod_lti
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 abstract class resource_base {
 

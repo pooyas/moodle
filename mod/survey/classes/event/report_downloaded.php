@@ -3,7 +3,8 @@
 /**
  * The mod_survey report downloaded event.
  *
- * @package    mod_survey
+ * @package    mod
+ * @subpackage survey
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int groupid: (optional) report for groupid.
  * }
  *
- * @package    mod_survey
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class report_downloaded extends \core\event\base {
 

@@ -3,8 +3,9 @@
 /**
  * Install code for the feedback_editpdf module.
  *
- * @package   assignfeedback_editpdf
- * @copyright 2013 Jerome Mouneyrac
+ * @package   assignfeedback
+ * @subpackage editpdf
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

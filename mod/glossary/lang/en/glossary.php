@@ -4,7 +4,8 @@
 /**
  * Strings for component 'glossary', language 'en'
  *
- * @package mod_glossary
+ * @package mod
+ * @subpackage glossary
  * @copyright 2015 Pooya Saeedi
  * 
  */

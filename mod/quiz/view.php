@@ -4,7 +4,8 @@
  * This page is the entry page into the quiz UI. Displays information about the
  * quiz to students and teachers, and lets students see their previous attempts.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

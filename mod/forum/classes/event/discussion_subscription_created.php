@@ -3,7 +3,8 @@
 /**
  * The mod_forum discussion_subscription created event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int discussion: The id of the discussion which has been subscribed to.
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.8
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class discussion_subscription_created extends \core\event\base {
     /**

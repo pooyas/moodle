@@ -3,7 +3,8 @@
 /**
  * The mod_lesson lesson ended event.
  *
- * @package    mod_lesson
+ * @package    mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * .
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_lesson lesson ended event class.
  *
- * @package    mod_lesson
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * .
  */
 
 class lesson_ended extends \core\event\base {

@@ -4,7 +4,8 @@
 /**
  * Provides the interface for overall authoring of lessons
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/

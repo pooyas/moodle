@@ -3,9 +3,10 @@
 /**
  * PHPUnit label generator tests
  *
- * @package    mod_label
+ * @package    mod
+ * @subpackage label
  * @category   phpunit
- * @copyright  2013 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * PHPUnit label generator testcase
  *
- * @package    mod_label
- * @category   phpunit
- * @copyright  2013 Jerome Mouneyrac
- * 
  */
 class mod_label_generator_testcase extends advanced_testcase {
     public function test_generator() {

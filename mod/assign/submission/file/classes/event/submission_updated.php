@@ -3,7 +3,8 @@
 /**
  * The assignsubmission_file submission_updated event.
  *
- * @package    assignsubmission_file
+ * @package    assignsubmission
+ * @subpackage file
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int filesubmissioncount: The number of files uploaded.
  * }
  *
- * @package    assignsubmission_file
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class submission_updated extends \mod_assign\event\submission_updated {
 

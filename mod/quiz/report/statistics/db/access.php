@@ -3,8 +3,9 @@
 /**
  * Capability definitions for the quiz statistics report.
  *
- * @package   quiz_statistics
- * @copyright 2008 Jamie Pratt
+ * @package   quiz
+ * @subpackage statistics
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -3,9 +3,9 @@
 /**
  * Sets up the tabs used by the scorm pages based on the users capabilities.
  *
- * @author Dan Marsden and others.
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_scorm
+ * @package mod
+ * @subpackage scorm
+ * @copyright 2015 Pooya Saeedi
  */
 
 if (empty($scorm)) {

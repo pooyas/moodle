@@ -6,7 +6,7 @@
  *
  * @package    workshopeval
  * @subpackage best
- * @copyright  2009 David Mudrak <david@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

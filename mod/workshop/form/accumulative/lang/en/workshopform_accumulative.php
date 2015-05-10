@@ -4,8 +4,9 @@
 /**
  * Strings for component 'workshopform_accumulative', language 'en'
  *
- * @package    workshopform_accumulative
- * @copyright  2009 David Mudrak <david@lion.com>
+ * @package    workshopform
+ * @subpackage accumulative
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

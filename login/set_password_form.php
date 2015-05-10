@@ -20,7 +20,6 @@ require_once($CFG->dirroot.'/user/lib.php');
  * @package    core
  * @subpackage auth
  * @copyright  2015 Pooya Saeedi 
- * @copyright  2013 Peter Bulmer
  * 
  */
 class login_set_password_form extends lionform {

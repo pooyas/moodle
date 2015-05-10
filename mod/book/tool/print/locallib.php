@@ -3,7 +3,8 @@
 /**
  * Book print lib
  *
- * @package    booktool_print
+ * @package    booktool
+ * @subpackage print
  * @copyright  2015 Pooya Saeedi 
  * 
  */

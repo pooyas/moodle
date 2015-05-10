@@ -4,7 +4,8 @@
 /**
  * Definition of log events
  *
- * @package    mod_folder
+ * @package    mod
+ * @subpackage folder
  * @category   log
  * @copyright  2015 Pooya Saeedi
  * 

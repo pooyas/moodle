@@ -4,7 +4,8 @@
 /**
  * This file defines a class with accumulative grading strategy logic
  *
- * @package    workshopform_accumulative
+ * @package    workshopform
+ * @subpackage accumulative
  * @copyright  2015 Pooya Saeedi
  * 
  */

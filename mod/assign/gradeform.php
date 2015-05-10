@@ -3,8 +3,9 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -18,9 +19,6 @@ require_once('HTML/QuickForm/input.php');
 /**
  * Assignment grade form
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class mod_assign_grade_form extends lionform {
     /** @var assignment $assignment */

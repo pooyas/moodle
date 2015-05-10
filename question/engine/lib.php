@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -36,7 +36,7 @@ require_once($CFG->libdir . '/questionlib.php');
  * creating, loading, saving and deleting {@link question_usage_by_activity}s,
  * which is the main class that is used by other code that wants to use questions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_engine {
@@ -432,7 +432,7 @@ abstract class question_engine {
  * be shown read-only, and a question that has not been submitted will not have
  * any sort of feedback displayed.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_display_options {
@@ -610,7 +610,7 @@ class question_display_options {
 /**
  * Contains the logic for handling question flags.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_flags {
@@ -712,7 +712,7 @@ abstract class question_flags {
  * out-of-order to a question. This can happen, for example, if they click
  * the browser's back button in a quiz, then try to submit a different response.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_out_of_sequence_exception extends lion_exception {
@@ -729,7 +729,7 @@ class question_out_of_sequence_exception extends lion_exception {
 /**
  * Useful functions for writing question types and behaviours.
  *
- * @copyright 2010 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 abstract class question_utils {
@@ -898,7 +898,7 @@ abstract class question_utils {
 /**
  * The interface for strategies for controlling which variant of each question is used.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface question_variant_selection_strategy {
@@ -915,7 +915,7 @@ interface question_variant_selection_strategy {
 /**
  * A {@link question_variant_selection_strategy} that is completely random.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_variant_random_strategy implements question_variant_selection_strategy {
@@ -931,7 +931,7 @@ class question_variant_random_strategy implements question_variant_selection_str
  * variants so that the students will not get a repeated variant until they have
  * seen them all.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_variant_pseudorandom_no_repeats_strategy

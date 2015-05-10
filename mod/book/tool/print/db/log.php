@@ -3,8 +3,9 @@
 /**
  * Print booktool log events definition
  *
- * @package    booktool_print
- * @copyright  2012 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    booktool
+ * @subpackage print
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

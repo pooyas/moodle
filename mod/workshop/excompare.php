@@ -3,7 +3,8 @@
 /**
  * Display example submission followed by its reference assessment and the user's assessment to compare them
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

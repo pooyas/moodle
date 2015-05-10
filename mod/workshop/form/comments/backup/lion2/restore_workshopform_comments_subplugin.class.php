@@ -2,8 +2,9 @@
 
 
 /**
- * @package    workshopform_comments
- * @copyright  2010 onwards David Mudrak <david@lion.com>
+ * @package    workshopform
+ * @subpackage comments
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

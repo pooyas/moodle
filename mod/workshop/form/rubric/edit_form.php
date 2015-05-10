@@ -4,7 +4,8 @@
 /**
  * This file defines an mform to edit rubric grading strategy forms.
  *
- * @package    workshopform_rubric
+ * @package    workshopform
+ * @subpackage rubric
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * mod_workshop fixtures
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

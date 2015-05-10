@@ -3,7 +3,8 @@
 /**
  * booktool_print chapter printed event.
  *
- * @package    booktool_print
+ * @package    booktool
+ * @subpackage print
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * booktool_print chapter printed event class.
  *
- * @package    booktool_print
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class chapter_printed extends \core\event\base {
     /**

@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage numerical
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/type/numerical/tests/helper.php');
 /**
  * Unit tests for the numerical question type.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_numerical_walkthrough_test extends qbehaviour_walkthrough_test_base {

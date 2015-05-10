@@ -6,7 +6,8 @@
  *
  * The values defined here are often used as defaults for all module instances.
  *
- * @package    workshopform_numerrors
+ * @package    workshopform
+ * @subpackage numerrors
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,9 +3,9 @@
 /**
  * prints the forms to choose an item-typ to create items and to choose a template to use
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 //It must be included from a Lion page

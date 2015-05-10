@@ -3,7 +3,8 @@
 /**
  * The mod_wiki comment deleted event.
  *
- * @package    mod_wiki
+ * @package    mod
+ * @subpackage wiki
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_wiki comment deleted event class.
  *
- * @package    mod_wiki
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class comment_deleted extends \core\event\comment_deleted {
 

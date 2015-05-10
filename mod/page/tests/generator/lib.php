@@ -3,7 +3,8 @@
 /**
  * mod_page data generator
  *
- * @package    mod_page
+ * @package    mod
+ * @subpackage page
  * @category   test
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Page module data generator class
  *
- * @package    mod_page
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class mod_page_generator extends testing_module_generator {
 

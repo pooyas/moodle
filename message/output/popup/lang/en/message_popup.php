@@ -3,7 +3,8 @@
 /**
  * Strings for component 'message_popup', language 'en'
  *
- * @package   message_popup
+ * @package   message
+ * @subpackage popup
  * @copyright 2015 Pooya Saeedi
  * 
  */

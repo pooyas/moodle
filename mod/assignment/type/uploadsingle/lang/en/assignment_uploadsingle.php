@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'assignment_uploadsingle', language 'en', branch 'master'
+ * Strings for component 'assignment_uploadsingle', language 'en'
  *
- * @package    assignment_uploadsingle
+ * @package    assignment
+ * @subpackage uploadsingle
  * @copyright  2015 Pooya Saeedi
  * 
  */

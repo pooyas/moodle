@@ -6,7 +6,8 @@
  * It is used either by the student whose attempts this is, after the attempt,
  * or by a teacher reviewing another's attempt during or afterwards.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

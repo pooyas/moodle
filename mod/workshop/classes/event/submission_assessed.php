@@ -3,8 +3,9 @@
 /**
  * The mod_workshop submission assessed event.
  *
- * @package    mod_workshop
- * @copyright  2013 Adrian Greeve
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int workshopid: (optional) Workshop ID.
  * }
  *
- * @package    mod_workshop
- * @since      Lion 2.7
- * @copyright  2013 Adrian Greeve
- * 
  */
 class submission_assessed extends \core\event\base {
 

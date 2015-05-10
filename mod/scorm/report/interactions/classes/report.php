@@ -1,9 +1,10 @@
 <?php
 /**
  * Core Report class of basic reporting plugin
+
  * @package   scormreport
  * @subpackage interactions
- * @author    Dan Marsden and Ankit Kumar Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -16,7 +16,7 @@ require_once 'Zend/XmlRpc/Server.php';
  * The Zend XMLRPC server but with a fault that return debuginfo
  *
  * @package    webservice_xmlrpc
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.2
  */

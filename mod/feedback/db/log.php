@@ -3,7 +3,8 @@
 /**
  * Definition of log events
  *
- * @package    mod_feedback
+ * @package    mod
+ * @subpackage feedback
  * @category   log
  * @copyright  2015 Pooya Saeedi
  * 

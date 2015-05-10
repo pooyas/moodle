@@ -3,7 +3,8 @@
 /**
  * Strings for component 'message_email', language 'en'
  *
- * @package    message_email
+ * @package   message
+ * @subpackage email
  * @copyright  2015 Pooya Saeedi
  * 
  */

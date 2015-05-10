@@ -3,8 +3,9 @@
 /**
  * Event observers for workshopallocation_scheduled.
  *
- * @package workshopallocation_scheduled
- * @copyright 2013 Adrian Greeve <adrian@lion.com>
+ * @package workshopallocation
+ * @subpackage scheduled
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Class for workshopallocation_scheduled observers.
  *
- * @package workshopallocation_scheduled
- * @copyright 2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class observer {
 

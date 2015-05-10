@@ -4,8 +4,9 @@
 /**
  * Add label form
  *
- * @package mod_label
- * @copyright  2006 Jamie Pratt
+ * @package mod
+ * @subpackage label
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

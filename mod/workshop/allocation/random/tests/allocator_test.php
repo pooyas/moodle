@@ -3,7 +3,8 @@
 /**
  * Unit tests for Random allocation
  *
- * @package    workshopallocation_random
+ * @package    workshopallocation
+ * @subpackage random
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

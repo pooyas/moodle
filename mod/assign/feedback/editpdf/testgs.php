@@ -3,8 +3,9 @@
 /**
  * Test that ghostscript is configured correctly
  *
- * @package   assignfeedback_editpdf
- * @copyright 2013 Davo Smith
+ * @package   assignfeedback
+ * @subpackage editpdf
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

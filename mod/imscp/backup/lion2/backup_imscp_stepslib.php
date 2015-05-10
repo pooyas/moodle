@@ -3,7 +3,8 @@
 /**
  * Define all the backup steps that will be used by the backup_imscp_activity_task
  *
- * @package mod_imscp
+ * @package mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Define the complete imscp structure for backup, with file and id annotations
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class backup_imscp_activity_structure_step extends backup_activity_structure_step {
 

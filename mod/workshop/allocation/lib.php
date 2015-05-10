@@ -4,7 +4,8 @@
 /**
  * Code for the submissions allocation support is defined here
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

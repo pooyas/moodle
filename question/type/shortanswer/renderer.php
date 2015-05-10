@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage shortanswer
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Generates the output for short answer questions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_shortanswer_renderer extends qtype_renderer {

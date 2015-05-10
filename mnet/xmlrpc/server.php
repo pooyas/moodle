@@ -2,10 +2,8 @@
 /**
  * An XML-RPC server
  *
- * @author  Donal McMullan  donal@catalyst.net.nz
- * @version 0.0.1
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  * @package mnet
+ * @copyright 2015 Pooya Saeedi
  */
 
 // Make certain that config.php doesn't display any errors, and that it doesn't

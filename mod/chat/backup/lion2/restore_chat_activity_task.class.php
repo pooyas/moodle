@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @package    mod_chat
+ * @package    mod
+ * @subpackage chat
  * @subpackage backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 

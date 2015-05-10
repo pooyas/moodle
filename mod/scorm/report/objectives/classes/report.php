@@ -1,9 +1,9 @@
 <?php
 /**
  * Core Report class of objectives SCORM report plugin
- * @package   scormreport_objectives
- * @author    Dan Marsden <dan@danmarsden.com>
- * @copyright 2013 Dan Marsden
+ * @package   scormreport
+ * @subpackage objectives
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +16,6 @@ require_once($CFG->dirroot.'/mod/scorm/report/objectives/responsessettings_form.
 /**
  * Objectives report class
  *
- * @copyright  2013 Dan Marsden
- * 
  */
 class report extends \mod_scorm\report {
     /**

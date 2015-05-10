@@ -4,7 +4,8 @@
 /**
  * Defines backup_survey_activity_task class
  *
- * @package     mod_survey
+ * @package     mod
+ * @subpackage survey
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

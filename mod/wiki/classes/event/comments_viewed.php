@@ -3,7 +3,8 @@
 /**
  * The mod_wiki comments viewed event.
  *
- * @package    mod_wiki
+ * @package    mod
+ * @subpackage wiki
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_wiki comments viewed event class.
  *
- * @package    mod_wiki
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class comments_viewed extends \core\event\comments_viewed {
 

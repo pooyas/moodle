@@ -3,7 +3,8 @@
 /**
  * Private imscp module utility functions
  *
- * @package mod_imscp
+ * @package mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi  
  * 
  */

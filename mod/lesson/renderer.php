@@ -4,7 +4,8 @@
 /**
  * Lion renderer used to display special elements of the lesson module
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/

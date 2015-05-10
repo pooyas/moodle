@@ -4,8 +4,9 @@
  * This page allows the teacher to enter a manual grade for a particular question.
  * This page is expected to only be used in a popup window.
  *
- * @package   mod_quiz
- * @copyright gustav delius 2006
+ * @package   mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

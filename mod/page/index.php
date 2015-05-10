@@ -4,7 +4,8 @@
 /**
  * List of all pages in course
  *
- * @package mod_page
+ * @package mod
+ * @subpackage page
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,8 +3,9 @@
 /**
  * This file contains the forms to set the marking workflow for selected submissions.
  *
- * @package   mod_assign
- * @copyright 2013 Catalyst IT {@link http://www.catalyst.net.nz}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->dirroot . '/mod/assign/feedback/file/locallib.php');
 /**
  * Set marking workflow form.
  *
- * @package   mod_assign
- * @copyright 2013 Catalyst IT {@link http://www.catalyst.net.nz}
- * 
  */
 class mod_assign_batch_set_marking_workflow_state_form extends lionform {
     /**

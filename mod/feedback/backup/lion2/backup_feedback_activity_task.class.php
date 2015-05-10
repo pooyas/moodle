@@ -4,7 +4,8 @@
 /**
  * Defines backup_feedback_activity_task class
  *
- * @package     mod_feedback
+ * @package     mod
+ * @subpackage feedback
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

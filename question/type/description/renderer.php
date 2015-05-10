@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage description
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Generates the output for description 'question's.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_description_renderer extends qtype_renderer {

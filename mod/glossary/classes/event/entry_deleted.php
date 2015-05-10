@@ -3,7 +3,8 @@
 /**
  * The mod_glossary entry deleted event.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int|string hook: (optional) hook parameter in the previous view mode.
  * }
  *
- * @package    mod_glossary
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class entry_deleted extends \core\event\base {
     /**

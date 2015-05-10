@@ -3,9 +3,10 @@
 /**
  * Unit tests for lib.php
  *
- * @package    mod_data
+ * @package    mod
+ * @subpackage data
  * @category   phpunit
- * @copyright  2013 Adrian Greeve
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,9 +18,6 @@ require_once($CFG->dirroot . '/mod/data/lib.php');
 /**
  * Unit tests for lib.php
  *
- * @package    mod_data
- * @copyright  2013 Adrian Greeve
- * 
  */
 class data_lib_testcase extends advanced_testcase {
 

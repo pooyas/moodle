@@ -3,7 +3,8 @@
 /**
  * This file contains the restore code for the feedback_editpdf plugin.
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
  * Provides the necessary information needed
  * to restore one assign_feedback subplugin.
  *
- * @package   assignfeedback_editpdf
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class restore_assignfeedback_editpdf_subplugin extends restore_subplugin {
 

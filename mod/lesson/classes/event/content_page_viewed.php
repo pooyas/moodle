@@ -3,8 +3,9 @@
 /**
  * The mod_lesson content page viewed event class.
  *
- * @package    mod_lesson
- * @copyright  2015 Stephen Bourget
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_lesson content page viewed event class.
  *
- * @package    mod_lesson
- * @since      Lion 2.9
- * @copyright  2015 Stephen Bourget
- * .
  */
 class content_page_viewed extends \core\event\base {
 

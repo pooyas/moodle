@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage shortanswer
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of shortanswer question attempts.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_shortanswer_attempt_upgrader_test extends question_attempt_upgrader_test_base {

@@ -4,7 +4,7 @@
  * Version information for the blackboard_six question import format.
  *
  * @package    qformat_blackboard_six
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

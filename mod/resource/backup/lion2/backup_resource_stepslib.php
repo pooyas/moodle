@@ -4,7 +4,8 @@
 /**
  * Define all the backup steps that will be used by the backup_resource_activity_task
  *
- * @package    mod_resource
+ * @package    mod
+ * @subpackage resource
  * @copyright  2015 Pooya Saeedi
  * 
  */

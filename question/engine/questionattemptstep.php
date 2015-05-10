@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -46,7 +46,7 @@ defined('LION_INTERNAL') || die();
  * to check wether a varaible with a particular name is set, and {@link get_behaviour_data()}
  * to get all the behaviour data as an associative array.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_step {
@@ -425,7 +425,7 @@ class question_attempt_step {
  * instance of this class. which is then passed to the question behaviour and question
  * type for processing. At the end of processing we then may, or may not, keep it.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_pending_step extends question_attempt_step {
@@ -493,7 +493,7 @@ class question_attempt_pending_step extends question_attempt_step {
 /**
  * A subclass of {@link question_attempt_step} that cannot be modified.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_step_read_only extends question_attempt_step {
@@ -517,7 +517,7 @@ class question_attempt_step_read_only extends question_attempt_step {
  * {@link question_attempt::get_last_step()} etc. when a an attempt has just been
  * created and there is no acutal step.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_null_step {
@@ -540,7 +540,7 @@ class question_null_step {
  * modifies the get/set_*_data methods so that they operate only on the parts
  * that belong to a particular subquestion, as indicated by an extra prefix.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_step_subquestion_adapter extends question_attempt_step {

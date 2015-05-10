@@ -3,11 +3,11 @@
 /**
  * Airnotifier message processor to send messages to the APNS provider: airnotfier. (https://github.com/dongsheng/airnotifier)
  *
- * @package    message_airnotifier
+ * @package    message
+ * @subpackage airnotifier
  * @category   external
  * @copyright  2015 Pooya Saeedi 
  * 
- * @since Lion 2.7
  */
 
 
@@ -16,9 +16,6 @@ require_once($CFG->dirroot . '/message/output/lib.php');
 /**
  * Message processor class
  *
- * @package   message_airnotifier
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class message_output_airnotifier extends message_output {
 

@@ -3,7 +3,8 @@
 /**
  * Capability definitions for airnotifier.
  *
- * @package   message_airnotifier
+ * @package   message
+ * @subpackage airnotifier
  * @category  access
  * @copyright 2015 Pooya Saeedi
  * 

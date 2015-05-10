@@ -3,7 +3,8 @@
 /**
  * The mod_assign all submissions downloaded event.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,8 +16,8 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_assign all submissions downloaded event class.
  *
- * @package    mod_assign
- * @since      Lion 2.6
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */

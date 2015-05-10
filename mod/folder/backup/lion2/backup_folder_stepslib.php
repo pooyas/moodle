@@ -4,7 +4,8 @@
 /**
  * Define all the backup steps that will be used by the backup_folder_activity_task
  *
- * @package   mod_folder
+ * @package    mod
+ * @subpackage folder
  * @copyright 2015 Pooya Saeedi
  * 
  */

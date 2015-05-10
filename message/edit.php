@@ -4,7 +4,7 @@
  * Edit user message preferences
  *
  * @package    core
- * @copyright  2008 Luis Rodrigues and Martin Dougiamas
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

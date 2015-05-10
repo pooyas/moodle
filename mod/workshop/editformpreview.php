@@ -4,7 +4,8 @@
 /**
  * Preview the assessment form.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

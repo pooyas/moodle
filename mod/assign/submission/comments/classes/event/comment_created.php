@@ -3,7 +3,8 @@
 /**
  * The assignsubmission_comments comment created event.
  *
- * @package    assignsubmission_comments
+ * @package    assignsubmission
+ * @subpackage comments
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The assignsubmission_comments comment created event class.
  *
- * @package    assignsubmission_comments
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class comment_created extends \core\event\comment_created {
     /**

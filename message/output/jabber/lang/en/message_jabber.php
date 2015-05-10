@@ -3,7 +3,8 @@
 /**
  * Strings for component 'message_jabber', language 'en'
  *
- * @package    message_jabber
+ * @package   message
+ * @subpackage jabber
  * @copyright  2015 Pooya Saeedi
  * 
  */

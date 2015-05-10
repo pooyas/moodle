@@ -3,7 +3,8 @@
 /**
  * Admin settings class for the choices for how to display the user's image
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -17,8 +18,6 @@ defined('LION_INTERNAL') || die();
  *
  * Just so we can lazy-load the choices.
  *
- * @copyright  2011 The Open University
- * 
  */
 class mod_quiz_admin_setting_user_image extends admin_setting_configselect_with_advanced {
     public function load_choices() {

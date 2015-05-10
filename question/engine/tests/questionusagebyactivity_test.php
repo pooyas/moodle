@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the question_usage_by_activity class.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_usage_by_activity_test extends advanced_testcase {

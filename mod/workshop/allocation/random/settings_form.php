@@ -19,8 +19,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  *
  * This is used by {@see workshop_random_allocator::ui()} to set up allocation parameters.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class workshop_random_allocator_form extends lionform {
 

@@ -6,7 +6,7 @@
  *
  * @package    qbehaviour
  * @subpackage deferredcbm
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once(dirname(__FILE__) . '/../../../engine/lib.php');
 /**
  * Unit tests for the deferred feedback with certainty base marking behaviour.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_deferredcbm_cbm_test extends basic_testcase {

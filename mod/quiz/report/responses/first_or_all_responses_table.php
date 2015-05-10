@@ -3,9 +3,10 @@
 /**
  * This file defines the quiz responses table for showing first or all tries at a question.
  *
- * @package   quiz_responses
+ * @package   quiz
+ * @subpackage responses
  * @copyright 2015 Pooya Saeedi
- * @author    Jamie Pratt <me@jamiep.org>
+ * @author    2015 Pooya Saeedi
  * 
  */
 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * This is a table subclass for displaying the quiz responses report, showing first or all tries.
  *
- * @package   quiz_responses
- * @copyright 2015 Pooya Saeedi
- * @author    Jamie Pratt <me@jamiep.org>
- * 
  */
 class quiz_first_or_all_responses_table extends quiz_last_responses_table {
 

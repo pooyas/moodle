@@ -3,7 +3,8 @@
 /**
  * mod_imscp data generator.
  *
- * @package    mod_imscp
+ * @package    mod
+ * @subpackage imscp
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_imscp data generator class.
  *
- * @package    mod_imscp
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_imscp_generator extends testing_module_generator {
 

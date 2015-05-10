@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage multianswer
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ require_once($CFG->dirroot . '/question/type/multianswer/edit_multianswer_form.p
 /**
  * Unit tests for the multianswer question definition class.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multianswer_test extends advanced_testcase {

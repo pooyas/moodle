@@ -3,7 +3,8 @@
 /**
  * File browsing support.
  *
- * @package    mod_lesson
+ * @package    mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * File browsing support class.
  *
- * @package    mod_lesson
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_lesson_file_info extends file_info {
 

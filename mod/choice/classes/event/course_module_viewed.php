@@ -3,8 +3,9 @@
 /**
  * The mod_choice course module viewed event.
  *
- * @package mod_choice
- * @copyright 2013 Adrian Greeve <adrian@lion.com>
+ * @package mod
+ * @subpackage choice
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_choice course module viewed event class.
  *
- * @package    mod_choice
- * @since      Lion 2.6
- * @copyright  2013 Adrian Greeve
- * 
  */
 class course_module_viewed extends \core\event\course_module_viewed {
 

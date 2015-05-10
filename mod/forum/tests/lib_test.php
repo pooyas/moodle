@@ -3,7 +3,8 @@
 /**
  * The module forums tests
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -2,8 +2,9 @@
 
 
 /**
- * @package    workshopform_rubric
- * @copyright  2010 onwards David Mudrak <david@lion.com>
+ * @package    workshopform
+ * @subpackage rubric
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

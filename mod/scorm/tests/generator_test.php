@@ -3,8 +3,9 @@
 /**
  * mod_scorm generator tests
  *
- * @package    mod_scorm
- * @category   test
+ * @package    mod
+ * @subpackage scorm
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Genarator tests class for mod_scorm.
  *
- * @package    mod_scorm
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_scorm_generator_testcase extends advanced_testcase {
 

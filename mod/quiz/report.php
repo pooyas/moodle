@@ -3,7 +3,8 @@
 /**
  * This script controls the display of the quiz reports.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

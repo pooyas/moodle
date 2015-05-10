@@ -2,10 +2,9 @@
 
 /**
  * Web service for mod assign
- * @package    mod_assign
- * @subpackage db
- * @since      Lion 2.4
- * @copyright  2012 Paul Charsley
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

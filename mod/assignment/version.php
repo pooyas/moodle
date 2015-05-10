@@ -3,7 +3,8 @@
 /**
  * Version information
  *
- * @package   mod_assignment
+ * @package   mod
+ * @subpackage assignment
  * @copyright 2015 Pooya Saeedi
  * 
  */

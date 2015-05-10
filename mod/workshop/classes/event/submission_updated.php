@@ -3,8 +3,9 @@
 /**
  * The mod_workshop submission updated event.
  *
- * @package    mod_workshop
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - string submissiontitle: (optional) Submission title.
  * }
  *
- * @package    mod_workshop
- * @since      Lion 2.7
- * @copyright  2013 Adrian Greeve
- * 
  */
 class submission_updated extends \core\event\base {
 

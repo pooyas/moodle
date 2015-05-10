@@ -3,9 +3,10 @@
 /**
  * Provide interface for AJAX device actions
  *
+ * @package message
+ * @subpackage airnotifier
  * @copyright 2015 Pooya Saeedi
  * 
- * @package message_airnotifier
  */
 
 

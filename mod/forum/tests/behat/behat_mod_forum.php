@@ -3,7 +3,8 @@
 /**
  * Steps definitions related with the forum activity.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -18,10 +19,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Forum-related steps definitions.
  *
- * @package    mod_forum
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_mod_forum extends behat_base {
 

@@ -4,9 +4,9 @@
 /**
  * This file adds support to rss feeds generation
  *
- * @package   mod_forum
- * @category rss
- * @copyright 2001 Eloy Lafuente (stronk7) http://contiento.com
+ * @package    mod
+ * @subpackage forum
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

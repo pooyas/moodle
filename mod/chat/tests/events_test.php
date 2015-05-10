@@ -3,7 +3,9 @@
 /**
  * Events tests.
  *
- * @package    mod_chat
+ * @package    mod
+ * @subpackage chat
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,9 +18,6 @@ require_once($CFG->dirroot . '/mod/chat/lib.php');
 /**
  * Events tests class.
  *
- * @package    mod_chat
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_chat_events_testcase extends advanced_testcase {
 

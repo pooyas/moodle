@@ -2,7 +2,8 @@
 
 /**
  * Post-install script for the quiz statistics report.
- * @package   quiz_statistics
+ * @package   quiz
+ * @subpackage statistics
  * @copyright 2015 Pooya Saeedi
  * 
  */

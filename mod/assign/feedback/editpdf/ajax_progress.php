@@ -4,8 +4,9 @@
  * Process concurrent ajax request.
  * ALL RETURNED INFO IS PUBLIC.
  *
- * @package assignfeedback_editpdf
- * @copyright  2013 Jerome Mouneyrac
+ * @package assignfeedback
+ * @subpackage editpdf
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

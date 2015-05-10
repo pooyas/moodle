@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_glossary
- * @copyright  2006 Martin Dougiamas
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

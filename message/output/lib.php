@@ -3,17 +3,15 @@
 /**
  * Contains a base class for extension by message processors
  *
- * @package   core_message
- * @copyright Luis Rodrigues
+ * @package   core
+ * @subpackage message
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
 /**
  * Base message processor class for extension by message processors
  *
- * @package   core_message
- * @copyright 2008 Luis Rodrigues
- * 
  */
 abstract class message_output {
     /**

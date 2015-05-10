@@ -3,8 +3,9 @@
 /**
  * This file defines the admin settings for this plugin
  *
- * @package   assignfeedback_offline
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage offline
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

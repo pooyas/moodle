@@ -4,7 +4,8 @@
 /**
  * This file defines an mform to edit accumulative grading strategy forms.
  *
- * @package    workshopform_accumulative
+ * @package    workshopform
+ * @subpackage accumulative
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * The mod_quiz group override updated event.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int groupid: the id of the group.
  * }
  *
- * @package    mod_quiz
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class group_override_updated extends \core\event\base {
 

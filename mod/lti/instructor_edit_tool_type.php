@@ -3,10 +3,9 @@
 /**
  * This page allows instructors to configure course level tool providers.
  *
- * @package mod_lti
- * @copyright  Copyright (c) 2011 Lionrooms Inc. (http://www.lionrooms.com)
- * 
- * @author     Chris Scribner
+ * @package mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');

@@ -4,7 +4,8 @@
 /**
  * Definition of log events
  *
- * @package    mod_assignment
+ * @package    mod
+ * @subpackage assignment
  * @category   log
  * @copyright  2015 Pooya Saeedi
  * 

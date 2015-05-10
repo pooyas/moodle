@@ -3,7 +3,8 @@
 /**
  * The mod_wiki page deleted event.
  *
- * @package    mod_wiki
+ * @package    mod
+ * @subpackage wiki
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int subwikiid: (optional) id subwiki.
  * }
  *
- * @package    mod_wiki
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class page_deleted extends \core\event\base {
     /**

@@ -3,7 +3,8 @@
 /**
  * This file contains the editor class for the assignfeedback_editpdf plugin
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@ namespace assignfeedback_editpdf;
  *
  * No capability checks are done - they should be done by the calling class.
  *
- * @package   assignfeedback_editpdf
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class page_editor {
 

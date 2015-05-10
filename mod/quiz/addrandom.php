@@ -4,8 +4,9 @@
  * Fallback page of /mod/quiz/edit.php add random question dialog,
  * for users who do not use javascript.
  *
- * @package   mod_quiz
- * @copyright 2008 Olli Savolainen
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

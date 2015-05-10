@@ -4,7 +4,8 @@
 /**
  * Unit tests for Number of errors grading logic
  *
- * @package    workshopform_numerrors
+ * @package    workshopform
+ * @subpackage numerrors
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

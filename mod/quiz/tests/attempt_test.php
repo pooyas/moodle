@@ -3,9 +3,10 @@
 /**
  * Tests for the quiz_attempt class.
  *
- * @package   mod_quiz
- * @category  test
- * @copyright 2014 Tim Hunt
+ * @package   mod
+ * @subpackage quiz
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +19,6 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 /**
  * Subclass of quiz_attempt to allow faking of the page layout.
  *
- * @copyright 2014 Tim Hunt
- * 
  */
 class mod_quiz_attempt_testable extends quiz_attempt {
     /** @var array list of slots to treat as if they contain descriptions in the fake layout. */
@@ -60,8 +59,6 @@ class mod_quiz_attempt_testable extends quiz_attempt {
 /**
  * Tests for the quiz_attempt class.
  *
- * @copyright 2014 Tim Hunt
- * 
  */
 class mod_quiz_attempt_testcase extends basic_testcase {
     /**

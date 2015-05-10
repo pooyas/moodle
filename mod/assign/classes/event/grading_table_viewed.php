@@ -3,7 +3,8 @@
 /**
  * The mod_assign grading table viewed event.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int assignid: the id of the assignment.
  * }
  *
- * @package    mod_assign
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class grading_table_viewed extends base {
     /**

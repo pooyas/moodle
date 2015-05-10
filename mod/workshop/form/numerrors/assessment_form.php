@@ -4,7 +4,8 @@
 /**
  * This file defines an mform to assess a submission by numerrors grading strategy
  *
- * @package    workshopform_numerrors
+ * @package    workshopform
+ * @subpackage numerrors
  * @copyright  2015 Pooya Saeedi
  * 
  */

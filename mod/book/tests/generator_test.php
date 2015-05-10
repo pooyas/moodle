@@ -3,7 +3,8 @@
 /**
  * Genarator tests.
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -11,9 +12,6 @@
 /**
  * Genarator tests class.
  *
- * @package    mod_book
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_book_generator_testcase extends advanced_testcase {
 

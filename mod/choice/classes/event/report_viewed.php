@@ -3,8 +3,9 @@
 /**
  * The mod_choice report viewed event.
  *
- * @package mod_choice
- * @copyright 2013 Adrian Greeve <adrian@lion.com>
+ * @package mod
+ * @subpackage choice
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_choice report viewed event class.
  *
- * @package    mod_choice
- * @since      Lion 2.6
- * @copyright  2013 Adrian Greeve
- * 
  */
 class report_viewed extends \core\event\base {
 

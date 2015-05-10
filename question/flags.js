@@ -7,7 +7,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

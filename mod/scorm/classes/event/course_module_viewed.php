@@ -3,7 +3,8 @@
 /**
  * The mod_scorm course module viewed event.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_scorm course module viewed event class.
  *
- * @package    mod_scorm
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_module_viewed extends \core\event\course_module_viewed {
 

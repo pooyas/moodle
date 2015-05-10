@@ -3,7 +3,8 @@
 /**
  * Glossary cache definitions.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @category   cache
  * @copyright  2015 Pooya Saeedi
  * 

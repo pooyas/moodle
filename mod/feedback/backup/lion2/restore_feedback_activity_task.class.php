@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @package    mod_feedback
+ * @package    mod
+ * @subpackage feedback
  * @subpackage backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 

@@ -3,9 +3,10 @@
 /**
  * Unit tests for the mod_quiz_display_options class.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @category   phpunit
- * @copyright  2013 Dan Marsden
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,8 +20,6 @@ require_once($CFG->dirroot . '/mod/scorm/locallib.php');
 /**
  * Unit tests for {@link mod_scorm}.
  *
- * @copyright  2013 Dan Marsden
- * 
  */
 class mod_scorm_validatepackage_testcase extends advanced_testcase {
 

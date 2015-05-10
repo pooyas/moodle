@@ -4,8 +4,9 @@
 /**
  * Strings for component 'workshopform_comments', language 'en'
  *
- * @package    workshopform_comments
- * @copyright  2009 David Mudrak <david@lion.com>
+ * @package    workshopform
+ * @subpackage comments
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

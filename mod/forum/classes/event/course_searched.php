@@ -3,7 +3,8 @@
 /**
  * The mod_forum course searched event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string searchterm: The searchterm used on forum search.
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_searched extends \core\event\base {
 

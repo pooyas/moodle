@@ -4,7 +4,7 @@
  *
  * @package    mod
  * @subpackage lti
- * @copyright  Copyright (c) 2011 Lionrooms Inc. (http://www.lionrooms.com)
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 (function(){

@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage essay
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,7 +16,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Generates the output for essay questions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_renderer extends qtype_renderer {
@@ -130,7 +130,7 @@ class qtype_essay_renderer extends qtype_renderer {
  * A base class to abstract out the differences between different type of
  * response format.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qtype_essay_format_renderer_base extends plugin_renderer_base {
@@ -191,7 +191,7 @@ class qtype_essay_format_noinline_renderer extends plugin_renderer_base {
  * An essay format renderer for essays where the student should use the HTML
  * editor without the file picker.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_format_editor_renderer extends plugin_renderer_base {
@@ -316,7 +316,7 @@ class qtype_essay_format_editor_renderer extends plugin_renderer_base {
  * An essay format renderer for essays where the student should use the HTML
  * editor with the file picker.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_format_editorfilepicker_renderer extends qtype_essay_format_editor_renderer {
@@ -417,7 +417,7 @@ class qtype_essay_format_editorfilepicker_renderer extends qtype_essay_format_ed
  * An essay format renderer for essays where the student should use a plain
  * input box, but with a normal, proportional font.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_format_plain_renderer extends plugin_renderer_base {
@@ -453,7 +453,7 @@ class qtype_essay_format_plain_renderer extends plugin_renderer_base {
  * input box with a monospaced font. You might use this, for example, for a
  * question where the students should type computer code.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_format_monospaced_renderer extends qtype_essay_format_plain_renderer {

@@ -4,7 +4,8 @@
 /**
  * This page lists all the instances of lesson in a particular course
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright 2015 Pooya Saeedi
  * 
  **/

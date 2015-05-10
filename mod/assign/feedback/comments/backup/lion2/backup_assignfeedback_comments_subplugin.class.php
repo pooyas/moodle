@@ -3,8 +3,9 @@
 /**
  * This file contains the class for backup of this feedback plugin
  *
- * @package   assignfeedback_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * This just records the text and format.
  *
- * @package   assignfeedback_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class backup_assignfeedback_comments_subplugin extends backup_subplugin {
 

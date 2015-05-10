@@ -11,7 +11,8 @@
  * This way we don't need to keep around old classes, instead creating aliases only when required.
  * One big advantage to this method is that we provide consistent debugging for renamed classes when they are used.
  *
- * @package    scormreport_objectives
+ * @package    scormreport
+ * @subpackage objectives
  * @copyright  2015 Pooya Saeedi
  * 
  */

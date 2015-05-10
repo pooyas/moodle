@@ -3,7 +3,8 @@
 /**
  * Default message outputs configuration page
  *
- * @package   core_message
+ * @package   core
+ * @subpackage message
  * @copyright 2015 Pooya Saeedi
  * 
  */

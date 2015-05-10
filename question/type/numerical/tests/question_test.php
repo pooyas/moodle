@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage numerical
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the numerical question definition class.
  *
- * @copyright 2008 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_numerical_question_test extends advanced_testcase {

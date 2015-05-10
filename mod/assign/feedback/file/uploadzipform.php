@@ -3,8 +3,9 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Upload feedback zip
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assignfeedback_file_upload_zip_form extends lionform {
     /**

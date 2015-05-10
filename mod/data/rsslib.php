@@ -5,7 +5,8 @@
 /**
  * This file contains all the common stuff to be used for RSS in the Database Module
  *
- * @package    mod_data
+ * @package    mod
+ * @subpackage data
  * @category   rss
  * @copyright  2015 Pooya Saeedi
  * 

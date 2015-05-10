@@ -3,8 +3,9 @@
 /**
  * This file contains the definition for the renderable classes for the assignment
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -12,9 +13,6 @@ defined('LION_INTERNAL') || die();
 
 /**
  * This class wraps the submit for grading confirmation page
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_submit_for_grading_page implements renderable {
     /** @var array $notifications is a list of notification messages returned from the plugins */
@@ -40,9 +38,6 @@ class assign_submit_for_grading_page implements renderable {
 
 /**
  * Implements a renderable message notification
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_gradingmessage implements renderable {
     /** @var string $heading is the heading to display to the user */
@@ -74,9 +69,6 @@ class assign_gradingmessage implements renderable {
 
 /**
  * Implements a renderable grading options form
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_form implements renderable {
     /** @var lionform $form is the edit submission form */
@@ -102,9 +94,6 @@ class assign_form implements renderable {
 
 /**
  * Implements a renderable user summary
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_user_summary implements renderable {
     /** @var stdClass $user suitable for rendering with user_picture and fullname(). */
@@ -151,9 +140,6 @@ class assign_user_summary implements renderable {
 
 /**
  * Implements a renderable feedback plugin feedback
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_feedback_plugin_feedback implements renderable {
     /** @var int SUMMARY */
@@ -202,9 +188,6 @@ class assign_feedback_plugin_feedback implements renderable {
 
 /**
  * Implements a renderable submission plugin submission
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_submission_plugin_submission implements renderable {
     /** @var int SUMMARY */
@@ -251,9 +234,6 @@ class assign_submission_plugin_submission implements renderable {
 
 /**
  * Renderable feedback status
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_feedback_status implements renderable {
 
@@ -306,9 +286,6 @@ class assign_feedback_status implements renderable {
 
 /**
  * Renderable submission status
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_submission_status implements renderable {
     /** @var int STUDENT_VIEW */
@@ -468,9 +445,6 @@ class assign_submission_status implements renderable {
 /**
  * Used to output the attempt history for a particular assignment.
  *
- * @package mod_assign
- * @copyright 2015 Pooya Saeedi, Synergy Learning
- * 
  */
 class assign_attempt_history implements renderable {
 
@@ -534,9 +508,6 @@ class assign_attempt_history implements renderable {
 
 /**
  * Renderable header
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_header implements renderable {
     /** @var stdClass the assign record  */
@@ -583,9 +554,6 @@ class assign_header implements renderable {
 
 /**
  * Renderable header related to an individual subplugin
- * @package   mod_assign
- * @copyright 2014 Henning Bostelmann
- * 
  */
 class assign_plugin_header implements renderable {
     /** @var assign_plugin $plugin */
@@ -603,9 +571,6 @@ class assign_plugin_header implements renderable {
 
 /**
  * Renderable grading summary
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_grading_summary implements renderable {
     /** @var int participantcount - The number of users who can submit to this assignment */
@@ -668,9 +633,6 @@ class assign_grading_summary implements renderable {
 
 /**
  * Renderable course index summary
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_course_index_summary implements renderable {
     /** @var array assignments - A list of course module info and submission counts or statuses */
@@ -718,9 +680,6 @@ class assign_course_index_summary implements renderable {
 /**
  * An assign file class that extends rendererable class and is used by the assign module.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_files implements renderable {
     /** @var context $context */

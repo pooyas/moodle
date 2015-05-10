@@ -4,7 +4,7 @@
  * Ajax point of entry for messaging API.
  *
  * @package    core
- * @copyright  2015 Frédéric Massart - FMCorz.net
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

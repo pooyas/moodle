@@ -3,9 +3,10 @@
 /**
  * Add event handlers for the quiz
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @category   event
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

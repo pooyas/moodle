@@ -3,7 +3,8 @@
 /**
  * Entry caching for glossary filter.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Concept caching for glossary filter.
  *
- * @package    mod_glossary
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class concept_cache {
     /**

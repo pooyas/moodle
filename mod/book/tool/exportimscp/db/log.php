@@ -3,8 +3,9 @@
 /**
  * Export to IMSCP booktool log events definition
  *
- * @package    booktool_exportimscp
- * @copyright  2012 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
+ * @package    booktool
+ * @subpackage exportimscp
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

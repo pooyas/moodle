@@ -3,7 +3,8 @@
 /**
  * The mod_assign submission status updated event.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string newstatus: status of submission.
  * }
  *
- * @package    mod_assign
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class submission_status_updated extends base {
     /**

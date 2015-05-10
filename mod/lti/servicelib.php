@@ -3,10 +3,10 @@
 /**
  * Utility code for LTI service handling.
  *
- * @package mod_lti
- * @copyright  Copyright (c) 2011 Lionrooms Inc. (http://www.lionrooms.com)
+ * @package mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  * 
- * @author     Chris Scribner
  */
 
 defined('LION_INTERNAL') || die;

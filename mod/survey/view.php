@@ -3,7 +3,8 @@
 /**
  * This file is responsible for displaying the survey
  *
- * @package   mod_survey
+ * @package   mod
+ * @subpackage survey
  * @copyright 2015 Pooya Saeedi
  * 
  */

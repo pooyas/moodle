@@ -5,7 +5,7 @@
  *
  * @package    tool
  * @subpackage assignmentupgrade
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

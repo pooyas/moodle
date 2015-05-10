@@ -3,7 +3,8 @@
 /**
  * This script lists all the instances of quiz in a particular course
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @copyright  2015 Pooya Saeedi
  * 
  */

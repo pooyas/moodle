@@ -3,7 +3,8 @@
 /**
  * Class to store the options for a {@link quiz_responses_report}.
  *
- * @package   quiz_responses
+ * @package   quiz
+ * @subpackage responses
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -17,8 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/attemptsreport_options.php');
 /**
  * Class to store the options for a {@link quiz_responses_report}.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class quiz_responses_options extends mod_quiz_attempts_report_options {
 

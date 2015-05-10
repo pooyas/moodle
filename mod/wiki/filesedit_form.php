@@ -3,8 +3,9 @@
 /**
  * Edit wiki files form
  *
- * @package   mod_wiki
- * @copyright 2011 Dongsheng Cai <dongsheng@lion.com>
+ * @package   mod
+ * @subpackage wiki
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

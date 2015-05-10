@@ -3,9 +3,10 @@
 /**
  * Unit tests for (some of) /question/engine/statistics.php
  *
- * @package   quiz_statistics
+ * @package   quiz
+ * @subpackage statistics
  * @category  phpunit
- * @copyright 2008 Jamie Pratt
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -31,8 +32,6 @@ class testable_all_calculated_for_qubaid_condition extends \core_question\statis
 /**
  * Test helper subclass of question_statistics
  *
- * @copyright 2010 The Open University
- * 
  */
 class testable_question_statistics extends \core_question\statistics\questions\calculator {
 
@@ -82,8 +81,6 @@ class testable_question_statistics extends \core_question\statistics\questions\c
 /**
  * Unit tests for (some of) question_statistics.
  *
- * @copyright 2008 Jamie Pratt
- * 
  */
 class quiz_statistics_question_stats_testcase extends basic_testcase {
     /** @var testable_all_calculated_for_qubaid_condition object created to test class. */

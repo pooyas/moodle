@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/format.php');
 /**
  * Subclass to make it easier to test qformat_default.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class testable_qformat extends qformat_default {
@@ -37,7 +37,7 @@ class testable_qformat extends qformat_default {
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qformat_default_test extends advanced_testcase {

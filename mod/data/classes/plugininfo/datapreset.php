@@ -3,7 +3,8 @@
 /**
  * Subplugin info class.
  *
- * @package   mod_data
+ * @package   mod
+ * @subpackage data
  * @copyright 2015 Pooya Saeedi
  * 
  */

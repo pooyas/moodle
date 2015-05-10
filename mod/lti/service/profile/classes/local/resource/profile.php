@@ -3,9 +3,9 @@
 /**
  * This file contains a class definition for the Tool Consumer Profile resource
  *
- * @package    ltiservice_profile
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    ltiservice
+ * @subpackage profile
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,10 +19,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A resource implementing the Tool Consumer Profile.
  *
- * @package    ltiservice_profile
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 class profile extends \mod_lti\local\ltiservice\resource_base {
 

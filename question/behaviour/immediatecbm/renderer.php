@@ -5,7 +5,7 @@
  *
  * @package    qbehaviour
  * @subpackage immediatecbm
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once(dirname(__FILE__) . '/../deferredcbm/renderer.php');
  * Renderer for outputting parts of a question belonging to the immediate
  * feedback with CBM behaviour.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_immediatecbm_renderer extends qbehaviour_deferredcbm_renderer {

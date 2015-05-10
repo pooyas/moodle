@@ -2,7 +2,8 @@
 
 
 /**
- * @package   mod_data
+ * @package   mod
+ * @subpackage data
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -28,7 +29,8 @@ define('DATA_PRESET_CONTEXT', SYSCONTEXTID);
 // In Lion >= 2, new roles may be introduced and used instead.
 
 /**
- * @package   mod_data
+ * @package   mod
+ * @subpackage data
  * @copyright 2015 Pooya Saeedi
  * 
  */

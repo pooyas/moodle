@@ -3,8 +3,9 @@
 /**
  * Jabber message processor version information
  *
- * @package    message_jabber
- * @copyright  2008 Luis Rodrigues
+ * @package   message
+ * @subpackage jabber
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

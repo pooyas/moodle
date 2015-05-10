@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage numerical
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/numerical/edit_numerical_form.php')
 /**
  * Test sub-class, so we can force the locale.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class test_qtype_numerical_edit_form extends qtype_numerical_edit_form {
@@ -38,7 +38,7 @@ class test_qtype_numerical_edit_form extends qtype_numerical_edit_form {
 /**
  * Unit tests for question/type/numerical/edit_numerical_form.php.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_numerical_form_test extends advanced_testcase {

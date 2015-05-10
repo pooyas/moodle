@@ -3,8 +3,9 @@
 /**
  * This file defines the quiz grades table.
  *
- * @package   quiz_overview
- * @copyright 2008 Jamie Pratt
+ * @package   quiz
+ * @subpackage overview
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/attemptsreport_table.php');
 /**
  * This is a table subclass for displaying the quiz grades report.
  *
- * @copyright 2008 Jamie Pratt
- * 
  */
 class quiz_overview_table extends quiz_attempts_report_table {
 

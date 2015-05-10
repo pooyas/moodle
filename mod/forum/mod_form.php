@@ -2,8 +2,9 @@
 
 
 /**
- * @package   mod_forum
- * @copyright Jamie Pratt <me@jamiep.org>
+ * @package    mod
+ * @subpackage forum
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

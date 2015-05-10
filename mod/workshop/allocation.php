@@ -7,7 +7,8 @@
  * The allocation logic itself is delegated to allocators - subplugins in ./allocation
  * folder.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Steps definitions related to mod_workshop.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -19,10 +20,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Steps definitions related to mod_workshop.
  *
- * @package    mod_workshop
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_mod_workshop extends behat_base {
     /**

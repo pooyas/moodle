@@ -3,7 +3,8 @@
 /**
  * Strings for component 'scorm', language 'en'
  *
- * @package   mod_scorm
+ * @package   mod
+ * @subpackage scorm
  * @copyright 2015 Pooya Saeedi
  * 
  */

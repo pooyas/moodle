@@ -3,7 +3,8 @@
 /**
  * Jabber message processor installation code
  *
- * @package    message_jabber
+ * @package   message
+ * @subpackage jabber
  * @copyright  2015 Pooya Saeedi
  * 
  */

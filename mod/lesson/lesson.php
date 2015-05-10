@@ -9,8 +9,8 @@
  *    delete
  *    move
  *    moveit
- * @package mod_lesson
- * @copyright 2015 Pooya Saeedi
+ * @package mod
+ * @subpackage lesson
  * 
  **/
 

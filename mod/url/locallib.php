@@ -4,7 +4,8 @@
 /**
  * Private url module utility functions
  *
- * @package    mod_url
+ * @package    mod
+ * @subpackage survey
  * @copyright  2015 Pooya Saeedi  
  * 
  */

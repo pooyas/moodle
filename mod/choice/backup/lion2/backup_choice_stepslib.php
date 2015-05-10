@@ -2,7 +2,8 @@
 
 
 /**
- * @package    mod_choice
+ * @package    mod
+ * @subpackage choice
  * @subpackage backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 

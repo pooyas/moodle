@@ -4,8 +4,9 @@
 /**
  * Set the mail digest option in a specific forum for a user.
  *
+ * @package    mod
+ * @subpackage forum
  * @copyright 2015 Pooya Saeedi
- * @package   mod_forum
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Base class for the table used by a {@link quiz_attempts_report}.
  *
- * @package   mod_quiz
- * @copyright 2010 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->libdir.'/tablelib.php');
 /**
  * Base class for the table used by a {@link quiz_attempts_report}.
  *
- * @copyright 2010 The Open University
- * 
  */
 abstract class quiz_attempts_report_table extends table_sql {
     public $useridfield = 'userid';

@@ -3,8 +3,9 @@
 /**
  * Quiz statistics report, table for showing statistics of each question in the quiz.
  *
- * @package   quiz_statistics
- * @copyright 2008 Jamie Pratt
+ * @package   quiz
+ * @subpackage statistics
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +19,6 @@ require_once($CFG->libdir.'/tablelib.php');
  *
  * There are columns for the various item and position statistics.
  *
- * @copyright 2008 Jamie Pratt
- * 
  */
 class quiz_statistics_table extends flexible_table {
     /** @var object the quiz settings. */

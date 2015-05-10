@@ -3,7 +3,8 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package mod_imscp
+ * @package mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi  
  * 
  */
@@ -16,9 +17,6 @@ require_once($CFG->libdir.'/filelib.php');
 /**
  * IMS CP configuration form
  *
- * @package mod_imscp
- * @copyright  2015 Pooya Saeedi  
- * 
  */
 class mod_imscp_mod_form extends lionform_mod {
     /**

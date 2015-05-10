@@ -4,9 +4,9 @@
 /**
  * Settings used by the lesson module, were moved from mod_edit
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  **/
 
 defined('LION_INTERNAL') || die;

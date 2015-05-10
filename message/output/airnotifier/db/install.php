@@ -3,7 +3,8 @@
 /**
  * Airnotifier message processor installation code
  *
- * @package    message_airnotifier
+ * @package    message
+ * @subpackage airnotifier
  * @copyright  2015 Pooya Saeedi
  * 
  */

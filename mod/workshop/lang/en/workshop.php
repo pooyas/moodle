@@ -3,8 +3,9 @@
 /**
  * Strings for component 'workshop', language 'en'
  *
- * @package    mod_workshop
- * @copyright  2009 David Mudrak <david@lion.com>
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

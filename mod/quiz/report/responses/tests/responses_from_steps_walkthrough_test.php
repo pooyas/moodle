@@ -3,10 +3,10 @@
 /**
  * Quiz attempt walk through using data from csv file.
  *
- * @package    quiz_statistics
+ * @package    quiz
+ * @subpackage responses
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
- * @author     Jamie Pratt <me@jamiep.org>
  * 
  */
 
@@ -21,11 +21,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/reportlib.php');
 /**
  * Quiz attempt walk through using data from csv file.
  *
- * @package    quiz_statistics
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * @author     Jamie Pratt <me@jamiep.org>
- * 
  */
 class quiz_report_responses_from_steps_testcase extends mod_quiz_attempt_walkthrough_from_csv_testcase {
     protected function get_full_path_of_csv_file($setname, $test) {

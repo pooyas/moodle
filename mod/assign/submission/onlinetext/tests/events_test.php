@@ -3,7 +3,9 @@
 /**
  * Contains the event tests for the plugin.
  *
- * @package   assignsubmission_onlinetext
+ * @package   assignsubmission
+ * @subpackage onlinetext
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

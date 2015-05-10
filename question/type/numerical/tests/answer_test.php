@@ -6,7 +6,7 @@
  *
  * @package lioncore
  * @subpackage questiontypes
- * @copyright 2008 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

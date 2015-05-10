@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage calculatedmulti
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of calculated multiple-choice question attempts.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedmulti_attempt_upgrader_test extends question_attempt_upgrader_test_base {

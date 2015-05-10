@@ -3,8 +3,9 @@
 /**
  * Library functions for messaging
  *
- * @package   core_message
- * @copyright 2008 Luis Rodrigues
+ * @package   core
+ * @subpackage message
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

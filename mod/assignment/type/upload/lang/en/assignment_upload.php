@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'assignment_upload', language 'en', branch 'master'
+ * Strings for component 'assignment_upload', language 'en'
  *
- * @package    assignment_upload
+ * @package    assignment
+ * @subpackage upload
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,9 +3,10 @@
 /**
  * Steps definitions related with the database activity.
  *
- * @package    mod_data
+ * @package    mod
+ * @subpackage data
  * @category   test
- * @copyright  2014 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,10 +20,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Database-related steps definitions.
  *
- * @package    mod_data
- * @category   test
- * @copyright  2014 2015 Pooya Saeedi
- * 
  */
 class behat_mod_data extends behat_base {
 

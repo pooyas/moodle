@@ -3,7 +3,9 @@
 /**
  * Events tests.
  *
- * @package    mod_survey
+ * @package    mod
+ * @subpackage survey
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Events tests class.
  *
- * @package    mod_survey
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_survey_events_testcase extends advanced_testcase {
 

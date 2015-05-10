@@ -14,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_chat data generator class.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_chat_generator extends testing_module_generator {
 

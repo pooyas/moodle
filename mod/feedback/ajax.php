@@ -3,9 +3,9 @@
 /**
  * Process ajax requests
  *
- * @copyright Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @copyright  2015 Pooya Saeedi
+ * @package    mod
+ * @subpackage feedback
  */
 
 if (!defined('AJAX_SCRIPT')) {

@@ -4,8 +4,9 @@
 /**
  * Lion renderer used to display special elements of the lesson module
  *
- * @package   mod_choice
- * @copyright 2010 Rossiani Wijaya
+ * @package   mod
+ * @subpackage choice
+ * @copyright 2015 Pooya Saeedi
  * 
  **/
 define ('DISPLAY_HORIZONTAL_LAYOUT', 0);

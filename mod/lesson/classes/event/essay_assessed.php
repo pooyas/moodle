@@ -3,7 +3,8 @@
 /**
  * The mod_lesson essay assessed event.
  *
- * @package    mod_lesson
+ * @package    mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,9 +23,6 @@ defined('LION_INTERNAL') || die();
  *     - int attemptid: The ID for the attempt.
  * }
  *
- * @package    mod_lesson
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class essay_assessed extends \core\event\base {

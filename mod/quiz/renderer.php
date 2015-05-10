@@ -3,8 +3,9 @@
 /**
  * Defines the renderer for the quiz module.
  *
- * @package   mod_quiz
- * @copyright 2011 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The renderer for the quiz module.
  *
- * @copyright  2011 The Open University
- * 
  */
 class mod_quiz_renderer extends plugin_renderer_base {
     /**

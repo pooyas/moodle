@@ -3,8 +3,9 @@
 /**
  * A type of forum.
  *
- * @package    mod_forum
- * @copyright  2014 Andrew Robert Nicols 
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -14,9 +15,6 @@ require_once($CFG->dirroot.'/user/selector/lib.php');
 
 /**
  * A user selector control for potential subscribers to the selected forum
- * @package   mod_forum
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mod_forum_potential_subscriber_selector extends mod_forum_subscriber_selector_base {
     /**

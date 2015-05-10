@@ -3,9 +3,10 @@
 /**
  * Quiz events tests.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @category   phpunit
- * @copyright  2013 Adrian Greeve
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,10 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/attemptlib.php');
 /**
  * Unit tests for quiz events.
  *
- * @package    mod_quiz
- * @category   phpunit
- * @copyright  2013 Adrian Greeve
- * 
  */
 class mod_quiz_events_testcase extends advanced_testcase {
 

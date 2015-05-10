@@ -3,7 +3,8 @@
 /**
  * IMS CP module upgrade code
  *
- * @package mod_imscp
+ * @package mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi  
  * 
  */

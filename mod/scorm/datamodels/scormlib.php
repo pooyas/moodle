@@ -3,8 +3,9 @@
 /**
  * functions used by SCORM 1.2/2004 packages.
  *
- * @package    mod_scorm
- * @copyright 1999 onwards Roberto Pinna
+ * @package    mod
+ * @subpackage scorm
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

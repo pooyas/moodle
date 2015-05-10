@@ -11,10 +11,10 @@
  * The calculations in the spreadsheets are the same as for the other question stats but applied just to the attempts where the
  * variants appeared.
  *
- * @package    quiz_statistics
+ * @package    quiz
+ * @subpackage statistics
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
- * @author     Jamie Pratt <me@jamiep.org>
  * 
  */
 
@@ -29,11 +29,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/reportlib.php');
 /**
  * Quiz attempt walk through using data from csv file.
  *
- * @package    quiz_statistics
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * @author     Jamie Pratt <me@jamiep.org>
- * 
  */
 class quiz_report_statistics_from_steps_testcase extends mod_quiz_attempt_walkthrough_from_csv_testcase {
 

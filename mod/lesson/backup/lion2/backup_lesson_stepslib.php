@@ -35,7 +35,8 @@
  *          UL->user level info
  *          files->table may have files)
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -43,8 +44,6 @@
 /**
  * Structure step class that informs a backup task how to backup the lesson module.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_lesson_activity_structure_step extends backup_activity_structure_step {
 

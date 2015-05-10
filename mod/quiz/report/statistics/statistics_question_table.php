@@ -3,9 +3,9 @@
 /**
  * Quiz statistics report, table for showing response analysis for a particular question (or sub question).
  *
- * @package   quiz_statistics
- * @copyright 2014 Open University
- * @author    James Pratt <me@jamiep.org>
+ * @package   quiz
+ * @subpackage statistics
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -21,9 +21,6 @@ require_once($CFG->libdir . '/tablelib.php');
  * The responses may be grouped, either by sub-part of the question, or by the
  * answer they match.
  *
- * @copyright 2014 Open University
- * @author    James Pratt <me@jamiep.org>
- * 
  */
 class quiz_statistics_question_table extends flexible_table {
     /** @var object full question object for this question. */

@@ -8,8 +8,9 @@
  * If user have wiki:managewiki ability then only this page will show delete
  * options
  *
- * @package mod_wiki
- * @copyright 2011 Rajesh Taneja
+ * @package mod
+ * @subpackage wiki
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

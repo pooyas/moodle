@@ -3,8 +3,9 @@
 /**
  * This file contains the version information for the comments submission plugin
  *
- * @package    assignsubmission_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package    assignsubmission
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

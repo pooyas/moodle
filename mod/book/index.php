@@ -3,8 +3,9 @@
 /**
  * This page lists all the instances of book in a particular course
  *
- * @package    mod_book
- * @copyright  2004-2015 Pooya Saeedi 
+ * @package    mod
+ * @subpackage book
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

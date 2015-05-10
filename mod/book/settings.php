@@ -3,8 +3,9 @@
 /**
  * Book plugin settings
  *
- * @package    mod_book
- * @copyright  2004-2015 Pooya Saeedi 
+ * @package    mod
+ * @subpackage book
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

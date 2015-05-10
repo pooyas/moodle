@@ -16,7 +16,7 @@ require_once("$CFG->libdir/externallib.php");
  *
  * @package    core_user
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.2
  */

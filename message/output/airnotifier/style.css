@@ -3,10 +3,10 @@
 
  Airnotifier (message output plugin) CSS
 
- package    message_airnotifier
+ package    message
+ subpackage airnotifier
  category   css
- copyright  2012/2015 Pooya Saeedi / Juan Leyva
- license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ copyright  2015 Pooya Saeedi
  */
 
 ul#airnotifierdevices {

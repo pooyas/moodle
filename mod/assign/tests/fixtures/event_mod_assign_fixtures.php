@@ -3,8 +3,9 @@
 /**
  * mod_assign unit test events.
  *
- * @package    mod_assign
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_assign submission_created unit test event class.
  *
- * @package    mod_assign
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class submission_created extends \mod_assign\event\submission_created {
 }
@@ -25,9 +23,6 @@ class submission_created extends \mod_assign\event\submission_created {
 /**
  * mod_assign submission_updated unit test event class.
  *
- * @package    mod_assign
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class submission_updated extends \mod_assign\event\submission_updated {
 }
@@ -35,9 +30,6 @@ class submission_updated extends \mod_assign\event\submission_updated {
 /**
  * mod_assign test class for event base.
  *
- * @package    mod_assign
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class nothing_happened extends \mod_assign\event\base {
     protected function init() {

@@ -3,7 +3,8 @@
 /**
  * This file contains the functions for managing a users comments quicklist.
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -14,8 +15,6 @@ namespace assignfeedback_editpdf;
  * This class performs crud operations on a users quicklist comments.
  *
  * No capability checks are done - they should be done by the calling class.
- * @package   assignfeedback_editpdf
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class comments_quick_list {

@@ -4,7 +4,7 @@
  * Unit tests for the Lion GIFT format.
  *
  * @package    qformat_gift
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the GIFT import/export format.
  *
- * @copyright 2010 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qformat_gift_test extends question_testcase {

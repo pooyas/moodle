@@ -3,7 +3,8 @@
 /**
  * The mod_assign marker updated event.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int markerid: user id of marker.
  * }
  *
- * @package    mod_assign
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class marker_updated extends base {
     /**

@@ -4,7 +4,8 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package    workshopform_comments
+ * @package    workshopform
+ * @subpackage comments
  * @copyright  2015 Pooya Saeedi
  * 
  */

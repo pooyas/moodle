@@ -4,8 +4,9 @@
 /**
  * Define all the backup steps that will be used by the backup_url_activity_task
  *
- * @package    mod_url
- * @copyright  2010 onwards Andrew Davis
+ * @package    mod
+ * @subpackage survey
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

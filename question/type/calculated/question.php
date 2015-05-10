@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculated
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
 /**
  * Represents a calculated question.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculated_question extends qtype_numerical_question
@@ -103,7 +103,7 @@ class qtype_calculated_question extends qtype_numerical_question
  * public $datasetloader; // of type qtype_calculated_dataset_loader
  * public $vs; // of type qtype_calculated_variable_substituter
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 interface qtype_calculated_question_with_expressions {
@@ -123,7 +123,7 @@ interface qtype_calculated_question_with_expressions {
  * {@link qtype_calculated_dataset_loader} to set up the value of each variable
  * in start_attempt, and restore that in apply_attempt_state.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qtype_calculated_question_helper {
@@ -161,7 +161,7 @@ abstract class qtype_calculated_question_helper {
  * This class is responsible for loading the dataset that a question needs from
  * the database.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculated_dataset_loader {
@@ -260,7 +260,7 @@ class qtype_calculated_dataset_loader {
  * It can compute formulae using those values, and can substitute equations
  * embedded in text.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculated_variable_substituter {

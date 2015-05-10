@@ -3,7 +3,8 @@
 /**
  * Unit tests for Accumulative grading strategy logic
  *
- * @package    workshopform_accumulative
+ * @package    workshopform
+ * @subpackage accumulative
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

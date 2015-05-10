@@ -2,7 +2,8 @@
 
 
 /**
- * @package    workshopform_rubric
+ * @package    workshopform
+ * @subpackage rubric
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Redirects the user to either a lesson or to the lesson statistics
  *
- * @package   mod_lesson
+ * @package   mod
+ * @subpackage lesson
  * @category  grade
  * @copyright 2015 Pooya Saeedi
  * 

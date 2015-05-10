@@ -2,7 +2,8 @@
 
 
 /**
- * @package assignment_offline
+ * @package assignment
+ * @subpackage offline
  * @subpackage backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 

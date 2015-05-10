@@ -9,8 +9,9 @@
  * the module-indpendent code for handling questions and which in turn
  * initialises all the questiontype classes.
  *
- * @package    mod_quiz
- * @copyright  1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -1738,8 +1739,6 @@ function quiz_get_js_module() {
  * An extension of question_display_options that includes the extra options used
  * by the quiz.
  *
- * @copyright  2010 The Open University
- * 
  */
 class mod_quiz_display_options extends question_display_options {
     /**#@+
@@ -1810,8 +1809,6 @@ class mod_quiz_display_options extends question_display_options {
  * A {@link qubaid_condition} for finding all the question usages belonging to
  * a particular quiz.
  *
- * @copyright  2010 The Open University
- * 
  */
 class qubaids_for_quiz extends qubaid_join {
     public function __construct($quizid, $includepreviews = true, $onlyfinished = false) {

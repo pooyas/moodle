@@ -3,8 +3,9 @@
 /**
  * LTI subplugin types declaration
  *
- * @package    mod_lti
- * @copyright  2012 Mark Nielsen
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

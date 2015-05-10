@@ -3,7 +3,8 @@
 /**
  * The mod_forum post deleted event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -23,10 +24,6 @@ defined('LION_INTERNAL') || die();
  *      - string forumtype: The type of forum the post is part of.
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class post_deleted extends \core\event\base {
     /**

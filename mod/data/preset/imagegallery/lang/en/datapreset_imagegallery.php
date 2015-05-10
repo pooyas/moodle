@@ -4,7 +4,8 @@
 /**
  * Strings for component 'datapreset_imagegallery', language 'en'
  *
- * @package   datapreset_imagegallery
+ * @package   datapreset
+ * @subpackage imagegallery
  * @copyright 2015 Pooya Saeedi
  * 
  */

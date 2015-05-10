@@ -4,7 +4,8 @@
 /**
  * Manage files in folder module instance
  *
- * @package   mod_folder
+ * @package    mod
+ * @subpackage folder
  * @copyright 2015 Pooya Saeedi
  * 
  */

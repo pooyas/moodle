@@ -3,7 +3,8 @@
 /**
  * Version details
  *
- * @package    assignment_uploadsingle
+ * @package    assignment
+ * @subpackage uploadsingle
  * @copyright  2015 Pooya Saeedi
  * 
  */

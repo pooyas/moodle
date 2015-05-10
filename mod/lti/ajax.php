@@ -6,11 +6,9 @@
  * It is used to provide immediate feedback
  * of which tool provider is to be used based on the Launch URL.
  *
- * @package    mod_lti
- * @subpackage xml
- * @copyright Copyright (c) 2011 Lionrooms Inc. (http://www.lionrooms.com)
- * 
- * @author     Chris Scribner
+ * @package    mod
+ * @subpackage lti
+ * @copyright 2015 Pooya Saeedi
  */
 define('AJAX_SCRIPT', true);
 

@@ -3,7 +3,8 @@
 /**
  * Installation code for the popup message processor
  *
- * @package   message_popup
+ * @package   message
+ * @subpackage popup
  * @copyright 2015 Pooya Saeedi
  * 
  */

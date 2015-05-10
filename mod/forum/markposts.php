@@ -4,8 +4,9 @@
 /**
  * Set tracking option for the forum.
  *
- * @package   mod_forum
- * @copyright 2005 mchurch
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

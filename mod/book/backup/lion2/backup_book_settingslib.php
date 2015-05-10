@@ -3,7 +3,8 @@
 /**
  * Description of book backup settings
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @copyright  2015 Pooya Saeedi
  * 
  */

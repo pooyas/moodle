@@ -3,7 +3,8 @@
 /**
  * Definition of Forum scheduled tasks.
  *
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @category  task
  * @copyright 2015 Pooya Saeedi
  * 

@@ -3,8 +3,9 @@
 /**
  * Test api's in message lib.
  *
- * @package core_message
- * @category test
+ * @package core
+ * @subpackage message
+ * @category phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -17,10 +18,6 @@ require_once($CFG->dirroot . '/message/lib.php');
 /**
  * Test api's in message lib.
  *
- * @package core_message
- * @category test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class core_message_messagelib_testcase extends advanced_testcase {
 

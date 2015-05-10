@@ -5,7 +5,7 @@
  * behaviour.
  *
  * @package   qtype_match
- * @copyright 2010 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question type.
  *
- * @copyright 2010 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_match_walkthrough_test extends qbehaviour_walkthrough_test_base {

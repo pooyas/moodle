@@ -4,8 +4,9 @@
  * This file contains the definition for the library class for file feedback plugin
  *
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * library class for importing feedback files from a zip
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assignfeedback_file_zip_importer {
 

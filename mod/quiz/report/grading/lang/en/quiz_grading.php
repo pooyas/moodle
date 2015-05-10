@@ -3,7 +3,8 @@
 /**
  * Strings for component 'quiz_grading', language 'en'
  *
- * @package   quiz_grading
+ * @package   quiz
+ * @subpackage grading
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -4,8 +4,9 @@
 /**
  * Strings for component 'workshopform_numerrors', language 'en'
  *
- * @package    workshopform_numerrors
- * @copyright  2009 David Mudrak <david@lion.com>
+ * @package    workshopform
+ * @subpackage numerrors
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

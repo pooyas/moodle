@@ -7,7 +7,8 @@
  * All the functions neeeded by Lion core, gradebook, file subsystem etc
  * are placed here.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,10 +3,10 @@
 /**
  * Quiz attempt walk through tests.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
- * @author     Jamie Pratt <me@jamiep.org>
  * 
  */
 
@@ -18,11 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 /**
  * Quiz attempt walk through.
  *
- * @package    mod_quiz
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * @author     Jamie Pratt <me@jamiep.org>
- * 
  */
 class mod_quiz_attempt_walkthrough_testcase extends advanced_testcase {
 

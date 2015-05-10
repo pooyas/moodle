@@ -3,8 +3,9 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->dirroot . '/mod/assign/locallib.php');
 /**
  * Assignment grading options form
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class mod_assign_grading_batch_operations_form extends lionform {
     /**

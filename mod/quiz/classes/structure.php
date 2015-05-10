@@ -3,7 +3,8 @@
 /**
  * Defines the \mod_quiz\structure class.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -20,8 +21,6 @@ defined('LION_INTERNAL') || die();
  * has been started, then the attempt holds the specific set of questions
  * that that student should answer, and we no longer use this class.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class structure {
     /** @var \quiz the quiz this is the structure of. */

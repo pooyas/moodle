@@ -8,7 +8,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
  *
  * These are the tests that don't require any steps.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_testcase extends advanced_testcase {

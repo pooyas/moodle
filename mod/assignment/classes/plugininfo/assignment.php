@@ -3,7 +3,8 @@
 /**
  * Subplugin info class.
  *
- * @package   mod_assignment
+ * @package   mod
+ * @subpackage assignment
  * @copyright 2015 Pooya Saeedi
  * 
  */

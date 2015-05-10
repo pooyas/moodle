@@ -3,8 +3,9 @@
 /**
  * functions used by AICC packages.
  *
- * @package    mod_scorm
- * @copyright 1999 onwards Roberto Pinna
+ * @package    mod
+ * @subpackage scorm
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

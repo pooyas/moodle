@@ -3,7 +3,8 @@
 /**
  * Events tests.
  *
- * @package    booktool_print
+ * @package    booktool
+ * @subpackage print
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -15,10 +16,6 @@ global $CFG;
 /**
  * Events tests class.
  *
- * @package    booktool_print
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class booktool_print_events_testcase extends advanced_testcase {
 

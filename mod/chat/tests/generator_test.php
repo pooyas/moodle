@@ -3,7 +3,8 @@
 /**
  * Genarator tests.
  *
- * @package    mod_chat
+ * @package    mod
+ * @subpackage chat
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -11,9 +12,6 @@
 /**
  * Genarator tests class.
  *
- * @package    mod_chat
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_chat_generator_testcase extends advanced_testcase {
 

@@ -3,7 +3,8 @@
 /**
  * mod_glossary data generator.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_glossary data generator class.
  *
- * @package    mod_glossary
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_glossary_generator extends testing_module_generator {
 

@@ -3,8 +3,9 @@
 /**
  * The mod_workshop submission reassessed event.
  *
- * @package    mod_workshop
- * @copyright  2013 Adrian Greeve
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - float grade: (optional) Assessment grade.
  * }
  *
- * @package    mod_workshop
- * @since      Lion 2.7
- * @copyright  2013 Adrian Greeve
- * 
  */
 class submission_reassessed extends \core\event\base {
 

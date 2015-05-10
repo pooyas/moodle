@@ -3,9 +3,9 @@
 /**
  * Quiz statistics report class.
  *
- * @package   quiz_statistics
- * @copyright 2014 Open University
- * @author    James Pratt <me@jamiep.org>
+ * @package   quiz
+ * @subpackage statistics
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +20,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/statistics/statisticslib.php');
  * a quiz, compared to the whole quiz. It also provides a drill-down to more
  * detailed information about each question.
  *
- * @copyright 2008 Jamie Pratt
- * 
  */
 class quiz_statistics_report extends quiz_default_report {
 

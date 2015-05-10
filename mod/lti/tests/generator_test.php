@@ -3,10 +3,10 @@
 /**
  * PHPUnit data generator tests
  *
- * @package    mod_lti
+ * @package    mod
+ * @subpackage lti
  * @category   phpunit
- * @copyright  Copyright (c) 2012 Lionrooms Inc. (http://www.lionrooms.com)
- * @author     Mark Nielsen
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,11 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * PHPUnit data generator testcase
  *
- * @package    mod_lti
- * @category   phpunit
- * @copyright  Copyright (c) 2012 Lionrooms Inc. (http://www.lionrooms.com)
- * @author     Mark Nielsen
- * 
  */
 class mod_lti_generator_testcase extends advanced_testcase {
     public function test_generator() {

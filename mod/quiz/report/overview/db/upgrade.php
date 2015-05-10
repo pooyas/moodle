@@ -3,8 +3,9 @@
 /**
  * Quiz overview report upgrade script.
  *
- * @package   quiz_overview
- * @copyright 2008 Jamie Pratt
+ * @package   quiz
+ * @subpackage overview
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

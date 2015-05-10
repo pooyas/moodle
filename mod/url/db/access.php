@@ -3,7 +3,8 @@
 /**
  * Capability definitions for the url module.
  *
- * @package    mod_url
+ * @package    mod
+ * @subpackage survey
  * @copyright  2015 Pooya Saeedi  
  * 
  */

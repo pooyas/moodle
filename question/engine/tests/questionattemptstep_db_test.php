@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the loading data into the {@link question_attempt_step} class.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_step_db_test extends data_loading_method_test_base {

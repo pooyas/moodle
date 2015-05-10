@@ -3,7 +3,8 @@
 /**
  * mod_wiki generator tests
  *
- * @package    mod_wiki
+ * @package    mod
+ * @subpackage wiki
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,10 +13,6 @@
 /**
  * Genarator tests class for mod_wiki.
  *
- * @package    mod_wiki
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_wiki_generator_testcase extends advanced_testcase {
 

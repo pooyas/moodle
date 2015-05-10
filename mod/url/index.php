@@ -4,8 +4,9 @@
 /**
  * List of urls in course
  *
- * @package    mod_url
- * @copyright  2009 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    mod
+ * @subpackage survey
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

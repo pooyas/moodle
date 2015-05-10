@@ -3,7 +3,8 @@
 /**
  * The mod_scorm tracks viewed event.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int scoid: Sco Id for which the trackes are viewed.
  * }
  *
- * @package    mod_scorm
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class tracks_viewed extends \core\event\base {
 

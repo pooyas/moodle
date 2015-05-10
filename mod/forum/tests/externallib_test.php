@@ -4,9 +4,11 @@
 /**
  * The module forums external functions unit tests
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
+ * @category   phpunit
  * @category   external
- * @copyright  2012 2015 Pooya Saeedi
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

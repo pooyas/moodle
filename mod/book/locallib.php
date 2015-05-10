@@ -3,8 +3,9 @@
 /**
  * Book module local lib functions
  *
- * @package    mod_book
- * @copyright  2010-2015 Pooya Saeedi 
+ * @package    mod
+ * @subpackage book
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -375,7 +376,7 @@ function book_get_toc($chapters, $chapter, $book, $cm, $edit) {
 /**
  * File browsing support class
  *
- * @copyright  2010-2015 Pooya Saeedi 
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 class book_file_info extends file_info {

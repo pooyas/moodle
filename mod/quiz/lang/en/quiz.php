@@ -3,7 +3,8 @@
 /**
  * Strings for component 'quiz', language 'en'
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

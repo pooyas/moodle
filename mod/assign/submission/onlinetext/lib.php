@@ -3,8 +3,9 @@
 /**
  * This file contains the lion hooks for the submission onlinetext plugin
  *
- * @package   assignsubmission_onlinetext
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignsubmission
+ * @subpackage onlinetext
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();

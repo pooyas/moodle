@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage numerical
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents a numerical question.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_numerical_question extends question_graded_automatically {
@@ -295,7 +295,7 @@ class qtype_numerical_question extends question_graded_automatically {
  * Subclass of {@link question_answer} with the extra information required by
  * the numerical question type.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_numerical_answer extends question_answer {

@@ -3,7 +3,8 @@
 /**
  * Thisscript processes ajax auto-save requests during the quiz.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @copyright  2015 Pooya Saeedi
  * 
  */

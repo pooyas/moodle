@@ -2,7 +2,8 @@
 
 
 /**
- * @package mod_wiki
+ * @package mod
+ * @subpackage wiki
  * @copyright 2015 Pooya Saeedi
  * 
  */

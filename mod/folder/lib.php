@@ -4,7 +4,8 @@
 /**
  * Mandatory public API of folder module
  *
- * @package   mod_folder
+ * @package    mod
+ * @subpackage folder
  * @copyright 2015 Pooya Saeedi  
  * 
  */

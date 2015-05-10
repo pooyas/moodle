@@ -4,8 +4,9 @@
 /**
  * Resource module admin settings and defaults
  *
- * @package    mod_label
- * @copyright  2013 Davo Smith, Synergy Learning
+ * @package    mod
+ * @subpackage label
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

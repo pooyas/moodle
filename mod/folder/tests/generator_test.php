@@ -3,7 +3,8 @@
 /**
  * mod_folder generator tests
  *
- * @package    mod_folder
+ * @package    mod
+ * @subpackage folder
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -12,7 +13,8 @@
 /**
  * Genarator tests class for mod_folder.
  *
- * @package    mod_folder
+ * @package    mod
+ * @subpackage folder
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

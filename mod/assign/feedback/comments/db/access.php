@@ -3,8 +3,9 @@
 /**
  * Capability definitions for this module.
  *
- * @package   assignfeedback_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

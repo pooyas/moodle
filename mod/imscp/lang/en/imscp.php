@@ -3,7 +3,8 @@
 /**
  * Strings for component 'imscp', language 'en'
  *
- * @package mod_imscp
+ * @package mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi
  * 
  */

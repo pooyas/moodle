@@ -3,7 +3,8 @@
 /**
  * This script displays a particular page of a quiz attempt that is in progress.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

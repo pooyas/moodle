@@ -6,7 +6,7 @@
  *
  * @package    qbehaviour
  * @subpackage deferredcbm
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ defined('LION_INTERNAL') || die();
  * Renderer for outputting parts of a question belonging to the deferred
  * feedback with certainty based marking behaviour.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_deferredcbm_renderer extends qbehaviour_renderer {

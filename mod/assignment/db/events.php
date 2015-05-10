@@ -3,7 +3,8 @@
 /**
  * Definition of assignment event handlers
  *
- * @package mod_assignment
+ * @package mod
+ * @subpackage assignment
  * @category event
  * @copyright 2015 Pooya Saeedi
  * 

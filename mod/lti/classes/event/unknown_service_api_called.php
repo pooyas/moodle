@@ -3,8 +3,9 @@
 /**
  * The mod_lti unknown service api called event.
  *
- * @package    mod_lti
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Event for when something happens with an unknown lti service API call.
  *
- * @package    mod_lti
- * @since      Lion 2.6
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class unknown_service_api_called extends \core\event\base {
 

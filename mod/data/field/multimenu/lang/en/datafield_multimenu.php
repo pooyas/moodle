@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'datafield_multimenu', language 'en', branch 'master'
+ * Strings for component 'datafield_multimenu', language 'en'
  *
  * @package    datafield
  * @subpackage multimenu

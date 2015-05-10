@@ -3,7 +3,8 @@
 /**
  * The mod_chat message sent event.
  *
- * @package    mod_chat
+ * @package    mod
+ * @subpackage chat
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_chat message sent event class.
  *
- * @package    mod_chat
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class message_sent extends \core\event\base {
 

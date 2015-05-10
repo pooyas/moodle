@@ -3,8 +3,9 @@
 /**
  * The mod_quiz attempt started event.
  *
- * @package    mod_quiz
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace mod_quiz\event;
@@ -13,10 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_quiz attempt started event class.
  *
- * @package    mod_quiz
- * @since      Lion 2.6
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class attempt_started extends \core\event\base {
 

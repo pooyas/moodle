@@ -3,7 +3,8 @@
 /**
  * Post-install code for the assignfeedback_file module.
  *
- * @package assignfeedback_file
+ * @package assignfeedback
+ * @subpackage file
  * @copyright  2015 Pooya Saeedi
  * 
  */

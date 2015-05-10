@@ -3,8 +3,9 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package    mod_feedback
- * @copyright  2011 Rossiani Wijaya <rwijaya@lion.com>
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

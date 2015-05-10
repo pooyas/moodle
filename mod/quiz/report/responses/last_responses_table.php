@@ -3,8 +3,9 @@
 /**
  * This file defines the quiz responses table for showing last try at question.
  *
- * @package   quiz_responses
- * @copyright 2008 Jean-Michel Vedrine
+ * @package   quiz
+ * @subpackage responses
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/attemptsreport_table.php');
 /**
  * This is a table subclass for displaying the quiz responses report.
  *
- * @copyright 2008 Jean-Michel Vedrine
  * 
  */
 class quiz_last_responses_table extends quiz_attempts_report_table {

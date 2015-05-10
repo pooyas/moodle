@@ -2,8 +2,9 @@
 
 
 /**
- * @package    workshopform_numerrors
- * @copyright  2010 onwards David Mudrak <david@lion.com>
+ * @package    workshopform
+ * @subpackage numerrors
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

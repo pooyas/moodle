@@ -3,9 +3,10 @@
 /**
  * Strings for component 'ltiservice_toolproxy', language 'en'
  *
- * @package    ltiservice_toolproxy
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    ltiservice
+ * @subpackage toolproxy
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 

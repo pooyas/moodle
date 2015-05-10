@@ -3,11 +3,11 @@
 /**
  * External functions
  *
- * @package    message_airnotifier
+ * @package    message
+ * @subpackage airnotifier
  * @category   external
  * @copyright  2015 Pooya Saeedi 
  * 
- * @since Lion 2.7
  */
 
 defined('LION_INTERNAL') || die;
@@ -17,11 +17,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * External API for airnotifier web services
  *
- * @package    message_airnotifier
- * @category   external
- * @copyright  2015 Pooya Saeedi 
- * 
- * @since Lion 2.7
  */
 class message_airnotifier_external extends external_api {
 

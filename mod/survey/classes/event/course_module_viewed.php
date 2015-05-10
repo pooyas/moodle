@@ -3,7 +3,8 @@
 /**
  * The mod_survey course module viewed event.
  *
- * @package    mod_survey
+ * @package    mod
+ * @subpackage survey
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_survery course module viewed event.
  *
- * @package    mod_survey
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_module_viewed extends \core\event\course_module_viewed {
 

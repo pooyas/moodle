@@ -3,7 +3,8 @@
 /**
  * Glossary event observer.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @copyright  2015 Pooya Saeedi
  * 
  */

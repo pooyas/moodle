@@ -1,11 +1,10 @@
 <?php
 
-
-
 /**
  * This file adds support to rss feeds generation
  *
- * @package mod_glossary
+ * @package mod
+ * @subpackage glossary
  * @category rss
  * @copyright  2015 Pooya Saeedi
  * 

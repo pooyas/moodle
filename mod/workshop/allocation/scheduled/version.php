@@ -4,8 +4,8 @@
 /**
  * Scheduled allocator that internally executes the random one
  *
- * @package     workshopallocation_scheduled
- * @subpackage  mod_workshop
+ * @package     workshopallocation
+ * @subpackage random
  * @copyright   2015 Pooya Saeedi
  * 
  */

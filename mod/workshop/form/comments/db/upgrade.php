@@ -4,7 +4,8 @@
 /**
  * Keeps track of upgrades to the workshop comments grading strategy
  *
- * @package    workshopform_comments
+ * @package    workshopform
+ * @subpackage comments
  * @copyright  2015 Pooya Saeedi
  * 
  */

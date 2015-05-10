@@ -4,7 +4,7 @@
  * Matching question renderer class.
  *
  * @package   qtype_match
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Generates the output for matching questions.
  *
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_match_renderer extends qtype_with_combined_feedback_renderer {

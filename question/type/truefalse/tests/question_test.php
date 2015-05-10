@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage truefalse
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the true-false question definition class.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_truefalse_question_test extends advanced_testcase {

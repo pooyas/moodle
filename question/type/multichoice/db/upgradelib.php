@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage multichoice
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ defined('LION_INTERNAL') || die();
  *
  * This class is used by the code in question/engine/upgrade/upgradelib.php.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_qe2_attempt_updater extends question_qtype_attempt_updater {

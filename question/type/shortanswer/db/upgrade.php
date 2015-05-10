@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage shortanswer
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

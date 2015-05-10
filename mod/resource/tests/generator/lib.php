@@ -3,7 +3,8 @@
 /**
  * Data generator.
  *
- * @package    mod_resource
+ * @package    mod
+ * @subpackage resource
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Resource module data generator class.
  *
- * @package    mod_resource
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mod_resource_generator extends testing_module_generator {
 

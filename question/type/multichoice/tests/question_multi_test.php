@@ -4,7 +4,7 @@
  * Unit tests for the multiple choice, multi-response question definition classes.
  *
  * @package   qtype_multichoice
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the multiple choice, multi-response question definition class.
  *
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_multi_question_test extends advanced_testcase {

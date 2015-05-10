@@ -6,7 +6,7 @@
  *
  * @package    scormreport
  * @subpackage basic
- * @author     Ankit Kumar Agarwal
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

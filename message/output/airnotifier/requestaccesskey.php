@@ -3,7 +3,8 @@
 /**
  * Request access key to AirNotifier
  *
- * @package    message_airnotifier
+ * @package    message
+ * @subpackage airnotifier
  * @copyright  2015 Pooya Saeedi
  * 
  */

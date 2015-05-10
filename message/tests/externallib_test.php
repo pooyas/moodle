@@ -3,9 +3,10 @@
 /**
  * External message functions unit tests
  *
- * @package    core
- * @category   external
- * @copyright  2015 Pooya Saeedi
+ * @package core
+ * @subpackage message
+ * @category phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

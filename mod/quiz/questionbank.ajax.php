@@ -4,7 +4,8 @@
 /**
  * Ajax script to update the contents of the question bank dialogue.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @copyright  2015 Pooya Saeedi
  * 
  */

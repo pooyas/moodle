@@ -11,7 +11,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
  *
  * @package    core_webservice
  * @category   external
- * @copyright  2012 Paul Charsley
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_webservice_externallib_testcase extends externallib_advanced_testcase {

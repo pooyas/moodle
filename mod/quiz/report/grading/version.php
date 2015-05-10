@@ -3,8 +3,9 @@
 /**
  * Quiz grading report version information.
  *
- * @package   quiz_grading
- * @copyright 2010 The Open University
+ * @package   quiz
+ * @subpackage grading
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

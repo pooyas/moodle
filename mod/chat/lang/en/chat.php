@@ -3,7 +3,8 @@
 /**
  * Strings for component 'chat', language 'en'
  *
- * @package   mod_chat
+ * @package   mod
+ * @subpackage chat
  * @copyright 2015 Pooya Saeedi
  * 
  */

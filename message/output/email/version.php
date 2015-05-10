@@ -3,8 +3,9 @@
 /**
  * Email processor version information
  *
- * @package    message_email
- * @copyright  2008 Luis Rodrigues
+ * @package   message
+ * @subpackage email
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -6,7 +6,8 @@ YUI.add('lion-mod_forum-subscriptiontoggle', function (Y, NAME) {
  * active.
  *
  * @module     lion-core-subscriptiontoggle
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi 
  * 
  * @main       lion-mod_forum-subscriptiontoggle

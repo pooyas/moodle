@@ -3,7 +3,8 @@
 /**
  * Steps definitions related to workshopallocation_manual.
  *
- * @package    workshopallocation_manual
+ * @package    workshopallocation
+ * @subpackage manual
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -21,10 +22,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Steps definitions related to workshopallocation_manual.
  *
- * @package    workshopallocation_manual
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_workshopallocation_manual extends behat_base {
     /**

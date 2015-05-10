@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package   mod_forum
- * @copyright 2014 Andrew Robert Nicols 
+ * @package    mod
+ * @subpackage forum
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

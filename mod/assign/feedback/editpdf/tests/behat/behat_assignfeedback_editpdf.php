@@ -3,9 +3,10 @@
 /**
  * Behat editpdf-related steps definitions.
  *
- * @package    assignfeedback_editpdf
+ * @package    assignfeedback
+ * @subpackage editpdf
  * @category   test
- * @copyright  2013 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +19,6 @@ use Behat\Behat\Context\Step\Given as Given;
 /**
  * Steps definitions related with the editpdf.
  *
- * @package    assignfeedback_editpdf
- * @category   test
- * @copyright  2013 Jerome Mouneyrac
- * 
  */
 class behat_assignfeedback_editpdf extends behat_base {
 

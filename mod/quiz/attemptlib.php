@@ -6,7 +6,8 @@
  * There are classes for loading all the information about a quiz and attempts,
  * and for displaying the navigation panel.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -19,9 +20,6 @@ defined('LION_INTERNAL') || die();
  * Class for quiz exceptions. Just saves a couple of arguments on the
  * constructor for a lion_exception.
  *
- * @copyright 2015 Pooya Saeedi
- * 
- * @since     Lion 2.0
  */
 class lion_quiz_exception extends lion_exception {
     public function __construct($quizobj, $errorcode, $a = null, $link = '', $debuginfo = null) {
@@ -1742,7 +1740,7 @@ class quiz_attempt {
 /**
  * Represents a single link in the navigation panel.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since      Lion 2.1
  */

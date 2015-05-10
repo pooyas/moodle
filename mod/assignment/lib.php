@@ -5,7 +5,8 @@
  *
  * This class provides all the functionality for an assignment
  *
- * @package   mod_assignment
+ * @package   mod
+ * @subpackage assignment
  * @copyright 2015 Pooya Saeedi
  * 
  */

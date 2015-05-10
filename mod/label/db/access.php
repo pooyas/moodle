@@ -3,9 +3,9 @@
 /**
  * Capability definitions for the label module.
  *
- * @package    mod_label
+ * @package    mod
+ * @subpackage label
  * @copyright  2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
 
 defined('LION_INTERNAL') || die();

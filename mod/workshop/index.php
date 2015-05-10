@@ -4,7 +4,8 @@
 /**
  * Prints the list of all workshops in the course
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

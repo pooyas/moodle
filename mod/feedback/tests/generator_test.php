@@ -3,7 +3,9 @@
 /**
  * Genarator tests.
  *
- * @package    mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +15,6 @@ global $CFG;
 /**
  * Genarator tests class.
  *
- * @package    mod_feedback
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_feedback_generator_testcase extends advanced_testcase {
 

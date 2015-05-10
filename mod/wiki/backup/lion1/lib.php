@@ -5,8 +5,9 @@
  * Provides support for the conversion of lion1 backup to the lion2 format
  * Based off of a template @ http://docs.lion.org/dev/Backup_1.9_conversion_for_developers
  *
- * @package    mod_wiki
- * @copyright  2011 Aparup Banerjee <aparup@lion.com>
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Define all the backup steps that will be used by the backup_assign_activity_task
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->dirroot . '/mod/assign/backup/lion2/restore_assign_stepslib.p
 /**
  * assign restore task that provides all the settings and steps to perform one complete restore of the activity
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class restore_assign_activity_task extends restore_activity_task {
 

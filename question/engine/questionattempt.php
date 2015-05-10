@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ defined('LION_INTERNAL') || die();
  * a collection of {@link question_attempt_steps}. Question inteaction models and
  * question types do work with question_attempt objects.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt {
@@ -1450,7 +1450,7 @@ class question_attempt {
  *
  * All methods that try to modify the question_attempt throw exceptions.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_with_restricted_history extends question_attempt {
@@ -1536,7 +1536,7 @@ class question_attempt_with_restricted_history extends question_attempt {
  * This is actively linked to question_attempt. If you add an new step
  * mid-iteration, then it will be included.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_step_iterator implements Iterator, ArrayAccess {
@@ -1595,7 +1595,7 @@ class question_attempt_step_iterator implements Iterator, ArrayAccess {
  * A variant of {@link question_attempt_step_iterator} that iterates through the
  * steps in reverse order.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_attempt_reverse_step_iterator extends question_attempt_step_iterator {

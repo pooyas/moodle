@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,7 +18,7 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Settings form for the preview options.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class preview_options_form extends lionform {
@@ -89,7 +89,7 @@ class preview_options_form extends lionform {
  * Displays question preview options as default and set the options
  * Setting default, getting and setting user preferences in question preview options.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_preview_options extends question_display_options {

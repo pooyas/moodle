@@ -4,7 +4,8 @@
 /**
  * Defines all the backup steps that will be used by {@link backup_workshop_activity_task}
  *
- * @package     mod_workshop
+ * @package     mod
+ * @subpackage workshop
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
@@ -15,7 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Defines the complete workshop structure for backup, with file and id annotations
  *
- * @link http://docs.lion.org/dev/Workshop for XML structure diagram
  */
 class backup_workshop_activity_structure_step extends backup_activity_structure_step {
 

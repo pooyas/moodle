@@ -5,8 +5,9 @@
  *
  * It delegates most functions to the assignment class.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();

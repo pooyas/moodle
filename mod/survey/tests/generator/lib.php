@@ -3,7 +3,8 @@
 /**
  * mod_survey data generator.
  *
- * @package    mod_survey
+ * @package    mod
+ * @subpackage survey
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_survey data generator class.
  *
- * @package    mod_survey
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_survey_generator extends testing_module_generator {
 

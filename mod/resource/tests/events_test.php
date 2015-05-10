@@ -3,7 +3,9 @@
 /**
  * Events test.
  *
- * @package    mod_resource
+ * @package    mod
+ * @subpackage resource
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -13,9 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Resource events test cases.
  *
- * @package    mod_resource
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_resource_events_testcase extends advanced_testcase {
 

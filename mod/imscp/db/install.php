@@ -8,7 +8,8 @@
  *   - lib.php/modulename_install() post installation hook
  *   - partially defaults.php
  *
- * @package mod_imscp
+ * @package mod
+ * @subpackage imscp
  * @copyright  2015 Pooya Saeedi  
  * 
  */

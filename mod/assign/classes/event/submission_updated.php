@@ -3,7 +3,8 @@
 /**
  * The mod_assign submission updated event.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -25,10 +26,6 @@ defined('LION_INTERNAL') || die();
  *      - string groupname: (optional) The name of the group if this is a teamsubmission.
  * }
  *
- * @package    mod_assign
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 abstract class submission_updated extends base {
 

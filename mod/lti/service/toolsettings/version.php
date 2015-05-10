@@ -3,9 +3,10 @@
 /**
  * Version information for the ltiservice_toolsettings service.
  *
- * @package    ltiservice_toolsettings
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    ltiservice
+ * @subpackage toolsettings
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 

@@ -7,7 +7,7 @@
  *
  * @package    qbehaviour
  * @subpackage deferredcbm
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ require_once(dirname(__FILE__) . '/../deferredfeedback/behaviour.php');
  * when the whole attempt is finished, their answer is graded. Their degree
  * of certainty affects their score.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_deferredcbm extends qbehaviour_deferredfeedback {

@@ -5,7 +5,8 @@
  * This file is responsible for producing the downloadable versions of a survey
  * module.
  *
- * @package   mod_survey
+ * @package   mod
+ * @subpackage survey
  * @copyright 2015 Pooya Saeedi
  * 
  */

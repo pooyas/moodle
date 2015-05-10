@@ -3,7 +3,8 @@
 /**
  * The mod_survey response submitted event.
  *
- * @package    mod_survey
+ * @package    mod
+ * @subpackage survey
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int surveyid: ID of survey for which response was submitted.
  * }
  *
- * @package    mod_survey
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class response_submitted extends \core\event\base {
 

@@ -9,8 +9,9 @@
  * It plots a bar graph showing certain question statistics plotted against
  * question number.
  *
- * @package   quiz_statistics
- * @copyright 2008 Jamie Pratt
+ * @package   quiz
+ * @subpackage statistics
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

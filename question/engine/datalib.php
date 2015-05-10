@@ -26,7 +26,7 @@
  *    into question_attempt_step_data than deletes, so it is really hardly worth it.
  *
  * @package    core_question
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -38,7 +38,7 @@ defined('LION_INTERNAL') || die();
  * This class controls the loading and saving of question engine data to and from
  * the database.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_engine_data_mapper {
@@ -1194,7 +1194,7 @@ ORDER BY
  * changes to a {@link question_usage_by_activity}, and its constituent parts,
  * so that the changes can be saved to the database when {@link save()} is called.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_engine_unit_of_work implements question_usage_observer {
@@ -1441,7 +1441,7 @@ interface question_response_files {
  * if this question attempt will actually be saved in the database until later,
  * when the {@link question_engine_unit_of_work} is saved, if it is.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_file_saver implements question_response_files {
@@ -1641,7 +1641,7 @@ class question_file_loader implements question_response_files {
  * FROM $qubaids->from_question_attempts('qa')
  * WHERE $qubaids->where() AND qa.slot = 1
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qubaid_condition {
@@ -1687,7 +1687,7 @@ abstract class qubaid_condition {
  * This class represents a restriction on the set of question_usage ids to include
  * in a larger database query based on an explicit list of ids.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qubaid_list extends qubaid_condition {
@@ -1758,7 +1758,7 @@ class qubaid_list extends qubaid_condition {
  *
  * where $from, $usageidcolumn and $where are the arguments to the constructor.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qubaid_join extends qubaid_condition {

@@ -6,8 +6,7 @@
  *
  * @package    core
  * @subpackage lib
- * @copyright  Catalyst IT
- * @copyright  Peter Bulmer
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 define('PWRESET_STATUS_NOEMAILSENT', 1);

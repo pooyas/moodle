@@ -7,7 +7,8 @@
  * Rubric can be displayed in two possible layouts - list or grid. This file defines
  * therefore defines two classes, respectively.
  *
- * @package    workshopform_rubric
+ * @package    workshopform
+ * @subpackage rubric
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * This file contains the version information for the comments feedback plugin
  *
- * @package assignfeedback_editpdf
+ * @package assignfeedback
+ * @subpackage editpdf
  * @copyright  2015 Pooya Saeedi
  * 
  */

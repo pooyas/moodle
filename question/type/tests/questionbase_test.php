@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questiontypes
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/questiontypebase.php');
 /**
  * Unit tests for the question definition base classes.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class test_response_answer_comparer implements question_response_answer_comparer {
@@ -41,7 +41,7 @@ class test_response_answer_comparer implements question_response_answer_comparer
 /**
  * Tests for {@link question_first_matching_answer_grading_strategy}.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_first_matching_answer_grading_strategy_test extends advanced_testcase {
@@ -85,7 +85,7 @@ class question_first_matching_answer_grading_strategy_test extends advanced_test
 /**
  * Test for question_hint and subclasses.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_hint_test extends advanced_testcase {

@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_assignment
- * @copyright  2006 Martin Dougiamas
+ * @package    mod
+ * @subpackage assignment
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -4,7 +4,8 @@
 /**
  * This file defines a class with "Number of errors" grading strategy logic
  *
- * @package    workshopform_numerrors
+ * @package    workshopform
+ * @subpackage numerrors
  * @copyright  2015 Pooya Saeedi
  * 
  */

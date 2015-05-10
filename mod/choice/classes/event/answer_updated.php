@@ -3,8 +3,9 @@
 /**
  * The mod_choice answer updated event.
  *
- * @package    mod_choice
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int optionid: (optional) id of option.
  * }
  *
- * @package    mod_choice
- * @since      Lion 2.6
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class answer_updated extends \core\event\base {
 

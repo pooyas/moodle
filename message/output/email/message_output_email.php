@@ -3,8 +3,9 @@
 /**
  * Contains the definiton of the email message processors (sends messages to users via email)
  *
- * @package   message_email
- * @copyright 2008 Luis Rodrigues and Martin Dougiamas
+ * @package   message
+ * @subpackage email
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,9 +14,6 @@ require_once($CFG->dirroot.'/message/output/lib.php');
 /**
  * The email message processor
  *
- * @package   message_email
- * @copyright 2008 Luis Rodrigues and Martin Dougiamas
- * 
  */
 class message_output_email extends message_output {
     /**

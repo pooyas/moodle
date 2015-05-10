@@ -3,8 +3,9 @@
 /**
  * Disable the assignment module for new installs
  *
- * @package mod_assignment
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package mod
+ * @subpackage assignment
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();

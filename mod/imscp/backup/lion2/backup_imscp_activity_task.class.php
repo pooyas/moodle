@@ -3,7 +3,8 @@
 /**
  * Defines backup_imscp_activity_task class
  *
- * @package     mod_imscp
+ * @package     mod
+ * @subpackage imscp
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
@@ -16,7 +17,6 @@ require_once($CFG->dirroot . '/mod/imscp/backup/lion2/backup_imscp_stepslib.php'
 /**
  * Provides the steps to perform one complete backup of the IMSCP instance
  *
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class backup_imscp_activity_task extends backup_activity_task {

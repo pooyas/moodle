@@ -5,7 +5,7 @@
  *
  * @package    qbehaviour
  * @subpackage immediatefeedback
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

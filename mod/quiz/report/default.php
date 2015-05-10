@@ -3,8 +3,9 @@
 /**
  * Base class for quiz report plugins.
  *
- * @package   mod_quiz
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -24,8 +25,6 @@ defined('LION_INTERNAL') || die();
  * to itself - all these will also be globally available.  You must
  * pass "id=$cm->id" or q=$quiz->id", and "mode=reportname".
  *
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
- * 
  */
 abstract class quiz_default_report {
     const NO_GROUPS_ALLOWED = -2;

@@ -8,7 +8,7 @@
  *
  * @package   core_user
  * @category  user
- * @copyright 2011 Rajesh Taneja
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

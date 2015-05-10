@@ -3,8 +3,9 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package mod_imscp
- * @copyright  2015 Pooya Saeedi <andrew@lion.com>
+ * @package mod
+ * @subpackage imscp
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 
@@ -13,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * imscp conversion handler. This resource handler is called by lion1_mod_resource_handler
  *
- * @copyright  2015 Pooya Saeedi <andrew@lion.com>
- * 
  */
 class lion1_mod_imscp_handler extends lion1_resource_successor_handler {
 

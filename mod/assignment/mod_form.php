@@ -3,7 +3,8 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package   mod_assignment
+ * @package   mod
+ * @subpackage assignment
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -15,9 +16,6 @@ require_once($CFG->dirroot.'/course/lionform_mod.php');
 /**
  * Disabled assignment settings form.
  *
- * @package   mod_assignment
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mod_assignment_mod_form extends lionform_mod {
 

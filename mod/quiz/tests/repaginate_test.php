@@ -2,9 +2,10 @@
 
 /**
  * Unit tests for the {@link \mod_quiz\repaginate} class.
- * @package   mod_quiz
- * @category  test
- * @copyright 2014 The Open Univsersity
+ * @package   mod
+ * @subpackage quiz
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/classes/repaginate.php');
 
 /**
  * Testable subclass, giving access to the protected methods of {@link \mod_quiz\repaginate}
- * @copyright 2014 The Open Univsersity
  * 
  */
 class mod_quiz_repaginate_testable extends \mod_quiz\repaginate {
@@ -44,7 +44,6 @@ class mod_quiz_repaginate_testable extends \mod_quiz\repaginate {
 
 /**
  * Test for some parts of the repaginate class.
- * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_quiz_repaginate_test extends advanced_testcase {

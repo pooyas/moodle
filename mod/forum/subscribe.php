@@ -12,7 +12,8 @@
  * through a confirmation page that redirects the user back with the
  * sesskey.
  *
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */

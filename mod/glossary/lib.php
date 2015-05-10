@@ -5,7 +5,8 @@
  * Library of functions and constants for module glossary
  * (replace glossary with the name of your module and delete this line)
  *
- * @package   mod_glossary
+ * @package   mod
+ * @subpackage glossary
  * @copyright 2015 Pooya Saeedi
  * 
  */

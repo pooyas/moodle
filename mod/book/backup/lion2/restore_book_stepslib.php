@@ -3,7 +3,8 @@
 /**
  * Define all the restore steps that will be used by the restore_book_activity_task
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @copyright  2015 Pooya Saeedi
  * 
  */

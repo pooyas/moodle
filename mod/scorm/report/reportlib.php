@@ -2,8 +2,9 @@
 
 /**
  * Returns an array of reports to which are currently readable.
- * @package    mod_scorm
- * @author     Ankit Kumar Agarwal
+ * @package    mod
+ * @subpackage scorm
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

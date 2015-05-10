@@ -3,9 +3,10 @@
 /**
  * Defines the custom question bank view used on the Edit quiz page.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @category  question
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Subclass to customise the view of the question bank for the quiz editing screen.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class custom_view extends \core_question\bank\view {
     /** @var bool whether the quiz this is used by has been attemptd. */

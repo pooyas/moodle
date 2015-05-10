@@ -3,7 +3,8 @@
 /**
  * LTI source plugin info.
  *
- * @package   mod_lti
+ * @package   mod
+ * @subpackage lti
  * @copyright 2015 Pooya Saeedi
  * 
  */

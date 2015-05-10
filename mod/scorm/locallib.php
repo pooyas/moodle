@@ -3,8 +3,9 @@
 /**
  * Library of internal classes and functions for module SCORM
  *
- * @package    mod_scorm
- * @copyright  1999 onwards Roberto Pinna
+ * @package    mod
+ * @subpackage scorm
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -40,7 +41,8 @@ define('TOCFULLURL', 2);
 // Local Library of functions for module scorm.
 
 /**
- * @package   mod_scorm
+ * @package   mod
+ * @subpackage scorm
  * @copyright 2015 Pooya Saeedi
  * 
  */

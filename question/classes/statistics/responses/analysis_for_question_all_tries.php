@@ -4,8 +4,8 @@
  * This file contains a class to analyse all the responses for multiple tries at a particular question.
  *
  * @package    core_question
- * @copyright  2014 Open University
- * @author     Jamie Pratt <me@jamiep.org>
+ * @copyright  2015 Pooya Saeedi
+ * @author     2015 Pooya Saeedi
  * 
  */
 

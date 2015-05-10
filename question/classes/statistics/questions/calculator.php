@@ -6,7 +6,7 @@
  * @package    core
  * @subpackage questionbank
  * @copyright  2013 Open University
- * @author     Jamie Pratt <me@jamiep.org>
+ * @author     2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * This class has methods to compute the question statistics from the raw data.
  *
  * @copyright 2013 Open University
- * @author    Jamie Pratt <me@jamiep.org>
+ * @author    2015 Pooya Saeedi
  * 
  */
 class calculator {

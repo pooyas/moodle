@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_forum
- * @copyright  2006 Martin Dougiamas
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

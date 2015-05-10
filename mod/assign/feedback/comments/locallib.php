@@ -3,8 +3,9 @@
 /**
  * This file contains the definition for the library class for comment feedback plugin
  *
- * @package   assignfeedback_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Library class for comment feedback plugin extending feedback plugin base class.
  *
- * @package   assignfeedback_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_feedback_comments extends assign_feedback_plugin {
 

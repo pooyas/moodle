@@ -3,8 +3,9 @@
 /**
  * Book import
  *
- * @package    booktool_importhtml
- * @copyright  2004-2015 Pooya Saeedi 
+ * @package    booktool
+ * @subpackage importhtml
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

@@ -4,7 +4,8 @@
 /**
  * This file contains the backup task for the lesson module
  *
- * @package     mod_lesson
+ * @package     mod
+ * @subpackage lesson
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
@@ -17,8 +18,6 @@ require_once($CFG->dirroot . '/mod/lesson/backup/lion2/backup_lesson_stepslib.ph
 /**
  * Provides the steps to perform one complete backup of the Lesson instance
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_lesson_activity_task extends backup_activity_task {
 

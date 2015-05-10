@@ -4,9 +4,10 @@
 /**
  * Defines backup_url_activity_task class
  *
- * @package     mod_url
+ * @package     mod
+ * @subpackage survey
  * @category    backup
- * @copyright   2010 onwards Andrew Davis
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

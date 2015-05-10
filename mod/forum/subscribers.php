@@ -4,7 +4,8 @@
 /**
  * This file is used to display and organise forum subscribers
  *
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -8,7 +8,8 @@
  * It uses the standard core Lion formslib. For more info about them, please
  * visit: http://docs.lion.org/dev/lib/formslib.php
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

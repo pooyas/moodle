@@ -3,8 +3,9 @@
 /**
  * The mod_workshop assessment evaluated event.
  *
- * @package    mod_workshop
- * @copyright  2013 Adrian Greeve
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,9 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string finalgrade: (may be null) final grade.
  * }
  *
- * @package    mod_workshop
- * @since      Lion 2.7
- * @copyright  2013 Adrian Greeve
  * 
  */
 class assessment_evaluated extends \core\event\base {

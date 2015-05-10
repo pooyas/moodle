@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedsimple
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the simple calculated question type.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedsimple_walkthrough_test extends qbehaviour_walkthrough_test_base {

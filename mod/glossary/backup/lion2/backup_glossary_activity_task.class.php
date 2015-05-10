@@ -4,7 +4,8 @@
 /**
  * Defines backup_glossary_activity_task class
  *
- * @package     mod_glossary
+ * @package     mod
+ * @subpackage glossary
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

@@ -2,8 +2,9 @@
 
 
 /**
- * @package    mod_resource
- * @subpackage backup-lion2
+ * @package    mod
+ * @subpackage resource
+ * @category backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 
  */

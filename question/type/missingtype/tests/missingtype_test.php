@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage missingtype
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once(dirname(__FILE__) . '/../question.php');
 /**
  * Unit tests for the 'missing' question type.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_missing_test extends question_testcase {

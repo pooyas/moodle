@@ -3,8 +3,9 @@
 /**
  * The mod_assign abstract base event.
  *
- * @package    mod_assign
- * @copyright  2014 Mark Nelson
+ * @package    mod
+ * @subpackage assign
+ * @copyright  Pooya Saeedi
  * 
  */
 
@@ -17,10 +18,6 @@ defined('LION_INTERNAL') || die();
  *
  * Most mod_assign events can extend this class.
  *
- * @package    mod_assign
- * @since      Lion 2.7
- * @copyright  2014 Mark Nelson
- * 
  */
 abstract class base extends \core\event\base {
 

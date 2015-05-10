@@ -6,7 +6,7 @@
  *
  * @package    core_question
  * @copyright  2013 Open University
- * @author     Jamie Pratt <me@jamiep.org>
+ * @author     2015 Pooya Saeedi
  * 
  */
 

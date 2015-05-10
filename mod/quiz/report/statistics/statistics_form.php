@@ -3,9 +3,9 @@
 /**
  * Quiz statistics settings form definition.
  *
- * @package   quiz_statistics
- * @copyright 2014 Open University
- * @author    James Pratt <me@jamiep.org>
+ * @package   quiz
+ * @subpackage statistics
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +16,6 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * This is the settings form for the quiz statistics report.
  *
- * @package   quiz_statistics
- * @copyright 2014 Open University
- * @author    James Pratt <me@jamiep.org>
- * 
  */
 class quiz_statistics_settings_form extends lionform {
     protected function definition() {

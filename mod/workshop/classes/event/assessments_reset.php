@@ -3,8 +3,9 @@
 /**
  * The mod_workshop submission assessments reset event.
  *
- * @package    mod_workshop
- * @copyright  2013 Adrian Greeve
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int workshopid: the ID of the workshop.
  * }
  *
- * @package    mod_workshop
- * @since      Lion 2.7
- * @copyright  2013 Adrian Greeve
- * 
  */
 class assessments_reset extends \core\event\base {
 

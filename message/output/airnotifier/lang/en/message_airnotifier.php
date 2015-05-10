@@ -3,7 +3,8 @@
 /**
  * Strings for component 'message_airnotifier', language 'en'
  *
- * @package    message_airnotifier
+ * @package    message
+ * @subpackage airnotifier
  * @copyright  2015 Pooya Saeedi
  * 
  */

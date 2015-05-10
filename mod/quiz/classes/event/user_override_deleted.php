@@ -3,7 +3,8 @@
 /**
  * The mod_quiz user override deleted event.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int quizid: the id of the quiz.
  * }
  *
- * @package    mod_quiz
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_override_deleted extends \core\event\base {
 

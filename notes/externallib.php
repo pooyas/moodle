@@ -6,7 +6,7 @@
  *
  * @package    core_notes
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once("$CFG->libdir/externallib.php");
  *
  * @package    core_notes
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.2
  */
@@ -455,7 +455,7 @@ class core_notes_external extends external_api {
  * Deprecated notes external functions
  *
  * @package    core_notes
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @since Lion 2.1
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.

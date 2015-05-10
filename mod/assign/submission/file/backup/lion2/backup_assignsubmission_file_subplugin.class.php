@@ -3,8 +3,9 @@
 /**
  * This file contains the class for backup of this submission plugin
  *
- * @package assignsubmission_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package assignsubmission
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,9 +16,6 @@ defined('LION_INTERNAL') || die();
  *
  * This just adds its filearea to the annotations and records the number of files
  *
- * @package assignsubmission_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class backup_assignsubmission_file_subplugin extends backup_subplugin {
 

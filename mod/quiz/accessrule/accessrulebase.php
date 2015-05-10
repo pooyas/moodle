@@ -3,8 +3,9 @@
 /**
  * Base class for rules that restrict the ability to attempt a quiz.
  *
- * @package   mod_quiz
- * @copyright 2011 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

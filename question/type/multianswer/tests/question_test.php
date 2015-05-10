@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage multianswer
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for qtype_multianswer_question.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multianswer_question_test extends advanced_testcase {

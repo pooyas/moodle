@@ -3,11 +3,11 @@
 /**
  * LTI web service endpoints
  *
- * @package    mod_lti
+ * @package    mod
+ * @subpackage lti
  * @category   log
- * @copyright  Copyright (c) 2011 Lionrooms Inc. (http://www.lionrooms.com)
+ * @copyright  2015 Pooya Saeedi
  * 
- * @author     Chris Scribner
  */
 
 defined('LION_INTERNAL') || die();

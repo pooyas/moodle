@@ -3,7 +3,8 @@
 /**
  * The mod_chat sessions viewed event.
  *
- * @package    mod_chat
+ * @package    mod
+ * @subpackage chat
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int end: end of period.
  * }
  *
- * @package    mod_chat
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class sessions_viewed extends \core\event\base {
 

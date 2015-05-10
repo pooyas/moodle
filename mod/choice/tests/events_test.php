@@ -3,8 +3,9 @@
 /**
  * Events tests.
  *
- * @package    mod_choice
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -16,10 +17,7 @@ require_once($CFG->dirroot . '/mod/choice/lib.php');
 /**
  * Events tests class.
  *
- * @package    mod_choice
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
- */
+s */
 class mod_choice_events_testcase extends advanced_testcase {
     /** @var choice_object */
     protected $choice;

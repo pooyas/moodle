@@ -9,7 +9,7 @@
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ require_once(dirname(__FILE__) . '/../type/questiontypebase.php');
  *
  * It provides functions for managing question types and question definitions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_bank {
@@ -418,7 +418,7 @@ abstract class question_bank {
 /**
  * Class for loading questions according to various criteria.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_finder implements cache_data_source {

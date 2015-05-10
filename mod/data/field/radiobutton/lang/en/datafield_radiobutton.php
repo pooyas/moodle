@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'datafield_radiobutton', language 'en', branch 'master'
+ * Strings for component 'datafield_radiobutton', language 'en'
  *
  * @package    datafield
  * @subpackage radiobutton

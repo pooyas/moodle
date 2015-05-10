@@ -3,8 +3,9 @@
 /**
  * Upgrade code for the feedback_file module.
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

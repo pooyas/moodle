@@ -3,8 +3,9 @@
 /**
  * Lists renamed classes so that the autoloader can make the old names still work.
  *
- * @package   mod_quiz
- * @copyright 2014 Tim Hunt
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

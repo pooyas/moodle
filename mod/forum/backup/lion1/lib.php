@@ -4,8 +4,9 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package    mod_forum
- * @copyright  2011 Mark Nielsen <mark@lionrooms.com>
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

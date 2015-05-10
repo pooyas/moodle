@@ -5,7 +5,8 @@
  * Library of functions and constants for module glossary
  * outside of what is required for the core lion api
  *
- * @package   mod_glossary
+ * @package   mod
+ * @subpackage glossary
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -197,9 +198,6 @@ class glossary_full_portfolio_caller extends portfolio_module_caller_base {
 /**
  * class to export a single glossary entry
  *
- * @package   mod_glossary
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class glossary_entry_portfolio_caller extends portfolio_module_caller_base {
 
@@ -444,9 +442,6 @@ class glossary_entry_portfolio_caller extends portfolio_module_caller_base {
 /**
  * Class representing the virtual node with all itemids in the file browser
  *
- * @category  files
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class glossary_file_info_container extends file_info {
     /** @var file_browser */

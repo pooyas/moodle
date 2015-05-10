@@ -3,7 +3,8 @@
 /**
  * Forum subscription manager.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi 
  * 
  */
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Forum subscription manager.
  *
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class subscriptions {
 

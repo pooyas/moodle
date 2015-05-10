@@ -3,7 +3,8 @@
 /**
  * Installation code for the email message processor
  *
- * @package    message_email
+ * @package   message
+ * @subpackage email
  * @copyright  2015 Pooya Saeedi
  * 
  */

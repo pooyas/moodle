@@ -2,8 +2,9 @@
 
 
 /**
- * @package assignment_online
- * @copyright 2011 onwards Aparup Banerjee (nebgor)
+ * @package assignment
+ * @subpackage online
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

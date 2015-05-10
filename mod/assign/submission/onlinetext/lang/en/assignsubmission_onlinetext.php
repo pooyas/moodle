@@ -3,8 +3,9 @@
 /**
  * Strings for component 'assignsubmission_onlinetext', language 'en'
  *
- * @package   assignsubmission_onlinetext
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignsubmission
+ * @subpackage onlinetext
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

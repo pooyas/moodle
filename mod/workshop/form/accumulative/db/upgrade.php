@@ -4,7 +4,8 @@
 /**
  * Keeps track of upgrades to the workshop accumulative grading strategy
  *
- * @package    workshopform_accumulative
+ * @package    workshopform
+ * @subpackage accumulative
  * @copyright  2015 Pooya Saeedi
  * 
  */

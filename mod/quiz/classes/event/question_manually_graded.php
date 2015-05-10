@@ -22,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int slot: the question number in the attempt.
  * }
  *
- * @package    core
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_manually_graded extends \core\event\base {
 

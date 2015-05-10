@@ -3,7 +3,8 @@
 /**
  * Unit tests for workshop api class defined in mod/workshop/locallib.php
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

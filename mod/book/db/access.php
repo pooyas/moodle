@@ -3,8 +3,9 @@
 /**
  * Book module capability definition
  *
- * @package    mod_book
- * @copyright  2009-2015 Pooya Saeedi 
+ * @package    mod
+ * @subpackage book
+ * @copyright  2015 Pooya Saeedi 
  * 
  */
 

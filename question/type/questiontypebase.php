@@ -1411,7 +1411,7 @@ class question_type {
  * This class is used in the return value from
  * {@link question_type::get_possible_responses()}.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_possible_response {

@@ -3,7 +3,8 @@
 /**
  * Event observers definition.
  *
- * @package mod_chat
+ * @package mod
+ * @subpackage chat
  * @category event
  * @copyright 2015 Pooya Saeedi
  * 

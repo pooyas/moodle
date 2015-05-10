@@ -4,7 +4,8 @@
 /**
  * Airnotifier external functions and service definitions.
  *
- * @package    message_airnotifier
+ * @package    message
+ * @subpackage airnotifier
  * @category   webservice
  * @copyright  2015 Pooya Saeedi
  * 

@@ -3,8 +3,9 @@
 /**
  * mod_lesson generator tests
  *
- * @package    mod_lesson
- * @category   test
+ * @package    mod
+ * @subpackage lesson
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Genarator tests class for mod_lesson.
  *
- * @package    mod_lesson
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_lesson_generator_testcase extends advanced_testcase {
 

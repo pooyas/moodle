@@ -6,7 +6,7 @@
  *
  * @package    core
  * @subpackage questionengine
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -25,7 +25,7 @@ defined('LION_INTERNAL') || die();
  * question_attempt object belonging to the new question engine would have, but
  * $this->qa is built up from stdClass objects.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_behaviour_attempt_updater {

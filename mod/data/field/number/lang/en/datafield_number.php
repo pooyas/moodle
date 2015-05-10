@@ -2,7 +2,7 @@
 
 
 /**
- * Strings for component 'datafield_number', language 'en', branch 'master'
+ * Strings for component 'datafield_number', language 'en'
  *
  * @package    datafield
  * @subpackage number

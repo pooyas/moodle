@@ -3,7 +3,8 @@
 /**
  * Events tests.
  *
- * @package    mod_wiki
+ * @package    mod
+ * @subpackage wiki
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -15,10 +16,6 @@ require_once($CFG->dirroot.'/mod/wiki/locallib.php');
 /**
  * Events tests class.
  *
- * @package    mod_wiki
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_wiki_events_testcase extends advanced_testcase {
     private $course;

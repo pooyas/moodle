@@ -4,7 +4,8 @@
 /**
  * Strings for component 'forum', language 'en'
  *
- * @package   mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright 2015 Pooya Saeedi
  * 
  */

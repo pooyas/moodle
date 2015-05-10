@@ -5,7 +5,7 @@
  *
  * @package    qbehaviour
  * @subpackage adaptivenopenalty
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
  *
  * This is the old version of interactive mode, without penalties.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_adaptivenopenalty extends qbehaviour_adaptive {

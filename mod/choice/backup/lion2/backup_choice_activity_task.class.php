@@ -4,7 +4,8 @@
 /**
  * Defines backup_choice_activity_task class
  *
- * @package     mod_choice
+ * @package     mod
+ * @subpackage choice
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

@@ -4,7 +4,8 @@
 /**
  * Strings for component 'choice', language 'en'
  *
- * @package   mod_choice
+ * @package   mod
+ * @subpackage choice
  * @copyright 2015 Pooya Saeedi
  * 
  */

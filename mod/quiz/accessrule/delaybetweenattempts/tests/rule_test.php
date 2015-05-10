@@ -6,7 +6,7 @@
  * @package    quizaccess
  * @subpackage delaybetweenattempts
  * @category   phpunit
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/delaybetweenattempts/rule.php
 /**
  * Unit tests for the quizaccess_delaybetweenattempts plugin.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_delaybetweenattempts_testcase extends basic_testcase {

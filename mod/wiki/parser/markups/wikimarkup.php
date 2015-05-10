@@ -3,10 +3,10 @@
 /**
  * Generic & abstract parser functions & skeleton. It has some functions & generic stuff.
  *
- * @author Josep Arús
- *
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_wiki
+ * @package mod
+ * @subpackage wiki
+ * @copyright 2015 Pooya Saeedi
+ * 
  */
 
 abstract class wiki_markup_parser extends generic_parser {

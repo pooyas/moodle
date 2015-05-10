@@ -4,8 +4,9 @@
 /**
  * Strings for component 'workshopform_rubric', language 'en'
  *
- * @package    workshopform_rubric
- * @copyright  2009 David Mudrak <david@lion.com>
+ * @package    workshopform
+ * @subpackage rubric
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

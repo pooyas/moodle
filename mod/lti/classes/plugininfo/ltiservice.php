@@ -3,9 +3,9 @@
 /**
  * LTI service plugin info.
  *
- * @package    mod_lti
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace mod_lti\plugininfo;
@@ -18,10 +18,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_lti\plugininfo\ltiservice class.
  *
- * @package    mod_lti
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 class ltiservice extends base {
 

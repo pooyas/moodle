@@ -5,7 +5,7 @@
  *
  * @package    qbehaviour
  * @subpackage interactivecountback
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ require_once(dirname(__FILE__) . '/../interactive/renderer.php');
  * There are not differences from the interactive output. We just need a class
  * definition.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_interactivecountback_renderer extends qbehaviour_interactive_renderer {

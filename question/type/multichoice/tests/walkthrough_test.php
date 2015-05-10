@@ -9,7 +9,7 @@
  *
  * @package    qtype
  * @subpackage multichoice
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -24,7 +24,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the mutiple choice question type.
  *
- * @copyright  2010 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_walkthrough_test extends qbehaviour_walkthrough_test_base {

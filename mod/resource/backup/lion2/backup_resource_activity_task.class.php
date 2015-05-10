@@ -4,7 +4,8 @@
 /**
  * Defines backup_resource_activity_task class
  *
- * @package     mod_resource
+ * @package     mod
+ * @subpackage resource
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

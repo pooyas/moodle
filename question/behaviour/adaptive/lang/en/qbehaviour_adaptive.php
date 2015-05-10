@@ -5,7 +5,7 @@
  *
  * @package    qbehaviour
  * @subpackage adaptive
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

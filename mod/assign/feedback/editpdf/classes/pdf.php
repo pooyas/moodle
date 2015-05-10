@@ -3,7 +3,8 @@
 /**
  * Library code for manipulating PDFs
  *
- * @package assignfeedback_editpdf
+ * @package assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -19,9 +20,6 @@ require_once($CFG->dirroot.'/mod/assign/feedback/editpdf/fpdi/fpdi.php');
 /**
  * Library code for manipulating PDFs
  *
- * @package assignfeedback_editpdf
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class pdf extends \FPDI {
 

@@ -3,8 +3,9 @@
 /**
  * The mod_quiz attempt abandoned event.
  *
- * @package    mod_quiz
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 namespace mod_quiz\event;
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int quizid: (optional) id of the quiz.
  * }
  *
- * @package    mod_quiz
- * @since      Lion 2.6
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class attempt_abandoned extends \core\event\base {
 

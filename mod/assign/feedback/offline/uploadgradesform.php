@@ -3,8 +3,9 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package   assignfeedback_offline
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage offline
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -15,9 +16,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Upload modified grading worksheet
  *
- * @package   assignfeedback_offline
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assignfeedback_offline_upload_grades_form extends lionform {
     /**

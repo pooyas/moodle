@@ -3,7 +3,8 @@
 /**
  * This file contains the backup code for the feedback_editpdf plugin.
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
  *
  * This just adds its fileareas to the annotations and the comments and annotation data.
  *
- * @package   assignfeedback_editpdf
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class backup_assignfeedback_editpdf_subplugin extends backup_subplugin {
 

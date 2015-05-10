@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Strings for component 'assignment_offline', language 'en', branch 'master'
+ * Strings for component 'assignment_offline', language 'en'
  *
- * @package    assignment_offline
+ * @package    assignment
+ * @subpackage offline
  * @copyright  2015 Pooya Saeedi
  * 
  */

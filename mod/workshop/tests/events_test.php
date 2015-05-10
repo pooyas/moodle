@@ -3,9 +3,10 @@
 /**
  * Unit tests for workshop events.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   phpunit
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

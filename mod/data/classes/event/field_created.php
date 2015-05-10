@@ -3,8 +3,8 @@
 /**
  * The mod_data field created event.
  *
- * @package    mod_data
- * @since      Lion 2.7
+ * @package    mod
+ * @subpackage data
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -23,9 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int dataid: the id of the data activity.
  * }
  *
- * @package    mod_data
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
  * 
  */
 class field_created extends \core\event\base {

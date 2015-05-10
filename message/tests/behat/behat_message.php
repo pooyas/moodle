@@ -19,10 +19,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Messaging system steps definitions.
  *
- * @package    core
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_message extends behat_base {
 

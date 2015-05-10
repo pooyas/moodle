@@ -3,8 +3,9 @@
 /**
  * Defines message providers (types of message sent) for the quiz module.
  *
- * @package   mod_quiz
- * @copyright 2015 Pooya Saeedi http://lion.com
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

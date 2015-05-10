@@ -4,7 +4,8 @@
  * This file contains the definition for the library class for PDF feedback plugin
  *
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -17,9 +18,6 @@ use \assignfeedback_editpdf\page_editor;
 /**
  * library class for editpdf feedback plugin extending feedback plugin base class
  *
- * @package   assignfeedback_editpdf
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class assign_feedback_editpdf extends assign_feedback_plugin {
 

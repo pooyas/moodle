@@ -3,7 +3,8 @@
 /**
  * Quiz activity version information.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Unit tests for assignfeedback_editpdf\comments_quick_list
  *
- * @package    assignfeedback_editpdf
+ * @package    assignfeedback
+ * @subpackage editpdf
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_survey
- * @copyright  2006 Martin Dougiamas
+ * @package    mod
+ * @subpackage survey
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

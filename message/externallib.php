@@ -6,7 +6,7 @@
  *
  * @package    core
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,11 +15,6 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Message external functions
  *
- * @package    core
- * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * 
- * @since Lion 2.2
  */
 class core_message_external extends external_api {
 
@@ -918,10 +913,6 @@ class core_message_external extends external_api {
 /**
  * Deprecated message external functions
  *
- * @package    core
- * @copyright  2011 Jerome Mouneyrac
- * 
- * @since Lion 2.1
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_notes_external
  */

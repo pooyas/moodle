@@ -17,9 +17,6 @@ use \html_writer;
 /**
  * Renderer outputting the quiz editing UI.
  *
- * @copyright 2015 Pooya Saeedi.
- * 
- * @since Lion 2.7
  */
 class edit_renderer extends \plugin_renderer_base {
 

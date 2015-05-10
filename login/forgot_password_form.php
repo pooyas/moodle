@@ -15,10 +15,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * Reset forgotten password form definition.
  *
- * @package    core
- * @subpackage auth
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class login_forgot_password_form extends lionform {
 

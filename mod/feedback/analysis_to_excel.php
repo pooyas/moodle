@@ -3,9 +3,9 @@
 /**
  * prints an analysed excel-spreadsheet of the feedback
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @subpackage 2015 Pooya Saeedi
  */
 
 require_once("../../config.php");

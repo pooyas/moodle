@@ -3,8 +3,9 @@
 /**
  * Define all the restore steps that will be used by the restore_assign_activity_task
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -13,9 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Define the complete assignment structure for restore, with file and id annotations
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class restore_assign_activity_structure_step extends restore_activity_structure_step {
 

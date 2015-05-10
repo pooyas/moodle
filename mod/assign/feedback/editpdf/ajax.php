@@ -3,7 +3,8 @@
 /**
  * Process ajax requests
  *
- * @package assignfeedback_editpdf
+ * @package assignfeedback
+ * @subpackage editpdf
  * @copyright  2015 Pooya Saeedi
  * 
  */

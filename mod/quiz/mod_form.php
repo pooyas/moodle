@@ -3,8 +3,9 @@
 /**
  * Defines the quiz module ettings form.
  *
- * @package    mod_quiz
- * @copyright  2006 Jamie Pratt
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +19,6 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 /**
  * Settings form for the quiz module.
  *
- * @copyright  2006 Jamie Pratt
- * 
  */
 class mod_quiz_mod_form extends lionform_mod {
     /** @var array options to be used with date_time_selector fields in the quiz. */

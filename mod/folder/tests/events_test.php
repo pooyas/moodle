@@ -3,7 +3,8 @@
 /**
  * Events tests.
  *
- * @package    mod_folder
+ * @package    mod
+ * @subpackage folder
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 

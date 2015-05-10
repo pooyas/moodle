@@ -4,7 +4,8 @@
 /**
  * External forum API
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2012 2015 Pooya Saeedi
  * 
  */

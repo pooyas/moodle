@@ -3,8 +3,9 @@
 /**
  * This file contains the forms to create and edit an instance of this module
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -16,9 +17,6 @@ require_once($CFG->dirroot . '/mod/assign/feedback/file/locallib.php');
 /**
  * Assignment grading options form
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assignfeedback_file_batch_upload_files_form extends lionform {
     /**

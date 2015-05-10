@@ -3,8 +3,9 @@
 /**
  * Upgrade script for the quiz module.
  *
- * @package    mod_quiz
- * @copyright  2006 Eloy Lafuente (stronk7)
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

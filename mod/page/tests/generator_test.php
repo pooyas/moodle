@@ -3,7 +3,8 @@
 /**
  * PHPUnit data generator tests
  *
- * @package    mod_page
+ * @package    mod
+ * @subpackage page
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * PHPUnit data generator testcase
  *
- * @package    mod_page
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class mod_page_generator_testcase extends advanced_testcase {
     public function test_generator() {

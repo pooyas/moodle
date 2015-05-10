@@ -3,8 +3,9 @@
 /**
  * This file contains the lion hooks for the submission comments plugin
  *
- * @package   assignsubmission_comments
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package    assignsubmission
+ * @subpackage comments
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();

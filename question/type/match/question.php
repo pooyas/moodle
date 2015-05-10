@@ -4,7 +4,7 @@
  * Matching question definition class.
  *
  * @package   qtype_match
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -15,7 +15,7 @@ defined('LION_INTERNAL') || die();
 /**
  * Represents a matching question.
  *
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_match_question extends question_graded_automatically_with_countback {

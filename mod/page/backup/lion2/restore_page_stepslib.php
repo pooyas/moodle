@@ -2,7 +2,8 @@
 
 
 /**
- * @package   mod_page
+ * @package   mod
+ * @subpackage page
  * @category  backup
  * @copyright 2015 Pooya Saeedi
  * 

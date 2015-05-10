@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questionbehaviours
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -22,7 +22,7 @@ defined('LION_INTERNAL') || die();
  * In turn, the behaviour will delegate certain processing to the
  * relevant {@link question_definition}.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_behaviour {
@@ -544,7 +544,7 @@ abstract class question_behaviour {
  * action that is suitable for most questions that implement the
  * {@link question_manually_gradable} interface.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_behaviour_with_save extends question_behaviour {
@@ -667,7 +667,7 @@ abstract class question_behaviour_with_multiple_tries extends question_behaviour
  * This helper class contains the constants and methods required for
  * manipulating scores for certainty based marking.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class question_cbm {

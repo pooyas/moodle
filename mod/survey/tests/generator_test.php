@@ -3,8 +3,9 @@
 /**
  * mod_survey generator tests
  *
- * @package    mod_survey
- * @category   test
+ * @package    mod
+ * @subpackage survey
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Genarator tests class for mod_survey.
  *
- * @package    mod_survey
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_survey_generator_testcase extends advanced_testcase {
 

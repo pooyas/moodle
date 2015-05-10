@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedmulti
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/calculated/question.php');
 /**
  * Test helper class for the calculated multiple-choice question type.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedmulti_test_helper extends question_test_helper {

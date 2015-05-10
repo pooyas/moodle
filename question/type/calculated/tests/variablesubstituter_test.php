@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculated
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/type/calculated/questiontype.php');
 /**
  * Unit tests for {@link qtype_calculated_variable_substituter}.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculated_variable_substituter_test extends advanced_testcase {

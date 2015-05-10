@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage missingtype
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ defined('LION_INTERNAL') || die();
  * sure at the moment. Perhaps it is important for it to work with as many
  * behaviours as possible.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_missingtype_question extends question_definition

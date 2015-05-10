@@ -6,7 +6,7 @@
  * @package    core
  * @subpackage questionbank
  * @copyright  2015 Pooya Saeedi
- * @author     Jamie Pratt <me@jamiep.org>
+ * @author     2015 Pooya Saeedi
  * 
  */
 

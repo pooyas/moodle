@@ -3,8 +3,9 @@
 /**
  * Defines the form that limits student's access to attempt a quiz.
  *
- * @package   mod_quiz
- * @copyright 2011 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->libdir.'/formslib.php');
 /**
  * A form that limits student's access to attempt a quiz.
  *
- * @copyright  2011 The Open University
- * 
  */
 class mod_quiz_preflight_check_form extends lionform {
 

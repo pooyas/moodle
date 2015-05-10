@@ -4,7 +4,8 @@
 /**
  * Provides the interface for grading essay questions
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/

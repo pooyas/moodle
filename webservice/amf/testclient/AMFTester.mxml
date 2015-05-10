@@ -28,7 +28,7 @@
 			 * http://sam.zoy.org/wtfpl/COPYING for more details.
 			 * 
 			 * @author Jordi Boggiano <j.boggiano@seld.be>
-			 * @author Jamie Pratt <me@jamiep.org>
+			 * @author 2015 Pooya Saeedi
 			 */			
 			
 			import mx.controls.Label;

@@ -4,7 +4,8 @@
 /**
  * A lion form to manage folder files
  *
- * @package   mod_folder
+ * @package    mod
+ * @subpackage folder
  * @copyright 2015 Pooya Saeedi
  * 
  */

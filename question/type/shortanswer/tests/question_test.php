@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage shortanswer
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/type/shortanswer/question.php');
 /**
  * Unit tests for the short answer question definition class.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_shortanswer_question_test extends advanced_testcase {

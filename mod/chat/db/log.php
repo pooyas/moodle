@@ -3,7 +3,8 @@
 /**
  * Definition of log events
  *
- * @package    mod_chat
+ * @package    mod
+ * @subpackage chat
  * @category   log
  * @copyright  2015 Pooya Saeedi
  * 

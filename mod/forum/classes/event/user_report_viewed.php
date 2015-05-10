@@ -3,7 +3,8 @@
 /**
  * The mod_forum user report viewed event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string reportmode: The mode the report has been viewed in (posts or discussions).
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class user_report_viewed extends \core\event\base {
 

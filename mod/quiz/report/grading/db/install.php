@@ -2,8 +2,9 @@
 
 /**
  * Post-install script for the quiz manual grading report.
- * @package   quiz_grading
- * @copyright 2013 Tim Hunt
+ * @package   quiz
+ * @subpackage grading
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

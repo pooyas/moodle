@@ -3,8 +3,8 @@
 /**
  * The mod_data course module viewed event.
  *
- * @package    mod_data
- * @since      Lion 2.7
+ * @package    mod
+ * @subpackage data
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_data course module viewed event class.
  *
- * @package    mod_data
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class course_module_viewed extends \core\event\course_module_viewed {
 

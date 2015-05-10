@@ -5,7 +5,8 @@
  *
  * @todo MDL-44734 This job will be split up properly.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -2,8 +2,9 @@
 
 
 /**
- * @package    mod_url
- * @subpackage backup-lion2
+ * @package    mod
+ * @subpackage survey
+ * @category  backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 
  */

@@ -3,17 +3,15 @@
 /**
  * Generator tests.
  *
- * @package    mod_choice
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
 /**
  * Generator tests class.
  *
- * @package    mod_choice
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
- * 
  */
 class mod_choice_generator_testcase extends advanced_testcase {
 

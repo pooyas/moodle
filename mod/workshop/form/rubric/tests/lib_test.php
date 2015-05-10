@@ -3,7 +3,8 @@
 /**
  * Unit tests for Rubric grading strategy logic
  *
- * @package    workshopform_rubric
+ * @package    workshopform
+ * @subpackage rubric
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 

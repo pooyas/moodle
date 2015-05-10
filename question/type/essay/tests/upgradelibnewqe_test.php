@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage essay
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/engine/upgrade/tests/helper.php');
 /**
  * Testing the upgrade of essay question attempts.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_essay_attempt_upgrader_test extends question_attempt_upgrader_test_base {

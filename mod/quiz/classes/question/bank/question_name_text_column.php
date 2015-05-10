@@ -3,9 +3,10 @@
 /**
  * A column type for the name followed by the start of the question text.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @category  question
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A column type for the name followed by the start of the question text.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class question_name_text_column extends \core_question\bank\question_name_column {
     public function get_name() {

@@ -22,7 +22,8 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 o
  */

@@ -3,8 +3,9 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package    mod_scorm
- * @copyright  2011 Aparup Banerjee <nebgor@gmail.com>
+ * @package    mod
+ * @subpackage scorm
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

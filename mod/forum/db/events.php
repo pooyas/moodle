@@ -3,7 +3,8 @@
 /**
  * Forum event handler definition.
  *
- * @package mod_forum
+ * @package mod
+ * @subpackage forum
  * @category event
  * @copyright 2015 Pooya Saeedi  
  * 

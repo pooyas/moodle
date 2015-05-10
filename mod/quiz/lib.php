@@ -6,7 +6,8 @@
  * This contains functions that are called also from outside the quiz module
  * Functions that are only called by the quiz module itself are in {@link locallib.php}
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @copyright  2015 Pooya Saeedi
  * 
  */

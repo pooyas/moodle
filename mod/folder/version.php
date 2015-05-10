@@ -3,7 +3,8 @@
 /**
  * Folder module version information
  *
- * @package   mod_folder
+ * @package    mod
+ * @subpackage folder
  * @copyright 2015 Pooya Saeedi  
  * 
  */

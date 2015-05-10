@@ -3,7 +3,8 @@
 /**
  * The mod_glossary entry approved event.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_glossary entry approved event class.
  *
- * @package    mod_glossary
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class entry_approved extends \core\event\base {
     /**

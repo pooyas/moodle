@@ -4,7 +4,8 @@
 /**
  * Defines backup_assignment_activity_task class
  *
- * @package     mod_assignment
+ * @package     mod
+ * @subpackage  assignment
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

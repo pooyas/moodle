@@ -3,8 +3,9 @@
 /**
  * Settings form for overrides in the quiz module.
  *
- * @package    mod_quiz
- * @copyright  2010 Matt Petro
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,8 +19,6 @@ require_once($CFG->dirroot . '/mod/quiz/mod_form.php');
 /**
  * Form for editing settings overrides.
  *
- * @copyright  2010 Matt Petro
- * 
  */
 class quiz_override_form extends lionform {
 

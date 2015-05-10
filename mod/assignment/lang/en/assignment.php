@@ -4,7 +4,8 @@
 /**
  * Strings for component 'assignment', language 'en'
  *
- * @package   mod_assignment
+ * @package   mod
+ * @subpackage assignment
  * @copyright 2015 Pooya Saeedi
  * 
  */

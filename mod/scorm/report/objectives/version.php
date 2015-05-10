@@ -3,9 +3,9 @@
 
 /**
  * Defines the version of scorm_objectives
- * @package   scormreport_objectives
- * @author    Dan Marsden <dan@danmarsden.com>
- * @copyright 2013 Dan Marsden
+ * @package   scormreport
+ * @subpackage objectives
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

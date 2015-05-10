@@ -3,7 +3,8 @@
 /**
  * This file defines interface of all grading evaluation classes
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

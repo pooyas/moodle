@@ -3,8 +3,9 @@
 /**
  * Capability definitions for the quiz manual grading report.
  *
- * @package   quiz_grading
- * @copyright 2010 The Open University
+ * @package   quiz
+ * @subpackage grading
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * mod_workshop data generator.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_workshop data generator class.
  *
- * @package    mod_workshop
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_workshop_generator extends testing_module_generator {
 

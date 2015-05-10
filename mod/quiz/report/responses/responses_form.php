@@ -3,8 +3,9 @@
 /**
  * This file defines the setting form for the quiz responses report.
  *
- * @package   quiz_responses
- * @copyright 2008 Jean-Michel Vedrine
+ * @package   quiz
+ * @subpackage responses
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/attemptsreport_form.php');
 /**
  * Quiz responses report settings form.
  *
- * @copyright 2008 Jean-Michel Vedrine
- * 
  */
 class quiz_responses_settings_form extends mod_quiz_attempts_report_form {
 

@@ -5,7 +5,7 @@
  *
  * @package    core
  * @subpackage questiontypes
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/questiontypebase.php');
 /**
  * Tests for some of ../questionbase.php
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class question_type_test extends advanced_testcase {

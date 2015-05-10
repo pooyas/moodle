@@ -3,9 +3,10 @@
 /**
  * LTI upgrade script.
  *
- * @package    mod_lti
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 
@@ -20,10 +21,6 @@ require_once($CFG->dirroot . '/mod/lti/db/upgradelib.php');
 /**
  * Unit tests for mod_lti upgrades.
  *
- * @package    mod_lti
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 class mod_lti_upgradelib_testcase extends advanced_testcase {
 

@@ -3,7 +3,8 @@
 /**
  * Defines backup_scorm_activity_task class
  *
- * @package     mod_scorm
+ * @package     mod
+ * @subpackage scorm
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

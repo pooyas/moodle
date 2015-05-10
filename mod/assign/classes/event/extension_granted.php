@@ -3,7 +3,8 @@
 /**
  * The mod_assign extension granted event.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_assign extension granted event class.
  *
- * @package    mod_assign
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class extension_granted extends base {
     /**

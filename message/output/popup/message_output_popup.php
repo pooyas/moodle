@@ -1,25 +1,11 @@
 <?php
-// This file is part of Lion - http://lion.org/
-//
-// Lion is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 2 of the License, or
-// (at your option) any later version.
-//
-// Lion is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Lion.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Popup message processor, stores messages to be shown using the message popup
  *
- * @package   message_popup
- * @copyright 2008 Luis Rodrigues
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v2 or later
+ * @package   message
+ * @subpackage popup
+ * @copyright 2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/config.php'); //included from messagelib (how to fix?)
@@ -28,9 +14,6 @@ require_once($CFG->dirroot.'/message/output/lib.php');
 /**
  * The popup message processor
  *
- * @package   message_popup
- * @copyright 2008 Luis Rodrigues and Martin Dougiamas
- * 
  */
 class message_output_popup extends message_output{
 

@@ -3,8 +3,9 @@
 /**
  * Events tests.
  *
- * @package   core_mnet
- * @category  test
+ * @package   core
+ * @subpackage mnet
+ * @category  phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

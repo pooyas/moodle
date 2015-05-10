@@ -3,7 +3,8 @@
 /**
  * Capability definitions for the quiz module.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @copyright  2015 Pooya Saeedi
  * 
  */

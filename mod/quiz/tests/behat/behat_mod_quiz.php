@@ -3,7 +3,8 @@
 /**
  * Steps definitions related to mod_quiz.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @category  test
  * @copyright 2015 Pooya Saeedi
  * 
@@ -21,8 +22,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Steps definitions related to mod_quiz.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_mod_quiz extends behat_question_base {
 

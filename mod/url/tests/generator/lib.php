@@ -3,7 +3,8 @@
 /**
  * mod_url data generator.
  *
- * @package    mod_url
+ * @package    mod
+ * @subpackage survey
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_url data generator class.
  *
- * @package    mod_url
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_url_generator extends testing_module_generator {
 

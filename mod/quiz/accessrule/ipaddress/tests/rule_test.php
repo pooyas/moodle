@@ -6,7 +6,7 @@
  * @package    quizaccess
  * @subpackage ipaddress
  * @category   phpunit
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/ipaddress/rule.php');
 /**
  * Unit tests for the quizaccess_ipaddress plugin.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_ipaddress_testcase extends basic_testcase {

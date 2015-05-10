@@ -3,7 +3,8 @@
 /**
  * Repaginate functionality for a popup in quiz editing page.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

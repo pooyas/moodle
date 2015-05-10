@@ -3,7 +3,8 @@
 /**
  * Definition of log events
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @category   log
  * @copyright  2015 Pooya Saeedi
  * 

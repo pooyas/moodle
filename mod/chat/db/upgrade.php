@@ -3,7 +3,8 @@
 /**
  * Upgrade code for the chat activity
  *
- * @package   mod_chat
+ * @package   mod
+ * @subpackage chat
  * @copyright 2015 Pooya Saeedi
  * 
  */

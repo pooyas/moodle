@@ -3,7 +3,8 @@
 /**
  * Strings for component 'assignfeedback_editpdf', language 'en'
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */

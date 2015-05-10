@@ -5,7 +5,8 @@ YUI.add('lion-mod_quiz-quizquestionbank', function (Y, NAME) {
 /**
  * Add questions from question bank functionality for a popup in quiz editing page.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */

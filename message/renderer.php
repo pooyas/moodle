@@ -15,10 +15,6 @@ defined('LION_INTERNAL') || die();
  *
  * Class for rendering various message objects
  *
- * @package    core
- * @subpackage message
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class core_message_renderer extends plugin_renderer_base {
 

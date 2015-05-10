@@ -3,8 +3,9 @@
 /**
  * Post-install code for the submission_onlinetext module.
  *
- * @package assignsubmission_onlinetext
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignsubmission
+ * @subpackage onlinetext
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();

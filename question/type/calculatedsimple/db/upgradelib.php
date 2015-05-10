@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedsimple
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,7 +21,7 @@ require_once($CFG->dirroot . '/question/type/calculated/db/upgradelib.php');
  *
  * This class is used by the code in question/engine/upgrade/upgradelib.php.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedsimple_qe2_attempt_updater extends qtype_calculated_qe2_attempt_updater {

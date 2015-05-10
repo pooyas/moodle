@@ -142,7 +142,7 @@ class enrol_manual_external extends external_api {
  * Deprecated manual enrolment external functions.
  *
  * @package    enrol_manual
- * @copyright  2011 Jerome Mouneyrac
+ * @copyright  2015 Pooya Saeedi
  * 
  * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see enrol_manual_external

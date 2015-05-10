@@ -3,7 +3,8 @@
 /**
  * The assignsubmission_onlinetext assessable uploaded event.
  *
- * @package    assignsubmission_onlinetext
+ * @package   assignsubmission
+ * @subpackage onlinetext
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - string format: (optional) content format.
  * }
  *
- * @package    assignsubmission_onlinetext
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class assessable_uploaded extends \core\event\assessable_uploaded {
 

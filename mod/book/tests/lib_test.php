@@ -3,9 +3,10 @@
 /**
  * Unit tests for (some of) mod/book/lib.php.
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @category   phpunit
- * @copyright  2015 Juan Leyva <juan@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +19,6 @@ require_once($CFG->dirroot . '/mod/book/lib.php');
 /**
  * Unit tests for (some of) mod/book/lib.php.
  *
- * @package    mod_book
- * @category   phpunit
- * @copyright  2015 Juan Leyva <juan@lion.com>
- * 
  */
 class mod_book_lib_testcase extends advanced_testcase {
 

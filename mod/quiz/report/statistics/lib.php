@@ -3,8 +3,9 @@
 /**
  * Standard plugin entry points of the quiz statistics report.
  *
- * @package   quiz_statistics
- * @copyright 2011 The Open University
+ * @package   quiz
+ * @subpackage statistics
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,8 +14,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Serve questiontext files in the question text when they are displayed in this report.
  *
- * @package  quiz_statistics
- * @category files
  * @param context $previewcontext the quiz context
  * @param int $questionid the question id.
  * @param context $filecontext the file (question) context

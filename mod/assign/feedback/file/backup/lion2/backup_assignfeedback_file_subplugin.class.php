@@ -3,8 +3,9 @@
 /**
  * This file contains the backup code for the feedback_file plugin.
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignfeedback
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 defined('LION_INTERNAL') || die();
@@ -14,9 +15,6 @@ defined('LION_INTERNAL') || die();
  *
  * This just adds its filearea to the annotations and records the number of files.
  *
- * @package   assignfeedback_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class backup_assignfeedback_file_subplugin extends backup_subplugin {
 

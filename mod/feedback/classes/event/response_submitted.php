@@ -3,7 +3,8 @@
 /**
  * The mod_feedback response submitted event.
  *
- * @package    mod_feedback
+ * @package    mod
+ * @subpackage feedback
  * @copyright  2015 Pooya Saeedi
  * .
  */
@@ -24,10 +25,6 @@ defined('LION_INTERNAL') || die();
  *      - int instanceid: id of instance.
  * }
  *
- * @package    mod_feedback
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * .
  */
 class response_submitted extends \core\event\base {
 

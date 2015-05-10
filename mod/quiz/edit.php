@@ -21,8 +21,9 @@
  * delete       Removes a question from the quiz
  * savechanges  Saves the order and grades for questions in the quiz
  *
- * @package    mod_quiz
- * @copyright  1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

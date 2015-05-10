@@ -4,8 +4,9 @@
 /**
  * List of file folders in course
  *
- * @package   mod_folder
- * @copyright 2009 onwards Martin Dougiamas (http://dougiamas.com)
+ * @package    mod
+ * @subpackage folder
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

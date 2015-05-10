@@ -3,7 +3,8 @@
 /**
  * The mod_book chapter deleted event.
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_book chapter deleted event class.
  *
- * @package    mod_book
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class chapter_deleted extends \core\event\base {
     /**

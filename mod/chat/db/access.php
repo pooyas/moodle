@@ -3,8 +3,9 @@
 /**
  * Plugin capabilities
  *
- * @package    mod_chat
- * @copyright  2006 Martin Dougiamas
+ * @package    mod
+ * @subpackage chat
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

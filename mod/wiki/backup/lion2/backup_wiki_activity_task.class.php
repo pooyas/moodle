@@ -4,9 +4,10 @@
 /**
  * Defines backup_wiki_activity_task class
  *
- * @package     mod_wiki
+ * @package     mod
+ * @subpackage wiki
  * @category    backup
- * @copyright   2010 Jordi Piguillem <pigui0@hotmail.com>
+ * @copyright   2015 Pooya Saeedi
  * 
  */
 

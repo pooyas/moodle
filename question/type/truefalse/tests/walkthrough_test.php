@@ -6,7 +6,7 @@
  *
  * @package    qtype
  * @subpackage truefalse
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Walkthrough tests for the truefalse question type.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_truefalse_walkthrough_test extends qbehaviour_walkthrough_test_base {

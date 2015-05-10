@@ -3,8 +3,9 @@
 /**
  * Tests for forum events.
  *
- * @package    mod_forum
- * @category   test
+ * @package    mod
+ * @subpackage forum
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Tests for forum events.
  *
- * @package    mod_forum
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_forum_events_testcase extends advanced_testcase {
 

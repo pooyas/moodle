@@ -3,9 +3,10 @@
 /**
  * This file contains a class definition for the Tool Settings service
  *
- * @package    ltiservice_toolsettings
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    ltiservice
+ * @subpackage toolsettings
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 
@@ -17,10 +18,6 @@ defined('LION_INTERNAL') || die();
 /**
  * A service implementing Tool Settings.
  *
- * @package    ltiservice_toolsettings
- * @since      Lion 2.8
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * 
  */
 class toolsettings extends \mod_lti\local\ltiservice\service_base {
 

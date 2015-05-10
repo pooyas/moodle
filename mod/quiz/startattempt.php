@@ -7,8 +7,9 @@
  *
  * This code used to be at the top of attempt.php, if you are looking for CVS history.
  *
- * @package   mod_quiz
- * @copyright 2009 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

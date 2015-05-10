@@ -4,8 +4,9 @@
 /**
  * Provides support for the conversion of lion1 backup to the lion2 format
  *
- * @package    mod_folder
- * @copyright  2015 Pooya Saeedi <andrew@lion.com>
+ * @package    mod
+ * @subpackage folder
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

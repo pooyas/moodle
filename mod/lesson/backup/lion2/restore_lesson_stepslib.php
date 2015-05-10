@@ -2,8 +2,9 @@
 
 
 /**
- * @package mod_lesson
- * @subpackage backup-lion2
+ * @package mod
+ * @subpackage lesson
+ * @category backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 
  */

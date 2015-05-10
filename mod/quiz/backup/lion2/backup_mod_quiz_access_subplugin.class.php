@@ -3,8 +3,9 @@
 /**
  * Defines the base class for quiz access plugins backup code.
  *
- * @package   mod_quiz
- * @copyright 2011 The Open University
+ * @package   mod
+ * @subpackage quiz
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -16,8 +17,6 @@ defined('LION_INTERNAL') || die();
  * Base class for backing up all the quiz settings and attempt data for an
  * access rule quiz sub-plugin.
  *
- * @copyright  2011 The Open University
- * 
  */
 class backup_mod_quiz_access_subplugin extends backup_subplugin {
 

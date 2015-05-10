@@ -3,7 +3,8 @@
 /**
  * The mod_forum discussion moved event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - int toforumid: The id of the forum the discussion is being moved to.
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class discussion_moved extends \core\event\base {
     /**

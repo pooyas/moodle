@@ -3,7 +3,8 @@
 /**
  * The assignsubmission_comments comment deleted event.
  *
- * @package    assignsubmission_comments
+ * @package    assignsubmission
+ * @subpackage comments
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The assignsubmission_comments comment deleted event.
  *
- * @package    assignsubmission_comments
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class comment_deleted extends \core\event\comment_deleted {
     /**

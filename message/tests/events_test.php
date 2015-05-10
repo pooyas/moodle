@@ -3,8 +3,9 @@
 /**
  * Events tests.
  *
- * @package core_message
- * @category test
+ * @package core
+ * @subpackage message
+ * @category phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

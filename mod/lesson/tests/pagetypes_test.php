@@ -3,10 +3,10 @@
 /**
  * Unit tests for page types classes
  *
- * @package   mod_lesson
- * @category  test
- * @copyright 2015 Jean-Michel Vedrine
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package   mod
+ * @subpackage lesson
+ * @category  phpunit
+ * @copyright 2015 Pooya Saeedi
  */
 
 

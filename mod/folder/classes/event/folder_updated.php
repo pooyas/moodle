@@ -3,7 +3,8 @@
 /**
  * The mod_folder folder updated event.
  *
- * @package    mod_folder
+ * @package    mod
+ * @subpackage folder
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_folder folder updated event class.
  *
- * @package    mod_folder
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class folder_updated extends \core\event\base {
 

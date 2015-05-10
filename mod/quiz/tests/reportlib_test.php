@@ -3,10 +3,10 @@
 /**
  * Unit tests for (some of) mod/quiz/report/reportlib.php
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @category  phpunit
- * @copyright 2008 Jamie Pratt me@jamiep.org
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @copyright 2015 Pooya Saeedi
  */
 
 
@@ -19,8 +19,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/reportlib.php');
 /**
  * This class contains the test cases for the functions in reportlib.php.
  *
- * @copyright 2008 Jamie Pratt me@jamiep.org
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class mod_quiz_reportlib_testcase extends advanced_testcase {
     public function test_quiz_report_index_by_keys() {

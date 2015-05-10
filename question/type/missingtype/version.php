@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage missingtype
- * @copyright  2011 Tim Hunt
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

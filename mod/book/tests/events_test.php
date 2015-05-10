@@ -3,7 +3,8 @@
 /**
  * Events tests.
  *
- * @package    mod_book
+ * @package    mod
+ * @subpackage book
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -15,10 +16,6 @@ global $CFG;
 /**
  * Events tests class.
  *
- * @package    mod_book
- * @category   phpunit
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_book_events_testcase extends advanced_testcase {
 

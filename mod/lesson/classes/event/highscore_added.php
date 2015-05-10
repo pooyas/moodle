@@ -3,7 +3,8 @@
 /**
  * The mod_lesson highscore added event.
  *
- * @package    mod_lesson
+ * @package    mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * .
  */
@@ -22,9 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string nickname: the user's nickname.
  * }
  *
- * @package    mod_lesson
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
  * .
  */
 

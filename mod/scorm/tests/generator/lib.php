@@ -3,7 +3,8 @@
 /**
  * mod_scorm data generator.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_scorm data generator class.
  *
- * @package    mod_scorm
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_scorm_generator extends testing_module_generator {
 

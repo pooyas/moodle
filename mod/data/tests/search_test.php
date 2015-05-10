@@ -4,7 +4,8 @@
  * Unit tests for data_get_all_recordsids(), data_get_advance_search_ids(), data_get_record_ids(),
  * and data_get_advanced_search_sql()
  *
- * @package    mod_data
+ * @package    mod
+ * @subpackage data
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -23,9 +24,6 @@ require_once($CFG->dirroot . '/lib/csvlib.class.php');
  *                {@see data_get_record_ids()}
  *                {@see data_get_advanced_search_sql()}
  *
- * @package    mod_data
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class data_advanced_search_sql_test extends advanced_testcase {
     /**

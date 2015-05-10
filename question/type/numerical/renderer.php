@@ -5,7 +5,7 @@
  * Numerical question renderer class.
  *
  * @package qtype_numerical
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -13,7 +13,7 @@
 /**
  * Generates the output for short answer questions.
  *
- * @copyright 2009 The Open University
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class qtype_numerical_renderer extends qtype_renderer {

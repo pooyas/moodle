@@ -6,7 +6,7 @@
  *
  * @package    qbehaviour
  * @subpackage deferredfeedback
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * @license  http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -21,7 +21,7 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
 /**
  * Unit tests for the deferred feedback behaviour.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_deferredfeedback_walkthrough_test extends qbehaviour_walkthrough_test_base {

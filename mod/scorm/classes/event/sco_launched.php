@@ -3,7 +3,8 @@
 /**
  * The mod_scorm sco launched event.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int instanceid: (optional) Instance id of the scorm activity.
  * }
  *
- * @package    mod_scorm
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class sco_launched extends \core\event\base {
 

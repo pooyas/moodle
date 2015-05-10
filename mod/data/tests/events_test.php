@@ -3,8 +3,9 @@
 /**
  * Events tests.
  *
- * @package mod_data
- * @category test
+ * @package mod
+ * @subpackage data
+ * @category phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */

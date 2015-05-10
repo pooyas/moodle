@@ -3,7 +3,8 @@
 /**
  * Admin settings class for the quiz review options.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -15,8 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Admin settings class for the quiz review options.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_quiz_admin_review_setting extends admin_setting {
     /**

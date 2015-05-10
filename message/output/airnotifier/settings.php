@@ -3,8 +3,9 @@
 /**
  * Airnotifier configuration page
  *
- * @package    message_airnotifier
- * @copyright  2015 Pooya Saeedi, 2014 Juan Leyva
+ * @package    message
+ * @subpackage airnotifier
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 defined('LION_INTERNAL') || die;

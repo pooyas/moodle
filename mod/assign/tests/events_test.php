@@ -3,7 +3,9 @@
 /**
  * Contains the event tests for the module assign.
  *
- * @package   mod_assign
+ * @package   mod
+ * @subpackage assign
+ * @category   phpunit
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -17,9 +19,6 @@ require_once($CFG->dirroot . '/mod/assign/tests/fixtures/event_mod_assign_fixtur
 /**
  * Contains the event tests for the module assign.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class assign_events_testcase extends mod_assign_base_testcase {
 

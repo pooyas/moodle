@@ -3,7 +3,8 @@
 /**
  * Unit tests for (some of) mod/assign/upgradelib.php.
  *
- * @package    mod_assign
+ * @package    mod
+ * @subpackage assign
  * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
@@ -21,8 +22,6 @@ require_once($CFG->dirroot . '/mod/assign/tests/base_test.php');
 /**
  * Unit tests for (some of) mod/assign/upgradelib.php.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_assign_upgradelib_testcase extends mod_assign_base_testcase {
 

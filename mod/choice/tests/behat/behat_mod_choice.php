@@ -3,7 +3,8 @@
 /**
  * Steps definitions for choice activity.
  *
- * @package   mod_choice
+ * @package   mod
+ * @subpackage choice
  * @category  test
  * @copyright 2015 Pooya Saeedi
  * 
@@ -18,10 +19,6 @@ use Behat\Behat\Context\Step\Given as Given;
 /**
  * Choice activity definitions.
  *
- * @package   mod_choice
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class behat_mod_choice extends behat_base {
 

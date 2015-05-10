@@ -3,8 +3,9 @@
 /**
  * mod_glossary generator tests
  *
- * @package    mod_glossary
- * @category   test
+ * @package    mod
+ * @subpackage glossary
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Genarator tests class for mod_glossary.
  *
- * @package    mod_glossary
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_glossary_generator_testcase extends advanced_testcase {
 

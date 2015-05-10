@@ -3,7 +3,8 @@
 /**
  * Library code used by quiz cron.
  *
- * @package   mod_quiz
+ * @package   mod
+ * @subpackage quiz
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -18,8 +19,6 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
  * This class holds all the code for automatically updating all attempts that have
  * gone over their time limit.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class mod_quiz_overdue_attempt_updater {
 

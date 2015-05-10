@@ -3,7 +3,8 @@
 /**
  * HTML import lib
  *
- * @package    booktool_importhtml
+ * @package    booktool
+ * @subpackage importhtml
  * @copyright  2015 Pooya Saeedi 
  * 
  */

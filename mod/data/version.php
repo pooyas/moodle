@@ -3,8 +3,9 @@
 /**
  * Data module version information
  *
- * @package   mod_data
- * @copyright 2005 onwards Martin Dougiamas  {@link http://lion.com}
+ * @package   mod
+ * @subpackage data
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

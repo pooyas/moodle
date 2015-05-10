@@ -3,8 +3,9 @@
 /**
  * mod_imscp generator tests
  *
- * @package    mod_imscp
- * @category   test
+ * @package    mod
+ * @subpackage imscp
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Genarator tests class for mod_imscp.
  *
- * @package    mod_imscp
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_imscp_generator_testcase extends advanced_testcase {
 

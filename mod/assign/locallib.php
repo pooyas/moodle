@@ -5,8 +5,9 @@
  *
  * This class provides all the functionality for the new assign module.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 
@@ -66,9 +67,6 @@ require_once($CFG->libdir . '/portfolio/caller.php');
 /**
  * Standard base class for mod_assign (assignment types).
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign {
 
@@ -7305,9 +7303,6 @@ class assign {
 /**
  * Portfolio caller class for mod_assign.
  *
- * @package   mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
- * 
  */
 class assign_portfolio_caller extends portfolio_module_caller_base {
 

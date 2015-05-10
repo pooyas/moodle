@@ -5,7 +5,8 @@
  * This file is responsible for saving the results of a users survey and displaying
  * the final message.
  *
- * @package   mod_survey
+ * @package   mod
+ * @subpackage survey
  * @copyright 2015 Pooya Saeedi
  * 
  */

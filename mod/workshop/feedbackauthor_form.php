@@ -4,7 +4,8 @@
 /**
  * A form used by teachers to give feedback to authors on their submission
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */

@@ -3,7 +3,8 @@
 /**
  * Assign submission subplugin info class.
  *
- * @package   mod_assign
+ * @package   mod
+ * @subpackage assign
  * @copyright 2015 Pooya Saeedi
  * 
  */

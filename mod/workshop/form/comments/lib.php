@@ -4,7 +4,8 @@
 /**
  * This file defines a class with comments grading strategy logic
  *
- * @package    workshopform_comments
+ * @package    workshopform
+ * @subpackage comments
  * @copyright  2015 Pooya Saeedi
  * 
  */

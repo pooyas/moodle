@@ -1,7 +1,8 @@
 <?php
 /**
- * @package    mod_scorm
- * @author     Ankit Kumar Agarwal
+ * @package    mod
+ * @subpackage scorm
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

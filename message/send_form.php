@@ -16,9 +16,6 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * The form used by users to send instant messages
  *
- * @package   core_message
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class send_form extends lionform {
 

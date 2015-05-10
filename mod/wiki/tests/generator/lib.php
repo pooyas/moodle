@@ -3,7 +3,8 @@
 /**
  * mod_wiki data generator.
  *
- * @package    mod_wiki
+ * @package    mod
+ * @subpackage wiki
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_wiki data generator class.
  *
- * @package    mod_wiki
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_wiki_generator extends testing_module_generator {
 

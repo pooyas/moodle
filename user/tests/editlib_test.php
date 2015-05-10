@@ -5,7 +5,7 @@
  *
  * @package    core_user
  * @category   phpunit
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot.'/user/editlib.php');
  *
  * @package    core_user
  * @category   phpunit
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class core_user_editlib_testcase extends advanced_testcase {

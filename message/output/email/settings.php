@@ -3,7 +3,8 @@
 /**
  * Email configuration page
  *
- * @package   message_email
+ * @package   message
+ * @subpackage email
  * @copyright 2015 Pooya Saeedi
  * 
  */

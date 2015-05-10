@@ -2,9 +2,9 @@
 
 /**
  * Defines the version of scorm_objectives
- * @package   scormreport_objectives
- * @author    Dan Marsden <dan@danmarsden.com>
- * @copyright 2013 Dan Marsden
+ * @package   scormreport
+ * @subpackage objectives
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -14,8 +14,6 @@ require_once("$CFG->libdir/formslib.php");
 /**
  * A form that displays the objective report settings
  *
- * @copyright  2013 Dan Marsden
- * 
  */
 class mod_scorm_report_objectives_settings extends lionform {
     /**

@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage multichoice
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * Base class for multiple choice questions. The parts that are common to
  * single select and multiple select.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qtype_multichoice_base extends question_graded_automatically {
@@ -123,7 +123,7 @@ abstract class qtype_multichoice_base extends question_graded_automatically {
 /**
  * Represents a multiple choice question where only one choice should be selected.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_single_question extends qtype_multichoice_base {
@@ -245,7 +245,7 @@ class qtype_multichoice_single_question extends qtype_multichoice_base {
 /**
  * Represents a multiple choice question where multiple choices can be selected.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_multi_question extends qtype_multichoice_base {

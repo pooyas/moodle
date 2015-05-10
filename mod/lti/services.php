@@ -3,9 +3,10 @@
 /**
  * This file contains a controller for receiving LTI service requests
  *
- * @package    mod_lti
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 

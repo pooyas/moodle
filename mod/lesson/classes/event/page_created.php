@@ -3,8 +3,9 @@
 /**
  * The mod_lesson page_added event class.
  *
- * @package    mod_lesson
- * @copyright  2015 Stephen Bourget
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  * .
  */
 
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  * - string pagetype: the name of the pagetype as defined in the individual page class
  * }
  *
- * @package    mod_lesson
- * @since      Lion 2.9
- * @copyright  2015 Stephen Bourget
- * .
  */
 class page_created extends \core\event\base {
 

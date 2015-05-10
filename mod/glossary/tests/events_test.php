@@ -3,8 +3,9 @@
 /**
  * Unit tests for lib.php
  *
- * @package    mod_glossary
- * @category   test
+ * @package    mod
+ * @subpackage glossary
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Unit tests for glossary events.
  *
- * @package   mod_glossary
- * @category  test
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class glossary_event_testcase extends advanced_testcase {
 

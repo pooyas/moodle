@@ -9,9 +9,10 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 /**
  * External mod assign functions unit tests
  *
- * @package mod_assign
- * @category external
- * @copyright 2012 Paul Charsley
+ * @package mod
+ * @subpackage assign
+ * @category phpunit
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_assign_external_testcase extends externallib_advanced_testcase {

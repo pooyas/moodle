@@ -3,8 +3,9 @@
 /**
  * Defines message providers (types of messages being sent)
  *
- * @package mod_feedback
- * @copyright  2010 onwards  Aparup Banerjee  http://lion.com
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

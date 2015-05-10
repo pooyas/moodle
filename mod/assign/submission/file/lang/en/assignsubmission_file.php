@@ -3,8 +3,9 @@
 /**
  * Strings for component 'assignsubmission_file', language 'en'
  *
- * @package   assignsubmission_file
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   assignsubmission
+ * @subpackage file
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

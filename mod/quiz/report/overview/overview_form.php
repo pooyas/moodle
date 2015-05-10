@@ -3,8 +3,9 @@
 /**
  * This file defines the setting form for the quiz overview report.
  *
- * @package   quiz_overview
- * @copyright 2008 Jamie Pratt
+ * @package   quiz
+ * @subpackage overview
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -17,8 +18,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/attemptsreport_form.php');
 /**
  * Quiz overview report settings form.
  *
- * @copyright 2008 Jamie Pratt
- * 
  */
 class quiz_overview_settings_form extends mod_quiz_attempts_report_form {
 

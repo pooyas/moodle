@@ -3,7 +3,8 @@
 /**
  * This file defines the setting form for the quiz grading report.
  *
- * @package   quiz_grading
+ * @package   quiz
+ * @subpackage grading
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -17,8 +18,6 @@ require_once($CFG->libdir . '/formslib.php');
 /**
  * Quiz grading report settings form.
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class quiz_grading_settings_form extends lionform {
     protected $includeauto;

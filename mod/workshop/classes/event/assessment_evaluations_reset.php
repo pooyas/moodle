@@ -3,9 +3,10 @@
 /**
  * The mod_workshop assessment_evaluations reset event.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   event
- * @copyright  2013 Adrian Greeve
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int workshopid: the ID of the workshop.
  * }
  *
- * @package    mod_workshop
- * @since      Lion 2.7
- * @copyright  2013 Adrian Greeve
- * 
  */
 class assessment_evaluations_reset extends \core\event\base {
 

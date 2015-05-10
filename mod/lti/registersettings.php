@@ -6,9 +6,10 @@
  * It is used to create a new form used to configure the capabilities
  * and services to be offered to the tool provider.
  *
- * @package mod_lti
- * @copyright  2014 Vital Source Technologies http://vitalsource.com
- * @author     Stephen Vickers
+ * @package mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
+ * 
  * 
  */
 

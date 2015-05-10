@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @package    mod_quiz
- * @subpackage backup-lion2
+ * @package    mod
+ * @subpackage quiz
+ * @category   backup-lion2
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -14,8 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Structure step to restore one quiz activity
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class restore_quiz_activity_structure_step extends restore_questions_activity_structure_step {
 

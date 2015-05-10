@@ -3,7 +3,8 @@
 /**
  * The assignsubmission_onlinetext submission_created event.
  *
- * @package    assignsubmission_onlinetext
+ * @package   assignsubmission
+ * @subpackage onlinetext
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int onlinetextwordcount: Word count of the online text submission.
  * }
  *
- * @package    assignsubmission_onlinetext
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class submission_created extends \mod_assign\event\submission_created {
 

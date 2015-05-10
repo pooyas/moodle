@@ -4,8 +4,8 @@
 /**
  * Allocates the submissions randomly
  *
- * @package    workshopallocation_random
- * @subpackage mod_workshop
+ * @package    workshopallocation
+ * @subpackage random
  * @copyright  2015 Pooya Saeedi
  * 
  */

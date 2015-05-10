@@ -11,7 +11,8 @@
  * This way we don't need to keep around old classes, instead creating aliases only when required.
  * One big advantage to this method is that we provide consistent debugging for renamed classes when they are used.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @copyright  2015 Pooya Saeedi
  * 
  */

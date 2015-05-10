@@ -5,9 +5,10 @@ defined('LION_INTERNAL') || die();
 /**
  * assign module data generator class
  *
- * @package mod_assign
+ * @package mod
+ * @subpackage assign
  * @category test
- * @copyright 2012 Paul Charsley
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 class mod_assign_generator extends testing_module_generator {

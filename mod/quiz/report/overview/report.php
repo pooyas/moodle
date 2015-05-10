@@ -3,8 +3,9 @@
 /**
  * This file defines the quiz overview report class.
  *
- * @package   quiz_overview
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @package   quiz
+ * @subpackage overview
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 
@@ -20,8 +21,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/overview/overview_table.php');
 /**
  * Quiz report subclass for the overview (grades) report.
  *
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://lion.com}
- * 
  */
 class quiz_overview_report extends quiz_attempts_report {
 

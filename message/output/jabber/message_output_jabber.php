@@ -3,9 +3,9 @@
 /**
  * Jabber message processor to send messages by jabber
  *
- * @package    message_jabber
- * @copyright  2008 Luis Rodrigues
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package   message
+ * @subpackage jabber
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->dirroot.'/message/output/lib.php');
@@ -14,9 +14,6 @@ require_once($CFG->libdir.'/jabber/XMPP/XMPP.php');
 /**
  * The jabber message processor
  *
- * @package   message_jabber
- * @copyright 2008 Luis Rodrigues
- * 
  */
 class message_output_jabber extends message_output {
 

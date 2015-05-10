@@ -3,7 +3,8 @@
 /**
  * Definition of log events for the quiz module.
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @category   log
  * @copyright  2015 Pooya Saeedi
  * 

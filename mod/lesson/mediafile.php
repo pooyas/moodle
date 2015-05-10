@@ -7,7 +7,8 @@
  *  If there is a way to use the resource class instead of this code, please change to do so
  *
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/

@@ -3,9 +3,10 @@
 /**
  * Quiz attempt overdue handling tests
  *
- * @package    mod_quiz
+ * @package    mod
+ * @subpackage quiz
  * @category   phpunit
- * @copyright  2012 Matt Petro
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,10 +18,6 @@ require_once($CFG->dirroot.'/group/lib.php');
 /**
  * Unit tests for quiz attempt overdue handling
  *
- * @package    mod_quiz
- * @category   phpunit
- * @copyright  2012 Matt Petro
- * 
  */
 class mod_quiz_attempt_overdue_testcase extends advanced_testcase {
     /**

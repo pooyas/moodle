@@ -3,9 +3,9 @@
 /**
  * External assign API
  *
- * @package    mod_assign
- * @since      Lion 2.4
- * @copyright  2012 Paul Charsley
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,8 +15,6 @@ require_once("$CFG->libdir/externallib.php");
 
 /**
  * Assign functions
- * @copyright 2012 Paul Charsley
- * 
  */
 class mod_assign_external extends external_api {
 

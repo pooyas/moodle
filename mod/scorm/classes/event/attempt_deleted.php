@@ -3,7 +3,8 @@
 /**
  * The mod_scorm attempt deleted event.
  *
- * @package    mod_scorm
+ * @package    mod
+ * @subpackage scorm
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -20,10 +21,6 @@ defined('LION_INTERNAL') || die();
  *      - int attemptid: Attempt id.
  * }
  *
- * @package    mod_scorm
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class attempt_deleted extends \core\event\base {
 

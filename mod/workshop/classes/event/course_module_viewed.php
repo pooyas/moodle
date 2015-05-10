@@ -3,8 +3,9 @@
 /**
  * The mod_workshop course module viewed event.
  *
- * @package    mod_workshop
- * @copyright  2013 Adrian Greeve <adrian@lion.com>
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -18,10 +19,6 @@ require_once("$CFG->dirroot/mod/workshop/locallib.php");
 /**
  * The mod_workshop course module viewed event class.
  *
- * @package    mod_workshop
- * @since      Lion 2.6
- * @copyright  2013 Adrian Greeve
- * 
  */
 class course_module_viewed extends \core\event\course_module_viewed {
 

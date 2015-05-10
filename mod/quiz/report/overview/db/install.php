@@ -2,8 +2,9 @@
 
 /**
  * Post-install script for the quiz grades report.
- * @package   quiz_overview
- * @copyright 2013 Tim Hunt
+ * @package   quiz
+ * @subpackage overview
+ * @copyright 2015 Pooya Saeedi
  * 
  */
 

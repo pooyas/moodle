@@ -8,7 +8,7 @@ namespace core_question\bank;
  *
  * @package    core
  * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas and others {@link http://lion.com}
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,8 +3,9 @@
 /**
  * Concept fetching and caching tests.
  *
- * @package    mod_glossary
- * @category   test
+ * @package    mod
+ * @subpackage glossary
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -12,10 +13,6 @@
 /**
  * Concept fetching and caching tests.
  *
- * @package    mod_glossary
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_glossary_concept_cache_testcase extends advanced_testcase {
     /**

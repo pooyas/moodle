@@ -4,8 +4,9 @@
 /**
  * Label module
  *
- * @package mod_label
- * @copyright  2003 onwards Martin Dougiamas  {@link http://lion.com}
+ * @package mod
+ * @subpackage label
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * This file contains the comment class for the assignfeedback_editpdf plugin
  *
- * @package   assignfeedback_editpdf
+ * @package   assignfeedback
+ * @subpackage editpdf
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -12,8 +13,6 @@ namespace assignfeedback_editpdf;
 
 /**
  * This class represents a comment box on a page of feedback.
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class comment {
 

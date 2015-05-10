@@ -2,7 +2,8 @@
 
 
 /**
- * @package mod_glossary
+ * @package mod
+ * @subpackage glossary
  * @subpackage backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 

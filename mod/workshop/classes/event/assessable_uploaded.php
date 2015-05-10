@@ -3,7 +3,8 @@
 /**
  * The mod_workshop assessable uploaded event.
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * The mod_workshop assessable uploaded event class.
  *
- * @package    mod_workshop
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class assessable_uploaded extends \core\event\assessable_uploaded {
 

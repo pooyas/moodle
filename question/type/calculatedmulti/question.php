@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage calculatedmulti
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/question/type/calculated/question.php');
 /**
  * Represents a calculated multiple-choice multiple-response question.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedmulti_single_question extends qtype_multichoice_single_question
@@ -69,7 +69,7 @@ class qtype_calculatedmulti_single_question extends qtype_multichoice_single_que
 /**
  * Represents a calculated multiple-choice multiple-response question.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_calculatedmulti_multi_question extends qtype_multichoice_multi_question
@@ -120,7 +120,7 @@ class qtype_calculatedmulti_multi_question extends qtype_multichoice_multi_quest
  * Helper to abstract common code between qtype_calculatedmulti_single_question
  * and qtype_calculatedmulti_multi_question.
  *
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qtype_calculatedmulti_calculate_helper {

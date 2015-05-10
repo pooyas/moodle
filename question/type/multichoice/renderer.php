@@ -5,7 +5,7 @@
  *
  * @package    qtype
  * @subpackage multichoice
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -17,7 +17,7 @@ defined('LION_INTERNAL') || die();
  * Base class for generating the bits of output common to multiple choice
  * single and multiple questions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 abstract class qtype_multichoice_renderer_base extends qtype_with_combined_feedback_renderer {
@@ -178,7 +178,7 @@ abstract class qtype_multichoice_renderer_base extends qtype_with_combined_feedb
  * Subclass for generating the bits of output specific to multiple choice
  * single questions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_single_renderer extends qtype_multichoice_renderer_base {
@@ -226,7 +226,7 @@ class qtype_multichoice_single_renderer extends qtype_multichoice_renderer_base 
  * Subclass for generating the bits of output specific to multiple choice
  * multi=select questions.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qtype_multichoice_multi_renderer extends qtype_multichoice_renderer_base {

@@ -5,7 +5,7 @@
  *
  * @package    qbehaviour
  * @subpackage manualgraded
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -20,7 +20,7 @@ defined('LION_INTERNAL') || die();
  * when the whole attempt is finished, the attempt goes into the NEEDS_GRADING
  * state, and the teacher must grade it manually.
  *
- * @copyright  2009 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class qbehaviour_manualgraded extends question_behaviour_with_save {

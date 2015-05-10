@@ -3,8 +3,9 @@
 /**
  * Unknown service API called event tests
  *
- * @package    mod_lti
- * @copyright  Copyright (c) 2012 Lionrooms Inc. (http://www.lionrooms.com)
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -15,9 +16,6 @@ use mod_lti\event\unknown_service_api_called;
 /**
  * Unknown service API called event tests
  *
- * @package    mod_lti
- * @copyright  Copyright (c) 2012 Lionrooms Inc. (http://www.lionrooms.com)
- * 
  */
 class mod_lti_event_unknown_service_api_called_test extends advanced_testcase {
     /*

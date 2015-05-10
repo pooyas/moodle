@@ -3,8 +3,9 @@
 /**
  * Define all the restore steps that will be used by the restore_imscp_activity_task
  *
- * @package mod_imscp
- * @subpackage backup-lion2
+ * @package mod
+ * @subpackage imscp
+ * @category backup-lion2
  * @copyright 2015 Pooya Saeedi
  * 
  */
@@ -12,8 +13,6 @@
 /**
  * Structure step to restore one imscp activity
  *
- * @copyright 2015 Pooya Saeedi
- * 
  */
 class restore_imscp_activity_structure_step extends restore_activity_structure_step {
 

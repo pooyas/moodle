@@ -4,8 +4,8 @@
 /**
  * Defines event handlers
  *
- * @package     workshopallocation_scheduled
- * @subpackage  mod_workshop
+ * @package     workshopallocation
+ * @subpackage random
  * @category    event
  * @copyright   2015 Pooya Saeedi
  * 

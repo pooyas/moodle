@@ -4,7 +4,8 @@
 /**
  * Keeps track of upgrades to the workshop numerrors grading strategy
  *
- * @package    workshopform_numerrors
+ * @package    workshopform
+ * @subpackage numerrors
  * @copyright  2015 Pooya Saeedi
  * 
  */

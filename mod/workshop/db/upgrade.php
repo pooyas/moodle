@@ -4,7 +4,8 @@
 /**
  * Keeps track of upgrades to the workshop module
  *
- * @package    mod_workshop
+ * @package    mod
+ * @subpackage workshop
  * @category   upgrade
  * @copyright  2015 Pooya Saeedi
  * 

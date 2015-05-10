@@ -3,7 +3,8 @@
 /**
  * mod_feedback data generator.
  *
- * @package    mod_feedback
+ * @package    mod
+ * @subpackage feedback
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -14,10 +15,6 @@ defined('LION_INTERNAL') || die();
 /**
  * mod_feedback data generator class.
  *
- * @package    mod_feedback
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_feedback_generator extends testing_module_generator {
 

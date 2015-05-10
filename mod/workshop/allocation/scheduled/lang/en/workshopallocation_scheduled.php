@@ -4,8 +4,8 @@
 /**
  * Strings for the Workshop's scheduled allocator
  *
- * @package     workshopallocation_scheduled
- * @subpackage  mod_workshop
+ * @package     workshopallocation
+ * @subpackage random
  * @copyright   2015 Pooya Saeedi
  * 
  */

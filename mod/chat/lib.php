@@ -3,7 +3,8 @@
 /**
  * Library of functions and constants for module chat
  *
- * @package   mod_chat
+ * @package   mod
+ * @subpackage chat
  * @copyright 2015 Pooya Saeedi
  * 
  */

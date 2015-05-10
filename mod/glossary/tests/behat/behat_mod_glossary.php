@@ -3,7 +3,8 @@
 /**
  * Steps definitions related with the glossary activity.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @category   test
  * @copyright  2015 Pooya Saeedi
  * 
@@ -19,10 +20,6 @@ use Behat\Behat\Context\Step\Given as Given,
 /**
  * Glossary-related steps definitions.
  *
- * @package    mod_glossary
- * @category   test
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class behat_mod_glossary extends behat_base {
 

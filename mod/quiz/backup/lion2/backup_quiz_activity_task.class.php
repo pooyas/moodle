@@ -3,7 +3,8 @@
 /**
  * Defines backup_quiz_activity_task class
  *
- * @package     mod_quiz
+ * @package     mod
+ * @subpackage quiz
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 
@@ -16,8 +17,6 @@ require_once($CFG->dirroot . '/mod/quiz/backup/lion2/backup_quiz_stepslib.php');
 /**
  * Provides the steps to perform one complete backup of the Quiz instance
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class backup_quiz_activity_task extends backup_activity_task {
 

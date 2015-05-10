@@ -3,7 +3,8 @@
 /**
  * The mod_data record updated event.
  *
- * @package    mod_data
+ * @package    mod
+ * @subpackage data
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -21,10 +22,6 @@ defined('LION_INTERNAL') || die();
  *      - int dataid: the id of the data activity.
  * }
  *
- * @package    mod_data
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class record_updated extends \core\event\base {
 

@@ -8,11 +8,9 @@ defined('LION_INTERNAL') || die();
  *
  * These quiz statistics calculations are described here :
  *
- * http://docs.lion.org/dev/Quiz_statistics_calculations#Test_statistics
- *
- * @package    quiz_statistics
+ * @package    quiz
+ * @subpackage statistics
  * @copyright  2015 Pooya Saeedi
- * @author     James Pratt me@jamiep.org
  * 
  */
 class calculator {

@@ -4,7 +4,7 @@
  * Version information for the calculated question type.
  *
  * @package    qformat_gift
- * @copyright  2011 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 

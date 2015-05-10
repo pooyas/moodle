@@ -3,7 +3,8 @@
 /**
  * The mod_glossary entry viwed event.
  *
- * @package    mod_glossary
+ * @package    mod
+ * @subpackage glossary
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -16,10 +17,6 @@ defined('LION_INTERNAL') || die();
  *
  * Triggered when glossary entry is autolinked and viewed by user from another context.
  *
- * @package    mod_glossary
- * @since      Lion 2.7
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class entry_viewed extends \core\event\base {
     /**

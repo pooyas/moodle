@@ -3,8 +3,9 @@
 /**
  * Unit tests for (some of) mod/quiz/locallib.php.
  *
- * @package    mod_quiz
- * @category   test
+ * @package    mod
+ * @subpackage quiz
+ * @category   phpunit
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -19,8 +20,6 @@ require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 /**
  * Unit tests for (some of) mod/quiz/locallib.php.
  *
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class mod_quiz_locallib_testcase extends basic_testcase {
 

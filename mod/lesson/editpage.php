@@ -4,7 +4,8 @@
 /**
  * Action for adding a question page.  Prints an HTML form.
  *
- * @package mod_lesson
+ * @package mod
+ * @subpackage lesson
  * @copyright  2015 Pooya Saeedi
  * 
  **/

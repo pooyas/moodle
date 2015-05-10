@@ -4,7 +4,8 @@
 /**
  * Defines backup_data_activity_task
  *
- * @package     mod_data
+ * @package     mod
+ * @subpackage data
  * @category    backup
  * @copyright   2015 Pooya Saeedi
  * 

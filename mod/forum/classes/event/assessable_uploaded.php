@@ -3,7 +3,8 @@
 /**
  * The mod_forum assessable uploaded event.
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @copyright  2015 Pooya Saeedi
  * 
  */
@@ -22,10 +23,6 @@ defined('LION_INTERNAL') || die();
  *      - string triggeredfrom: name of the function from where event was triggered.
  * }
  *
- * @package    mod_forum
- * @since      Lion 2.6
- * @copyright  2015 Pooya Saeedi
- * 
  */
 class assessable_uploaded extends \core\event\assessable_uploaded {
 

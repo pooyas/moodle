@@ -5,7 +5,7 @@
  *
  * @package    quizaccess
  * @subpackage timelimit
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 
@@ -19,7 +19,7 @@ require_once($CFG->dirroot . '/mod/quiz/accessrule/timelimit/rule.php');
 /**
  * Unit tests for the quizaccess_timelimit plugin.
  *
- * @copyright  2008 The Open University
+ * @copyright  2015 Pooya Saeedi
  * 
  */
 class quizaccess_timelimit_testcase extends basic_testcase {

@@ -3,8 +3,9 @@
 /**
  * Defines message providers (types of messages being sent)
  *
- * @package mod_assign
- * @copyright 2015 Pooya Saeedi {@link http://www.netspot.com.au}
+ * @package   mod
+ * @subpackage assign
+ * @copyright 2015 Pooya Saeedi 
  * 
  */
 

@@ -3,7 +3,8 @@
 /**
  * mod_forum data generator
  *
- * @package    mod_forum
+ * @package    mod
+ * @subpackage forum
  * @category   test
  * @copyright  2015 Pooya Saeedi 
  * 
@@ -15,10 +16,6 @@ defined('LION_INTERNAL') || die();
 /**
  * Forum module data generator class
  *
- * @package    mod_forum
- * @category   test
- * @copyright  2015 Pooya Saeedi 
- * 
  */
 class mod_forum_generator extends testing_module_generator {
 
