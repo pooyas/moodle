@@ -767,6 +767,8 @@ if ($interactive) {
     if (!$options['agree-license']) {
         cli_separator();
         cli_heading(get_string('copyrightnotice'));
+        /// CODECHANGE (Pooya)
+        /// Changing to Lion
         echo "Lion  - Learning Is ONline\n";
 		/// COMMENTOUT (Pooya)
 		/// No license for show

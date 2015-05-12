@@ -142,7 +142,7 @@ if (!$version or !$release) {
     print_error('withoutversion', 'debug'); // without version, stop
 }
 
-// Note:
+/// CODEADDED (Pooya)
 // Should comment the following if because the installation should not begin from here
 // Actually I prefer the following code
 if (!core_tables_exist())
