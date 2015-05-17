@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // if want to implement error collecting here, we'll need to use some sort
 // of global data (probably trigger_error) because it's impossible to pass
 // $config or $context to the callback functions.

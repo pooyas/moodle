@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage userpix
+ * @copyright  2015 Pooya Saeedi
+*/
+
   // This simple script displays all the users with pictures on one page.
   // By default it is not linked anywhere on the site.  If you want to
   // make it available you should link it in yourself from somewhere.
@@ -14,7 +21,7 @@ require_login();
 
 /// Remove the following three lines if you want everyone to access it
 $syscontext = context_system::instance();
-require_capability('moodle/site:config', $syscontext);
+require_capability('lion/site:config', $syscontext);
 
 $title = get_string("users");
 $PAGE->set_context($syscontext);

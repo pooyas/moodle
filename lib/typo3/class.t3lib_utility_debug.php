@@ -23,15 +23,15 @@
  * GNU General Public License for more details.
  *
  * This copyright notice MUST APPEAR in all copies of the script!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  ***************************************************************/
 
 /**
  * Class to handle debug
  *
  *
- * @author	 Steffen Kamper <steffen@typo3.org>
- * @package TYPO3
- * @subpackage t3lib
  */
 final class t3lib_utility_Debug {
 

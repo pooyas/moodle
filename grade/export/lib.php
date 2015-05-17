@@ -1,19 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    grade
+ * @subpackage export
+ * @copyright  2015 Pooya Saeedi
+*/
 
 require_once($CFG->dirroot.'/lib/gradelib.php');
 require_once($CFG->dirroot.'/grade/lib.php');
@@ -52,7 +46,7 @@ abstract class grade_export {
     public $usercustomfields; // include users custom fields
 
     /**
-     * @deprecated since Moodle 2.8
+     * @deprecated since Lion 2.8
      * @var $previewrows Number of rows in preview.
      */
     public $previewrows;
@@ -61,7 +55,7 @@ abstract class grade_export {
      * Constructor should set up all the private variables ready to be pulled.
      *
      * This constructor used to accept the individual parameters as separate arguments, in
-     * 2.8 this was simplified to just accept the data from the moodle form.
+     * 2.8 this was simplified to just accept the data from the lion form.
      *
      * @access public
      * @param object $course
@@ -86,7 +80,7 @@ abstract class grade_export {
      * Old deprecated constructor.
      *
      * This deprecated constructor accepts the individual parameters as separate arguments, in
-     * 2.8 this was simplified to just accept the data from the moodle form.
+     * 2.8 this was simplified to just accept the data from the lion form.
      *
      * @deprecated since 2.8 MDL-46548. Instead call the shortened constructor which accepts the data
      * directly from the grade_export_form.
@@ -357,7 +351,7 @@ abstract class grade_export {
             foreach ($userprofilefields as $field) {
                 $fieldvalue = grade_helper::get_user_field_value($user, $field);
                 // @see profile_field_base::display_data().
-                echo '<td>' . format_text($fieldvalue, FORMAT_MOODLE, $formatoptions) . '</td>';
+                echo '<td>' . format_text($fieldvalue, FORMAT_LION, $formatoptions) . '</td>';
             }
             if (!$this->onlyactive) {
                 $issuspended = ($user->suspendedenrolment) ? get_string('yes') : '';
@@ -387,7 +381,7 @@ abstract class grade_export {
         if (!is_array($this->displaytype)) {
             $displaytypes = $this->displaytype;
         } else {
-            // Implode the grade display types array as moodle_url function doesn't accept arrays.
+            // Implode the grade display types array as lion_url function doesn't accept arrays.
             $displaytypes = implode(',', $this->displaytype);
         }
 
@@ -431,7 +425,7 @@ abstract class grade_export {
 
         if (!$this->userkey) {
             // This button should trigger a download prompt.
-            $url = new moodle_url('/grade/export/'.$this->plugin.'/export.php', $params);
+            $url = new lion_url('/grade/export/'.$this->plugin.'/export.php', $params);
             echo $OUTPUT->single_button($url, get_string('download', 'admin'));
 
         } else {
@@ -456,10 +450,10 @@ abstract class grade_export {
      *
      * Get submitted form data and create the url to be used on the grade publish feature.
      *
-     * @return moodle_url the url of grade publishing export.
+     * @return lion_url the url of grade publishing export.
      */
     public function get_export_url() {
-        return new moodle_url('/grade/export/'.$this->plugin.'/dump.php', $this->get_export_params());
+        return new lion_url('/grade/export/'.$this->plugin.'/dump.php', $this->get_export_params());
     }
 
     /**
@@ -674,6 +668,6 @@ class grade_export_update_buffer {
 function export_verify_grades($courseid) {
     $regraderesult = grade_regrade_final_grades($courseid);
     if (is_array($regraderesult)) {
-        throw new moodle_exception('gradecantregrade', 'error', '', implode(', ', array_unique($regraderesult)));
+        throw new lion_exception('gradecantregrade', 'error', '', implode(', ', array_unique($regraderesult)));
     }
 }

@@ -4,6 +4,9 @@
  * Post-transform that performs validation to the name attribute; if
  * it is present with an equivalent id attribute, it is passed through;
  * otherwise validation is performed.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_NameSync extends HTMLPurifier_AttrTransform
 {

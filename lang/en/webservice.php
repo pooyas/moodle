@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'webservice', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'webservice', language 'en', branch 'LION_20_STABLE'
  *
- * @package   core_webservice
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    lang
+ * @subpackage en
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['accessexception'] = 'Access control exception';
@@ -51,7 +38,7 @@ $string['createtoken'] = 'Create token';
 $string['createtokenforuser'] = 'Create a token for a user';
 $string['createtokenforuserdescription'] = 'Create a token for the web services user.';
 $string['createuser'] = 'Create a specific user';
-$string['createuserdescription'] = 'A web services user is required to represent the system controlling Moodle.';
+$string['createuserdescription'] = 'A web services user is required to represent the system controlling Lion.';
 $string['criteriaerror'] = 'Missing permissions to search on a criterion.';
 $string['default'] = 'Default to "{$a}"';
 $string['deleteaservice'] = 'Delete service';
@@ -69,7 +56,7 @@ $string['editservice'] = 'Edit the service: {$a->name} (id: {$a->id})';
 $string['enabled'] = 'Enabled';
 $string['enabledocumentation'] = 'Enable developer documentation';
 $string['enabledocumentationdescription'] = 'Detailed web services documentation is available for enabled protocols.';
-$string['enablemobilewsoverview'] = 'Go to {$a->manageservicelink} administration page, check the "{$a->enablemobileservice}" setting and Save. Everything will be setup for you and all site\'s users will be able to use the offical Moodle app. Current status: {$a->wsmobilestatus}';
+$string['enablemobilewsoverview'] = 'Go to {$a->manageservicelink} administration page, check the "{$a->enablemobileservice}" setting and Save. Everything will be setup for you and all site\'s users will be able to use the offical Lion app. Current status: {$a->wsmobilestatus}';
 $string['enableprotocols'] = 'Enable protocols';
 $string['enableprotocolsdescription'] = 'At least one protocol should be enabled. For security reasons, only protocols that are to be used should be enabled.';
 $string['enablews'] = 'Enable web services';
@@ -116,7 +103,7 @@ $string['invalidtoken'] = 'Invalid token - token not found';
 $string['iprestriction'] = 'IP restriction';
 $string['iprestriction_help'] = 'The user will need to call the web service from the listed IPs (separated by commas).';
 $string['key'] = 'Key';
-$string['keyshelp'] = 'The keys are used to access your Moodle account from external applications.';
+$string['keyshelp'] = 'The keys are used to access your Lion account from external applications.';
 $string['manageprotocols'] = 'Manage protocols';
 $string['managetokens'] = 'Manage tokens';
 $string['missingcaps'] = 'Missing capabilities';
@@ -132,8 +119,8 @@ $string['nocapabilitytouseparameter'] = 'The user does not have the required cap
 $string['nofunctions'] = 'This service has no functions.';
 $string['norequiredcapability'] = 'No required capability';
 $string['notoken'] = 'The token list is empty.';
-$string['onesystemcontrolling'] = 'Allow an external system to control Moodle';
-$string['onesystemcontrollingdescription'] = 'The following steps help you to set up the Moodle web services to allow an external system to interact with Moodle. This includes setting up a token (security key) authentication method.';
+$string['onesystemcontrolling'] = 'Allow an external system to control Lion';
+$string['onesystemcontrollingdescription'] = 'The following steps help you to set up the Lion web services to allow an external system to interact with Lion. This includes setting up a token (security key) authentication method.';
 $string['operation'] = 'Operation';
 $string['optional'] = 'Optional';
 $string['passwordisexpired'] = 'Password is expired.';
@@ -182,7 +169,7 @@ $string['shortnametaken'] = 'Short name is already used for another service ({$a
 $string['simpleauthlog'] = 'Simple authentication login';
 $string['step'] = 'Step';
 $string['supplyinfo'] = 'More details';
-$string['testauserwithtestclientdescription'] = 'Simulate external access to the service using the web service test client. Before doing so, login as a user with the moodle/webservice:createtoken capability and obtain the security key (token) via My profile settings. You will use this token in the test client. In the test client, also choose an enabled protocol with the token authentication. <strong>WARNING: The functions that you test WILL BE EXECUTED for this user, so be careful what you choose to test!</strong>';
+$string['testauserwithtestclientdescription'] = 'Simulate external access to the service using the web service test client. Before doing so, login as a user with the lion/webservice:createtoken capability and obtain the security key (token) via My profile settings. You will use this token in the test client. In the test client, also choose an enabled protocol with the token authentication. <strong>WARNING: The functions that you test WILL BE EXECUTED for this user, so be careful what you choose to test!</strong>';
 $string['testclient'] = 'Web service test client';
 $string['testclientdescription'] = '* The web service test client <strong>executes</strong> the functions for <strong>REAL</strong>. Do not test functions that you don\'t know. <br/>* All existing web service functions are not yet implemented into the test client. <br/>* In order to check that a user cannot access some functions, you can test some functions that you didn\'t allow.<br/>* To see clearer error messages set the debugging to <strong>{$a->mode}</strong> into {$a->atag}<br/>* Access the {$a->amfatag}.';
 $string['testwithtestclient'] = 'Test the service';
@@ -197,7 +184,7 @@ $string['updateusersettings'] = 'Update';
 $string['uploadfiles'] = 'Can upload files';
 $string['uploadfiles_help'] = 'If enabled, any user can upload files with their security keys to their own private files area or a draft file area. Any user file quotas apply.';
 $string['userasclients'] = 'Users as clients with token';
-$string['userasclientsdescription'] = 'The following steps help you to set up the Moodle web service for users as clients. These steps also help to set up the recommended token (security keys) authentication method. In this use case, the user will generate his token from the security keys page via My profile settings.';
+$string['userasclientsdescription'] = 'The following steps help you to set up the Lion web service for users as clients. These steps also help to set up the recommended token (security keys) authentication method. In this use case, the user will generate his token from the security keys page via My profile settings.';
 $string['usermissingcaps'] = 'Missing capabilities: {$a}';
 $string['usernameorid'] = 'Username / User id';
 $string['usernameorid_help'] = 'Enter a username or a user id.';
@@ -217,7 +204,7 @@ $string['wsaccessuserexpired'] = 'Refused web service access for password expire
 $string['wsaccessusernologin'] = 'Refused web service access for nologin authentication username: {$a}';
 $string['wsaccessusersuspended'] = 'Refused web service access for suspended username: {$a}';
 $string['wsaccessuserunconfirmed'] = 'Refused web service access for unconfirmed username: {$a}';
-$string['wsclientdoc'] = 'Moodle web service client documentation';
+$string['wsclientdoc'] = 'Lion web service client documentation';
 $string['wsdocapi'] = 'API Documentation';
 $string['wsdocumentation'] = 'Web service documentation';
 $string['wsdocumentationdisable'] = 'Web service documentation is disabled.';

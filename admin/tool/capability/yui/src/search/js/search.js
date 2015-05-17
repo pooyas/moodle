@@ -1,7 +1,7 @@
 /**
  * This file contains the capability overview search functionality.
  *
- * @module moodle-tool_capability-search
+ * @module lion-tool_capability-search
  */
 
 /**

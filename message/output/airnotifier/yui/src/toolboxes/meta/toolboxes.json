@@ -1,5 +1,5 @@
 {
-  "moodle-message_airnotifier-toolboxes": {
+  "lion-message_airnotifier-toolboxes": {
     "requires": [
         "base",
         "node",

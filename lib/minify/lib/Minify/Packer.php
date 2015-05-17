@@ -10,8 +10,10 @@
  * Be aware that, as long as HTTP encoding is used, scripts minified with JSMin
  * will provide better client-side performance, as they need not be unpacked in
  * client-side code.
- * 
- * @package Minify  
+ *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 if (false === (@include 'class.JavaScriptPacker.php')) {
@@ -24,8 +26,7 @@ if (false === (@include 'class.JavaScriptPacker.php')) {
 
 /**
  * Minify Javascript using Dean Edward's Packer
- * 
- * @package Minify
+ *
  */
 class Minify_Packer {
     public static function minify($code, $options = array())

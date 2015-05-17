@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Amf
- * @subpackage Value
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** @see Zend_Amf_Value_Messaging_AcknowledgeMessage */
@@ -28,10 +27,6 @@ require_once 'Zend/Amf/Value/Messaging/AcknowledgeMessage.php';
  *
  * Corresponds to flex.messaging.messages.ErrorMessage
  *
- * @package    Zend_Amf
- * @subpackage Value
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Amf_Value_Messaging_ErrorMessage extends Zend_Amf_Value_Messaging_AcknowledgeMessage
 {

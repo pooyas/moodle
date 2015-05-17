@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Jabber message processor to send messages by jabber
  *
- * @package    message_jabber
- * @copyright  2008 Luis Rodrigues
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    message
+ * @subpackage output
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->dirroot.'/message/output/lib.php');
@@ -28,9 +15,6 @@ require_once($CFG->libdir.'/jabber/XMPP/XMPP.php');
 /**
  * The jabber message processor
  *
- * @package   message_jabber
- * @copyright 2008 Luis Rodrigues
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class message_output_jabber extends message_output {
 
@@ -76,7 +60,7 @@ class message_output_jabber extends message_output {
 
         $jabbermessage .= "\n(".get_string('noreply','message').')';
 
-        $conn = new XMPPHP_XMPP($CFG->jabberhost,$CFG->jabberport,$CFG->jabberusername,$CFG->jabberpassword,'moodle',$CFG->jabberserver);
+        $conn = new XMPPHP_XMPP($CFG->jabberhost,$CFG->jabberport,$CFG->jabberusername,$CFG->jabberpassword,'lion',$CFG->jabberserver);
 
         // No need to track the presence during the sending message process.
         $conn->track_presence = false;

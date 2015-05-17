@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_parser.php
 // Version     : 1.0.014
@@ -35,8 +42,6 @@
 /**
  * @file
  * This is a PHP class for parsing PDF documents.<br>
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.014
  */
 
@@ -46,10 +51,8 @@ require_once(dirname(__FILE__).'/include/tcpdf_filters.php');
 /**
  * @class TCPDF_PARSER
  * This is a PHP class for parsing PDF documents.<br>
- * @package com.tecnick.tcpdf
  * @brief This is a PHP class for parsing PDF documents..
  * @version 1.0.010
- * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_PARSER {
 
@@ -97,7 +100,6 @@ class TCPDF_PARSER {
 	 * 			'ignore_filter_decoding_errors' : if true ignore filter decoding errors;
 	 * 			'ignore_missing_filter_decoders' : if true ignore missing filter decoding errors.
 	 * @public
-	 * @since 1.0.000 (2011-05-24)
 	 */
 	public function __construct($data, $cfg=array()) {
 		if (empty($data)) {
@@ -152,7 +154,6 @@ class TCPDF_PARSER {
 	 * Return an array of parsed PDF document objects.
 	 * @return (array) Array of parsed PDF document objects.
 	 * @public
-	 * @since 1.0.000 (2011-06-26)
 	 */
 	public function getParsedData() {
 		return array($this->xref, $this->objects);
@@ -164,7 +165,6 @@ class TCPDF_PARSER {
 	 * @param $xref (array) previous xref array (if any).
 	 * @return Array containing xref and trailer data.
 	 * @protected
-	 * @since 1.0.000 (2011-05-24)
 	 */
 	protected function getXrefData($offset=0, $xref=array()) {
 		if ($offset == 0) {
@@ -206,7 +206,6 @@ class TCPDF_PARSER {
 	 * @param $xref (array) Previous xref array (if any).
 	 * @return Array containing xref and trailer data.
 	 * @protected
-	 * @since 1.0.000 (2011-06-20)
 	 */
 	protected function decodeXref($startxref, $xref=array()) {
 		$startxref += 4; // 4 is the lenght of the word 'xref'
@@ -278,7 +277,6 @@ class TCPDF_PARSER {
 	 * @param $xref (array) Previous xref array (if any).
 	 * @return Array containing xref and trailer data.
 	 * @protected
-	 * @since 1.0.003 (2013-03-16)
 	 */
 	protected function decodeXrefStream($startxref, $xref=array()) {
 		// try to read Cross-Reference Stream
@@ -489,7 +487,6 @@ class TCPDF_PARSER {
 	 * @param $offset (int) Object offset.
 	 * @return array containing object type, raw value and offset to next object
 	 * @protected
-	 * @since 1.0.000 (2011-06-20)
 	 */
 	protected function getRawObject($offset=0) {
 		$objtype = ''; // object type to be returned
@@ -669,7 +666,6 @@ class TCPDF_PARSER {
 	 * @param $decoding (boolean) If true decode streams.
 	 * @return array containing object data.
 	 * @protected
-	 * @since 1.0.000 (2011-05-24)
 	 */
 	protected function getIndirectObject($obj_ref, $offset=0, $decoding=true) {
 		$obj = explode('_', $obj_ref);
@@ -711,7 +707,6 @@ class TCPDF_PARSER {
 	 * @param $obj (string) Object value.
 	 * @return array containing object data.
 	 * @protected
-	 * @since 1.0.000 (2011-06-26)
 	 */
 	protected function getObjectVal($obj) {
 		if ($obj[0] == 'objref') {
@@ -734,7 +729,6 @@ class TCPDF_PARSER {
 	 * @param $stream (string) Stream to decode.
 	 * @return array containing decoded stream data and remaining filters.
 	 * @protected
-	 * @since 1.0.000 (2011-06-22)
 	 */
 	protected function decodeStream($sdic, $stream) {
 		// get stream lenght and filters
@@ -794,7 +788,6 @@ class TCPDF_PARSER {
 	 * Throw an exception or print an error message and die if the K_TCPDF_PARSER_THROW_EXCEPTION_ERROR constant is set to true.
 	 * @param $msg (string) The error message
 	 * @public
-	 * @since 1.0.000 (2011-05-23)
 	 */
 	public function Error($msg) {
 		if ($this->cfg['die_for_errors']) {

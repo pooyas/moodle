@@ -13,20 +13,16 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Server
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Node Tree class for Zend_Server reflection operations
  *
  * @category   Zend
- * @package    Zend_Server
- * @subpackage Reflection
  * @version $Id$
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Server_Reflection_Node
 {

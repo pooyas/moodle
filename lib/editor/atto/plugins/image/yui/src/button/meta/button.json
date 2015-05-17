@@ -1,7 +1,7 @@
 {
-    "moodle-atto_image-button": {
+    "lion-atto_image-button": {
         "requires": [
-            "moodle-editor_atto-plugin"
+            "lion-editor_atto-plugin"
         ]
     }
 }

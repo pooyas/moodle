@@ -32,26 +32,16 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * @package SimplePie
  * @version 1.3.1
- * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
- * @author Ryan Parman
- * @author Geoffrey Sneddon
- * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * IRI parser/serialiser/normaliser
  *
- * @package SimplePie
- * @subpackage HTTP
- * @author Geoffrey Sneddon
- * @author Steve Minutillo
- * @author Ryan McCue
- * @copyright 2007-2012 Geoffrey Sneddon, Steve Minutillo, Ryan McCue
- * @license http://www.opensource.org/licenses/bsd-license.php
  */
 class SimplePie_IRI
 {

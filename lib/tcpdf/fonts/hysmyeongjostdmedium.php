@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 $type='cidfont0';
 $name='HYSMyeongJoStd-Medium-Acro'; // AdobeMyungjoStd-Medium-Acro in acrobat 6
 $displayname = 'MyungJo Medium (Korean)';

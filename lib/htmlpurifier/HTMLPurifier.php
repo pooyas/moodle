@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /*! @mainpage
  *
  * HTML Purifier is an HTML filter that will take an arbitrary snippet of

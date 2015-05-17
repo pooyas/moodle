@@ -1,34 +1,24 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
+*/
 
 namespace quiz_statistics;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The statistics calculator returns an instance of this class which contains the calculated statistics.
  *
  * These quiz statistics calculations are described here :
  *
- * http://docs.moodle.org/dev/Quiz_statistics_calculations#Test_statistics
+ * http://docs.lion.org/dev/Quiz_statistics_calculations#Test_statistics
  *
- * @package    quiz_statistics
- * @copyright  2013 The Open University
- * @author     James Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class calculated {
 
@@ -51,7 +41,7 @@ class calculated {
      */
     public $whichattempts;
 
-    /* Following stats all described here : http://docs.moodle.org/dev/Quiz_statistics_calculations#Test_statistics  */
+    /* Following stats all described here : http://docs.lion.org/dev/Quiz_statistics_calculations#Test_statistics  */
 
     public $firstattemptscount = 0;
 

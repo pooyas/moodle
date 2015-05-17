@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @package   Util
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Parse DOM data from HTML strings.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @package   Util
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 class Horde_Domhtml implements Iterator
 {
@@ -137,7 +133,6 @@ class Horde_Domhtml implements Iterator
     /**
      * Returns the BODY element, or creates one if it doesn't exist.
      *
-     * @since 2.2.0
      *
      * @return DOMElement  BODY element.
      */
@@ -230,7 +225,6 @@ class Horde_Domhtml implements Iterator
     /**
      * Get the charset of the DOM data.
      *
-     * @since 2.1.0
      *
      * @return string  Charset of DOM data.
      */

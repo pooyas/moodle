@@ -2,6 +2,9 @@
 
 /**
  * Pre-transform that changes deprecated hspace and vspace attributes to CSS
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_ImgSpace extends HTMLPurifier_AttrTransform
 {

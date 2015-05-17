@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_rtl-button",
+  "name": "lion-atto_rtl-button",
   "builds": {
-    "moodle-atto_rtl-button": {
+    "lion-atto_rtl-button": {
       "jsfiles": [
         "button.js"
       ]

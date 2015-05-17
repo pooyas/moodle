@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // security - hide paths
 if (!defined('ADODB_DIR')) die();
 

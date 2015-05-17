@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Advanced grading methods support
  *
- * @package    core_grading
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Factory method returning an instance of the grading manager
@@ -85,9 +72,6 @@ function get_grading_manager($context_or_areaid = null, $component = null, $area
  * It is also possible to change context, component and area of an existing
  * manager. Such pattern is used when copying form definitions, for example.
  *
- * @package    core_grading
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @category   grading
  */
 class grading_manager {
@@ -373,11 +357,11 @@ class grading_manager {
             $method = null;
         } else {
             if ('gradingform_'.$method !== clean_param('gradingform_'.$method, PARAM_COMPONENT)) {
-                throw new moodle_exception('invalid_method_name', 'core_grading');
+                throw new lion_exception('invalid_method_name', 'core_grading');
             }
             $available = $this->get_available_methods(false);
             if (!array_key_exists($method, $available)) {
-                throw new moodle_exception('invalid_method_name', 'core_grading');
+                throw new lion_exception('invalid_method_name', 'core_grading');
             }
         }
 
@@ -419,7 +403,7 @@ class grading_manager {
      * Extends the settings navigation with the grading settings
      *
      * This function is called when the context for the page is an activity module with the
-     * FEATURE_ADVANCED_GRADING and the user has the permission moodle/grade:managegradingforms.
+     * FEATURE_ADVANCED_GRADING and the user has the permission lion/grade:managegradingforms.
      *
      * @param settings_navigation $settingsnav {@link settings_navigation}
      * @param navigation_node $modulenode {@link navigation_node}
@@ -498,11 +482,11 @@ class grading_manager {
 
         // make sure the passed method is a valid plugin name
         if ('gradingform_'.$method !== clean_param('gradingform_'.$method, PARAM_COMPONENT)) {
-            throw new moodle_exception('invalid_method_name', 'core_grading');
+            throw new lion_exception('invalid_method_name', 'core_grading');
         }
         $available = $this->get_available_methods(false);
         if (!array_key_exists($method, $available)) {
-            throw new moodle_exception('invalid_method_name', 'core_grading');
+            throw new lion_exception('invalid_method_name', 'core_grading');
         }
 
         // get the current grading area record if it exists
@@ -549,10 +533,10 @@ class grading_manager {
     /**
      * Returns the URL of the grading area management page
      *
-     * @param moodle_url $returnurl optional URL of the page where the user should be sent back to
-     * @return moodle_url
+     * @param lion_url $returnurl optional URL of the page where the user should be sent back to
+     * @return lion_url
      */
-    public function get_management_url(moodle_url $returnurl = null) {
+    public function get_management_url(lion_url $returnurl = null) {
 
         $this->ensure_isset(array('context', 'component'));
 
@@ -569,7 +553,7 @@ class grading_manager {
             $params['returnurl'] = $returnurl->out(false);
         }
 
-        return new moodle_url('/grade/grading/manage.php', $params);
+        return new lion_url('/grade/grading/manage.php', $params);
     }
 
     /**

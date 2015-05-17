@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Action for processing page answers by users
  *
- * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
 /** Require the specific libraries */
@@ -40,7 +27,7 @@ $context = context_module::instance($cm->id);
 $canmanage = has_capability('mod/lesson:manage', $context);
 $lessonoutput = $PAGE->get_renderer('mod_lesson');
 
-$url = new moodle_url('/mod/lesson/continue.php', array('id'=>$cm->id));
+$url = new lion_url('/mod/lesson/continue.php', array('id'=>$cm->id));
 $PAGE->set_url($url);
 $PAGE->set_pagetype('mod-lesson-view');
 $PAGE->navbar->add(get_string('continue', 'lesson'));
@@ -55,7 +42,7 @@ if (!$canmanage) {
         if ($timeleft <= 0) {
             // Out of time
             $lesson->add_message(get_string('eolstudentoutoftime', 'lesson'));
-            redirect(new moodle_url('/mod/lesson/view.php', array('id'=>$cm->id,'pageid'=>LESSON_EOL, 'outoftime'=>'normal')));
+            redirect(new lion_url('/mod/lesson/view.php', array('id'=>$cm->id,'pageid'=>LESSON_EOL, 'outoftime'=>'normal')));
         } else if ($timeleft < 60) {
             // One minute warning
             $lesson->add_message(get_string("studentoneminwarning", "lesson"));
@@ -143,7 +130,7 @@ if (isset($USER->modattempts[$lesson->id])) {
 
 if ($result->nodefaultresponse) {
     // Don't display feedback
-    redirect(new moodle_url('/mod/lesson/view.php', array('id'=>$cm->id,'pageid'=>$result->newpageid)));
+    redirect(new lion_url('/mod/lesson/view.php', array('id'=>$cm->id,'pageid'=>$result->newpageid)));
 }
 
 /// Set Messages
@@ -209,7 +196,7 @@ if (!$result->correctanswer && !$result->noanswer && !$result->isessayquestion &
     echo html_writer::tag('form', "<div class=\"singlebutton\">$content</div>", array('method'=>'post', 'action'=>$url));
 }
 
-$url = new moodle_url('/mod/lesson/view.php', array('id'=>$cm->id, 'pageid'=>$result->newpageid));
+$url = new lion_url('/mod/lesson/view.php', array('id'=>$cm->id, 'pageid'=>$result->newpageid));
 if ($lesson->review && !$result->correctanswer && !$result->noanswer && !$result->isessayquestion && !$result->maxattemptsreached) {
     // Review button continue
     echo $OUTPUT->single_button($url, get_string('reviewquestioncontinue', 'lesson'));

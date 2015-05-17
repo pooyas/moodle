@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once 'Google/Http/Request.php';
@@ -20,7 +23,6 @@ require_once 'Google/Http/Request.php';
 /**
  * Implement the caching directives specified in rfc2616. This
  * implementation is guided by the guidance offered in rfc2616-sec13.
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Http_CacheParser
 {

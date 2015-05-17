@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Adds new instance of enrol_cohort to specified course.
  *
- * @package    enrol_cohort
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage cohort
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../../config.php');
@@ -35,13 +22,13 @@ $course = $DB->get_record('course', array('id'=>$courseid), '*', MUST_EXIST);
 $context = context_course::instance($course->id, MUST_EXIST);
 
 require_login($course);
-require_capability('moodle/course:enrolconfig', $context);
+require_capability('lion/course:enrolconfig', $context);
 require_capability('enrol/cohort:config', $context);
 
 $PAGE->set_url('/enrol/cohort/edit.php', array('courseid'=>$course->id, 'id'=>$instanceid));
 $PAGE->set_pagelayout('admin');
 
-$returnurl = new moodle_url('/enrol/instances.php', array('id'=>$course->id));
+$returnurl = new lion_url('/enrol/instances.php', array('id'=>$course->id));
 if (!enrol_is_enabled('cohort')) {
     redirect($returnurl);
 }
@@ -56,7 +43,7 @@ if ($instanceid) {
     if (!$enrol->get_newinstance_link($course->id)) {
         redirect($returnurl);
     }
-    navigation_node::override_active_url(new moodle_url('/enrol/instances.php', array('id'=>$course->id)));
+    navigation_node::override_active_url(new lion_url('/enrol/instances.php', array('id'=>$course->id)));
     $instance = new stdClass();
     $instance->id         = null;
     $instance->courseid   = $course->id;
@@ -93,7 +80,7 @@ if ($mform->is_cancelled()) {
     }  else {
         $enrol->add_instance($course, array('name'=>$data->name, 'status'=>$data->status, 'customint1'=>$data->customint1, 'roleid'=>$data->roleid, 'customint2'=>$data->customint2));
         if (!empty($data->submitbuttonnext)) {
-            $returnurl = new moodle_url($PAGE->url);
+            $returnurl = new lion_url($PAGE->url);
             $returnurl->param('message', 'added');
         }
     }

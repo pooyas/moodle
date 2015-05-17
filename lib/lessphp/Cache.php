@@ -1,12 +1,17 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once( dirname(__FILE__).'/Version.php');
 
 /**
  * Utility for handling the generation and caching of css files
  *
- * @package Less
- * @subpackage cache
  *
  */
 class Less_Cache{

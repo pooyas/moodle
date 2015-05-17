@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for /lib/filestorage/tgz_packer.php and tgz_extractor.php.
  *
- * @package core_files
- * @copyright 2013 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/filestorage/file_progress.php');
@@ -67,7 +54,7 @@ class core_files_tgz_packer_testcase extends advanced_testcase implements file_p
         self::file_put_contents_at_time($CFG->tempdir . '/dir1/dir2/file3.txt', 'File 3', 1377993603);
         $filelist['out2'] = $CFG->tempdir . '/dir1';
 
-        // Moodle stored_file.
+        // Lion stored_file.
         $context = context_system::instance();
         $filerecord = array('contextid' => $context->id, 'component' => 'phpunit',
                 'filearea' => 'data', 'itemid' => 0, 'filepath' => '/',
@@ -76,7 +63,7 @@ class core_files_tgz_packer_testcase extends advanced_testcase implements file_p
         $sf = $fs->create_file_from_string($filerecord, 'File 4');
         $filelist['out3.txt'] = $sf;
 
-         // Moodle stored_file directory.
+         // Lion stored_file directory.
         $filerecord['itemid'] = 1;
         $filerecord['filepath'] = '/dir1/';
         $filerecord['filename'] = 'file5.txt';
@@ -150,7 +137,7 @@ class core_files_tgz_packer_testcase extends advanced_testcase implements file_p
     }
 
     /**
-     * Tests archive and extract to Moodle file system.
+     * Tests archive and extract to Lion file system.
      */
     public function test_to_stored_files() {
         global $CFG;
@@ -179,7 +166,7 @@ class core_files_tgz_packer_testcase extends advanced_testcase implements file_p
         $this->assertEquals('File 7', file_get_contents($outdir . '/out5.txt'));
         $this->assertTrue(is_dir($outdir . '/out6'));
 
-        // Extract to Moodle storage.
+        // Extract to Lion storage.
         $packer->extract_to_storage($sf, $context->id, 'phpunit', 'data', 2, '/out/');
         $fs = get_file_storage();
         $out = $fs->get_file($context->id, 'phpunit', 'data', 2, '/out/', 'out1.txt');

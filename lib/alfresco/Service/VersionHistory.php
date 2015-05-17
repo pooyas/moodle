@@ -16,12 +16,14 @@
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
  
  /**
   * Version history class.
-  * 
-  * @author Roy Wetherall
+  *
   */
  class VersionHistory extends BaseObject 
  {

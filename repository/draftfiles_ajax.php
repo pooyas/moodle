@@ -1,27 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Draft file ajax file manager
  *
  * @package    core
  * @subpackage repository
- * @copyright  2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('AJAX_SCRIPT', true);
@@ -136,7 +122,7 @@ switch ($action) {
         }
         try {
             repository::update_draftfile($draftid, $filepath, $filename, $updatedata);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             die(json_encode((object)array('error' => $e->getMessage())));
         }
         die(json_encode((object)array('filepath' => $newfilepath)));
@@ -148,7 +134,7 @@ switch ($action) {
         $newfilepath = clean_param($parent . '/' . $newdirname . '/', PARAM_PATH);
         try {
             repository::update_draftfile($draftid, $filepath, '.', array('filepath' => $newfilepath));
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             die(json_encode((object)array('error' => $e->getMessage())));
         }
         die(json_encode((object)array('filepath' => $parent)));
@@ -199,7 +185,7 @@ switch ($action) {
         $newdraftitemid = file_get_unused_draft_itemid();
         if ($newfile = $zipper->archive_to_storage(array('/' => $stored_file), $user_context->id, 'user', 'draft', $newdraftitemid, '/', $filename, $USER->id)) {
             $return = new stdClass();
-            $return->fileurl  = moodle_url::make_draftfile_url($newdraftitemid, '/', $filename)->out();
+            $return->fileurl  = lion_url::make_draftfile_url($newdraftitemid, '/', $filename)->out();
             $return->filepath = $filepath;
             echo json_encode($return);
         } else {

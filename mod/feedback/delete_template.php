@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * deletes a template
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -34,7 +21,7 @@ $canceldelete = optional_param('canceldelete', false, PARAM_INT);
 $shoulddelete = optional_param('shoulddelete', false, PARAM_INT);
 $deletetempl = optional_param('deletetempl', false, PARAM_INT);
 
-$url = new moodle_url('/mod/feedback/delete_template.php', array('id'=>$id));
+$url = new lion_url('/mod/feedback/delete_template.php', array('id'=>$id));
 if ($canceldelete !== false) {
     $url->param('canceldelete', $canceldelete);
 }
@@ -51,7 +38,7 @@ if (($formdata = data_submitted()) AND !confirm_sesskey()) {
 }
 
 if ($canceldelete == 1) {
-    $editurl = new moodle_url('/mod/feedback/edit.php', array('id'=>$id, 'do_show'=>'templates'));
+    $editurl = new lion_url('/mod/feedback/edit.php', array('id'=>$id, 'do_show'=>'templates'));
     redirect($editurl->out(false));
 }
 
@@ -81,7 +68,7 @@ $newformdata = array('id'=>$id,
 $mform->set_data($newformdata);
 $formdata = $mform->get_data();
 
-$deleteurl = new moodle_url('/mod/feedback/delete_template.php', array('id'=>$id));
+$deleteurl = new lion_url('/mod/feedback/delete_template.php', array('id'=>$id));
 
 if ($mform->is_cancelled()) {
     redirect($deleteurl->out(false));
@@ -151,7 +138,7 @@ if ($shoulddelete == 1) {
         foreach ($templates as $template) {
             $data = array();
             $data[] = $template->name;
-            $url = new moodle_url($deleteurl, array(
+            $url = new lion_url($deleteurl, array(
                                             'id'=>$id,
                                             'deletetempl'=>$template->id,
                                             'shoulddelete'=>1,
@@ -191,7 +178,7 @@ if ($shoulddelete == 1) {
             foreach ($templates as $template) {
                 $data = array();
                 $data[] = $template->name;
-                $url = new moodle_url($deleteurl, array(
+                $url = new lion_url($deleteurl, array(
                                                 'id'=>$id,
                                                 'deletetempl'=>$template->id,
                                                 'shoulddelete'=>1,
@@ -206,7 +193,7 @@ if ($shoulddelete == 1) {
     }
 
     echo $OUTPUT->box_start('boxaligncenter boxwidthnormal');
-    $url = new moodle_url($deleteurl, array(
+    $url = new lion_url($deleteurl, array(
                                     'id'=>$id,
                                     'canceldelete'=>1,
                                     ));

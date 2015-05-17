@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Provides common methods shared in all ACL classes (see RFC 2086/4314).
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Data_AclCommon
 {

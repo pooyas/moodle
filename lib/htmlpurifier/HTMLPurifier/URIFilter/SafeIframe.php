@@ -5,6 +5,9 @@
  *
  * @warning This filter is *critical* for ensuring that %HTML.SafeIframe
  * works safely.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIFilter_SafeIframe extends HTMLPurifier_URIFilter
 {

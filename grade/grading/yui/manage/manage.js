@@ -1,10 +1,8 @@
 /**
  * YUI module for advanced grading methods - the manage page
  *
- * @author David Mudrak <david@moodle.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-YUI.add('moodle-core_grading-manage', function(Y) {
+YUI.add('lion-core_grading-manage', function(Y) {
 
     var MANAGE = function() {
         MANAGE.superclass.constructor.apply(this, arguments);

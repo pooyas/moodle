@@ -6,20 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Interface to allow dynamic generation of server password.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
- * @since     2.14.0
  */
 interface Horde_Imap_Client_Base_Password
 {

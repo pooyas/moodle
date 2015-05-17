@@ -6,9 +6,9 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Stream_Filter
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -24,11 +24,7 @@
  *   - eol: (string) The EOL string to use.
  *          DEFAULT: <CR><LF> ("\r\n")
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Stream_Filter
  */
 class Horde_Stream_Filter_Eol extends php_user_filter
 {

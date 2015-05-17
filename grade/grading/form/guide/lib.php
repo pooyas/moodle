@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Grading method controller for the guide plugin
  *
- * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/grade/grading/form/lib.php');
 
 /**
  * This controller encapsulates the guide grading logic
  *
- * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gradingform_guide_controller extends gradingform_controller {
     // Modes of displaying the guide (used in gradingform_guide_renderer).
@@ -59,7 +43,7 @@ class gradingform_guide_controller extends gradingform_controller {
      * Extends the module settings navigation with the guide grading settings
      *
      * This function is called when the context for the page is an activity module with the
-     * FEATURE_ADVANCED_GRADING, the user has the permission moodle/grade:managegradingforms
+     * FEATURE_ADVANCED_GRADING, the user has the permission lion/grade:managegradingforms
      * and there is an area with the active grading method set to 'guide'.
      *
      * @param settings_navigation $settingsnav {@link settings_navigation}
@@ -82,13 +66,13 @@ class gradingform_guide_controller extends gradingform_controller {
      * @return void
      */
     public function extend_navigation(global_navigation $navigation, navigation_node $node=null) {
-        if (has_capability('moodle/grade:managegradingforms', $this->get_context())) {
+        if (has_capability('lion/grade:managegradingforms', $this->get_context())) {
             // No need for preview if user can manage forms, he will have link to manage.php in settings instead.
             return;
         }
         if ($this->is_form_defined() && ($options = $this->get_options()) && !empty($options['alwaysshowdefinition'])) {
             $node->add(get_string('gradingof', 'gradingform_guide', get_grading_manager($this->get_areaid())->get_area_title()),
-                    new moodle_url('/grade/grading/form/'.$this->get_method_name().'/preview.php',
+                    new lion_url('/grade/grading/form/'.$this->get_method_name().'/preview.php',
                         array('areaid' => $this->get_areaid())), settings_navigation::TYPE_CUSTOM);
         }
     }
@@ -161,8 +145,8 @@ class gradingform_guide_controller extends gradingform_controller {
         foreach ($newcriteria as $id => $criterion) {
             if (preg_match('/^NEWID\d+$/', $id)) {
                 // Insert criterion into DB.
-                $data = array('definitionid' => $this->definition->id, 'descriptionformat' => FORMAT_MOODLE,
-                    'descriptionmarkersformat' => FORMAT_MOODLE); // TODO format is not supported yet.
+                $data = array('definitionid' => $this->definition->id, 'descriptionformat' => FORMAT_LION,
+                    'descriptionmarkersformat' => FORMAT_LION); // TODO format is not supported yet.
                 foreach ($criteriafields as $key) {
                     if (array_key_exists($key, $criterion)) {
                         $data[$key] = $criterion[$key];
@@ -210,7 +194,7 @@ class gradingform_guide_controller extends gradingform_controller {
         foreach ($newcomment as $id => $comment) {
             if (preg_match('/^NEWID\d+$/', $id)) {
                 // Insert criterion into DB.
-                $data = array('definitionid' => $this->definition->id, 'descriptionformat' => FORMAT_MOODLE);
+                $data = array('definitionid' => $this->definition->id, 'descriptionformat' => FORMAT_LION);
                 foreach ($commentfields as $key) {
                     if (array_key_exists($key, $comment)) {
                         $data[$key] = $comment[$key];
@@ -482,20 +466,20 @@ class gradingform_guide_controller extends gradingform_controller {
     /**
      * Returns the guide plugin renderer
      *
-     * @param moodle_page $page the target page
+     * @param lion_page $page the target page
      * @return gradingform_guide_renderer
      */
-    public function get_renderer(moodle_page $page) {
+    public function get_renderer(lion_page $page) {
         return $page->get_renderer('gradingform_'. $this->get_method_name());
     }
 
     /**
      * Returns the HTML code displaying the preview of the grading form
      *
-     * @param moodle_page $page the target page
+     * @param lion_page $page the target page
      * @return string
      */
-    public function render_preview(moodle_page $page) {
+    public function render_preview(lion_page $page) {
 
         if (!$this->is_form_defined()) {
             throw new coding_exception('It is the caller\'s responsibility to make sure that the form is actually defined');
@@ -503,7 +487,7 @@ class gradingform_guide_controller extends gradingform_controller {
 
         // Check if current user is able to see preview
         $options = $this->get_options();
-        if (empty($options['alwaysshowdefinition']) && !has_capability('moodle/grade:managegradingforms', $page->context))  {
+        if (empty($options['alwaysshowdefinition']) && !has_capability('lion/grade:managegradingforms', $page->context))  {
             return '';
         }
 
@@ -513,7 +497,7 @@ class gradingform_guide_controller extends gradingform_controller {
 
         $guide = '';
         $guide .= $output->box($this->get_formatted_description(), 'gradingform_guide-description');
-        if (has_capability('moodle/grade:managegradingforms', $page->context)) {
+        if (has_capability('lion/grade:managegradingforms', $page->context)) {
             $guide .= $output->display_guide_mapping_explained($this->get_min_max_score());
             $guide .= $output->display_guide($criteria, $comments, $options, self::DISPLAY_PREVIEW, 'guide');
         } else {
@@ -580,7 +564,7 @@ class gradingform_guide_controller extends gradingform_controller {
     /**
      * Returns html code to be included in student's feedback.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param int $itemid
      * @param array $gradinginfo result of function grade_get_grades
      * @param string $defaultcontent default string to be returned if no active grading is found
@@ -655,7 +639,6 @@ class gradingform_guide_controller extends gradingform_controller {
      * @return array An array containing 2 key/value pairs which hold the external_multiple_structure
      * for the 'guide_criteria' and the 'guide_comments'.
      * @see gradingform_controller::get_external_definition_details()
-     * @since Moodle 2.5
      */
     public static function get_external_definition_details() {
         $guide_criteria = new external_multiple_structure(
@@ -691,7 +674,6 @@ class gradingform_guide_controller extends gradingform_controller {
      *
      * @return An array containing a single key/value pair with the 'criteria' external_multiple_structure
      * @see gradingform_controller::get_external_instance_filling_details()
-     * @since Moodle 2.6
      */
     public static function get_external_instance_filling_details() {
         $criteria = new external_multiple_structure(
@@ -715,9 +697,6 @@ class gradingform_guide_controller extends gradingform_controller {
  * Class to manage one guide grading instance. Stores information and performs actions like
  * update, copy, validate, submit, etc.
  *
- * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gradingform_guide_instance extends gradingform_instance {
 
@@ -838,7 +817,7 @@ class gradingform_guide_instance extends gradingform_instance {
         foreach ($data['criteria'] as $criterionid => $record) {
             if (!array_key_exists($criterionid, $currentgrade['criteria'])) {
                 $newrecord = array('instanceid' => $this->get_id(), 'criterionid' => $criterionid,
-                    'score' => $record['score'], 'remarkformat' => FORMAT_MOODLE);
+                    'score' => $record['score'], 'remarkformat' => FORMAT_LION);
                 if (isset($record['remark'])) {
                     $newrecord['remark'] = $record['remark'];
                 }
@@ -911,8 +890,8 @@ class gradingform_guide_instance extends gradingform_instance {
     /**
      * Returns html for form element of type 'grading'.
      *
-     * @param moodle_page $page
-     * @param MoodleQuickForm_grading $gradingformelement
+     * @param lion_page $page
+     * @param LionQuickForm_grading $gradingformelement
      * @return string
      */
     public function render_grading_element($page, $gradingformelement) {

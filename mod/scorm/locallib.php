@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library of internal classes and functions for module SCORM
  *
- * @package    mod_scorm
- * @copyright  1999 onwards Roberto Pinna
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage scorm
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("$CFG->dirroot/mod/scorm/lib.php");
@@ -54,9 +41,6 @@ define('TOCFULLURL', 2);
 // Local Library of functions for module scorm.
 
 /**
- * @package   mod_scorm
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class scorm_package_file_info extends file_info_stored {
     public function get_parent() {
@@ -868,7 +852,7 @@ function scorm_view_display ($user, $scorm, $action, $cm) {
                                          $DB->sql_isempty('scorm_scoes', 'organization', false, false),
                                          array($scorm->id), 'sortorder, id', 'id,title')) {
         if (count($orgs) > 1) {
-            $select = new single_select(new moodle_url($action), 'organization', $orgs, $organization, null);
+            $select = new single_select(new lion_url($action), 'organization', $orgs, $organization, null);
             $select->label = get_string('organizations', 'scorm');
             $select->class = 'scorm-center';
             echo $OUTPUT->render($select);
@@ -969,7 +953,7 @@ function scorm_simple_play($scorm, $user, $context, $cmid) {
         }
         if ($scorm->skipview >= SCORM_SKIPVIEW_FIRST) {
             $sco = current($scoes);
-            $url = new moodle_url('/mod/scorm/player.php', array('a' => $scorm->id,
+            $url = new lion_url('/mod/scorm/player.php', array('a' => $scorm->id,
                                                                 'currentorg' => $orgidentifier,
                                                                 'scoid' => $sco->id));
             if ($scorm->skipview == SCORM_SKIPVIEW_ALWAYS || !scorm_has_tracks($scorm->id, $user->id)) {
@@ -1156,7 +1140,7 @@ function scorm_element_cmp($a, $b) {
  * Generate the user attempt status string
  *
  * @param object $user Current context user
- * @param object $scorm a moodle scrom object - mdl_scorm
+ * @param object $scorm a lion scrom object - mdl_scorm
  * @return string - Attempt status string
  */
 function scorm_get_attempt_status($user, $scorm, $cm='') {
@@ -1243,7 +1227,7 @@ function scorm_get_attempt_status($user, $scorm, $cm='') {
         if (has_capability('mod/scorm:deleteownresponses', $context) &&
             $DB->record_exists('scorm_scoes_track', array('userid' => $user->id, 'scormid' => $scorm->id))) {
             // Check to see if any data is stored for this user.
-            $deleteurl = new moodle_url($PAGE->url, array('action' => 'delete', 'sesskey' => sesskey()));
+            $deleteurl = new lion_url($PAGE->url, array('action' => 'delete', 'sesskey' => sesskey()));
             $result .= $OUTPUT->single_button($deleteurl, get_string('deleteallattempts', 'scorm'));
         }
     }
@@ -1255,7 +1239,7 @@ function scorm_get_attempt_status($user, $scorm, $cm='') {
  * Get SCORM attempt count
  *
  * @param object $user Current context user
- * @param object $scorm a moodle scrom object - mdl_scorm
+ * @param object $scorm a lion scrom object - mdl_scorm
  * @param bool $returnobjects if true returns a object with attempts, if false returns count of attempts.
  * @param bool $ignoremissingcompletion - ignores attempts that haven't reported a grade/completion.
  * @return int - no. of attempts so far
@@ -1298,7 +1282,7 @@ function scorm_get_attempt_count($userid, $scorm, $returnobjects = false, $ignor
 /**
  * Figure out with this is a debug situation
  *
- * @param object $scorm a moodle scrom object - mdl_scorm
+ * @param object $scorm a lion scrom object - mdl_scorm
  * @return boolean - debugging true/false
  */
 function scorm_debugging($scorm) {
@@ -1875,7 +1859,7 @@ function scorm_get_toc($user, $scorm, $cmid, $toclink=TOCJSLINK, $currentorg='',
             $modestr = '&mode='.$mode;
         }
 
-        $url = new moodle_url('/mod/scorm/player.php?a='.$scorm->id.'&currentorg='.$currentorg.$modestr);
+        $url = new lion_url('/mod/scorm/player.php?a='.$scorm->id.'&currentorg='.$currentorg.$modestr);
         $result->tocmenu = $OUTPUT->single_select($url, 'scoid', $tocmenu, $result->sco->id, null, "tocmenu");
     }
 

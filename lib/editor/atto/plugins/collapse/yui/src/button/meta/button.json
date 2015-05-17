@@ -1,7 +1,7 @@
 {
-    "moodle-atto_collapse-button": {
+    "lion-atto_collapse-button": {
         "requires": [
-            "moodle-editor_atto-plugin"
+            "lion-editor_atto-plugin"
         ]
     }
 }

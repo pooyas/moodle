@@ -1,5 +1,5 @@
 {
-    "moodle-gradereport_grader-gradereporttable": {
+    "lion-gradereport_grader-gradereporttable": {
         "requires": [
             "base",
             "node",

@@ -35,11 +35,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
  * ***** END LICENSE BLOCK *****
- * 
- * @copyright   Copyright (C) 2007-2008 Christoph Dorn
- * @author      Christoph Dorn <christoph@christophdorn.com>
- * @license     http://www.opensource.org/licenses/bsd-license.php
- * @package     FirePHP
+ *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
  
  
@@ -49,11 +48,7 @@
  * "Server" request tab.
  * 
  * For more information see: http://www.firephp.org/
- * 
- * @copyright   Copyright (C) 2007-2008 Christoph Dorn
- * @author      Christoph Dorn <christoph@christophdorn.com>
- * @license     http://www.opensource.org/licenses/bsd-license.php
- * @package     FirePHP
+ *
  */
 class FirePHP {
   
@@ -1059,14 +1054,7 @@ class FirePHP {
    * DAMAGE.
    *
    * @category
-   * @package     Services_JSON
-   * @author      Michal Migurski <mike-json@teczno.com>
-   * @author      Matt Knapp <mdknapp[at]gmail[dot]com>
-   * @author      Brett Stimmerman <brettstimmerman[at]gmail[dot]com>
-   * @author      Christoph Dorn <christoph@christophdorn.com>
-   * @copyright   2005 Michal Migurski
    * @version     CVS: $Id: JSON.php,v 1.31 2006/06/28 05:54:17 migurski Exp $
-   * @license     http://www.opensource.org/licenses/bsd-license.php
    * @link        http://pear.php.net/pepr/pepr-proposal-show.php?id=198
    */
    

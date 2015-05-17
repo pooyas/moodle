@@ -1,32 +1,18 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Filter converting URLs in the text to HTML links
  *
  * @package    filter
  * @subpackage urltolink
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
-class filter_urltolink extends moodle_text_filter {
+class filter_urltolink extends lion_text_filter {
 
     /**
      * @var array global configuration for this filter
@@ -112,11 +98,11 @@ class filter_urltolink extends moodle_text_filter {
         filter_save_ignore_tags($text,$filterignoretagsopen,$filterignoretagsclose,$ignoretags);
 
         // Check if we support unicode modifiers in regular expressions. Cache it.
-        // TODO: this check should be a environment requirement in Moodle 2.0, as far as unicode
+        // TODO: this check should be a environment requirement in Lion 2.0, as far as unicode
         // chars are going to arrive to URLs officially really soon (2010?)
         // Original RFC regex from: http://www.bytemycode.com/snippets/snippet/796/
         // Various ideas from: http://alanstorm.com/url_regex_explained
-        // Unicode check, negative assertion and other bits from Moodle.
+        // Unicode check, negative assertion and other bits from Lion.
         static $unicoderegexp;
         if (!isset($unicoderegexp)) {
             $unicoderegexp = @preg_match('/\pL/u', 'a'); // This will fail silently, returning false,
@@ -184,7 +170,7 @@ class filter_urltolink extends moodle_text_filter {
 
         if ($this->get_global_config('embedimages')) {
             // now try to inject the images, this code was originally in the mediapluing filter
-            // this may be useful only if somebody relies on the fact the links in FORMAT_MOODLE get converted
+            // this may be useful only if somebody relies on the fact the links in FORMAT_LION get converted
             // to URLs which in turn change to real images
             $search = '/<a href="([^"]+\.(jpg|png|gif))" class="_blanktarget">([^>]*)<\/a>/is';
             $text = preg_replace_callback($search, 'filter_urltolink_img_callback', $text);
@@ -196,7 +182,7 @@ class filter_urltolink extends moodle_text_filter {
 /**
  * Change links to images into embedded images.
  *
- * This plugin is intended for automatic conversion of image URLs when FORMAT_MOODLE used.
+ * This plugin is intended for automatic conversion of image URLs when FORMAT_LION used.
  *
  * @param  $link
  * @return string

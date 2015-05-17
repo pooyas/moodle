@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -21,9 +8,9 @@
  * Contains HTML class for a drop down element to select the grade for an activity,
  * used in mod update form
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 global $CFG;
@@ -38,12 +25,9 @@ require_once($CFG->dirroot.'/lib/grade/grade_scale.php');
  * HTML class for a drop down element to select the grade for an activity,
  * used in mod update form
  *
- * @package   core_form
  * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_modgrade extends MoodleQuickForm_group{
+class LionQuickForm_modgrade extends LionQuickForm_group{
 
     /**
      * Constructor
@@ -53,7 +37,7 @@ class MoodleQuickForm_modgrade extends MoodleQuickForm_group{
      * @param array $options Options to control the element's display. Not used.
      * @param mixed $attributes Either a typical HTML attribute string or an associative array
      */
-    public function MoodleQuickForm_modgrade($elementname = null, $elementlabel = null, $options = array(), $attributes = null) {
+    public function LionQuickForm_modgrade($elementname = null, $elementlabel = null, $options = array(), $attributes = null) {
         $this->HTML_QuickForm_element($elementname, $elementlabel, $attributes);
         $this->_persistantFreeze = true;
         $this->_appendName = true;
@@ -78,14 +62,14 @@ class MoodleQuickForm_modgrade extends MoodleQuickForm_group{
         // Grade scale select box.
         $scales = get_scales_menu($COURSE->id);
         $langscale = get_string('modgradetypescale', 'grades');
-        $scaleselect = @MoodleQuickForm::createElement('select', 'modgrade_scale', $langscale, $scales, $attributes);
+        $scaleselect = @LionQuickForm::createElement('select', 'modgrade_scale', $langscale, $scales, $attributes);
         $scaleselect->setHiddenLabel = false;
         $scaleselect->_generateId();
         $scaleselectid = $scaleselect->getAttribute('id');
 
         // Maximum grade textbox.
         $langmaxgrade = get_string('modgrademaxgrade', 'grades');
-        $maxgrade = @MoodleQuickForm::createElement('text', 'modgrade_point', $langmaxgrade, array());
+        $maxgrade = @LionQuickForm::createElement('text', 'modgrade_point', $langmaxgrade, array());
         $maxgrade->setHiddenLabel = false;
         $maxgrade->_generateId();
         $maxgradeid = $maxgrade->getAttribute('id');
@@ -97,7 +81,7 @@ class MoodleQuickForm_modgrade extends MoodleQuickForm_group{
             'point' => get_string('modgradetypepoint', 'grades'),
         );
         $langtype = get_string('modgradetype', 'grades');
-        $typeselect = @MoodleQuickForm::createElement('select', 'modgrade_type', $langtype, $gradetype, $attributes, true);
+        $typeselect = @LionQuickForm::createElement('select', 'modgrade_type', $langtype, $gradetype, $attributes, true);
         $typeselect->setHiddenLabel = false;
         $typeselect->_generateId();
 
@@ -105,21 +89,21 @@ class MoodleQuickForm_modgrade extends MoodleQuickForm_group{
 
         // Grade type select box.
         $label = html_writer::tag('label', $typeselect->getLabel(), array('for' => $typeselect->getAttribute('id')));
-        $this->_elements[] = @MoodleQuickForm::createElement('static', 'gradetypelabel', '', '&nbsp;'.$label);
+        $this->_elements[] = @LionQuickForm::createElement('static', 'gradetypelabel', '', '&nbsp;'.$label);
         $this->_elements[] = $typeselect;
-        $this->_elements[] = @MoodleQuickForm::createElement('static', 'gradetypespacer', '', '<br />');
+        $this->_elements[] = @LionQuickForm::createElement('static', 'gradetypespacer', '', '<br />');
 
         // Grade scale select box.
         $label = html_writer::tag('label', $scaleselect->getLabel(), array('for' => $scaleselectid));
-        $this->_elements[] = @MoodleQuickForm::createElement('static', 'scalelabel', '', $label);
+        $this->_elements[] = @LionQuickForm::createElement('static', 'scalelabel', '', $label);
         $this->_elements[] = $scaleselect;
-        $this->_elements[] = @MoodleQuickForm::createElement('static', 'scalespacer', '', '<br />');
+        $this->_elements[] = @LionQuickForm::createElement('static', 'scalespacer', '', '<br />');
 
         // Maximum grade textbox.
         $label = html_writer::tag('label', $maxgrade->getLabel(), array('for' => $maxgradeid));
-        $this->_elements[] = @MoodleQuickForm::createElement('static', 'pointlabel', '', $label);
+        $this->_elements[] = @LionQuickForm::createElement('static', 'pointlabel', '', $label);
         $this->_elements[] = $maxgrade;
-        $this->_elements[] = @MoodleQuickForm::createElement('static', 'pointspacer', '', '<br />');
+        $this->_elements[] = @LionQuickForm::createElement('static', 'pointspacer', '', '<br />');
     }
 
     /**
@@ -207,7 +191,7 @@ class MoodleQuickForm_modgrade extends MoodleQuickForm_group{
      *
      * @param string $event Name of event
      * @param mixed $arg event arguments
-     * @param moodleform $caller calling object
+     * @param lionform $caller calling object
      * @return mixed
      */
     public function onQuickFormEvent($event, $arg, &$caller) {

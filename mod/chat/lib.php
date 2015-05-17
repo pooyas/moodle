@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library of functions and constants for module chat
  *
- * @package   mod_chat
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage chat
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->dirroot.'/calendar/lib.php');
@@ -243,7 +230,7 @@ function chat_print_recent_activity($course, $viewfullnames, $timestart) {
         }
 
         if (groups_get_activity_groupmode($cm) != SEPARATEGROUPS
-         or has_capability('moodle/site:accessallgroups', context_module::instance($cm->id))) {
+         or has_capability('lion/site:accessallgroups', context_module::instance($cm->id))) {
             if ($timeout > time() - $mcm->lasttime) {
                 $current[] = $cm;
             } else {
@@ -353,7 +340,7 @@ function chat_print_recent_activity($course, $viewfullnames, $timestart) {
 }
 
 /**
- * Function to be run periodically according to the moodle cron
+ * Function to be run periodically according to the lion cron
  * This function searches for things that need to be done, such
  * as sending out mail, toggling flags etc ...
  *
@@ -652,7 +639,6 @@ function chat_update_chat_times($chatid=0) {
  * @param bool $system False for non-system messages, true for system messages.
  * @param object $cm The course module object, pass it to save a database query when we trigger the event.
  * @return int The message ID.
- * @since Moodle 2.6
  */
 function chat_send_chatmessage($chatuser, $messagetext, $system = false, $cm = null) {
     global $DB;
@@ -707,7 +693,7 @@ function chat_format_message_manually($message, $courseid, $sender, $currentuser
     $output->refreshusers = false; // By default.
 
     // Use get_user_timezone() to find the correct timezone for displaying this message.
-    // It's either the current user's timezone or else decided by some Moodle config setting.
+    // It's either the current user's timezone or else decided by some Lion config setting.
     // First, "reset" $USER->timezone (which could have been set by a previous call to here)
     // because otherwise the value for the previous $currentuser will take precedence over $CFG->timezone.
     $USER->timezone = 99;
@@ -757,7 +743,7 @@ function chat_format_message_manually($message, $courseid, $sender, $currentuser
     // Parse the text to clean and filter it.
     $options = new stdClass();
     $options->para = false;
-    $text = format_text($text, FORMAT_MOODLE, $options, $courseid);
+    $text = format_text($text, FORMAT_LION, $options, $courseid);
 
     // And now check for special cases.
     $patternto = '#^\s*To\s([^:]+):(.*)#';
@@ -931,7 +917,7 @@ function chat_format_message_theme ($message, $chatuser, $currentuser, $grouping
     // Parse the text to clean and filter it.
     $options = new stdClass();
     $options->para = false;
-    $text = format_text($text, FORMAT_MOODLE, $options, $courseid);
+    $text = format_text($text, FORMAT_LION, $options, $courseid);
 
     // And now check for special cases.
     $special = false;
@@ -1187,7 +1173,7 @@ function chat_reset_userdata($data) {
  * @return array
  */
 function chat_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups', 'moodle/site:viewfullnames');
+    return array('lion/site:accessallgroups', 'lion/site:viewfullnames');
 }
 
 
@@ -1203,7 +1189,7 @@ function chat_supports($feature) {
             return true;
         case FEATURE_MOD_INTRO:
             return true;
-        case FEATURE_BACKUP_MOODLE2:
+        case FEATURE_BACKUP_LION2:
             return true;
         case FEATURE_COMPLETION_TRACKS_VIEWS:
             return true;
@@ -1235,12 +1221,12 @@ function chat_extend_navigation($navigation, $course, $module, $cm) {
 
         $links = array();
 
-        $url = new moodle_url($target.'gui_'.$CFG->chat_method.'/index.php', $params);
+        $url = new lion_url($target.'gui_'.$CFG->chat_method.'/index.php', $params);
         $action = new popup_action('click', $url, 'chat'.$course->id.$cm->instance.$currentgroup,
                                    array('height' => 500, 'width' => 700));
         $links[] = new action_link($url, $strenterchat, $action);
 
-        $url = new moodle_url($target.'gui_basic/index.php', $params);
+        $url = new lion_url($target.'gui_basic/index.php', $params);
         $action = new popup_action('click', $url, 'chat'.$course->id.$cm->instance.$currentgroup,
                                    array('height' => 500, 'width' => 700));
         $links[] = new action_link($url, get_string('noframesjs', 'message'), $action);
@@ -1254,7 +1240,7 @@ function chat_extend_navigation($navigation, $course, $module, $cm) {
     if (is_array($chatusers) && count($chatusers) > 0) {
         $users = $navigation->add(get_string('currentusers', 'chat'));
         foreach ($chatusers as $chatuser) {
-            $userlink = new moodle_url('/user/view.php', array('id' => $chatuser->id, 'course' => $course->id));
+            $userlink = new lion_url('/user/view.php', array('id' => $chatuser->id, 'course' => $course->id));
             $users->add(fullname($chatuser).' '.format_time(time() - $chatuser->lastmessageping),
                         $userlink, navigation_node::TYPE_USER, null, null, new pix_icon('i/user', ''));
         }
@@ -1287,7 +1273,7 @@ function chat_extend_settings_navigation(settings_navigation $settings, navigati
 
     if ($chat->studentlogs || has_capability('mod/chat:readlog', $PAGE->cm->context)) {
         if ($DB->get_records_select('chat_messages', "chatid = ? $groupselect", array($chat->id))) {
-            $chatnode->add(get_string('viewreport', 'chat'), new moodle_url('/mod/chat/report.php', array('id' => $PAGE->cm->id)));
+            $chatnode->add(get_string('viewreport', 'chat'), new lion_url('/mod/chat/report.php', array('id' => $PAGE->cm->id)));
         }
     }
 }

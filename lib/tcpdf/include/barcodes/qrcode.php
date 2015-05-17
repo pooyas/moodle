@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : qrcode.php
 // Version     : 1.0.010
@@ -74,8 +81,6 @@
  * This class is derived from "PHP QR Code encoder" by Dominik Dzienia (http://phpqrcode.sourceforge.net/) based on "libqrencode C library 3.1.1." by Kentaro Fukuchi (http://megaui.net/fukuchi/works/qrencode/index.en.html), contains Reed-Solomon code written by Phil Karn, KA9Q. QR Code is registered trademark of DENSO WAVE INCORPORATED (http://www.denso-wave.com/qrcode/index-e.html).
  * Please read comments on this class source file for full copyright and license information.
  *
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.010
  */
 
@@ -284,8 +289,6 @@ if (!function_exists('str_split')) {
  * This class is derived from "PHP QR Code encoder" by Dominik Dzienia (http://phpqrcode.sourceforge.net/) based on "libqrencode C library 3.1.1." by Kentaro Fukuchi (http://megaui.net/fukuchi/works/qrencode/index.en.html), contains Reed-Solomon code written by Phil Karn, KA9Q. QR Code is registered trademark of DENSO WAVE INCORPORATED (http://www.denso-wave.com/qrcode/index-e.html).
  * Please read comments on this class source file for full copyright and license information.
  *
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.010
  */
 class QRcode {
@@ -634,7 +637,6 @@ class QRcode {
 	 * @param $code (string) code to represent using QRcode
 	 * @param $eclevel (string) error level: <ul><li>L : About 7% or less errors can be corrected.</li><li>M : About 15% or less errors can be corrected.</li><li>Q : About 25% or less errors can be corrected.</li><li>H : About 30% or less errors can be corrected.</li></ul>
 	 * @public
-	 * @since 1.0.000
 	 */
 	public function __construct($code, $eclevel = 'L') {
 		$barcode_array = array();

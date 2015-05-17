@@ -1,7 +1,7 @@
 {
-    "name": "moodle-form-passwordunmask",
+    "name": "lion-form-passwordunmask",
     "builds": {
-        "moodle-form-passwordunmask": {
+        "lion-form-passwordunmask": {
             "jsfiles": [
                 "passwordunmask.js"
             ]

@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'grades', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'grades', language 'en', branch 'LION_20_STABLE'
  *
- * @package   core_grades
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    lang
+ * @subpackage en
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['activities'] = 'Activities';
@@ -306,7 +293,7 @@ $string['gradepreferences'] = 'Grade preferences';
 $string['gradepreferenceshelp'] = 'Grade preferences Help';
 $string['gradepublishing'] = 'Enable publishing';
 $string['gradepublishinglink'] = 'Download: {$a}';
-$string['gradepublishing_help'] = 'Enable publishing in exports and imports: Exported grades can be accessed by accessing a URL, without having to log on to a Moodle site. Grades can be imported by accessing such a URL (which means that a Moodle site can import grades published by another site). By default only administrators may use this feature, please educate users before adding required capabilities to other roles (dangers of bookmark sharing and download accelerators, IP restrictions, etc.).';
+$string['gradepublishing_help'] = 'Enable publishing in exports and imports: Exported grades can be accessed by accessing a URL, without having to log on to a Lion site. Grades can be imported by accessing such a URL (which means that a Lion site can import grades published by another site). By default only administrators may use this feature, please educate users before adding required capabilities to other roles (dangers of bookmark sharing and download accelerators, IP restrictions, etc.).';
 $string['gradereport'] = 'Grade report';
 $string['graderreport'] = 'Grader report';
 $string['grades'] = 'Grades';
@@ -751,7 +738,7 @@ $string['xml'] = 'XML';
 $string['yes'] = 'Yes';
 $string['yourgrade'] = 'Your grade';
 
-// Deprecated since Moodle 2.8
+// Deprecated since Lion 2.8
 
 $string['categoriesedit'] = 'Edit setup';
 $string['fullview'] = 'Full view';

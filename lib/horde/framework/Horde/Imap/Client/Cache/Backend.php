@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * The abstract backend class for storing IMAP cached data.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 abstract class Horde_Imap_Client_Cache_Backend implements Serializable
 {

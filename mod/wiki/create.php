@@ -1,19 +1,26 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
+
+/**
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
+*/
+
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 require_once('../../config.php');
 require_once(dirname(__FILE__) . '/create_form.php');
@@ -34,7 +41,7 @@ $swid = optional_param('swid', 0, PARAM_INT);
 $group = optional_param('group', 0, PARAM_INT);
 $uid = optional_param('uid', 0, PARAM_INT);
 
-// 'create' action must be submitted by moodle form
+// 'create' action must be submitted by lion form
 // so sesskey must be checked
 if ($action == 'create') {
     if (!confirm_sesskey()) {
@@ -65,7 +72,7 @@ if (!$cm = get_coursemodule_from_instance('wiki', $wiki->id)) {
 $groups = new stdClass();
 if (groups_get_activity_groupmode($cm)) {
     $modulecontext = context_module::instance($cm->id);
-    $canaccessgroups = has_capability('moodle/site:accessallgroups', $modulecontext);
+    $canaccessgroups = has_capability('lion/site:accessallgroups', $modulecontext);
     if ($canaccessgroups) {
         $groups->availablegroups = groups_get_all_groups($cm->course);
         $allpart = new stdClass();
@@ -101,7 +108,7 @@ if (!empty($swid)) {
 $wikipage->set_availablegroups($groups);
 $wikipage->set_title($title);
 
-// set page action, and initialise moodle form
+// set page action, and initialise lion form
 $wikipage->set_action($action);
 
 switch ($action) {

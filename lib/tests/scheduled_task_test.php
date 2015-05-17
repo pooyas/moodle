@@ -1,38 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the unittests for scheduled tasks.
  *
- * @package   core
  * @category  phpunit
- * @copyright 2013 Damyon Wiese
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once(__DIR__ . '/fixtures/task_fixtures.php');
 
 /**
  * Test class for scheduled task.
  *
- * @package core
  * @category task
- * @copyright 2013 Damyon Wiese
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_scheduled_task_testcase extends advanced_testcase {
 
@@ -149,7 +133,7 @@ class core_scheduled_task_testcase extends advanced_testcase {
         $userdate = userdate($nexttime);
 
         // Should be displayed in user timezone.
-        // I used http://www.timeanddate.com/worldclock/fixedtime.html?msg=Moodle+Test&iso=20140314T01&p1=58
+        // I used http://www.timeanddate.com/worldclock/fixedtime.html?msg=Lion+Test&iso=20140314T01&p1=58
         // to verify this time.
         $this->assertContains('11:15 AM', core_text::strtoupper($userdate));
 
@@ -162,7 +146,7 @@ class core_scheduled_task_testcase extends advanced_testcase {
 
         $this->resetAfterTest(true);
         // Remember the defaults.
-        $defaulttasks = \core\task\manager::load_scheduled_tasks_for_component('moodle');
+        $defaulttasks = \core\task\manager::load_scheduled_tasks_for_component('lion');
         $initcount = count($defaulttasks);
         // Customise a task.
         $firsttask = reset($defaulttasks);
@@ -197,10 +181,10 @@ class core_scheduled_task_testcase extends advanced_testcase {
         $this->assertNotEquals($thirdtaskbefore, $thirdtask);
 
         // Now call reset on all the tasks.
-        \core\task\manager::reset_scheduled_tasks_for_component('moodle');
+        \core\task\manager::reset_scheduled_tasks_for_component('lion');
 
         // Load the tasks again.
-        $defaulttasks = \core\task\manager::load_scheduled_tasks_for_component('moodle');
+        $defaulttasks = \core\task\manager::load_scheduled_tasks_for_component('lion');
         $finalcount = count($defaulttasks);
         // Compare the first task.
         $newfirsttask = reset($defaulttasks);

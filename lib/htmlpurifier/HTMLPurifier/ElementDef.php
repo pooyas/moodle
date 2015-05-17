@@ -7,6 +7,9 @@
  *       Please update that class too.
  * @warning If you add new properties to this class, you MUST update
  *          the mergeIn() method.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ElementDef
 {

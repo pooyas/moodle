@@ -1,9 +1,9 @@
 <?php
 /**
  * Italian PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author Ilias Bartolini <brain79@inwind.it>
- * @author Stefano Sabatini <sabas88@gmail.com>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP Error: Impossibile autenticarsi.';

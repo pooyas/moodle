@@ -32,14 +32,11 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * @package SimplePie
  * @version 1.3.1
- * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
- * @author Ryan Parman
- * @author Geoffrey Sneddon
- * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -51,8 +48,6 @@
  * connect to memcache on `localhost` on port 11211. All tables will be
  * prefixed with `sp_` and data will expire after 3600 seconds
  *
- * @package SimplePie
- * @subpackage Caching
  * @uses Memcache
  */
 class SimplePie_Cache_Memcache implements SimplePie_Cache_Base

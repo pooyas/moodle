@@ -10,22 +10,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2002-2008 Timo Sirainen
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Determines the "base subject" of a string (RFC 5256 [2.1]).
  *
- * @author    Timo Sirainen <tss@iki.fi>
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2002-2008 Timo Sirainen
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Data_BaseSubject
 {

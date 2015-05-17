@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Code for exporting questions as Moodle XML.
+ * Code for exporting questions as Lion XML.
  *
- * @package    qformat_xml
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question_format
+ * @subpackage xml
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/xmlize.php');
 if (!class_exists('qformat_default')) {
@@ -37,12 +24,10 @@ if (!class_exists('qformat_default')) {
 
 
 /**
- * Importer for Moodle XML question format.
+ * Importer for Lion XML question format.
  *
- * See http://docs.moodle.org/en/Moodle_XML_format for a description of the format.
+ * See http://docs.lion.org/en/Lion_XML_format for a description of the format.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_xml extends qformat_default {
 
@@ -62,15 +47,15 @@ class qformat_xml extends qformat_default {
 
     /**
      * Translate human readable format name
-     * into internal Moodle code number
+     * into internal Lion code number
      * @param string name format name from xml file
-     * @return int Moodle format code
+     * @return int Lion format code
      */
     public function trans_format($name) {
         $name = trim($name);
 
-        if ($name == 'moodle_auto_format') {
-            return FORMAT_MOODLE;
+        if ($name == 'lion_auto_format') {
+            return FORMAT_LION;
         } else if ($name == 'html') {
             return FORMAT_HTML;
         } else if ($name == 'plain_text') {
@@ -1008,15 +993,15 @@ class qformat_xml extends qformat_default {
     }
 
     /**
-     * Convert internal Moodle text format code into
+     * Convert internal Lion text format code into
      * human readable form
      * @param int id internal code
      * @return string format text
      */
     public function get_format($id) {
         switch($id) {
-            case FORMAT_MOODLE:
-                return 'moodle_auto_format';
+            case FORMAT_LION:
+                return 'lion_auto_format';
             case FORMAT_HTML:
                 return 'html';
             case FORMAT_PLAIN:

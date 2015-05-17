@@ -2,10 +2,10 @@
 /**
  * An XML-RPC client
  *
- * @author  Donal McMullan  donal@catalyst.net.nz
  * @version 0.0.1
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mnet
+ * @package    mnet
+ * @subpackage xmlrpc
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once $CFG->dirroot.'/mnet/lib.php';
@@ -366,7 +366,7 @@ class mnet_xmlrpc_client {
         curl_setopt($httprequest, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($httprequest, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($httprequest, CURLOPT_POST, true);
-        curl_setopt($httprequest, CURLOPT_USERAGENT, 'Moodle');
+        curl_setopt($httprequest, CURLOPT_USERAGENT, 'Lion');
         curl_setopt($httprequest, CURLOPT_HTTPHEADER, array("Content-Type: text/xml charset=UTF-8"));
 
         $verifyhost = 0;

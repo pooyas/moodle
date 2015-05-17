@@ -1,27 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Main login page.
  *
  * @package    core
- * @subpackage auth
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../config.php');
@@ -39,7 +25,7 @@ $testsession = optional_param('testsession', 0, PARAM_INT); // test session work
 $cancel      = optional_param('cancel', 0, PARAM_BOOL);      // redirect to frontpage, needed for loginhttps
 
 if ($cancel) {
-    redirect(new moodle_url('/'));
+    redirect(new lion_url('/'));
 }
 
 //HTTPS is required in this page when $CFG->loginhttps enabled
@@ -104,7 +90,7 @@ if ($user !== false or $frm !== false or $errormsg !== '') {
     // some auth plugin already supplied full user, fake form data or prevented user login with error message
 
 } else if (!empty($SESSION->wantsurl) && file_exists($CFG->dirroot.'/login/weblinkauth.php')) {
-    // Handles the case of another Moodle site linking into a page on this site
+    // Handles the case of another Lion site linking into a page on this site
     //TODO: move weblink into own auth plugin
     include($CFG->dirroot.'/login/weblinkauth.php');
     if (function_exists('weblink_auth')) {
@@ -194,10 +180,10 @@ if ($frm and isset($frm->username)) {                             // Login WITH 
 
         } else if (empty($CFG->rememberusername) or ($CFG->rememberusername == 2 and empty($frm->rememberusername))) {
             // no permanent cookies, delete old one if exists
-            set_moodle_cookie('');
+            set_lion_cookie('');
 
         } else {
-            set_moodle_cookie($USER->username);
+            set_lion_cookie($USER->username);
         }
 
         $urltogo = core_login_get_return_url();
@@ -235,7 +221,7 @@ if ($frm and isset($frm->username)) {                             // Login WITH 
 
         // test the session actually works by redirecting to self
         $SESSION->wantsurl = $urltogo;
-        redirect(new moodle_url(get_login_url(), array('testsession'=>$USER->id)));
+        redirect(new lion_url(get_login_url(), array('testsession'=>$USER->id)));
 
     } else {
         if (empty($errormsg)) {
@@ -301,7 +287,7 @@ if (empty($frm->username) && $authsequence[0] != 'shibboleth') {  // See bug 518
     if (!empty($_GET["username"])) {
         $frm->username = clean_param($_GET["username"], PARAM_RAW); // we do not want data from _POST here
     } else {
-        $frm->username = get_moodle_cookie();
+        $frm->username = get_lion_cookie();
     }
 
     $frm->password = "";
@@ -339,7 +325,7 @@ if (!empty($SESSION->loginerrormsg)) {
     if ($errormsg) {
         $SESSION->loginerrormsg = $errormsg;
     }
-    redirect(new moodle_url('/login/index.php'));
+    redirect(new lion_url('/login/index.php'));
 }
 
 $PAGE->set_title("$site->fullname: $loginsite");
@@ -350,8 +336,8 @@ echo $OUTPUT->header();
 if (isloggedin() and !isguestuser()) {
     // prevent logging when already logged in, we do not want them to relogin by accident because sesskey would be changed
     echo $OUTPUT->box_start();
-    $logout = new single_button(new moodle_url($CFG->httpswwwroot.'/login/logout.php', array('sesskey'=>sesskey(),'loginpage'=>1)), get_string('logout'), 'post');
-    $continue = new single_button(new moodle_url($CFG->httpswwwroot.'/login/index.php', array('cancel'=>1)), get_string('cancel'), 'get');
+    $logout = new single_button(new lion_url($CFG->httpswwwroot.'/login/logout.php', array('sesskey'=>sesskey(),'loginpage'=>1)), get_string('logout'), 'post');
+    $continue = new single_button(new lion_url($CFG->httpswwwroot.'/login/index.php', array('cancel'=>1)), get_string('cancel'), 'get');
     echo $OUTPUT->confirm(get_string('alreadyloggedin', 'error', fullname($USER)), $logout, $continue);
     echo $OUTPUT->box_end();
 } else {

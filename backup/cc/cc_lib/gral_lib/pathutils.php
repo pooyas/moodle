@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Function expands all relative parts of supplied path string thus
@@ -22,6 +9,9 @@
  * @param string $dirsep Character that represents directory separator should be
  *                       specified here. Default is DIRECTORY_SEPARATOR.
  * @return string
+ * @package    backup
+ * @subpackage cc
+ * @copyright  2015 Pooya Saeedi
  */
 function fullPath($path,$dirsep=DIRECTORY_SEPARATOR) {
     $token = '$IMS-CC-FILEBASE$';
@@ -147,7 +137,6 @@ function pathDiff($path1, $path2) {
  /**
   * Copy a file, or recursively copy a folder and its contents
   *
-  * @author      Aidan Lister <aidan@php.net>
   * @version     1.0.1
   * @link        http://aidanlister.com/repos/v/function.copyr.php
   * @param       string   $source    Source path

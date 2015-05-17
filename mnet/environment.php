@@ -3,6 +3,9 @@
  * Info about the local environment, wrt RPC
  *
  * This should really be a singleton. A PHP5 Todo I guess.
+ * @package    core
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
  */
 
 class mnet_environment {

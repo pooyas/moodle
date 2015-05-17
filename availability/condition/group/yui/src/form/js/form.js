@@ -1,7 +1,7 @@
 /**
  * JavaScript for form editing group conditions.
  *
- * @module moodle-availability_group-form
+ * @module lion-availability_group-form
  */
 M.availability_group = M.availability_group || {};
 
@@ -33,7 +33,7 @@ M.availability_group.form.getNode = function(json) {
     // Create HTML structure.
     var html = '<label>' + M.util.get_string('title', 'availability_group') + ' <span class="availability-group">' +
             '<select name="id">' +
-            '<option value="choose">' + M.util.get_string('choosedots', 'moodle') + '</option>' +
+            '<option value="choose">' + M.util.get_string('choosedots', 'lion') + '</option>' +
             '<option value="any">' + M.util.get_string('anygroup', 'availability_group') + '</option>';
     for (var i = 0; i < this.groups.length; i++) {
         var group = this.groups[i];

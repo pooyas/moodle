@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * User enrolment edit script.
@@ -22,9 +9,9 @@
  *
  * NOTE: plugins are free to implement own edit scripts with extra logic.
  *
- * @package    core_enrol
- * @copyright  2011 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage enrol
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../config.php');
@@ -41,7 +28,7 @@ $instance = $DB->get_record('enrol', array('id'=>$ue->enrolid), '*', MUST_EXIST)
 $course = $DB->get_record('course', array('id'=>$instance->courseid), '*', MUST_EXIST);
 
 // The URL of the enrolled users page for the course.
-$usersurl = new moodle_url('/enrol/users.php', array('id' => $course->id));
+$usersurl = new lion_url('/enrol/users.php', array('id' => $course->id));
 
 // Do not allow any changes if plugin disabled, not available or not suitable.
 if (!$plugin = enrol_get_plugin($instance->enrol)) {
@@ -64,9 +51,9 @@ $manager = new course_enrolment_manager($PAGE, $course, $filter);
 $table = new course_enrolment_users_table($manager, $PAGE);
 
 // The URl to return the user too after this screen.
-$returnurl = new moodle_url($usersurl, $manager->get_url_params()+$table->get_url_params());
+$returnurl = new lion_url($usersurl, $manager->get_url_params()+$table->get_url_params());
 // The URL of this page.
-$url = new moodle_url('/enrol/editenrolment.php', $returnurl->params());
+$url = new lion_url('/enrol/editenrolment.php', $returnurl->params());
 
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('admin');

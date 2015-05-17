@@ -1,5 +1,5 @@
 {
-    "moodle-form-shortforms": {
+    "lion-form-shortforms": {
         "requires": [
             "node",
             "base",

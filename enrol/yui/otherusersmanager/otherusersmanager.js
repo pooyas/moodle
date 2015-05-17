@@ -1,4 +1,4 @@
-YUI.add('moodle-enrol-otherusersmanager', function(Y) {
+YUI.add('lion-enrol-otherusersmanager', function(Y) {
 
     var OUMANAGERNAME = 'Other users manager',
         OTHERUSERNAME = 'Other user (not enroled in course)',
@@ -63,7 +63,7 @@ YUI.add('moodle-enrol-otherusersmanager', function(Y) {
                         .append(Y.Node.create('<div class="'+CSS.AJAXCONTENT+'"></div>'))
                         .append(Y.Node.create('<div class="'+CSS.LIGHTBOX+' '+CSS.HIDDEN+'"></div>')
                             .append(Y.Node.create('<img alt="loading" class="'+CSS.LOADINGICON+'" />')
-                                .setAttribute('src', M.util.image_url('i/loading', 'moodle')))
+                                .setAttribute('src', M.util.image_url('i/loading', 'lion')))
                             .setStyle('opacity', 0.5)))
                     .append(Y.Node.create('<div class="'+CSS.FOOTER+'"></div>')
                         .append(Y.Node.create('<div class="'+CSS.SEARCH+'"><label>'+M.util.get_string('usersearch', 'enrol')+'</label></div>')
@@ -391,4 +391,4 @@ YUI.add('moodle-enrol-otherusersmanager', function(Y) {
         }
     }
 
-}, '@VERSION@', {requires:['base','node', 'overlay', 'io-base', 'test', 'json-parse', 'event-delegate', 'dd-plugin', 'event-key', 'moodle-core-notification']});
+}, '@VERSION@', {requires:['base','node', 'overlay', 'io-base', 'test', 'json-parse', 'event-delegate', 'dd-plugin', 'event-key', 'lion-core-notification']});

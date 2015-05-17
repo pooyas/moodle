@@ -6,21 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Util
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * An OO-way to access form variables.
  *
- * @author    Robert E. Coyle <robertecoyle@hotmail.com>
- * @author    Chuck Hagenbuch <chuck@horde.org>
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Util
  */
 class Horde_Variables implements ArrayAccess, Countable, IteratorAggregate
 {

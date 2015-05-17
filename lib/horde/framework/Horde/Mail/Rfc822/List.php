@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/bsd.
  *
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Container object for a collection of RFC 822 elements.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  *
  * @property-read array $addresses  The list of all addresses (address
  *                                  w/personal parts).

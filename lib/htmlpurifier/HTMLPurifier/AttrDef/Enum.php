@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // Enum = Enumerated
 /**
  * Validates a keyword against a list of valid values.

@@ -2,6 +2,9 @@
 
 /**
  * Injector that removes spans with no attributes
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Injector_RemoveSpansWithoutAttributes extends HTMLPurifier_Injector
 {

@@ -1,27 +1,14 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package    core_group
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Groups not used in course or activity
@@ -273,7 +260,6 @@ function groups_get_all_groups($courseid, $userid=0, $groupingid=0, $fields='g.*
 /**
  * Gets array of all groups in current user.
  *
- * @since Moodle 2.5
  * @category group
  * @return array Returns an array of the group objects.
  */
@@ -495,7 +481,7 @@ function groups_get_activity_groupmode($cm, $course=null) {
  *
  * @category group
  * @param stdClass $course course object
- * @param mixed $urlroot return address. Accepts either a string or a moodle_url
+ * @param mixed $urlroot return address. Accepts either a string or a lion_url
  * @param bool $return return as string instead of printing
  * @return mixed void or string depending on $return param
  */
@@ -511,7 +497,7 @@ function groups_print_course_menu($course, $urlroot, $return=false) {
     }
 
     $context = context_course::instance($course->id);
-    $aag = has_capability('moodle/site:accessallgroups', $context);
+    $aag = has_capability('lion/site:accessallgroups', $context);
 
     $usergroups = array();
     if ($groupmode == VISIBLEGROUPS or $aag) {
@@ -547,7 +533,7 @@ function groups_print_course_menu($course, $urlroot, $return=false) {
         $groupname = reset($groupsmenu);
         $output = $grouplabel.': '.$groupname;
     } else {
-        $select = new single_select(new moodle_url($urlroot), 'group', $groupsmenu, $activegroup, null, 'selectgroup');
+        $select = new single_select(new lion_url($urlroot), 'group', $groupsmenu, $activegroup, null, 'selectgroup');
         $select->label = $grouplabel;
         $output = $OUTPUT->render($select);
     }
@@ -615,7 +601,7 @@ function groups_sort_menu_options($allowedgroups, $usergroups) {
  * Note: This api does not do any group mode check use groups_print_course_menu() instead if you want proper checks.
  *
  * @param stdclass          $course  course object.
- * @param string|moodle_url $urlroot return address. Accepts either a string or a moodle_url.
+ * @param string|lion_url $urlroot return address. Accepts either a string or a lion_url.
  * @param bool              $update  set this to true to update current active group based on the group param.
  * @param int               $activegroup Change group active to this group if $update set to true.
  *
@@ -628,7 +614,7 @@ function groups_allgroups_course_menu($course, $urlroot, $update = false, $activ
     $context = context_course::instance($course->id);
     $groupsmenu = array();
 
-    if (has_capability('moodle/site:accessallgroups', $context)) {
+    if (has_capability('lion/site:accessallgroups', $context)) {
         $groupsmenu[0] = get_string('allparticipants');
         $allowedgroups = groups_get_all_groups($course->id, 0, $course->defaultgroupingid);
     } else {
@@ -658,7 +644,7 @@ function groups_allgroups_course_menu($course, $urlroot, $update = false, $activ
         $groupname = reset($groupsmenu);
         $output = $grouplabel.': '.$groupname;
     } else {
-        $select = new single_select(new moodle_url($urlroot), 'group', $groupsmenu, $activegroup, null, 'selectgroup');
+        $select = new single_select(new lion_url($urlroot), 'group', $groupsmenu, $activegroup, null, 'selectgroup');
         $select->label = $grouplabel;
         $output = $OUTPUT->render($select);
     }
@@ -672,7 +658,7 @@ function groups_allgroups_course_menu($course, $urlroot, $update = false, $activ
  *
  * @category group
  * @param stdClass|cm_info $cm course module object
- * @param string|moodle_url $urlroot return address that users get to if they choose an option;
+ * @param string|lion_url $urlroot return address that users get to if they choose an option;
  *   should include any parameters needed, e.g. "$CFG->wwwroot/mod/forum/view.php?id=34"
  * @param bool $return return as string instead of printing
  * @param bool $hideallparticipants If true, this prevents the 'All participants'
@@ -686,7 +672,7 @@ function groups_allgroups_course_menu($course, $urlroot, $update = false, $activ
 function groups_print_activity_menu($cm, $urlroot, $return=false, $hideallparticipants=false) {
     global $USER, $OUTPUT;
 
-    if ($urlroot instanceof moodle_url) {
+    if ($urlroot instanceof lion_url) {
         // no changes necessary
 
     } else {
@@ -697,7 +683,7 @@ function groups_print_activity_menu($cm, $urlroot, $return=false, $hideallpartic
                       'groups_print_activity_menu($cm, $CFG->wwwroot . \'/mod/mymodule/view.php?id=13\');',
                       DEBUG_DEVELOPER);
         }
-        $urlroot = new moodle_url($urlroot);
+        $urlroot = new lion_url($urlroot);
     }
 
     if (!$groupmode = groups_get_activity_groupmode($cm)) {
@@ -709,7 +695,7 @@ function groups_print_activity_menu($cm, $urlroot, $return=false, $hideallpartic
     }
 
     $context = context_module::instance($cm->id);
-    $aag = has_capability('moodle/site:accessallgroups', $context);
+    $aag = has_capability('lion/site:accessallgroups', $context);
 
     $usergroups = array();
     if ($groupmode == VISIBLEGROUPS or $aag) {
@@ -777,7 +763,7 @@ function groups_get_course_group($course, $update=false, $allowedgroups=null) {
     }
 
     $context = context_course::instance($course->id);
-    if (has_capability('moodle/site:accessallgroups', $context)) {
+    if (has_capability('lion/site:accessallgroups', $context)) {
         $groupmode = 'aag';
     }
 
@@ -829,7 +815,7 @@ function groups_get_activity_group($cm, $update=false, $allowedgroups=null) {
     }
 
     $context = context_module::instance($cm->id);
-    if (has_capability('moodle/site:accessallgroups', $context)) {
+    if (has_capability('lion/site:accessallgroups', $context)) {
         $groupmode = 'aag';
     }
 
@@ -885,7 +871,7 @@ function groups_get_activity_allowed_groups($cm,$userid=0) {
     // If visible groups mode, or user has the accessallgroups capability,
     // then they can access all groups for the activity...
     $context = context_module::instance($cm->id);
-    if ($groupmode == VISIBLEGROUPS or has_capability('moodle/site:accessallgroups', $context, $userid)) {
+    if ($groupmode == VISIBLEGROUPS or has_capability('lion/site:accessallgroups', $context, $userid)) {
         return groups_get_all_groups($cm->course, 0, $cm->groupingid);
     } else {
         // ...otherwise they can only access groups they belong to
@@ -896,7 +882,6 @@ function groups_get_activity_allowed_groups($cm,$userid=0) {
 /**
  * Determine if a given group is visible to user or not in a given context.
  *
- * @since Moodle 2.6
  * @param int      $groupid Group id to test. 0 for all groups.
  * @param stdClass $course  Course object.
  * @param stdClass $cm      Course module object.
@@ -917,7 +902,7 @@ function groups_group_visible($groupid, $course, $cm = null, $userid = null) {
     }
 
     $context = empty($cm) ? context_course::instance($course->id) : context_module::instance($cm->id);
-    if (has_capability('moodle/site:accessallgroups', $context, $userid)) {
+    if (has_capability('lion/site:accessallgroups', $context, $userid)) {
         // User can see everything. Groupid = 0 is handled here as well.
         return true;
     } else if ($groupid != 0) {

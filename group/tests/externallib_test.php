@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Group external PHPunit tests
  *
- * @package    core_group
  * @category   external
- * @copyright  2012 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.4
+ * @package    group
+ * @subpackage tests
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -48,7 +34,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         $group1['courseid'] = $course->id;
         $group1['name'] = 'Group Test 1';
         $group1['description'] = 'Group Test 1 description';
-        $group1['descriptionformat'] = FORMAT_MOODLE;
+        $group1['descriptionformat'] = FORMAT_LION;
         $group1['enrolmentkey'] = 'Test group enrol secret phrase';
         $group2 = array();
         $group2['courseid'] = $course->id;
@@ -61,8 +47,8 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:managegroups', $context->id);
-        $this->assignUserCapability('moodle/course:view', $context->id, $roleid);
+        $roleid = $this->assignUserCapability('lion/course:managegroups', $context->id);
+        $this->assignUserCapability('lion/course:view', $context->id, $roleid);
 
         // Call the external function.
         $groups = core_group_external::create_groups(array($group1, $group2));
@@ -86,7 +72,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
                     $groupcourseid = $group2['courseid'];
                     break;
                 default:
-                    throw new moodle_exception('unknowgroupname');
+                    throw new lion_exception('unknowgroupname');
                     break;
             }
             $this->assertEquals($dbgroup->description, $groupdescription);
@@ -94,7 +80,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         }
 
         // Call without required capability
-        $this->unassignUserCapability('moodle/course:managegroups', $context->id, $roleid);
+        $this->unassignUserCapability('lion/course:managegroups', $context->id, $roleid);
         $this->setExpectedException('required_capability_exception');
         $froups = core_group_external::create_groups(array($group3));
     }
@@ -112,7 +98,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         $group1data['courseid'] = $course->id;
         $group1data['name'] = 'Group Test 1';
         $group1data['description'] = 'Group Test 1 description';
-        $group1data['descriptionformat'] = FORMAT_MOODLE;
+        $group1data['descriptionformat'] = FORMAT_LION;
         $group1data['enrolmentkey'] = 'Test group enrol secret phrase';
         $group2data = array();
         $group2data['courseid'] = $course->id;
@@ -123,8 +109,8 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:managegroups', $context->id);
-        $this->assignUserCapability('moodle/course:view', $context->id, $roleid);
+        $roleid = $this->assignUserCapability('lion/course:managegroups', $context->id);
+        $this->assignUserCapability('lion/course:view', $context->id, $roleid);
 
         // Call the external function.
         $groups = core_group_external::get_groups(array($group1->id, $group2->id));
@@ -148,7 +134,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
                     $groupcourseid = $group2->courseid;
                     break;
                 default:
-                    throw new moodle_exception('unknowgroupname');
+                    throw new lion_exception('unknowgroupname');
                     break;
             }
             $this->assertEquals($dbgroup->description, $groupdescription);
@@ -156,7 +142,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         }
 
         // Call without required capability
-        $this->unassignUserCapability('moodle/course:managegroups', $context->id, $roleid);
+        $this->unassignUserCapability('lion/course:managegroups', $context->id, $roleid);
         $this->setExpectedException('required_capability_exception');
         $groups = core_group_external::get_groups(array($group1->id, $group2->id));
     }
@@ -174,7 +160,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         $group1data['courseid'] = $course->id;
         $group1data['name'] = 'Group Test 1';
         $group1data['description'] = 'Group Test 1 description';
-        $group1data['descriptionformat'] = FORMAT_MOODLE;
+        $group1data['descriptionformat'] = FORMAT_LION;
         $group1data['enrolmentkey'] = 'Test group enrol secret phrase';
         $group2data = array();
         $group2data['courseid'] = $course->id;
@@ -189,8 +175,8 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
 
         // Set the required capabilities by the external function
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:managegroups', $context->id);
-        $this->assignUserCapability('moodle/course:view', $context->id, $roleid);
+        $roleid = $this->assignUserCapability('lion/course:managegroups', $context->id);
+        $this->assignUserCapability('lion/course:view', $context->id, $roleid);
 
         // Checks against DB values
         $groupstotal = $DB->count_records('groups', array());
@@ -204,7 +190,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         $this->assertEquals(1, $groupstotal);
 
         // Call without required capability
-        $this->unassignUserCapability('moodle/course:managegroups', $context->id, $roleid);
+        $this->unassignUserCapability('lion/course:managegroups', $context->id, $roleid);
         $this->setExpectedException('required_capability_exception');
         $froups = core_group_external::delete_groups(array($group3->id));
     }
@@ -223,14 +209,14 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         $groupingdata['courseid'] = $course->id;
         $groupingdata['name'] = 'Grouping Test';
         $groupingdata['description'] = 'Grouping Test description';
-        $groupingdata['descriptionformat'] = FORMAT_MOODLE;
+        $groupingdata['descriptionformat'] = FORMAT_LION;
 
         $grouping = self::getDataGenerator()->create_grouping($groupingdata);
 
         // Set the required capabilities by the external function.
         $context = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:managegroups', $context->id);
-        $this->assignUserCapability('moodle/course:view', $context->id, $roleid);
+        $roleid = $this->assignUserCapability('lion/course:managegroups', $context->id);
+        $this->assignUserCapability('lion/course:view', $context->id, $roleid);
 
         // Call the external function without specifying the optional parameter.
         $groupings = core_group_external::get_groupings(array($grouping->id));
@@ -243,12 +229,12 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         $group1data['courseid'] = $course->id;
         $group1data['name'] = 'Group Test 1';
         $group1data['description'] = 'Group Test 1 description';
-        $group1data['descriptionformat'] = FORMAT_MOODLE;
+        $group1data['descriptionformat'] = FORMAT_LION;
         $group2data = array();
         $group2data['courseid'] = $course->id;
         $group2data['name'] = 'Group Test 2';
         $group2data['description'] = 'Group Test 2 description';
-        $group2data['descriptionformat'] = FORMAT_MOODLE;
+        $group2data['descriptionformat'] = FORMAT_LION;
 
         $group1 = self::getDataGenerator()->create_group($group1data);
         $group2 = self::getDataGenerator()->create_group($group2data);
@@ -278,7 +264,7 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
                     $groupcourseid = $group2->courseid;
                     break;
                 default:
-                    throw new moodle_exception('unknowgroupname');
+                    throw new lion_exception('unknowgroupname');
                     break;
             }
             $this->assertEquals($dbgroup->description, $groupdescription);
@@ -355,13 +341,13 @@ class core_group_externallib_testcase extends externallib_advanced_testcase {
         $this->setUser($student1);
         try {
             $groups = core_group_external::get_course_user_groups($course->id, $student2->id);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('accessdenied', $e->errorcode);
         }
 
         try {
             $groups = core_group_external::get_course_user_groups($emptycourse->id, $student2->id);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('requireloginerror', $e->errorcode);
         }
 

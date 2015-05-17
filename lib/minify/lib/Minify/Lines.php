@@ -1,15 +1,14 @@
 <?php
 /**
- * Class Minify_Lines  
- * @package Minify
+ * Class Minify_Lines
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Add line numbers in C-style comments for easier debugging of combined content
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
- * @author Adam Pedersen (Issue 55 fix)
  */
 class Minify_Lines {
 

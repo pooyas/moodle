@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Capabilities table with risks.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage roles
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * This subclass is the bases for both the define roles and override roles
@@ -34,7 +21,7 @@ abstract class core_role_capability_table_with_risks extends core_role_capabilit
     protected $allrisks;
     protected $allpermissions; // We don't need perms ourselves, but all our subclasses do.
     protected $strperms; // Language string cache.
-    protected $risksurl; // URL in moodledocs about risks.
+    protected $risksurl; // URL in liondocs about risks.
     protected $riskicons = array(); // Cache to avoid regenerating the HTML for each risk icon.
     /** @var array The capabilities to highlight as default/inherited. */
     protected $parentpermissions;
@@ -175,7 +162,7 @@ abstract class core_role_capability_table_with_risks extends core_role_capabilit
     }
 
     /**
-     * Print a risk icon, as a link to the Risks page on Moodle Docs.
+     * Print a risk icon, as a link to the Risks page on Lion Docs.
      *
      * @param string $type the type of risk, will be one of the keys from the
      *      get_all_risks array. Must start with 'risk'.

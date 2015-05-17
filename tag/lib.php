@@ -1,22 +1,9 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
- * Moodle tag library
+ * Lion tag library
  *
  * Tag strings : you can use any character in tags, except the comma (which is the separator) and
  * the '\' (backslash).  Note that many spaces (or other blank characters) will get "compressed"
@@ -38,15 +25,15 @@
  *
  * Tag set will create tags that need to be created.
  *
- * @package    core_tag
  * @category   tag
  * @todo       MDL-31090 turn this into a full-fledged categorization system. This could start by
  *             modifying (removing, probably) the 'tag type' to use another table describing the
  *             relationship between tags (parents, sibling, etc.), which could then be merged with
  *             the 'course categorization' system.
  * @see        http://www.php.net/manual/en/function.urlencode.php
- * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -107,7 +94,6 @@ define('TAG_RELATED_CORRELATED', 2);
  *
  * This function is meant to be fed the string coming up from the user interface, which contains all tags assigned to a record.
  *
- * @package core_tag
  * @category tag
  * @access public
  * @param string $record_type the type of record to tag ('post' for blogs, 'user' for users, 'tag' for tags, etc.)
@@ -180,7 +166,6 @@ function tag_set($record_type, $record_id, $tags, $component = null, $contextid 
 /**
  * Adds a tag to a record, without overwriting the current tags.
  *
- * @package core_tag
  * @category tag
  * @access public
  * @param string $record_type the type of record to tag ('post' for blogs, 'user' for users, etc.)
@@ -204,7 +189,6 @@ function tag_set_add($record_type, $record_id, $tag, $component = null, $context
 /**
  * Removes a tag from a record, without overwriting other current tags.
  *
- * @package core_tag
  * @category tag
  * @access public
  * @param string $record_type the type of record to tag ('post' for blogs, 'user' for users, etc.)
@@ -230,7 +214,6 @@ function tag_set_delete($record_type, $record_id, $tag, $component = null, $cont
  * Set the type of a tag.  At this time (version 2.2) the possible values are 'default' or 'official'.  Official tags will be
  * displayed separately "at tagging time" (while selecting the tags to apply to a record).
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    string   $tagid tagid to modify
@@ -264,13 +247,12 @@ function tag_type_set($tagid, $type) {
 /**
  * Set the description of a tag
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    int      $tagid the id of the tag
  * @param    string   $description the tag's description string to be set
- * @param    int      $descriptionformat the moodle text format of the description
- *                    {@link http://docs.moodle.org/dev/Text_formats_2.0#Database_structure}
+ * @param    int      $descriptionformat the lion text format of the description
+ *                    {@link http://docs.lion.org/dev/Text_formats_2.0#Database_structure}
  * @return   bool     true on success, false otherwise
  */
 function tag_description_set($tagid, $description, $descriptionformat) {
@@ -309,7 +291,6 @@ function tag_description_set($tagid, $description, $descriptionformat) {
 /**
  * Simple function to just return a single tag object when you know the name or something
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    string $field        which field do we use to identify the tag: id, name or rawname
@@ -333,7 +314,6 @@ function tag_get($field, $value, $returnfields='id, name, rawname') {
  * data in a comma-separated string, for instances such as needing to simply display a list of tags to the end user. This should
  * really be called tag_get_tag_instances().
  *
- * @package core_tag
  * @category tag
  * @access public
  * @param string $record_type the record type for which we want to get the tags
@@ -383,7 +363,6 @@ function tag_get_tags($record_type, $record_id, $type=null, $userid=0) {
 /**
  * Get the array of tags display names, indexed by id.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    string $record_type the record type for which we want to get the tags
@@ -402,7 +381,6 @@ function tag_get_tags_array($record_type, $record_id, $type=null) {
 /**
  * Get a comma-separated string of tags associated to a record.  Use {@see tag_get_tags()} to get the same information in an array.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    string   $record_type the record type for which we want to get the tags
@@ -428,7 +406,6 @@ function tag_get_tags_csv($record_type, $record_id, $html=TAG_RETURN_HTML, $type
 /**
  * Get an array of tag ids associated to a record.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @todo     MDL-31150 Update ordering property
@@ -454,7 +431,6 @@ function tag_get_tags_ids($record_type, $record_id) {
 /**
  * Returns the database ID of a set of tags.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @todo     MDL-31152 Test the commented MDL-31152 todo in this function to see if it helps performance
@@ -526,7 +502,6 @@ function tag_get_id($tags, $return_value=null) {
  *   - manually added related tags, which are tag_instance entries for that tag
  *   - correlated tags, which are calculated
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    string   $tagid          is a single **normalized** tag name or the id of a tag
@@ -558,7 +533,6 @@ function tag_get_related_tags($tagid, $type=TAG_RELATED_ALL, $limitnum=10) {
 /**
  * Get a comma-separated list of tags related to another tag.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    array    $related_tags the array returned by tag_get_related_tags
@@ -584,7 +558,6 @@ function tag_get_related_tags_csv($related_tags, $html=TAG_RETURN_HTML) {
 /**
  * Change the "value" of a tag, and update the associated 'name'.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    int      $tagid  the id of the tag to modify
@@ -640,7 +613,6 @@ function tag_rename($tagid, $newrawname) {
 /**
  * Delete one or more tag, and all their instances if there are any left.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    mixed    $tagids one tagid (int), or one array of tagids to delete
@@ -785,7 +757,6 @@ function tag_delete_instances($component, $contextid = null) {
 /**
  * Delete one instance of a tag.  If the last instance was deleted, it will also delete the tag, unless its type is 'official'.
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    string $record_type the type of the record for which to remove the instance
@@ -847,7 +818,6 @@ function tag_delete_instance($record_type, $record_id, $tagid, $userid = null) {
 /**
  * Function that returns the name that should be displayed for a specific tag
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    object   $tagobject a line out of tag table, as returned by the adobd functions
@@ -882,7 +852,6 @@ function tag_display_name($tagobject, $html=TAG_RETURN_HTML) {
 /**
  * Find all records tagged with a tag of a given type ('post', 'user', etc.)
  *
- * @package  core_tag
  * @category tag
  * @access   public
  * @param    string   $tag       tag to look for
@@ -918,7 +887,6 @@ function tag_find_records($tag, $type, $limitfrom='', $limitnum='') {
  * Adds one or more tag in the database.  This function should not be called directly : you should
  * use tag_set.
  *
- * @package core_tag
  * @access  private
  * @param   mixed    $tags     one tag, or an array of tags, to be created
  * @param   string   $type     type of tag to be created ("default" is the default value and "official" is the only other supported
@@ -973,7 +941,6 @@ function tag_add($tags, $type="default") {
 /**
  * Assigns a tag to a record; if the record already exists, the time and ordering will be updated.
  *
- * @package core_tag
  * @access private
  * @param string $record_type the type of the record that will be tagged
  * @param int $record_id the id of the record that will be tagged
@@ -1040,7 +1007,6 @@ function tag_assign($record_type, $record_id, $tagid, $ordering, $userid = 0, $c
 /**
  * Function that returns tags that start with some text, for use by the autocomplete feature
  *
- * @package core_tag
  * @access  private
  * @param   string   $text string that the tag names will be matched against
  * @return  mixed    an array of objects, or false if no records were found or an error occured.
@@ -1059,7 +1025,6 @@ function tag_autocomplete($text) {
  * done once in a while, perhaps on an occasional cron run.  On a site with lots of tags, this could become an expensive function to
  * call: don't run at peak time.
  *
- * @package core_tag
  * @access  private
  * @todo    MDL-31212 Update tag cleanup sql so that it supports multiple types of tags
  */
@@ -1187,7 +1152,6 @@ function tag_bulk_delete_instances($instances) {
  * The rationale for the 'tag_correlation' table is performance. It works as a cache for a potentially heavy load query done at the
  * 'tag_instance' table. So, the 'tag_correlation' table stores redundant information derived from the 'tag_instance' table.
  *
- * @package core_tag
  * @access  private
  * @param   int      $mincorrelation Only tags with more than $mincorrelation correlations will be identified.
  */
@@ -1271,7 +1235,6 @@ function tag_compute_correlations($mincorrelation = 2) {
  *
  * The tag correlation object needs have both a tagid property and a correlatedtags property that is an array.
  *
- * @package core_tag
  * @access  private
  * @param   stdClass $tagcorrelation
  * @return  int/bool The id of the tag correlation that was just processed or false.
@@ -1298,7 +1261,6 @@ function tag_process_computed_correlation(stdClass $tagcorrelation) {
 /**
  * Tasks that should be performed at cron time
  *
- * @package core_tag
  * @access private
  */
 function tag_cron() {
@@ -1309,7 +1271,6 @@ function tag_cron() {
 /**
  * Search for tags with names that match some text
  *
- * @package core_tag
  * @access  private
  * @param   string        $text      escaped string that the tag names will be matched against
  * @param   bool          $ordered   If true, tags are ordered by their popularity. If false, no ordering.
@@ -1341,7 +1302,6 @@ function tag_find_tags($text, $ordered=true, $limitfrom='', $limitnum='') {
 /**
  * Get the name of a tag
  *
- * @package core_tag
  * @access  private
  * @param   mixed    $tagids the id of the tag, or an array of ids
  * @return  mixed    string name of one tag, or id-indexed array of strings
@@ -1368,7 +1328,6 @@ function tag_get_name($tagids) {
  * Returns the correlated tags of a tag, retrieved from the tag_correlation table. Make sure cron runs, otherwise the table will be
  * empty and this function won't return anything.
  *
- * @package core_tag
  * @access  private
  * @param   int      $tag_id   is a single tag id
  * @param   int      $limitnum this parameter does not appear to have any function???
@@ -1399,7 +1358,6 @@ function tag_get_correlated($tag_id, $limitnum=null) {
 /**
  * Function that normalizes a list of tag names.
  *
- * @package core_tag
  * @access  private
  * @param   array/string $rawtags array of tags, or a single tag.
  * @param   int          $case    case to use for returned value (default: lower case). Either TAG_CASE_LOWER (default) or TAG_CASE_ORIGINAL
@@ -1439,7 +1397,6 @@ function tag_normalize($rawtags, $case = TAG_CASE_LOWER) {
 /**
  * Count how many records are tagged with a specific tag.
  *
- * @package core_tag
  * @access  private
  * @param   string   $record_type record to look for ('post', 'user', etc.)
  * @param   int      $tagid       is a single tag id
@@ -1453,7 +1410,6 @@ function tag_record_count($record_type, $tagid) {
 /**
  * Determine if a record is tagged with a specific tag
  *
- * @package core_tag
  * @access  private
  * @param   string   $record_type the record type to look for
  * @param   int      $record_id   the record id to look for
@@ -1553,7 +1509,6 @@ function tag_unset_flag($tagids) {
 /**
  * Return a list of page types
  *
- * @package core_tag
  * @access  private
  * @param   string   $pagetype       current page type
  * @param   stdClass $parentcontext  Block's parent context

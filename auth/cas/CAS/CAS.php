@@ -24,15 +24,11 @@
  *
  * @file     CAS/CAS.php
  * @category Authentication
- * @package  PhpCAS
- * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>
- * @author   Olivier Berger <olivier.berger@it-sudparis.eu>
- * @author   Brett Bieber <brett.bieber@gmail.com>
- * @author   Joachim Fritschi <jfritschi@freenet.de>
- * @author   Adam Franco <afranco@middlebury.edu>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  * @ingroup public
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -255,13 +251,6 @@ require_once dirname(__FILE__) . '/CAS/Autoload.php';
  * @ingroup public
  * @class phpCAS
  * @category Authentication
- * @package  PhpCAS
- * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>
- * @author   Olivier Berger <olivier.berger@it-sudparis.eu>
- * @author   Brett Bieber <brett.bieber@gmail.com>
- * @author   Joachim Fritschi <jfritschi@freenet.de>
- * @author   Adam Franco <afranco@middlebury.edu>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  */
 
@@ -1073,7 +1062,6 @@ class phpCAS
      * server calls.
      *
      * @return bool true if authenticated, false otherwise.
-     * @since 0.4.22 by Brendan Arnold
      */
     public static function isSessionAuthenticated()
     {
@@ -1212,7 +1200,6 @@ class phpCAS
      * @param string $url the login URL
      *
      * @return void
-     * @since 0.4.21 by Wyman Chan
      */
     public static function setServerLoginURL($url = '')
     {
@@ -1312,7 +1299,6 @@ class phpCAS
      * @param string $url the logout URL
      *
      * @return void
-     * @since 0.4.21 by Wyman Chan
      */
     public static function setServerLogoutURL($url = '')
     {
@@ -1650,7 +1636,6 @@ class phpCAS
      *
      * @return array
      * @access public
-     * @since 6/25/09
      */
     public static function getProxies ()
     {

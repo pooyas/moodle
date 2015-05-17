@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify_Source  
- * @package Minify
+ * Class Minify_Source
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** 
@@ -9,9 +11,7 @@
  * 
  * This allows per-source minification options and the mixing of files with
  * content from other sources.
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class Minify_Source {
 

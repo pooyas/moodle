@@ -28,6 +28,9 @@
  *                                                                       *
  * Last modified: 08/08/07                                               *
  *                                                                       *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  *************************************************************************/
 
 if (!defined('RCMAIL_CHARSET')) {
@@ -103,9 +106,7 @@ if (!defined('RCMAIL_CHARSET')) {
  *
  *  *** End of the housecleaning updates. Updated 08/08/07.
  *
- *  @author Jon Abernathy <jon@chuggnutt.com>
  *  @version 1.0.0
- *  @since PHP 4.0.2
  */
 class html2text
 {

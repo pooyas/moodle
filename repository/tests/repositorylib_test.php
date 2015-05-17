@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Repository API unit tests
  *
- * @package   repository
  * @category  phpunit
- * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    repository
+ * @subpackage tests
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once("$CFG->dirroot/repository/lib.php");
@@ -33,7 +20,6 @@ class core_repositorylib_testcase extends advanced_testcase {
     /**
      * Installing repository tests
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
      */
     public function test_install_repository() {
         global $CFG, $DB;
@@ -170,18 +156,18 @@ class core_repositorylib_testcase extends advanced_testcase {
         $systemrepo = repository::get_repository_by_id($repoid, $syscontext);
 
         role_assign($roleid, $user->id, $syscontext->id);
-        assign_capability('moodle/site:config', CAP_ALLOW, $roleid, $syscontext, true);
+        assign_capability('lion/site:config', CAP_ALLOW, $roleid, $syscontext, true);
         assign_capability('repository/flickr_public:view', CAP_ALLOW, $roleid, $syscontext, true);
         accesslib_clear_all_caches_for_unit_testing();
         $this->assertTrue($systemrepo->can_be_edited_by_user());
 
         assign_capability('repository/flickr_public:view', CAP_PROHIBIT, $roleid, $syscontext, true);
-        assign_capability('moodle/site:config', CAP_PROHIBIT, $roleid, $syscontext, true);
+        assign_capability('lion/site:config', CAP_PROHIBIT, $roleid, $syscontext, true);
         accesslib_clear_all_caches_for_unit_testing();
         $this->assertFalse($systemrepo->can_be_edited_by_user());
 
         assign_capability('repository/flickr_public:view', CAP_ALLOW, $roleid, $syscontext, true);
-        assign_capability('moodle/site:config', CAP_PROHIBIT, $roleid, $syscontext, true);
+        assign_capability('lion/site:config', CAP_PROHIBIT, $roleid, $syscontext, true);
         accesslib_clear_all_caches_for_unit_testing();
         $this->assertFalse($systemrepo->can_be_edited_by_user());
 
@@ -195,7 +181,7 @@ class core_repositorylib_testcase extends advanced_testcase {
         $repoid = $this->getDataGenerator()->create_repository('flickr_public', $params)->id;
         $courserepo = repository::get_repository_by_id($repoid, $coursecontext);
 
-        assign_capability('moodle/course:update', CAP_ALLOW, $roleid, $coursecontext, true);
+        assign_capability('lion/course:update', CAP_ALLOW, $roleid, $coursecontext, true);
         assign_capability('repository/flickr_public:view', CAP_ALLOW, $roleid, $coursecontext, true);
         accesslib_clear_all_caches_for_unit_testing();
         $this->assertTrue($courserepo->can_be_edited_by_user());
@@ -204,7 +190,7 @@ class core_repositorylib_testcase extends advanced_testcase {
         accesslib_clear_all_caches_for_unit_testing();
         $this->assertFalse($courserepo->can_be_edited_by_user());
 
-        assign_capability('moodle/course:update', CAP_ALLOW, $roleid, $coursecontext, true);
+        assign_capability('lion/course:update', CAP_ALLOW, $roleid, $coursecontext, true);
         assign_capability('repository/flickr_public:view', CAP_PROHIBIT, $roleid, $coursecontext, true);
         accesslib_clear_all_caches_for_unit_testing();
         $this->assertFalse($courserepo->can_be_edited_by_user());

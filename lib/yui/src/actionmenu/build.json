@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core-actionmenu",
+  "name": "lion-core-actionmenu",
   "builds": {
-    "moodle-core-actionmenu": {
+    "lion-core-actionmenu": {
       "jsfiles": [
         "actionmenu.js"
       ]

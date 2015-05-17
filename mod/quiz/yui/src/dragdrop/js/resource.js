@@ -14,7 +14,7 @@ Y.extend(DRAGRESOURCE, M.core.dragdrop, {
         this.groups = ['resource'];
         this.samenodeclass = CSS.ACTIVITY;
         this.parentnodeclass = CSS.SECTION;
-        this.resourcedraghandle = this.get_drag_handle(M.util.get_string('move', 'moodle'), CSS.EDITINGMOVE, CSS.ICONCLASS, true);
+        this.resourcedraghandle = this.get_drag_handle(M.util.get_string('move', 'lion'), CSS.EDITINGMOVE, CSS.ICONCLASS, true);
 
         this.samenodelabel = {
             identifier: 'dragtoafter',
@@ -139,17 +139,17 @@ Y.extend(DRAGRESOURCE, M.core.dragdrop, {
         params.quizid = this.get('quizid');
         params['class'] = 'resource';
         params.field = 'move';
-        params.id = Number(Y.Moodle.mod_quiz.util.slot.getId(dragnode));
-        params.sectionId = Y.Moodle.core_course.util.section.getId(dropnode.ancestor(M.mod_quiz.edit.get_section_wrapper(Y), true));
+        params.id = Number(Y.Lion.mod_quiz.util.slot.getId(dragnode));
+        params.sectionId = Y.Lion.core_course.util.section.getId(dropnode.ancestor(M.mod_quiz.edit.get_section_wrapper(Y), true));
 
         var previousslot = dragnode.previous(SELECTOR.SLOT);
         if (previousslot) {
-            params.previousid = Number(Y.Moodle.mod_quiz.util.slot.getId(previousslot));
+            params.previousid = Number(Y.Lion.mod_quiz.util.slot.getId(previousslot));
         }
 
         var previouspage = dragnode.previous(SELECTOR.PAGE);
         if (previouspage) {
-            params.page = Number(Y.Moodle.mod_quiz.util.page.getId(previouspage));
+            params.page = Number(Y.Lion.mod_quiz.util.page.getId(previouspage));
         }
 
         // Do AJAX request

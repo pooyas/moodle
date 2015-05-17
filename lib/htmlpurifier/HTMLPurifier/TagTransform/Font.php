@@ -14,6 +14,9 @@
  * @warning This doesn't work completely correctly; specifically, this
  *          TagTransform operates before well-formedness is enforced, so
  *          the "active formatting elements" algorithm doesn't get applied.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_TagTransform_Font extends HTMLPurifier_TagTransform
 {

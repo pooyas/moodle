@@ -1,6 +1,5 @@
 <?php
 /**
- *	@package JAMA
  *
  *	Cholesky decomposition class
  *
@@ -11,9 +10,10 @@
  *	returns a partial decomposition and sets an internal flag that may
  *	be queried by the isSPD() method.
  *
- *	@author Paul Meagher
- *	@author Michael Bommarito
  *	@version 1.2
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class CholeskyDecomposition {
 

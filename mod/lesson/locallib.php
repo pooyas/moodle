@@ -1,34 +1,21 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Local library file for Lesson.  These are non-standard functions that are used
  * only by Lesson.
  *
- * @package mod_lesson
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
 /** Make sure this isn't being directly accessed */
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** Include the files that are required by this module */
-require_once($CFG->dirroot.'/course/moodleform_mod.php');
+require_once($CFG->dirroot.'/course/lionform_mod.php');
 require_once($CFG->dirroot . '/mod/lesson/lib.php');
 require_once($CFG->libdir . '/filelib.php');
 
@@ -462,7 +449,7 @@ function lesson_mediafile_block_contents($cmid, $lesson) {
     $options['width'] = $lesson->mediawidth;
     $options['height'] = $lesson->mediaheight;
 
-    $link = new moodle_url('/mod/lesson/mediafile.php?id='.$cmid);
+    $link = new lion_url('/mod/lesson/mediafile.php?id='.$cmid);
     $action = new popup_action('click', $link, 'lessonmediafile', $options);
     $content = $OUTPUT->action_link($link, get_string('mediafilepopup', 'lesson'), $action, array('title'=>get_string('mediafilepopup', 'lesson')));
 
@@ -577,7 +564,7 @@ function lesson_add_header_buttons($cm, $context, $extraeditbuttons=false, $less
             print_error('invalidpageid', 'lesson');
         }
         if (!empty($lessonpageid) && $lessonpageid != LESSON_EOL) {
-            $url = new moodle_url('/mod/lesson/editpage.php', array('id'=>$cm->id, 'pageid'=>$lessonpageid, 'edit'=>1));
+            $url = new lion_url('/mod/lesson/editpage.php', array('id'=>$cm->id, 'pageid'=>$lessonpageid, 'edit'=>1));
             $PAGE->set_button($OUTPUT->single_button($url, get_string('editpagecontent', 'lesson')));
         }
     }
@@ -598,10 +585,10 @@ function lesson_get_media_html($lesson, $context) {
 
     // get the media file link
     if (strpos($lesson->mediafile, '://') !== false) {
-        $url = new moodle_url($lesson->mediafile);
+        $url = new lion_url($lesson->mediafile);
     } else {
         // the timemodified is used to prevent caching problems, instead of '/' we should better read from files table and use sortorder
-        $url = moodle_url::make_pluginfile_url($context->id, 'mod_lesson', 'mediafile', $lesson->timemodified, '/', ltrim($lesson->mediafile, '/'));
+        $url = lion_url::make_pluginfile_url($context->id, 'mod_lesson', 'mediafile', $lesson->timemodified, '/', ltrim($lesson->mediafile, '/'));
     }
     $title = $lesson->mediafile;
 
@@ -643,10 +630,8 @@ function lesson_get_media_html($lesson, $context) {
  * OR if it has a special requirement on creation it can extend construction_override
  *
  * @abstract
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class lesson_add_page_form_base extends moodleform {
+abstract class lesson_add_page_form_base extends lionform {
 
     /**
      * This is the classic define that is used to identify this pagetype.
@@ -908,8 +893,6 @@ abstract class lesson_add_page_form_base extends moodleform {
  * @property int $firstpageid Id of the first page of this lesson (prevpageid=0)
  * @property int $lastpageid Id of the last page of this lesson (nextpageid=0)
  *
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class lesson extends lesson_base {
 
@@ -1333,7 +1316,7 @@ class lesson extends lesson_base {
             if ($modname) {
                 $instancename = $DB->get_field($modname, 'name', array('id' => $module->instance));
                 if ($instancename) {
-                    return html_writer::link(new moodle_url('/mod/'.$modname.'/view.php', array('id'=>$this->properties->activitylink)),
+                    return html_writer::link(new lion_url('/mod/'.$modname.'/view.php', array('id'=>$this->properties->activitylink)),
                         get_string('activitylinkname', 'lesson', $instancename),
                         array('class'=>'centerpadded lessonbutton standardbutton'));
                 }
@@ -1627,8 +1610,6 @@ class lesson extends lesson_base {
  * or set via magic methods, or alternatively by defining methods get_blah() or
  * set_blah() within the extending object.
  *
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class lesson_base {
 
@@ -1747,8 +1728,6 @@ abstract class lesson_base {
  * @property-read typestring The string that describes this page type
  *
  * @abstract
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class lesson_page extends lesson_base {
 
@@ -2005,7 +1984,7 @@ abstract class lesson_page extends lesson_base {
             $this->answers = array();
             $answers = $DB->get_records('lesson_answers', array('pageid'=>$this->properties->id, 'lessonid'=>$this->lesson->id), 'id');
             if (!$answers) {
-                // It is possible that a lesson upgraded from Moodle 1.9 still
+                // It is possible that a lesson upgraded from Lion 1.9 still
                 // contains questions without any answers [MDL-25632].
                 // debugging(get_string('cannotfindanswer', 'lesson'));
                 return array();
@@ -2039,7 +2018,7 @@ abstract class lesson_page extends lesson_base {
      * Records an attempt at this page
      *
      * @final
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param stdClass $context
      * @return stdClass Returns the result of the attempt
      */
@@ -2381,7 +2360,7 @@ abstract class lesson_page extends lesson_base {
                     } else {
                         // Branch tables, shortanswer and mumerical pages have only a text field.
                         $this->answers[$i]->answer = $properties->answer_editor[$i];
-                        $this->answers[$i]->answerformat = FORMAT_MOODLE;
+                        $this->answers[$i]->answerformat = FORMAT_LION;
                     }
                 }
 
@@ -2495,7 +2474,7 @@ abstract class lesson_page extends lesson_base {
                 } else {
                     // Branch tables, shortanswer and mumerical pages have only a text field.
                     $answer->answer = $properties->answer_editor[$i];
-                    $answer->answerformat = FORMAT_MOODLE;
+                    $answer->answerformat = FORMAT_LION;
                 }
             }
             if (!empty($properties->response_editor[$i]) && is_array($properties->response_editor[$i])) {
@@ -2813,8 +2792,6 @@ abstract class lesson_page extends lesson_base {
  * @property string $answer The answer itself
  * @property string $response The response the user sees if selecting this answer
  *
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class lesson_page_answer extends lesson_base {
 
@@ -2855,8 +2832,6 @@ class lesson_page_answer extends lesson_base {
  * The first time the page type manager is retrieved the it includes all of the
  * different page types located in mod/lesson/pagetypes.
  *
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class lesson_page_type_manager {
 

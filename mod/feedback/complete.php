@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * prints the form so the user can fill out the feedback
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -161,7 +148,7 @@ echo $OUTPUT->header();
 //ishidden check.
 //feedback in courses
 if ((empty($cm->visible) AND
-        !has_capability('moodle/course:viewhiddenactivities', $context)) AND
+        !has_capability('lion/course:viewhiddenactivities', $context)) AND
         $course->id != SITEID) {
     notice(get_string("activityiscurrentlyhidden"));
 }
@@ -169,7 +156,7 @@ if ((empty($cm->visible) AND
 //ishidden check.
 //feedback on mainsite
 if ((empty($cm->visible) AND
-        !has_capability('moodle/course:viewhiddenactivities', $context)) AND
+        !has_capability('lion/course:viewhiddenactivities', $context)) AND
         $courseid == SITEID) {
     notice(get_string("activityiscurrentlyhidden"));
 }
@@ -334,7 +321,7 @@ if ($feedback_can_submit) {
     ///////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
-    $analysisurl = new moodle_url('/mod/feedback/analysis.php', array('id'=>$id));
+    $analysisurl = new lion_url('/mod/feedback/analysis.php', array('id'=>$id));
     if ($courseid > 0) {
         $analysisurl->param('courseid', $courseid);
     }

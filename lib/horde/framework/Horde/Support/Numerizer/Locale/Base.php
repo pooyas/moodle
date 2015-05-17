@@ -2,17 +2,14 @@
 /**
  * Copyright 2010-2014 Horde LLC (http://www.horde.org/)
  *
- * @author   Chuck Hagenbuch <chuck@horde.org>
- * @license  http://www.horde.org/licenses/bsd BSD
  * @category Horde
- * @package  Support
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
- * @author   Chuck Hagenbuch <chuck@horde.org>
- * @license  http://www.horde.org/licenses/bsd BSD
  * @category Horde
- * @package  Support
  */
 class Horde_Support_Numerizer_Locale_Base
 {

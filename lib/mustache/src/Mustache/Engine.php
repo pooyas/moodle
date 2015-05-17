@@ -7,6 +7,9 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -19,7 +22,6 @@
  *
  * This is very, very rad.
  *
- * @author Justin Hileman {@link http://justinhileman.com}
  */
 class Mustache_Engine
 {

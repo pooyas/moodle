@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Files interactions with behat.
@@ -21,13 +8,13 @@
  * steps definitions which makes use of file attachments or filepicker should
  * extend behat_files instead of behat_base.
  *
- * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/behat_base.php');
 
@@ -41,15 +28,12 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  * this class instead of behat_base as it provides useful methods to deal
  * with the common filepicker issues.
  *
- * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_files extends behat_base {
 
     /**
-     * Gets the NodeElement for filepicker of filemanager moodleform element.
+     * Gets the NodeElement for filepicker of filemanager lionform element.
      *
      * The filepicker/filemanager element label is pointing to a hidden input which is
      * not recognized as a named selector, as it is hidden...
@@ -100,7 +84,7 @@ class behat_files extends behat_base {
 
         // Finds the button inside the DOM, is a modal window, so should be unique.
         $classname = 'fp-file-' . $action;
-        $button = $this->find('css', '.moodle-dialogue-focused button.' . $classname, $exception);
+        $button = $this->find('css', '.lion-dialogue-focused button.' . $classname, $exception);
 
         $this->ensure_node_is_visible($button);
         $button->click();
@@ -228,7 +212,7 @@ class behat_files extends behat_base {
 
          $this->find(
              'xpath',
-             "//div[contains(concat(' ', @class, ' '), ' moodle-dialogue-lightbox ')][contains(@style, 'display: none;')]",
+             "//div[contains(concat(' ', @class, ' '), ' lion-dialogue-lightbox ')][contains(@style, 'display: none;')]",
              $exception
          );
     }

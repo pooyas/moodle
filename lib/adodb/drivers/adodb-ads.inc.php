@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /*
   (c) 2000-2014 John Lim (jlim#natsoft.com.my). All rights reserved.
   Portions Copyright (c) 2007-2009, iAnywhere Solutions, Inc.

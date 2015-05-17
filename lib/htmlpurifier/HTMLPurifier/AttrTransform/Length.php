@@ -2,6 +2,9 @@
 
 /**
  * Class for handling width/height length attribute transformations to CSS
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_Length extends HTMLPurifier_AttrTransform
 {

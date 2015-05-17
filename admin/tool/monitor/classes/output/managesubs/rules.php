@@ -1,40 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Renderable class to display a set of rules in the manage subscriptions page.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace tool_monitor\output\managesubs;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once($CFG->libdir . '/tablelib.php');
 
 /**
  * Renderable class to display a set of rules in the manage subscriptions page.
  *
- * @since      Moodle 2.8
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class rules extends \table_sql implements \renderable {
 
@@ -57,11 +40,11 @@ class rules extends \table_sql implements \renderable {
      * Sets up the table_log parameters.
      *
      * @param string $uniqueid unique id of form.
-     * @param \moodle_url $url url where this table is displayed.
+     * @param \lion_url $url url where this table is displayed.
      * @param int $courseid course id.
      * @param int $perpage Number of rules to display per page.
      */
-    public function __construct($uniqueid, \moodle_url $url, $courseid = 0, $perpage = 100) {
+    public function __construct($uniqueid, \lion_url $url, $courseid = 0, $perpage = 100) {
         parent::__construct($uniqueid);
 
         $this->set_attribute('class', 'toolmonitor subscriberules generaltable generalbox');
@@ -122,7 +105,7 @@ class rules extends \table_sql implements \renderable {
         if (empty($courseid)) {
             return $coursename;
         } else {
-            return \html_writer::link(new \moodle_url('/course/view.php', array('id' => $this->courseid)), $coursename);
+            return \html_writer::link(new \lion_url('/course/view.php', array('id' => $this->courseid)), $coursename);
         }
     }
 
@@ -171,8 +154,8 @@ class rules extends \table_sql implements \renderable {
         if ($options instanceof \single_select) {
             $options->set_label($text, array('class' => 'accesshide'));
             return $OUTPUT->render($options);
-        } else if ($options instanceof \moodle_url) {
-            // A \moodle_url to subscribe.
+        } else if ($options instanceof \lion_url) {
+            // A \lion_url to subscribe.
             $icon = $OUTPUT->pix_icon('t/add', $text);
             $link = new \action_link($options, $icon);
             return $OUTPUT->render($link);
@@ -222,7 +205,7 @@ class rules extends \table_sql implements \renderable {
                     array('context' => \context_course::instance($course->id)));
             }
         }
-        $url = new \moodle_url('/admin/tool/monitor/index.php');
+        $url = new \lion_url('/admin/tool/monitor/index.php');
         $select = new \single_select($url, 'courseid', $options, $this->courseid);
         $select->set_label(get_string('selectacourse', 'tool_monitor'));
         return $select;

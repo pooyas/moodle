@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Script to let a user manage their RSS feeds.
  *
- * @package   block_rss_client
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../../config.php');
@@ -58,7 +45,7 @@ if ($returnurl) {
     $urlparams['returnurl'] = $returnurl;
     $extraparams = '&returnurl=' . $returnurl;
 }
-$baseurl = new moodle_url('/blocks/rss_client/managefeeds.php', $urlparams);
+$baseurl = new lion_url('/blocks/rss_client/managefeeds.php', $urlparams);
 $PAGE->set_url($baseurl);
 
 // Process any actions
@@ -82,7 +69,7 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title($strmanage);
 $PAGE->set_heading($strmanage);
 
-$managefeeds = new moodle_url('/blocks/rss_client/managefeeds.php', $urlparams);
+$managefeeds = new lion_url('/blocks/rss_client/managefeeds.php', $urlparams);
 $PAGE->navbar->add(get_string('blocks'));
 $PAGE->navbar->add(get_string('pluginname', 'block_rss_client'));
 $PAGE->navbar->add(get_string('managefeeds', 'block_rss_client'), $managefeeds);
@@ -91,7 +78,7 @@ echo $OUTPUT->header();
 $table = new flexible_table('rss-display-feeds');
 
 $table->define_columns(array('feed', 'actions'));
-$table->define_headers(array(get_string('feed', 'block_rss_client'), get_string('actions', 'moodle')));
+$table->define_headers(array(get_string('feed', 'block_rss_client'), get_string('actions', 'lion')));
 $table->define_baseurl($baseurl);
 
 $table->set_attribute('cellspacing', '0');
@@ -115,10 +102,10 @@ foreach($feeds as $feed) {
         '<div class="url">' . html_writer::link($feed->url, $feed->url) .'</div>' .
         '<div class="description">' . $feed->description . '</div>';
 
-    $editurl = new moodle_url('/blocks/rss_client/editfeed.php?rssid=' . $feed->id . $extraparams);
+    $editurl = new lion_url('/blocks/rss_client/editfeed.php?rssid=' . $feed->id . $extraparams);
     $editaction = $OUTPUT->action_icon($editurl, new pix_icon('t/edit', get_string('edit')));
 
-    $deleteurl = new moodle_url('/blocks/rss_client/managefeeds.php?deleterssid=' . $feed->id . '&sesskey=' . sesskey() . $extraparams);
+    $deleteurl = new lion_url('/blocks/rss_client/managefeeds.php?deleterssid=' . $feed->id . '&sesskey=' . sesskey() . $extraparams);
     $deleteicon = new pix_icon('t/delete', get_string('delete'));
     $deleteaction = $OUTPUT->action_icon($deleteurl, $deleteicon, new confirm_action(get_string('deletefeedconfirm', 'block_rss_client')));
 

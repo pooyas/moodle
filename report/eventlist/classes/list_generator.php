@@ -1,35 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Event documentation
  *
- * @package   report_eventlist
- * @copyright 2014 Adrian Greeve <adrian@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    report
+ * @subpackage eventlist
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Class for returning system event information.
  *
- * @package   report_eventlist
- * @copyright 2014 Adrian Greeve <adrian@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class report_eventlist_list_generator {
 
@@ -242,7 +226,7 @@ class report_eventlist_list_generator {
         // Get general event information.
         $eventdata[$eventfullpath] = $eventfullpath::get_static_info();
         // Create a link for further event detail.
-        $url = new \moodle_url('eventdetail.php', array('eventname' => $eventfullpath));
+        $url = new \lion_url('eventdetail.php', array('eventname' => $eventfullpath));
         $link = \html_writer::link($url, $eventfullpath::get_name());
         $eventdata[$eventfullpath]['fulleventname'] = \html_writer::span($link);
         $eventdata[$eventfullpath]['fulleventname'] .= \html_writer::empty_tag('br');
@@ -256,7 +240,7 @@ class report_eventlist_list_generator {
         // Mess around getting since information.
         $ref = new \ReflectionClass($eventdata[$eventfullpath]['eventname']);
         $eventdocbloc = $ref->getDocComment();
-        $sincepattern = "/since\s*Moodle\s([0-9]+.[0-9]+)/i";
+        $sincepattern = "/since\s*Lion\s([0-9]+.[0-9]+)/i";
         preg_match($sincepattern, $eventdocbloc, $result);
         if (isset($result[1])) {
             $eventdata[$eventfullpath]['since'] = $result[1];

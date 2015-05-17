@@ -19,6 +19,9 @@
  *
  * TO STDOUT
  * rs2csvout($rs);
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 // returns a recordset as a csv string

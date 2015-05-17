@@ -1,6 +1,6 @@
 @core @core_course
 Feature: Test we can both create and delete a course.
-  As a Moodle admin
+  As a Lion admin
   I need to test I can create a course
   I need to test I can delete a course
 

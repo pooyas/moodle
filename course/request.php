@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Allows a user to request a course be created for them.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../config.php');
@@ -28,13 +15,13 @@ require_once($CFG->dirroot . '/course/lib.php');
 require_once($CFG->dirroot . '/course/request_form.php');
 
 // Where we came from. Used in a number of redirects.
-$url = new moodle_url('/course/request.php');
+$url = new lion_url('/course/request.php');
 $return = optional_param('return', null, PARAM_ALPHANUMEXT);
 if ($return === 'management') {
     $url->param('return', $return);
-    $returnurl = new moodle_url('/course/management.php', array('categoryid' => $CFG->defaultrequestcategory));
+    $returnurl = new lion_url('/course/management.php', array('categoryid' => $CFG->defaultrequestcategory));
 } else {
-    $returnurl = new moodle_url('/course/index.php');
+    $returnurl = new lion_url('/course/index.php');
 }
 
 $PAGE->set_url($url);
@@ -49,7 +36,7 @@ if (empty($CFG->enablecourserequests)) {
 }
 $context = context_system::instance();
 $PAGE->set_context($context);
-require_capability('moodle/course:request', $context);
+require_capability('lion/course:request', $context);
 
 // Set up the form.
 $data = course_request::prepare();

@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Shows the result of has_capability for every capability for a user in a context.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage roles
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../../config.php');
@@ -28,7 +15,7 @@ $contextid = required_param('contextid', PARAM_INT);
 
 list($context, $course, $cm) = get_context_info_array($contextid);
 
-$url = new moodle_url('/admin/roles/check.php', array('contextid' => $contextid));
+$url = new lion_url('/admin/roles/check.php', array('contextid' => $contextid));
 
 if ($course) {
     $isfrontpage = ($course->id == SITEID);
@@ -46,7 +33,7 @@ if ($course) {
 
 // Security first.
 require_login($course, false, $cm);
-if (!has_any_capability(array('moodle/role:assign', 'moodle/role:safeoverride', 'moodle/role:override', 'moodle/role:manage'), $context)) {
+if (!has_any_capability(array('lion/role:assign', 'lion/role:safeoverride', 'lion/role:override', 'lion/role:manage'), $context)) {
     print_error('nopermissions', 'error', '', get_string('checkpermissions', 'core_role'));
 }
 $PAGE->set_url($url);
@@ -65,7 +52,7 @@ $contextname = $context->get_context_name();
 
 // Get the user_selector we will need.
 // Teachers within a course just get to see the same list of enrolled users.
-// Admins (people with moodle/role:manage) can run this report for any user.
+// Admins (people with lion/role:manage) can run this report for any user.
 $options = array('accesscontext' => $context);
 $userselector = new core_role_check_users_selector('reportuser', $options);
 $userselector->set_rows(20);
@@ -82,7 +69,7 @@ switch ($context->contextlevel) {
         admin_externalpage_setup('checkpermissions', '', array('contextid' => $contextid));
         break;
     case CONTEXT_USER:
-        $fullname = fullname($user, has_capability('moodle/site:viewfullnames', $context));
+        $fullname = fullname($user, has_capability('lion/site:viewfullnames', $context));
         $PAGE->set_heading($fullname);
         $showroles = 1;
         break;
@@ -132,8 +119,8 @@ if (!is_null($reportuser)) {
             $link = html_writer::link($racontext->get_url(), $racontext->get_context_name());
 
             $rolename = $rolenames[$ra->roleid]->localname;
-            if (has_capability('moodle/role:manage', $systemcontext)) {
-                $rolename = html_writer::link(new moodle_url('/admin/roles/define.php',
+            if (has_capability('lion/role:manage', $systemcontext)) {
+                $rolename = html_writer::link(new lion_url('/admin/roles/define.php',
                         array('action' => 'view', 'roleid' => $ra->roleid)), $rolename);
             }
 

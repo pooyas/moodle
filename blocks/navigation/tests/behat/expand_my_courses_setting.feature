@@ -1,7 +1,7 @@
 @block @block_navigation
 Feature: Test expand my courses navigation setting
   As a student
-  I visit my My Moodle page and observe the the My Courses branch
+  I visit my My Lion page and observe the the My Courses branch
 
   Background:
     Given the following "users" exist:
@@ -20,7 +20,7 @@ Feature: Test expand my courses navigation setting
       | student1 | c1     | student |
       | student1 | c2    | student |
 
-  Scenario: The My Courses branch is expanded on the My Moodle page by default
+  Scenario: The My Courses branch is expanded on the My Lion page by default
     When I log in as "student1"
     And I click on "My home" "link" in the "Navigation" "block"
     Then I should see "c1" in the "Navigation" "block"
@@ -40,7 +40,7 @@ Feature: Test expand my courses navigation setting
     And I should not see "c3" in the "Navigation" "block"
 
   @javascript
-  Scenario: My Courses can be expanded on the My Moodle page when expand my courses is off
+  Scenario: My Courses can be expanded on the My Lion page when expand my courses is off
     Given I log in as "admin"
     And I set the following administration settings values:
       | Show My courses expanded on My home | 0 |

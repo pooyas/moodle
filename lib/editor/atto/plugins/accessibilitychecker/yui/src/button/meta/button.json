@@ -1,8 +1,8 @@
 {
-    "moodle-atto_accessibilitychecker-button": {
+    "lion-atto_accessibilitychecker-button": {
         "requires": [
             "color-base",
-            "moodle-editor_atto-plugin"
+            "lion-editor_atto-plugin"
         ]
     }
 }

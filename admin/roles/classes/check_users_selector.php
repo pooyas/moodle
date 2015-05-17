@@ -1,35 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * User selector.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage roles
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/user/selector/lib.php');
 
 /**
  * User selector subclass for the selection of users in the check permissions page.
  *
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
  */
 class core_role_check_users_selector extends user_selector_base {
     /** @var bool limit listing of users to enrolled only */
@@ -49,7 +35,7 @@ class core_role_check_users_selector extends user_selector_base {
         parent::__construct($name, $options);
 
         $coursecontext = $this->accesscontext->get_course_context(false);
-        if ($coursecontext and $coursecontext->id != SITEID and !has_capability('moodle/role:manage', $coursecontext)) {
+        if ($coursecontext and $coursecontext->id != SITEID and !has_capability('lion/role:manage', $coursecontext)) {
             // Prevent normal teachers from looking up all users.
             $this->onlyenrolled = true;
         } else {

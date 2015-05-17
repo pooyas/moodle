@@ -1,8 +1,9 @@
 <?php
 /**
  * Chinese PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author LiuXin <http://www.80x86.cn/blog/>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate'] = 'SMTP 错误：身份验证失败。';

@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Base class for conditional availability information (for module or section).
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    availability
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core_availability;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Base class for conditional availability information (for module or section).
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class info {
     /** @var \stdClass Course */
@@ -70,7 +54,7 @@ abstract class info {
     /**
      * Obtains the course associated with this availability information.
      *
-     * @return \stdClass Moodle course object
+     * @return \stdClass Lion course object
      */
     public function get_course() {
         return $this->course;
@@ -745,7 +729,7 @@ abstract class info {
      * JS (using the non-JS version instead, which causes a page reload) if a
      * completion tickbox value may affect a conditional activity.
      *
-     * @param \stdClass $course Moodle course object
+     * @param \stdClass $course Lion course object
      * @param int $cmid Course-module id
      * @return bool True if this is used in a condition, false otherwise
      */

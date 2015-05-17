@@ -1,6 +1,6 @@
 @core @core_course
 Feature: We can change the visibility of categories in the management interface.
-  As a moodle admin
+  As a lion admin
   I need to test hiding and showing a category.
   I need to test hiding and showing a sub category.
   I need to test visibility is applied to sub categories.

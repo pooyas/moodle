@@ -5,6 +5,9 @@
  * @note We cannot use Enum because link types allow multiple
  *       values.
  * @note Assumes link types are ASCII text
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_HTML_LinkTypes extends HTMLPurifier_AttrDef
 {

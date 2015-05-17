@@ -1,5 +1,5 @@
 {
-  "moodle-core-formautosubmit": {
+  "lion-core-formautosubmit": {
     "requires": [
       "base",
       "event-key"

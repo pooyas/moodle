@@ -3,6 +3,9 @@
 /**
  * Generic pre-transform that converts an attribute with a fixed number of
  * values (enumerated) to CSS.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_EnumToCSS extends HTMLPurifier_AttrTransform
 {

@@ -21,10 +21,10 @@
  *
  * @file     CAS/Language/Japanese.php
  * @category Authentication
- * @package  PhpCAS
- * @author   fnorif <fnorif@yahoo.co.jp>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -32,9 +32,6 @@
  *
  * @class    CAS_Languages_Japanese
  * @category Authentication
- * @package  PhpCAS
- * @author   fnorif <fnorif@yahoo.co.jp>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  *
  **/

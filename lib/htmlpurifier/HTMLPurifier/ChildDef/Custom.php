@@ -5,6 +5,9 @@
  *
  * @warning Currently this class is an all or nothing proposition, that is,
  *          it will only give a bool return value.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ChildDef_Custom extends HTMLPurifier_ChildDef
 {

@@ -1,5 +1,12 @@
 <?php 
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 namespace MrClay;
 
 use MrClay\Cli\Arg;
@@ -15,8 +22,6 @@ use InvalidArgumentException;
  * solely through the file pointers provided by openInput()/openOutput(), you can make your
  * app more flexible to end users.
  *
- * @author Steve Clay <steve@mrclay.org>
- * @license http://www.opensource.org/licenses/mit-license.php  MIT License
  */
 class Cli {
     

@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Various upgrade/install related functions and classes.
  *
  * @package    core
- * @subpackage upgrade
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** UPGRADE_LOG_NORMAL = 0 */
 define('UPGRADE_LOG_NORMAL', 0);
@@ -36,12 +22,8 @@ define('UPGRADE_LOG_ERROR',  2);
 /**
  * Exception indicating unknown error during upgrade.
  *
- * @package    core
- * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class upgrade_exception extends moodle_exception {
+class upgrade_exception extends lion_exception {
     function __construct($plugin, $version, $debuginfo=NULL) {
         global $CFG;
         $a = (object)array('plugin'=>$plugin, 'version'=>$version);
@@ -52,45 +34,33 @@ class upgrade_exception extends moodle_exception {
 /**
  * Exception indicating downgrade error during upgrade.
  *
- * @package    core
- * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class downgrade_exception extends moodle_exception {
+class downgrade_exception extends lion_exception {
     function __construct($plugin, $oldversion, $newversion) {
         global $CFG;
-        $plugin = is_null($plugin) ? 'moodle' : $plugin;
+        $plugin = is_null($plugin) ? 'lion' : $plugin;
         $a = (object)array('plugin'=>$plugin, 'oldversion'=>$oldversion, 'newversion'=>$newversion);
         parent::__construct('cannotdowngrade', 'debug', "$CFG->wwwroot/$CFG->admin/index.php", $a);
     }
 }
 
 /**
- * @package    core
- * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class upgrade_requires_exception extends moodle_exception {
-    function __construct($plugin, $pluginversion, $currentmoodle, $requiremoodle) {
+class upgrade_requires_exception extends lion_exception {
+    function __construct($plugin, $pluginversion, $currentlion, $requirelion) {
         global $CFG;
         $a = new stdClass();
         $a->pluginname     = $plugin;
         $a->pluginversion  = $pluginversion;
-        $a->currentmoodle  = $currentmoodle;
-        $a->requiremoodle  = $requiremoodle;
+        $a->currentlion  = $currentlion;
+        $a->requirelion  = $requirelion;
         parent::__construct('pluginrequirementsnotmet', 'error', "$CFG->wwwroot/$CFG->admin/index.php", $a);
     }
 }
 
 /**
- * @package    core
- * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class plugin_defective_exception extends moodle_exception {
+class plugin_defective_exception extends lion_exception {
     function __construct($plugin, $details) {
         global $CFG;
         parent::__construct('detectedbrokenplugin', 'error', "$CFG->wwwroot/$CFG->admin/index.php", $plugin, $details);
@@ -102,12 +72,8 @@ class plugin_defective_exception extends moodle_exception {
  *
  * Note: this should be used only from the upgrade/admin code.
  *
- * @package    core
- * @subpackage upgrade
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class plugin_misplaced_exception extends moodle_exception {
+class plugin_misplaced_exception extends lion_exception {
     /**
      * Constructor.
      * @param string $component the component from version.php
@@ -462,7 +428,7 @@ function upgrade_plugins($type, $startcallback, $endcallback, $verbose) {
             if ($plugin->requires > $CFG->version) {
                 throw new upgrade_requires_exception($component, $plugin->version, $CFG->version, $plugin->requires);
             } else if ($plugin->requires < 2010000000) {
-                throw new plugin_defective_exception($component, 'Plugin is not compatible with Moodle 2.x or later.');
+                throw new plugin_defective_exception($component, 'Plugin is not compatible with Lion 2.x or later.');
             }
         }
 
@@ -568,9 +534,6 @@ function upgrade_plugins($type, $startcallback, $endcallback, $verbose) {
 
 /**
  * Find and check all modules and load them up or upgrade them if necessary
- * 
- * Note:
- * This only works for modules in /mod directory
  *
  * @global object
  * @global object
@@ -597,6 +560,7 @@ function upgrade_plugins_modules($startcallback, $endcallback, $verbose) {
             throw new plugin_defective_exception($component, 'Missing version.php');
         }
 
+        // TODO: Support for $module will end with Lion 2.10 by MDL-43896. Was deprecated for Lion 2.7 by MDL-43040.
         $plugin = new stdClass();
         $plugin->version = null;
         $module = $plugin;
@@ -623,7 +587,7 @@ function upgrade_plugins_modules($startcallback, $endcallback, $verbose) {
             if ($plugin->requires > $CFG->version) {
                 throw new upgrade_requires_exception($component, $plugin->version, $CFG->version, $plugin->requires);
             } else if ($plugin->requires < 2010000000) {
-                throw new plugin_defective_exception($component, 'Plugin is not compatible with Lion.');
+                throw new plugin_defective_exception($component, 'Plugin is not compatible with Lion 2.x or later.');
             }
         }
 
@@ -740,9 +704,6 @@ function upgrade_plugins_modules($startcallback, $endcallback, $verbose) {
 /**
  * This function finds all available blocks and install them
  * into blocks table or do all the upgrade process if newer.
- * 
- * Note:
- * Installs or upgrades just the block plugins
  *
  * @global object
  * @global object
@@ -750,7 +711,7 @@ function upgrade_plugins_modules($startcallback, $endcallback, $verbose) {
 function upgrade_plugins_blocks($startcallback, $endcallback, $verbose) {
     global $CFG, $DB;
 
-    require_once($CFG->dirroot.'/blocks/moodleblock.class.php');
+    require_once($CFG->dirroot.'/blocks/lionblock.class.php');
 
     $blocktitles   = array(); // we do not want duplicate titles
 
@@ -806,7 +767,7 @@ function upgrade_plugins_blocks($startcallback, $endcallback, $verbose) {
             if ($plugin->requires > $CFG->version) {
                 throw new upgrade_requires_exception($component, $plugin->version, $CFG->version, $plugin->requires);
             } else if ($plugin->requires < 2010000000) {
-                throw new plugin_defective_exception($component, 'Plugin is not compatible with Moodle 2.x or later.');
+                throw new plugin_defective_exception($component, 'Plugin is not compatible with Lion 2.x or later.');
             }
         }
 
@@ -825,8 +786,6 @@ function upgrade_plugins_blocks($startcallback, $endcallback, $verbose) {
         $blocktitle  = $blockobj->get_title();
 
         // OK, it's as we all hoped. For further tests, the object will do them itself.
-        // Note:
-        // _self_test is a private method in block_base class
         if (!$blockobj->_self_test()) {
             throw new plugin_defective_exception($component, 'Self test failed.');
         }
@@ -953,7 +912,7 @@ function upgrade_plugins_blocks($startcallback, $endcallback, $verbose) {
 /**
  * Log_display description function used during install and upgrade.
  *
- * @param string $component name of component (moodle, mod_assignment, etc.)
+ * @param string $component name of component (lion, mod_assignment, etc.)
  * @return void
  */
 function log_update_descriptions($component) {
@@ -1010,7 +969,7 @@ function log_update_descriptions($component) {
 
 /**
  * Web service discovery function used during install and upgrade.
- * @param string $component name of component (moodle, mod_assignment, etc.)
+ * @param string $component name of component (lion, mod_assignment, etc.)
  * @return void
  */
 function external_update_descriptions($component) {
@@ -1118,7 +1077,7 @@ function external_update_descriptions($component) {
         //if shortname is not a PARAM_ALPHANUMEXT, fail (tested here for service update and creation)
         if (isset($service['shortname']) and
                 (clean_param($service['shortname'], PARAM_ALPHANUMEXT) != $service['shortname'])) {
-            throw new moodle_exception('installserviceshortnameerror', 'webservice', '', $service['shortname']);
+            throw new lion_exception('installserviceshortnameerror', 'webservice', '', $service['shortname']);
         }
         if ($dbservice->shortname != $service['shortname']) {
             //check that shortname is unique
@@ -1126,7 +1085,7 @@ function external_update_descriptions($component) {
                 $existingservice = $DB->get_record('external_services',
                         array('shortname' => $service['shortname']));
                 if (!empty($existingservice)) {
-                    throw new moodle_exception('installexistingserviceshortnameerror', 'webservice', '', $service['shortname']);
+                    throw new lion_exception('installexistingserviceshortnameerror', 'webservice', '', $service['shortname']);
                 }
             }
             $dbservice->shortname = $service['shortname'];
@@ -1159,7 +1118,7 @@ function external_update_descriptions($component) {
             $existingservice = $DB->get_record('external_services',
                     array('shortname' => $service['shortname']));
             if (!empty($existingservice)) {
-                throw new moodle_exception('installserviceshortnameerror', 'webservice');
+                throw new lion_exception('installserviceshortnameerror', 'webservice');
             }
         }
 
@@ -1294,7 +1253,7 @@ function upgrade_started($preinstall=false) {
             $strupgrade  = get_string('upgradingversion', 'admin');
             $PAGE->set_pagelayout('maintenance');
             upgrade_init_javascript();
-            $PAGE->set_title($strupgrade.' - Moodle '.$CFG->target_release);
+            $PAGE->set_title($strupgrade.' - Lion '.$CFG->target_release);
             $PAGE->set_heading($strupgrade);
             $PAGE->navbar->add($strupgrade);
             $PAGE->set_cacheable(false);
@@ -1374,16 +1333,12 @@ function print_upgrade_separator() {
 
 /**
  * Default start upgrade callback
- * 
- * Note:
- * This is where the texts output generates in the installation/upgrading
- * 
  * @param string $plugin
  * @param bool $installation true if installation, false means upgrade
  */
 function print_upgrade_part_start($plugin, $installation, $verbose) {
     global $OUTPUT;
-    if (empty($plugin) or $plugin == 'moodle') {
+    if (empty($plugin) or $plugin == 'lion') {
         upgrade_started($installation); // does not store upgrade running flag yet
         if ($verbose) {
             echo $OUTPUT->heading(get_string('coresystem'));
@@ -1395,13 +1350,13 @@ function print_upgrade_part_start($plugin, $installation, $verbose) {
         }
     }
     if ($installation) {
-        if (empty($plugin) or $plugin == 'moodle') {
+        if (empty($plugin) or $plugin == 'lion') {
             // no need to log - log table not yet there ;-)
         } else {
             upgrade_log(UPGRADE_LOG_NORMAL, $plugin, 'Starting plugin installation');
         }
     } else {
-        if (empty($plugin) or $plugin == 'moodle') {
+        if (empty($plugin) or $plugin == 'lion') {
             upgrade_log(UPGRADE_LOG_NORMAL, $plugin, 'Starting core upgrade');
         } else {
             upgrade_log(UPGRADE_LOG_NORMAL, $plugin, 'Starting plugin upgrade');
@@ -1418,13 +1373,13 @@ function print_upgrade_part_end($plugin, $installation, $verbose) {
     global $OUTPUT;
     upgrade_started();
     if ($installation) {
-        if (empty($plugin) or $plugin == 'moodle') {
+        if (empty($plugin) or $plugin == 'lion') {
             upgrade_log(UPGRADE_LOG_NORMAL, $plugin, 'Core installed');
         } else {
             upgrade_log(UPGRADE_LOG_NORMAL, $plugin, 'Plugin installed');
         }
     } else {
-        if (empty($plugin) or $plugin == 'moodle') {
+        if (empty($plugin) or $plugin == 'lion') {
             upgrade_log(UPGRADE_LOG_NORMAL, $plugin, 'Core upgraded');
         } else {
             upgrade_log(UPGRADE_LOG_NORMAL, $plugin, 'Plugin upgraded');
@@ -1491,13 +1446,6 @@ function upgrade_language_pack($lang = null) {
 
 /**
  * Install core lion tables and initialize
- * 
- * Note:
- * Contains two main parts:
- * install_from_xmldb_file: uses /lib/db/install.xml to create DB tables
- * xmldb_main_install: installs other features not included in install.xml
- * like creating default course,categories,...
- * 
  * @param float $version target version
  * @param bool $verbose
  * @return void, may throw exception
@@ -1520,7 +1468,7 @@ function install_core($version, $verbose) {
 
     try {
         core_php_time_limit::raise(600);
-        print_upgrade_part_start('moodle', true, $verbose); // does not store upgrade running flag
+        print_upgrade_part_start('lion', true, $verbose); // does not store upgrade running flag
 
         $DB->get_manager()->install_from_xmldb_file("$CFG->libdir/db/install.xml");
         upgrade_started();     // we want the flag to be stored in config table ;-)
@@ -1533,12 +1481,12 @@ function install_core($version, $verbose) {
         upgrade_main_savepoint(true, $version, false);
 
         // Continue with the installation
-        log_update_descriptions('moodle');
-        external_update_descriptions('moodle');
-        events_update_definition('moodle');
-        \core\task\manager::reset_scheduled_tasks_for_component('moodle');
-        message_update_providers('moodle');
-        \core\message\inbound\manager::update_handlers_for_component('moodle');
+        log_update_descriptions('lion');
+        external_update_descriptions('lion');
+        events_update_definition('lion');
+        \core\task\manager::reset_scheduled_tasks_for_component('lion');
+        message_update_providers('lion');
+        \core\message\inbound\manager::update_handlers_for_component('lion');
 
         // Write default settings unconditionally
         admin_apply_default_settings(NULL, true);
@@ -1554,7 +1502,7 @@ function install_core($version, $verbose) {
 }
 
 /**
- * Upgrade moodle core
+ * Upgrade lion core
  * @param float $version target version
  * @param bool $verbose
  * @return void, may throw exception
@@ -1574,7 +1522,7 @@ function upgrade_core($version, $verbose) {
         // Upgrade current language pack if we can
         upgrade_language_pack();
 
-        print_upgrade_part_start('moodle', false, $verbose);
+        print_upgrade_part_start('lion', false, $verbose);
 
         // Pre-upgrade scripts for local hack workarounds.
         $preupgradefile = "$CFG->dirroot/local/preupgrade.php";
@@ -1596,13 +1544,13 @@ function upgrade_core($version, $verbose) {
         $COURSE = clone($SITE);
 
         // perform all other component upgrade routines
-        update_capabilities('moodle');
-        log_update_descriptions('moodle');
-        external_update_descriptions('moodle');
-        events_update_definition('moodle');
-        \core\task\manager::reset_scheduled_tasks_for_component('moodle');
-        message_update_providers('moodle');
-        \core\message\inbound\manager::update_handlers_for_component('moodle');
+        update_capabilities('lion');
+        log_update_descriptions('lion');
+        external_update_descriptions('lion');
+        events_update_definition('lion');
+        \core\task\manager::reset_scheduled_tasks_for_component('lion');
+        message_update_providers('lion');
+        \core\message\inbound\manager::update_handlers_for_component('lion');
         // Update core definitions.
         cache_helper::update_definitions(true);
 
@@ -1617,18 +1565,14 @@ function upgrade_core($version, $verbose) {
         $syscontext = context_system::instance();
         $syscontext->mark_dirty();
 
-        print_upgrade_part_end('moodle', false, $verbose);
+        print_upgrade_part_end('lion', false, $verbose);
     } catch (Exception $ex) {
         upgrade_handle_exception($ex);
     }
 }
 
 /**
- * Upgrade/install other parts of moodle
- * 
- * Note:
- * Basically everthing besides core is installed here
- * Main functon is upgrade_plugins
+ * Upgrade/install other parts of lion
  * @param bool $verbose
  * @return void, may throw exception
  */
@@ -1763,19 +1707,19 @@ function upgrade_plugin_mnet_functions($component) {
             $functionreflect = null; // slightly different ways to get this depending on whether it's a class method or a function
             if (!empty($dataobject->classname)) {
                 if (!class_exists($dataobject->classname)) {
-                    throw new moodle_exception('installnosuchmethod', 'mnet', '', (object)array('method' => $dataobject->functionname, 'class' => $dataobject->classname));
+                    throw new lion_exception('installnosuchmethod', 'mnet', '', (object)array('method' => $dataobject->functionname, 'class' => $dataobject->classname));
                 }
                 $key = $dataobject->filename . '|' . $dataobject->classname;
                 if (!array_key_exists($key, $cachedclasses)) { // look to see if we've already got a reflection object
                     try {
                         $cachedclasses[$key] = Zend_Server_Reflection::reflectClass($dataobject->classname);
                     } catch (Zend_Server_Reflection_Exception $e) { // catch these and rethrow them to something more helpful
-                        throw new moodle_exception('installreflectionclasserror', 'mnet', '', (object)array('method' => $dataobject->functionname, 'class' => $dataobject->classname, 'error' => $e->getMessage()));
+                        throw new lion_exception('installreflectionclasserror', 'mnet', '', (object)array('method' => $dataobject->functionname, 'class' => $dataobject->classname, 'error' => $e->getMessage()));
                     }
                 }
                 $r =& $cachedclasses[$key];
                 if (!$r->hasMethod($dataobject->functionname)) {
-                    throw new moodle_exception('installnosuchmethod', 'mnet', '', (object)array('method' => $dataobject->functionname, 'class' => $dataobject->classname));
+                    throw new lion_exception('installnosuchmethod', 'mnet', '', (object)array('method' => $dataobject->functionname, 'class' => $dataobject->classname));
                 }
                 // stupid workaround for zend not having a getMethod($name) function
                 $ms = $r->getMethods();
@@ -1788,12 +1732,12 @@ function upgrade_plugin_mnet_functions($component) {
                 $dataobject->static = (int)$functionreflect->isStatic();
             } else {
                 if (!function_exists($dataobject->functionname)) {
-                    throw new moodle_exception('installnosuchfunction', 'mnet', '', (object)array('method' => $dataobject->functionname, 'file' => $dataobject->filename));
+                    throw new lion_exception('installnosuchfunction', 'mnet', '', (object)array('method' => $dataobject->functionname, 'file' => $dataobject->filename));
                 }
                 try {
                     $functionreflect = Zend_Server_Reflection::reflectFunction($dataobject->functionname);
                 } catch (Zend_Server_Reflection_Exception $e) { // catch these and rethrow them to something more helpful
-                    throw new moodle_exception('installreflectionfunctionerror', 'mnet', '', (object)array('method' => $dataobject->functionname, '' => $dataobject->filename, 'error' => $e->getMessage()));
+                    throw new lion_exception('installreflectionfunctionerror', 'mnet', '', (object)array('method' => $dataobject->functionname, '' => $dataobject->filename, 'error' => $e->getMessage()));
                 }
             }
             $dataobject->profile =  serialize(admin_mnet_method_profile($functionreflect));
@@ -2030,9 +1974,8 @@ function upgrade_save_orphaned_questions() {
  * usual upgrade process.
  *
  * @see backup_cron_automated_helper::remove_excess_backups()
- * @link http://tracker.moodle.org/browse/MDL-35116
+ * @link http://tracker.lion.org/browse/MDL-35116
  * @return void
- * @since Moodle 2.4
  */
 function upgrade_rename_old_backup_files_using_shortname() {
     global $CFG;
@@ -2045,7 +1988,7 @@ function upgrade_rename_old_backup_files_using_shortname() {
     require_once($CFG->dirroot.'/backup/util/includes/backup_includes.php');
     $backupword = str_replace(' ', '_', core_text::strtolower(get_string('backupfilename')));
     $backupword = trim(clean_filename($backupword), '_');
-    $filename = $backupword . '-' . backup::FORMAT_MOODLE . '-' . backup::TYPE_1COURSE . '-';
+    $filename = $backupword . '-' . backup::FORMAT_LION . '-' . backup::TYPE_1COURSE . '-';
     $regex = '#^'.preg_quote($filename, '#').'.*\.mbz$#';
     $thirtyapril = strtotime('30 April 2012 00:00');
 
@@ -2069,7 +2012,7 @@ function upgrade_rename_old_backup_files_using_shortname() {
         }
 
         // Make sure this a course backup.
-        if ($bcinfo->format !== backup::FORMAT_MOODLE || $bcinfo->type !== backup::TYPE_1COURSE) {
+        if ($bcinfo->format !== backup::FORMAT_LION || $bcinfo->type !== backup::TYPE_1COURSE) {
             continue;
         }
 

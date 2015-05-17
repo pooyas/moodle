@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Profiling tool.
  *
- * @package    tool_profiling
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage profiling
+ * @copyright  2015 Pooya Saeedi
  */
 
-// TODO: Move all the DB stuff to profiling_db_xxxx() function in xhprof_moodle.php
+// TODO: Move all the DB stuff to profiling_db_xxxx() function in xhprof_lion.php
 
 // TODO: it is wrong when core lib references ANY plugin lang strings, maybe more login could be moved here (skodak)
 
 require_once(dirname(__FILE__) . '/../../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
-require_once($CFG->libdir . '/xhprof/xhprof_moodle.php');
+require_once($CFG->libdir . '/xhprof/xhprof_lion.php');
 
 define('PROFILING_RUNSPERPAGE', 50);
 
@@ -47,7 +34,7 @@ admin_externalpage_setup('toolprofiling');
 
 // Always add listurl if available
 if ($listurl) {
-    $listurlnav = new moodle_url('/admin/tool/profiling/index.php', array('listurl' => $listurl));
+    $listurlnav = new lion_url('/admin/tool/profiling/index.php', array('listurl' => $listurl));
     $PAGE->navbar->add($listurl, $listurlnav);
 }
 

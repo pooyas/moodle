@@ -3,8 +3,9 @@
 /**
  * Visitor
  *
- * @package Less
- * @subpackage visitor
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Visitor{
 

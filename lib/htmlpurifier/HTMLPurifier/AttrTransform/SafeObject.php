@@ -2,6 +2,9 @@
 
 /**
  * Writes default type for all objects. Currently only supports flash.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_SafeObject extends HTMLPurifier_AttrTransform
 {

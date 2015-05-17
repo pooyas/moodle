@@ -1,5 +1,5 @@
 @core @core_backup
-Feature: Backup Moodle courses
+Feature: Backup Lion courses
   In order to save and store course contents
   As an admin
   I need to create backups of courses
@@ -66,4 +66,4 @@ Feature: Backup Moodle courses
     When I perform a quick backup of course "Course 2"
     Then I should see "Restore course"
     And I should see "Course backup area"
-    And I should see "backup-moodle2-course-"
+    And I should see "backup-lion2-course-"

@@ -1,5 +1,12 @@
 <!-- No config needed -->
 <?php
+
+/**
+ * @package    auth
+ * @subpackage email
+ * @copyright  2015 Pooya Saeedi
+*/
+
     // set to defaults if undefined
     if (!isset($config->recaptcha)) {
         $config->recaptcha = false;
@@ -18,12 +25,26 @@
 <tr>
     <td align="right"><label for="menurecaptcha"><?php print_string('auth_emailrecaptcha_key', 'auth_email') ?></label></td>
     <td><?php
+
+/**
+ * @package    auth
+ * @subpackage email
+ * @copyright  2015 Pooya Saeedi
+*/
+
         global $OUTPUT;
         echo html_writer::select($yesno, 'recaptcha', $config->recaptcha, false);
         ?></td>
     <td><?php print_string('auth_emailrecaptcha', 'auth_email') ?></td>
 </tr>
 <?php
+
+
+/**
+ * @package    auth
+ * @subpackage email
+ * @copyright  2015 Pooya Saeedi
+*/
 
 print_auth_lock_options($this->authtype, $user_fields, get_string('auth_fieldlocks_help', 'auth'), false, false);
 

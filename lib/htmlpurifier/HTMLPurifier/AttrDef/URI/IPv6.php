@@ -2,9 +2,11 @@
 
 /**
  * Validates an IPv6 address.
- * @author Feyd @ forums.devnetwork.net (public domain)
  * @note This function requires brackets to have been removed from address
  *       in URI.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_URI_IPv6 extends HTMLPurifier_AttrDef_URI_IPv4
 {

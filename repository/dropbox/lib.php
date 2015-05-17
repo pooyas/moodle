@@ -1,27 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This plugin is used to access user's dropbox files
  *
- * @since Moodle 2.0
- * @package    repository_dropbox
- * @copyright  2012 Marina Glancy
- * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    repository
+ * @subpackage dropbox
+ * @copyright  2015 Pooya Saeedi
  */
 require_once($CFG->dirroot . '/repository/lib.php');
 require_once(dirname(__FILE__).'/locallib.php');
@@ -29,9 +14,6 @@ require_once(dirname(__FILE__).'/locallib.php');
 /**
  * Repository to access Dropbox files
  *
- * @package    repository_dropbox
- * @copyright  2010 Dongsheng Cai
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class repository_dropbox extends repository {
     /** @var dropbox the instance of dropbox client */
@@ -40,7 +22,7 @@ class repository_dropbox extends repository {
     public $files;
     /** @var bool flag of login status */
     public $logged=false;
-    /** @var int maximum size of file to cache in moodle filepool */
+    /** @var int maximum size of file to cache in lion filepool */
     public $cachelimit=null;
 
     /** @var int cached file ttl */
@@ -81,7 +63,7 @@ class repository_dropbox extends repository {
             $this->logged = true;
         }
 
-        $callbackurl = new moodle_url($CFG->wwwroot.'/repository/repository_callback.php', array(
+        $callbackurl = new lion_url($CFG->wwwroot.'/repository/repository_callback.php', array(
             'callback'=>'yes',
             'repo_id'=>$repositoryid
             ));
@@ -116,7 +98,7 @@ class repository_dropbox extends repository {
 
 
     /**
-     * Check if moodle has got access token and secret
+     * Check if lion has got access token and secret
      *
      * @return bool
      */
@@ -238,7 +220,7 @@ class repository_dropbox extends repository {
             } else {
                 $thumbnail = null;
                 if ($file->thumb_exists) {
-                    $thumburl = new moodle_url('/repository/dropbox/thumbnail.php',
+                    $thumburl = new lion_url('/repository/dropbox/thumbnail.php',
                             array('repo_id' => $this->id,
                                 'ctx_id' => $this->context->id,
                                 'source' => $file->path,
@@ -410,7 +392,7 @@ class repository_dropbox extends repository {
     /**
      * Downloads a file from external repository and saves it in temp dir
      *
-     * @throws moodle_exception when file could not be downloaded
+     * @throws lion_exception when file could not be downloaded
      *
      * @param string $reference the content of files.reference field or result of
      * function {@link repository_dropbox::get_file_reference()}
@@ -433,16 +415,16 @@ class repository_dropbox extends repository {
             $result = $c->download_one($url, null, array('filepath' => $saveas, 'timeout' => $CFG->repositorygetfiletimeout, 'followlocation' => true));
             $info = $c->get_info();
             if ($result !== true || !isset($info['http_code']) || $info['http_code'] != 200) {
-                throw new moodle_exception('errorwhiledownload', 'repository', '', $result);
+                throw new lion_exception('errorwhiledownload', 'repository', '', $result);
             }
             return array('path'=>$saveas, 'url'=>$url);
         }
-        throw new moodle_exception('cannotdownload', 'repository');
+        throw new lion_exception('cannotdownload', 'repository');
     }
     /**
-     * Add Plugin settings input to Moodle form
+     * Add Plugin settings input to Lion form
      *
-     * @param moodleform $mform Moodle form (passed by reference)
+     * @param lionform $mform Lion form (passed by reference)
      * @param string $classname repository class name
      */
     public static function type_config_form($mform, $classname = 'repository') {
@@ -535,7 +517,7 @@ class repository_dropbox extends repository {
         $reference->access_secret = get_user_preferences($this->setting.'_access_secret', '');
 
         // by API we don't know if we need this reference to just download a file from dropbox
-        // into moodle filepool or create a reference. Since we need to create a shared link
+        // into lion filepool or create a reference. Since we need to create a shared link
         // only in case of reference we analyze the script parameter
         $usefilereference = optional_param('usefilereference', false, PARAM_BOOL);
         if ($usefilereference) {
@@ -651,7 +633,7 @@ class repository_dropbox extends repository {
     }
 
     /**
-     * Returns the maximum size of the Dropbox files to cache in moodle
+     * Returns the maximum size of the Dropbox files to cache in lion
      *
      * Note that {@link repository_dropbox::sync_reference()} will try to cache images even
      * when they are bigger in order to generate thumbnails. However there is
@@ -693,7 +675,7 @@ class repository_dropbox extends repository {
             }
             $options['sendcachedexternalfile'] = true;
             send_stored_file($storedfile, $lifetime, $filter, $forcedownload, $options);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             // redirect to Dropbox, it will show the error.
             // We redirect to Dropbox shared link, not to download link here!
             header('Location: '.$ref->url);
@@ -702,7 +684,7 @@ class repository_dropbox extends repository {
     }
 
     /**
-     * Caches all references to Dropbox files in moodle filepool
+     * Caches all references to Dropbox files in lion filepool
      *
      * Invoked by {@link repository_dropbox_cron()}. Only files smaller than
      * {@link repository_dropbox::max_cache_bytes()} and only files which
@@ -716,7 +698,7 @@ class repository_dropbox extends repository {
                 // This call will cache all files that are smaller than max_cache_bytes()
                 // and synchronise file size of all others
                 $this->import_external_file_contents($file, $this->max_cache_bytes());
-            } catch (moodle_exception $e) {}
+            } catch (lion_exception $e) {}
         }
     }
 }

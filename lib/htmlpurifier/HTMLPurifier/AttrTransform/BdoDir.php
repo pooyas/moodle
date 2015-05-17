@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // this MUST be placed in post, as it assumes that any value in dir is valid
 
 /**

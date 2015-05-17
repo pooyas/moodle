@@ -1,7 +1,7 @@
 {
-    "name": "moodle-course-formatchooser",
+    "name": "lion-course-formatchooser",
     "builds": {
-        "moodle-course-formatchooser": {
+        "lion-course-formatchooser": {
             "jsfiles": [
                 "formatchooser.js"
             ]

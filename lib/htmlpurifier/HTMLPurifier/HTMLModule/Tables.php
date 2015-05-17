@@ -2,6 +2,9 @@
 
 /**
  * XHTML 1.1 Tables Module, fully defines accessible table elements.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Tables extends HTMLPurifier_HTMLModule
 {

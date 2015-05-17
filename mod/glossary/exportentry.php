@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once('../../config.php');
 require_once('lib.php');
 
@@ -8,7 +15,7 @@ $confirm  = optional_param('confirm', 0, PARAM_BOOL); // export confirmation
 $prevmode = required_param('prevmode', PARAM_ALPHA);
 $hook     = optional_param('hook', '', PARAM_CLEAN);
 
-$url = new moodle_url('/mod/glossary/exportentry.php', array('id'=>$id,'prevmode'=>$prevmode));
+$url = new lion_url('/mod/glossary/exportentry.php', array('id'=>$id,'prevmode'=>$prevmode));
 if ($confirm !== 0) {
     $url->param('confirm', $confirm);
 }
@@ -95,7 +102,7 @@ if (!data_submitted() or !$confirm or !confirm_sesskey()) {
     $optionsyes = array('id'=>$entry->id, 'confirm'=>1, 'sesskey'=>sesskey(), 'prevmode'=>$prevmode, 'hook'=>$hook);
     $optionsno  = array('id'=>$cm->id, 'mode'=>$prevmode, 'hook'=>$hook);
 
-    echo $OUTPUT->confirm($areyousure, new moodle_url($linkyes, $optionsyes), new moodle_url($linkno, $optionsno));
+    echo $OUTPUT->confirm($areyousure, new lion_url($linkyes, $optionsyes), new lion_url($linkno, $optionsno));
     echo '</div>';
     echo $OUTPUT->footer();
     die;

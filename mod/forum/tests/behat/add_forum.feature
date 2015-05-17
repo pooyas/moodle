@@ -2,7 +2,7 @@
 Feature: Add forum activities and discussions
   In order to discuss topics with other users
   As a teacher
-  I need to add forum activities to moodle courses
+  I need to add forum activities to lion courses
 
   @javascript
   Scenario: Add a forum and a discussion attaching files

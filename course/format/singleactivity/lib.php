@@ -1,36 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains main class for the course format singleactivity
  *
- * @package    format_singleactivity
- * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    course_format
+ * @subpackage singleactivity
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->dirroot. '/course/format/lib.php');
 
 /**
  * Main class for the singleactivity course format
  *
- * @package    format_singleactivity
- * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class format_singleactivity extends format_base {
     /** @var cm_info the current activity. Use get_activity() to retrieve it. */
@@ -44,7 +28,7 @@ class format_singleactivity extends format_base {
      * @param array $options options for view URL. At the moment core uses:
      *     'navigation' (bool) if true and section has no separate page, the function returns null
      *     'sr' (int) used by multipage formats to specify to which section to return
-     * @return null|moodle_url
+     * @return null|lion_url
      */
     public function get_view_url($section, $options = array()) {
         $sectionnum = $section;
@@ -52,12 +36,12 @@ class format_singleactivity extends format_base {
             $sectionnum = $section->section;
         }
         if ($sectionnum == 1) {
-            return new moodle_url('/course/view.php', array('id' => $this->courseid, 'section' => 1));
+            return new lion_url('/course/view.php', array('id' => $this->courseid, 'section' => 1));
         }
         if (!empty($options['navigation']) && $section !== null) {
             return null;
         }
-        return new moodle_url('/course/view.php', array('id' => $this->courseid));
+        return new lion_url('/course/view.php', array('id' => $this->courseid));
     }
 
     /**
@@ -69,7 +53,7 @@ class format_singleactivity extends format_base {
     public function extend_course_navigation($navigation, navigation_node $node) {
         // Display orphaned activities for the users who can see them.
         $context = context_course::instance($this->courseid);
-        if (has_capability('moodle/course:viewhiddensections', $context)) {
+        if (has_capability('lion/course:viewhiddensections', $context)) {
             $modinfo = get_fast_modinfo($this->courseid);
             if (!empty($modinfo->sections[1])) {
                 $section1 = $modinfo->get_section_info(1);
@@ -79,7 +63,7 @@ class format_singleactivity extends format_base {
                 $orphanednode->nodetype = navigation_node::NODETYPE_BRANCH;
                 $orphanednode->add_class('orphaned');
                 foreach ($modinfo->sections[1] as $cmid) {
-                    if (has_capability('moodle/course:viewhiddenactivities', context_module::instance($cmid))) {
+                    if (has_capability('lion/course:viewhiddenactivities', context_module::instance($cmid))) {
                         $this->navigation_add_activity($orphanednode, $modinfo->cms[$cmid]);
                     }
                 }
@@ -177,7 +161,7 @@ class format_singleactivity extends format_base {
      *
      * Format singleactivity adds a warning when format of the course is about to be changed.
      *
-     * @param MoodleQuickForm $mform form the elements are added to
+     * @param LionQuickForm $mform form the elements are added to
      * @param bool $forsection 'true' if this is a section edit form, 'false' if this is course edit form
      * @return array array of references to the added form elements
      */
@@ -319,7 +303,7 @@ class format_singleactivity extends format_base {
         if (!($modname = $this->get_activitytype())) {
             return false;
         }
-        if (!has_capability('moodle/course:manageactivities', context_course::instance($this->courseid))) {
+        if (!has_capability('lion/course:manageactivities', context_course::instance($this->courseid))) {
             return false;
         }
         if (!course_allowed_module($this->get_course(), $modname)) {
@@ -351,7 +335,7 @@ class format_singleactivity extends format_base {
     }
 
     /**
-     * Allows course format to execute code on moodle_page::set_course()
+     * Allows course format to execute code on lion_page::set_course()
      *
      * This function is executed before the output starts.
      *
@@ -361,16 +345,16 @@ class format_singleactivity extends format_base {
      * "Section 1" is the administrative page to manage orphaned activities
      *
      * If user is on course view page and there is no module added to the course
-     * and the user has 'moodle/course:manageactivities' capability, redirect to create module
+     * and the user has 'lion/course:manageactivities' capability, redirect to create module
      * form.
      *
-     * @param moodle_page $page instance of page calling set_course
+     * @param lion_page $page instance of page calling set_course
      */
-    public function page_set_course(moodle_page $page) {
+    public function page_set_course(lion_page $page) {
         global $PAGE;
         $page->add_body_class('format-'. $this->get_format());
         if ($PAGE == $page && $page->has_set_url() &&
-                $page->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
+                $page->url->compare(new lion_url('/course/view.php'), URL_MATCH_BASE)) {
             $edit = optional_param('edit', -1, PARAM_BOOL);
             if (($edit == 0 || $edit == 1) && confirm_sesskey()) {
                 // This is a request to turn editing mode on or off, do not redirect here, /course/view.php will do redirection.
@@ -378,15 +362,15 @@ class format_singleactivity extends format_base {
             }
             $cm = $this->get_activity();
             $cursection = optional_param('section', null, PARAM_INT);
-            if (!empty($cursection) && has_capability('moodle/course:viewhiddensections',
+            if (!empty($cursection) && has_capability('lion/course:viewhiddensections',
                     context_course::instance($this->courseid))) {
                 // Display orphaned activities (course view page, section 1).
                 return;
             }
             if (!$this->get_activitytype()) {
-                if (has_capability('moodle/course:update', context_course::instance($this->courseid))) {
+                if (has_capability('lion/course:update', context_course::instance($this->courseid))) {
                     // Teacher is redirected to edit course page.
-                    $url = new moodle_url('/course/edit.php', array('id' => $this->courseid));
+                    $url = new lion_url('/course/edit.php', array('id' => $this->courseid));
                     redirect($url, get_string('erroractivitytype', 'format_singleactivity'));
                 } else {
                     // Student sees an empty course page.
@@ -401,12 +385,12 @@ class format_singleactivity extends format_base {
                         if (optional_param('addactivity', 0, PARAM_INT)) {
                             return;
                         } else {
-                            $url = new moodle_url('/course/view.php', array('id' => $this->courseid, 'addactivity' => 1));
+                            $url = new lion_url('/course/view.php', array('id' => $this->courseid, 'addactivity' => 1));
                             redirect($url);
                         }
                     }
                     // Redirect to the add activity form.
-                    $url = new moodle_url('/course/mod.php', array('id' => $this->courseid,
+                    $url = new lion_url('/course/mod.php', array('id' => $this->courseid,
                         'section' => 0, 'sesskey' => sesskey(), 'add' => $this->get_activitytype()));
                     redirect($url);
                 } else {
@@ -425,14 +409,14 @@ class format_singleactivity extends format_base {
     }
 
     /**
-     * Allows course format to execute code on moodle_page::set_cm()
+     * Allows course format to execute code on lion_page::set_cm()
      *
      * If we are inside the main module for this course, remove extra node level
      * from navigation: substitute course node with activity node, move all children
      *
-     * @param moodle_page $page instance of page calling set_cm
+     * @param lion_page $page instance of page calling set_cm
      */
-    public function page_set_cm(moodle_page $page) {
+    public function page_set_cm(lion_page $page) {
         global $PAGE;
         parent::page_set_cm($page);
         if ($PAGE == $page && ($cm = $this->get_activity()) &&

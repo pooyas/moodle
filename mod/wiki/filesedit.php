@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Manage files in wiki
  *
- * @package   mod_wiki
- * @copyright 2011 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
@@ -63,14 +50,14 @@ if (empty($returnurl)) {
     if (!empty($_SERVER["HTTP_REFERER"])) {
         $returnurl = $_SERVER["HTTP_REFERER"];
     } else {
-        $returnurl = new moodle_url('/mod/wiki/files.php', array('subwiki'=>$subwiki->id));
+        $returnurl = new lion_url('/mod/wiki/files.php', array('subwiki'=>$subwiki->id));
     }
 }
 
 $title = get_string('editfiles', 'wiki');
 
 $struser = get_string('user');
-$url = new moodle_url('/mod/wiki/filesedit.php', array('subwiki'=>$subwiki->id, 'pageid'=>$pageid));
+$url = new lion_url('/mod/wiki/filesedit.php', array('subwiki'=>$subwiki->id, 'pageid'=>$pageid));
 $PAGE->set_url($url);
 $PAGE->set_context($context);
 $PAGE->set_title($title);

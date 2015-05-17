@@ -1,6 +1,13 @@
 <?php
 
 
+
+/**
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
+*/
+
 # See diff.doc
 
 // A PHP diff engine for phpwiki. (Taken from phpwiki-1.3.3)
@@ -101,7 +108,6 @@ class _WikiDiffOp_Change extends _WikiDiffOp {
  * closingly, some ideas (subdivision by NCHUNKS > 2, and some optimizations)
  * are my own.
  *
- * @author Geoffrey T. Dairiki
  * @access private
  */
 class _WikiDiffEngine

@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //
 // NOTICE OF COPYRIGHT
 //
@@ -12,23 +19,10 @@
 //
 // Modifications:
 //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment
-//          http://moodle.com
+// Lion - Modular Object-Oriented Dynamic Learning Environment
+//          http://lion.com
 //
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 //
 
 /**
@@ -41,13 +35,10 @@
  * (see function definition for more info)
  *
  * Major Contributors
- *  - Martin Dougiamas  {@link http://moodle.com}
+ *  - Martin Dougiamas  {@link http://lion.com}
  *  - Eloy Lafuente (stronk7) {@link http://contiento.com}
  *  - Antonio Vicent          {@link http://ludens.es}
  *
- * @package   moodlecore
- * @copyright (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**

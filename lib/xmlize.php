@@ -9,21 +9,18 @@
  * on my part is to blame for the credit these people aren't receiving.
  * None of the code was copyrighted, though.
  *
- * @package core
- * @subpackage lib
- * @author Hans Anderson
  * @version This is a stable release, 1.0.  I don't foresee any changes, but you
  * might check {@link http://www.hansanderson.com/php/xml/} to see
- * @copyright Hans Anderson
- * @license Feel Free To Use it However
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Exception thrown when there is an error parsing an XML file.
  *
- * @copyright 2010 The Open University
  */
-class xml_format_exception extends moodle_exception {
+class xml_format_exception extends lion_exception {
     /** @var string */
     public $errorstring;
     public $line;
@@ -204,7 +201,6 @@ function xml_depth($vals, &$i) {
  * traverse_xmlize($xml, 'xml_');
  * print '<pre>' . implode("", $traverse_array . '</pre>';
  * </code>
- * @author acebone@f2s.com
  * @param array $array ?
  * @param string $arrName ?
  * @param int $level ?

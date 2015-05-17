@@ -1,32 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The user screen.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace gradereport_singleview\local\screen;
 
 use grade_seq;
 use gradereport_singleview;
-use moodle_url;
+use lion_url;
 use pix_icon;
 use html_writer;
 use gradereport_singleview\local\ui\range;
@@ -35,14 +22,11 @@ use grade_item;
 use grade_grade;
 use stdClass;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * The user screen.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class user extends tablelike implements selectable_items {
 
@@ -202,7 +186,7 @@ class user extends tablelike implements selectable_items {
 
         $itemlabel = $item->get_name();
         if (!empty($realmodid)) {
-            $url = new moodle_url('/mod/' . $item->itemmodule . '/view.php', array('id' => $realmodid));
+            $url = new lion_url('/mod/' . $item->itemmodule . '/view.php', array('id' => $realmodid));
             $itemlabel = html_writer::link($url, $item->get_name());
         }
 
@@ -310,7 +294,7 @@ class user extends tablelike implements selectable_items {
 
         return $OUTPUT->paging_bar(
             count($this->items), $this->page, $this->perpage,
-            new moodle_url('/grade/report/singleview/index.php', array(
+            new lion_url('/grade/report/singleview/index.php', array(
                 'perpage' => $this->perpage,
                 'id' => $this->courseid,
                 'group' => $this->groupid,

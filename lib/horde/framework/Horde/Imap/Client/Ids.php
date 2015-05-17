@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * An object that provides a way to identify a list of IMAP indices.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  *
  * @property-read boolean $all  Does this represent an ALL message set?
  * @property-read array $ids  The list of IDs.
@@ -187,7 +183,6 @@ class Horde_Imap_Client_Ids implements Countable, Iterator, Serializable
     /**
      * Removed IDs from the current object.
      *
-     * @since 2.17.0
      *
      * @param mixed $ids  Either Horde_Imap_Client_Ids object, array, or
      *                    sequence string.
@@ -234,7 +229,6 @@ class Horde_Imap_Client_Ids implements Countable, Iterator, Serializable
     /**
      * Split the sequence string at an approximate length.
      *
-     * @since 2.7.0
      *
      * @param integer $length  Length to split.
      *

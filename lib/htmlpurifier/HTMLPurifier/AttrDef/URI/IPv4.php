@@ -2,7 +2,9 @@
 
 /**
  * Validates an IPv4 address
- * @author Feyd @ forums.devnetwork.net (public domain)
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_URI_IPv4 extends HTMLPurifier_AttrDef
 {

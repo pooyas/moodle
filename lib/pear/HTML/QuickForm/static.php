@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,8 +30,7 @@ require_once("HTML/QuickForm/element.php");
 
 /**
  * HTML class for static data
- * 
- * @author       Wojciech Gdela <eltehaem@poczta.onet.pl>
+ *
  * @access       public
  */
 class HTML_QuickForm_static extends HTML_QuickForm_element {
@@ -153,7 +159,6 @@ class HTML_QuickForm_static extends HTML_QuickForm_element {
      * @param     string    $event  Name of event
      * @param     mixed     $arg    event arguments
      * @param     object    $caller calling object
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    

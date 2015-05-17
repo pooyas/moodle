@@ -1,38 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for the HTMLPurifier integration
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * HTMLPurifier test case
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_htmlpurifier_testcase extends basic_testcase {
 
@@ -40,12 +24,12 @@ class core_htmlpurifier_testcase extends basic_testcase {
      * Verify _blank target is allowed.
      */
     public function test_allow_blank_target() {
-        $text = '<a href="http://moodle.org" target="_blank">Some link</a>';
+        $text = '<a href="http://lion.org" target="_blank">Some link</a>';
         $result = format_text($text, FORMAT_HTML);
         $this->assertSame($text, $result);
 
-        $result = format_text('<a href="http://moodle.org" target="some">Some link</a>', FORMAT_HTML);
-        $this->assertSame('<a href="http://moodle.org">Some link</a>', $result);
+        $result = format_text('<a href="http://lion.org" target="some">Some link</a>', FORMAT_HTML);
+        $this->assertSame('<a href="http://lion.org">Some link</a>', $result);
     }
 
     /**
@@ -288,7 +272,7 @@ class core_htmlpurifier_testcase extends basic_testcase {
         $text = '<a href="mailto:user@example.com">link</a>';
         $this->assertSame($text, purify_html($text));
 
-        // Extra schemes allowed in moodle.
+        // Extra schemes allowed in lion.
         $text = '<a href="irc://irc.example.com/3213?pass">link</a>';
         $this->assertSame($text, purify_html($text));
 

@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains all the class definitions of the export formats.
@@ -20,24 +7,21 @@
  * They are implemented in php classes rather than just a simpler hash
  * Because it provides an easy way to do subtyping using php inheritance.
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
  *                 Martin Dougiamas <http://dougiamas.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Base class to inherit from.
  *
  * Do not use this anywhere in supported_formats
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
  *                 Martin Dougiamas <http://dougiamas.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
 abstract class portfolio_format {
@@ -139,10 +123,7 @@ abstract class portfolio_format {
 /**
  * The most basic type - pretty much everything is a subtype
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Penny Leach <penny@catalyst.net.nz>, Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_file extends portfolio_format {
 
@@ -186,10 +167,7 @@ class portfolio_format_file extends portfolio_format {
 /**
  * Image format, subtype of file.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_image extends portfolio_format_file {
     /**
@@ -229,10 +207,7 @@ class portfolio_format_image extends portfolio_format_file {
  *
  * Could be used for an external cms or something in case we want to be really specific.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_plainhtml extends portfolio_format_file {
 
@@ -273,10 +248,7 @@ class portfolio_format_plainhtml extends portfolio_format_file {
  *
  * For portfolio plugins that support videos specifically
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_video extends portfolio_format_file {
 
@@ -296,10 +268,7 @@ class portfolio_format_video extends portfolio_format_file {
  * Not sure why we would need this yet,
  * but since resource module wants to export it... we can
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_text extends portfolio_format_file {
 
@@ -340,10 +309,7 @@ class portfolio_format_text extends portfolio_format_file {
  *
  * These are multipart - eg things with attachments
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class portfolio_format_rich extends portfolio_format {
 
@@ -364,10 +330,7 @@ abstract class portfolio_format_rich extends portfolio_format {
  * The most commonly used rich format
  * eg inline images
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_richhtml extends portfolio_format_rich {
 
@@ -431,10 +394,7 @@ class portfolio_format_richhtml extends portfolio_format_rich {
 /**
  * Class used for leap2a format
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Penny Leach
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_leap2a extends portfolio_format_rich {
 
@@ -514,7 +474,7 @@ class portfolio_format_leap2a extends portfolio_format_rich {
 }
 
 
-// later.... a moodle plugin might support this.
+// later.... a lion plugin might support this.
 // it's commented out in portfolio_supported_formats so cannot currently be used.
 //class portfolio_format_mbkp extends portfolio_format_rich {}
 
@@ -523,10 +483,7 @@ class portfolio_format_leap2a extends portfolio_format_rich {
  *
  * For portfolio plugins that support PDFs specifically.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_pdf extends portfolio_format_file {
 
@@ -545,10 +502,7 @@ class portfolio_format_pdf extends portfolio_format_file {
  *
  * For portfolio plugins that support documents specifically.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_document extends portfolio_format_file {
 
@@ -567,10 +521,7 @@ class portfolio_format_document extends portfolio_format_file {
  *
  * For portfolio plugins that support spreadsheets specifically.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_spreadsheet extends portfolio_format_file {
 
@@ -589,10 +540,7 @@ class portfolio_format_spreadsheet extends portfolio_format_file {
  *
  * For portfolio plugins that support presentation specifically.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2009 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_format_presentation extends portfolio_format_file {
 

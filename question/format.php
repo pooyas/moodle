@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines the base class for question import and export formats.
  *
- * @package    moodlecore
- * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage question
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Base class for question import and export formats.
  *
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_default {
 
@@ -123,7 +107,7 @@ class qformat_default {
 
     /**
      * set the course class variable
-     * @param course object Moodle course variable
+     * @param course object Lion course variable
      */
     public function setCourse($course) {
         $this->course = $course;
@@ -131,7 +115,7 @@ class qformat_default {
 
     /**
      * set an array of contexts.
-     * @param array $contexts Moodle course variable
+     * @param array $contexts Lion course variable
      */
     public function setContexts($contexts) {
         $this->contexts = $contexts;
@@ -501,7 +485,7 @@ class qformat_default {
 
         if ($this->contextfromfile && $contextid !== false) {
             $context = context::instance_by_id($contextid);
-            require_capability('moodle/question:add', $context);
+            require_capability('lion/question:add', $context);
         } else {
             $context = context::instance_by_id($this->category->contextid);
         }
@@ -513,7 +497,7 @@ class qformat_default {
                     array('name' => $catname, 'contextid' => $context->id, 'parent' => $parent))) {
                 $parent = $category->id;
             } else {
-                require_capability('moodle/question:managecategory', $context);
+                require_capability('lion/question:managecategory', $context);
                 // create the new category
                 $category = new stdClass();
                 $category->contextid = $context->id;
@@ -618,9 +602,9 @@ class qformat_default {
         $question->image = "";
         $question->usecase = 0;
         $question->multiplier = array();
-        $question->questiontextformat = FORMAT_MOODLE;
+        $question->questiontextformat = FORMAT_LION;
         $question->generalfeedback = '';
-        $question->generalfeedbackformat = FORMAT_MOODLE;
+        $question->generalfeedbackformat = FORMAT_LION;
         $question->correctfeedback = '';
         $question->partiallycorrectfeedback = '';
         $question->incorrectfeedback = '';
@@ -688,7 +672,7 @@ class qformat_default {
     /**
      * Given the data known to define a question in
      * this format, this function converts it into a question
-     * object suitable for processing and insertion into Moodle.
+     * object suitable for processing and insertion into Lion.
      *
      * If your format does not use blank lines to delimit questions
      * (e.g. an XML format) you must override 'readquestions' too
@@ -968,7 +952,7 @@ class qformat_based_on_xml extends qformat_default {
     }
 
     /**
-     * Return the array moodle is expecting
+     * Return the array lion is expecting
      * for an HTML text. No processing is done on $text.
      * qformat classes that want to process $text
      * for instance to import external images files

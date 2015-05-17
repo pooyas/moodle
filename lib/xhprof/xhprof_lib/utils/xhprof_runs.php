@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //
 //  Copyright (c) 2009 Facebook
 //
@@ -27,7 +34,6 @@
  * namely XHProfRuns_Default, of this interface or define
  * their own implementation.
  *
- * @author Kannan
  */
 interface iXHProfRuns {
 
@@ -63,7 +69,6 @@ interface iXHProfRuns {
  * It stores/retrieves runs to/from a filesystem directory
  * specified by the "xhprof.output_dir" ini parameter.
  *
- * @author Kannan
  */
 class XHProfRuns_Default implements iXHProfRuns {
 

@@ -4,6 +4,9 @@
  * Definition cache decorator class that saves all cache retrievals
  * to PHP's memory; good for unit tests or circumstances where
  * there are lots of configuration objects floating around.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_DefinitionCache_Decorator_Memory extends HTMLPurifier_DefinitionCache_Decorator
 {

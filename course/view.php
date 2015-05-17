@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //  Display the course home page.
 
     require_once('../config.php');
@@ -61,7 +68,7 @@
     // Switchrole - sanity check in cost-order...
     $reset_user_allowed_editing = false;
     if ($switchrole > 0 && confirm_sesskey() &&
-        has_capability('moodle/role:switchroles', $context)) {
+        has_capability('lion/role:switchroles', $context)) {
         // is this role assignable in this context?
         // inquiring minds want to know...
         $aroles = get_switchable_roles($context);
@@ -107,7 +114,7 @@
             // Note: We actually already know they don't have this capability
             // or uservisible would have been true; this is just to get the
             // correct error message shown.
-            require_capability('moodle/course:viewhiddensections', $context);
+            require_capability('lion/course:viewhiddensections', $context);
         }
     }
 
@@ -115,12 +122,12 @@
     $course->format = course_get_format($course)->get_format();
 
     $PAGE->set_pagetype('course-view-' . $course->format);
-    $PAGE->set_other_editing_capability('moodle/course:update');
-    $PAGE->set_other_editing_capability('moodle/course:manageactivities');
-    $PAGE->set_other_editing_capability('moodle/course:activityvisibility');
+    $PAGE->set_other_editing_capability('lion/course:update');
+    $PAGE->set_other_editing_capability('lion/course:manageactivities');
+    $PAGE->set_other_editing_capability('lion/course:activityvisibility');
     if (course_format_uses_sections($course->format)) {
-        $PAGE->set_other_editing_capability('moodle/course:sectionvisibility');
-        $PAGE->set_other_editing_capability('moodle/course:movesections');
+        $PAGE->set_other_editing_capability('lion/course:sectionvisibility');
+        $PAGE->set_other_editing_capability('lion/course:movesections');
     }
 
     // Preload course format renderer before output starts.
@@ -152,7 +159,7 @@
             } else if (!empty($return)) {
                 redirect($CFG->wwwroot . $return);
             } else {
-                $url = new moodle_url($PAGE->url, array('notifyeditingon' => 1));
+                $url = new lion_url($PAGE->url, array('notifyeditingon' => 1));
                 redirect($url);
             }
         } else if (($edit == 0) and confirm_sesskey()) {
@@ -176,7 +183,7 @@
             set_user_preference('usemodchooser', $modchooser);
         }
 
-        if (has_capability('moodle/course:sectionvisibility', $context)) {
+        if (has_capability('lion/course:sectionvisibility', $context)) {
             if ($hide && confirm_sesskey()) {
                 set_section_visible($course->id, $hide, '0');
                 redirect($PAGE->url);
@@ -189,7 +196,7 @@
         }
 
         if (!empty($section) && !empty($move) &&
-                has_capability('moodle/course:movesections', $context) && confirm_sesskey()) {
+                has_capability('lion/course:movesections', $context) && confirm_sesskey()) {
             $destsection = $section + $move;
             if (move_section_to($course, $section, $destsection)) {
                 if ($course->id == SITEID) {
@@ -235,9 +242,9 @@
     if ($section and $section > 0 and course_format_uses_sections($course->format)) {
         $sectionname = get_string('sectionname', "format_$course->format");
         $sectiontitle = get_section_name($course, $section);
-        $PAGE->set_title(get_string('coursesectiontitle', 'moodle', array('course' => $course->fullname, 'sectiontitle' => $sectiontitle, 'sectionname' => $sectionname)));
+        $PAGE->set_title(get_string('coursesectiontitle', 'lion', array('course' => $course->fullname, 'sectiontitle' => $sectiontitle, 'sectionname' => $sectionname)));
     } else {
-        $PAGE->set_title(get_string('coursetitle', 'moodle', array('course' => $course->fullname)));
+        $PAGE->set_title(get_string('coursetitle', 'lion', array('course' => $course->fullname)));
     }
 
     $PAGE->set_heading($course->fullname);

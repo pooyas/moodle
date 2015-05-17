@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Handles displaying the calendar upcoming events block.
  *
- * @package    block_calendar_upcoming
- * @copyright  2004 Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage calendar_upcoming
+ * @copyright  2015 Pooya Saeedi
  */
 class block_calendar_upcoming extends block_base {
 
@@ -57,7 +44,7 @@ class block_calendar_upcoming extends block_base {
                                      '/calendar/view.php?view=upcoming&amp;course='.$courseshown.'">'.
                                       get_string('gotocalendar', 'calendar').'</a>...</div>';
             $context = context_course::instance($courseshown);
-            if (has_any_capability(array('moodle/calendar:manageentries', 'moodle/calendar:manageownentries'), $context)) {
+            if (has_any_capability(array('lion/calendar:manageentries', 'lion/calendar:manageownentries'), $context)) {
                 $this->content->footer .= '<div class="newevent"><a href="'.$CFG->wwwroot.
                                           '/calendar/event.php?action=new&amp;course='.$courseshown.'">'.
                                            get_string('newevent', 'calendar').'</a>...</div>';

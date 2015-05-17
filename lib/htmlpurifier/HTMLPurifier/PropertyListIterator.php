@@ -2,6 +2,9 @@
 
 /**
  * Property list iterator. Do not instantiate this class directly.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_PropertyListIterator extends FilterIterator
 {

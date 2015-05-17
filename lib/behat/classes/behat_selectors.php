@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Moodle-specific selectors.
+ * Lion-specific selectors.
  *
- * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Moodle selectors manager.
+ * Lion selectors manager.
  *
- * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_selectors {
 
@@ -87,11 +71,11 @@ class behat_selectors {
      * Behat by default comes with XPath, CSS and named selectors,
      * named selectors are a mapping between names (like button) and
      * xpaths that represents that names and includes a placeholder that
-     * will be replaced by the locator. These are Moodle's own xpaths.
+     * will be replaced by the locator. These are Lion's own xpaths.
      *
-     * @var XPaths for moodle elements.
+     * @var XPaths for lion elements.
      */
-    protected static $moodleselectors = array(
+    protected static $lionselectors = array(
         'activity' => <<<XPATH
 .//li[contains(concat(' ', normalize-space(@class), ' '), ' activity ')][normalize-space(.) = %locator% ]
 XPATH
@@ -102,9 +86,9 @@ XPATH
      @aria-label = %locator%)]
 XPATH
         , 'dialogue' => <<<XPATH
-.//div[contains(concat(' ', normalize-space(@class), ' '), ' moodle-dialogue ') and
+.//div[contains(concat(' ', normalize-space(@class), ' '), ' lion-dialogue ') and
     normalize-space(descendant::div[
-        contains(concat(' ', normalize-space(@class), ' '), ' moodle-dialogue-hd ')
+        contains(concat(' ', normalize-space(@class), ' '), ' lion-dialogue-hd ')
         ]) = %locator%] |
 .//div[contains(concat(' ', normalize-space(@class), ' '), ' yui-dialog ') and
     normalize-space(descendant::div[@class='hd']) = %locator%]
@@ -142,9 +126,9 @@ XPATH
     );
 
     /**
-     * Returns the behat selector and locator for a given moodle selector and locator
+     * Returns the behat selector and locator for a given lion selector and locator
      *
-     * @param string $selectortype The moodle selector type, which includes moodle selectors
+     * @param string $selectortype The lion selector type, which includes lion selectors
      * @param string $element The locator we look for in that kind of selector
      * @param Session $session The Mink opened session
      * @return array Contains the selector and the locator expected by Mink.
@@ -165,14 +149,14 @@ XPATH
     }
 
     /**
-     * Adds moodle selectors as behat named selectors.
+     * Adds lion selectors as behat named selectors.
      *
      * @param Session $session The mink session
      * @return void
      */
-    public static function register_moodle_selectors(Behat\Mink\Session $session) {
+    public static function register_lion_selectors(Behat\Mink\Session $session) {
 
-        foreach (self::get_moodle_selectors() as $name => $xpath) {
+        foreach (self::get_lion_selectors() as $name => $xpath) {
             $session->getSelectorsHandler()->getSelector('named')->registerNamedXpath($name, $xpath);
         }
     }
@@ -196,11 +180,11 @@ XPATH
     }
 
     /**
-     * Moodle selectors attribute accessor.
+     * Lion selectors attribute accessor.
      *
      * @return array
      */
-    protected static function get_moodle_selectors() {
-        return self::$moodleselectors;
+    protected static function get_lion_selectors() {
+        return self::$lionselectors;
     }
 }

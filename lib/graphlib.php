@@ -24,17 +24,17 @@
  *
  * @package    core
  * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /* This file contains modifications by Martin Dougiamas
- * as part of Moodle (http://moodle.com).  Modified lines
- * are marked with "Moodle".
+ * as part of Lion (http://lion.com).  Modified lines
+ * are marked with "Lion".
  */
 
 /**
- * @package moodlecore
  */
 class graph {
   var $image;
@@ -157,7 +157,7 @@ class graph {
     // init all text - title, labels, and axis text.
     function init() {
 
-      /// Moodle mods:  overrides the font path and encodings
+      /// Lion mods:  overrides the font path and encodings
 
       global $CFG;
 
@@ -183,7 +183,7 @@ class graph {
 
       $this->parameter['path_to_fonts'] = $fontpath;
 
-      /// End Moodle mods
+      /// End Lion mods
 
 
 
@@ -307,13 +307,13 @@ class graph {
         //print "$thisX, $thisY <br />";
 
         if (($bar!='none') && (string)$thisY != 'none') {
-            if ($relatedset = $this->offset_relation[$set]) {                               // Moodle
-                $yoffset = $this->calculated['y_plot'][$relatedset][$index];                // Moodle
-            } else {                                                                        // Moodle
-                $yoffset = 0;                                                               // Moodle
-            }                                                                               // Moodle
-            //$this->bar($thisX, $thisY, $bar, $barSize, $colour, $offset, $set);           // Moodle
-            $this->bar($thisX, $thisY, $bar, $barSize, $colour, $offset, $set, $yoffset);   // Moodle
+            if ($relatedset = $this->offset_relation[$set]) {                               // Lion
+                $yoffset = $this->calculated['y_plot'][$relatedset][$index];                // Lion
+            } else {                                                                        // Lion
+                $yoffset = 0;                                                               // Lion
+            }                                                                               // Lion
+            //$this->bar($thisX, $thisY, $bar, $barSize, $colour, $offset, $set);           // Lion
+            $this->bar($thisX, $thisY, $bar, $barSize, $colour, $offset, $set, $yoffset);   // Lion
         }
 
         if (($area!='none') && (((string)$lastY != 'none') && ((string)$thisY != 'none')))
@@ -1161,9 +1161,9 @@ class graph {
         if ($max < 0) $factor = - pow(10, (floor(log10(abs($max))) + $resolution) );
         else $factor = pow(10, (floor(log10(abs($max))) - $resolution) );
       }
-      if ($factor > 0.1) { // To avoid some wierd rounding errors (Moodle)
-        $factor = round($factor * 1000.0) / 1000.0; // To avoid some wierd rounding errors (Moodle)
-      } // To avoid some wierd rounding errors (Moodle)
+      if ($factor > 0.1) { // To avoid some wierd rounding errors (Lion)
+        $factor = round($factor * 1000.0) / 1000.0; // To avoid some wierd rounding errors (Lion)
+      } // To avoid some wierd rounding errors (Lion)
 
       $max = $factor * @ceil($max / $factor);
       $min = $factor * @floor($min / $factor);
@@ -1262,9 +1262,9 @@ class graph {
           $x = 0;
           break;
       }
-      // start of Moodle addition
+      // start of Lion addition
       $text = core_text::utf8_to_entities($text, true, true); //does not work with hex entities!
-      // end of Moodle addition
+      // end of Lion addition
       ImageTTFText($this->image, $points, $angle, $x, $y, $colour, $font, $text);
     }
 
@@ -1367,9 +1367,9 @@ class graph {
       }
 
       // get boundary box and offsets for printing at an angle
-      // start of Moodle addition
+      // start of Lion addition
       $text = core_text::utf8_to_entities($text, true, true); //gd does not work with hex entities!
-      // end of Moodle addition
+      // end of Lion addition
       $bounds = ImageTTFBBox($points, $angle, $font, $text);
 
       if ($angle < 0) {
@@ -1624,12 +1624,12 @@ class graph {
         $u_right = $x_right + $offset - 1;
         $v       = $this->calculated['boundary_box']['bottom'] - $y + $offset;
 
-        // Moodle addition, plus the function parameter yoffset
-        if ($yoffset) {                                           // Moodle
-            $yoffset = $yoffset - round(($bottom - $v) / 2.0);    // Moodle
-            $bottom -= $yoffset;                                  // Moodle
-            $v      -= $yoffset;                                  // Moodle
-        }                                                         // Moodle
+        // Lion addition, plus the function parameter yoffset
+        if ($yoffset) {                                           // Lion
+            $yoffset = $yoffset - round(($bottom - $v) / 2.0);    // Lion
+            $bottom -= $yoffset;                                  // Lion
+            $v      -= $yoffset;                                  // Lion
+        }                                                         // Lion
 
         switch ($type) {
           case 'open':

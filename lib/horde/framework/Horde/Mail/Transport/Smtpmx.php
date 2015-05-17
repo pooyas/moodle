@@ -30,22 +30,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @copyright 2010 Gerd Schaufelberger
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  */
 
 /**
  * SMTP MX implementation.
  *
- * @author    Gerd Schaufelberger <gerd@php-tools.net>
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @copyright 2010 Gerd Schaufelberger
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  */
 class Horde_Mail_Transport_Smtpmx extends Horde_Mail_Transport
 {

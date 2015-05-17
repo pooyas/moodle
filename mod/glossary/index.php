@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /// This page lists all the instances of glossary in a particular course
 /// Replace glossary with the name of your module
 
@@ -43,7 +50,7 @@ echo $OUTPUT->heading(format_string($strglossarys), 2);
 /// Get all the appropriate data
 
 if (! $glossarys = get_all_instances_in_course("glossary", $course)) {
-    notice(get_string('thereareno', 'moodle', $strglossarys), "../../course/view.php?id=$course->id");
+    notice(get_string('thereareno', 'lion', $strglossarys), "../../course/view.php?id=$course->id");
     die;
 }
 
@@ -75,7 +82,7 @@ if ($show_rss = (isset($CFG->enablerssfeeds) && isset($CFG->glossary_enablerssfe
 $currentsection = "";
 
 foreach ($glossarys as $glossary) {
-    if (!$glossary->visible && has_capability('moodle/course:viewhiddenactivities',
+    if (!$glossary->visible && has_capability('lion/course:viewhiddenactivities',
             context_module::instance($glossary->coursemodule))) {
         // Show dimmed if the mod is hidden.
         $link = "<a class=\"dimmed\" href=\"view.php?id=$glossary->coursemodule\">".format_string($glossary->name,true)."</a>";

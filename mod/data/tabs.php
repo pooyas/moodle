@@ -1,10 +1,17 @@
 <?php
+
+/**
+ * @package    mod
+ * @subpackage data
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
 // NOTICE OF COPYRIGHT                                                   //
 //                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.org                                            //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
+//          http://lion.org                                            //
 //                                                                       //
 // Copyright (C) 2005 Martin Dougiamas  http://dougiamas.com             //
 //                                                                       //
@@ -34,26 +41,26 @@
 
     $row = array();
 
-    $row[] = new tabobject('list', new moodle_url('/mod/data/view.php', array('d' => $data->id)), get_string('list','data'));
+    $row[] = new tabobject('list', new lion_url('/mod/data/view.php', array('d' => $data->id)), get_string('list','data'));
 
     if (isset($record)) {
-        $row[] = new tabobject('single', new moodle_url('/mod/data/view.php', array('d' => $data->id, 'rid' => $record->id)), get_string('single','data'));
+        $row[] = new tabobject('single', new lion_url('/mod/data/view.php', array('d' => $data->id, 'rid' => $record->id)), get_string('single','data'));
     } else {
-        $row[] = new tabobject('single', new moodle_url('/mod/data/view.php', array('d' => $data->id, 'mode' => 'single')), get_string('single','data'));
+        $row[] = new tabobject('single', new lion_url('/mod/data/view.php', array('d' => $data->id, 'mode' => 'single')), get_string('single','data'));
     }
 
     // Add an advanced search tab.
-    $row[] = new tabobject('asearch', new moodle_url('/mod/data/view.php', array('d' => $data->id, 'mode' => 'asearch')), get_string('search', 'data'));
+    $row[] = new tabobject('asearch', new lion_url('/mod/data/view.php', array('d' => $data->id, 'mode' => 'asearch')), get_string('search', 'data'));
 
     if (isloggedin()) { // just a perf shortcut
         if (data_user_can_add_entry($data, $currentgroup, $groupmode, $context)) { // took out participation list here!
             $addstring = empty($editentry) ? get_string('add', 'data') : get_string('editentry', 'data');
-            $row[] = new tabobject('add', new moodle_url('/mod/data/edit.php', array('d' => $data->id)), $addstring);
+            $row[] = new tabobject('add', new lion_url('/mod/data/edit.php', array('d' => $data->id)), $addstring);
         }
         if (has_capability(DATA_CAP_EXPORT, $context)) {
             // The capability required to Export database records is centrally defined in 'lib.php'
             // and should be weaker than those required to edit Templates, Fields and Presets.
-            $row[] = new tabobject('export', new moodle_url('/mod/data/export.php', array('d' => $data->id)),
+            $row[] = new tabobject('export', new lion_url('/mod/data/export.php', array('d' => $data->id)),
                          get_string('export', 'data'));
         }
         if (has_capability('mod/data:managetemplates', $context)) {
@@ -67,12 +74,12 @@
                 $defaultemplate = 'singletemplate';
             }
 
-            $templatestab = new tabobject('templates', new moodle_url('/mod/data/templates.php', array('d' => $data->id, 'mode' => $defaultemplate)),
+            $templatestab = new tabobject('templates', new lion_url('/mod/data/templates.php', array('d' => $data->id, 'mode' => $defaultemplate)),
                          get_string('templates','data'));
             $row[] = $templatestab;
-            $row[] = new tabobject('fields', new moodle_url('/mod/data/field.php', array('d' => $data->id)),
+            $row[] = new tabobject('fields', new lion_url('/mod/data/field.php', array('d' => $data->id)),
                          get_string('fields','data'));
-            $row[] = new tabobject('presets', new moodle_url('/mod/data/preset.php', array('d' => $data->id)),
+            $row[] = new tabobject('presets', new lion_url('/mod/data/preset.php', array('d' => $data->id)),
                          get_string('presets', 'data'));
         }
     }
@@ -83,7 +90,7 @@
 
         $currenttab ='';
         foreach ($templatelist as $template) {
-            $templatestab->subtree[] = new tabobject($template, new moodle_url('/mod/data/templates.php', array('d' => $data->id, 'mode' => $template)), get_string($template, 'data'));
+            $templatestab->subtree[] = new tabobject($template, new lion_url('/mod/data/templates.php', array('d' => $data->id, 'mode' => $template)), get_string($template, 'data'));
             if ($template == $mode) {
                 $currenttab = $template;
             }

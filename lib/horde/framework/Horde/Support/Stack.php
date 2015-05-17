@@ -5,8 +5,9 @@
  * Copyright 2008-2014 Horde LLC (http://www.horde.org/)
  *
  * @category   Horde
- * @package    Support
- * @license    http://www.horde.org/licenses/bsd
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Support_Stack
 {

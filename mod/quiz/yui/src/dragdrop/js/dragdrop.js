@@ -1,7 +1,7 @@
 /**
  * Drag and Drop for Quiz sections and slots.
  *
- * @module moodle-mod-quiz-dragdrop
+ * @module lion-mod-quiz-dragdrop
  */
 
 var CSS = {

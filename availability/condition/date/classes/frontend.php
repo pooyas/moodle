@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Front-end class.
  *
- * @package availability_date
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    availability_condition
+ * @subpackage date
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace availability_date;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Front-end class.
  *
- * @package availability_date
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class frontend extends \core_availability\frontend {
     /**
@@ -134,7 +118,7 @@ class frontend extends \core_availability\frontend {
                 // In Gregorian calendar mode only, we support a date selector popup, reusing
                 // code from form to ensure consistency.
                 if ($calendartype->get_name() === 'gregorian' && self::DATE_SELECTOR_SUPPORTED) {
-                    $image = $OUTPUT->pix_icon('i/calendar', get_string('calendar', 'calendar'), 'moodle');
+                    $image = $OUTPUT->pix_icon('i/calendar', get_string('calendar', 'calendar'), 'lion');
                     $html .= ' ' . \html_writer::link('#', $image, array('name' => 'x[calendar]'));
                     form_init_date_js();
                 }
@@ -149,7 +133,7 @@ class frontend extends \core_availability\frontend {
             $html .= \html_writer::start_tag('label');
             $html .= \html_writer::span(get_string($field) . ' ', 'accesshide');
             // NOTE: The fields need to have these weird names in order that they
-            // match the standard Moodle form control, otherwise the date selector
+            // match the standard Lion form control, otherwise the date selector
             // won't find them.
             $html .= \html_writer::start_tag('select', array('name' => 'x[' . $field . ']'));
             foreach ($options as $key => $value) {

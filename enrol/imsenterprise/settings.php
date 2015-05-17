@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * IMS Enterprise enrolments plugin settings and presets.
  *
- * @package    enrol_imsenterprise
- * @copyright  2010 Eugene Venter
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
     require_once($CFG->dirroot.'/enrol/imsenterprise/locallib.php');
@@ -119,7 +106,7 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configcheckbox('enrol_imsenterprise/imscapitafix',
         get_string('usecapitafix', 'enrol_imsenterprise'), get_string('usecapitafix_desc', 'enrol_imsenterprise'), 0));
 
-    $importurl = new moodle_url('/enrol/imsenterprise/importnow.php', array('sesskey' => sesskey()));
+    $importurl = new lion_url('/enrol/imsenterprise/importnow.php', array('sesskey' => sesskey()));
     $importnowstring = get_string('aftersaving...', 'enrol_imsenterprise').' ';
     $importnowstring .= html_writer::link($importurl, get_string('doitnow', 'enrol_imsenterprise'));
     $settings->add(new admin_setting_heading('enrol_imsenterprise_doitnowmessage', '', $importnowstring));

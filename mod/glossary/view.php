@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /// This page prints a particular instance of glossary
 require_once("../../config.php");
 require_once("lib.php");
@@ -120,7 +127,7 @@ if ( $show ) {
 if ($course->id != SITEID) {
     require_login($course);
 }
-if (!$cm->visible and !has_capability('moodle/course:viewhiddenactivities', $context)) {
+if (!$cm->visible and !has_capability('lion/course:viewhiddenactivities', $context)) {
     echo $OUTPUT->header();
     notice(get_string("activityiscurrentlyhidden"));
 }
@@ -252,7 +259,7 @@ $strwaitingapproval = get_string('waitingapproval', 'glossary');
 /// If we are in approval mode, prit special header
 $PAGE->set_title($glossary->name);
 $PAGE->set_heading($course->fullname);
-$url = new moodle_url('/mod/glossary/view.php', array('id'=>$cm->id));
+$url = new lion_url('/mod/glossary/view.php', array('id'=>$cm->id));
 if (isset($mode)) {
     $url->param('mode', $mode);
 }
@@ -455,7 +462,7 @@ if ($allentries) {
 
                     $user = $DB->get_record("user", array("id"=>$entry->userid));
                     echo $OUTPUT->user_picture($user, array('courseid'=>$course->id));
-                    $pivottoshow = fullname($user, has_capability('moodle/site:viewfullnames', context_course::instance($course->id)));
+                    $pivottoshow = fullname($user, has_capability('lion/site:viewfullnames', context_course::instance($course->id)));
                 } else {
                     echo '<th >';
                 }

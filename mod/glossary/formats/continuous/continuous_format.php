@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 function glossary_show_entry_continuous($course, $cm, $glossary, $entry, $mode='', $hook='', $printicons=1, $aliases=false) {
 
     global $USER;

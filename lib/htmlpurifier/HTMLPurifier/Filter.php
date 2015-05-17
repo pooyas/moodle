@@ -17,6 +17,9 @@
  *
  * @note Methods are not declared abstract as it is perfectly legitimate
  *       for an implementation not to want anything to happen on a step
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_Filter

@@ -218,7 +218,7 @@ M.gradereport_grader.classes.ajax.prototype.make_editable = function(e) {
     this.current.replace().attach_key_events();
 
     // Fire the global resized event for the gradereport_grader to update the table row/column sizes.
-    Y.Global.fire('moodle-gradereport_grader:resized');
+    Y.Global.fire('lion-gradereport_grader:resized');
 };
 /**
  * Callback function for the user pressing the enter key on an editable field
@@ -297,7 +297,7 @@ M.gradereport_grader.classes.ajax.prototype.process_editable_field = function(ne
     }
 
     // Fire the global resized event for the gradereport_grader to update the table row/column sizes.
-    Y.Global.fire('moodle-gradereport_grader:resized');
+    Y.Global.fire('lion-gradereport_grader:resized');
 };
 /**
  * Gets the next cell that is editable (right)

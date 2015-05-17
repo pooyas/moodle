@@ -1,36 +1,33 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
+
+/**
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
+*/
+
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains several classes uses to render the diferent pages
  * of the wiki module
  *
- * @package mod_wiki
- * @copyright 2009 Marc Alier, Jordi Piguillem marc.alier@upc.edu
- * @copyright 2009 Universitat Politecnica de Catalunya http://www.upc.edu
  *
- * @author Jordi Piguillem
- * @author Marc Alier
- * @author David Jimenez
- * @author Josep Arus
- * @author Daniel Serrano
- * @author Kenneth Riba
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once($CFG->dirroot . '/mod/wiki/edit_form.php');
@@ -39,7 +36,6 @@ require_once($CFG->dirroot . '/tag/lib.php');
 /**
  * Class page_wiki contains the common code between all pages
  *
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class page_wiki {
 
@@ -290,7 +286,6 @@ abstract class page_wiki {
 /**
  * View a wiki page
  *
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class page_wiki_view extends page_wiki {
 
@@ -348,7 +343,7 @@ class page_wiki_view extends page_wiki {
         } else {
             print_error(get_string('invalidparameters', 'wiki'));
         }
-        $PAGE->set_url(new moodle_url($CFG->wwwroot . '/mod/wiki/view.php', $params));
+        $PAGE->set_url(new lion_url($CFG->wwwroot . '/mod/wiki/view.php', $params));
     }
 
     protected function create_navbar() {
@@ -362,7 +357,6 @@ class page_wiki_view extends page_wiki {
 /**
  * Wiki page editing page
  *
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class page_wiki_edit extends page_wiki {
 
@@ -586,7 +580,6 @@ class page_wiki_edit extends page_wiki {
 /**
  * Class that models the behavior of wiki's view comments page
  *
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class page_wiki_comments extends page_wiki {
 
@@ -627,7 +620,7 @@ class page_wiki_comments extends page_wiki {
 
             $user = wiki_get_user_info($comment->userid);
 
-            $fullname = fullname($user, has_capability('moodle/site:viewfullnames', context_course::instance($course->id)));
+            $fullname = fullname($user, has_capability('lion/site:viewfullnames', context_course::instance($course->id)));
             $by = new stdclass();
             $by->name = '<a href="' . $CFG->wwwroot . '/user/view.php?id=' . $user->id . '&amp;course=' . $course->id . '">' . $fullname . '</a>';
             $by->date = userdate($comment->timecreated);
@@ -673,11 +666,11 @@ class page_wiki_comments extends page_wiki {
 
             $editicon = $deleteicon = '';
             if ($canedit) {
-                $urledit = new moodle_url('/mod/wiki/editcomments.php', array('commentid' => $comment->id, 'pageid' => $page->id, 'action' => 'edit'));
+                $urledit = new lion_url('/mod/wiki/editcomments.php', array('commentid' => $comment->id, 'pageid' => $page->id, 'action' => 'edit'));
                 $editicon = $OUTPUT->action_icon($urledit, new pix_icon('t/edit', get_string('edit'), '', array('class' => 'iconsmall')));
             }
             if ($candelete) {
-                $urldelete = new moodle_url('/mod/wiki/instancecomments.php', array('commentid' => $comment->id, 'pageid' => $page->id, 'action' => 'delete'));
+                $urldelete = new lion_url('/mod/wiki/instancecomments.php', array('commentid' => $comment->id, 'pageid' => $page->id, 'action' => 'delete'));
                 $deleteicon = $OUTPUT->action_icon($urldelete,
                                                   new pix_icon('t/delete',
                                                                get_string('delete'),
@@ -715,7 +708,6 @@ class page_wiki_comments extends page_wiki {
 /**
  * Class that models the behavior of wiki's edit comment
  *
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class page_wiki_editcomment extends page_wiki {
     private $comment;
@@ -816,7 +808,6 @@ class page_wiki_editcomment extends page_wiki {
 /**
  * Wiki page search page
  *
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class page_wiki_search extends page_wiki {
     private $search_result;
@@ -895,7 +886,7 @@ class page_wiki_create extends page_wiki {
         } else {
             $params['action'] = 'create';
         }
-        $PAGE->set_url(new moodle_url('/mod/wiki/create.php', $params));
+        $PAGE->set_url(new lion_url('/mod/wiki/create.php', $params));
     }
 
     function set_format($format) {
@@ -919,7 +910,7 @@ class page_wiki_create extends page_wiki {
         $this->action = $action;
 
         require_once(dirname(__FILE__) . '/create_form.php');
-        $url = new moodle_url('/mod/wiki/create.php', array('action' => 'create', 'wid' => $PAGE->activityrecord->id, 'group' => $this->gid, 'uid' => $this->uid));
+        $url = new lion_url('/mod/wiki/create.php', array('action' => 'create', 'wid' => $PAGE->activityrecord->id, 'group' => $this->gid, 'uid' => $this->uid));
         $formats = wiki_get_formats();
         $options = array('formats' => $formats, 'defaultformat' => $PAGE->activityrecord->defaultformat, 'forceformat' => $PAGE->activityrecord->forceformat, 'groups' => $this->groups);
         if ($this->title != get_string('newpage', 'wiki')) {
@@ -1286,8 +1277,8 @@ class page_wiki_history extends page_wiki {
                 $date = userdate($row->timecreated, get_string('strftimedate', 'langconfig'));
                 $time = userdate($row->timecreated, get_string('strftimetime', 'langconfig'));
                 $versionid = wiki_get_version($row->id);
-                $versionlink = new moodle_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
-                $userlink = new moodle_url('/user/view.php', array('id' => $username->id, 'course' => $this->cm->course));
+                $versionlink = new lion_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
+                $userlink = new lion_url('/user/view.php', array('id' => $username->id, 'course' => $this->cm->course));
                 $contents[] = array('', html_writer::link($versionlink->out(false), $row->version), $picture . html_writer::link($userlink->out(false), fullname($username)), $time, $OUTPUT->container($date, 'wiki_histdate'));
 
                 $table = new html_table();
@@ -1310,12 +1301,12 @@ class page_wiki_history extends page_wiki {
                     $time = userdate($version->timecreated, get_string('strftimetime', 'langconfig'));
                     $versionid = wiki_get_version($version->id);
                     if ($versionid) {
-                        $url = new moodle_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
+                        $url = new lion_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
                         $viewlink = html_writer::link($url->out(false), $version->version);
                     } else {
                         $viewlink = $version->version;
                     }
-                    $userlink = new moodle_url('/user/view.php', array('id' => $version->userid, 'course' => $this->cm->course));
+                    $userlink = new lion_url('/user/view.php', array('id' => $version->userid, 'course' => $this->cm->course));
                     $contents[] = array($this->choose_from_radio(array($version->version  => null), 'compare', 'M.mod_wiki.history()', $checked - 1, true) . $this->choose_from_radio(array($version->version  => null), 'comparewith', 'M.mod_wiki.history()', $checked, true), $viewlink, $picture . html_writer::link($userlink->out(false), fullname($user)), $time, $OUTPUT->container($date, 'wiki_histdate'));
                 }
 
@@ -1329,7 +1320,7 @@ class page_wiki_history extends page_wiki {
                 $table->rowclasses = $rowclass;
 
                 // Print the form.
-                echo html_writer::start_tag('form', array('action'=>new moodle_url('/mod/wiki/diff.php'), 'method'=>'get', 'id'=>'diff'));
+                echo html_writer::start_tag('form', array('action'=>new lion_url('/mod/wiki/diff.php'), 'method'=>'get', 'id'=>'diff'));
                 echo html_writer::tag('div', html_writer::empty_tag('input', array('type'=>'hidden', 'name'=>'pageid', 'value'=>$pageid)));
                 echo html_writer::table($table);
                 echo html_writer::start_tag('div', array('class'=>'mdl-align'));
@@ -1341,16 +1332,16 @@ class page_wiki_history extends page_wiki {
             print_string('nohistory', 'wiki');
         }
         if (!$this->allversion) {
-            //$pagingbar = moodle_paging_bar::make($vcount, $this->paging, $this->rowsperpage, $CFG->wwwroot.'/mod/wiki/history.php?pageid='.$pageid.'&amp;');
+            //$pagingbar = lion_paging_bar::make($vcount, $this->paging, $this->rowsperpage, $CFG->wwwroot.'/mod/wiki/history.php?pageid='.$pageid.'&amp;');
             // $pagingbar->pagevar = $pagevar;
             echo $OUTPUT->paging_bar($vcount, $this->paging, $this->rowsperpage, $CFG->wwwroot . '/mod/wiki/history.php?pageid=' . $pageid . '&amp;');
             //print_paging_bar($vcount, $paging, $rowsperpage,$CFG->wwwroot.'/mod/wiki/history.php?pageid='.$pageid.'&amp;','paging');
             } else {
-            $link = new moodle_url('/mod/wiki/history.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/history.php', array('pageid' => $pageid));
             $OUTPUT->container(html_writer::link($link->out(false), get_string('viewperpage', 'wiki', $this->rowsperpage)), 'mdl-align');
         }
         if ($vcount > $this->rowsperpage && !$this->allversion) {
-            $link = new moodle_url('/mod/wiki/history.php', array('pageid' => $pageid, 'allversion' => 1));
+            $link = new lion_url('/mod/wiki/history.php', array('pageid' => $pageid, 'allversion' => 1));
             $OUTPUT->container(html_writer::link($link->out(false), get_string('viewallhistory', 'wiki')), 'mdl-align');
         }
     }
@@ -1565,7 +1556,7 @@ class page_wiki_map extends page_wiki {
         $table->rowclasses = array();
         foreach ($fromlinks as $link) {
             $lpage = wiki_get_page($link->frompageid);
-            $link = new moodle_url('/mod/wiki/view.php', array('pageid' => $lpage->id));
+            $link = new lion_url('/mod/wiki/view.php', array('pageid' => $lpage->id));
             $table->data[] = array(html_writer::link($link->out(false), format_string($lpage->title)));
             $table->rowclasses[] = 'mdl-align';
         }
@@ -1579,11 +1570,11 @@ class page_wiki_map extends page_wiki {
         $table->rowclasses = array();
         foreach ($tolinks as $link) {
             if ($link->tomissingpage) {
-                $viewlink = new moodle_url('/mod/wiki/create.php', array('swid' => $page->subwikiid, 'title' => $link->tomissingpage, 'action' => 'new'));
+                $viewlink = new lion_url('/mod/wiki/create.php', array('swid' => $page->subwikiid, 'title' => $link->tomissingpage, 'action' => 'new'));
                 $table->data[] = array(html_writer::link($viewlink->out(false), format_string($link->tomissingpage), array('class' => 'wiki_newentry')));
             } else {
                 $lpage = wiki_get_page($link->topageid);
-                $viewlink = new moodle_url('/mod/wiki/view.php', array('pageid' => $lpage->id));
+                $viewlink = new lion_url('/mod/wiki/view.php', array('pageid' => $lpage->id));
                 $table->data[] = array(html_writer::link($viewlink->out(false), format_string($lpage->title)));
             }
             $table->rowclasses[] = 'mdl-align';
@@ -1781,7 +1772,7 @@ class page_wiki_map extends page_wiki {
                     $link->add_class('dimmed');
                 }
                 $content = $this->output->render($link);
-            } else if ($item->action instanceof moodle_url) {
+            } else if ($item->action instanceof lion_url) {
                 $attributes = array();
                 if ($title !== '') {
                     $attributes['title'] = $title;
@@ -1902,8 +1893,8 @@ class page_wiki_restoreversion extends page_wiki {
         $version = wiki_get_version($this->version->id);
 
         $optionsyes = array('confirm'=>1, 'pageid'=>$this->page->id, 'versionid'=>$version->id, 'sesskey'=>sesskey());
-        $restoreurl = new moodle_url('/mod/wiki/restoreversion.php', $optionsyes);
-        $return = new moodle_url('/mod/wiki/viewversion.php', array('pageid'=>$this->page->id, 'versionid'=>$version->id));
+        $restoreurl = new lion_url('/mod/wiki/restoreversion.php', $optionsyes);
+        $return = new lion_url('/mod/wiki/viewversion.php', array('pageid'=>$this->page->id, 'versionid'=>$version->id));
 
         echo $OUTPUT->container_start('wiki-form-center');
         echo html_writer::tag('div', get_string('restoreconfirm', 'wiki', $version->version));
@@ -1972,8 +1963,8 @@ class page_wiki_deletecomment extends page_wiki {
 
         //ask confirmation
         $optionsyes = array('confirm'=>1, 'pageid'=>$this->page->id, 'action'=>'delete', 'commentid'=>$this->commentid, 'sesskey'=>sesskey());
-        $deleteurl = new moodle_url('/mod/wiki/instancecomments.php', $optionsyes);
-        $return = new moodle_url('/mod/wiki/comments.php', array('pageid'=>$this->page->id));
+        $deleteurl = new lion_url('/mod/wiki/instancecomments.php', $optionsyes);
+        $return = new lion_url('/mod/wiki/comments.php', array('pageid'=>$this->page->id));
 
         echo $OUTPUT->container_start('wiki-form-center');
         echo html_writer::tag('p', $strdeletecheckfull);
@@ -2079,7 +2070,7 @@ class page_wiki_save extends page_wiki_edit {
 
             //deleting old locks
             wiki_delete_locks($this->page->id, $USER->id, $this->section);
-            $url = new moodle_url('/mod/wiki/view.php', array('pageid' => $this->page->id, 'group' => $this->subwiki->groupid));
+            $url = new lion_url('/mod/wiki/view.php', array('pageid' => $this->page->id, 'group' => $this->subwiki->groupid));
             redirect($url);
         } else {
             print_error('savingerror', 'wiki');
@@ -2141,13 +2132,13 @@ class page_wiki_viewversion extends page_wiki {
         $pageversion = wiki_get_version($this->version->id);
 
         if ($pageversion) {
-            $restorelink = new moodle_url('/mod/wiki/restoreversion.php', array('pageid' => $this->page->id, 'versionid' => $this->version->id));
+            $restorelink = new lion_url('/mod/wiki/restoreversion.php', array('pageid' => $this->page->id, 'versionid' => $this->version->id));
             echo html_writer::tag('div', get_string('viewversion', 'wiki', $pageversion->version) . '<br />' .
                 html_writer::link($restorelink->out(false), '(' . get_string('restorethis', 'wiki') .
                 ')', array('class' => 'wiki_restore')) . '&nbsp;', array('class' => 'wiki_headingtitle'));
             $userinfo = wiki_get_user_info($pageversion->userid);
             $heading = '<p><strong>' . get_string('modified', 'wiki') . ':</strong>&nbsp;' . userdate($pageversion->timecreated, get_string('strftimedatetime', 'langconfig'));
-            $viewlink = new moodle_url('/user/view.php', array('id' => $userinfo->id));
+            $viewlink = new lion_url('/user/view.php', array('id' => $userinfo->id));
             $heading .= '&nbsp;&nbsp;&nbsp;<strong>' . get_string('user') . ':</strong>&nbsp;' . html_writer::link($viewlink->out(false), fullname($userinfo));
             $heading .= '&nbsp;&nbsp;&rarr;&nbsp;' . $OUTPUT->user_picture(wiki_get_user_info($pageversion->userid), array('popup' => true)) . '</p>';
             echo $OUTPUT->container($heading, 'wiki_headingtime', 'mdl-align wiki_modifieduser');
@@ -2540,7 +2531,7 @@ class page_wiki_admin extends page_wiki {
 
         ///Print the form
         echo html_writer::start_tag('form', array(
-                                                'action' => new moodle_url('/mod/wiki/admin.php'),
+                                                'action' => new lion_url('/mod/wiki/admin.php'),
                                                 'method' => 'post'));
         echo html_writer::tag('div', html_writer::empty_tag('input', array(
                                                                          'type'  => 'hidden',
@@ -2582,8 +2573,8 @@ class page_wiki_admin extends page_wiki {
             $link = wiki_parser_link($page->title, array('swid' => $swid));
             $class = ($link['new']) ? 'class="wiki_newentry"' : '';
             $pagelink = '<a href="' . $link['url'] . '"' . $class . '>' . format_string($link['content']) . '</a>';
-            $urledit = new moodle_url('/mod/wiki/edit.php', array('pageid' => $page->id, 'sesskey' => sesskey()));
-            $urldelete = new moodle_url('/mod/wiki/admin.php', array(
+            $urledit = new lion_url('/mod/wiki/edit.php', array('pageid' => $page->id, 'sesskey' => sesskey()));
+            $urldelete = new lion_url('/mod/wiki/admin.php', array(
                                                                    'pageid'  => $this->page->id,
                                                                    'delete'  => $page->id,
                                                                    'option'  => $this->view,
@@ -2600,7 +2591,7 @@ class page_wiki_admin extends page_wiki {
      * Prints lists of versions which can be deleted
      *
      * @global core_renderer $OUTPUT
-     * @global moodle_page $PAGE
+     * @global lion_page $PAGE
      */
     private function print_delete_version() {
         global $OUTPUT, $PAGE;
@@ -2632,8 +2623,8 @@ class page_wiki_admin extends page_wiki {
                 $date = userdate($row->timecreated, get_string('strftimedate', 'langconfig'));
                 $time = userdate($row->timecreated, get_string('strftimetime', 'langconfig'));
                 $versionid = wiki_get_version($row->id);
-                $versionlink = new moodle_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
-                $userlink = new moodle_url('/user/view.php', array('id' => $username->id, 'course' => $this->cm->course));
+                $versionlink = new lion_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
+                $userlink = new lion_url('/user/view.php', array('id' => $username->id, 'course' => $this->cm->course));
                 $picturelink = $picture . html_writer::link($userlink->out(false), fullname($username));
                 $historydate = $OUTPUT->container($date, 'wiki_histdate');
                 $contents[] = array('', html_writer::link($versionlink->out(false), $row->version), $picturelink, $time, $historydate);
@@ -2664,13 +2655,13 @@ class page_wiki_admin extends page_wiki {
                     $time = userdate($version->timecreated, get_string('strftimetime', 'langconfig'));
                     $versionid = wiki_get_version($version->id);
                     if ($versionid) {
-                        $url = new moodle_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
+                        $url = new lion_url('/mod/wiki/viewversion.php', array('pageid' => $pageid, 'versionid' => $versionid->id));
                         $viewlink = html_writer::link($url->out(false), $version->version);
                     } else {
                         $viewlink = $version->version;
                     }
 
-                    $userlink = new moodle_url('/user/view.php', array('id' => $version->userid, 'course' => $this->cm->course));
+                    $userlink = new lion_url('/user/view.php', array('id' => $version->userid, 'course' => $this->cm->course));
                     $picturelink = $picture . html_writer::link($userlink->out(false), fullname($user));
                     $historydate = $OUTPUT->container($date, 'wiki_histdate');
                     $radiofromelement = $this->choose_from_radio(array($version->version  => null), 'fromversion', 'M.mod_wiki.deleteversion()', $versioncount, true);
@@ -2685,7 +2676,7 @@ class page_wiki_admin extends page_wiki {
                 $table->rowclasses = $rowclass;
 
                 ///Print the form
-                echo html_writer::start_tag('form', array('action'=>new moodle_url('/mod/wiki/admin.php'), 'method' => 'post'));
+                echo html_writer::start_tag('form', array('action'=>new lion_url('/mod/wiki/admin.php'), 'method' => 'post'));
                 echo html_writer::tag('div', html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'pageid', 'value' => $pageid)));
                 echo html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'option', 'value' => $this->view));
                 echo html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey', 'value' =>  sesskey()));

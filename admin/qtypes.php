@@ -1,27 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Allows the admin to manage question types.
  *
- * @package    moodlecore
- * @subpackage questionbank
- * @copyright  2008 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -33,11 +19,11 @@ require_once($CFG->libdir . '/tablelib.php');
 // Check permissions.
 require_login();
 $systemcontext = context_system::instance();
-require_capability('moodle/question:config', $systemcontext);
+require_capability('lion/question:config', $systemcontext);
 $canviewreports = has_capability('report/questioninstances:view', $systemcontext);
 
 admin_externalpage_setup('manageqtypes');
-$thispageurl = new moodle_url('/admin/qtypes.php');
+$thispageurl = new lion_url('/admin/qtypes.php');
 
 $qtypes = question_bank::get_all_qtypes();
 $pluginmanager = core_plugin_manager::instance();
@@ -159,7 +145,7 @@ foreach ($sortedqtypes as $qtypename => $localname) {
             $strcount = $counts[$qtypename]->numquestions;
         }
         if ($canviewreports) {
-            $row[] = html_writer::link(new moodle_url('/report/questioninstances/index.php',
+            $row[] = html_writer::link(new lion_url('/report/questioninstances/index.php',
                     array('qtype' => $qtypename)), $strcount, array('title' => get_string('showdetails', 'admin')));
         } else {
             $strcount;
@@ -211,7 +197,7 @@ foreach ($sortedqtypes as $qtypename => $localname) {
     if ($settings instanceof admin_externalpage) {
         $row[] = html_writer::link($settings->url, get_string('settings'));
     } else if ($settings instanceof admin_settingpage) {
-        $row[] = html_writer::link(new moodle_url('/admin/settings.php',
+        $row[] = html_writer::link(new lion_url('/admin/settings.php',
                 array('section' => 'qtypesetting' . $qtypename)), get_string('settings'));
     } else {
         $row[] = '';
@@ -247,9 +233,9 @@ function question_types_enable_disable_icons($qtypename, $createable) {
 
 function question_type_icon_html($action, $qtypename, $icon, $alt, $tip) {
     global $OUTPUT;
-    return $OUTPUT->action_icon(new moodle_url('/admin/qtypes.php',
+    return $OUTPUT->action_icon(new lion_url('/admin/qtypes.php',
             array($action => $qtypename, 'sesskey' => sesskey())),
-            new pix_icon($icon, $alt, 'moodle', array('title' => '', 'class' => 'iconsmall')),
+            new pix_icon($icon, $alt, 'lion', array('title' => '', 'class' => 'iconsmall')),
             null, array('title' => $tip));
 }
 

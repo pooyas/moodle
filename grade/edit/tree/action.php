@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Performs actions on grade items and categories like hiding and locking
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../../../config.php';
@@ -56,7 +43,7 @@ $type   = $element['type'];
 switch ($action) {
     case 'hide':
         if ($eid and confirm_sesskey()) {
-            if (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:hide', $context)) {
+            if (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:hide', $context)) {
                 print_error('nopermissiontohide', '', $returnurl);
             }
             if ($type == 'grade' and empty($object->id)) {
@@ -71,7 +58,7 @@ switch ($action) {
 
     case 'show':
         if ($eid and confirm_sesskey()) {
-            if (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:hide', $context)) {
+            if (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:hide', $context)) {
                 print_error('nopermissiontoshow', '', $returnurl);
             }
             if ($type == 'grade' and empty($object->id)) {
@@ -86,7 +73,7 @@ switch ($action) {
 
     case 'lock':
         if ($eid and confirm_sesskey()) {
-            if (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:lock', $context)) {
+            if (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:lock', $context)) {
                 print_error('nopermissiontolock', '', $returnurl);
             }
             if ($type == 'grade' and empty($object->id)) {
@@ -98,7 +85,7 @@ switch ($action) {
 
     case 'unlock':
         if ($eid and confirm_sesskey()) {
-            if (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:unlock', $context)) {
+            if (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:unlock', $context)) {
                 print_error('nopermissiontounlock', '', $returnurl);
             }
             if ($type == 'grade' and empty($object->id)) {
@@ -114,7 +101,7 @@ switch ($action) {
             // This is specific to category items with natural weight as an aggregation method, and can
             // only be done by someone who can manage the grades.
             if ($type != 'category' || $object->aggregation != GRADE_AGGREGATE_SUM ||
-                    !has_capability('moodle/grade:manage', $context)) {
+                    !has_capability('lion/grade:manage', $context)) {
                 print_error('nopermissiontoresetweights', 'grades', $returnurl);
             }
 

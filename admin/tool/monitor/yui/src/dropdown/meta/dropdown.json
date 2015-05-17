@@ -1,5 +1,5 @@
 {
-  "moodle-tool_monitor-dropdown": {
+  "lion-tool_monitor-dropdown": {
     "requires": [
         "base",
         "event",

@@ -11,10 +11,10 @@
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
- * @author   Jan Schneider <jan@horde.org>
  * @category Horde
- * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package  Mime
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Mime_Mail
 {
@@ -469,7 +469,6 @@ class Horde_Mime_Mail
      *                          a string is returned.
      *
      * @return stream|string  The raw email data.
-     * @since 2.4.0
      */
     public function getRaw($stream = true)
     {

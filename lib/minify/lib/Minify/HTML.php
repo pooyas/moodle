@@ -1,7 +1,9 @@
 <?php
 /**
  * Class Minify_HTML
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -13,8 +15,6 @@
  *
  * A test suite is available.
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
  */
 class Minify_HTML {
     /**

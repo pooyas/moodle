@@ -1,19 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+/**
+ * @package    core
+ * @subpackage repository
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //
 
 
@@ -25,11 +19,6 @@
 /**
  * This file is used to manage draft files in non-javascript browsers
  *
- * @since Moodle 2.0
- * @package    core
- * @subpackage repository
- * @copyright  2010 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once('../config.php');
@@ -73,10 +62,10 @@ $fs = get_file_storage();
 
 $params = array('ctx_id' => $contextid, 'itemid' => $itemid, 'env' => $env, 'course'=>$courseid, 'maxbytes'=>$maxbytes, 'areamaxbytes'=>$areamaxbytes, 'maxfiles'=>$maxfiles, 'subdirs'=>$subdirs, 'sesskey'=>sesskey());
 $PAGE->set_url('/repository/draftfiles_manager.php', $params);
-$filepicker_url = new moodle_url($CFG->httpswwwroot."/repository/filepicker.php", $params);
+$filepicker_url = new lion_url($CFG->httpswwwroot."/repository/filepicker.php", $params);
 
 $params['action'] = 'browse';
-$home_url = new moodle_url('/repository/draftfiles_manager.php', $params);
+$home_url = new lion_url('/repository/draftfiles_manager.php', $params);
 
 switch ($action) {
 
@@ -116,7 +105,7 @@ case 'renameform':
     echo '  <input id="newfilename" name="newfilename" type="text" value="'.s($filename).'" />';
     echo '  <input name="filename" type="hidden" value="'.s($filename).'" />';
     echo '  <input name="draftpath" type="hidden" value="'.s($draftpath).'" />';
-    echo '  <input type="submit" value="'.s(get_string('rename', 'moodle')).'" />';
+    echo '  <input type="submit" value="'.s(get_string('rename', 'lion')).'" />';
     echo ' </form>';
     echo $OUTPUT->footer();
     break;
@@ -141,7 +130,7 @@ case 'downloaddir':
 
     $newdraftitemid = file_get_unused_draft_itemid();
     if ($newfile = $zipper->archive_to_storage(array('/' => $file), $user_context->id, 'user', 'draft', $newdraftitemid, '/', $filename, $USER->id)) {
-        $fileurl = moodle_url::make_draftfile_url($newdraftitemid, '/', $filename)->out();
+        $fileurl = lion_url::make_draftfile_url($newdraftitemid, '/', $filename)->out();
         header('Location: ' . $fileurl);
     } else {
         print_error('cannotdownloaddir', 'repository');
@@ -220,7 +209,7 @@ case 'mkdirform':
     echo html_writer::label(get_string('entername', 'repository'), 'newdirname', array('class' => 'accesshide'));
     echo '  <input name="newdirname" id="newdirname" type="text" />';
     echo '  <input name="draftpath" type="hidden" value="'.s($draftpath).'" />';
-    echo '  <input type="submit" value="'.s(get_string('makeafolder', 'moodle')).'" />';
+    echo '  <input type="submit" value="'.s(get_string('makeafolder', 'lion')).'" />';
     echo ' </form>';
     echo $OUTPUT->footer();
     break;
@@ -281,7 +270,7 @@ default:
     if ($env == 'filemanager') {
         if (!empty($subdirs)) {
             $home_url->param('action', 'mkdirform');
-            echo ' <a href="'.$home_url->out().'">'.get_string('makeafolder', 'moodle').'</a>';
+            echo ' <a href="'.$home_url->out().'">'.get_string('makeafolder', 'lion').'</a>';
         }
         if (!empty($files->list)) {
             $home_url->param('action', 'downloaddir');
@@ -297,7 +286,7 @@ default:
                 $drafturl = $file->url;
                 // a file
                 echo '<li>';
-                echo $OUTPUT->pix_icon(file_file_icon($file), '', 'moodle', array('class' => 'iconsmall'));
+                echo $OUTPUT->pix_icon(file_file_icon($file), '', 'lion', array('class' => 'iconsmall'));
                 echo html_writer::link($drafturl, $file->filename);
 
                 $home_url->param('filename', $file->filename);

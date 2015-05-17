@@ -1,41 +1,28 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Testing general functions
  *
  * Note: these functions must be self contained and must not rely on any library or include
  *
- * @package    core
  * @category   test
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Returns relative path against current working directory,
  * to be used for shell execution hints.
- * @param string $moodlepath starting with "/", ex: "/admin/tool/cli/init.php"
+ * @param string $lionpath starting with "/", ex: "/admin/tool/cli/init.php"
  * @return string path relative to current directory or absolute path
  */
-function testing_cli_argument_path($moodlepath) {
+function testing_cli_argument_path($lionpath) {
     global $CFG;
 
     if (isset($CFG->admin) and $CFG->admin !== 'admin') {
-        $moodlepath = preg_replace('|^/admin/|', "/$CFG->admin/", $moodlepath);
+        $lionpath = preg_replace('|^/admin/|', "/$CFG->admin/", $lionpath);
     }
 
     if (isset($_SERVER['REMOTE_ADDR'])) {
@@ -48,7 +35,7 @@ function testing_cli_argument_path($moodlepath) {
     if (substr($cwd, -1) !== DIRECTORY_SEPARATOR) {
         $cwd .= DIRECTORY_SEPARATOR;
     }
-    $path = realpath($CFG->dirroot.$moodlepath);
+    $path = realpath($CFG->dirroot.$lionpath);
 
     if (strpos($path, $cwd) === 0) {
         $path = substr($path, strlen($cwd));

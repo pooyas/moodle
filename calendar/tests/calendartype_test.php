@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the class that handles testing the calendar type system.
  *
- * @package core_calendar
- * @copyright 2013 Mark Nelson <markn@moodle.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    calendar
+ * @subpackage tests
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -44,10 +31,6 @@ require_once($CFG->dirroot . '/user/profile/index_field_form.php');
 /**
  * Unit tests for the calendar type system.
  *
- * @package core_calendar
- * @copyright 2013 Mark Nelson <markn@moodle.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.6
  */
 class core_calendar_type_testcase extends advanced_testcase {
 
@@ -82,7 +65,7 @@ class core_calendar_type_testcase extends advanced_testcase {
     }
 
     /**
-     * Test that calling core Moodle functions responsible for displaying the date
+     * Test that calling core Lion functions responsible for displaying the date
      * have the same results as directly calling the same function in the calendar type.
      */
     public function test_calendar_type_core_functions() {
@@ -194,7 +177,7 @@ class core_calendar_type_testcase extends advanced_testcase {
         $this->assertEquals($calendar->get_next_month('1986', '9'), calendar_add_month('9', '1986'));
         $this->assertEquals($calendar->get_prev_month('1986', '9'), calendar_sub_month('9', '1986'));
 
-        // Test the lib/moodle.php functions.
+        // Test the lib/lion.php functions.
         $this->assertEquals($calendar->get_num_days_in_month('1986', '9'), days_in_month('9', '1986'));
         $this->assertEquals($calendar->get_weekday('1986', '9', '16'), dayofweek('16', '9', '1986'));
     }
@@ -211,9 +194,9 @@ class core_calendar_type_testcase extends advanced_testcase {
         $this->set_calendar_type($type);
 
         if ($element == 'dateselector') {
-            $el = new MoodleQuickForm_date_selector('dateselector', null, array('timezone' => 0.0, 'step' => 1));
+            $el = new LionQuickForm_date_selector('dateselector', null, array('timezone' => 0.0, 'step' => 1));
         } else {
-            $el = new MoodleQuickForm_date_time_selector('dateselector', null, array('timezone' => 0.0, 'step' => 1));
+            $el = new LionQuickForm_date_time_selector('dateselector', null, array('timezone' => 0.0, 'step' => 1));
         }
         $el->_createElements();
         $submitvalues = array('dateselector' => $date);

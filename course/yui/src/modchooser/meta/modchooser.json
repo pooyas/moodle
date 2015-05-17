@@ -1,8 +1,8 @@
 {
-  "moodle-course-modchooser": {
+  "lion-course-modchooser": {
     "requires": [
-        "moodle-core-chooserdialogue",
-        "moodle-course-coursebase"
+        "lion-core-chooserdialogue",
+        "lion-course-coursebase"
     ]
   }
 }

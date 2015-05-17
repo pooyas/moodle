@@ -11,6 +11,9 @@
 *
 * Informix 9 driver that supports SELECT FIRST
 *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
 */
 
 // security - hide paths

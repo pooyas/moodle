@@ -1,33 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Tests core_user class.
  *
  * @package    core
- * @copyright  2013 Rajesh Taneja <rajesh@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Test core_user class.
  *
- * @package    core
- * @copyright  2013 Rajesh Taneja <rajesh@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_user_testcase extends advanced_testcase {
 
@@ -72,7 +56,7 @@ class core_user_testcase extends advanced_testcase {
 
         // When supportemail is set.
         core_user::reset_internal_users();
-        $CFG->supportemail = 'test@support.moodle.test';
+        $CFG->supportemail = 'test@support.lion.test';
         $supportuser = core_user::get_support_user();
         $this->assertEquals(core_user::SUPPORT_USER, $supportuser->id);
         $this->assertFalse(core_user::is_real_user($supportuser->id));

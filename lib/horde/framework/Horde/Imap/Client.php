@@ -6,20 +6,16 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Base class for Horde_Imap_Client package. Defines common constants for use
  * in the package.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client
 {
@@ -50,9 +46,9 @@ class Horde_Imap_Client
     const STATUS_UIDNOTSTICKY = 4096;
     const STATUS_UIDNEXT_FORCE = 8192;
     const STATUS_SYNCVANISHED = 16384;
-    /* @since 2.12.0 */
+    /
     const STATUS_RECENT_TOTAL = 32768;
-    /* @since 2.14.0 */
+    /
     const STATUS_FORCE_REFRESH = 65536;
 
     /* Constants for search() */
@@ -75,9 +71,9 @@ class Horde_Imap_Client
     const SORT_SEQUENCE = 12;
     /* Fuzzy sort criteria defined in RFC 6203 */
     const SORT_RELEVANCY = 13;
-    /* @since 2.4.0 */
+    /
     const SORT_DISPLAYFROM_FALLBACK = 14;
-    /* @since 2.4.0 */
+    /
     const SORT_DISPLAYTO_FALLBACK = 15;
 
     /* Search results constants */
@@ -110,7 +106,7 @@ class Horde_Imap_Client
     const FETCH_UID = 13;
     const FETCH_SEQ = 14;
     const FETCH_MODSEQ = 15;
-    /* @since 2.11.0 */
+    /
     const FETCH_DOWNGRADED = 16;
 
     /* Namespace constants. @deprecated */

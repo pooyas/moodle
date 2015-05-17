@@ -21,10 +21,10 @@
  *
  * @file     CAS/Request/AbstractRequest.php
  * @category Authentication
- * @package  PhpCAS
- * @author   Adam Franco <afranco@middlebury.edu>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -34,9 +34,6 @@
  *
  * @class    CAS_Request_CurlMultiRequest
  * @category Authentication
- * @package  PhpCAS
- * @author   Adam Franco <afranco@middlebury.edu>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  */
 class CAS_Request_CurlMultiRequest

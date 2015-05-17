@@ -1,36 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * Utility class for browsing of curse category files.
  *
- * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Represents a course category context in the tree navigated by {@link file_browser}.
  *
- * @package    core_files
- * @copyright  2008 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class file_info_context_coursecat extends file_info {
     /** @var stdClass Category object */
@@ -61,7 +45,7 @@ class file_info_context_coursecat extends file_info {
     public function get_file_info($component, $filearea, $itemid, $filepath, $filename) {
         global $DB;
 
-        if (!$this->category->visible and !has_capability('moodle/category:viewhiddencategories', $this->context)) {
+        if (!$this->category->visible and !has_capability('lion/category:viewhiddencategories', $this->context)) {
             if (empty($component)) {
                 // we can not list the category contents, so try parent, or top system
                 if ($this->category->parent and $pc = $DB->get_record('course_categories', array('id'=>$this->category->parent))) {
@@ -97,7 +81,7 @@ class file_info_context_coursecat extends file_info {
     protected function get_area_coursecat_description($itemid, $filepath, $filename) {
         global $CFG;
 
-        if (!has_capability('moodle/course:update', $this->context)) {
+        if (!has_capability('lion/course:update', $this->context)) {
             return null;
         }
 
@@ -166,7 +150,7 @@ class file_info_context_coursecat extends file_info {
         $course_cats = $DB->get_records('course_categories', array('parent'=>$this->category->id), 'sortorder', 'id,visible');
         foreach ($course_cats as $category) {
             $context = context_coursecat::instance($category->id);
-            if (!$category->visible and !has_capability('moodle/category:viewhiddencategories', $context)) {
+            if (!$category->visible and !has_capability('lion/category:viewhiddencategories', $context)) {
                 continue;
             }
             if ($child = $this->browser->get_file_info($context)) {
@@ -177,7 +161,7 @@ class file_info_context_coursecat extends file_info {
         $courses = $DB->get_records('course', array('category'=>$this->category->id), 'sortorder', 'id,visible');
         foreach ($courses as $course) {
             $context = context_course::instance($course->id);
-            if (!$course->visible and !has_capability('moodle/course:viewhiddencourses', $context)) {
+            if (!$course->visible and !has_capability('lion/course:viewhiddencourses', $context)) {
                 continue;
             }
             if ($child = $this->browser->get_file_info($context)) {
@@ -213,7 +197,7 @@ class file_info_context_coursecat extends file_info {
                 array('categoryid' => $this->category->id, 'courselevel' => CONTEXT_COURSE));
         foreach ($rs as $record) {
             $context = context::instance_by_id($record->contextid);
-            if (!$record->visible and !has_capability('moodle/course:viewhiddencourses', $context)) {
+            if (!$record->visible and !has_capability('lion/course:viewhiddencourses', $context)) {
                 continue;
             }
             if (($child = $this->browser->get_file_info($context))
@@ -235,7 +219,7 @@ class file_info_context_coursecat extends file_info {
                 array('categoryid' => $this->category->id, 'catlevel' => CONTEXT_COURSECAT));
         foreach ($rs as $record) {
             $context = context::instance_by_id($record->contextid);
-            if (!$record->visible and !has_capability('moodle/category:viewhiddencategories', $context)) {
+            if (!$record->visible and !has_capability('lion/category:viewhiddencategories', $context)) {
                 continue;
             }
             if (($child = $this->browser->get_file_info($context))

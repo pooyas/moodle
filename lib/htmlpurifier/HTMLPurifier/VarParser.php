@@ -3,6 +3,9 @@
 /**
  * Parses string representations into their corresponding native PHP
  * variable type. The base implementation does a simple type-check.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_VarParser
 {

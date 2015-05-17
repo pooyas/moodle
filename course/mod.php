@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Moves, adds, updates, duplicates or deletes modules in a course
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require("../config.php");
@@ -44,7 +31,7 @@ $cancelcopy    = optional_param('cancelcopy', 0, PARAM_BOOL);
 $confirm       = optional_param('confirm', 0, PARAM_BOOL);
 
 // This page should always redirect
-$url = new moodle_url('/course/mod.php');
+$url = new lion_url('/course/mod.php');
 foreach (compact('indent','update','hide','show','copy','moveto','movetosection','delete','course','cancelcopy','confirm') as $key=>$value) {
     if ($value !== 0) {
         $url->param($key, $value);
@@ -84,7 +71,7 @@ if (!empty($add)) {
 
     require_login($course, false, $cm);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:manageactivities', $modcontext);
+    require_capability('lion/course:manageactivities', $modcontext);
 
      // Duplicate the module.
      $newcm = duplicate_module($course, $cm);
@@ -96,7 +83,7 @@ if (!empty($add)) {
 
     require_login($course, false, $cm);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:manageactivities', $modcontext);
+    require_capability('lion/course:manageactivities', $modcontext);
 
     $return = course_get_url($course, $cm->sectionnum, array('sr' => $sectionreturn));
 
@@ -115,7 +102,7 @@ if (!empty($add)) {
 
         echo $OUTPUT->header();
         echo $OUTPUT->box_start('noticebox');
-        $formcontinue = new single_button(new moodle_url("$CFG->wwwroot/course/mod.php", $optionsyes), get_string('yes'));
+        $formcontinue = new single_button(new lion_url("$CFG->wwwroot/course/mod.php", $optionsyes), get_string('yes'));
         $formcancel = new single_button($return, get_string('no'), 'get');
         echo $OUTPUT->confirm($strdeletecheckfull, $formcontinue, $formcancel);
         echo $OUTPUT->box_end();
@@ -138,7 +125,7 @@ if ((!empty($movetosection) or !empty($moveto)) and confirm_sesskey()) {
     require_login($course, false, $cm);
     $coursecontext = context_course::instance($course->id);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:manageactivities', $modcontext);
+    require_capability('lion/course:manageactivities', $modcontext);
 
     if (!empty($movetosection)) {
         if (!$section = $DB->get_record('course_sections', array('id'=>$movetosection, 'course'=>$cm->course))) {
@@ -178,7 +165,7 @@ if ((!empty($movetosection) or !empty($moveto)) and confirm_sesskey()) {
     require_login($course, false, $cm);
     $coursecontext = context_course::instance($course->id);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:manageactivities', $modcontext);
+    require_capability('lion/course:manageactivities', $modcontext);
 
     $cm->indent += $indent;
 
@@ -199,7 +186,7 @@ if ((!empty($movetosection) or !empty($moveto)) and confirm_sesskey()) {
     require_login($course, false, $cm);
     $coursecontext = context_course::instance($course->id);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:activityvisibility', $modcontext);
+    require_capability('lion/course:activityvisibility', $modcontext);
 
     set_coursemodule_visible($cm->id, 0);
     \core\event\course_module_updated::create_from_cm($cm, $modcontext)->trigger();
@@ -212,7 +199,7 @@ if ((!empty($movetosection) or !empty($moveto)) and confirm_sesskey()) {
     require_login($course, false, $cm);
     $coursecontext = context_course::instance($course->id);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:activityvisibility', $modcontext);
+    require_capability('lion/course:activityvisibility', $modcontext);
 
     $section = $DB->get_record('course_sections', array('id'=>$cm->section), '*', MUST_EXIST);
 
@@ -234,7 +221,7 @@ if ((!empty($movetosection) or !empty($moveto)) and confirm_sesskey()) {
     require_login($course, false, $cm);
     $coursecontext = context_course::instance($course->id);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:manageactivities', $modcontext);
+    require_capability('lion/course:manageactivities', $modcontext);
 
     set_coursemodule_groupmode($cm->id, $groupmode);
     \core\event\course_module_updated::create_from_cm($cm, $modcontext)->trigger();
@@ -247,7 +234,7 @@ if ((!empty($movetosection) or !empty($moveto)) and confirm_sesskey()) {
     require_login($course, false, $cm);
     $coursecontext = context_course::instance($course->id);
     $modcontext = context_module::instance($cm->id);
-    require_capability('moodle/course:manageactivities', $modcontext);
+    require_capability('lion/course:manageactivities', $modcontext);
 
     $section = $DB->get_record('course_sections', array('id'=>$cm->section), '*', MUST_EXIST);
 

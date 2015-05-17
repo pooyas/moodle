@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package   mod_forum
- * @copyright 2014 Andrew Robert Nicols <andrew@nicols.co.uk>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Deprecated a very long time ago.
 
@@ -30,7 +17,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param int $discussionid
  * @param int $userid
  * @return mixed
- * @deprecated since Moodle 1.1 - please do not use this function any more.
+ * @deprecated since Lion 1.1 - please do not use this function any more.
  */
 function forum_count_unrated_posts($discussionid, $userid) {
     global $CFG, $DB;
@@ -68,7 +55,7 @@ function forum_count_unrated_posts($discussionid, $userid) {
 }
 
 
-// Since Moodle 1.5.
+// Since Lion 1.5.
 
 /**
  * Returns the count of records for the provided user and discussion.
@@ -78,7 +65,7 @@ function forum_count_unrated_posts($discussionid, $userid) {
  * @param int $userid
  * @param int $discussionid
  * @return bool
- * @deprecated since Moodle 1.5 - please do not use this function any more.
+ * @deprecated since Lion 1.5 - please do not use this function any more.
  */
 function forum_tp_count_discussion_read_records($userid, $discussionid) {
     debugging('forum_tp_count_discussion_read_records() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -106,7 +93,7 @@ function forum_tp_count_discussion_read_records($userid, $discussionid) {
  * @param int $userid
  * @param int $groupid
  * @return array
- * @deprecated since Moodle 1.5 - please do not use this function any more.
+ * @deprecated since Lion 1.5 - please do not use this function any more.
  */
 function forum_get_user_discussions($courseid, $userid, $groupid=0) {
     debugging('forum_get_user_discussions() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -137,7 +124,7 @@ function forum_get_user_discussions($courseid, $userid, $groupid=0) {
 }
 
 
-// Since Moodle 1.6.
+// Since Lion 1.6.
 
 /**
  * Returns the count of posts for the provided forum and [optionally] group.
@@ -146,7 +133,7 @@ function forum_get_user_discussions($courseid, $userid, $groupid=0) {
  * @param int $forumid
  * @param int|bool $groupid
  * @return int
- * @deprecated since Moodle 1.6 - please do not use this function any more.
+ * @deprecated since Lion 1.6 - please do not use this function any more.
  */
 function forum_tp_count_forum_posts($forumid, $groupid=false) {
     debugging('forum_tp_count_forum_posts() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -174,7 +161,7 @@ function forum_tp_count_forum_posts($forumid, $groupid=false) {
  * @param int $forumid
  * @param int|bool $groupid
  * @return int
- * @deprecated since Moodle 1.6 - please do not use this function any more.
+ * @deprecated since Lion 1.6 - please do not use this function any more.
  */
 function forum_tp_count_forum_read_records($userid, $forumid, $groupid=false) {
     debugging('forum_tp_count_forum_read_records() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -202,13 +189,13 @@ function forum_tp_count_forum_read_records($userid, $forumid, $groupid=false) {
 }
 
 
-// Since Moodle 1.7.
+// Since Lion 1.7.
 
 /**
  * Returns array of forum open modes.
  *
  * @return array
- * @deprecated since Moodle 1.7 - please do not use this function any more.
+ * @deprecated since Lion 1.7 - please do not use this function any more.
  */
 function forum_get_open_modes() {
     debugging('forum_get_open_modes() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -216,7 +203,7 @@ function forum_get_open_modes() {
 }
 
 
-// Since Moodle 1.9.
+// Since Lion 1.9.
 
 /**
  * Gets posts with all info ready for forum_print_post
@@ -228,7 +215,7 @@ function forum_get_open_modes() {
  * @param int $parent
  * @param int $forumid
  * @return array
- * @deprecated since Moodle 1.9 MDL-13303 - please do not use this function any more.
+ * @deprecated since Lion 1.9 MDL-13303 - please do not use this function any more.
  */
 function forum_get_child_posts($parent, $forumid) {
     debugging('forum_get_child_posts() is deprecated.', DEBUG_DEVELOPER);
@@ -251,7 +238,7 @@ function forum_get_child_posts($parent, $forumid) {
  * @global object
  * @global object
  * @return mixed array of posts or false
- * @deprecated since Moodle 1.9 MDL-13303 - please do not use this function any more.
+ * @deprecated since Lion 1.9 MDL-13303 - please do not use this function any more.
  */
 function forum_get_discussion_posts($discussion, $sort, $forumid) {
     debugging('forum_get_discussion_posts() is deprecated.', DEBUG_DEVELOPER);
@@ -267,7 +254,7 @@ function forum_get_discussion_posts($discussion, $sort, $forumid) {
 }
 
 
-// Since Moodle 2.0.
+// Since Lion 2.0.
 
 /**
  * Returns a list of ratings for a particular post - sorted.
@@ -276,7 +263,7 @@ function forum_get_discussion_posts($discussion, $sort, $forumid) {
  * @param int $postid
  * @param string $sort
  * @return array Array of ratings or false
- * @deprecated since Moodle 2.0 MDL-21657 - please do not use this function any more.
+ * @deprecated since Lion 2.0 MDL-21657 - please do not use this function any more.
  */
 function forum_get_ratings($context, $postid, $sort = "u.firstname ASC") {
     debugging('forum_get_ratings() is deprecated.', DEBUG_DEVELOPER);
@@ -301,7 +288,7 @@ function forum_get_ratings($context, $postid, $sort = "u.firstname ASC") {
  * @param array $messages
  * @param bool $fakelink
  * @return string
- * @deprecated since Moodle 2.0 MDL-14632 - please do not use this function any more.
+ * @deprecated since Lion 2.0 MDL-14632 - please do not use this function any more.
  */
 function forum_get_tracking_link($forum, $messages=array(), $fakelink=true) {
     debugging('forum_get_tracking_link() is deprecated.', DEBUG_DEVELOPER);
@@ -338,7 +325,7 @@ function forum_get_tracking_link($forum, $messages=array(), $fakelink=true) {
         // use <noscript> to print button in case javascript is not enabled
         $link .= '<noscript>';
     }
-    $url = new moodle_url('/mod/forum/settracking.php', array(
+    $url = new lion_url('/mod/forum/settracking.php', array(
             'id' => $forum->id,
             'sesskey' => sesskey(),
         ));
@@ -359,7 +346,7 @@ function forum_get_tracking_link($forum, $messages=array(), $fakelink=true) {
  * @param int $userid
  * @param int $discussionid
  * @return int
- * @deprecated since Moodle 2.0 MDL-14113 - please do not use this function any more.
+ * @deprecated since Lion 2.0 MDL-14113 - please do not use this function any more.
  */
 function forum_tp_count_discussion_unread_posts($userid, $discussionid) {
     debugging('forum_tp_count_discussion_unread_posts() is deprecated.', DEBUG_DEVELOPER);
@@ -379,7 +366,7 @@ function forum_tp_count_discussion_unread_posts($userid, $discussionid) {
 /**
  * Converts a forum to use the Roles System
  *
- * @deprecated since Moodle 2.0 MDL-23479 - please do not use this function any more.
+ * @deprecated since Lion 2.0 MDL-23479 - please do not use this function any more.
  */
 function forum_convert_to_roles() {
     debugging('forum_convert_to_roles() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -395,7 +382,7 @@ function forum_convert_to_roles() {
  * @param int $discussionid
  * @param int $forumid
  * @return array
- * @deprecated since Moodle 2.0 MDL-14113 - please do not use this function any more.
+ * @deprecated since Lion 2.0 MDL-14113 - please do not use this function any more.
  */
 function forum_tp_get_read_records($userid=-1, $postid=-1, $discussionid=-1, $forumid=-1) {
     debugging('forum_tp_get_read_records() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -434,7 +421,7 @@ function forum_tp_get_read_records($userid=-1, $postid=-1, $discussionid=-1, $fo
  * @global object
  * @param inti $userid
  * @param int $discussionid
- * @deprecated since Moodle 2.0 MDL-14113 - please do not use this function any more.
+ * @deprecated since Lion 2.0 MDL-14113 - please do not use this function any more.
  */
 function forum_tp_get_discussion_read_records($userid, $discussionid) {
     debugging('forum_tp_get_discussion_read_records() is deprecated and will not be replaced.', DEBUG_DEVELOPER);
@@ -450,7 +437,7 @@ function forum_tp_get_discussion_read_records($userid, $discussionid) {
 /**
  * This function gets run whenever user is enrolled into course
  *
- * @deprecated since Moodle 2.3 MDL-33166 - please do not use this function any more.
+ * @deprecated since Lion 2.3 MDL-33166 - please do not use this function any more.
  * @param stdClass $cp
  * @return void
  */
@@ -480,7 +467,7 @@ function forum_user_enrolled($cp) {
 /**
  * Checks to see if a user can view a particular post.
  *
- * @deprecated since Moodle 2.4 use forum_user_can_see_post() instead
+ * @deprecated since Lion 2.4 use forum_user_can_see_post() instead
  *
  * @param object $post
  * @param object $course
@@ -505,7 +492,7 @@ function forum_user_can_view_post($post, $course, $cm, $forum, $discussion, $use
 define('FORUM_TRACKING_ON', 2);
 
 /**
- * @deprecated since Moodle 2.6
+ * @deprecated since Lion 2.6
  * @see shorten_text()
  */
 function forum_shorten_post($message) {
@@ -519,7 +506,7 @@ function forum_shorten_post($message) {
  * @param int $userid
  * @param object $forum
  * @return bool
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::is_subscribed() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::is_subscribed() instead
  */
 function forum_is_subscribed($userid, $forum) {
     global $DB;
@@ -542,7 +529,7 @@ function forum_is_subscribed($userid, $forum) {
  * @param context_module|null $context Module context, may be omitted if not known or if called for the current module set in page.
  * @param boolean $userrequest Whether the user requested this change themselves. This has an effect on whether
  * discussion subscriptions are removed too.
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::subscribe_user() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::subscribe_user() instead
  */
 function forum_subscribe($userid, $forumid, $context = null, $userrequest = false) {
     global $DB;
@@ -562,7 +549,7 @@ function forum_subscribe($userid, $forumid, $context = null, $userrequest = fals
  * @param context_module|null $context Module context, may be omitted if not known or if called for the current module set in page.
  * @param boolean $userrequest Whether the user requested this change themselves. This has an effect on whether
  * discussion subscriptions are removed too.
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::unsubscribe_user() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::unsubscribe_user() instead
  */
 function forum_unsubscribe($userid, $forumid, $context = null, $userrequest = false) {
     global $DB;
@@ -584,7 +571,7 @@ function forum_unsubscribe($userid, $forumid, $context = null, $userrequest = fa
  * @param string $fields requested user fields (with "u." table prefix)
  * @param boolean $considerdiscussions Whether to take discussion subscriptions and unsubscriptions into consideration.
  * @return array list of users.
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::fetch_subscribed_users() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::fetch_subscribed_users() instead
   */
 function forum_subscribed_users($course, $forum, $groupid = 0, $context = null, $fields = null) {
     debugging("forum_subscribed_users() has been deprecated, please use \\mod_forum\\subscriptions::fetch_subscribed_users() instead.",
@@ -598,7 +585,7 @@ function forum_subscribed_users($course, $forum, $groupid = 0, $context = null, 
  *
  * @param object $forum
  * @return bool
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::is_forcesubscribed() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::is_forcesubscribed() instead
  */
 function forum_is_forcesubscribed($forum) {
     debugging("forum_is_forcesubscribed() has been deprecated, please use \\mod_forum\\subscriptions::is_forcesubscribed() instead.",
@@ -618,7 +605,7 @@ function forum_is_forcesubscribed($forum) {
  * @param int $forumid
  * @param mixed $value
  * @return bool
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::set_subscription_mode() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::set_subscription_mode() instead
  */
 function forum_forcesubscribe($forumid, $value = 1) {
     debugging("forum_forcesubscribe() has been deprecated, please use \\mod_forum\\subscriptions::set_subscription_mode() instead.",
@@ -633,7 +620,7 @@ function forum_forcesubscribe($forumid, $value = 1) {
  * @param int|stdClass $forumid
  * @param mixed $value
  * @return bool
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::get_subscription_mode() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::get_subscription_mode() instead
  */
 function forum_get_forcesubscribed($forum) {
     debugging("forum_get_forcesubscribed() has been deprecated, please use \\mod_forum\\subscriptions::get_subscription_mode() instead.",
@@ -653,7 +640,7 @@ function forum_get_forcesubscribed($forum) {
  *
  * @param stdClass $course The course from which to find subscribable forums.
  * @return array
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::is_subscribed in combination wtih
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::is_subscribed in combination wtih
  * \mod_forum\subscriptions::fill_subscription_cache_for_course instead.
  */
 function forum_get_subscribed_forums($course) {
@@ -683,7 +670,7 @@ function forum_get_subscribed_forums($course) {
  * Returns an array of forums that the current user is subscribed to and is allowed to unsubscribe from
  *
  * @return array An array of unsubscribable forums
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::get_unsubscribable_forums() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::get_unsubscribable_forums() instead
  */
 function forum_get_optional_subscribed_forums() {
     debugging("forum_get_optional_subscribed_forums() has been deprecated, please use \\mod_forum\\subscriptions::get_unsubscribable_forums() instead.",
@@ -700,7 +687,7 @@ function forum_get_optional_subscribed_forums() {
  * @param string $fields the list of fields to return for each user. As for get_users_by_capability.
  * @param string $sort sort order. As for get_users_by_capability.
  * @return array list of users.
- * @deprecated since Moodle 2.8 use \mod_forum\subscriptions::get_potential_subscribers() instead
+ * @deprecated since Lion 2.8 use \mod_forum\subscriptions::get_potential_subscribers() instead
  */
 function forum_get_potential_subscribers($forumcontext, $groupid, $fields, $sort = '') {
     debugging("forum_get_potential_subscribers() has been deprecated, please use \\mod_forum\\subscriptions::get_potential_subscribers() instead.",

@@ -3,8 +3,9 @@
 /**
  * Ruleset
  *
- * @package Less
- * @subpackage tree
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Tree_Ruleset extends Less_Tree{
 

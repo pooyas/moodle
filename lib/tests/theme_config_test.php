@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Tests the theme config class.
  *
- * @package   core
  * @category  phpunit
- * @copyright 2012 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later (5)
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/outputlib.php');
@@ -31,8 +18,6 @@ require_once($CFG->libdir . '/outputlib.php');
 /**
  * Tests the theme config class.
  *
- * @copyright 2012 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_theme_config_testcase extends advanced_testcase {
     /**
@@ -51,21 +36,21 @@ class core_theme_config_testcase extends advanced_testcase {
         $theme = theme_config::load(theme_config::DEFAULT_THEME);
 
         // First up test the forced setting.
-        $imagefile = $theme->resolve_image_location('i/test', 'moodle', true);
+        $imagefile = $theme->resolve_image_location('i/test', 'lion', true);
         $this->assertSame('test.svg', basename($imagefile));
-        $imagefile = $theme->resolve_image_location('i/test', 'moodle', false);
+        $imagefile = $theme->resolve_image_location('i/test', 'lion', false);
         $this->assertSame('test.png', basename($imagefile));
 
         // Now test the use of the svgicons config setting.
         // We need to clone the theme as usesvg property is calculated only once.
         $testtheme = clone $theme;
         $CFG->svgicons = true;
-        $imagefile = $testtheme->resolve_image_location('i/test', 'moodle', null);
+        $imagefile = $testtheme->resolve_image_location('i/test', 'lion', null);
         $this->assertSame('test.svg', basename($imagefile));
         $CFG->svgicons = false;
         // We need to clone the theme as usesvg property is calculated only once.
         $testtheme = clone $theme;
-        $imagefile = $testtheme->resolve_image_location('i/test', 'moodle', null);
+        $imagefile = $testtheme->resolve_image_location('i/test', 'lion', null);
         $this->assertSame('test.png', basename($imagefile));
         unset($CFG->svgicons);
 
@@ -118,7 +103,7 @@ class core_theme_config_testcase extends advanced_testcase {
             core_useragent::instance(true, $agent);
             // We need to clone the theme as usesvg property is calculated only once.
             $testtheme = clone $theme;
-            $imagefile = $testtheme->resolve_image_location('i/test', 'moodle', null);
+            $imagefile = $testtheme->resolve_image_location('i/test', 'lion', null);
             if ($expected) {
                 $this->assertSame('test.svg', basename($imagefile), 'Incorrect image returned for user agent `'.$agent.'`');
             } else {
@@ -141,7 +126,7 @@ class core_theme_config_testcase extends advanced_testcase {
         $exceptionoccured = false;
         try {
             core_useragent::set_user_device_type('featurephone');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $exceptionoccured = true;
         }
         $this->assertTrue($exceptionoccured);

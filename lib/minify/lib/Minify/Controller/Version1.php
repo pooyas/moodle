@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify_Controller_Version1  
- * @package Minify
+ * Class Minify_Controller_Version1
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -10,9 +12,7 @@
  * <code>
  * Minify::serve('Version1');
  * </code>
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class Minify_Controller_Version1 extends Minify_Controller_Base {
     

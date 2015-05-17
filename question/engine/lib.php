@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This defines the core classes of the Moodle question engine.
+ * This defines the core classes of the Lion question engine.
  *
- * @package    moodlecore
- * @subpackage questionengine
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question
+ * @subpackage engine
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/filelib.php');
 require_once(dirname(__FILE__) . '/questionusage.php');
@@ -50,8 +36,6 @@ require_once($CFG->libdir . '/questionlib.php');
  * creating, loading, saving and deleting {@link question_usage_by_activity}s,
  * which is the main class that is used by other code that wants to use questions.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class question_engine {
     /** @var array behaviour name => 1. Records which behaviours have been loaded. */
@@ -76,10 +60,10 @@ abstract class question_engine {
     /**
      * Load a {@link question_usage_by_activity} from the database, based on its id.
      * @param int $qubaid the id of the usage to load.
-     * @param moodle_database $db a database connectoin. Defaults to global $DB.
+     * @param lion_database $db a database connectoin. Defaults to global $DB.
      * @return question_usage_by_activity loaded from the database.
      */
-    public static function load_questions_usage_by_activity($qubaid, moodle_database $db = null) {
+    public static function load_questions_usage_by_activity($qubaid, lion_database $db = null) {
         $dm = new question_engine_data_mapper($db);
         return $dm->load_questions_usage_by_activity($qubaid);
     }
@@ -89,9 +73,9 @@ abstract class question_engine {
      * if the usage was newly created by {@link make_questions_usage_by_activity()}
      * or loaded from the database using {@link load_questions_usage_by_activity()}
      * @param question_usage_by_activity the usage to save.
-     * @param moodle_database $db a database connectoin. Defaults to global $DB.
+     * @param lion_database $db a database connectoin. Defaults to global $DB.
      */
-    public static function save_questions_usage_by_activity(question_usage_by_activity $quba, moodle_database $db = null) {
+    public static function save_questions_usage_by_activity(question_usage_by_activity $quba, lion_database $db = null) {
         $dm = new question_engine_data_mapper($db);
         $observer = $quba->get_observer();
         if ($observer instanceof question_engine_unit_of_work) {
@@ -446,8 +430,6 @@ abstract class question_engine {
  * be shown read-only, and a question that has not been submitted will not have
  * any sort of feedback displayed.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_display_options {
     /**#@+ @var integer named constants for the values that most of the options take. */
@@ -575,7 +557,7 @@ class question_display_options {
      *
      * If used, this array must contain an element courseid or cmid.
      *
-     * It shoudl also contain a parameter returnurl => moodle_url giving a
+     * It shoudl also contain a parameter returnurl => lion_url giving a
      * sensible URL to go back to when the editing form is submitted or cancelled.
      *
      * @var array url parameter for the edit link. id => questiosnid will be
@@ -624,8 +606,6 @@ class question_display_options {
 /**
  * Contains the logic for handling question flags.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class question_flags {
     /**
@@ -677,7 +657,7 @@ abstract class question_flags {
         // probably makes it sufficiently difficult for malicious users to toggle
         // other users flags.
         if ($checksum != self::get_toggle_checksum($qubaid, $questionid, $qaid, $slot)) {
-            throw new moodle_exception('errorsavingflags', 'question');
+            throw new lion_exception('errorsavingflags', 'question');
         }
 
         $dm = new question_engine_data_mapper();
@@ -726,10 +706,8 @@ abstract class question_flags {
  * out-of-order to a question. This can happen, for example, if they click
  * the browser's back button in a quiz, then try to submit a different response.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class question_out_of_sequence_exception extends moodle_exception {
+class question_out_of_sequence_exception extends lion_exception {
     public function __construct($qubaid, $slot, $postdata) {
         if ($postdata == null) {
             $postdata = data_submitted();
@@ -743,8 +721,6 @@ class question_out_of_sequence_exception extends moodle_exception {
 /**
  * Useful functions for writing question types and behaviours.
  *
- * @copyright 2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class question_utils {
     /**
@@ -912,8 +888,6 @@ abstract class question_utils {
 /**
  * The interface for strategies for controlling which variant of each question is used.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 interface question_variant_selection_strategy {
     /**
@@ -929,8 +903,6 @@ interface question_variant_selection_strategy {
 /**
  * A {@link question_variant_selection_strategy} that is completely random.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_variant_random_strategy implements question_variant_selection_strategy {
     public function choose_variant($maxvariants, $seed) {
@@ -945,8 +917,6 @@ class question_variant_random_strategy implements question_variant_selection_str
  * variants so that the students will not get a repeated variant until they have
  * seen them all.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_variant_pseudorandom_no_repeats_strategy
         implements question_variant_selection_strategy {
@@ -996,8 +966,6 @@ class question_variant_pseudorandom_no_repeats_strategy
  * For selected questions it wil return a specific variants. For the other
  * slots it will use a fallback strategy.
  *
- * @copyright  2013 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_variant_forced_choices_selection_strategy
     implements question_variant_selection_strategy {

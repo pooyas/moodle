@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require_once("../../config.php");
     require_once($CFG->dirroot."/auth/shibboleth/auth.php");
 

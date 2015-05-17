@@ -1,31 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Behat hooks steps definitions.
  *
  * This methods are used by Behat CLI command.
  *
- * @package    core
  * @category   test
- * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/../../behat/behat_base.php');
 
@@ -52,10 +39,7 @@ use Behat\Behat\Event\SuiteEvent as SuiteEvent,
  *
  * Throws generic Exception because they are captured by Behat.
  *
- * @package   core
  * @category  test
- * @copyright 2012 David Monllaó
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_hooks extends behat_base {
 
@@ -94,9 +78,9 @@ class behat_hooks extends behat_base {
     protected static $timings = array();
 
     /**
-     * Gives access to moodle codebase, ensures all is ready and sets up the test lock.
+     * Gives access to lion codebase, ensures all is ready and sets up the test lock.
      *
-     * Includes config.php to use moodle codebase with $CFG->behat_*
+     * Includes config.php to use lion codebase with $CFG->behat_*
      * instead of $CFG->prefix and $CFG->dataroot, called once per suite.
      *
      * @param SuiteEvent $event event before suite.
@@ -107,7 +91,7 @@ class behat_hooks extends behat_base {
     public static function before_suite(SuiteEvent $event) {
         global $CFG;
 
-        // Defined only when the behat CLI command is running, the moodle init setup process will
+        // Defined only when the behat CLI command is running, the lion init setup process will
         // read this value and switch to $CFG->behat_dataroot and $CFG->behat_prefix instead of
         // the normal site.
         define('BEHAT_TEST', 1);
@@ -117,7 +101,7 @@ class behat_hooks extends behat_base {
         // With BEHAT_TEST we will be using $CFG->behat_* instead of $CFG->dataroot, $CFG->prefix and $CFG->wwwroot.
         require_once(__DIR__ . '/../../../config.php');
 
-        // Now that we are MOODLE_INTERNAL.
+        // Now that we are LION_INTERNAL.
         require_once(__DIR__ . '/../../behat/classes/behat_command.php');
         require_once(__DIR__ . '/../../behat/classes/behat_selectors.php');
         require_once(__DIR__ . '/../../behat/classes/behat_context_helper.php');
@@ -147,7 +131,7 @@ class behat_hooks extends behat_base {
         if (!behat_util::is_test_data_updated()) {
             $commandpath = 'php admin/tool/behat/cli/init.php';
             throw new Exception("Your behat test site is outdated, please run\n\n    " .
-                    $commandpath . "\n\nfrom your moodle dirroot to drop and install the behat test site again.");
+                    $commandpath . "\n\nfrom your lion dirroot to drop and install the behat test site again.");
         }
         // Avoid parallel tests execution, it continues when the previous lock is released.
         test_lock::acquire('behat');
@@ -164,7 +148,7 @@ class behat_hooks extends behat_base {
     }
 
     /**
-     * Gives access to moodle codebase, to keep track of feature start time.
+     * Gives access to lion codebase, to keep track of feature start time.
      *
      * @param FeatureEvent $event event fired before feature.
      * @BeforeFeature
@@ -178,7 +162,7 @@ class behat_hooks extends behat_base {
     }
 
     /**
-     * Gives access to moodle codebase, to keep track of feature end time.
+     * Gives access to lion codebase, to keep track of feature end time.
      *
      * @param FeatureEvent $event event fired after feature.
      * @AfterFeature
@@ -196,7 +180,7 @@ class behat_hooks extends behat_base {
     }
 
     /**
-     * Gives access to moodle codebase, to keep track of suite timings.
+     * Gives access to lion codebase, to keep track of suite timings.
      *
      * @param SuiteEvent $event event fired after suite.
      * @AfterSuite
@@ -255,7 +239,7 @@ class behat_hooks extends behat_base {
 
         // We need the Mink session to do it and we do it only before the first scenario.
         if (self::is_first_scenario()) {
-            behat_selectors::register_moodle_selectors($session);
+            behat_selectors::register_lion_selectors($session);
             behat_context_helper::set_session($session);
         }
 
@@ -289,7 +273,7 @@ class behat_hooks extends behat_base {
         }
 
 
-        // Checking that the root path is a Moodle test site.
+        // Checking that the root path is a Lion test site.
         if (self::is_first_scenario()) {
             $notestsiteexception = new Exception('The base URL (' . $CFG->wwwroot . ') is not a behat test site, ' .
                 'ensure you started the built-in web server in the correct directory or your web server is correctly started and set up');
@@ -525,7 +509,7 @@ class behat_hooks extends behat_base {
      *
      * @Given /^I look for exceptions$/
      * @throw Exception Unknown type, depending on what we caught in the hook or basic \Exception.
-     * @see Moodle\BehatExtension\Tester\MoodleStepTester
+     * @see Lion\BehatExtension\Tester\LionStepTester
      */
     public function i_look_for_exceptions() {
 
@@ -567,7 +551,7 @@ class behat_hooks extends behat_base {
                 $errorinfo = $this->get_debug_text($errorinfoboxes[0]->getHtml()) . "\n" .
                     $this->get_debug_text($errorinfoboxes[1]->getHtml());
 
-                $msg = "Moodle exception: " . $errormsg->getText() . "\n" . $errorinfo;
+                $msg = "Lion exception: " . $errormsg->getText() . "\n" . $errorinfo;
                 throw new \Exception(html_entity_decode($msg));
             }
 

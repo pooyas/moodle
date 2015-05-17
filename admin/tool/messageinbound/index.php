@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Inbound Message Settings pages.
  *
- * @package    tool_messageinbound
- * @copyright  2014 Andrew NIcols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../../../config.php');
@@ -30,7 +17,7 @@ admin_externalpage_setup('messageinbound_handlers');
 
 $classname = optional_param('classname', '', PARAM_RAW);
 
-$pageurl = new moodle_url('/admin/tool/messageinbound/index.php');
+$pageurl = new lion_url('/admin/tool/messageinbound/index.php');
 
 if (empty($classname)) {
     $renderer = $PAGE->get_renderer('tool_messageinbound');
@@ -50,7 +37,7 @@ if (empty($classname)) {
     $handler = \core\message\inbound\manager::get_handler($classname);
     $record = \core\message\inbound\manager::record_from_handler($handler);
 
-    $formurl = new moodle_url($PAGE->url, array('classname' => $classname));
+    $formurl = new lion_url($PAGE->url, array('classname' => $classname));
     $mform = new tool_messageinbound_edit_handler_form($formurl, array(
             'handler' => $handler,
     ));

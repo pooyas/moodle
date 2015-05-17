@@ -1,29 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
+
+
+/**
+ * @package    question
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
+*/
 
 namespace core_question\bank;
 
 /**
  * Functions used to show question editing interface
  *
- * @package    moodlecore
- * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas and others {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
@@ -44,8 +34,6 @@ namespace core_question\bank;
  *    and sorted in the right order.
  *  + outputting table headers.
  *
- * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class view {
     const MAX_SORTS = 3;
@@ -70,7 +58,7 @@ class view {
     /**
      * Constructor
      * @param question_edit_contexts $contexts
-     * @param moodle_url $pageurl
+     * @param lion_url $pageurl
      * @param object $course course settings
      * @param object $cm (optional) activity settings.
      */
@@ -90,7 +78,7 @@ class view {
 
         // Create the url of the new question page to forward to.
         $returnurl = $pageurl->out_as_local_url(false);
-        $this->editquestionurl = new \moodle_url('/question/question.php',
+        $this->editquestionurl = new \lion_url('/question/question.php',
                 array('returnurl' => $returnurl));
         if ($cm !== null) {
             $this->editquestionurl->param('cmid', $cm->id);
@@ -131,7 +119,7 @@ class view {
         } else {
              $questionbankcolumns = explode(',', $CFG->questionbankcolumns);
         }
-        if (question_get_display_preference('qbshowtext', 0, PARAM_BOOL, new \moodle_url(''))) {
+        if (question_get_display_preference('qbshowtext', 0, PARAM_BOOL, new \lion_url(''))) {
             $questionbankcolumns[] = 'question_text_row';
         }
 
@@ -245,13 +233,13 @@ class view {
             for ($i = 1; $i <= self::MAX_SORTS; $i++) {
                 $this->baseurl->remove_params('qbs' . $i);
             }
-            throw new \moodle_exception('unknownsortcolumn', '', $link = $this->baseurl->out(), $colname);
+            throw new \lion_exception('unknownsortcolumn', '', $link = $this->baseurl->out(), $colname);
         }
         // Validate the subsort, if present.
         if ($subsort) {
             $subsorts = $column->is_sortable();
             if (!is_array($subsorts) || !isset($subsorts[$subsort])) {
-                throw new \moodle_exception('unknownsortcolumn', '', $link = $this->baseurl->out(), $sort);
+                throw new \lion_exception('unknownsortcolumn', '', $link = $this->baseurl->out(), $sort);
             }
         }
         return array($colname, $subsort);
@@ -340,10 +328,10 @@ class view {
      * @param stdClass $category no longer used.
      * @param bool $recurse no longer used.
      * @param bool $showhidden no longer used.
-     * @deprecated since Moodle 2.7 MDL-40313.
+     * @deprecated since Lion 2.7 MDL-40313.
      * @see build_query()
      * @see \core_question\bank\search\condition
-     * @todo MDL-41978 This will be deleted in Moodle 2.8
+     * @todo MDL-41978 This will be deleted in Lion 2.8
      */
     protected function build_query_sql($category, $recurse, $showhidden) {
         debugging('build_query_sql() is deprecated, please use \core_question\bank\view::build_query() and ' .
@@ -424,7 +412,7 @@ class view {
     /**
      * Get the URL for duplicating a given question.
      * @param int $questionid the question id.
-     * @return moodle_url the URL.
+     * @return lion_url the URL.
      */
     public function copy_question_url($questionid) {
         return $this->editquestionurl->out(true, array('id' => $questionid, 'makecopy' => 1));
@@ -441,7 +429,7 @@ class view {
     /**
      * Get the URL to preview a question.
      * @param stdClass $questiondata the data defining the question.
-     * @return moodle_url the URL.
+     * @return lion_url the URL.
      */
     public function preview_question_url($questiondata) {
         return question_preview_url($questiondata->id, null, null, null, null,
@@ -479,7 +467,7 @@ class view {
         $this->display_question_list($this->contexts->having_one_edit_tab_cap($tabname),
                 $this->baseurl, $cat, $this->cm,
                 null, $page, $perpage, $showhidden, $showquestiontext,
-                $this->contexts->having_cap('moodle/question:add'));
+                $this->contexts->having_cap('lion/question:add'));
     }
 
     protected function print_choose_category_message($categoryandcontext) {
@@ -510,9 +498,9 @@ class view {
     /**
      * prints category information
      * @param stdClass $category the category row from the database.
-     * @deprecated since Moodle 2.7 MDL-40313.
+     * @deprecated since Lion 2.7 MDL-40313.
      * @see \core_question\bank\search\condition
-     * @todo MDL-41978 This will be deleted in Moodle 2.8
+     * @todo MDL-41978 This will be deleted in Lion 2.8
      */
     protected function print_category_info($category) {
         $formatoptions = new \stdClass();
@@ -525,9 +513,9 @@ class view {
 
     /**
      * Prints a form to choose categories
-     * @deprecated since Moodle 2.7 MDL-40313.
+     * @deprecated since Lion 2.7 MDL-40313.
      * @see \core_question\bank\search\condition
-     * @todo MDL-41978 This will be deleted in Moodle 2.8
+     * @todo MDL-41978 This will be deleted in Lion 2.8
      */
     protected function display_category_form($contexts, $pageurl, $current) {
         global $OUTPUT;
@@ -549,9 +537,9 @@ class view {
      * @param bool $recurse no longer used.
      * @param bool $showhidden no longer used.
      * @param bool $showquestiontext whether to show the question text.
-     * @deprecated since Moodle 2.7 MDL-40313.
+     * @deprecated since Lion 2.7 MDL-40313.
      * @see display_options_form
-     * @todo MDL-41978 This will be deleted in Moodle 2.8
+     * @todo MDL-41978 This will be deleted in Lion 2.8
      * @see \core_question\bank\search\condition
      */
     protected function display_options($recurse, $showhidden, $showquestiontext) {
@@ -561,10 +549,10 @@ class view {
 
     /**
      * Print a single option checkbox.
-     * @deprecated since Moodle 2.7 MDL-40313.
+     * @deprecated since Lion 2.7 MDL-40313.
      * @see \core_question\bank\search\condition
      * @see html_writer::checkbox
-     * @todo MDL-41978 This will be deleted in Moodle 2.8
+     * @todo MDL-41978 This will be deleted in Lion 2.8
      */
     protected function display_category_form_checkbox($name, $value, $label) {
         debugging('display_category_form_checkbox() is deprecated, ' .
@@ -590,7 +578,7 @@ class view {
         global $PAGE;
 
         echo \html_writer::start_tag('form', array('method' => 'get',
-                'action' => new \moodle_url($scriptpath), 'id' => 'displayoptions'));
+                'action' => new \lion_url($scriptpath), 'id' => 'displayoptions'));
         echo \html_writer::start_div();
         echo \html_writer::input_hidden_params($this->baseurl, array('recurse', 'showhidden', 'qbshowtext'));
 
@@ -605,7 +593,7 @@ class view {
         echo \html_writer::tag('noscript', \html_writer::div($go), array('class' => 'inline'));
         echo \html_writer::end_div();
         echo \html_writer::end_tag('form');
-        $PAGE->requires->yui_module('moodle-question-searchform', 'M.question.searchform.init');
+        $PAGE->requires->yui_module('lion-question-searchform', 'M.question.searchform.init');
     }
 
     /**
@@ -649,7 +637,7 @@ class view {
      * Prints the table of questions in a category with interactions
      *
      * @param array      $contexts    Not used!
-     * @param moodle_url $pageurl     The URL to reload this page.
+     * @param lion_url $pageurl     The URL to reload this page.
      * @param string     $categoryandcontext 'categoryID,contextID'.
      * @param stdClass   $cm          Not used!
      * @param bool       $recurse     Whether to include subcategories.
@@ -672,7 +660,7 @@ class view {
         list($categoryid, $contextid) = explode(',', $categoryandcontext);
         $catcontext = \context::instance_by_id($contextid);
 
-        $canadd = has_capability('moodle/question:add', $catcontext);
+        $canadd = has_capability('lion/question:add', $catcontext);
 
         $this->create_new_question_form($category, $canadd);
 
@@ -684,7 +672,7 @@ class view {
         $questions = $this->load_page_questions($page, $perpage);
 
         echo '<div class="categorypagingbarcontainer">';
-        $pageingurl = new \moodle_url('edit.php');
+        $pageingurl = new \lion_url('edit.php');
         $r = $pageingurl->params($pageurl->params());
         $pagingbar = new \paging_bar($totalnumber, $page, $perpage, $pageingurl);
         $pagingbar->pagevar = 'qpage';
@@ -710,12 +698,12 @@ class view {
         echo $OUTPUT->render($pagingbar);
         if ($totalnumber > DEFAULT_QUESTIONS_PER_PAGE) {
             if ($perpage == DEFAULT_QUESTIONS_PER_PAGE) {
-                $url = new \moodle_url('edit.php', array_merge($pageurl->params(), array('qperpage' => 1000)));
-                $showall = '<a href="'.$url.'">'.get_string('showall', 'moodle', $totalnumber).'</a>';
+                $url = new \lion_url('edit.php', array_merge($pageurl->params(), array('qperpage' => 1000)));
+                $showall = '<a href="'.$url.'">'.get_string('showall', 'lion', $totalnumber).'</a>';
             } else {
-                $url = new \moodle_url('edit.php', array_merge($pageurl->params(),
+                $url = new \lion_url('edit.php', array_merge($pageurl->params(),
                                               array('qperpage' => DEFAULT_QUESTIONS_PER_PAGE)));
-                $showall = '<a href="'.$url.'">'.get_string('showperpage', 'moodle', DEFAULT_QUESTIONS_PER_PAGE).'</a>';
+                $showall = '<a href="'.$url.'">'.get_string('showperpage', 'lion', DEFAULT_QUESTIONS_PER_PAGE).'</a>';
             }
             echo "<div class='paging'>{$showall}</div>";
         }
@@ -736,9 +724,9 @@ class view {
      * @param array    $addcontexts contexts where the user is allowed to add new questions.
      */
     protected function display_bottom_controls($totalnumber, $recurse, $category, \context $catcontext, array $addcontexts) {
-        $caneditall = has_capability('moodle/question:editall', $catcontext);
-        $canuseall = has_capability('moodle/question:useall', $catcontext);
-        $canmoveall = has_capability('moodle/question:moveall', $catcontext);
+        $caneditall = has_capability('lion/question:editall', $catcontext);
+        $canuseall = has_capability('lion/question:useall', $catcontext);
+        $canmoveall = has_capability('lion/question:moveall', $catcontext);
 
         echo '<div class="modulespecificbuttonscontainer">';
         if ($caneditall || $canmoveall || $canuseall) {
@@ -817,7 +805,7 @@ class view {
                 print_error('cannotfindcate', 'question');
             }
             $tocontext = \context::instance_by_id($contextid);
-            require_capability('moodle/question:add', $tocontext);
+            require_capability('lion/question:add', $tocontext);
             $rawdata = (array) data_submitted();
             $questionids = array();
             foreach ($rawdata as $key => $value) {  // Parse input for question ids.
@@ -909,8 +897,8 @@ class view {
             if ($inuse) {
                 $questionnames .= '<br />'.get_string('questionsinuse', 'question');
             }
-            $baseurl = new \moodle_url('edit.php', $this->baseurl->params());
-            $deleteurl = new \moodle_url($baseurl, array('deleteselected' => $questionlist, 'confirm' => md5($questionlist),
+            $baseurl = new \lion_url('edit.php', $this->baseurl->params());
+            $deleteurl = new \lion_url($baseurl, array('deleteselected' => $questionlist, 'confirm' => md5($questionlist),
                                                  'sesskey' => sesskey()));
 
             echo $OUTPUT->confirm(get_string('deletequestionscheck', 'question', $questionnames), $deleteurl, $baseurl);

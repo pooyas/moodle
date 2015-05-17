@@ -2,6 +2,9 @@
 
 /**
  * Pre-transform that changes deprecated name attribute to ID if necessary
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_Name extends HTMLPurifier_AttrTransform
 {

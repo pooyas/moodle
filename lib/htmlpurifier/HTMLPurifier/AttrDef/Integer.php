@@ -6,6 +6,9 @@
  *       allowed CSS uses this type.  The properties that do are: widows,
  *       orphans, z-index, counter-increment, counter-reset.  Some of the
  *       HTML attributes, however, find use for a non-negative version of this.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_Integer extends HTMLPurifier_AttrDef
 {

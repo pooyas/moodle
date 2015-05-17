@@ -1,30 +1,17 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The module forums external functions unit tests
  *
- * @package    mod_forum
  * @category   external
- * @copyright  2013 Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -61,7 +48,7 @@ class mod_forum_maildigest_testcase extends advanced_testcase {
         $messages = $this->helper->mailsink->get_messages();
         $this->assertEquals(0, count($messages));
 
-        // Tell Moodle that we've not sent any digest messages out recently.
+        // Tell Lion that we've not sent any digest messages out recently.
         $CFG->digestmailtimelast = 0;
 
         // And set the digest sending time to a negative number - this has
@@ -224,7 +211,7 @@ class mod_forum_maildigest_testcase extends advanced_testcase {
         $this->assertFalse($currentsetting);
 
         // Try with an invalid value.
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         forum_set_user_maildigest($forum1, 42, $user);
     }
 

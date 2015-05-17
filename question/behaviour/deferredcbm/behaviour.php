@@ -1,32 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Question behaviour that is like the deferred feedback model, but with
  * certainty based marking. That is, in addition to the other controls, there are
  * where the student can indicate how certain they are that their answer is right.
  *
- * @package    qbehaviour
+ * @package    question_behaviour
  * @subpackage deferredcbm
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(dirname(__FILE__) . '/../deferredfeedback/behaviour.php');
 
@@ -39,8 +25,6 @@ require_once(dirname(__FILE__) . '/../deferredfeedback/behaviour.php');
  * when the whole attempt is finished, their answer is graded. Their degree
  * of certainty affects their score.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_deferredcbm extends qbehaviour_deferredfeedback {
     const IS_ARCHETYPAL = true;

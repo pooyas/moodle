@@ -1,35 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Load all plugins into the admin tree.
  *
 * Please note that is file is always loaded last - it means that you can inject entries into other categories too.
 *
-* Note:
-* This what I found about the structure of this file:
-* First it creates a category for each plugins like ativity modules or blocks
-* then it calls a function to creates manage page for the category like admin_page_manageblocks()
-* then iteratively calls load_setting for each available plugins to construct the
-* setting page for the plugin. this load_setting is resides in /lib/classes/plugininfo/mod.php|block.php...
-* basically it loads the settings inside each plugin directory called settings.php
-* the plugin itself may override the load_setting function as well for additional features
-* @package    core
-* @copyright  2007 Petr Skoda {@link http://skodak.org}
-* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
 */
 
 if ($hassiteconfig) {
@@ -103,7 +82,7 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configtext('recaptchaprivatekey', new lang_string('recaptchaprivatekey', 'admin'), new lang_string('configrecaptchaprivatekey', 'admin'), '', PARAM_NOTAGS));
     $ADMIN->add('authsettings', $temp);
 
-    $temp = new admin_externalpage('authtestsettings', get_string('testsettings', 'core_auth'), new moodle_url("/auth/test_settings.php"), 'moodle/site:config', true);
+    $temp = new admin_externalpage('authtestsettings', get_string('testsettings', 'core_auth'), new lion_url("/auth/test_settings.php"), 'lion/site:config', true);
     $ADMIN->add('authsettings', $temp);
 
     foreach (core_plugin_manager::instance()->get_plugins_of_type('auth') as $plugin) {
@@ -117,7 +96,7 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_manageenrols());
     $ADMIN->add('enrolments', $temp);
 
-    $temp = new admin_externalpage('enroltestsettings', get_string('testsettings', 'core_enrol'), new moodle_url("/enrol/test_settings.php"), 'moodle/site:config', true);
+    $temp = new admin_externalpage('enroltestsettings', get_string('testsettings', 'core_enrol'), new lion_url("/enrol/test_settings.php"), 'lion/site:config', true);
     $ADMIN->add('enrolments', $temp);
 
     foreach(core_plugin_manager::instance()->get_plugins_of_type('enrol') as $plugin) {
@@ -217,9 +196,9 @@ if ($hassiteconfig) {
         50, PARAM_INT, 3));
 
     $ADMIN->add('portfoliosettings', $temp);
-    $ADMIN->add('portfoliosettings', new admin_externalpage('portfolionew', new lang_string('addnewportfolio', 'portfolio'), $url, 'moodle/site:config', true));
-    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliodelete', new lang_string('deleteportfolio', 'portfolio'), $url, 'moodle/site:config', true));
-    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliocontroller', new lang_string('manageportfolios', 'portfolio'), $url, 'moodle/site:config', true));
+    $ADMIN->add('portfoliosettings', new admin_externalpage('portfolionew', new lang_string('addnewportfolio', 'portfolio'), $url, 'lion/site:config', true));
+    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliodelete', new lang_string('deleteportfolio', 'portfolio'), $url, 'lion/site:config', true));
+    $ADMIN->add('portfoliosettings', new admin_externalpage('portfoliocontroller', new lang_string('manageportfolios', 'portfolio'), $url, 'lion/site:config', true));
 
     foreach (portfolio_instances(false, false) as $portfolio) {
         require_once($CFG->dirroot . '/portfolio/' . $portfolio->get('plugin') . '/lib.php');
@@ -230,7 +209,7 @@ if ($hassiteconfig) {
                 'portfoliosettings' . $portfolio->get('id'),
                 $portfolio->get('name'),
                 $url . '?action=edit&pf=' . $portfolio->get('id'),
-                'moodle/site:config'
+                'lion/site:config'
             )
         );
     }
@@ -257,15 +236,15 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configcheckbox('legacyfilesaddallowed', new lang_string('legacyfilesaddallowed', 'admin'), new lang_string('legacyfilesaddallowed_help', 'admin'), 1));
     $ADMIN->add('repositorysettings', $temp);
     $ADMIN->add('repositorysettings', new admin_externalpage('repositorynew',
-        new lang_string('addplugin', 'repository'), $url, 'moodle/site:config', true));
+        new lang_string('addplugin', 'repository'), $url, 'lion/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositorydelete',
-        new lang_string('deleterepository', 'repository'), $url, 'moodle/site:config', true));
+        new lang_string('deleterepository', 'repository'), $url, 'lion/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositorycontroller',
-        new lang_string('manage', 'repository'), $url, 'moodle/site:config', true));
+        new lang_string('manage', 'repository'), $url, 'lion/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositoryinstancenew',
-        new lang_string('createrepository', 'repository'), $url, 'moodle/site:config', true));
+        new lang_string('createrepository', 'repository'), $url, 'lion/site:config', true));
     $ADMIN->add('repositorysettings', new admin_externalpage('repositoryinstanceedit',
-        new lang_string('editrepositoryinstance', 'repository'), $url, 'moodle/site:config', true));
+        new lang_string('editrepositoryinstance', 'repository'), $url, 'lion/site:config', true));
     foreach (core_plugin_manager::instance()->get_plugins_of_type('repository') as $plugin) {
         /** @var \core\plugininfo\repository $plugin */
         $plugin->load_settings($ADMIN, 'repositorysettings', $hassiteconfig);
@@ -274,8 +253,8 @@ if ($hassiteconfig) {
 /// Web services
     $ADMIN->add('modules', new admin_category('webservicesettings', new lang_string('webservices', 'webservice')));
     // Mobile
-    $temp = new admin_settingpage('mobile', new lang_string('mobile','admin'), 'moodle/site:config', false);
-    $enablemobiledocurl = new moodle_url(get_docs_url('Enable_mobile_web_services'));
+    $temp = new admin_settingpage('mobile', new lang_string('mobile','admin'), 'lion/site:config', false);
+    $enablemobiledocurl = new lion_url(get_docs_url('Enable_mobile_web_services'));
     $enablemobiledoclink = html_writer::link($enablemobiledocurl, new lang_string('documentation'));
     $temp->add(new admin_setting_enablemobileservice('enablemobilewebservice',
             new lang_string('enablemobilewebservice', 'admin'),
@@ -287,16 +266,16 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_webservicesoverview());
     $ADMIN->add('webservicesettings', $temp);
     //API documentation
-    $ADMIN->add('webservicesettings', new admin_externalpage('webservicedocumentation', new lang_string('wsdocapi', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/documentation.php", 'moodle/site:config', false));
+    $ADMIN->add('webservicesettings', new admin_externalpage('webservicedocumentation', new lang_string('wsdocapi', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/documentation.php", 'lion/site:config', false));
     /// manage service
     $temp = new admin_settingpage('externalservices', new lang_string('externalservices', 'webservice'));
     $temp->add(new admin_setting_heading('manageserviceshelpexplaination', new lang_string('information', 'webservice'), new lang_string('servicehelpexplanation', 'webservice')));
     $temp->add(new admin_setting_manageexternalservices());
     $ADMIN->add('webservicesettings', $temp);
-    $ADMIN->add('webservicesettings', new admin_externalpage('externalservice', new lang_string('editaservice', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service.php", 'moodle/site:config', true));
-    $ADMIN->add('webservicesettings', new admin_externalpage('externalservicefunctions', new lang_string('externalservicefunctions', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service_functions.php", 'moodle/site:config', true));
-    $ADMIN->add('webservicesettings', new admin_externalpage('externalserviceusers', new lang_string('externalserviceusers', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service_users.php", 'moodle/site:config', true));
-    $ADMIN->add('webservicesettings', new admin_externalpage('externalserviceusersettings', new lang_string('serviceusersettings', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service_user_settings.php", 'moodle/site:config', true));
+    $ADMIN->add('webservicesettings', new admin_externalpage('externalservice', new lang_string('editaservice', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service.php", 'lion/site:config', true));
+    $ADMIN->add('webservicesettings', new admin_externalpage('externalservicefunctions', new lang_string('externalservicefunctions', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service_functions.php", 'lion/site:config', true));
+    $ADMIN->add('webservicesettings', new admin_externalpage('externalserviceusers', new lang_string('externalserviceusers', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service_users.php", 'lion/site:config', true));
+    $ADMIN->add('webservicesettings', new admin_externalpage('externalserviceusersettings', new lang_string('serviceusersettings', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/service_user_settings.php", 'lion/site:config', true));
     /// manage protocol page link
     $temp = new admin_settingpage('webserviceprotocols', new lang_string('manageprotocols', 'webservice'));
     $temp->add(new admin_setting_managewebserviceprotocols());
@@ -307,7 +286,7 @@ if ($hassiteconfig) {
     // We cannot use $OUTPUT this early, doing so means that we lose the ability
     // to set the page layout on all admin pages.
     // $wsdoclink = $OUTPUT->doc_link('How_to_get_a_security_key');
-    $url = new moodle_url(get_docs_url('How_to_get_a_security_key'));
+    $url = new lion_url(get_docs_url('How_to_get_a_security_key'));
     $wsdoclink = html_writer::tag('a', new lang_string('supplyinfo', 'webservice'), array('href'=>$url));
     $temp->add(new admin_setting_configcheckbox('enablewsdocumentation', new lang_string('enablewsdocumentation',
                         'admin'), new lang_string('configenablewsdocumentation', 'admin', $wsdoclink), false));
@@ -318,7 +297,7 @@ if ($hassiteconfig) {
         $plugin->load_settings($ADMIN, 'webservicesettings', $hassiteconfig);
     }
     /// manage token page link
-    $ADMIN->add('webservicesettings', new admin_externalpage('addwebservicetoken', new lang_string('managetokens', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/tokens.php", 'moodle/site:config', true));
+    $ADMIN->add('webservicesettings', new admin_externalpage('addwebservicetoken', new lang_string('managetokens', 'webservice'), "$CFG->wwwroot/$CFG->admin/webservice/tokens.php", 'lion/site:config', true));
     $temp = new admin_settingpage('webservicetokens', new lang_string('managetokens', 'webservice'));
     $temp->add(new admin_setting_managewebservicetokens());
     if (empty($CFG->enablewebservices)) {
@@ -328,7 +307,7 @@ if ($hassiteconfig) {
 }
 
 // Question type settings
-if ($hassiteconfig || has_capability('moodle/question:config', $systemcontext)) {
+if ($hassiteconfig || has_capability('lion/question:config', $systemcontext)) {
 
     // Question behaviour settings.
     $ADMIN->add('modules', new admin_category('qbehavioursettings', new lang_string('questionbehaviours', 'admin')));
@@ -341,7 +320,7 @@ if ($hassiteconfig || has_capability('moodle/question:config', $systemcontext)) 
     // Question preview defaults.
     $settings = new admin_settingpage('qdefaultsetting',
             get_string('questionpreviewdefaults', 'question'),
-            'moodle/question:config');
+            'lion/question:config');
     $ADMIN->add('qtypesettings', $settings);
 
     $settings->add(new admin_setting_heading('qdefaultsetting_preview_options',
@@ -402,7 +381,7 @@ if ($hassiteconfig && !empty($CFG->enableplagiarism)) {
         $plugin->load_settings($ADMIN, 'plagiarism', $hassiteconfig);
     }
 }
-$ADMIN->add('reports', new admin_externalpage('comments', new lang_string('comments'), $CFG->wwwroot.'/comment/', 'moodle/site:viewreports'));
+$ADMIN->add('reports', new admin_externalpage('comments', new lang_string('comments'), $CFG->wwwroot.'/comment/', 'lion/site:viewreports'));
 
 // Course reports settings
 if ($hassiteconfig) {
@@ -411,7 +390,7 @@ if ($hassiteconfig) {
         $file = $CFG->dirroot . '/course/report/' . $report . '/settings.php';
         if (file_exists($file)) {
             $settings = new admin_settingpage('coursereport' . $report,
-                    new lang_string('pluginname', 'coursereport_' . $report), 'moodle/site:config');
+                    new lang_string('pluginname', 'coursereport_' . $report), 'lion/site:config');
             // settings.php may create a subcategory or unset the settings completely
             include($file);
             if ($settings) {
@@ -434,7 +413,7 @@ foreach (core_component::get_plugin_list('report') as $report => $plugindir) {
     $settings_path = "$plugindir/settings.php";
     if (file_exists($settings_path)) {
         $settings = new admin_settingpage('report' . $report,
-                new lang_string('pluginname', 'report_' . $report), 'moodle/site:config');
+                new lang_string('pluginname', 'report_' . $report), 'lion/site:config');
         include($settings_path);
         if ($settings) {
             $pages[] = $settings;
@@ -470,7 +449,7 @@ if ($hassiteconfig) {
     foreach (core_component::get_plugin_list('cachestore') as $plugin => $path) {
         $settingspath = $path.'/settings.php';
         if (file_exists($settingspath)) {
-            $settings = new admin_settingpage('cachestore_'.$plugin.'_settings', new lang_string('pluginname', 'cachestore_'.$plugin), 'moodle/site:config');
+            $settings = new admin_settingpage('cachestore_'.$plugin.'_settings', new lang_string('pluginname', 'cachestore_'.$plugin), 'lion/site:config');
             include($settingspath);
             $ADMIN->add('cachestores', $settings);
         }
@@ -481,7 +460,7 @@ if ($hassiteconfig) {
 if ($hassiteconfig) {
     $ADMIN->add('modules', new admin_category('calendartype', new lang_string('calendartypes', 'calendar')));
     foreach (core_component::get_plugin_list_with_file('calendartype', 'settings.php') as $plugin => $settingspath) {
-        $settings = new admin_settingpage('calendartype_' . $plugin . '_settings', new lang_string('pluginname', 'calendartype_' . $plugin), 'moodle/site:config');
+        $settings = new admin_settingpage('calendartype_' . $plugin . '_settings', new lang_string('pluginname', 'calendartype_' . $plugin), 'lion/site:config');
         include($settingspath);
         $ADMIN->add('calendartype', $settings);
     }

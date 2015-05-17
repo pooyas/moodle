@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * IMS Enterprise file enrolment plugin.
@@ -20,13 +7,12 @@
  * This plugin lets the user specify an IMS Enterprise file to be processed.
  * The IMS Enterprise file is mainly parsed on a regular cron,
  * but can also be imported via the UI (Admin Settings).
- * @package    enrol_imsenterprise
- * @copyright  2010 Eugene Venter
- * @author     Eugene Venter - based on code by Dan Stowell
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage imsenterprise
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/group/lib.php');
 
@@ -34,8 +20,6 @@ require_once($CFG->dirroot.'/group/lib.php');
 /**
  * IMS Enterprise file enrolment plugin.
  *
- * @copyright  2010 Eugene Venter
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class enrol_imsenterprise_plugin extends enrol_plugin {
 
@@ -55,12 +39,12 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
     protected $xmlcache;
 
     /**
-     * @var $coursemappings array of mappings between IMS data fields and moodle course fields.
+     * @var $coursemappings array of mappings between IMS data fields and lion course fields.
      */
     protected $coursemappings;
 
     /**
-     * @var $rolemappings array of mappings between IMS roles and moodle roles.
+     * @var $rolemappings array of mappings between IMS roles and lion roles.
      */
     protected $rolemappings;
 
@@ -103,9 +87,9 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
             $this->log_line('Found file '.$filename);
             $this->xmlcache = '';
 
-            // Make sure we understand how to map the IMS-E roles to Moodle roles.
+            // Make sure we understand how to map the IMS-E roles to Lion roles.
             $this->load_role_mappings();
-            // Make sure we understand how to map the IMS-E course names to Moodle course names.
+            // Make sure we understand how to map the IMS-E course names to Lion course names.
             $this->load_course_mappings();
 
             $md5 = md5_file($filename); // NB We'll write this value back to the database at the end of the cron.
@@ -180,7 +164,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
 
         if (!empty($mailadmins) && $fileisnew) {
             $timeelapsed = isset($timeelapsed) ? $timeelapsed : 0;
-            $msg = "An IMS enrolment has been carried out within Moodle.\nTime taken: $timeelapsed seconds.\n\n";
+            $msg = "An IMS enrolment has been carried out within Lion.\nTime taken: $timeelapsed seconds.\n\n";
             if (!empty($logtolocation)) {
                 if ($this->logfp) {
                     $msg .= "Log data has been written to:\n";
@@ -196,12 +180,12 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
             }
 
             $eventdata = new stdClass();
-            $eventdata->modulename        = 'moodle';
+            $eventdata->modulename        = 'lion';
             $eventdata->component         = 'enrol_imsenterprise';
             $eventdata->name              = 'imsenterprise_enrolment';
             $eventdata->userfrom          = get_admin();
             $eventdata->userto            = get_admin();
-            $eventdata->subject           = "Moodle IMS Enterprise enrolment notification";
+            $eventdata->subject           = "Lion IMS Enterprise enrolment notification";
             $eventdata->fullmessage       = $msg;
             $eventdata->fullmessageformat = FORMAT_PLAIN;
             $eventdata->fullmessagehtml   = '';
@@ -266,7 +250,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
     }
 
     /**
-     * Process the group tag. This defines a Moodle course.
+     * Process the group tag. This defines a Lion course.
      *
      * @param string $tagcontents The raw contents of the XML element
      */
@@ -322,11 +306,11 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
                 $coursecode = trim($coursecode);
                 if (!$DB->get_field('course', 'id', array('idnumber' => $coursecode))) {
                     if (!$createnewcourses) {
-                        $this->log_line("Course $coursecode not found in Moodle's course idnumbers.");
+                        $this->log_line("Course $coursecode not found in Lion's course idnumbers.");
                     } else {
 
                         // Create the (hidden) course(s) if not found
-                        $courseconfig = get_config('moodlecourse'); // Load Moodle Course shell defaults.
+                        $courseconfig = get_config('lioncourse'); // Load Lion Course shell defaults.
 
                         // New course.
                         $course = new stdClass();
@@ -362,7 +346,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
 
                         // Handle course categorisation (taken from the group.org.orgunit field if present).
                         if (!empty($group->category)) {
-                            // If the category is defined and exists in Moodle, we want to store it in that one.
+                            // If the category is defined and exists in Lion, we want to store it in that one.
                             if ($catid = $DB->get_field('course_categories', 'id', array('name' => $group->category))) {
                                 $course->category = $catid;
                             } else if ($createnewcategories) {
@@ -375,7 +359,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
                                 $this->log_line("Created new (hidden) category, #$catid: $newcat->name");
                             } else {
                                 // If not found and not allowed to create, stick with default.
-                                $this->log_line('Category '.$group->category.' not found in Moodle database, so using '.
+                                $this->log_line('Category '.$group->category.' not found in Lion database, so using '.
                                     'default category instead.');
                                 $course->category = $this->get_default_category_id();
                             }
@@ -388,7 +372,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
 
                         $course = create_course($course);
 
-                        $this->log_line("Created course $coursecode in Moodle (Moodle ID is $course->id)");
+                        $this->log_line("Created course $coursecode in Lion (Lion ID is $course->id)");
                     }
                 } else if ($recstatus == 3 && ($courseid = $DB->get_field('course', 'id', array('idnumber' => $coursecode)))) {
                     // If course does exist, but recstatus==3 (delete), then set the course as hidden.
@@ -399,7 +383,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
     }
 
     /**
-     * Process the person tag. This defines a Moodle user.
+     * Process the person tag. This defines a Lion user.
      *
      * @param string $tagcontents The raw contents of the XML element
      */
@@ -517,7 +501,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
     }
 
     /**
-     * Process the membership tag. This defines whether the specified Moodle users
+     * Process the membership tag. This defines whether the specified Lion users
      * should be added/removed as teachers/students.
      *
      * @param string $tagcontents The raw contents of the XML element
@@ -593,10 +577,10 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
                 $memberstoreobj->timemodified = time();
                 if ($memberstoreobj->userid) {
 
-                    // Decide the "real" role (i.e. the Moodle role) that this user should be assigned to.
+                    // Decide the "real" role (i.e. the Lion role) that this user should be assigned to.
                     // Zero means this roletype is supposed to be skipped.
-                    $moodleroleid = $this->rolemappings[$member->roletype];
-                    if (!$moodleroleid) {
+                    $lionroleid = $this->rolemappings[$member->roletype];
+                    if (!$lionroleid) {
                         $this->log_line("SKIPPING role $member->roletype for $memberstoreobj->userid "
                             ."($member->idnumber) in course $memberstoreobj->course");
                         continue;
@@ -613,7 +597,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
                             $einstance = $DB->get_record('enrol', array('id' => $enrolid));
                         }
 
-                        $this->enrol_user($einstance, $memberstoreobj->userid, $moodleroleid, $timeframe->begin, $timeframe->end);
+                        $this->enrol_user($einstance, $memberstoreobj->userid, $lionroleid, $timeframe->begin, $timeframe->end);
 
                         $this->log_line("Enrolled user #$memberstoreobj->userid ($member->idnumber) "
                             ."to role $member->roletype in course $memberstoreobj->course");
@@ -662,7 +646,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
                         }
 
                         $membersuntally++;
-                        $this->log_line("Unenrolled $member->idnumber from role $moodleroleid in course");
+                        $this->log_line("Unenrolled $member->idnumber from role $lionroleid in course");
                     }
 
                 }
@@ -730,7 +714,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
 
     /**
      * Load the role mappings (from the config), so we can easily refer to
-     * how an IMS-E role corresponds to a Moodle role
+     * how an IMS-E role corresponds to a Lion role
      */
     protected function load_role_mappings() {
         require_once('locallib.php');
@@ -746,7 +730,7 @@ class enrol_imsenterprise_plugin extends enrol_plugin {
 
     /**
      * Load the name mappings (from the config), so we can easily refer to
-     * how an IMS-E course properties corresponds to a Moodle course properties
+     * how an IMS-E course properties corresponds to a Lion course properties
      */
     protected function load_course_mappings() {
         require_once('locallib.php');

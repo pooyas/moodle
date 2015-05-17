@@ -1,24 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package   mod_choice
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** @global int $CHOICE_COLUMN_HEIGHT */
@@ -254,7 +241,7 @@ function choice_user_submit_response($formanswer, $choice, $userid, $course, $cm
     global $DB, $CFG;
     require_once($CFG->libdir.'/completionlib.php');
 
-    $continueurl = new moodle_url('/mod/choice/view.php', array('id' => $cm->id));
+    $continueurl = new lion_url('/mod/choice/view.php', array('id' => $cm->id));
 
     if (empty($formanswer)) {
         print_error('atleastoneoption', 'choice', $continueurl);
@@ -488,7 +475,7 @@ function prepare_choice_show_results($choice, $course, $cm, $allresponses) {
     $context = context_module::instance($cm->id);
     $display->viewresponsecapability = has_capability('mod/choice:readresponses', $context);
     $display->deleterepsonsecapability = has_capability('mod/choice:deleteresponses',$context);
-    $display->fullnamecapability = has_capability('moodle/site:viewfullnames', $context);
+    $display->fullnamecapability = has_capability('lion/site:viewfullnames', $context);
 
     if (empty($allresponses)) {
         echo $OUTPUT->heading(get_string("nousersyet"), 3, null);
@@ -746,7 +733,7 @@ function choice_get_response_data($choice, $cm, $groupmode) {
  * @return array
  */
 function choice_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -768,7 +755,7 @@ function choice_supports($feature) {
         case FEATURE_COMPLETION_HAS_RULES:    return true;
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -801,7 +788,7 @@ function choice_extend_settings_navigation(settings_navigation $settings, naviga
                 $responsecount += count($userlist);
             }
         }
-        $choicenode->add(get_string("viewallresponses", "choice", $responsecount), new moodle_url('/mod/choice/report.php', array('id'=>$PAGE->cm->id)));
+        $choicenode->add(get_string("viewallresponses", "choice", $responsecount), new lion_url('/mod/choice/report.php', array('id'=>$PAGE->cm->id)));
     }
 }
 
@@ -844,7 +831,7 @@ function choice_page_type_list($pagetype, $parentcontext, $currentcontext) {
 }
 
 /**
- * Prints choice summaries on MyMoodle Page
+ * Prints choice summaries on MyLion Page
  *
  * Prints choice name, due date and attempt information on
  * choice activities that have a deadline that has not already passed
@@ -873,7 +860,7 @@ function choice_print_overview($courses, &$htmlarray) {
             $class = (!$choice->visible) ? 'dimmed' : '';
 
             // Link to activity.
-            $url = new moodle_url('/mod/choice/view.php', array('id' => $choice->coursemodule));
+            $url = new lion_url('/mod/choice/view.php', array('id' => $choice->coursemodule));
             $url = html_writer::link($url, format_string($choice->name), array('class' => $class));
             $str = $OUTPUT->box(get_string('choiceactivityname', 'choice', $url), 'name');
 

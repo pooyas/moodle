@@ -32,14 +32,11 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * @package SimplePie
  * @version 1.3.1
- * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
- * @author Ryan Parman
- * @author Geoffrey Sneddon
- * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -407,8 +404,6 @@ define('SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS', 16);
 /**
  * SimplePie
  *
- * @package SimplePie
- * @subpackage API
  */
 class SimplePie
 {
@@ -620,7 +615,6 @@ class SimplePie
 	 * options directly into the constructor. This has been removed as of 1.3 as
 	 * it caused a lot of confusion.
 	 *
-	 * @since 1.0 Preview Release
 	 */
 	public function __construct()
 	{
@@ -692,7 +686,6 @@ class SimplePie
 	 * This tells SimplePie to ignore the content-type provided by the server.
 	 * Be careful when using this option, as it will also disable autodiscovery.
 	 *
-	 * @since 1.1
 	 * @param bool $enable Force the given data/URL to be treated as a feed
 	 */
 	public function force_feed($enable = false)
@@ -711,7 +704,6 @@ class SimplePie
 	 * of a string for the $url. Remember that with each additional feed comes
 	 * additional processing and resources.
 	 *
-	 * @since 1.0 Preview Release
 	 * @see set_raw_data()
 	 * @param string|array $url This is the URL (or array of URLs) that you want to parse.
 	 */
@@ -757,7 +749,6 @@ class SimplePie
 	 * to parse that data string instead of a remote feed. Any set feed URL
 	 * takes precedence.
 	 *
-	 * @since 1.0 Beta 3
 	 * @param string $data RSS or Atom data as a string.
 	 * @see set_feed_url()
 	 */
@@ -772,7 +763,6 @@ class SimplePie
 	 * This allows you to change the maximum time the feed's server to respond
 	 * and send the feed back.
 	 *
-	 * @since 1.0 Beta 3
 	 * @param int $timeout The maximum number of seconds to spend waiting to retrieve a feed.
 	 */
 	public function set_timeout($timeout = 10)
@@ -783,7 +773,6 @@ class SimplePie
 	/**
 	 * Force SimplePie to use fsockopen() instead of cURL
 	 *
-	 * @since 1.0 Beta 3
 	 * @param bool $enable Force fsockopen() to be used
 	 */
 	public function force_fsockopen($enable = false)
@@ -797,7 +786,6 @@ class SimplePie
 	 * This option allows you to disable caching all-together in SimplePie.
 	 * However, disabling the cache can lead to longer load times.
 	 *
-	 * @since 1.0 Preview Release
 	 * @param bool $enable Enable caching
 	 */
 	public function enable_cache($enable = true)
@@ -1159,7 +1147,6 @@ class SimplePie
 	 * |form|@action, |img|@longdesc, |img|@src, |input|@src, |ins|@cite,
 	 * |q|@cite
 	 *
-	 * @since 1.0
 	 * @param array|null $element_attribute Element/attribute key/value pairs, null for default
 	 */
 	public function set_url_replacements($element_attribute = null)
@@ -1577,7 +1564,6 @@ class SimplePie
 	/**
 	 * Get the character encoding used for output
 	 *
-	 * @since Preview Release
 	 * @return string
 	 */
 	public function get_encoding()
@@ -1627,7 +1613,6 @@ class SimplePie
 	 * This returns a SIMPLEPIE_TYPE_* constant, which can be tested against
 	 * using {@link http://php.net/language.operators.bitwise bitwise operators}
 	 *
-	 * @since 0.8 (usage changed to using constants in 1.0)
 	 * @see SIMPLEPIE_TYPE_NONE Unknown.
 	 * @see SIMPLEPIE_TYPE_RSS_090 RSS 0.90.
 	 * @see SIMPLEPIE_TYPE_RSS_091_NETSCAPE RSS 0.91 (Netscape).
@@ -1733,7 +1718,6 @@ class SimplePie
 	 * May or may not be different from the URL passed to {@see set_feed_url()},
 	 * depending on whether auto-discovery was used.
 	 *
-	 * @since Preview Release (previously called `get_feed_url()` since SimplePie 0.8.)
 	 * @todo If we have a perm redirect we should return the new URL
 	 * @todo When we make the above change, let's support <itunes:new-feed-url> as well
 	 * @todo Also, |atom:link|@rel=self
@@ -1776,7 +1760,6 @@ class SimplePie
 	 * echo $file;
 	 * </pre>
 	 *
-	 * @since 1.0
 	 * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
 	 * @param string $namespace The URL of the XML namespace of the elements you're trying to access
 	 * @param string $tag Tag name
@@ -1824,7 +1807,6 @@ class SimplePie
 	 *
 	 * See {@see SimplePie::get_feed_tags()} for a description of the return value
 	 *
-	 * @since 1.0
 	 * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
 	 * @param string $namespace The URL of the XML namespace of the elements you're trying to access
 	 * @param string $tag Tag name
@@ -1881,7 +1863,6 @@ class SimplePie
 	 *
 	 * See {@see SimplePie::get_feed_tags()} for a description of the return value
 	 *
-	 * @since 1.0
 	 * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
 	 * @param string $namespace The URL of the XML namespace of the elements you're trying to access
 	 * @param string $tag Tag name
@@ -1971,7 +1952,6 @@ class SimplePie
 	 *
 	 * Uses `<atom:title>`, `<title>` or `<dc:title>`
 	 *
-	 * @since 1.0 (previously called `get_feed_title` since 0.8)
 	 * @return string|null
 	 */
 	public function get_title()
@@ -2013,7 +1993,6 @@ class SimplePie
 	/**
 	 * Get a category for the feed
 	 *
-	 * @since Unknown
 	 * @param int $key The category that you want to return.  Remember that arrays begin with 0, not 1
 	 * @return SimplePie_Category|null
 	 */
@@ -2035,7 +2014,6 @@ class SimplePie
 	 *
 	 * Uses `<atom:category>`, `<category>` or `<dc:subject>`
 	 *
-	 * @since Unknown
 	 * @return array|null List of {@see SimplePie_Category} objects
 	 */
 	public function get_categories()
@@ -2098,7 +2076,6 @@ class SimplePie
 	/**
 	 * Get an author for the feed
 	 *
-	 * @since 1.1
 	 * @param int $key The author that you want to return.  Remember that arrays begin with 0, not 1
 	 * @return SimplePie_Author|null
 	 */
@@ -2120,7 +2097,6 @@ class SimplePie
 	 *
 	 * Uses `<atom:author>`, `<author>`, `<dc:creator>` or `<itunes:author>`
 	 *
-	 * @since 1.1
 	 * @return array|null List of {@see SimplePie_Author} objects
 	 */
 	public function get_authors()
@@ -2196,7 +2172,6 @@ class SimplePie
 	/**
 	 * Get a contributor for the feed
 	 *
-	 * @since 1.1
 	 * @param int $key The contrbutor that you want to return.  Remember that arrays begin with 0, not 1
 	 * @return SimplePie_Author|null
 	 */
@@ -2218,7 +2193,6 @@ class SimplePie
 	 *
 	 * Uses `<atom:contributor>`
 	 *
-	 * @since 1.1
 	 * @return array|null List of {@see SimplePie_Author} objects
 	 */
 	public function get_contributors()
@@ -2282,7 +2256,6 @@ class SimplePie
 	/**
 	 * Get a single link for the feed
 	 *
-	 * @since 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
 	 * @param int $key The link that you want to return.  Remember that arrays begin with 0, not 1
 	 * @param string $rel The relationship of the link to return
 	 * @return string|null Link URL
@@ -2307,7 +2280,6 @@ class SimplePie
 	 * Identical to {@see get_link()} with key 0
 	 *
 	 * @see get_link
-	 * @since 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
 	 * @internal Added for parity between the parent-level and the item/entry-level.
 	 * @return string|null Link URL
 	 */
@@ -2321,7 +2293,6 @@ class SimplePie
 	 *
 	 * Uses `<atom:link>` or `<link>`
 	 *
-	 * @since Beta 2
 	 * @param string $rel The relationship of links to return
 	 * @return array|null Links found for the feed (strings)
 	 */
@@ -2410,7 +2381,6 @@ class SimplePie
 	 * Uses `<atom:subtitle>`, `<atom:tagline>`, `<description>`,
 	 * `<dc:description>`, `<itunes:summary>` or `<itunes:subtitle>`
 	 *
-	 * @since 1.0 (previously called `get_feed_description()` since 0.8)
 	 * @return string|null
 	 */
 	public function get_description()
@@ -2462,7 +2432,6 @@ class SimplePie
 	 *
 	 * Uses `<atom:rights>`, `<atom:copyright>` or `<dc:rights>`
 	 *
-	 * @since 1.0 (previously called `get_feed_copyright()` since 0.8)
 	 * @return string|null
 	 */
 	public function get_copyright()
@@ -2498,7 +2467,6 @@ class SimplePie
 	 *
 	 * Uses `<language>`, `<dc:language>`, or @xml_lang
 	 *
-	 * @since 1.0 (previously called `get_feed_language()` since 0.8)
 	 * @return string|null
 	 */
 	public function get_language()
@@ -2544,7 +2512,6 @@ class SimplePie
 	 *
 	 * Uses `<geo:lat>` or `<georss:point>`
 	 *
-	 * @since 1.0
 	 * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
 	 * @link http://www.georss.org/ GeoRSS
 	 * @return string|null
@@ -2573,7 +2540,6 @@ class SimplePie
 	 *
 	 * Uses `<geo:long>`, `<geo:lon>` or `<georss:point>`
 	 *
-	 * @since 1.0
 	 * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
 	 * @link http://www.georss.org/ GeoRSS
 	 * @return string|null
@@ -2793,7 +2759,6 @@ class SimplePie
 	 * {@link http://php.net/foreach foreach()} loops.
 	 *
 	 * @see get_item_quantity()
-	 * @since Beta 2
 	 * @param int $key The item that you want to return.  Remember that arrays begin with 0, not 1
 	 * @return SimplePie_Item|null
 	 */
@@ -2818,7 +2783,6 @@ class SimplePie
 	 * {@link http://php.net/foreach foreach()} loops.
 	 *
 	 * @see get_item_quantity
-	 * @since Beta 2
 	 * @param int $start Index to start at
 	 * @param int $end Number of items to return. 0 for all items after `$start`
 	 * @return array|null List of {@see SimplePie_Item} objects

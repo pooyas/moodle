@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Steps definitions for the upload repository type.
  *
- * @package    repository_upload
  * @category   test
- * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    repository
+ * @subpackage upload
+ * @copyright  2015 Pooya Saeedi
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 require_once(__DIR__ . '/../../../../lib/behat/behat_files.php');
 
@@ -35,15 +22,12 @@ use Behat\Mink\Exception\ExpectationException as ExpectationException,
  *
  * Extends behat_files rather than behat_base as is file-related.
  *
- * @package    repository_upload
  * @category   test
- * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_repository_upload extends behat_files {
 
     /**
-     * Uploads a file to the specified filemanager leaving other fields in upload form default. The paths should be relative to moodle codebase.
+     * Uploads a file to the specified filemanager leaving other fields in upload form default. The paths should be relative to lion codebase.
      *
      * @When /^I upload "(?P<filepath_string>(?:[^"]|\\")*)" file to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
      * @throws ExpectationException Thrown by behat_base::find
@@ -55,7 +39,7 @@ class behat_repository_upload extends behat_files {
     }
 
     /**
-     * Uploads a file to the specified filemanager leaving other fields in upload form default and confirms to overwrite an existing file. The paths should be relative to moodle codebase.
+     * Uploads a file to the specified filemanager leaving other fields in upload form default and confirms to overwrite an existing file. The paths should be relative to lion codebase.
      *
      * @When /^I upload and overwrite "(?P<filepath_string>(?:[^"]|\\")*)" file to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
      * @throws ExpectationException Thrown by behat_base::find
@@ -68,7 +52,7 @@ class behat_repository_upload extends behat_files {
     }
 
     /**
-     * Uploads a file to the specified filemanager and confirms to overwrite an existing file. The paths should be relative to moodle codebase.
+     * Uploads a file to the specified filemanager and confirms to overwrite an existing file. The paths should be relative to lion codebase.
      *
      * @When /^I upload "(?P<filepath_string>(?:[^"]|\\")*)" file to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager as:$/
      * @throws ExpectationException Thrown by behat_base::find
@@ -81,7 +65,7 @@ class behat_repository_upload extends behat_files {
     }
 
     /**
-     * Uploads a file to the specified filemanager. The paths should be relative to moodle codebase.
+     * Uploads a file to the specified filemanager. The paths should be relative to lion codebase.
      *
      * @When /^I upload and overwrite "(?P<filepath_string>(?:[^"]|\\")*)" file to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager as:$/
      * @throws ExpectationException Thrown by behat_base::find

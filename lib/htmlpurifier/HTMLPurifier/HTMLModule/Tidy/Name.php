@@ -2,6 +2,9 @@
 
 /**
  * Name is deprecated, but allowed in strict doctypes, so onl
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Tidy_Name extends HTMLPurifier_HTMLModule_Tidy
 {

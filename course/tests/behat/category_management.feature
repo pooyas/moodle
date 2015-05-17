@@ -1,6 +1,6 @@
 @core @core_course
 Feature: Test category management actions
-  As a moodle admin
+  As a lion admin
   Test we can create a category
   Test we can create a sub category
   Test we can edit a category

@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Class handles conditional availability information for an activity.
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    availability
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core_availability;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Class handles conditional availability information for an activity.
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class info_module extends info {
     /** @var \cm_info Activity. */
@@ -110,7 +94,7 @@ class info_module extends info {
     }
 
     protected function get_view_hidden_capability() {
-        return 'moodle/course:viewhiddenactivities';
+        return 'lion/course:viewhiddenactivities';
     }
 
     public function get_user_list_sql($onlyactive = true) {
@@ -161,7 +145,7 @@ class info_module extends info {
      * @param int $userid User id (0 = current user)
      * @param bool $checkcourse If true, checks whether the user has course access
      * @return bool True if the activity is visible to the specified user
-     * @throws \moodle_exception If the cmid doesn't exist
+     * @throws \lion_exception If the cmid doesn't exist
      */
     public static function is_user_visible($cmorid, $userid = 0, $checkcourse = true) {
         global $USER, $DB, $CFG;
@@ -196,7 +180,7 @@ class info_module extends info {
         if ($checkcourse) {
             $coursecontext = \context_course::instance($cm->course);
             if (!is_enrolled($coursecontext, $userid, '', true) &&
-                    !has_capability('moodle/course:view', $coursecontext, $userid)) {
+                    !has_capability('lion/course:view', $coursecontext, $userid)) {
                 return false;
             }
         }

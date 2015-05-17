@@ -5,27 +5,30 @@
    * logfile instead of sending them out. Use it as a sendmail
    * "stand-in" when testing mailouts.
    *
-   * It is not Moodle specific - use it anywhere by setting the php
+   * It is not Lion specific - use it anywhere by setting the php
    * "sendmail_path" setting to this file with a logfile parameter.
    *
    * - Set in php.ini (not settable in config.php):
-   *     sendmail_path=/path-to-moodle/admin/mailout-debugger.php');
+   *     sendmail_path=/path-to-lion/admin/mailout-debugger.php');
    *   Or from the commandline
-   *     php -d sendmail_path='/path-to-moodle/admin/mailout-debugger.php' /path/to/cron.php
+   *     php -d sendmail_path='/path-to-lion/admin/mailout-debugger.php' /path/to/cron.php
    *
    * - Create a file in admin called mailout-debugger.enable
    *   (this is a security check to prevent execution in prod environments)
-   *   touch /path/to/moodle/admin/mailout-debugger.enable
+   *   touch /path/to/lion/admin/mailout-debugger.enable
    *
    * - Mark as executable: chmod ugo+rx mailout-debugger.php
    *
    * - Run your admin/cron.php
    *
-   * - Read /tmp/moodle-mailout.log
+   * - Read /tmp/lion-mailout.log
    *
    *
    * This script will create logfiles in /tmp/ or in $TMPDIR if set.
    * On windows, use php -r 'print sys_get_temp_dir()' to see where the file is saved.
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
    */
 
 // Security check.
@@ -42,7 +45,7 @@ if (isset($_ENV['TMPDIR']) && is_dir($_ENV['TMPDIR'])) {
     $tmpdir = $_ENV['TMPDIR'];
 }
 
-$tmpfile = $tmpdir . '/moodle-mailout.log';
+$tmpfile = $tmpdir . '/lion-mailout.log';
 $fh = fopen($tmpfile, 'a+', false)
     or mdie("Error openning $tmpfile on append\n");
 fwrite($fh, "==== ".strftime("%a %b %e %H:%M:%S %Y", time())." ====\n");

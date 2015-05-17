@@ -7,6 +7,9 @@
  *      to be used in a non-URI context (which is very unlikely), be sure
  *      to decode it first. The URI may not necessarily be well-formed until
  *      validate() is called.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URI
 {

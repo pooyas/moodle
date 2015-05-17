@@ -1,29 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * External forum API
  *
- * @package    mod_forum
- * @copyright  2012 Mark Nelson <markn@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
@@ -33,7 +20,6 @@ class mod_forum_external extends external_api {
      * Describes the parameters for get_forum.
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.5
      */
     public static function get_forums_by_courses_parameters() {
         return new external_function_parameters (
@@ -51,7 +37,6 @@ class mod_forum_external extends external_api {
      *
      * @param array $courseids the course ids
      * @return array the forum details
-     * @since Moodle 2.5
      */
     public static function get_forums_by_courses($courseids = array()) {
         global $CFG, $DB, $USER;
@@ -121,7 +106,6 @@ class mod_forum_external extends external_api {
      * Describes the get_forum return value.
      *
      * @return external_single_structure
-     * @since Moodle 2.5
      */
      public static function get_forums_by_courses_returns() {
         return new external_multiple_structure(
@@ -161,8 +145,7 @@ class mod_forum_external extends external_api {
      * Describes the parameters for get_forum_discussions.
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.5
-     * @deprecated Moodle 2.8 MDL-46458 - Please do not call this function any more.
+     * @deprecated Lion 2.8 MDL-46458 - Please do not call this function any more.
      * @see get_forum_discussions_paginated
      */
     public static function get_forum_discussions_parameters() {
@@ -185,8 +168,7 @@ class mod_forum_external extends external_api {
      * @param int $limitnum limit number SQL data
      *
      * @return array the forum discussion details
-     * @since Moodle 2.5
-     * @deprecated Moodle 2.8 MDL-46458 - Please do not call this function any more.
+     * @deprecated Lion 2.8 MDL-46458 - Please do not call this function any more.
      * @see get_forum_discussions_paginated
      */
     public static function get_forum_discussions($forumids, $limitfrom = 0, $limitnum = 0) {
@@ -234,7 +216,7 @@ class mod_forum_external extends external_api {
             $groupselect = "";
             $groupmode = groups_get_activity_groupmode($cm, $course);
 
-            if ($groupmode and $groupmode != VISIBLEGROUPS and !has_capability('moodle/site:accessallgroups', $modcontext)) {
+            if ($groupmode and $groupmode != VISIBLEGROUPS and !has_capability('lion/site:accessallgroups', $modcontext)) {
                 // Get all the discussions from all the groups this user belongs to.
                 $usergroups = groups_get_user_groups($course->id);
                 if (!empty($usergroups['0'])) {
@@ -249,7 +231,7 @@ class mod_forum_external extends external_api {
                                                             $limitfrom, $limitnum)) {
 
                 // Check if they can view full names.
-                $canviewfullname = has_capability('moodle/site:viewfullnames', $modcontext);
+                $canviewfullname = has_capability('lion/site:viewfullnames', $modcontext);
                 // Get the unreads array, this takes a forum id and returns data for all discussions.
                 $unreads = array();
                 if ($cantrack = forum_tp_can_track_forums($forum)) {
@@ -331,8 +313,7 @@ class mod_forum_external extends external_api {
      * Describes the get_forum_discussions return value.
      *
      * @return external_single_structure
-     * @since Moodle 2.5
-     * @deprecated Moodle 2.8 MDL-46458 - Please do not call this function any more.
+     * @deprecated Lion 2.8 MDL-46458 - Please do not call this function any more.
      * @see get_forum_discussions_paginated
      */
      public static function get_forum_discussions_returns() {
@@ -374,7 +355,6 @@ class mod_forum_external extends external_api {
      * Describes the parameters for get_forum_discussion_posts.
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.7
      */
     public static function get_forum_discussion_posts_parameters() {
         return new external_function_parameters (
@@ -395,7 +375,6 @@ class mod_forum_external extends external_api {
      * @param string $sortdirection sort direction: ASC or DESC
      *
      * @return array the forum post details
-     * @since Moodle 2.7
      */
     public static function get_forum_discussion_posts($discussionid, $sortby = "created", $sortdirection = "DESC") {
         global $CFG, $DB, $USER;
@@ -443,15 +422,15 @@ class mod_forum_external extends external_api {
         require_capability('mod/forum:viewdiscussion', $modcontext, null, true, 'noviewdiscussionspermission', 'forum');
 
         if (! $post = forum_get_post_full($discussion->firstpost)) {
-            throw new moodle_exception('notexists', 'forum');
+            throw new lion_exception('notexists', 'forum');
         }
 
         // This function check groups, qanda, timed discussions, etc.
         if (!forum_user_can_see_post($forum, $discussion, $post, null, $cm)) {
-            throw new moodle_exception('noviewdiscussionspermission', 'forum');
+            throw new lion_exception('noviewdiscussionspermission', 'forum');
         }
 
-        $canviewfullname = has_capability('moodle/site:viewfullnames', $modcontext);
+        $canviewfullname = has_capability('lion/site:viewfullnames', $modcontext);
 
         // We will add this field in the response.
         $canreply = forum_user_can_post($forum, $discussion, $USER, $cm, $course, $modcontext);
@@ -492,7 +471,7 @@ class mod_forum_external extends external_api {
             $user->id = $post->userid;
             $user = username_load_fields_from_object($user, $post);
             $post->userfullname = fullname($user, $canviewfullname);
-            $post->userpictureurl = moodle_url::make_webservice_pluginfile_url(
+            $post->userpictureurl = lion_url::make_webservice_pluginfile_url(
                     context_user::instance($user->id)->id, 'user', 'icon', null, '/', 'f1')->out(false);
 
             // Rewrite embedded images URLs.
@@ -507,7 +486,7 @@ class mod_forum_external extends external_api {
                 if ($files = $fs->get_area_files($modcontext->id, 'mod_forum', 'attachment', $post->id, "filename", false)) {
                     foreach ($files as $file) {
                         $filename = $file->get_filename();
-                        $fileurl = moodle_url::make_webservice_pluginfile_url(
+                        $fileurl = lion_url::make_webservice_pluginfile_url(
                                         $modcontext->id, 'mod_forum', 'attachment', $post->id, '/', $filename);
 
                         $post->attachments[] = array(
@@ -532,7 +511,6 @@ class mod_forum_external extends external_api {
      * Describes the get_forum_discussion_posts return value.
      *
      * @return external_single_structure
-     * @since Moodle 2.7
      */
     public static function get_forum_discussion_posts_returns() {
         return new external_single_structure(
@@ -580,7 +558,6 @@ class mod_forum_external extends external_api {
      * Describes the parameters for get_forum_discussions_paginated.
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.8
      */
     public static function get_forum_discussions_paginated_parameters() {
         return new external_function_parameters (
@@ -605,7 +582,6 @@ class mod_forum_external extends external_api {
      * @param int $perpage items per page
      *
      * @return array the forum discussion details including warnings
-     * @since Moodle 2.8
      */
     public static function get_forum_discussions_paginated($forumid, $sortby = 'timemodified', $sortdirection = 'DESC',
                                                     $page = -1, $perpage = 0) {
@@ -660,7 +636,7 @@ class mod_forum_external extends external_api {
         $discussions = forum_get_discussions($cm, $sort, true, -1, -1, true, $page, $perpage);
 
         if ($discussions) {
-            $canviewfullname = has_capability('moodle/site:viewfullnames', $modcontext);
+            $canviewfullname = has_capability('lion/site:viewfullnames', $modcontext);
 
             // Get the unreads array, this takes a forum id and returns data for all discussions.
             $unreads = array();
@@ -702,7 +678,7 @@ class mod_forum_external extends external_api {
                 $user->id = $discussion->userid;
                 $user = username_load_fields_from_object($user, $discussion);
                 $discussion->userfullname = fullname($user, $canviewfullname);
-                $discussion->userpictureurl = moodle_url::make_pluginfile_url(
+                $discussion->userpictureurl = lion_url::make_pluginfile_url(
                     context_user::instance($user->id)->id, 'user', 'icon', null, '/', 'f1');
                 // Fix the pluginfile.php link.
                 $discussion->userpictureurl = str_replace("pluginfile.php", "webservice/pluginfile.php",
@@ -712,7 +688,7 @@ class mod_forum_external extends external_api {
                 $usermodified->id = $discussion->usermodified;
                 $usermodified = username_load_fields_from_object($usermodified, $discussion, 'um');
                 $discussion->usermodifiedfullname = fullname($usermodified, $canviewfullname);
-                $discussion->usermodifiedpictureurl = moodle_url::make_pluginfile_url(
+                $discussion->usermodifiedpictureurl = lion_url::make_pluginfile_url(
                     context_user::instance($usermodified->id)->id, 'user', 'icon', null, '/', 'f1');
                 // Fix the pluginfile.php link.
                 $discussion->usermodifiedpictureurl = str_replace("pluginfile.php", "webservice/pluginfile.php",
@@ -758,7 +734,6 @@ class mod_forum_external extends external_api {
      * Describes the get_forum_discussions_paginated return value.
      *
      * @return external_single_structure
-     * @since Moodle 2.8
      */
     public static function get_forum_discussions_paginated_returns() {
         return new external_single_structure(

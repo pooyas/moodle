@@ -2,6 +2,9 @@
 
 /**
  * Concrete comment token class. Generally will be ignored.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Token_Comment extends HTMLPurifier_Token
 {

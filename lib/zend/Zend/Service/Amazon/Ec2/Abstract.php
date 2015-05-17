@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Service_Amazon
- * @subpackage Ec2
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -39,10 +38,6 @@ require_once 'Zend/Service/Amazon/Ec2/Exception.php';
  * Provides the basic functionality to send a request to the Amazon Ec2 Query API
  *
  * @category   Zend
- * @package    Zend_Service_Amazon
- * @subpackage Ec2
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Service_Amazon_Ec2_Abstract extends Zend_Service_Amazon_Abstract
 {

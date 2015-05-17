@@ -2,9 +2,9 @@
 /**
  * $Id: rpc.php 915 2008-09-03 08:45:28Z spocke $
  *
- * @package MCManager.includes
- * @author Moxiecode
- * @copyright Copyright � 2004-2007, Moxiecode Systems AB, All rights reserved.
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("./includes/general.php");

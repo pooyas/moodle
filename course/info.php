@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /// Displays external information about a course
 
     require_once("../config.php");
@@ -29,7 +36,7 @@
     }
 
     $context = context_course::instance($course->id);
-    if (!$course->visible and !has_capability('moodle/course:viewhiddencourses', $context)) {
+    if (!$course->visible and !has_capability('lion/course:viewhiddencourses', $context)) {
         print_error('coursehidden', '', $CFG->wwwroot .'/');
     }
 

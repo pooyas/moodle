@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 class HTMLPurifier_URIFilter_Munge extends HTMLPurifier_URIFilter
 {
     /**

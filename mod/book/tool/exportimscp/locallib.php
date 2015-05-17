@@ -1,30 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Book imscp export lib
  *
- * @package    booktool_exportimscp
- * @copyright  2001-3001 Antonio Vicent          {@link http://ludens.es}
- * @copyright  2001-3001 Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @copyright  2011 Petr Skoda                   {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage book
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once(dirname(__FILE__).'/lib.php');
 require_once($CFG->dirroot.'/mod/book/locallib.php');
@@ -122,19 +107,19 @@ function booktool_exportimscp_prepare_files($book, $context) {
     $imsitems = '';
     $imsresources = '';
 
-    // Moodle and Book version
-    $moodle_release = $CFG->release;
-    $moodle_version = $CFG->version;
+    // Lion and Book version
+    $lion_release = $CFG->release;
+    $lion_version = $CFG->version;
     $book_version   = get_config('mod_book', 'version');
     $bookname       = format_string($book->name, true, array('context'=>$context));
 
     // Load manifest header
         $imsmanifest .= '<?xml version="1.0" encoding="UTF-8"?>
-<!-- This package has been created with Moodle ' . $moodle_release . ' (' . $moodle_version . ') http://moodle.org/, Book module version ' . $book_version . ' - https://github.com/skodak/moodle-mod_book -->
+<!-- This package has been created with Lion ' . $lion_release . ' (' . $lion_version . ') http://lion.org/, Book module version ' . $book_version . ' - https://github.com/skodak/lion-mod_book -->
 <!-- One idea and implementation by Eloy Lafuente (stronk7) and Antonio Vicent (C) 2001-3001 -->
 <manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" identifier="MANIFEST-' . md5($CFG->wwwroot . '-' . $book->course . '-' . $book->id) . '" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
-  <organizations default="MOODLE-' . $book->course . '-' . $book->id . '">
-    <organization identifier="MOODLE-' . $book->course . '-' . $book->id . '" structure="hierarchical">
+  <organizations default="LION-' . $book->course . '-' . $book->id . '">
+    <organization identifier="LION-' . $book->course . '-' . $book->id . '" structure="hierarchical">
       <title>' . htmlspecialchars($bookname) . '</title>';
 
     // To store the prev level (book only have 0 and 1)

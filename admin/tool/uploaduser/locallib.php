@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Bulk user registration functions
  *
- * @package    tool
+ * @package    admin_tool
  * @subpackage uploaduser
- * @copyright  2004 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 define('UU_USER_ADDNEW', 0);
 define('UU_USER_ADDINC', 1);
@@ -49,10 +35,6 @@ define('UU_PWRESET_ALL', 2);
  *
  * This class prints user information into a html table.
  *
- * @package    core
- * @subpackage admin
- * @copyright  2007 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class uu_progress_tracker {
     private $_row;
@@ -162,10 +144,10 @@ class uu_progress_tracker {
  * @param csv_import_reader $cir
  * @param array $stdfields standard user fields
  * @param array $profilefields custom profile fields
- * @param moodle_url $returnurl return url in case of any error
+ * @param lion_url $returnurl return url in case of any error
  * @return array list of fields
  */
-function uu_validate_user_upload_columns(csv_import_reader $cir, $stdfields, $profilefields, moodle_url $returnurl) {
+function uu_validate_user_upload_columns(csv_import_reader $cir, $stdfields, $profilefields, lion_url $returnurl) {
     $columns = $cir->get_columns();
 
     if (empty($columns)) {

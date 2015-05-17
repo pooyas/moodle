@@ -1,41 +1,25 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
- * Moodle REST library
+ * Lion REST library
  *
- * @package    webservice_rest
- * @copyright  2009 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    webservice
+ * @subpackage rest
+ * @copyright  2015 Pooya Saeedi
  */
 
 
 /**
- * Moodle REST client
+ * Lion REST client
  *
  * It has been implemented for unit testing purpose (all protocols have similar client)
  *
- * @package    webservice_rest
- * @copyright  2010 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class webservice_rest_client {
 
-    /** @var moodle_url the REST server url */
+    /** @var lion_url the REST server url */
     private $serverurl;
 
     /** @var string token */
@@ -47,12 +31,12 @@ class webservice_rest_client {
     /**
      * Constructor
      *
-     * @param string $serverurl a Moodle URL
+     * @param string $serverurl a Lion URL
      * @param string $token the token used to do the web service call
      * @param string $format returned value format: xml or json
      */
     public function __construct($serverurl, $token, $format = 'xml') {
-        $this->serverurl = new moodle_url($serverurl);
+        $this->serverurl = new lion_url($serverurl);
         $this->token = $token;
         $this->format = $format;
     }
@@ -77,8 +61,8 @@ class webservice_rest_client {
         global $DB, $CFG;
 
          if ($this->format == 'json') {
-             $formatparam = '&moodlewsrestformat=json';
-             $this->serverurl->param('moodlewsrestformat','json');
+             $formatparam = '&lionwsrestformat=json';
+             $this->serverurl->param('lionwsrestformat','json');
          } else {
              $formatparam = ''; //to keep retro compability with old server that only support xml (they don't expect this param)
          }

@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -20,13 +7,13 @@
  *
  * Contains HTML class for a button type element
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    //  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    //  It must be included from a Lion page
 }
 
 global $CFG;
@@ -35,14 +22,11 @@ require_once($CFG->libdir.'/form/submit.php');
 /**
  * HTML class for a submit cancel type element
  *
- * Overloaded {@link MoodleQuickForm_submit} with default behavior modified to cancel a form.
+ * Overloaded {@link LionQuickForm_submit} with default behavior modified to cancel a form.
  *
- * @package   core_form
  * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_cancel extends MoodleQuickForm_submit
+class LionQuickForm_cancel extends LionQuickForm_submit
 {
     /**
      * constructor
@@ -52,7 +36,7 @@ class MoodleQuickForm_cancel extends MoodleQuickForm_submit
      * @param mixed $attributes (optional) Either a typical HTML attribute string
      *              or an associative array
      */
-    function MoodleQuickForm_cancel($elementName=null, $value=null, $attributes=null)
+    function LionQuickForm_cancel($elementName=null, $value=null, $attributes=null)
     {
         if ($elementName==null){
             $elementName='cancel';
@@ -60,7 +44,7 @@ class MoodleQuickForm_cancel extends MoodleQuickForm_submit
         if ($value==null){
             $value=get_string('cancel');
         }
-        MoodleQuickForm_submit::MoodleQuickForm_submit($elementName, $value, $attributes);
+        LionQuickForm_submit::LionQuickForm_submit($elementName, $value, $attributes);
         $this->updateAttributes(array('onclick'=>'skipClientValidation = true; return true;'));
 
         // Add the class btn-cancel.

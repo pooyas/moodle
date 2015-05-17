@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Gdata
- * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -35,10 +34,6 @@ require_once 'Zend/Gdata/YouTube/Extension/Token.php';
  * Specialized Link class for use with YouTube. Enables use of yt extension elements.
  *
  * @category   Zend
- * @package    Zend_Gdata
- * @subpackage YouTube
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Gdata_YouTube_Extension_Link extends Zend_Gdata_App_Extension_Link
 {

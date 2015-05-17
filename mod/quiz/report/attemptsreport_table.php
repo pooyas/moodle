@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Base class for the table used by a {@link quiz_attempts_report}.
  *
- * @package   mod_quiz
- * @copyright 2010 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/tablelib.php');
 
@@ -31,13 +18,11 @@ require_once($CFG->libdir.'/tablelib.php');
 /**
  * Base class for the table used by a {@link quiz_attempts_report}.
  *
- * @copyright 2010 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class quiz_attempts_report_table extends table_sql {
     public $useridfield = 'userid';
 
-    /** @var moodle_url the URL of this report. */
+    /** @var lion_url the URL of this report. */
     protected $reporturl;
 
     /** @var array the display options. */
@@ -83,7 +68,7 @@ abstract class quiz_attempts_report_table extends table_sql {
      * @param array $groupstudents
      * @param array $students
      * @param array $questions
-     * @param moodle_url $reporturl
+     * @param lion_url $reporturl
      */
     public function __construct($uniqueid, $quiz, $context, $qmsubselect,
             mod_quiz_attempts_report_options $options, $groupstudents, $students,
@@ -139,7 +124,7 @@ abstract class quiz_attempts_report_table extends table_sql {
         }
 
         return $html . html_writer::empty_tag('br') . html_writer::link(
-                new moodle_url('/mod/quiz/review.php', array('attempt' => $attempt->attempt)),
+                new lion_url('/mod/quiz/review.php', array('attempt' => $attempt->attempt)),
                 get_string('reviewattempt', 'quiz'), array('class' => 'reviewlink'));
     }
 
@@ -237,7 +222,7 @@ abstract class quiz_attempts_report_table extends table_sql {
         $flag = '';
         if ($this->is_flagged($attempt->usageid, $slot)) {
             $flag = $OUTPUT->pix_icon('i/flagged', get_string('flagged', 'question'),
-                    'moodle', array('class' => 'questionflag'));
+                    'lion', array('class' => 'questionflag'));
         }
 
         $feedbackimg = '';
@@ -253,7 +238,7 @@ abstract class quiz_attempts_report_table extends table_sql {
         if (isset($attempt->try)) {
             $reviewparams['step'] = $this->step_no_for_try($attempt->usageid, $slot, $attempt->try);
         }
-        $url = new moodle_url('/mod/quiz/reviewquestion.php', $reviewparams);
+        $url = new lion_url('/mod/quiz/reviewquestion.php', $reviewparams);
         $output = $OUTPUT->action_link($url, $output,
                 new popup_action('click', $url, 'reviewquestion',
                         array('height' => 450, 'width' => 650)),
@@ -303,7 +288,7 @@ abstract class quiz_attempts_report_table extends table_sql {
 
         $feedbackclass = question_state::graded_state_for_fraction($fraction)->get_feedback_class();
         return $OUTPUT->pix_icon('i/grade_' . $feedbackclass, get_string($feedbackclass, 'question'),
-                'moodle', array('class' => 'icon'));
+                'lion', array('class' => 'icon'));
     }
 
     /**

@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * A moodleform to allow the editing of a user's grade for a particular activity
+ * A lionform to allow the editing of a user's grade for a particular activity
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once $CFG->libdir.'/formslib.php';
 
-class edit_grade_form extends moodleform {
+class edit_grade_form extends lionform {
 
     function definition() {
         global $CFG, $COURSE, $DB;
@@ -160,11 +147,11 @@ class edit_grade_form extends moodleform {
         $itemname_el->setValue($itemname);
 
         // access control - disable not allowed elements
-        if (!has_capability('moodle/grade:manage', $context)) {
+        if (!has_capability('lion/grade:manage', $context)) {
             $mform->hardFreeze('excluded');
         }
 
-        if (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:hide', $context)) {
+        if (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:hide', $context)) {
             $mform->hardFreeze('hidden');
             $mform->hardFreeze('hiddenuntil');
         }
@@ -196,12 +183,12 @@ class edit_grade_form extends moodleform {
             }
 
             if (($old_grade_grade->locked or $old_grade_grade->locktime)
-              and (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:unlock', $context))) {
+              and (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:unlock', $context))) {
                 $mform->hardFreeze('locked');
                 $mform->hardFreeze('locktime');
 
             } else if ((!$old_grade_grade->locked and !$old_grade_grade->locktime)
-              and (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:lock', $context))) {
+              and (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:lock', $context))) {
                 $mform->hardFreeze('locked');
                 $mform->hardFreeze('locktime');
             }

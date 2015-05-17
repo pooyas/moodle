@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Tests for messagelib.php.
  *
- * @package    core_message
  * @category   phpunit
- * @copyright  2012 The Open Universtiy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class core_messagelib_testcase extends advanced_testcase {
 
@@ -32,13 +19,13 @@ class core_messagelib_testcase extends advanced_testcase {
         $this->preventResetByRollback();
 
         // Disable instantmessage provider.
-        $disableprovidersetting = 'moodle_instantmessage_disable';
+        $disableprovidersetting = 'lion_instantmessage_disable';
         set_config($disableprovidersetting, 1, 'message');
         $preferences = get_message_output_default_preferences();
         $this->assertTrue($preferences->$disableprovidersetting == 1);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = get_admin();
         $message->userto            = $this->getDataGenerator()->create_user();;
@@ -154,32 +141,32 @@ class core_messagelib_testcase extends advanced_testcase {
         $this->setUser($teacher);
 
         // Teacher shouldn't have the required capability so they shouldn't be able to see the backup message.
-        $this->assertFalse(has_capability('moodle/site:config', $modulecontext));
+        $this->assertFalse(has_capability('lion/site:config', $modulecontext));
         $providers = message_get_providers_for_user($teacher->id);
-        $this->assertFalse($this->message_type_present('moodle', 'backup', $providers));
+        $this->assertFalse($this->message_type_present('lion', 'backup', $providers));
 
         // Give the user the required capability in an activity module.
         // They should now be able to see the backup message.
-        assign_capability('moodle/site:config', CAP_ALLOW, $teacherrole->id, $modulecontext->id, true);
+        assign_capability('lion/site:config', CAP_ALLOW, $teacherrole->id, $modulecontext->id, true);
         accesslib_clear_all_caches_for_unit_testing();
         $modulecontext = context_module::instance($assign->cmid);
-        $this->assertTrue(has_capability('moodle/site:config', $modulecontext));
+        $this->assertTrue(has_capability('lion/site:config', $modulecontext));
 
         $providers = message_get_providers_for_user($teacher->id);
-        $this->assertTrue($this->message_type_present('moodle', 'backup', $providers));
+        $this->assertTrue($this->message_type_present('lion', 'backup', $providers));
 
         // Prohibit the capability for the user at the course level.
         // This overrules the CAP_ALLOW at the module level.
         // They should not be able to see the backup message.
-        assign_capability('moodle/site:config', CAP_PROHIBIT, $teacherrole->id, $coursecontext->id, true);
+        assign_capability('lion/site:config', CAP_PROHIBIT, $teacherrole->id, $coursecontext->id, true);
         accesslib_clear_all_caches_for_unit_testing();
         $modulecontext = context_module::instance($assign->cmid);
-        $this->assertFalse(has_capability('moodle/site:config', $modulecontext));
+        $this->assertFalse(has_capability('lion/site:config', $modulecontext));
 
         $providers = message_get_providers_for_user($teacher->id);
         // Actually, handling PROHIBITs would be too expensive. We do not
         // care if users with PROHIBITs see a few more preferences than they should.
-        // $this->assertFalse($this->message_type_present('moodle', 'backup', $providers));
+        // $this->assertFalse($this->message_type_present('lion', 'backup', $providers));
     }
 
     public function test_send_message_redirection() {
@@ -192,7 +179,7 @@ class core_messagelib_testcase extends advanced_testcase {
 
         // Test basic message redirection.
         $message = new stdClass();
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'instantmessage';
         $message->userfrom = $user1;
         $message->userto = $user2;
@@ -228,7 +215,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $DB->delete_records('message_read', array());
 
         $message = new stdClass();
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'instantmessage';
         $message->userfrom = $user1->id;
         $message->userto = $user2->id;
@@ -238,7 +225,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $message->fullmessagehtml = '<p>message body</p>';
         $message->smallmessage = 'small message';
         $message->notification = '0';
-        $message->contexturl = new moodle_url('/');
+        $message->contexturl = new lion_url('/');
         $message->contexturlname = 'front';
         $sink = $this->redirectMessages();
         $messageid = message_send($message);
@@ -280,17 +267,17 @@ class core_messagelib_testcase extends advanced_testcase {
         $sink = $this->redirectMessages();
         try {
             message_send($message);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
         $this->assertCount(0, $sink->get_messages());
 
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'xxx';
         $sink = $this->redirectMessages();
         try {
             message_send($message);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertInstanceOf('coding_exception', $e);
         }
         $this->assertCount(0, $sink->get_messages());
@@ -301,7 +288,7 @@ class core_messagelib_testcase extends advanced_testcase {
         // Invalid users.
 
         $message = new stdClass();
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'instantmessage';
         $message->userfrom = $user1;
         $message->userto = -1;
@@ -317,7 +304,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $this->assertDebuggingCalled('Attempt to send msg to unknown user');
 
         $message = new stdClass();
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'instantmessage';
         $message->userfrom = -1;
         $message->userto = $user2;
@@ -333,7 +320,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $this->assertDebuggingCalled('Attempt to send msg from unknown user');
 
         $message = new stdClass();
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'instantmessage';
         $message->userfrom = $user1;
         $message->userto = core_user::NOREPLY_USER;
@@ -352,7 +339,7 @@ class core_messagelib_testcase extends advanced_testcase {
 
         unset($user2->emailstop);
         $message = new stdClass();
-        $message->component = 'moodle';
+        $message->component = 'lion';
         $message->name = 'instantmessage';
         $message->userfrom = $user1;
         $message->userto = $user2;
@@ -393,10 +380,10 @@ class core_messagelib_testcase extends advanced_testcase {
 
         $eventsink = $this->redirectEvents();
 
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'none', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'none', $user2);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -423,7 +410,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $CFG->messaging = 0;
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -450,7 +437,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $CFG->messaging = 1;
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -474,10 +461,10 @@ class core_messagelib_testcase extends advanced_testcase {
         $this->assertInstanceOf('\core\event\message_viewed', $events[1]);
         $eventsink->clear();
 
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'email', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'email', $user2);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -504,10 +491,10 @@ class core_messagelib_testcase extends advanced_testcase {
         $eventsink->clear();
         $user2->emailstop = '0';
 
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'email', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'email', $user2);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -537,10 +524,10 @@ class core_messagelib_testcase extends advanced_testcase {
         $this->assertInstanceOf('\core\event\message_viewed', $events[1]);
         $eventsink->clear();
 
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'email,popup', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'email,popup', $user2);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -570,10 +557,10 @@ class core_messagelib_testcase extends advanced_testcase {
         $this->assertInstanceOf('\core\event\message_sent', $events[0]);
         $eventsink->clear();
 
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'popup', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'popup', $user2);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -604,10 +591,10 @@ class core_messagelib_testcase extends advanced_testcase {
         }
         $transaction->allow_commit();
 
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'none', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'none', $user2);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -635,10 +622,10 @@ class core_messagelib_testcase extends advanced_testcase {
         $events = $eventsink->get_events();
         $this->assertCount(0, $events);
 
-        set_user_preference('message_provider_moodle_instantmessage_loggedoff', 'email', $user2);
+        set_user_preference('message_provider_lion_instantmessage_loggedoff', 'email', $user2);
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -719,7 +706,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $user2 = $this->getDataGenerator()->create_user();
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -781,7 +768,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $user2 = $this->getDataGenerator()->create_user();
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = $user1;
         $message->userto            = $user2;
@@ -838,7 +825,7 @@ class core_messagelib_testcase extends advanced_testcase {
         $file = $fs->create_file_from_string($filerecord, 'Test content');
 
         $message = new stdClass();
-        $message->component         = 'moodle';
+        $message->component         = 'lion';
         $message->name              = 'instantmessage';
         $message->userfrom          = get_admin();
         $message->userto            = $user;

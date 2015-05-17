@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // constants are slow, so we use as few as possible
 if (!defined('HTMLPURIFIER_PREFIX')) {
     define('HTMLPURIFIER_PREFIX', realpath(dirname(__FILE__) . '/..'));

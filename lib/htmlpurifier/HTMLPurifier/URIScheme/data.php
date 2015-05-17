@@ -2,6 +2,9 @@
 
 /**
  * Implements data: URI for base64 encoded images supported by GD.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIScheme_data extends HTMLPurifier_URIScheme
 {

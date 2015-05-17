@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Unit tests for the Moodle GIFT format.
+ * Unit tests for the Lion GIFT format.
  *
- * @package    qformat_gift
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question_format
+ * @subpackage gift
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/questionlib.php');
@@ -35,8 +22,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the GIFT import/export format.
  *
- * @copyright 2010 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_gift_test extends question_testcase {
     public function assert_same_gift($expectedtext, $text) {
@@ -56,9 +41,9 @@ class qformat_gift_test extends question_testcase {
         $expectedq = (object) array(
             'name' => 'Q8',
             'questiontext' => 'How are you?',
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'essay',
             'defaultmark' => 1,
             'penalty' => 0.3333333,
@@ -80,9 +65,9 @@ class qformat_gift_test extends question_testcase {
             'id' => 666 ,
             'name' => 'Q8',
             'questiontext' => 'How are you?',
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'defaultmark' => 1,
             'penalty' => 0.3333333,
             'length' => 1,
@@ -109,10 +94,10 @@ class qformat_gift_test extends question_testcase {
 
     public function test_import_match() {
         $gift = '
-// question: 2  name: Moodle activities
-::Moodle activities::[html]Match the <b>activity</b> to the description.{
+// question: 2  name: Lion activities
+::Lion activities::[html]Match the <b>activity</b> to the description.{
     =[html]An activity supporting asynchronous discussions. -> Forum
-    =[moodle]A teacher asks a question and specifies a choice of multiple responses. -> Choice
+    =[lion]A teacher asks a question and specifies a choice of multiple responses. -> Choice
     =[plain]A bank of record entries which participants can add to. -> Database
     =[markdown]A collection of web pages that anyone can add to or edit. -> Wiki
     = -> Chat
@@ -123,7 +108,7 @@ class qformat_gift_test extends question_testcase {
         $q = $importer->readquestion($lines);
 
         $expectedq = (object) array(
-            'name' => 'Moodle activities',
+            'name' => 'Lion activities',
             'questiontext' => 'Match the <b>activity</b> to the description.',
             'questiontextformat' => FORMAT_HTML,
             'generalfeedback' => '',
@@ -156,7 +141,7 @@ class qformat_gift_test extends question_testcase {
                 ),
                 1 => array(
                     'text' => 'A teacher asks a question and specifies a choice of multiple responses.',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 2 => array(
@@ -192,7 +177,7 @@ class qformat_gift_test extends question_testcase {
     public function test_export_match() {
         $qdata = (object) array(
             'id' => 666 ,
-            'name' => 'Moodle activities',
+            'name' => 'Lion activities',
             'questiontext' => 'Match the <b>activity</b> to the description.',
             'questiontextformat' => FORMAT_HTML,
             'generalfeedback' => '',
@@ -219,7 +204,7 @@ class qformat_gift_test extends question_testcase {
                         'code' => 12341234,
                         'question' => 666,
                         'questiontext' => 'A teacher asks a question and specifies a choice of multiple responses.',
-                        'questiontextformat' => FORMAT_MOODLE,
+                        'questiontextformat' => FORMAT_LION,
                         'answertext' => 'Choice',
                     ),
                     44 => (object) array(
@@ -253,10 +238,10 @@ class qformat_gift_test extends question_testcase {
         $exporter = new qformat_gift();
         $gift = $exporter->writequestion($qdata);
 
-        $expectedgift = "// question: 666  name: Moodle activities
-::Moodle activities::[html]Match the <b>activity</b> to the description.{
+        $expectedgift = "// question: 666  name: Lion activities
+::Lion activities::[html]Match the <b>activity</b> to the description.{
 \t=<div class\\=\"frog\">An activity supporting asynchronous discussions.</div> -> Forum
-\t=[moodle]A teacher asks a question and specifies a choice of multiple responses. -> Choice
+\t=[lion]A teacher asks a question and specifies a choice of multiple responses. -> Choice
 \t=[plain]A bank of record entries which participants can add to. -> Database
 \t=[markdown]A collection of web pages that anyone can add to or edit. -> Wiki
 \t= -> Chat
@@ -284,9 +269,9 @@ class qformat_gift_test extends question_testcase {
         $expectedq = (object) array(
             'name' => 'Q2',
             'questiontext' => "What's between orange and green in the spectrum?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'multichoice',
             'defaultmark' => 1,
             'penalty' => 0.3333333,
@@ -296,28 +281,28 @@ class qformat_gift_test extends question_testcase {
             'answernumbering' => 'abc',
             'correctfeedback' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'partiallycorrectfeedback' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'incorrectfeedback' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'answer' => array(
                 0 => array(
                     'text' => 'yellow',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 1 => array(
                     'text' => 'red',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 2 => array(
@@ -330,7 +315,7 @@ class qformat_gift_test extends question_testcase {
             'feedback' => array(
                 0 => array(
                     'text' => 'right; good!',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 1 => array(
@@ -340,7 +325,7 @@ class qformat_gift_test extends question_testcase {
                 ),
                 2 => array(
                     'text' => "wrong, it's yellow",
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
             ),
@@ -370,9 +355,9 @@ class qformat_gift_test extends question_testcase {
         $expectedq = (object) array(
             'name' => 'colours',
             'questiontext' => "What's between orange and green in the spectrum?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'multichoice',
             'defaultmark' => 1,
             'penalty' => 0.3333333,
@@ -382,33 +367,33 @@ class qformat_gift_test extends question_testcase {
             'answernumbering' => 'abc',
             'correctfeedback' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'partiallycorrectfeedback' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'incorrectfeedback' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'answer' => array(
                 0 => array(
                     'text' => 'yellow',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 1 => array(
                     'text' => 'red',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 2 => array(
                     'text' => 'off-beige',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 3 => array(
@@ -421,7 +406,7 @@ class qformat_gift_test extends question_testcase {
             'feedback' => array(
                 0 => array(
                     'text' => 'right; good!',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 1 => array(
@@ -431,12 +416,12 @@ class qformat_gift_test extends question_testcase {
                 ),
                 2 => array(
                     'text' => "right; good!",
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 3 => array(
                     'text' => "wrong",
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
             ),
@@ -453,9 +438,9 @@ class qformat_gift_test extends question_testcase {
             'id' => 666 ,
             'name' => 'Q8',
             'questiontext' => "What's between orange and green in the spectrum?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'defaultmark' => 1,
             'penalty' => 0.3333333,
             'length' => 1,
@@ -465,24 +450,24 @@ class qformat_gift_test extends question_testcase {
                 'shuffleanswers' => '1',
                 'answernumbering' => 'abc',
                 'correctfeedback' => '',
-                'correctfeedbackformat' => FORMAT_MOODLE,
+                'correctfeedbackformat' => FORMAT_LION,
                 'partiallycorrectfeedback' => '',
-                'partiallycorrectfeedbackformat' => FORMAT_MOODLE,
+                'partiallycorrectfeedbackformat' => FORMAT_LION,
                 'incorrectfeedback' => '',
-                'incorrectfeedbackformat' => FORMAT_MOODLE,
+                'incorrectfeedbackformat' => FORMAT_LION,
                 'answers' => array(
                     123 => (object) array(
                         'id' => 123,
                         'answer' => 'yellow',
-                        'answerformat' => FORMAT_MOODLE,
+                        'answerformat' => FORMAT_LION,
                         'fraction' => 1,
                         'feedback' => 'right; good!',
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                     124 => (object) array(
                         'id' => 124,
                         'answer' => 'red',
-                        'answerformat' => FORMAT_MOODLE,
+                        'answerformat' => FORMAT_LION,
                         'fraction' => 0,
                         'feedback' => "wrong, it's yellow",
                         'feedbackformat' => FORMAT_HTML,
@@ -493,7 +478,7 @@ class qformat_gift_test extends question_testcase {
                         'answerformat' => FORMAT_PLAIN,
                         'fraction' => 0,
                         'feedback' => "wrong, it's yellow",
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                 ),
             ),
@@ -526,9 +511,9 @@ class qformat_gift_test extends question_testcase {
         $expectedq = (object) array(
             'name' => 'Q5',
             'questiontext' => "What is a number from 1 to 5?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'numerical',
             'defaultmark' => 1,
             'penalty' => 0.3333333,
@@ -541,12 +526,12 @@ class qformat_gift_test extends question_testcase {
             'feedback' => array(
                 0 => array(
                     'text' => '',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 1 => array(
                     'text' => "Completely wrong",
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
             ),
@@ -565,9 +550,9 @@ class qformat_gift_test extends question_testcase {
             'id' => 666 ,
             'name' => 'Q5',
             'questiontext' => "What is a number from 1 to 5?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'defaultmark' => 1,
             'penalty' => 1,
             'length' => 1,
@@ -588,7 +573,7 @@ class qformat_gift_test extends question_testcase {
                         'fraction' => 1,
                         'tolerance' => 2,
                         'feedback' => '',
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                     2 => (object) array(
                         'id' => 124,
@@ -597,7 +582,7 @@ class qformat_gift_test extends question_testcase {
                         'fraction' => 0,
                         'tolerance' => 0,
                         'feedback' => "Completely wrong",
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                 ),
             ),
@@ -622,7 +607,7 @@ class qformat_gift_test extends question_testcase {
 // question: 666  name: Shortanswer
 ::Shortanswer::Which is the best animal?{
     =Frog#Good!
-    =%50%Cat#What is it with Moodlers and cats?
+    =%50%Cat#What is it with Lionrs and cats?
     =%0%*#Completely wrong
 }";
         $lines = preg_split('/[\\n\\r]/', str_replace("\r\n", "\n", $gift));
@@ -633,9 +618,9 @@ class qformat_gift_test extends question_testcase {
         $expectedq = (object) array(
             'name' => 'Shortanswer',
             'questiontext' => "Which is the best animal?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'shortanswer',
             'defaultmark' => 1,
             'penalty' => 0.3333333,
@@ -649,17 +634,17 @@ class qformat_gift_test extends question_testcase {
             'feedback' => array(
                 0 => array(
                     'text' => 'Good!',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 1 => array(
-                    'text' => "What is it with Moodlers and cats?",
-                    'format' => FORMAT_MOODLE,
+                    'text' => "What is it with Lionrs and cats?",
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 2 => array(
                     'text' => "Completely wrong",
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
             ),
@@ -677,7 +662,7 @@ class qformat_gift_test extends question_testcase {
 // question: 666  name: Shortanswer
 ::Shortanswer::Which is the best animal?{
     =Frog#Good!
-    =%50%Cat#What is it with Moodlers and cats?
+    =%50%Cat#What is it with Lionrs and cats?
     =%0%*#Completely wrong
     ####[html]Here is some general feedback!
 }";
@@ -689,7 +674,7 @@ class qformat_gift_test extends question_testcase {
         $expectedq = (object) array(
             'name' => 'Shortanswer',
             'questiontext' => "Which is the best animal?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => 'Here is some general feedback!',
             'generalfeedbackformat' => FORMAT_HTML,
             'qtype' => 'shortanswer',
@@ -705,17 +690,17 @@ class qformat_gift_test extends question_testcase {
             'feedback' => array(
                 0 => array(
                     'text' => 'Good!',
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 1 => array(
-                    'text' => "What is it with Moodlers and cats?",
-                    'format' => FORMAT_MOODLE,
+                    'text' => "What is it with Lionrs and cats?",
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
                 2 => array(
                     'text' => "Completely wrong",
-                    'format' => FORMAT_MOODLE,
+                    'format' => FORMAT_LION,
                     'files' => array(),
                 ),
             ),
@@ -733,9 +718,9 @@ class qformat_gift_test extends question_testcase {
             'id' => 666 ,
             'name' => 'Shortanswer',
             'questiontext' => "Which is the best animal?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'defaultmark' => 1,
             'penalty' => 1,
             'length' => 1,
@@ -751,15 +736,15 @@ class qformat_gift_test extends question_testcase {
                         'answerformat' => 0,
                         'fraction' => 1,
                         'feedback' => 'Good!',
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                     2 => (object) array(
                         'id' => 2,
                         'answer' => 'Cat',
                         'answerformat' => 0,
                         'fraction' => 0.5,
-                        'feedback' => "What is it with Moodlers and cats?",
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedback' => "What is it with Lionrs and cats?",
+                        'feedbackformat' => FORMAT_LION,
                     ),
                     3 => (object) array(
                         'id' => 3,
@@ -767,7 +752,7 @@ class qformat_gift_test extends question_testcase {
                         'answerformat' => 0,
                         'fraction' => 0,
                         'feedback' => "Completely wrong",
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                 ),
             ),
@@ -779,7 +764,7 @@ class qformat_gift_test extends question_testcase {
         $expectedgift = "// question: 666  name: Shortanswer
 ::Shortanswer::Which is the best animal?{
 \t=%100%Frog#Good!
-\t=%50%Cat#What is it with Moodlers and cats?
+\t=%50%Cat#What is it with Lionrs and cats?
 \t=%0%*#Completely wrong
 }
 
@@ -793,7 +778,7 @@ class qformat_gift_test extends question_testcase {
             'id' => 666 ,
             'name' => 'Shortanswer',
             'questiontext' => "Which is the best animal?",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => 'Here is some general feedback!',
             'generalfeedbackformat' => FORMAT_HTML,
             'defaultmark' => 1,
@@ -811,15 +796,15 @@ class qformat_gift_test extends question_testcase {
                         'answerformat' => 0,
                         'fraction' => 1,
                         'feedback' => 'Good!',
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                     2 => (object) array(
                         'id' => 2,
                         'answer' => 'Cat',
                         'answerformat' => 0,
                         'fraction' => 0.5,
-                        'feedback' => "What is it with Moodlers and cats?",
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedback' => "What is it with Lionrs and cats?",
+                        'feedbackformat' => FORMAT_LION,
                     ),
                     3 => (object) array(
                         'id' => 3,
@@ -827,7 +812,7 @@ class qformat_gift_test extends question_testcase {
                         'answerformat' => 0,
                         'fraction' => 0,
                         'feedback' => "Completely wrong",
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                 ),
             ),
@@ -839,7 +824,7 @@ class qformat_gift_test extends question_testcase {
         $expectedgift = "// question: 666  name: Shortanswer
 ::Shortanswer::Which is the best animal?{
 \t=%100%Frog#Good!
-\t=%50%Cat#What is it with Moodlers and cats?
+\t=%50%Cat#What is it with Lionrs and cats?
 \t=%0%*#Completely wrong
 \t####[html]Here is some general feedback!
 }
@@ -862,9 +847,9 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
         $expectedq = (object) array(
             'name' => 'Q1',
             'questiontext' => "42 is the Absolute Answer to everything.",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'truefalse',
             'defaultmark' => 1,
             'penalty' => 1,
@@ -872,12 +857,12 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'correctanswer' => 0,
             'feedbacktrue' => array(
                 'text' => '42 is the Ultimate Answer.',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'feedbackfalse' => array(
                 'text' => 'You gave the right answer.',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
         );
@@ -896,9 +881,9 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
         $expectedq = (object) array(
             'name' => '2-08 TSL',
             'questiontext' => "TSL is blablabla.",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'truefalse',
             'defaultmark' => 1,
             'penalty' => 1,
@@ -906,12 +891,12 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'correctanswer' => 1,
             'feedbacktrue' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'feedbackfalse' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
         );
@@ -930,9 +915,9 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
         $expectedq = (object) array(
             'name' => '2-08 TSL',
             'questiontext' => "TSL is blablabla.",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'truefalse',
             'defaultmark' => 1,
             'penalty' => 1,
@@ -940,12 +925,12 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'correctanswer' => 1,
             'feedbacktrue' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
             'feedbackfalse' => array(
                 'text' => '',
-                'format' => FORMAT_MOODLE,
+                'format' => FORMAT_LION,
                 'files' => array(),
             ),
         );
@@ -958,9 +943,9 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'id' => 666 ,
             'name' => 'Q1',
             'questiontext' => "42 is the Absolute Answer to everything.",
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'defaultmark' => 1,
             'penalty' => 1,
             'length' => 1,
@@ -977,7 +962,7 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
                         'answerformat' => 0,
                         'fraction' => 1,
                         'feedback' => 'You gave the right answer.',
-                        'feedbackformat' => FORMAT_MOODLE,
+                        'feedbackformat' => FORMAT_LION,
                     ),
                     2 => (object) array(
                         'id' => 124,
@@ -1010,9 +995,9 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'id' => 666 ,
             'name' => 'backslash',
             'questiontext' => 'A \\ B \\\\ C',
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'defaultmark' => 1,
             'penalty' => 0.3333333,
             'length' => 1,
@@ -1052,9 +1037,9 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
         $expectedq = (object) array(
             'name' => 'double backslash',
             'questiontext' => 'A \\ B \\\\ C',
-            'questiontextformat' => FORMAT_MOODLE,
+            'questiontextformat' => FORMAT_LION,
             'generalfeedback' => '',
-            'generalfeedbackformat' => FORMAT_MOODLE,
+            'generalfeedbackformat' => FORMAT_LION,
             'qtype' => 'essay',
             'defaultmark' => 1,
             'penalty' => 0.3333333,

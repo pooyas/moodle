@@ -1,49 +1,33 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Behat command utils
  *
- * @package    core
  * @category   test
- * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once(__DIR__ . '/../lib.php');
 
 /**
  * Behat command related utils
  *
- * @package    core
  * @category   test
- * @copyright  2013 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_command {
 
     /**
      * Docs url
      */
-    const DOCS_URL = 'http://docs.moodle.org/dev/Acceptance_testing';
+    const DOCS_URL = 'http://docs.lion.org/dev/Acceptance_testing';
 
     /**
-     * Ensures the behat dir exists in moodledata
+     * Ensures the behat dir exists in liondata
      * @param int $runprocess run process for which behat dir is returned.
      * @return string Full path
      */
@@ -142,10 +126,10 @@ class behat_command {
     public static function behat_setup_problem() {
         global $CFG;
 
-        // Moodle setting.
+        // Lion setting.
         if (!self::are_behat_dependencies_installed()) {
 
-            // Returning composer error code to avoid conflicts with behat and moodle error codes.
+            // Returning composer error code to avoid conflicts with behat and lion error codes.
             self::output_msg(get_string('errorcomposer', 'tool_behat'));
             return BEHAT_EXITCODE_COMPOSER;
         }
@@ -155,7 +139,7 @@ class behat_command {
 
         if ($code != 0) {
 
-            // Returning composer error code to avoid conflicts with behat and moodle error codes.
+            // Returning composer error code to avoid conflicts with behat and lion error codes.
             self::output_msg(get_string('errorbehatcommand', 'tool_behat', self::get_behat_command()));
             return BEHAT_EXITCODE_COMPOSER;
         }

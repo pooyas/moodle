@@ -1,14 +1,14 @@
 <?php
 /**
- * Class Minify_CSS_UriRewriter  
- * @package Minify
+ * Class Minify_CSS_UriRewriter
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Rewrite file-relative URIs as root-relative in CSS files
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
  */
 class Minify_CSS_UriRewriter {
     

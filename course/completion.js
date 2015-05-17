@@ -25,14 +25,14 @@ M.core_completion.init = function(Y) {
                 altstr = M.util.get_string('completion-alt-manual-y', 'completion', modulename);
                 titlestr = M.util.get_string('completion-title-manual-y', 'completion', modulename);
                 args.state.set('value', 0);
-                args.image.set('src', M.util.image_url('i/completion-manual-y', 'moodle'));
+                args.image.set('src', M.util.image_url('i/completion-manual-y', 'lion'));
                 args.image.set('alt', altstr);
                 args.image.set('title', titlestr);
             } else {
                 altstr = M.util.get_string('completion-alt-manual-n', 'completion', modulename);
                 titlestr = M.util.get_string('completion-title-manual-n', 'completion', modulename);
                 args.state.set('value', 1);
-                args.image.set('src', M.util.image_url('i/completion-manual-n', 'moodle'));
+                args.image.set('src', M.util.image_url('i/completion-manual-n', 'lion'));
                 args.image.set('alt', altstr);
                 args.image.set('title', titlestr);
             }

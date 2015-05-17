@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Main course enrolment management UI.
  *
- * @package    core_enrol
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage enrol
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../config.php');
@@ -38,9 +25,9 @@ if ($course->id == SITEID) {
 }
 
 require_login($course);
-require_capability('moodle/course:enrolreview', $context);
+require_capability('lion/course:enrolreview', $context);
 
-$canconfig = has_capability('moodle/course:enrolconfig', $context);
+$canconfig = has_capability('lion/course:enrolconfig', $context);
 
 $PAGE->set_url('/enrol/instances.php', array('id'=>$course->id));
 $PAGE->set_pagelayout('admin');
@@ -100,7 +87,7 @@ if ($canconfig and $action and confirm_sesskey()) {
                 if ($confirm) {
                     if (enrol_accessing_via_instance($instance)) {
                         if (!$confirm2) {
-                            $yesurl = new moodle_url('/enrol/instances.php',
+                            $yesurl = new lion_url('/enrol/instances.php',
                                                      array('id' => $course->id,
                                                            'action' => 'delete',
                                                            'instance' => $instance->id,
@@ -122,7 +109,7 @@ if ($canconfig and $action and confirm_sesskey()) {
                 }
 
                 echo $OUTPUT->header();
-                $yesurl = new moodle_url('/enrol/instances.php',
+                $yesurl = new lion_url('/enrol/instances.php',
                                          array('id' => $course->id,
                                                'action' => 'delete',
                                                'instance' => $instance->id,
@@ -150,7 +137,7 @@ if ($canconfig and $action and confirm_sesskey()) {
                 if ($instance->status != ENROL_INSTANCE_DISABLED) {
                     if (enrol_accessing_via_instance($instance)) {
                         if (!$confirm2) {
-                            $yesurl = new moodle_url('/enrol/instances.php',
+                            $yesurl = new lion_url('/enrol/instances.php',
                                                      array('id' => $course->id,
                                                            'action' => 'disable',
                                                            'instance' => $instance->id,
@@ -207,7 +194,7 @@ $table->data  = array();
 // iterate through enrol plugins and add to the display table
 $updowncount = 1;
 $icount = count($instances);
-$url = new moodle_url('/enrol/instances.php', array('sesskey'=>sesskey(), 'id'=>$course->id));
+$url = new lion_url('/enrol/instances.php', array('sesskey'=>sesskey(), 'id'=>$course->id));
 foreach ($instances as $instance) {
     if (!isset($plugins[$instance->enrol])) {
         continue;
@@ -228,13 +215,13 @@ foreach ($instances as $instance) {
         // up/down link
         $updown = '';
         if ($updowncount > 1) {
-            $aurl = new moodle_url($url, array('action'=>'up', 'instance'=>$instance->id));
+            $aurl = new lion_url($url, array('action'=>'up', 'instance'=>$instance->id));
             $updown[] = $OUTPUT->action_icon($aurl, new pix_icon('t/up', $strup, 'core', array('class' => 'iconsmall')));
         } else {
             $updown[] = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('spacer'), 'alt'=>'', 'class'=>'iconsmall'));
         }
         if ($updowncount < $icount) {
-            $aurl = new moodle_url($url, array('action'=>'down', 'instance'=>$instance->id));
+            $aurl = new lion_url($url, array('action'=>'down', 'instance'=>$instance->id));
             $updown[] = $OUTPUT->action_icon($aurl, new pix_icon('t/down', $strdown, 'core', array('class' => 'iconsmall')));
         } else {
             $updown[] = html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_url('spacer'), 'alt'=>'', 'class'=>'iconsmall'));
@@ -242,16 +229,16 @@ foreach ($instances as $instance) {
         ++$updowncount;
 
         if ($plugin->can_delete_instance($instance)) {
-            $aurl = new moodle_url($url, array('action'=>'delete', 'instance'=>$instance->id));
+            $aurl = new lion_url($url, array('action'=>'delete', 'instance'=>$instance->id));
             $edit[] = $OUTPUT->action_icon($aurl, new pix_icon('t/delete', $strdelete, 'core', array('class' => 'iconsmall')));
         }
 
         if (enrol_is_enabled($instance->enrol) && $plugin->can_hide_show_instance($instance)) {
             if ($instance->status == ENROL_INSTANCE_ENABLED) {
-                $aurl = new moodle_url($url, array('action'=>'disable', 'instance'=>$instance->id));
+                $aurl = new lion_url($url, array('action'=>'disable', 'instance'=>$instance->id));
                 $edit[] = $OUTPUT->action_icon($aurl, new pix_icon('t/hide', $strdisable, 'core', array('class' => 'iconsmall')));
             } else if ($instance->status == ENROL_INSTANCE_DISABLED) {
-                $aurl = new moodle_url($url, array('action'=>'enable', 'instance'=>$instance->id));
+                $aurl = new lion_url($url, array('action'=>'enable', 'instance'=>$instance->id));
                 $edit[] = $OUTPUT->action_icon($aurl, new pix_icon('t/show', $strenable, 'core', array('class' => 'iconsmall')));
             } else {
                 // plugin specific state - do not mess with it!

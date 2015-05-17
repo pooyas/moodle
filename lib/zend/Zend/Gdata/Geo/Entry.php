@@ -14,11 +14,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Gdata
- * @subpackage Geo
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -40,10 +39,6 @@ require_once 'Zend/Gdata/Geo/Extension/GeoRssWhere.php';
  * An Atom entry containing Geograpic data.
  *
  * @category   Zend
- * @package    Zend_Gdata
- * @subpackage Geo
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Gdata_Geo_Entry extends Zend_Gdata_Entry
 {

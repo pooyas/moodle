@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Backup user interface stages
@@ -21,9 +8,9 @@
  * backup user interface.
  * These will be primarily operated a {@link base_ui} instance.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -32,11 +19,8 @@
  * This class should be extended by all backup stages (a requirement of many backup ui functions).
  * Each stage must then define two abstract methods
  *  - process : To process the stage
- *  - initialise_stage_form : To get a backup_moodleform instance for the stage
+ *  - initialise_stage_form : To get a backup_lionform instance for the stage
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class base_ui_stage {
 
@@ -53,8 +37,8 @@ abstract class base_ui_stage {
     protected $ui;
 
     /**
-     * The moodleform for this stage
-     * @var base_moodleform
+     * The lionform for this stage
+     * @var base_lionform
      */
     protected $stageform = null;
 
@@ -135,7 +119,7 @@ abstract class base_ui_stage {
     public function display(core_backup_renderer $renderer) {
 
         $form = $this->initialise_stage_form();
-        // A nasty hack follows to work around the sad fact that moodle quickforms
+        // A nasty hack follows to work around the sad fact that lion quickforms
         // do not allow to actually return the HTML content, just to echo it.
         flush();
         ob_start();
@@ -152,16 +136,16 @@ abstract class base_ui_stage {
      * This must be overridden by every stage as it will be different for every stage
      *
      * @abstract
-     * @param base_moodleform $form
+     * @param base_lionform $form
      */
-    abstract public function process(base_moodleform $form = null);
+    abstract public function process(base_lionform $form = null);
 
     /**
-     * Creates an instance of the correct moodleform properly populated and all
+     * Creates an instance of the correct lionform properly populated and all
      * dependencies instantiated
      *
      * @abstract
-     * @return backup_moodleform
+     * @return backup_lionform
      */
     abstract protected function initialise_stage_form();
 

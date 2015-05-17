@@ -3,10 +3,10 @@
 /**
  * Parser utils and default callbacks.
  *
- * @author Josep Arús
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_wiki
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->dirroot . "/lib/outputcomponents.php");

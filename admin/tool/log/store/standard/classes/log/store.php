@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Standard log reader/writer.
  *
- * @package    logstore_standard
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace logstore_standard\log;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class store implements \tool_log\log\writer, \core\log\sql_internal_table_reader {
     use \tool_log\helper\store,
@@ -88,7 +75,7 @@ class store implements \tool_log\log\writer, \core\log\sql_internal_table_reader
     /**
      * Fetch records using given criteria returning a Traversable object.
      *
-     * Note that the traversable object contains a moodle_recordset, so
+     * Note that the traversable object contains a lion_recordset, so
      * remember that is important that you call close() once you finish
      * using it.
      *

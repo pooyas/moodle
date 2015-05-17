@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The mod_forum read tracking enabled event.
  *
- * @package    mod_forum
- * @copyright  2014 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace mod_forum\event;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The mod_forum read tracking enabled event class.
@@ -35,10 +22,6 @@ defined('MOODLE_INTERNAL') || die();
  *      - int forumid: The id of the forum which readtracking has been enabled on.
  * }
  *
- * @package    mod_forum
- * @since      Moodle 2.7
- * @copyright  2014 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class readtracking_enabled extends \core\event\base {
     /**
@@ -73,10 +56,10 @@ class readtracking_enabled extends \core\event\base {
     /**
      * Get URL related to the action
      *
-     * @return \moodle_url
+     * @return \lion_url
      */
     public function get_url() {
-        return new \moodle_url('/mod/forum/view.php', array('f' => $this->other['forumid']));
+        return new \lion_url('/mod/forum/view.php', array('f' => $this->other['forumid']));
     }
 
     /**

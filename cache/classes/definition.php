@@ -1,32 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Cache definition class
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are requried in order to use caching.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    cache
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The cache definition class.
@@ -103,10 +90,7 @@ defined('MOODLE_INTERNAL') || die();
  *
  * For examples take a look at lib/db/caches.php
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_definition {
 
@@ -205,7 +189,6 @@ class cache_definition {
 
     /**
      * Gets set to true if this definition requires searchable stores.
-     * @since Moodle 2.4.4
      * @var bool
      */
     protected $requiresearchable = false;
@@ -734,7 +717,6 @@ class cache_definition {
 
     /**
      * Returns true if this definition requires a searchable cache.
-     * @since Moodle 2.4.4
      * @return bool
      */
     public function require_searchable() {

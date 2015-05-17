@@ -1,26 +1,30 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+
+/**
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
+*/
+
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Wiki files management
  *
- * @package mod_wiki
- * @copyright 2011 Dongsheng Cai <dongsheng@moodle.com>
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once('../../config.php');
@@ -104,6 +108,6 @@ echo $renderer->wiki_files_tree($context, $subwiki);
 echo $OUTPUT->box_end();
 
 if (has_capability('mod/wiki:managefiles', $context)) {
-    echo $OUTPUT->single_button(new moodle_url('/mod/wiki/filesedit.php', array('subwiki'=>$subwiki->id, 'pageid'=>$pageid)), get_string('editfiles', 'wiki'), 'get');
+    echo $OUTPUT->single_button(new lion_url('/mod/wiki/filesedit.php', array('subwiki'=>$subwiki->id, 'pageid'=>$pageid)), get_string('editfiles', 'wiki'), 'get');
 }
 echo $OUTPUT->footer();

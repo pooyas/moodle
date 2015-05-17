@@ -1,39 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * A helper class to access dropbox resources
  *
- * @since Moodle 2.0
- * @package    repository_dropbox
- * @copyright  2012 Marina Glancy
- * @copyright  2010 Dongsheng Cai
- * @author     Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    repository
+ * @subpackage dropbox
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->libdir.'/oauthlib.php');
 
 /**
  * Authentication class to access Dropbox API
  *
- * @package    repository_dropbox
- * @copyright  2010 Dongsheng Cai
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class dropbox extends oauth_helper {
     /** @var string dropbox access type, can be dropbox or sandbox */
@@ -88,7 +69,7 @@ class dropbox extends oauth_helper {
     /**
      * Retrieves the default (64x64) thumbnail for dropbox file
      *
-     * @throws moodle_exception when file could not be downloaded
+     * @throws lion_exception when file could not be downloaded
      *
      * @param string $filepath local path in Dropbox
      * @param string $saveas path to file to save the result
@@ -98,7 +79,7 @@ class dropbox extends oauth_helper {
     public function get_thumbnail($filepath, $saveas, $timeout = 0) {
         $url = $this->dropbox_content_api.'/thumbnails/'.$this->mode.$this->prepare_filepath($filepath);
         if (!($fp = fopen($saveas, 'w'))) {
-            throw new moodle_exception('cannotwritefile', 'error', '', $saveas);
+            throw new lion_exception('cannotwritefile', 'error', '', $saveas);
         }
         $this->setup_oauth_http_options(array('timeout' => $timeout, 'file' => $fp, 'BINARYTRANSFER' => true));
         $result = $this->get($url);
@@ -107,14 +88,14 @@ class dropbox extends oauth_helper {
             return array('path'=>$saveas, 'url'=>$url);
         } else {
             unlink($saveas);
-            throw new moodle_exception('errorwhiledownload', 'repository', '', $result);
+            throw new lion_exception('errorwhiledownload', 'repository', '', $result);
         }
     }
 
     /**
      * Downloads a file from Dropbox and saves it locally
      *
-     * @throws moodle_exception when file could not be downloaded
+     * @throws lion_exception when file could not be downloaded
      *
      * @param string $filepath local path in Dropbox
      * @param string $saveas path to file to save the result
@@ -124,7 +105,7 @@ class dropbox extends oauth_helper {
     public function get_file($filepath, $saveas, $timeout = 0) {
         $url = $this->dropbox_content_api.'/files/'.$this->mode.$this->prepare_filepath($filepath);
         if (!($fp = fopen($saveas, 'w'))) {
-            throw new moodle_exception('cannotwritefile', 'error', '', $saveas);
+            throw new lion_exception('cannotwritefile', 'error', '', $saveas);
         }
         $this->setup_oauth_http_options(array('timeout' => $timeout, 'file' => $fp, 'BINARYTRANSFER' => true));
         $result = $this->get($url);
@@ -133,7 +114,7 @@ class dropbox extends oauth_helper {
             return array('path'=>$saveas, 'url'=>$url);
         } else {
             unlink($saveas);
-            throw new moodle_exception('errorwhiledownload', 'repository', '', $result);
+            throw new lion_exception('errorwhiledownload', 'repository', '', $result);
         }
     }
 

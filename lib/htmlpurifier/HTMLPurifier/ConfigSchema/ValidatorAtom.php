@@ -5,6 +5,9 @@
  * This should be immutable. See HTMLPurifier_ConfigSchema_Validator for
  * use-cases. We name this an 'atom' because it's ONLY for validations that
  * are independent and usually scalar.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema_ValidatorAtom
 {

@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Tests for the block_manager class in ../blocklib.php.
  *
- * @package   core
  * @category  phpunit
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/pagelib.php');
 require_once($CFG->libdir . '/blocklib.php');
-require_once($CFG->dirroot . '/blocks/moodleblock.class.php');
+require_once($CFG->dirroot . '/blocks/lionblock.class.php');
 
 
 /**
@@ -41,7 +28,7 @@ class core_blocklib_testcase extends advanced_testcase {
 
     protected function setUp() {
         parent::setUp();
-        $this->testpage = new moodle_page();
+        $this->testpage = new lion_page();
         $this->testpage->set_context(context_system::instance());
         $this->testpage->set_pagetype('phpunit-block-test');
         $this->blockmanager = new testable_block_manager($this->testpage);
@@ -201,7 +188,7 @@ class core_blocklib_testcase extends advanced_testcase {
     }
 
     protected function get_a_page_and_block_manager($regions, $context, $pagetype, $subpage = '') {
-        $page = new moodle_page;
+        $page = new lion_page;
         $page->set_context($context);
         $page->set_pagetype($pagetype);
         $page->set_subpage($subpage);

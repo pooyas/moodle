@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * A library of classes used by the grade edit pages
  *
- * @package   core_grades
- * @copyright 2009 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
 class grade_edit_tree {
@@ -60,7 +47,7 @@ class grade_edit_tree {
     public function __construct($gtree, $moving=false, $gpr) {
         global $USER, $OUTPUT, $COURSE;
 
-        $systemdefault = get_config('moodle', 'grade_report_showcalculations');
+        $systemdefault = get_config('lion', 'grade_report_showcalculations');
         $this->show_calculations = get_user_preferences('grade_report_showcalculations', $systemdefault);
 
         $this->gtree = $gtree;
@@ -143,12 +130,12 @@ class grade_edit_tree {
 
         if ($element['type'] == 'item' or ($element['type'] == 'category' and $element['depth'] > 1)) {
             if ($this->element_deletable($element)) {
-                $aurl = new moodle_url('index.php', array('id' => $COURSE->id, 'action' => 'delete', 'eid' => $eid, 'sesskey' => sesskey()));
+                $aurl = new lion_url('index.php', array('id' => $COURSE->id, 'action' => 'delete', 'eid' => $eid, 'sesskey' => sesskey()));
                 $icon = new action_menu_link_secondary($aurl, new pix_icon('t/delete', get_string('delete')), get_string('delete'));
                 $actionsmenu->add($icon);
             }
 
-            $aurl = new moodle_url('index.php', array('id' => $COURSE->id, 'action' => 'moveselect', 'eid' => $eid, 'sesskey' => sesskey()));
+            $aurl = new lion_url('index.php', array('id' => $COURSE->id, 'action' => 'moveselect', 'eid' => $eid, 'sesskey' => sesskey()));
             $moveaction .= $OUTPUT->action_icon($aurl, new pix_icon('t/move', get_string('move')));
         }
 
@@ -223,7 +210,7 @@ class grade_edit_tree {
                     $strmovehere = get_string('movehere');
                     $actions = $moveaction = ''; // no action icons when moving
 
-                    $aurl = new moodle_url('index.php', array('id' => $COURSE->id, 'action' => 'move', 'eid' => $this->moving, 'moveafter' => $child_eid, 'sesskey' => sesskey()));
+                    $aurl = new lion_url('index.php', array('id' => $COURSE->id, 'action' => 'move', 'eid' => $this->moving, 'moveafter' => $child_eid, 'sesskey' => sesskey()));
                     if ($first) {
                         $aurl->params($first);
                     }
@@ -544,8 +531,6 @@ class grade_edit_tree {
 /**
  * Class grade_edit_tree_column
  *
- * @package   core_grades
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class grade_edit_tree_column {
     public $forced;
@@ -621,8 +606,6 @@ abstract class grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_name
  *
- * @package   core_grades
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class grade_edit_tree_column_name extends grade_edit_tree_column {
     public $forced = false;
@@ -680,8 +663,6 @@ class grade_edit_tree_column_name extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_weight
  *
- * @package   core_grades
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class grade_edit_tree_column_weight extends grade_edit_tree_column {
 
@@ -723,8 +704,6 @@ class grade_edit_tree_column_weight extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_range
  *
- * @package   core_grades
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class grade_edit_tree_column_range extends grade_edit_tree_column {
 
@@ -793,8 +772,6 @@ class grade_edit_tree_column_range extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_actions
  *
- * @package   core_grades
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class grade_edit_tree_column_actions extends grade_edit_tree_column {
 
@@ -832,8 +809,6 @@ class grade_edit_tree_column_actions extends grade_edit_tree_column {
 /**
  * Class grade_edit_tree_column_select
  *
- * @package   core_grades
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class grade_edit_tree_column_select extends grade_edit_tree_column {
 
@@ -848,8 +823,8 @@ class grade_edit_tree_column_select extends grade_edit_tree_column {
         if (empty($params['eid'])) {
             throw new Exception('Array key (eid) missing from 3rd param of grade_edit_tree_column_select::get_category_cell($category, $levelclass, $params)');
         }
-        $selectall  = new action_link(new moodle_url('#'), get_string('all'), new component_action('click', 'togglecheckboxes', array('eid' => $params['eid'], 'check' => true)));
-        $selectnone = new action_link(new moodle_url('#'), get_string('none'), new component_action('click', 'togglecheckboxes', array('eid' => $params['eid'], 'check' => false)));
+        $selectall  = new action_link(new lion_url('#'), get_string('all'), new component_action('click', 'togglecheckboxes', array('eid' => $params['eid'], 'check' => true)));
+        $selectnone = new action_link(new lion_url('#'), get_string('none'), new component_action('click', 'togglecheckboxes', array('eid' => $params['eid'], 'check' => false)));
 
         $categorycell = parent::get_category_cell($category, $levelclass, $params);
         $categorycell->text = $OUTPUT->render($selectall) . ' / ' . $OUTPUT->render($selectnone);

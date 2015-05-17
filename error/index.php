@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage error
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require('../config.php');
     require_once($CFG->libdir.'/eventslib.php');
 
@@ -12,7 +19,7 @@
 
         // Send the message and redirect.
         $eventdata = new stdClass();
-        $eventdata->component        = 'moodle';
+        $eventdata->component        = 'lion';
         $eventdata->name             = 'errors';
         $eventdata->userfrom          = $USER;
         $eventdata->userto            = core_user::get_support_user();
@@ -53,6 +60,13 @@
            <input type="submit" value="<?php echo get_string('sendmessage', 'error'); ?>">
            </form>
 <?php
+
+/**
+ * @package    core
+ * @subpackage error
+ * @copyright  2015 Pooya Saeedi
+*/
+
     } else {
         echo $OUTPUT->continue_button($CFG->wwwroot);
     }

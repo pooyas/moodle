@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Check that, as in the coding guidelines, every to-do comment links to a tracker issue.
  *
- * As required by http://docs.moodle.org/dev/Coding_style.
+ * As required by http://docs.lion.org/dev/Coding_style.
  *
  * @package    core
- * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require(dirname(__FILE__) . '/../../../config.php');
 
 require_login();
 $context = context_system::instance();
-require_capability('moodle/site:config', $context);
+require_capability('lion/site:config', $context);
 
 $PAGE->set_url('/lib/tests/other/todochecker.php');
 $PAGE->set_context($context);
@@ -63,14 +50,14 @@ if (empty($found)) {
     foreach ($found as $filepath => $matches) {
         echo '<dt>' . $filepath . ' <b>(' . count($matches) . ')</b></dt><dd><ul>';
         foreach ($matches as $lineno => $line) {
-            $url = 'http://cvs.moodle.org/moodle/' . $filepath . '?view=annotate#l' . $lineno;
+            $url = 'http://cvs.lion.org/lion/' . $filepath . '?view=annotate#l' . $lineno;
             $error = '';
 
             // Make sure there is a tracker issue id mentioned
             $matches = array();
             if (preg_match('/\bTODO\b.*?\b(MDL-\d+)/', $line, $matches)) {
                 $issueid = $matches[1];
-                $issueurl = 'http://tracker.moodle.org/browse/' . $issueid;
+                $issueurl = 'http://tracker.lion.org/browse/' . $issueid;
 
                 // Make sure the issue is still open.
                 list($issueopen, $issuesummary) = issue_info($issueid);
@@ -124,7 +111,7 @@ function issue_info($issueid) {
         return $cache[$issueid];
     }
 
-    $xmlurl = 'http://tracker.moodle.org/si/jira.issueviews:issue-xml/' . $issueid . '/' . $issueid . '.xml';
+    $xmlurl = 'http://tracker.lion.org/si/jira.issueviews:issue-xml/' . $issueid . '/' . $issueid . '.xml';
     $content = download_file_content($xmlurl);
 
     // Get the status.

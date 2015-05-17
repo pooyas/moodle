@@ -3,6 +3,9 @@
 /**
  * Primitive email validation class based on the regexp found at
  * http://www.regular-expressions.info/email.html
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_URI_Email_SimpleCheck extends HTMLPurifier_AttrDef_URI_Email
 {

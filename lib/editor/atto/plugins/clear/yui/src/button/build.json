@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_clear-button",
+  "name": "lion-atto_clear-button",
   "builds": {
-    "moodle-atto_clear-button": {
+    "lion-atto_clear-button": {
       "jsfiles": [
         "button.js"
       ]

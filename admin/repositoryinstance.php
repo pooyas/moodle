@@ -1,18 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+*/
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once($CFG->dirroot . '/repository/lib.php');
@@ -41,12 +35,12 @@ if ($edit){
     $pagename = 'repositoryinstancenew';
 }
 
-admin_externalpage_setup($pagename, '', null, new moodle_url('/admin/repositoryinstance.php'));
-require_capability('moodle/site:config', $context);
+admin_externalpage_setup($pagename, '', null, new lion_url('/admin/repositoryinstance.php'));
+require_capability('lion/site:config', $context);
 
-$baseurl = new moodle_url("/$CFG->admin/repositoryinstance.php", array('sesskey'=>sesskey()));
+$baseurl = new lion_url("/$CFG->admin/repositoryinstance.php", array('sesskey'=>sesskey()));
 
-$parenturl = new moodle_url("/$CFG->admin/repository.php", array(
+$parenturl = new lion_url("/$CFG->admin/repository.php", array(
     'sesskey'=>sesskey(),
     'action'=>'edit',
 ));
@@ -142,12 +136,12 @@ if (!empty($edit) || !empty($new)) {
 
     echo $OUTPUT->header();
     echo $OUTPUT->box_start('generalbox', 'notice');
-    $continueurl = new moodle_url($baseurl, array(
+    $continueurl = new lion_url($baseurl, array(
         'type' => $type,
         'delete' => $delete,
         'sure' => 'yes',
     ));
-    $continueanddownloadurl = new moodle_url($continueurl, array(
+    $continueanddownloadurl = new lion_url($continueurl, array(
         'downloadcontents' => 1
     ));
     $message = get_string('confirmdelete', 'repository', $instance->name);

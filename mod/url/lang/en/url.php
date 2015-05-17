@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'url', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'url', language 'en', branch 'LION_20_STABLE'
  *
- * @package    mod_url
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage url
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['clicktoopen'] = 'Click {$a} link to open resource.';
@@ -57,7 +44,7 @@ $string['modulenameplural'] = 'URLs';
 $string['page-mod-url-x'] = 'Any URL module page';
 $string['parameterinfo'] = '&amp;parameter=variable';
 $string['parametersheader'] = 'URL variables';
-$string['parametersheader_help'] = 'Some internal Moodle variables may be automatically appended to the URL. Type your name for the parameter into each text box(es) and then select the required matching variable.';
+$string['parametersheader_help'] = 'Some internal Lion variables may be automatically appended to the URL. Type your name for the parameter into each text box(es) and then select the required matching variable.';
 $string['pluginadministration'] = 'URL module administration';
 $string['pluginname'] = 'URL';
 $string['popupheight'] = 'Pop-up height (in pixels)';

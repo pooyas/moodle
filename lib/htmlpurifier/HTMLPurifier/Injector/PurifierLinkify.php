@@ -3,6 +3,9 @@
 /**
  * Injector that converts configuration directive syntax %Namespace.Directive
  * to links
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Injector_PurifierLinkify extends HTMLPurifier_Injector
 {

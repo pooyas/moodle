@@ -6,6 +6,9 @@
  *       upon instantiation, no need for messy generateFromTokens() calls
  * @todo Make some of the more internal functions protected, and have
  *       unit tests work around that
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Generator
 {

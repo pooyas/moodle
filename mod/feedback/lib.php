@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library of functions and constants for module feedback
  * includes the main-part of feedback-functions
  *
- * @package mod_feedback
- * @copyright Andreas Grabs
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** Include eventslib.php */
@@ -46,7 +33,7 @@ define('FEEDBACK_DEFAULT_PAGE_COUNT', 20);
  * @return array
  */
 function feedback_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -68,7 +55,7 @@ function feedback_supports($feature) {
         case FEATURE_COMPLETION_HAS_RULES:    return true;
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -169,7 +156,6 @@ function feedback_update_instance($feedback) {
  * There are two situations in general where the files will be sent.
  * 1) filearea = item, 2) filearea = template
  *
- * @package  mod_feedback
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -417,8 +403,8 @@ function feedback_get_recent_mod_activity(&$activities, &$index,
         return;
     }
 
-    $accessallgroups = has_capability('moodle/site:accessallgroups', $cm_context);
-    $viewfullnames   = has_capability('moodle/site:viewfullnames', $cm_context);
+    $accessallgroups = has_capability('lion/site:accessallgroups', $cm_context);
+    $viewfullnames   = has_capability('lion/site:viewfullnames', $cm_context);
     $groupmode       = groups_get_activity_groupmode($cm, $course);
 
     $aname = format_string($cm->name, true);
@@ -598,7 +584,7 @@ function feedback_get_post_actions() {
 }
 
 /**
- * This function is used by the reset_course_userdata function in moodlelib.
+ * This function is used by the reset_course_userdata function in lionlib.
  * This function will remove all responses from the specified feedback
  * and clean up any related data.
  *
@@ -3123,21 +3109,21 @@ function feedback_extend_settings_navigation(settings_navigation $settings,
         $questionnode = $feedbacknode->add(get_string('questions', 'feedback'));
 
         $questionnode->add(get_string('edit_items', 'feedback'),
-                    new moodle_url('/mod/feedback/edit.php',
+                    new lion_url('/mod/feedback/edit.php',
                                     array('id' => $PAGE->cm->id,
                                           'do_show' => 'edit')));
 
         $questionnode->add(get_string('export_questions', 'feedback'),
-                    new moodle_url('/mod/feedback/export.php',
+                    new lion_url('/mod/feedback/export.php',
                                     array('id' => $PAGE->cm->id,
                                           'action' => 'exportfile')));
 
         $questionnode->add(get_string('import_questions', 'feedback'),
-                    new moodle_url('/mod/feedback/import.php',
+                    new lion_url('/mod/feedback/import.php',
                                     array('id' => $PAGE->cm->id)));
 
         $questionnode->add(get_string('templates', 'feedback'),
-                    new moodle_url('/mod/feedback/edit.php',
+                    new lion_url('/mod/feedback/edit.php',
                                     array('id' => $PAGE->cm->id,
                                           'do_show' => 'templates')));
     }
@@ -3146,20 +3132,20 @@ function feedback_extend_settings_navigation(settings_navigation $settings,
         $feedback = $DB->get_record('feedback', array('id'=>$PAGE->cm->instance));
         if ($feedback->course == SITEID) {
             $feedbacknode->add(get_string('analysis', 'feedback'),
-                    new moodle_url('/mod/feedback/analysis_course.php',
+                    new lion_url('/mod/feedback/analysis_course.php',
                                     array('id' => $PAGE->cm->id,
                                           'course' => $PAGE->course->id,
                                           'do_show' => 'analysis')));
         } else {
             $feedbacknode->add(get_string('analysis', 'feedback'),
-                    new moodle_url('/mod/feedback/analysis.php',
+                    new lion_url('/mod/feedback/analysis.php',
                                     array('id' => $PAGE->cm->id,
                                           'course' => $PAGE->course->id,
                                           'do_show' => 'analysis')));
         }
 
         $feedbacknode->add(get_string('show_entries', 'feedback'),
-                    new moodle_url('/mod/feedback/show_entries.php',
+                    new lion_url('/mod/feedback/show_entries.php',
                                     array('id' => $PAGE->cm->id,
                                           'do_show' => 'showentries')));
     }

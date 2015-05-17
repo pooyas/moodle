@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Essay question definition class.
  *
- * @package    qtype
+ * @package    question_type
  * @subpackage essay
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Represents an essay question.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_essay_question extends question_with_responses {
 
@@ -56,10 +40,10 @@ class qtype_essay_question extends question_with_responses {
     }
 
     /**
-     * @param moodle_page the page we are outputting to.
+     * @param lion_page the page we are outputting to.
      * @return qtype_essay_format_renderer_base the response-format-specific renderer.
      */
-    public function get_format_renderer(moodle_page $page) {
+    public function get_format_renderer(lion_page $page) {
         return $page->get_renderer('qtype_essay', 'format_' . $this->responseformat);
     }
 

@@ -1,6 +1,13 @@
 <?php
 
-    // Designed to be redirected from moodle/login/index.php
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
+    // Designed to be redirected from lion/login/index.php
 
     require('../../config.php');
 
@@ -43,7 +50,7 @@
         // The password is never actually used, but needs to be passed to the functions 'user_login' and
         // 'authenticate_user_login'. Shibboleth returns true for the function 'prevent_local_password', which is
         // used when setting the password in 'update_internal_user_password'. When 'prevent_local_password'
-        // returns true, the password is set to 'not cached' (AUTH_PASSWORD_NOT_CACHED) in the Moodle DB. However,
+        // returns true, the password is set to 'not cached' (AUTH_PASSWORD_NOT_CACHED) in the Lion DB. However,
         // rather than setting the password to a hard-coded value, we will generate one each time, in case there are
         // changes to the Shibboleth plugin and it is actually used.
         $frm->password = generate_password(8);
@@ -67,8 +74,8 @@
                 unset($SESSION->wantsurl);         /// Just in case
             }
 
-            /// Go to my-moodle page instead of homepage if defaulthomepage enabled
-            if (!has_capability('moodle/site:config',context_system::instance()) and !empty($CFG->defaulthomepage) && $CFG->defaulthomepage == HOMEPAGE_MY and !isguestuser()) {
+            /// Go to my-lion page instead of homepage if defaulthomepage enabled
+            if (!has_capability('lion/site:config',context_system::instance()) and !empty($CFG->defaulthomepage) && $CFG->defaulthomepage == HOMEPAGE_MY and !isguestuser()) {
                 if ($urltogo == $CFG->wwwroot or $urltogo == $CFG->wwwroot.'/' or $urltogo == $CFG->wwwroot.'/index.php') {
                     $urltogo = $CFG->wwwroot.'/my/';
                 }
@@ -80,7 +87,7 @@
         }
 
         else {
-            // The Shibboleth user couldn't be mapped to a valid Moodle user
+            // The Shibboleth user couldn't be mapped to a valid Lion user
             print_error('shib_invalid_account_error', 'auth_shibboleth');
         }
     }

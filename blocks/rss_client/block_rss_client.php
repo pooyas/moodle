@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * A block which displays Remote feeds
  *
- * @package   block_rss_client
- * @copyright  Daryl Hawes
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+ * @package    blocks
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  */
 
  class block_rss_client extends block_base {
@@ -130,9 +117,9 @@
      */
     function get_feed_html($feedrecord, $maxentries, $showtitle){
         global $CFG;
-        require_once($CFG->libdir.'/simplepie/moodle_simplepie.php');
+        require_once($CFG->libdir.'/simplepie/lion_simplepie.php');
 
-        $feed = new moodle_simplepie($feedrecord->url);
+        $feed = new lion_simplepie($feedrecord->url);
 
         if(isset($CFG->block_rss_client_timeout)){
             $feed->set_cache_duration($CFG->block_rss_client_timeout*60);
@@ -229,9 +216,9 @@
             try {
                 // URLs in our RSS cache will be escaped (correctly as theyre store in XML)
                 // html_writer::link() will re-escape them. To prevent double escaping unescape here.
-                // This can by done using htmlspecialchars_decode() but moodle_url also has that effect.
-                $link = new moodle_url($link);
-            } catch (moodle_exception $e) {
+                // This can by done using htmlspecialchars_decode() but lion_url also has that effect.
+                $link = new lion_url($link);
+            } catch (lion_exception $e) {
                 // Catching the exception to prevent the whole site to crash in case of malformed RSS feed
                 $link = '';
             }
@@ -283,7 +270,7 @@
      */
     function cron() {
         global $CFG, $DB;
-        require_once($CFG->libdir.'/simplepie/moodle_simplepie.php');
+        require_once($CFG->libdir.'/simplepie/lion_simplepie.php');
 
         // We are going to measure execution times
         $starttime =  microtime();
@@ -301,7 +288,7 @@
             // so feeds will be renewed only if cache has expired
             core_php_time_limit::raise(60);
 
-            $feed =  new moodle_simplepie();
+            $feed =  new lion_simplepie();
             // set timeout for longer than normal to be agressive at
             // fetching feeds if possible..
             $feed->set_timeout(40);

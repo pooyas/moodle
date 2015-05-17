@@ -1,21 +1,8 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This file keeps track of upgrades to Moodle.
+ * This file keeps track of upgrades to Lion.
  *
  * Sometimes, changes between versions involve
  * alterations to database structures and other
@@ -34,18 +21,18 @@
  * Please do not forget to use upgrade_set_timeout()
  * before any action that may take longer time to finish.
  *
- * @package   core_install
  * @category  upgrade
- * @copyright 2006 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Main upgrade tasks to be executed on Moodle version bump
+ * Main upgrade tasks to be executed on Lion version bump
  *
- * This function is automatically executed after one bump in the Moodle core
+ * This function is automatically executed after one bump in the Lion core
  * version is detected. It's in charge of performing the required tasks
  * to raise core from the previous version to the next one.
  *
@@ -60,13 +47,13 @@ defined('MOODLE_INTERNAL') || die();
  *     // Explanation of the update step, linking to issue in the Tracker if necessary
  *     upgrade_set_timeout(XX); // Optional for big tasks
  *     // Code to execute goes here, usually the XMLDB Editor will
- *     // help you here. See {@link http://docs.moodle.org/dev/XMLDB_editor}.
+ *     // help you here. See {@link http://docs.lion.org/dev/XMLDB_editor}.
  *     upgrade_main_savepoint(true, XXXXXXXXXX.XX);
  * }
  *
- * All plugins within Moodle (modules, blocks, reports...) support the existence of
+ * All plugins within Lion (modules, blocks, reports...) support the existence of
  * their own upgrade.php file, using the "Frankenstyle" component name as
- * defined at {@link http://docs.moodle.org/dev/Frankenstyle}, for example:
+ * defined at {@link http://docs.lion.org/dev/Frankenstyle}, for example:
  *     - {@link xmldb_page_upgrade($oldversion)}. (modules don't require the plugintype ("mod_") to be used.
  *     - {@link xmldb_auth_manual_upgrade($oldversion)}.
  *     - {@link xmldb_workshopform_accumulative_upgrade($oldversion)}.
@@ -78,8 +65,8 @@ defined('MOODLE_INTERNAL') || die();
  * about what can be used within it.
  *
  * For more information, take a look to the documentation available:
- *     - Data definition API: {@link http://docs.moodle.org/dev/Data_definition_API}
- *     - Upgrade API: {@link http://docs.moodle.org/dev/Upgrade_API}
+ *     - Data definition API: {@link http://docs.lion.org/dev/Data_definition_API}
+ *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
  * @param int $oldversion
  * @return bool always true
@@ -99,7 +86,7 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2011120500);
     }
 
-    // Moodle v2.2.0 release upgrade line
+    // Lion v2.2.0 release upgrade line
     // Put any upgrade step following this
 
     if ($oldversion < 2011120500.02) {
@@ -277,8 +264,8 @@ function xmldb_main_upgrade($oldversion) {
 
             $context = context_course::instance($courseid);
 
-            list($roleids) = get_roles_with_cap_in_context($context, 'moodle/course:manageactivities');
-            list($managerroleids) = get_roles_with_cap_in_context($context, 'moodle/site:config');
+            list($roleids) = get_roles_with_cap_in_context($context, 'lion/course:manageactivities');
+            list($managerroleids) = get_roles_with_cap_in_context($context, 'lion/site:config');
             foreach ($managerroleids as $roleid) {
                 unset($roleids[$roleid]);
             }
@@ -879,7 +866,7 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2012062000.01);
     }
 
-    // Moodle v2.3.0 release upgrade line
+    // Lion v2.3.0 release upgrade line
     // Put any upgrade step following this
 
     if ($oldversion < 2012062500.02) {
@@ -1515,7 +1502,7 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2012112100.00);
     }
 
-    // Moodle v2.4.0 release upgrade line
+    // Lion v2.4.0 release upgrade line
     // Put any upgrade step following this
 
     if ($oldversion < 2012120300.01) {
@@ -2172,7 +2159,7 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2013042300.00);
     }
 
-    // Moodle v2.5.0 release upgrade line.
+    // Lion v2.5.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2013051400.01) {
@@ -2865,7 +2852,7 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2013110600.02);
     }
 
-    // Moodle v2.6.0 release upgrade line.
+    // Lion v2.6.0 release upgrade line.
     // Put any upgrade step following this.
     if ($oldversion < 2013111800.01) {
 
@@ -3041,7 +3028,7 @@ function xmldb_main_upgrade($oldversion) {
 
         // Normally, in this sort of situation, we would do a file_exists check,
         // in case the plugin had been added back as an add-on. However, this
-        // plugin is completely useless after Moodle 2.6, so we check that the
+        // plugin is completely useless after Lion 2.6, so we check that the
         // files have been removed in upgrade_stale_php_files_present, and we
         // uninstall it unconditionally here.
 
@@ -3633,7 +3620,7 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2014050100.00);
     }
 
-    // Moodle v2.7.0 release upgrade line.
+    // Lion v2.7.0 release upgrade line.
     // Put any upgrade step following this.
 
     // MDL-32543 Make sure that the log table has correct length for action and url fields.
@@ -4055,7 +4042,7 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2014110300.00);
     }
 
-    // Moodle v2.8.0 release upgrade line.
+    // Lion v2.8.0 release upgrade line.
     // Put any upgrade step following this.
 
 

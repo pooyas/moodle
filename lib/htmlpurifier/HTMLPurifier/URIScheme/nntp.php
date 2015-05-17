@@ -2,6 +2,9 @@
 
 /**
  * Validates nntp (Network News Transfer Protocol) as defined by generic RFC 1738
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIScheme_nntp extends HTMLPurifier_URIScheme
 {

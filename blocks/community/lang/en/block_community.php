@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'block_community', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'block_community', language 'en', branch 'LION_20_STABLE'
  *
- * @package   block_community
- * @author    Jerome Mouneyrac <jerome@mouneyrac.com>
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage community
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['activities'] = 'Activities';
@@ -32,7 +18,7 @@ $string['additionalcoursedesc'] = '{$a->lang} Creator: {$a->creatorname} - Publi
     - Audience: {$a->audience} - Educational level: {$a->educationallevel} - License: {$a->license}';
 $string['addcourse'] = 'Search';
 $string['audience'] = 'Designed for';
-$string['audience_help'] = 'What kind of course are you looking for?  As well as traditional courses intended for students, you might search for communities of Educators or Moodle Administrators';
+$string['audience_help'] = 'What kind of course are you looking for?  As well as traditional courses intended for students, you might search for communities of Educators or Lion Administrators';
 $string['blocks'] = 'Blocks';
 $string['cannotselecttopsubject'] = 'Cannot select a top subject level';
 $string['comments'] = 'Comments ({$a})';
@@ -61,16 +47,16 @@ $string['educationallevel_help'] = 'What educational level are you searching for
 $string['enroldownload'] = 'Find';
 $string['enroldownload_help'] = 'Some courses listed in the selected hub are being advertised so that people can come and participate in them on the original site.
 
-Others are course templates provided for you to download and use on your own Moodle site.';
+Others are course templates provided for you to download and use on your own Lion site.';
 $string['enrollable'] = 'courses I can enrol in';
 $string['enrollablecourses'] = 'Enrollable courses';
 $string['errorcourselisting'] = 'An error occurred when retrieving the course listing from the selected hub, please try again later. ({$a})';
-$string['errorhublisting'] = 'An error occurred when retrieving the hub listing from Moodle.org, please try again later. ({$a})';
+$string['errorhublisting'] = 'An error occurred when retrieving the hub listing from Lion.org, please try again later. ({$a})';
 $string['fileinfo'] = 'Language: {$a->lang} - License: {$a->license} -  Time updated: {$a->timeupdated}';
 $string['hideall'] = 'Hide hubs';
 $string['hub'] = 'hub';
 $string['hubnottrusted'] = 'Not trusted';
-$string['hubtrusted'] = 'This hub is trusted by Moodle.org';
+$string['hubtrusted'] = 'This hub is trusted by Lion.org';
 $string['install'] = 'Install';
 $string['keywords'] = 'Keywords';
 $string['keywords_help'] = 'You can search for courses containing specific text in the name, description and other fields of the database.';

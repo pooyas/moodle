@@ -1,19 +1,19 @@
 /**
  * A collection of utility classes for use with course modules.
  *
- * @module moodle-course-util
- * @submodule moodle-course-util-cm
+ * @module lion-course-util
+ * @submodule lion-course-util-cm
  */
 
-Y.namespace('Moodle.core_course.util.cm');
+Y.namespace('Lion.core_course.util.cm');
 
 /**
  * A collection of utility classes for use with course modules.
  *
- * @class Moodle.core_course.util.cm
+ * @class Lion.core_course.util.cm
  * @static
  */
-Y.Moodle.core_course.util.cm = {
+Y.Lion.core_course.util.cm = {
     CONSTANTS: {
         MODULEIDPREFIX : 'module-'
     },

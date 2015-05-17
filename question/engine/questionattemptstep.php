@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file defines the question attempt step class, and a few related classes.
  *
- * @package    moodlecore
- * @subpackage questionengine
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question
+ * @subpackage engine
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -60,8 +46,6 @@ defined('MOODLE_INTERNAL') || die();
  * to check wether a varaible with a particular name is set, and {@link get_behaviour_data()}
  * to get all the behaviour data as an associative array.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_step {
     /**
@@ -439,8 +423,6 @@ class question_attempt_step {
  * instance of this class. which is then passed to the question behaviour and question
  * type for processing. At the end of processing we then may, or may not, keep it.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_pending_step extends question_attempt_step {
     /** @var string the new response summary, if there is one. */
@@ -507,8 +489,6 @@ class question_attempt_pending_step extends question_attempt_step {
 /**
  * A subclass of {@link question_attempt_step} that cannot be modified.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_step_read_only extends question_attempt_step {
     public function set_state($state) {
@@ -531,8 +511,6 @@ class question_attempt_step_read_only extends question_attempt_step {
  * {@link question_attempt::get_last_step()} etc. when a an attempt has just been
  * created and there is no acutal step.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_null_step {
     public function get_state() {
@@ -554,8 +532,6 @@ class question_null_step {
  * modifies the get/set_*_data methods so that they operate only on the parts
  * that belong to a particular subquestion, as indicated by an extra prefix.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_step_subquestion_adapter extends question_attempt_step {
     /** @var question_attempt_step the step we are wrapping. */

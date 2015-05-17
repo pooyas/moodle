@@ -1,27 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Renderer for use with the badges output
  *
  * @package    core
  * @subpackage badges
- * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->libdir . '/badgeslib.php');
@@ -39,7 +24,7 @@ class core_badges_renderer extends plugin_renderer_base {
             if (!$external) {
                 $context = ($badge->type == BADGE_TYPE_SITE) ? context_system::instance() : context_course::instance($badge->courseid);
                 $bname = $badge->name;
-                $imageurl = moodle_url::make_pluginfile_url($context->id, 'badges', 'badgeimage', $badge->id, '/', 'f1', false);
+                $imageurl = lion_url::make_pluginfile_url($context->id, 'badges', 'badgeimage', $badge->id, '/', 'f1', false);
             } else {
                 $bname = s($badge->assertion->badge->name);
                 $imageurl = $badge->imageUrl;
@@ -51,40 +36,40 @@ class core_badges_renderer extends plugin_renderer_base {
             if (!empty($badge->dateexpire) && $badge->dateexpire < time()) {
                 $image .= $this->output->pix_icon('i/expired',
                         get_string('expireddate', 'badges', userdate($badge->dateexpire)),
-                        'moodle',
+                        'lion',
                         array('class' => 'expireimage'));
                 $name .= '(' . get_string('expired', 'badges') . ')';
             }
 
             $download = $status = $push = '';
             if (($userid == $USER->id) && !$profile) {
-                $url = new moodle_url('mybadges.php', array('download' => $badge->id, 'hash' => $badge->uniquehash, 'sesskey' => sesskey()));
+                $url = new lion_url('mybadges.php', array('download' => $badge->id, 'hash' => $badge->uniquehash, 'sesskey' => sesskey()));
                 $notexpiredbadge = (empty($badge->dateexpire) || $badge->dateexpire > time());
                 $backpackexists = badges_user_has_backpack($USER->id);
                 if (!empty($CFG->badges_allowexternalbackpack) && $notexpiredbadge && $backpackexists) {
-                    $assertion = new moodle_url('/badges/assertion.php', array('b' => $badge->uniquehash));
+                    $assertion = new lion_url('/badges/assertion.php', array('b' => $badge->uniquehash));
                     $action = new component_action('click', 'addtobackpack', array('assertion' => $assertion->out(false)));
-                    $push = $this->output->action_icon(new moodle_url('#'), new pix_icon('t/backpack', get_string('addtobackpack', 'badges')), $action);
+                    $push = $this->output->action_icon(new lion_url('#'), new pix_icon('t/backpack', get_string('addtobackpack', 'badges')), $action);
                 }
 
                 $download = $this->output->action_icon($url, new pix_icon('t/download', get_string('download')));
                 if ($badge->visible) {
-                    $url = new moodle_url('mybadges.php', array('hide' => $badge->issuedid, 'sesskey' => sesskey()));
+                    $url = new lion_url('mybadges.php', array('hide' => $badge->issuedid, 'sesskey' => sesskey()));
                     $status = $this->output->action_icon($url, new pix_icon('t/hide', get_string('makeprivate', 'badges')));
                 } else {
-                    $url = new moodle_url('mybadges.php', array('show' => $badge->issuedid, 'sesskey' => sesskey()));
+                    $url = new lion_url('mybadges.php', array('show' => $badge->issuedid, 'sesskey' => sesskey()));
                     $status = $this->output->action_icon($url, new pix_icon('t/show', get_string('makepublic', 'badges')));
                 }
             }
 
             if (!$profile) {
-                $url = new moodle_url('badge.php', array('hash' => $badge->uniquehash));
+                $url = new lion_url('badge.php', array('hash' => $badge->uniquehash));
             } else {
                 if (!$external) {
-                    $url = new moodle_url('/badges/badge.php', array('hash' => $badge->uniquehash));
+                    $url = new lion_url('/badges/badge.php', array('hash' => $badge->uniquehash));
                 } else {
                     $hash = hash('md5', $badge->hostedUrl);
-                    $url = new moodle_url('/badges/external.php', array('hash' => $hash, 'user' => $userid));
+                    $url = new lion_url('/badges/external.php', array('hash' => $hash, 'user' => $userid));
                 }
             }
             $actions = html_writer::tag('div', $push . $download . $status, array('class' => 'badge-actions'));
@@ -177,18 +162,18 @@ class core_badges_renderer extends plugin_renderer_base {
             $display .= self::print_badge_criteria($badge);
         } else {
             $display .= get_string('nocriteria', 'badges');
-            if (has_capability('moodle/badges:configurecriteria', $context)) {
+            if (has_capability('lion/badges:configurecriteria', $context)) {
                 $display .= $this->output->single_button(
-                    new moodle_url('/badges/criteria.php', array('id' => $badge->id)),
+                    new lion_url('/badges/criteria.php', array('id' => $badge->id)),
                     get_string('addcriteria', 'badges'), 'POST', array('class' => 'activatebadge'));
             }
         }
 
         // Awards details if any.
-        if (has_capability('moodle/badges:viewawarded', $context)) {
+        if (has_capability('lion/badges:viewawarded', $context)) {
             $display .= $this->heading(get_string('awards', 'badges'), 3);
             if ($badge->has_awards()) {
-                $url = new moodle_url('/badges/recipients.php', array('id' => $badge->id));
+                $url = new lion_url('/badges/recipients.php', array('id' => $badge->id));
                 $a = new stdClass();
                 $a->link = $url->out();
                 $a->count = count($badge->get_awards());
@@ -197,11 +182,11 @@ class core_badges_renderer extends plugin_renderer_base {
                 $display .= get_string('noawards', 'badges');
             }
 
-            if (has_capability('moodle/badges:awardbadge', $context) &&
+            if (has_capability('lion/badges:awardbadge', $context) &&
                 $badge->has_manual_award_criteria() &&
                 $badge->is_active()) {
                 $display .= $this->output->single_button(
-                        new moodle_url('/badges/award.php', array('id' => $badge->id)),
+                        new lion_url('/badges/award.php', array('id' => $badge->id)),
                         get_string('award', 'badges'), 'POST', array('class' => 'activatebadge'));
             }
         }
@@ -213,19 +198,19 @@ class core_badges_renderer extends plugin_renderer_base {
     public function print_badge_table_actions($badge, $context) {
         $actions = "";
 
-        if (has_capability('moodle/badges:configuredetails', $context) && $badge->has_criteria()) {
+        if (has_capability('lion/badges:configuredetails', $context) && $badge->has_criteria()) {
             // Activate/deactivate badge.
             if ($badge->status == BADGE_STATUS_INACTIVE || $badge->status == BADGE_STATUS_INACTIVE_LOCKED) {
                 // "Activate" will go to another page and ask for confirmation.
-                $url = new moodle_url('/badges/action.php');
+                $url = new lion_url('/badges/action.php');
                 $url->param('id', $badge->id);
                 $url->param('activate', true);
                 $url->param('sesskey', sesskey());
-                $return = new moodle_url(qualified_me());
+                $return = new lion_url(qualified_me());
                 $url->param('return', $return->out_as_local_url(false));
                 $actions .= $this->output->action_icon($url, new pix_icon('t/show', get_string('activate', 'badges'))) . " ";
             } else {
-                $url = new moodle_url(qualified_me());
+                $url = new lion_url(qualified_me());
                 $url->param('lock', $badge->id);
                 $url->param('sesskey', sesskey());
                 $actions .= $this->output->action_icon($url, new pix_icon('t/hide', get_string('deactivate', 'badges'))) . " ";
@@ -234,27 +219,27 @@ class core_badges_renderer extends plugin_renderer_base {
 
         // Award badge manually.
         if ($badge->has_manual_award_criteria() &&
-                has_capability('moodle/badges:awardbadge', $context) &&
+                has_capability('lion/badges:awardbadge', $context) &&
                 $badge->is_active()) {
-            $url = new moodle_url('/badges/award.php', array('id' => $badge->id));
+            $url = new lion_url('/badges/award.php', array('id' => $badge->id));
             $actions .= $this->output->action_icon($url, new pix_icon('t/award', get_string('award', 'badges'))) . " ";
         }
 
         // Edit badge.
-        if (has_capability('moodle/badges:configuredetails', $context)) {
-            $url = new moodle_url('/badges/edit.php', array('id' => $badge->id, 'action' => 'details'));
+        if (has_capability('lion/badges:configuredetails', $context)) {
+            $url = new lion_url('/badges/edit.php', array('id' => $badge->id, 'action' => 'details'));
             $actions .= $this->output->action_icon($url, new pix_icon('t/edit', get_string('edit'))) . " ";
         }
 
         // Duplicate badge.
-        if (has_capability('moodle/badges:createbadge', $context)) {
-            $url = new moodle_url('/badges/action.php', array('copy' => '1', 'id' => $badge->id, 'sesskey' => sesskey()));
+        if (has_capability('lion/badges:createbadge', $context)) {
+            $url = new lion_url('/badges/action.php', array('copy' => '1', 'id' => $badge->id, 'sesskey' => sesskey()));
             $actions .= $this->output->action_icon($url, new pix_icon('t/copy', get_string('copy'))) . " ";
         }
 
         // Delete badge.
-        if (has_capability('moodle/badges:deletebadge', $context)) {
-            $url = new moodle_url(qualified_me());
+        if (has_capability('lion/badges:deletebadge', $context)) {
+            $url = new lion_url(qualified_me());
             $url->param('delete', $badge->id);
             $actions .= $this->output->action_icon($url, new pix_icon('t/delete', get_string('delete'))) . " ";
         }
@@ -279,17 +264,17 @@ class core_badges_renderer extends plugin_renderer_base {
         if ($expiration < $now) {
             $output .= $this->output->pix_icon('i/expired',
             get_string('expireddate', 'badges', userdate($issued['expires'])),
-                'moodle',
+                'lion',
                 array('class' => 'expireimage'));
         }
 
         if ($USER->id == $userinfo->id && !empty($CFG->enablebadges)) {
             $output .= $this->output->single_button(
-                        new moodle_url('/badges/badge.php', array('hash' => $issued['uid'], 'bake' => true)),
+                        new lion_url('/badges/badge.php', array('hash' => $issued['uid'], 'bake' => true)),
                         get_string('download'),
                         'POST');
             if (!empty($CFG->badges_allowexternalbackpack) && ($expiration > $now) && badges_user_has_backpack($USER->id)) {
-                $assertion = new moodle_url('/badges/assertion.php', array('b' => $issued['uid']));
+                $assertion = new lion_url('/badges/assertion.php', array('b' => $issued['uid']));
                 $action = new component_action('click', 'addtobackpack', array('assertion' => $assertion->out(false)));
                 $attributes = array(
                         'type'  => 'button',
@@ -392,7 +377,7 @@ class core_badges_renderer extends plugin_renderer_base {
             if ($expiration < $today) {
                 $output .= $this->output->pix_icon('i/expired',
                         get_string('expireddate', 'badges', userdate($expiration)),
-                        'moodle',
+                        'lion',
                         array('class' => 'expireimage'));
             }
         }
@@ -460,7 +445,7 @@ class core_badges_renderer extends plugin_renderer_base {
     protected function render_badge_user_collection(badge_user_collection $badges) {
         global $CFG, $USER, $SITE;
         $backpack = $badges->backpack;
-        $mybackpack = new moodle_url('/badges/mybackpack.php');
+        $mybackpack = new lion_url('/badges/mybackpack.php');
 
         $paging = new paging_bar($badges->totalcount, $badges->page, $badges->perpage, $this->page->url, 'page');
         $htmlpagingbar = $this->render($paging);
@@ -475,7 +460,7 @@ class core_badges_renderer extends plugin_renderer_base {
 
         // Download all button.
         $downloadall = $this->output->single_button(
-                    new moodle_url('/badges/mybadges.php', array('downloadall' => true, 'sesskey' => sesskey())),
+                    new lion_url('/badges/mybadges.php', array('downloadall' => true, 'sesskey' => sesskey())),
                     get_string('downloadall'), 'POST', array('class' => 'activatebadge'));
 
         // Local badges.
@@ -548,7 +533,7 @@ class core_badges_renderer extends plugin_renderer_base {
                 $icon = new pix_icon('i/valid',
                             get_string('dateearned', 'badges',
                                 userdate($badge->dateissued, get_string('strftimedatefullshort', 'core_langconfig'))));
-                $badgeurl = new moodle_url('/badges/badge.php', array('hash' => $badge->uniquehash));
+                $badgeurl = new lion_url('/badges/badge.php', array('hash' => $badge->uniquehash));
                 $awarded = $this->output->action_icon($badgeurl, $icon, null, null, true);
             } else {
                 $awarded = "";
@@ -568,10 +553,10 @@ class core_badges_renderer extends plugin_renderer_base {
 
         // New badge button.
         $htmlnew = '';
-        if (has_capability('moodle/badges:createbadge', $this->page->context)) {
+        if (has_capability('lion/badges:createbadge', $this->page->context)) {
             $n['type'] = $this->page->url->get_param('type');
             $n['id'] = $this->page->url->get_param('id');
-            $htmlnew = $this->output->single_button(new moodle_url('newbadge.php', $n), get_string('newbadge', 'badges'));
+            $htmlnew = $this->output->single_button(new lion_url('newbadge.php', $n), get_string('newbadge', 'badges'));
         }
 
         $htmlpagingbar = $this->render($paging);
@@ -595,12 +580,12 @@ class core_badges_renderer extends plugin_renderer_base {
             $style = !$b->is_active() ? array('class' => 'dimmed') : array();
             $forlink =  print_badge_image($b, $this->page->context) . ' ' .
                         html_writer::start_tag('span') . $b->name . html_writer::end_tag('span');
-            $name = html_writer::link(new moodle_url('/badges/overview.php', array('id' => $b->id)), $forlink, $style);
+            $name = html_writer::link(new lion_url('/badges/overview.php', array('id' => $b->id)), $forlink, $style);
             $status = $b->statstring;
             $criteria = self::print_badge_criteria($b, 'short');
 
-            if (has_capability('moodle/badges:viewawarded', $this->page->context)) {
-                $awards = html_writer::link(new moodle_url('/badges/recipients.php', array('id' => $b->id)), $b->awards);
+            if (has_capability('lion/badges:viewawarded', $this->page->context)) {
+                $awards = html_writer::link(new lion_url('/badges/recipients.php', array('id' => $b->id)), $b->awards);
             } else {
                 $awards = $b->awards;
             }
@@ -622,37 +607,37 @@ class core_badges_renderer extends plugin_renderer_base {
         $row = array();
 
         $row[] = new tabobject('overview',
-                    new moodle_url('/badges/overview.php', array('id' => $badgeid)),
+                    new lion_url('/badges/overview.php', array('id' => $badgeid)),
                     get_string('boverview', 'badges')
                 );
 
-        if (has_capability('moodle/badges:configuredetails', $context)) {
+        if (has_capability('lion/badges:configuredetails', $context)) {
             $row[] = new tabobject('details',
-                        new moodle_url('/badges/edit.php', array('id' => $badgeid, 'action' => 'details')),
+                        new lion_url('/badges/edit.php', array('id' => $badgeid, 'action' => 'details')),
                         get_string('bdetails', 'badges')
                     );
         }
 
-        if (has_capability('moodle/badges:configurecriteria', $context)) {
+        if (has_capability('lion/badges:configurecriteria', $context)) {
             $row[] = new tabobject('criteria',
-                        new moodle_url('/badges/criteria.php', array('id' => $badgeid)),
+                        new lion_url('/badges/criteria.php', array('id' => $badgeid)),
                         get_string('bcriteria', 'badges')
                     );
         }
 
-        if (has_capability('moodle/badges:configuremessages', $context)) {
+        if (has_capability('lion/badges:configuremessages', $context)) {
             $row[] = new tabobject('message',
-                        new moodle_url('/badges/edit.php', array('id' => $badgeid, 'action' => 'message')),
+                        new lion_url('/badges/edit.php', array('id' => $badgeid, 'action' => 'message')),
                         get_string('bmessage', 'badges')
                     );
         }
 
-        if (has_capability('moodle/badges:viewawarded', $context)) {
+        if (has_capability('lion/badges:viewawarded', $context)) {
             $awarded = $DB->count_records_sql('SELECT COUNT(b.userid)
                                                FROM {badge_issued} b INNER JOIN {user} u ON b.userid = u.id
                                                WHERE b.badgeid = :badgeid AND u.deleted = 0', array('badgeid' => $badgeid));
             $row[] = new tabobject('awards',
-                        new moodle_url('/badges/recipients.php', array('id' => $badgeid)),
+                        new lion_url('/badges/recipients.php', array('id' => $badgeid)),
                         get_string('bawards', 'badges', $awarded)
                     );
         }
@@ -665,10 +650,10 @@ class core_badges_renderer extends plugin_renderer_base {
      * @return Either the status box html as a string or null
      */
     public function print_badge_status_box(badge $badge) {
-        if (has_capability('moodle/badges:configurecriteria', $badge->get_context())) {
+        if (has_capability('lion/badges:configurecriteria', $badge->get_context())) {
 
             if (!$badge->has_criteria()) {
-                $criteriaurl = new moodle_url('/badges/criteria.php', array('id' => $badge->id));
+                $criteriaurl = new lion_url('/badges/criteria.php', array('id' => $badge->id));
                 $status = get_string('nocriteria', 'badges');
                 if ($this->page->url != $criteriaurl) {
                     $action = $this->output->single_button(
@@ -682,12 +667,12 @@ class core_badges_renderer extends plugin_renderer_base {
             } else {
                 $status = get_string('statusmessage_' . $badge->status, 'badges');
                 if ($badge->is_active()) {
-                    $action = $this->output->single_button(new moodle_url('/badges/action.php',
+                    $action = $this->output->single_button(new lion_url('/badges/action.php',
                                 array('id' => $badge->id, 'lock' => 1, 'sesskey' => sesskey(),
                                       'return' => $this->page->url->out_as_local_url(false))),
                             get_string('deactivate', 'badges'), 'POST', array('class' => 'activatebadge'));
                 } else {
-                    $action = $this->output->single_button(new moodle_url('/badges/action.php',
+                    $action = $this->output->single_button(new lion_url('/badges/action.php',
                                 array('id' => $badge->id, 'activate' => 1, 'sesskey' => sesskey(),
                                       'return' => $this->page->url->out_as_local_url(false))),
                             get_string('activate', 'badges'), 'POST', array('class' => 'activatebadge'));
@@ -750,7 +735,7 @@ class core_badges_renderer extends plugin_renderer_base {
                     }
                 }
                 $actions[] = get_string('addbadgecriteria', 'badges');
-                $actions[] = $this->output->single_select(new moodle_url('/badges/criteria_settings.php',
+                $actions[] = $this->output->single_select(new lion_url('/badges/criteria_settings.php',
                         array('badgeid' => $badge->id, 'add' => true)), 'type', $select);
             } else {
                 $actions[] = $this->output->box(get_string('nothingtoadd', 'badges'), 'clearfix');
@@ -787,12 +772,12 @@ class core_badges_renderer extends plugin_renderer_base {
         foreach ($recipients->userids as $holder) {
             $fullname = fullname($holder);
             $fullname = html_writer::link(
-                            new moodle_url('/user/profile.php', array('id' => $holder->userid)),
+                            new lion_url('/user/profile.php', array('id' => $holder->userid)),
                             $fullname
                         );
             $awarded  = userdate($holder->dateissued);
             $badgeurl = html_writer::link(
-                            new moodle_url('/badges/badge.php', array('hash' => $holder->uniquehash)),
+                            new lion_url('/badges/badge.php', array('hash' => $holder->uniquehash)),
                             get_string('viewbadge', 'badges')
                         );
 
@@ -827,13 +812,13 @@ class core_badges_renderer extends plugin_renderer_base {
 
         if (!is_null($sortid)) {
             if ($sortby !== $sortid || $sorthow !== 'ASC') {
-                $url = new moodle_url($this->page->url);
+                $url = new lion_url($this->page->url);
                 $url->params(array('sort' => $sortid, 'dir' => 'ASC'));
                 $out .= $this->output->action_icon($url,
                         new pix_icon('t/sort_asc', get_string('sortbyx', 'core', s($text)), null, array('class' => 'iconsort')));
             }
             if ($sortby !== $sortid || $sorthow !== 'DESC') {
-                $url = new moodle_url($this->page->url);
+                $url = new lion_url($this->page->url);
                 $url->params(array('sort' => $sortid, 'dir' => 'DESC'));
                 $out .= $this->output->action_icon($url,
                         new pix_icon('t/sort_desc', get_string('sortbyxreverse', 'core', s($text)), null, array('class' => 'iconsort')));
@@ -867,7 +852,7 @@ class core_badges_renderer extends plugin_renderer_base {
         global $CFG;
         require_once($CFG->libdir . '/formslib.php');
 
-        $mform = new MoodleQuickForm('searchform', 'POST', $this->page->url);
+        $mform = new LionQuickForm('searchform', 'POST', $this->page->url);
 
         $mform->addElement('hidden', 'sesskey', sesskey());
 

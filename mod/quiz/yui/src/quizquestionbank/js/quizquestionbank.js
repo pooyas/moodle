@@ -1,25 +1,9 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * Add questions from question bank functionality for a popup in quiz editing page.
  *
- * @package   mod_quiz
- * @copyright 2014 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 var CSS = {
@@ -95,7 +79,7 @@ Y.extend(POPUP, Y.Base, {
     },
 
     load_content : function(queryString) {
-        Y.log('Starting load.', 'debug', 'moodle-mod_quiz-quizquestionbank');
+        Y.log('Starting load.', 'debug', 'lion-mod_quiz-quizquestionbank');
         this.dialogue.bodyNode.append(this.loadingDiv);
 
         // If to support old IE.
@@ -112,22 +96,22 @@ Y.extend(POPUP, Y.Base, {
             context: this
         });
 
-        Y.log('Load request sent.', 'debug', 'moodle-mod_quiz-quizquestionbank');
+        Y.log('Load request sent.', 'debug', 'lion-mod_quiz-quizquestionbank');
     },
 
     load_done: function(transactionid, response) {
         var result = JSON.parse(response.responseText);
         if (!result.status || result.status !== 'OK') {
-            // Because IIS is useless, Moodle can't send proper HTTP response
+            // Because IIS is useless, Lion can't send proper HTTP response
             // codes, so we have to detect failures manually.
             this.load_failed(transactionid, response);
             return;
         }
 
-        Y.log('Load completed.', 'debug', 'moodle-mod_quiz-quizquestionbank');
+        Y.log('Load completed.', 'debug', 'lion-mod_quiz-quizquestionbank');
 
         this.dialogue.bodyNode.setHTML(result.contents);
-        Y.use('moodle-question-chooser', function() {M.question.init_chooser({});});
+        Y.use('lion-question-chooser', function() {M.question.init_chooser({});});
         this.dialogue.bodyNode.one('form').delegate('change', this.options_changed, '.searchoptions', this);
 
         if (this.dialogue.visible) {
@@ -153,7 +137,7 @@ Y.extend(POPUP, Y.Base, {
     },
 
     load_failed: function() {
-        Y.log('Load failed.', 'debug', 'moodle-mod_quiz-quizquestionbank');
+        Y.log('Load failed.', 'debug', 'lion-mod_quiz-quizquestionbank');
     },
 
     link_clicked: function(e) {
@@ -199,7 +183,7 @@ Y.extend(POPUP, Y.Base, {
         }
 
         M.util.init_collapsible_region(Y, "advancedsearch", "question_bank_advanced_search",
-                M.util.get_string('clicktohideshow', 'moodle'));
+                M.util.get_string('clicktohideshow', 'lion'));
         this.searchRegionInitialised = true;
     }
 });

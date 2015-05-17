@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Strings for custom file types.
  *
- * @package tool_filetypes
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage filetypes
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['addfiletypes'] = 'Add a new file type';
@@ -55,12 +42,12 @@ $string['groups_help'] = 'Optional list of file type groups that this type belon
 $string['icon'] = 'File icon';
 $string['icon_help'] = 'Icon filename.
 
-The list of icons is taken from the /pix/f directory inside your Moodle installation. You can add custom icons to this folder if required.';
+The list of icons is taken from the /pix/f directory inside your Lion installation. You can add custom icons to this folder if required.';
 $string['mimetype'] = 'MIME type';
 $string['mimetype_help'] = 'MIME type associated with this file type, e.g. &lsquo;application/x-mobipocket-ebook&rsquo;';
 $string['pluginname'] = 'File types';
-$string['revert'] = 'Restore {$a} to Moodle defaults';
-$string['revert_confirmation'] = 'Are you sure you want to restore <strong>.{$a}</strong> to Moodle defaults, discarding your changes?';
+$string['revert'] = 'Restore {$a} to Lion defaults';
+$string['revert_confirmation'] = 'Are you sure you want to restore <strong>.{$a}</strong> to Lion defaults, discarding your changes?';
 $string['revertfiletype'] = 'Restore a file type';
 $string['source'] = 'Type';
 $string['source_custom'] = 'Custom';

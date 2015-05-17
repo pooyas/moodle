@@ -168,7 +168,7 @@ div.editor_atto_content:hover .atto_control {
 }
 
 /* Atto menu styling */
-.moodle-dialogue-base .editor_atto_menu .moodle-dialogue-content .moodle-dialogue-bd {
+.lion-dialogue-base .editor_atto_menu .lion-dialogue-content .lion-dialogue-bd {
     padding: 0;
     z-index: 1000;
 }

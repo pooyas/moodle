@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This plugin is used to access files on server file system
  *
- * @since Moodle 2.0
- * @package    repository_filesystem
- * @copyright  2010 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    repository
+ * @subpackage filesystem
+ * @copyright  2015 Pooya Saeedi
  */
 require_once($CFG->dirroot . '/repository/lib.php');
 require_once($CFG->libdir . '/filelib.php');
@@ -30,11 +16,8 @@ require_once($CFG->libdir . '/filelib.php');
  *
  * Create a repository from your local filesystem
  * *NOTE* for security issue, we use a fixed repository path
- * which is %moodledata%/repository
+ * which is %liondata%/repository
  *
- * @package    repository
- * @copyright  2009 Dongsheng Cai {@link http://dongsheng.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class repository_filesystem extends repository {
 
@@ -239,13 +222,13 @@ class repository_filesystem extends repository {
     }
 
     /**
-     * Edit/Create Instance Settings Moodle form
+     * Edit/Create Instance Settings Lion form
      *
-     * @param moodleform $mform Moodle form (passed by reference)
+     * @param lionform $mform Lion form (passed by reference)
      */
     public static function instance_config_form($mform) {
         global $CFG;
-        if (has_capability('moodle/site:config', context_system::instance())) {
+        if (has_capability('lion/site:config', context_system::instance())) {
             $path = $CFG->dataroot . '/repository/';
             if (!is_dir($path)) {
                 mkdir($path, $CFG->directorypermissions, true);
@@ -292,10 +275,10 @@ class repository_filesystem extends repository {
      * @return mixed
      */
     public static function create($type, $userid, $context, $params, $readonly=0) {
-        if (has_capability('moodle/site:config', context_system::instance())) {
+        if (has_capability('lion/site:config', context_system::instance())) {
             return parent::create($type, $userid, $context, $params, $readonly);
         } else {
-            require_capability('moodle/site:config', context_system::instance());
+            require_capability('lion/site:config', context_system::instance());
             return false;
         }
     }
@@ -303,7 +286,7 @@ class repository_filesystem extends repository {
     /**
      * Validate repository plugin instance form
      *
-     * @param moodleform $mform moodle form
+     * @param lionform $mform lion form
      * @param array $data form data
      * @param array $errors errors
      * @return array errors
@@ -361,11 +344,11 @@ class repository_filesystem extends repository {
                     // File did not change since the last synchronisation.
                     $filesize = filesize($filepath);
                 } else {
-                    // Copy file into moodle filepool (used to generate an image thumbnail).
+                    // Copy file into lion filepool (used to generate an image thumbnail).
                     list($contenthash, $filesize, $newfile) = $fs->add_file_to_pool($filepath);
                 }
             } else {
-                // Update only file size so file will NOT be copied into moodle filepool.
+                // Update only file size so file will NOT be copied into lion filepool.
                 $emptyfile = $contenthash = sha1('');
                 $currentcontenthash = $file->get_contenthash();
                 if ($currentcontenthash !== $emptyfile && $currentcontenthash === sha1_file($filepath)) {
@@ -461,10 +444,10 @@ class repository_filesystem extends repository {
      * @param string $filepath current path in repository (dir and filename)
      * @param string $thumbsize 'thumb' or 'icon'
      * @param string $token identifier of the file contents - to prevent browser from caching changed file
-     * @return moodle_url
+     * @return lion_url
      */
     protected function get_thumbnail_url($filepath, $thumbsize, $token) {
-        return moodle_url::make_pluginfile_url($this->context->id, 'repository_filesystem', $thumbsize, $this->id,
+        return lion_url::make_pluginfile_url($this->context->id, 'repository_filesystem', $thumbsize, $this->id,
                 '/' . trim($filepath, '/') . '/', $token);
     }
 
@@ -522,7 +505,7 @@ class repository_filesystem extends repository {
      * @param stored_file[] $storedfiles
      */
     public function remove_obsolete_thumbnails($storedfiles) {
-        // Group found files by filepath ('filepath' in Moodle file storage is dir+name in filesystem repository).
+        // Group found files by filepath ('filepath' in Lion file storage is dir+name in filesystem repository).
         $files = array();
         foreach ($storedfiles as $file) {
             if (!isset($files[$file->get_filepath()])) {
@@ -535,7 +518,7 @@ class repository_filesystem extends repository {
         $deletedcount = 0;
         foreach ($files as $filepath => $filesinpath) {
             if ($filecontents = @file_get_contents($this->get_rootpath() . trim($filepath, '/'))) {
-                // The 'filename' in Moodle file storage is contenthash of the file in filesystem repository.
+                // The 'filename' in Lion file storage is contenthash of the file in filesystem repository.
                 $filename = sha1($filecontents);
                 foreach ($filesinpath as $file) {
                     if ($file->get_filename() !== $filename && $file->get_filename() !== '.') {

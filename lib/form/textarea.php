@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -20,9 +7,9 @@
  *
  * Contains HTML class for a textarea type element
  *
- * @package   core_form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('HTML/QuickForm/textarea.php');
@@ -32,12 +19,9 @@ require_once('HTML/QuickForm/textarea.php');
  *
  * HTML class for a textarea type element
  *
- * @package   core_form
  * @category  form
- * @copyright 2006 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_textarea extends HTML_QuickForm_textarea{
+class LionQuickForm_textarea extends HTML_QuickForm_textarea{
     /** @var string Need to store id of form as we may need it for helpbutton */
     var $_formid = '';
 
@@ -54,7 +38,7 @@ class MoodleQuickForm_textarea extends HTML_QuickForm_textarea{
      * @param string $elementLabel (optional) text field label
      * @param string $attributes (optional) Either a typical HTML attribute string or an associative array
      */
-    function MoodleQuickForm_textarea($elementName=null, $elementLabel=null, $attributes=null) {
+    function LionQuickForm_textarea($elementName=null, $elementLabel=null, $attributes=null) {
         parent::HTML_QuickForm_textarea($elementName, $elementLabel, $attributes);
     }
 

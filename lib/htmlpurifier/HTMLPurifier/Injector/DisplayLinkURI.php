@@ -2,6 +2,9 @@
 
 /**
  * Injector that displays the URL of an anchor instead of linking to it, in addition to showing the text of the link.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Injector_DisplayLinkURI extends HTMLPurifier_Injector
 {

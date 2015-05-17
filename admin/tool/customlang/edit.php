@@ -1,24 +1,10 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package    tool
+ * @package    admin_tool
  * @subpackage customlang
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 require(dirname(dirname(dirname(dirname(__FILE__)))) . '/config.php');
@@ -34,7 +20,7 @@ $currentpage            = optional_param('p', 0, PARAM_INT);
 $translatorsubmitted    = optional_param('translatorsubmitted', 0, PARAM_BOOL);
 
 admin_externalpage_setup('toolcustomlang', '', null,
-    new moodle_url('/admin/tool/customlang/edit.php', array('lng' => $lng)),
+    new lion_url('/admin/tool/customlang/edit.php', array('lng' => $lng)),
     array('pagelayout' => 'report')); // Hack: allows for wide page contents.
 
 $PAGE->requires->js_init_call('M.tool_customlang.init_editor', array(), true);
@@ -54,7 +40,7 @@ if ($filter->is_cancelled()) {
 
 } elseif ($submitted = $filter->get_data()) {
     tool_customlang_utils::save_filter($submitted, $USER);
-    redirect(new moodle_url($PAGE->url, array('p'=>0)));
+    redirect(new lion_url($PAGE->url, array('p'=>0)));
 }
 
 if ($translatorsubmitted) {
@@ -65,7 +51,7 @@ if ($translatorsubmitted) {
     if ($checkin === false) {
         $nexturl = $PAGE->url;
     } else {
-        $nexturl = new moodle_url('/admin/tool/customlang/index.php', array('action'=>'checkin', 'lng' => $lng, 'sesskey'=>sesskey()));
+        $nexturl = new lion_url('/admin/tool/customlang/index.php', array('action'=>'checkin', 'lng' => $lng, 'sesskey'=>sesskey()));
     }
 
     if (!is_array($strings)) {

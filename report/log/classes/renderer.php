@@ -1,34 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Log report renderer.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    report
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  */
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Report log renderer's for printing reports.
  *
- * @package    report_log
- * @copyright  2014 Rajesh Taneja <rajesh.taneja@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class report_log_renderer extends plugin_renderer_base {
 
@@ -110,12 +94,12 @@ class report_log_renderer extends plugin_renderer_base {
             // Check if user is admin and this came because of limitation on number of courses to show in dropdown.
             if (has_capability('report/log:view', $sitecontext)) {
                 $a = new stdClass();
-                $a->url = new moodle_url('/report/log/index.php', array('chooselog' => 0,
+                $a->url = new lion_url('/report/log/index.php', array('chooselog' => 0,
                     'group' => $reportlog->get_selected_group(), 'user' => $reportlog->userid,
                     'id' => $selectedcourseid, 'date' => $reportlog->date, 'modid' => $reportlog->modid,
                     'showcourses' => 1, 'showusers' => $reportlog->showusers));
                 $a->url = $a->url->out(false);
-                print_string('logtoomanycourses', 'moodle', $a);
+                print_string('logtoomanycourses', 'lion', $a);
             }
         }
 
@@ -142,12 +126,12 @@ class report_log_renderer extends plugin_renderer_base {
             echo html_writer::label(get_string('selctauser'), 'menuuser', false, array('class' => 'accesshide'));
             echo html_writer::select($users, "user", $reportlog->userid, false);
             $a = new stdClass();
-            $a->url = new moodle_url('/report/log/index.php', array('chooselog' => 0,
+            $a->url = new lion_url('/report/log/index.php', array('chooselog' => 0,
                 'group' => $reportlog->get_selected_group(), 'user' => $reportlog->userid,
                 'id' => $selectedcourseid, 'date' => $reportlog->date, 'modid' => $reportlog->modid,
                 'showusers' => 1, 'showcourses' => $reportlog->showcourses));
             $a->url = $a->url->out(false);
-            print_string('logtoomanyusers', 'moodle', $a);
+            print_string('logtoomanyusers', 'lion', $a);
         }
 
         // Add date selector.

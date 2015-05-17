@@ -4,6 +4,9 @@
  * XHTML 1.1 Image Module provides basic image embedding.
  * @note There is specialized code for removing empty images in
  *       HTMLPurifier_Strategy_RemoveForeignElements
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Image extends HTMLPurifier_HTMLModule
 {

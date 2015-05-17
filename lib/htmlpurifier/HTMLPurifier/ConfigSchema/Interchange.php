@@ -4,6 +4,9 @@
  * Generic schema interchange format that can be converted to a runtime
  * representation (HTMLPurifier_ConfigSchema) or HTML documentation. Members
  * are completely validated.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema_Interchange
 {

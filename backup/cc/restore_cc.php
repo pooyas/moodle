@@ -1,36 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
- * @package   moodlecore
- * @subpackage backup-imscc
- * @copyright 2009 Mauro Rondinelli (mauro.rondinelli [AT] uvcms.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage cc
+ * @copyright  2015 Pooya Saeedi
  */
-defined('MOODLE_INTERNAL') or die('Direct access to this script is forbidden.');
+defined('LION_INTERNAL') or die('Direct access to this script is forbidden.');
 
 require_once($CFG->dirroot . '/backup/cc/includes/constants.php');
-require_once($CFG->dirroot . '/backup/cc/cc2moodle.php');
+require_once($CFG->dirroot . '/backup/cc/cc2lion.php');
 
 function cc_convert ($dir) {
 
     $manifest_file = $dir . DIRECTORY_SEPARATOR . 'imsmanifest.xml';
-    $moodle_file = $dir . DIRECTORY_SEPARATOR . 'moodle.xml';
+    $lion_file = $dir . DIRECTORY_SEPARATOR . 'lion.xml';
     $schema_file = 'cc' . DIRECTORY_SEPARATOR . '' . DIRECTORY_SEPARATOR . 'schemas' . DIRECTORY_SEPARATOR . 'cclibxml2validator.xsd';
 
-    if (is_readable($manifest_file) && !is_readable($moodle_file)) {
+    if (is_readable($manifest_file) && !is_readable($lion_file)) {
 
         $is_cc = detect_cc_format($manifest_file);
 
@@ -62,31 +48,31 @@ function cc_convert ($dir) {
                 return false;
             }
 
-            echo get_string('cc2moodle_checking_schema', 'imscc') . '<br />';
+            echo get_string('cc2lion_checking_schema', 'imscc') . '<br />';
 
             $cc_manifest = new DOMDocument();
 
             if ($cc_manifest->load($manifest_file)) {
                 if ($cc_manifest->schemaValidate($schema_file)) {
 
-                    echo get_string('cc2moodle_valid_schema', 'imscc') . '<br />';
+                    echo get_string('cc2lion_valid_schema', 'imscc') . '<br />';
 
-                    $cc2moodle = new cc2moodle($manifest_file);
+                    $cc2lion = new cc2lion($manifest_file);
 
-                    if (!$cc2moodle->is_auth()) {
-                        return $cc2moodle->generate_moodle_xml();
+                    if (!$cc2lion->is_auth()) {
+                        return $cc2lion->generate_lion_xml();
                     } else {
-                        notify(get_string('cc2moodle_req_auth', 'imscc'));
+                        notify(get_string('cc2lion_req_auth', 'imscc'));
                         return false;
                     }
 
                 } else {
-                    notify(get_string('cc2moodle_invalid_schema', 'imscc'));
+                    notify(get_string('cc2lion_invalid_schema', 'imscc'));
                     return false;
                 }
 
             } else {
-                notify(get_string('cc2moodle_manifest_dont_load', 'imscc'));
+                notify(get_string('cc2lion_manifest_dont_load', 'imscc'));
                 return false;
             }
         }

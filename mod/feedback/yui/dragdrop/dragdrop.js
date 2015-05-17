@@ -1,4 +1,4 @@
-YUI.add('moodle-mod_feedback-dragdrop', function(Y) {
+YUI.add('lion-mod_feedback-dragdrop', function(Y) {
     var DRAGDROPNAME = 'mod_feedback_dragdrop';
     var CSS = {
         OLDMOVE : 'span.feedback_item_command_move',
@@ -264,5 +264,5 @@ YUI.add('moodle-mod_feedback-dragdrop', function(Y) {
     }
 
 }, '@VERSION@', {
-    requires:['io', 'json-parse', 'dd-constrain', 'dd-proxy', 'dd-drop', 'dd-scroll', 'moodle-core-dragdrop', 'moodle-core-notification']
+    requires:['io', 'json-parse', 'dd-constrain', 'dd-proxy', 'dd-drop', 'dd-scroll', 'lion-core-dragdrop', 'lion-core-notification']
 });

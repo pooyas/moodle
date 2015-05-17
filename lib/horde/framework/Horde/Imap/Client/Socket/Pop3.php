@@ -42,10 +42,9 @@
  * ---------------------------------------------------------------------------
  *
  * @category  Horde
- * @copyright 2002 Richard Heyes
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -66,13 +65,7 @@
  *   - RFC 5034: POP3 SASL
  * </pre>
  *
- * @author    Richard Heyes <richard@phpguru.org>
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2002 Richard Heyes
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Socket_Pop3 extends Horde_Imap_Client_Base
 {

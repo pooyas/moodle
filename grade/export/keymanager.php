@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Grade export key management page.
  *
- * @package   moodlecore
- * @copyright 2008 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage export
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../../config.php';
@@ -37,7 +24,7 @@ if (!$course = $DB->get_record('course', array('id'=>$id))) {
 require_login($course);
 $context = context_course::instance($id);
 
-require_capability('moodle/grade:export', $context);
+require_capability('lion/grade:export', $context);
 
 // Check if the user has at least one grade publishing capability.
 $plugins = grade_helper::get_plugins_export($course->id);
@@ -59,7 +46,7 @@ if ($keys) {
         $line[1] = $key->iprestriction;
         $line[2] = empty($key->validuntil) ? get_string('always') : userdate($key->validuntil);
 
-        $url = new moodle_url('key.php');
+        $url = new lion_url('key.php');
         if (!empty($key->id)) {
             $url->param('id', $key->id);
         }
@@ -83,7 +70,7 @@ $table->data  = $data;
 echo html_writer::table($table);
 
 echo $OUTPUT->container_start('buttons mdl-align');
-echo $OUTPUT->single_button(new moodle_url('key.php', array('courseid'=>$course->id)), get_string('newuserkey', 'userkey'));
+echo $OUTPUT->single_button(new lion_url('key.php', array('courseid'=>$course->id)), get_string('newuserkey', 'userkey'));
 echo $OUTPUT->container_end();
 
 echo $OUTPUT->footer();

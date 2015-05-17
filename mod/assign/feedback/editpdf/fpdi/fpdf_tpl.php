@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //
 //  FPDF_TPL - Version 1.2.3
 //

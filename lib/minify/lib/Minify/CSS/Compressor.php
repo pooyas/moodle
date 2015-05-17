@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify_CSS_Compressor 
- * @package Minify
+ * Class Minify_CSS_Compressor
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -13,10 +15,7 @@
  * including the ie5/mac filter (and its inversion), but expect tricky
  * hacks involving comment tokens in 'content' value strings to break
  * minimization badly. A test suite is available.
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
- * @author http://code.google.com/u/1stvamp/ (Issue 64 patch)
+ *
  */
 class Minify_CSS_Compressor {
 

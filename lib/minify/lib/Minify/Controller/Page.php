@@ -1,15 +1,15 @@
 <?php
 /**
- * Class Minify_Controller_Page  
- * @package Minify
+ * Class Minify_Controller_Page
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Controller class for serving a single HTML page
  * 
  * @link http://code.google.com/p/minify/source/browse/trunk/web/examples/1/index.php#59
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
  */
 class Minify_Controller_Page extends Minify_Controller_Base {
     

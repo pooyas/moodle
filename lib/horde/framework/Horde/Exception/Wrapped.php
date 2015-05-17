@@ -9,7 +9,9 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category Horde
- * @package  Exception
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Exception_Wrapped extends Horde_Exception
 {

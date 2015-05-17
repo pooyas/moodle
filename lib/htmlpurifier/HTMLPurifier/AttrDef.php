@@ -8,6 +8,9 @@
  * means CSS properties and composite definitions are defined here too).
  * Besides defining (through code) what precisely makes the string valid,
  * subclasses are also responsible for cleaning the code if possible.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 abstract class HTMLPurifier_AttrDef

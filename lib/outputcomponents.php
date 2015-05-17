@@ -1,38 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Classes representing HTML elements, used by $OUTPUT methods
  *
- * Please see http://docs.moodle.org/en/Developement:How_Moodle_outputs_HTML
+ * Please see http://docs.lion.org/en/Developement:How_Lion_outputs_HTML
  * for an overview.
  *
- * @package core
  * @category output
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Interface marking other classes as suitable for renderer_base::render()
  *
- * @copyright 2010 Petr Skoda (skodak) info@skodak.org
- * @package core
  * @category output
  */
 interface renderable {
@@ -42,10 +27,7 @@ interface renderable {
 /**
  * Interface marking other classes having the ability to export their data for use by templates.
  *
- * @copyright 2015 Damyon Wiese
- * @package core
  * @category output
- * @since 2.9
  */
 interface templatable {
 
@@ -64,10 +46,6 @@ interface templatable {
 /**
  * Data structure representing a file picker.
  *
- * @copyright 2010 Dongsheng Cai
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class file_picker implements renderable {
@@ -123,7 +101,7 @@ class file_picker implements renderable {
                 $file = $fs->get_file($usercontext->id, 'user', 'draft', $options->itemid, $options->filepath, $options->filename);
             }
             if (!empty($file)) {
-                $options->currentfile = html_writer::link(moodle_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename()), $file->get_filename());
+                $options->currentfile = html_writer::link(lion_url::make_draftfile_url($file->get_itemid(), $file->get_filepath(), $file->get_filename()), $file->get_filename());
             }
         }
 
@@ -142,10 +120,6 @@ class file_picker implements renderable {
 /**
  * Data structure representing a user picture.
  *
- * @copyright 2009 Nicolas Connault, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Modle 2.0
- * @package core
  * @category output
  */
 class user_picture implements renderable {
@@ -329,11 +303,11 @@ class user_picture implements renderable {
      * This method is recommended as it avoids costly redirects of user pictures
      * if requests are made for non-existent files etc.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param renderer_base $renderer
-     * @return moodle_url
+     * @return lion_url
      */
-    public function get_url(moodle_page $page, renderer_base $renderer = null) {
+    public function get_url(lion_page $page, renderer_base $renderer = null) {
         global $CFG;
 
         if (is_null($renderer)) {
@@ -398,7 +372,7 @@ class user_picture implements renderable {
                 $path .= $page->theme->name.'/';
             }
             // Set the image URL to the URL for the uploaded file and return.
-            $url = moodle_url::make_pluginfile_url($contextid, 'user', 'icon', NULL, $path, $filename);
+            $url = lion_url::make_pluginfile_url($contextid, 'user', 'icon', NULL, $path, $filename);
             $url->param('rev', $this->user->picture);
             return $url;
         }
@@ -428,9 +402,9 @@ class user_picture implements renderable {
             // https gravatar page.
             if (is_https()) {
                 $gravatardefault = str_replace($CFG->wwwroot, $CFG->httpswwwroot, $gravatardefault); // Replace by secure url.
-                return new moodle_url("https://secure.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $gravatardefault));
+                return new lion_url("https://secure.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $gravatardefault));
             } else {
-                return new moodle_url("http://www.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $gravatardefault));
+                return new lion_url("http://www.gravatar.com/avatar/{$md5}", array('s' => $size, 'd' => $gravatardefault));
             }
         }
 
@@ -441,10 +415,6 @@ class user_picture implements renderable {
 /**
  * Data structure representing a help icon.
  *
- * @copyright 2010 Petr Skoda (info@skodak.org)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class help_icon implements renderable {
@@ -497,10 +467,6 @@ class help_icon implements renderable {
 /**
  * Data structure representing an icon.
  *
- * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class pix_icon implements renderable {
@@ -528,7 +494,7 @@ class pix_icon implements renderable {
      * @param string $component component name
      * @param array $attributes html attributes
      */
-    public function __construct($pix, $alt, $component='moodle', array $attributes = null) {
+    public function __construct($pix, $alt, $component='lion', array $attributes = null) {
         $this->pix        = $pix;
         $this->component  = $component;
         $this->attributes = (array)$attributes;
@@ -550,10 +516,6 @@ class pix_icon implements renderable {
 /**
  * Data structure representing an emoticon image
  *
- * @copyright 2010 David Mudrak
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class pix_emoticon extends pix_icon implements renderable {
@@ -565,7 +527,7 @@ class pix_emoticon extends pix_icon implements renderable {
      * @param string $component emoticon image provider
      * @param array $attributes explicit HTML attributes
      */
-    public function __construct($pix, $alt, $component = 'moodle', array $attributes = array()) {
+    public function __construct($pix, $alt, $component = 'lion', array $attributes = array()) {
         if (empty($attributes['class'])) {
             $attributes['class'] = 'emoticon';
         }
@@ -576,16 +538,12 @@ class pix_emoticon extends pix_icon implements renderable {
 /**
  * Data structure representing a simple form with only one button.
  *
- * @copyright 2009 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class single_button implements renderable {
 
     /**
-     * @var moodle_url Target url
+     * @var lion_url Target url
      */
     var $url;
 
@@ -636,11 +594,11 @@ class single_button implements renderable {
 
     /**
      * Constructor
-     * @param moodle_url $url
+     * @param lion_url $url
      * @param string $label button text
      * @param string $method get or post submit method
      */
-    public function __construct(moodle_url $url, $label, $method='post') {
+    public function __construct(lion_url $url, $label, $method='post') {
         $this->url    = clone($url);
         $this->label  = $label;
         $this->method = $method;
@@ -671,16 +629,12 @@ class single_button implements renderable {
  *
  * If JS not enabled small go button is printed too.
  *
- * @copyright 2009 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class single_select implements renderable {
 
     /**
-     * @var moodle_url Target url - includes hidden fields
+     * @var lion_url Target url - includes hidden fields
      */
     var $url;
 
@@ -754,14 +708,14 @@ class single_select implements renderable {
 
     /**
      * Constructor
-     * @param moodle_url $url form action target, includes hidden fields
+     * @param lion_url $url form action target, includes hidden fields
      * @param string $name name of selection field - the changing parameter in url
      * @param array $options list of options
      * @param string $selected selected element
      * @param array $nothing
      * @param string $formid
      */
-    public function __construct(moodle_url $url, $name, array $options, $selected = '', $nothing = array('' => 'choosedots'), $formid = null) {
+    public function __construct(lion_url $url, $name, array $options, $selected = '', $nothing = array('' => 'choosedots'), $formid = null) {
         $this->url      = $url;
         $this->name     = $name;
         $this->options  = $options;
@@ -792,9 +746,9 @@ class single_select implements renderable {
     /**
      * Adds help icon.
      *
-     * @deprecated since Moodle 2.0
+     * @deprecated since Lion 2.0
      */
-    public function set_old_help_icon($helppage, $title, $component = 'moodle') {
+    public function set_old_help_icon($helppage, $title, $component = 'lion') {
         throw new coding_exception('set_old_help_icon() can not be used any more, please see set_help_icon().');
     }
 
@@ -804,7 +758,7 @@ class single_select implements renderable {
      * @param string $identifier The keyword that defines a help page
      * @param string $component
      */
-    public function set_help_icon($identifier, $component = 'moodle') {
+    public function set_help_icon($identifier, $component = 'lion') {
         $this->helpicon = new help_icon($identifier, $component);
     }
 
@@ -824,10 +778,6 @@ class single_select implements renderable {
 /**
  * Simple URL selection widget description.
  *
- * @copyright 2009 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class url_select implements renderable {
@@ -914,9 +864,9 @@ class url_select implements renderable {
     /**
      * Adds help icon.
      *
-     * @deprecated since Moodle 2.0
+     * @deprecated since Lion 2.0
      */
-    public function set_old_help_icon($helppage, $title, $component = 'moodle') {
+    public function set_old_help_icon($helppage, $title, $component = 'lion') {
         throw new coding_exception('set_old_help_icon() can not be used any more, please see set_help_icon().');
     }
 
@@ -926,7 +876,7 @@ class url_select implements renderable {
      * @param string $identifier The keyword that defines a help page
      * @param string $component
      */
-    public function set_help_icon($identifier, $component = 'moodle') {
+    public function set_help_icon($identifier, $component = 'lion') {
         $this->helpicon = new help_icon($identifier, $component);
     }
 
@@ -945,16 +895,12 @@ class url_select implements renderable {
 /**
  * Data structure describing html link with special action attached.
  *
- * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class action_link implements renderable {
 
     /**
-     * @var moodle_url Href url
+     * @var lion_url Href url
      */
     public $url;
 
@@ -980,13 +926,13 @@ class action_link implements renderable {
 
     /**
      * Constructor
-     * @param moodle_url $url
+     * @param lion_url $url
      * @param string $text HTML fragment
      * @param component_action $action
      * @param array $attributes associative array of html link attributes + disabled
      * @param pix_icon $icon optional pix_icon to render with the link text
      */
-    public function __construct(moodle_url $url,
+    public function __construct(lion_url $url,
                                 $text,
                                 component_action $action=null,
                                 array $attributes=null,
@@ -1034,10 +980,6 @@ class action_link implements renderable {
 /**
  * Simple html output class
  *
- * @copyright 2009 Tim Hunt, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class html_writer {
@@ -1109,7 +1051,7 @@ class html_writer {
      * @return string HTML fragment
      */
     public static function attribute($name, $value) {
-        if ($value instanceof moodle_url) {
+        if ($value instanceof lion_url) {
             return ' ' . $name . '="' . $value->out() . '"';
         }
 
@@ -1177,7 +1119,7 @@ class html_writer {
     /**
      * Generates a simple html link
      *
-     * @param string|moodle_url $url The URL
+     * @param string|lion_url $url The URL
      * @param string $text The text
      * @param array $attributes HTML attributes
      * @return string HTML fragment
@@ -1431,11 +1373,11 @@ class html_writer {
     /**
      * Returns hidden input fields created from url parameters.
      *
-     * @param moodle_url $url
+     * @param lion_url $url
      * @param array $exclude list of excluded parameters
      * @return string HTML fragment
      */
-    public static function input_hidden_params(moodle_url $url, array $exclude = null) {
+    public static function input_hidden_params(lion_url $url, array $exclude = null) {
         $exclude = (array)$exclude;
         $params = $url->params();
         foreach ($exclude as $key) {
@@ -1454,7 +1396,7 @@ class html_writer {
      * Generate a script tag containing the the specified code.
      *
      * @param string $jscode the JavaScript code
-     * @param moodle_url|string $url optional url of the external script, $code ignored if specified
+     * @param lion_url|string $url optional url of the external script, $code ignored if specified
      * @return string HTML, the code wrapped in <script> tags.
      */
     public static function script($jscode, $url=null) {
@@ -1856,10 +1798,6 @@ class html_writer {
 /**
  * Simple javascript output class
  *
- * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class js_writer {
@@ -1993,10 +1931,6 @@ class js_writer {
  * ... // set various properties of the object $t as described below
  * echo html_writer::table($t);
  *
- * @copyright 2009 David Mudrak <david.mudrak@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class html_table {
@@ -2091,26 +2025,26 @@ class html_table {
     public $data;
 
     /**
-     * @deprecated since Moodle 2.0. Styling should be in the CSS.
+     * @deprecated since Lion 2.0. Styling should be in the CSS.
      * @var string Width of the table, percentage of the page preferred.
      */
     public $width = null;
 
     /**
-     * @deprecated since Moodle 2.0. Styling should be in the CSS.
+     * @deprecated since Lion 2.0. Styling should be in the CSS.
      * @var string Alignment for the whole table. Can be 'right', 'left' or 'center' (default).
      */
     public $tablealign = null;
 
     /**
-     * @deprecated since Moodle 2.0. Styling should be in the CSS.
+     * @deprecated since Lion 2.0. Styling should be in the CSS.
      * @var int Padding on each cell, in pixels
      */
     public $cellpadding = null;
 
     /**
      * @var int Spacing between cells, in pixels
-     * @deprecated since Moodle 2.0. Styling should be in the CSS.
+     * @deprecated since Lion 2.0. Styling should be in the CSS.
      */
     public $cellspacing = null;
 
@@ -2168,10 +2102,6 @@ class html_table {
 /**
  * Component representing a table row.
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class html_table_row {
@@ -2216,10 +2146,6 @@ class html_table_row {
 /**
  * Component representing a table cell.
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class html_table_cell {
@@ -2283,10 +2209,6 @@ class html_table_cell {
 /**
  * Component representing a paging bar.
  *
- * @copyright 2009 Nicolas Connault
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class paging_bar implements renderable {
@@ -2312,9 +2234,9 @@ class paging_bar implements renderable {
     public $perpage;
 
     /**
-     * @var string|moodle_url If this  is a string then it is the url which will be appended with $pagevar,
+     * @var string|lion_url If this  is a string then it is the url which will be appended with $pagevar,
      * an equals sign and the page number.
-     * If this is a moodle_url object then the pagevar param will be replaced by
+     * If this is a lion_url object then the pagevar param will be replaced by
      * the page no, for each page.
      */
     public $baseurl;
@@ -2356,7 +2278,7 @@ class paging_bar implements renderable {
      * @param int $totalcount The total number of entries available to be paged through
      * @param int $page The page you are currently viewing
      * @param int $perpage The number of entries that should be shown per page
-     * @param string|moodle_url $baseurl url of the current page, the $pagevar parameter is added
+     * @param string|lion_url $baseurl url of the current page, the $pagevar parameter is added
      * @param string $pagevar name of page parameter that holds the page number
      */
     public function __construct($totalcount, $page, $perpage, $baseurl, $pagevar = 'page') {
@@ -2374,11 +2296,11 @@ class paging_bar implements renderable {
      * produces fragments of HTML to assist display later on.
      *
      * @param renderer_base $output
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param string $target
      * @throws coding_exception
      */
-    public function prepare(renderer_base $output, moodle_page $page, $target) {
+    public function prepare(renderer_base $output, lion_page $page, $target) {
         if (!isset($this->totalcount) || is_null($this->totalcount)) {
             throw new coding_exception('paging_bar requires a totalcount value.');
         }
@@ -2396,7 +2318,7 @@ class paging_bar implements renderable {
             $pagenum = $this->page - 1;
 
             if ($this->page > 0) {
-                $this->previouslink = html_writer::link(new moodle_url($this->baseurl, array($this->pagevar=>$pagenum)), get_string('previous'), array('class'=>'previous'));
+                $this->previouslink = html_writer::link(new lion_url($this->baseurl, array($this->pagevar=>$pagenum)), get_string('previous'), array('class'=>'previous'));
             }
 
             if ($this->perpage > 0) {
@@ -2408,7 +2330,7 @@ class paging_bar implements renderable {
             if ($this->page > round(($this->maxdisplay/3)*2)) {
                 $currpage = $this->page - round($this->maxdisplay/3);
 
-                $this->firstlink = html_writer::link(new moodle_url($this->baseurl, array($this->pagevar=>0)), '1', array('class'=>'first'));
+                $this->firstlink = html_writer::link(new lion_url($this->baseurl, array($this->pagevar=>0)), '1', array('class'=>'first'));
             } else {
                 $currpage = 0;
             }
@@ -2421,7 +2343,7 @@ class paging_bar implements renderable {
                 if ($this->page == $currpage) {
                     $this->pagelinks[] = html_writer::span($displaypage, 'current-page');
                 } else {
-                    $pagelink = html_writer::link(new moodle_url($this->baseurl, array($this->pagevar=>$currpage)), $displaypage);
+                    $pagelink = html_writer::link(new lion_url($this->baseurl, array($this->pagevar=>$currpage)), $displaypage);
                     $this->pagelinks[] = $pagelink;
                 }
 
@@ -2431,13 +2353,13 @@ class paging_bar implements renderable {
 
             if ($currpage < $lastpage) {
                 $lastpageactual = $lastpage - 1;
-                $this->lastlink = html_writer::link(new moodle_url($this->baseurl, array($this->pagevar=>$lastpageactual)), $lastpage, array('class'=>'last'));
+                $this->lastlink = html_writer::link(new lion_url($this->baseurl, array($this->pagevar=>$lastpageactual)), $lastpage, array('class'=>'last'));
             }
 
             $pagenum = $this->page + 1;
 
             if ($pagenum != $displaypage) {
-                $this->nextlink = html_writer::link(new moodle_url($this->baseurl, array($this->pagevar=>$pagenum)), get_string('next'), array('class'=>'next'));
+                $this->nextlink = html_writer::link(new lion_url($this->baseurl, array($this->pagevar=>$pagenum)), get_string('next'), array('class'=>'next'));
             }
         }
     }
@@ -2449,15 +2371,11 @@ class paging_bar implements renderable {
  * During output, each block instance is asked to return a block_contents object,
  * those are then passed to the $OUTPUT->block function for display.
  *
- * contents should probably be generated using a moodle_block_..._renderer.
+ * contents should probably be generated using a lion_block_..._renderer.
  *
  * Other block-like things that need to appear on the page, for example the
  * add new block UI, are also represented as block_contents objects.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class block_contents {
@@ -2588,24 +2506,20 @@ class block_contents {
  * clicking anywhere in the form should submit it. The form action should be
  * $PAGE->url.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class block_move_target {
 
     /**
-     * @var moodle_url Move url
+     * @var lion_url Move url
      */
     public $url;
 
     /**
      * Constructor
-     * @param moodle_url $url
+     * @param lion_url $url
      */
-    public function __construct(moodle_url $url) {
+    public function __construct(lion_url $url) {
         $this->url  = $url;
     }
 }
@@ -2616,10 +2530,6 @@ class block_move_target {
  * This class is used to represent one item within a custom menu that may or may
  * not have children.
  *
- * @copyright 2010 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class custom_menu_item implements renderable {
@@ -2630,7 +2540,7 @@ class custom_menu_item implements renderable {
     protected $text;
 
     /**
-     * @var moodle_url The link to give the icon if it has no children
+     * @var lion_url The link to give the icon if it has no children
      */
     protected $url;
 
@@ -2665,13 +2575,13 @@ class custom_menu_item implements renderable {
      * Constructs the new custom menu item
      *
      * @param string $text
-     * @param moodle_url $url A moodle url to apply as the link for this item [Optional]
+     * @param lion_url $url A lion url to apply as the link for this item [Optional]
      * @param string $title A title to apply to this item [Optional]
      * @param int $sort A sort or to use if we need to sort differently [Optional]
      * @param custom_menu_item $parent A reference to the parent custom_menu_item this child
      *        belongs to, only if the child has a parent. [Optional]
      */
-    public function __construct($text, moodle_url $url=null, $title=null, $sort = null, custom_menu_item $parent = null) {
+    public function __construct($text, lion_url $url=null, $title=null, $sort = null, custom_menu_item $parent = null) {
         $this->text = $text;
         $this->url = $url;
         $this->title = $title;
@@ -2683,12 +2593,12 @@ class custom_menu_item implements renderable {
      * Adds a custom menu item as a child of this node given its properties.
      *
      * @param string $text
-     * @param moodle_url $url
+     * @param lion_url $url
      * @param string $title
      * @param int $sort
      * @return custom_menu_item
      */
-    public function add($text, moodle_url $url = null, $title = null, $sort = null) {
+    public function add($text, lion_url $url = null, $title = null, $sort = null) {
         $key = count($this->children);
         if (empty($sort)) {
             $sort = $this->lastsort + 1;
@@ -2732,7 +2642,7 @@ class custom_menu_item implements renderable {
 
     /**
      * Returns the url for this item
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         return $this->url;
@@ -2804,9 +2714,9 @@ class custom_menu_item implements renderable {
 
     /**
      * Sets the url for the node
-     * @param moodle_url $url
+     * @param lion_url $url
      */
-    public function set_url(moodle_url $url) {
+    public function set_url(lion_url $url) {
         $this->url = $url;
     }
 }
@@ -2821,10 +2731,6 @@ class custom_menu_item implements renderable {
  * To configure the custom menu:
  *     Settings: Administration > Appearance > Themes > Theme settings
  *
- * @copyright 2010 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class custom_menu extends custom_menu_item {
@@ -2873,15 +2779,15 @@ class custom_menu extends custom_menu_item {
      * languages are optional, comma separated list of languages the line is for.
      *
      * Example structure:
-     *     First level first item|http://www.moodle.com/
-     *     -Second level first item|http://www.moodle.com/partners/
-     *     -Second level second item|http://www.moodle.com/hq/
-     *     --Third level first item|http://www.moodle.com/jobs/
-     *     -Second level third item|http://www.moodle.com/development/
-     *     First level second item|http://www.moodle.com/feedback/
+     *     First level first item|http://www.lion.com/
+     *     -Second level first item|http://www.lion.com/partners/
+     *     -Second level second item|http://www.lion.com/hq/
+     *     --Third level first item|http://www.lion.com/jobs/
+     *     -Second level third item|http://www.lion.com/development/
+     *     First level second item|http://www.lion.com/feedback/
      *     First level third item
-     *     English only|http://moodle.com|English only item|en
-     *     German only|http://moodle.de|Deutsch|de,de_du,de_kids
+     *     English only|http://lion.com|English only item|en
+     *     German only|http://lion.de|Deutsch|de,de_du,de_kids
      *
      *
      * @static
@@ -2916,8 +2822,8 @@ class custom_menu extends custom_menu_item {
                             break;
                         case 1:
                             try {
-                                $itemurl = new moodle_url($setting);
-                            } catch (moodle_exception $exception) {
+                                $itemurl = new lion_url($setting);
+                            } catch (lion_exception $exception) {
                                 // We're not actually worried about this, we don't want to mess up the display
                                 // just for a wrongly entered URL.
                                 $itemurl = null;
@@ -2979,13 +2885,11 @@ class custom_menu extends custom_menu_item {
 /**
  * Stores one tab
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core
  */
 class tabobject implements renderable {
     /** @var string unique id of the tab in this tree, it is used to find selected and/or inactive tabs */
     var $id;
-    /** @var moodle_url|string link */
+    /** @var lion_url|string link */
     var $link;
     /** @var string text on the tab */
     var $text;
@@ -3008,7 +2912,7 @@ class tabobject implements renderable {
      * Constructor
      *
      * @param string $id unique id of the tab in this tree, it is used to find selected and/or inactive tabs
-     * @param string|moodle_url $link
+     * @param string|lion_url $link
      * @param string $text text on the tab
      * @param string $title title under the link, by defaul equals to text
      * @param bool $linkedwhenselected whether to display a link under the tab name when it's selected
@@ -3088,10 +2992,6 @@ class tabobject implements renderable {
  * Multiple row tabs may not look good on some devices but if you want to use them
  * you can specify ->subtree for the active tabobject.
  *
- * @copyright 2013 Marina Glancy
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.5
- * @package core
  * @category output
  */
 class tabtree extends tabobject {
@@ -3135,10 +3035,7 @@ class tabtree extends tabobject {
  * The primary actions are displayed permanently and the secondary attributes are displayed within a drop
  * down menu.
  *
- * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class action_menu implements renderable {
 
@@ -3235,8 +3132,8 @@ class action_menu implements renderable {
 
         $this->attributes = array(
             'id' => 'action-menu-'.$this->instance,
-            'class' => 'moodle-actionmenu',
-            'data-enhance' => 'moodle-core-actionmenu'
+            'class' => 'lion-actionmenu',
+            'data-enhance' => 'lion-core-actionmenu'
         );
         $this->attributesprimary = array(
             'id' => 'action-menu-'.$this->instance.'-menubar',
@@ -3264,12 +3161,12 @@ class action_menu implements renderable {
      * Initialises JS required fore the action menu.
      * The JS is only required once as it manages all action menu's on the page.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      */
-    public function initialise_js(moodle_page $page) {
+    public function initialise_js(lion_page $page) {
         static $initialised = false;
         if (!$initialised) {
-            $page->requires->yui_module('moodle-core-actionmenu', 'M.core.actionmenu.init');
+            $page->requires->yui_module('lion-core-actionmenu', 'M.core.actionmenu.init');
             $initialised = true;
         }
     }
@@ -3342,11 +3239,11 @@ class action_menu implements renderable {
             $pixicon = '<b class="caret"></b>';
             $linkclasses[] = 'textmenu';
         } else {
-            $title = new lang_string('actions', 'moodle');
+            $title = new lang_string('actions', 'lion');
             $this->actionicon = new pix_icon(
                 't/edit_menu',
                 '',
-                'moodle',
+                'lion',
                 array('class' => 'iconsmall actionmenu', 'title' => '')
             );
             $pixicon = $this->actionicon;
@@ -3494,10 +3391,7 @@ class action_menu implements renderable {
 /**
  * An action menu filler
  *
- * @package core
  * @category output
- * @copyright 2013 Andrew Nicols
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class action_menu_filler extends action_link implements renderable {
 
@@ -3517,10 +3411,7 @@ class action_menu_filler extends action_link implements renderable {
 /**
  * An action menu action
  *
- * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class action_menu_link extends action_link implements renderable {
 
@@ -3539,13 +3430,13 @@ class action_menu_link extends action_link implements renderable {
     /**
      * Constructs the object.
      *
-     * @param moodle_url $url The URL for the action.
+     * @param lion_url $url The URL for the action.
      * @param pix_icon $icon The icon to represent the action.
      * @param string $text The text to represent the action.
      * @param bool $primary Whether this is a primary action or not.
      * @param array $attributes Any attribtues associated with the action.
      */
-    public function __construct(moodle_url $url, pix_icon $icon = null, $text, $primary = true, array $attributes = array()) {
+    public function __construct(lion_url $url, pix_icon $icon = null, $text, $primary = true, array $attributes = array()) {
         parent::__construct($url, $text, null, $attributes, $icon);
         $this->primary = (bool)$primary;
         $this->add_class('menu-action');
@@ -3556,21 +3447,18 @@ class action_menu_link extends action_link implements renderable {
 /**
  * A primary action menu action
  *
- * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class action_menu_link_primary extends action_menu_link {
     /**
      * Constructs the object.
      *
-     * @param moodle_url $url
+     * @param lion_url $url
      * @param pix_icon $icon
      * @param string $text
      * @param array $attributes
      */
-    public function __construct(moodle_url $url, pix_icon $icon = null, $text, array $attributes = array()) {
+    public function __construct(lion_url $url, pix_icon $icon = null, $text, array $attributes = array()) {
         parent::__construct($url, $icon, $text, true, $attributes);
     }
 }
@@ -3578,21 +3466,18 @@ class action_menu_link_primary extends action_menu_link {
 /**
  * A secondary action menu action
  *
- * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class action_menu_link_secondary extends action_menu_link {
     /**
      * Constructs the object.
      *
-     * @param moodle_url $url
+     * @param lion_url $url
      * @param pix_icon $icon
      * @param string $text
      * @param array $attributes
      */
-    public function __construct(moodle_url $url, pix_icon $icon = null, $text, array $attributes = array()) {
+    public function __construct(lion_url $url, pix_icon $icon = null, $text, array $attributes = array()) {
         parent::__construct($url, $icon, $text, false, $attributes);
     }
 }

@@ -14,11 +14,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Http
- * @subpackage Client
  * @version    $Id$
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -57,11 +56,7 @@ require_once 'Zend/Http/Response/Stream.php';
  *
  * @todo Implement proxy settings
  * @category   Zend
- * @package    Zend_Http
- * @subpackage Client
  * @throws     Zend_Http_Client_Exception
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Http_Client
 {
@@ -1419,7 +1414,6 @@ class Zend_Http_Client
      * of multi-dimentional arrays, square brackets ([]) will be added to the
      * key to indicate an array.
      *
-     * @since  1.9
      *
      * @param  array  $parray
      * @param  string $prefix

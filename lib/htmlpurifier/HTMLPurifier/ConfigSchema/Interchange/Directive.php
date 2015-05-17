@@ -2,6 +2,9 @@
 
 /**
  * Interchange component class describing configuration directives.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema_Interchange_Directive
 {

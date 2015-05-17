@@ -1,32 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * LDAP enrolment plugin implementation.
  *
  * This plugin synchronises enrolment and roles with a LDAP server.
  *
- * @package    enrol_ldap
- * @author     Iñaki Arenaza - based on code by Martin Dougiamas, Martin Langhoff and others
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @copyright  2010 Iñaki Arenaza <iarenaza@eps.mondragon.edu>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class enrol_ldap_plugin extends enrol_plugin {
     protected $enrol_localcoursefield = 'idnumber';
@@ -91,9 +76,9 @@ class enrol_ldap_plugin extends enrol_plugin {
             // valid filter string, to select subsets of users based
             // on any criteria. For example, we could select the users
             // whose objectClass is 'user' and have the
-            // 'enabledMoodleUser' attribute, with something like:
+            // 'enabledLionUser' attribute, with something like:
             //
-            //   (&(objectClass=user)(enabledMoodleUser=1))
+            //   (&(objectClass=user)(enabledLionUser=1))
             //
             // In this particular case we don't need to do anything,
             // so leave $this->config->objectclass as is.
@@ -214,7 +199,7 @@ class enrol_ldap_plugin extends enrol_plugin {
                     }
                 }
 
-                // Deal with enrolment in the moodle db
+                // Deal with enrolment in the lion db
                 // Add necessary enrol instance if not present yet;
                 $sql = "SELECT c.id, c.visible, e.id as enrolid
                           FROM {course} c
@@ -437,7 +422,7 @@ class enrol_ldap_plugin extends enrol_plugin {
                         $idnumber = $course{$this->config->course_idnumber}[0];
                         $trace->output(get_string('synccourserole', 'enrol_ldap', array('idnumber'=>$idnumber, 'role_shortname'=>$role->shortname)));
 
-                        // Does the course exist in moodle already?
+                        // Does the course exist in lion already?
                         $course_obj = $DB->get_record('course', array($this->enrol_localcoursefield=>$idnumber));
                         if (empty($course_obj)) { // Course doesn't exist
                             if ($this->get_config('autocreate')) { // Autocreate
@@ -646,7 +631,7 @@ class enrol_ldap_plugin extends enrol_plugin {
 
     /**
      * Connect to the LDAP server, using the plugin configured
-     * settings. It's actually a wrapper around ldap_connect_moodle()
+     * settings. It's actually a wrapper around ldap_connect_lion()
      *
      * @param progress_trace $trace
      * @return bool success
@@ -659,7 +644,7 @@ class enrol_ldap_plugin extends enrol_plugin {
             return true;
         }
 
-        if ($ldapconnection = ldap_connect_moodle($this->get_config('host_url'), $this->get_config('ldap_version'),
+        if ($ldapconnection = ldap_connect_lion($this->get_config('host_url'), $this->get_config('ldap_version'),
                                                   $this->get_config('user_type'), $this->get_config('bind_dn'),
                                                   $this->get_config('bind_pw'), $this->get_config('opt_deref'),
                                                   $debuginfo, $this->get_config('start_tls'))) {
@@ -948,7 +933,7 @@ class enrol_ldap_plugin extends enrol_plugin {
     }
 
     /**
-     * Will create the moodle course from the template
+     * Will create the lion course from the template
      * course_ext is an array as obtained from ldap -- flattened somewhat
      *
      * @param array $course_ext
@@ -972,7 +957,7 @@ class enrol_ldap_plugin extends enrol_plugin {
             }
         }
         if (!$template) {
-            $courseconfig = get_config('moodlecourse');
+            $courseconfig = get_config('lioncourse');
             $template = new stdClass();
             $template->summary        = '';
             $template->summaryformat  = FORMAT_HTML;
@@ -1024,7 +1009,7 @@ class enrol_ldap_plugin extends enrol_plugin {
     }
 
     /**
-     * Will update a moodle course with new values from LDAP
+     * Will update a lion course with new values from LDAP
      * A field will be updated only if it is marked to be updated
      * on sync in plugin settings
      *

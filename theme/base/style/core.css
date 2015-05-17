@@ -209,8 +209,8 @@ a.skip:active {position: static;display: block;}
 .usermenu {
 
 }
-.usermenu .moodle-actionmenu {  }
-.usermenu .moodle-actionmenu .toggle-display {
+.usermenu .lion-actionmenu {  }
+.usermenu .lion-actionmenu .toggle-display {
     display: block;
     opacity: 1;
     height: 40px;
@@ -218,11 +218,11 @@ a.skip:active {position: static;display: block;}
     padding: 6px;
     color: inherit;
 }
-.usermenu .moodle-actionmenu .toggle-display .userbutton {
+.usermenu .lion-actionmenu .toggle-display .userbutton {
     height: 40px;
     line-height: 40px;
 }
-.usermenu .moodle-actionmenu .toggle-display .userbutton .avatars {
+.usermenu .lion-actionmenu .toggle-display .userbutton .avatars {
     display: inline-block;
     height: 36px;
     width: 36px;
@@ -230,49 +230,49 @@ a.skip:active {position: static;display: block;}
     margin-right: 6px;
     margin-left: 6px;
 }
-.usermenu .moodle-actionmenu .toggle-display .userbutton .avatars .avatar,
-.usermenu .moodle-actionmenu .toggle-display .userbutton .avatars img {
+.usermenu .lion-actionmenu .toggle-display .userbutton .avatars .avatar,
+.usermenu .lion-actionmenu .toggle-display .userbutton .avatars img {
     display: block;
 }
-.usermenu .moodle-actionmenu .toggle-display .userbutton .usertext {
+.usermenu .lion-actionmenu .toggle-display .userbutton .usertext {
     display: inline-block;
     vertical-align: middle;
     font-size: 14px;
     line-height: 1em;
     color: #777;
 }
-.usermenu .moodle-actionmenu:hover .toggle-display .userbutton .usertext {
+.usermenu .lion-actionmenu:hover .toggle-display .userbutton .usertext {
     color: #000;
 }
-.usermenu .moodle-actionmenu .toggle-display .userbutton .usertext .meta,
-.usermenu .moodle-actionmenu .toggle-display .userbutton .usertext .role {
+.usermenu .lion-actionmenu .toggle-display .userbutton .usertext .meta,
+.usermenu .lion-actionmenu .toggle-display .userbutton .usertext .role {
     display: block;
     font-size: 12px;
 }
-.usermenu .moodle-actionmenu .toggle-display .userbutton .usertext .meta .value,
-.usermenu .moodle-actionmenu .toggle-display .userbutton .usertext .role .value {
+.usermenu .lion-actionmenu .toggle-display .userbutton .usertext .meta .value,
+.usermenu .lion-actionmenu .toggle-display .userbutton .usertext .role .value {
     font-weight: bold;
 }
-.usermenu .moodle-actionmenu .toggle-display .userbutton .usertext .role {
+.usermenu .lion-actionmenu .toggle-display .userbutton .usertext .role {
     font-weight: bold;
 }
 /* Hide caret when JS is disabled. */
-.usermenu .moodle-actionmenu .toggle-display .caret {
+.usermenu .lion-actionmenu .toggle-display .caret {
     display: none;
 }
 /* A little bit of visual feedback for the action menu when Javascript is disabled. */
-.usermenu .moodle-actionmenu .menu .menu-action.icon img {
+.usermenu .lion-actionmenu .menu .menu-action.icon img {
     border-radius: 0;
     background: transparent;
     box-shadow: none;
 }
-.usermenu .moodle-actionmenu .menu .menu-action.icon:hover img {
+.usermenu .lion-actionmenu .menu .menu-action.icon:hover img {
     background: #fff;
     border-radius: 2px;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
 }
-.usermenu .moodle-actionmenu[data-enhanced] .menu .menu-action.icon img,
-.usermenu .moodle-actionmenu[data-enhanced] .menu .menu-action.icon:hover img {
+.usermenu .lion-actionmenu[data-enhanced] .menu .menu-action.icon img,
+.usermenu .lion-actionmenu[data-enhanced] .menu .menu-action.icon:hover img {
     border-radius: 0;
     background: transparent;
     box-shadow: none;
@@ -297,23 +297,23 @@ a.skip:active {position: static;display: block;}
     box-shadow: -2px -2px 16px rgba(0, 0, 0, 0.25);
 }
 
-.jsenabled .usermenu .moodle-actionmenu .toggle-display {
+.jsenabled .usermenu .lion-actionmenu .toggle-display {
     display: block;
 }
-.jsenabled .usermenu .moodle-actionmenu .toggle-display .caret {
+.jsenabled .usermenu .lion-actionmenu .toggle-display .caret {
     display: inline-block;
     position: relative;
     top: 9px;
 }
-.jsenabled .usermenu .moodle-actionmenu > .menubar {
+.jsenabled .usermenu .lion-actionmenu > .menubar {
     display: block;
     margin: 0px 0px 2px 0px;
 }
-.jsenabled .usermenu .moodle-actionmenu > .menu {
+.jsenabled .usermenu .lion-actionmenu > .menu {
     min-width: 160px;
     font-size: 14px;
 }
-.jsenabled .usermenu .moodle-actionmenu > .menu .filler {
+.jsenabled .usermenu .lion-actionmenu > .menu .filler {
     display: block;
     height: 1px;
     margin: 9px 1px;
@@ -321,12 +321,12 @@ a.skip:active {position: static;display: block;}
     background-color: #e5e5e5;
     border-bottom: 1px solid #fff;
 }
-.jsenabled .usermenu .moodle-actionmenu.show .menu {
+.jsenabled .usermenu .lion-actionmenu.show .menu {
     padding: 5px 0;
     margin: 2px 0 0;
     background-clip: padding-box;
 }
-.jsenabled .usermenu .moodle-actionmenu.show .menu:before {
+.jsenabled .usermenu .lion-actionmenu.show .menu:before {
     content: '';
     display: inline-block;
     border-left:   7px solid transparent;
@@ -336,7 +336,7 @@ a.skip:active {position: static;display: block;}
     position: absolute;
     top: -7px;
 }
-.jsenabled .usermenu .moodle-actionmenu.show .menu:after {
+.jsenabled .usermenu .lion-actionmenu.show .menu:after {
     content: '';
     display: inline-block;
     border-left:   6px solid transparent;
@@ -345,25 +345,25 @@ a.skip:active {position: static;display: block;}
     position: absolute;
     top: -6px;
 }
-.jsenabled .usermenu .moodle-actionmenu.show .menu li a {
+.jsenabled .usermenu .lion-actionmenu.show .menu li a {
     white-space: nowrap;
     border-radius: 0;
 }
-.jsenabled .usermenu .moodle-actionmenu.show .menu a:focus,
-.jsenabled .usermenu .moodle-actionmenu.show .menu a:hover {
+.jsenabled .usermenu .lion-actionmenu.show .menu a:focus,
+.jsenabled .usermenu .lion-actionmenu.show .menu a:hover {
     text-decoration: none;
 }
 
 .dir-ltr .usermenu {
     float: right;
 }
-.dir-ltr .usermenu > .moodle-actionmenu > .menu:before {
+.dir-ltr .usermenu > .lion-actionmenu > .menu:before {
     right: 9px;
 }
-.dir-ltr .usermenu > .moodle-actionmenu > .menu:after {
+.dir-ltr .usermenu > .lion-actionmenu > .menu:after {
     right: 10px;
 }
-.dir-ltr .usermenu > .moodle-actionmenu > .menubar li a {
+.dir-ltr .usermenu > .lion-actionmenu > .menubar li a {
     text-align: right;
 }
 .dir-ltr.userloggedinas .usermenu .userbutton .avatars .avatar.current {
@@ -373,16 +373,16 @@ a.skip:active {position: static;display: block;}
 .dir-rtl .usermenu {
     float: left;
 }
-.dir-rtl .usermenu > .moodle-actionmenu > .menu {
+.dir-rtl .usermenu > .lion-actionmenu > .menu {
     margin-right: 0px;
 }
-.dir-rtl .usermenu > .moodle-actionmenu > .menu:before {
+.dir-rtl .usermenu > .lion-actionmenu > .menu:before {
     left: 9px;
 }
-.dir-rtl .usermenu > .moodle-actionmenu > .menu:after {
+.dir-rtl .usermenu > .lion-actionmenu > .menu:after {
     left: 10px;
 }
-.dir-rtl .usermenu > .moodle-actionmenu > .menubar li a {
+.dir-rtl .usermenu > .lion-actionmenu > .menubar li a {
     text-align: left;
 }
 .dir-rtl.userloggedinas .usermenu .userbutton .avatars .avatar.current {
@@ -671,7 +671,7 @@ input#id_externalurl {direction:ltr;}
 .notesgroup {margin-left:20px;}
 
 /**
- * My Moodle
+ * My Lion
  */
 .path-my .coursebox .overview {margin: 15px 30px 10px 30px;}
 .path-my .coursebox .info {float: none; margin: 0;}
@@ -952,7 +952,7 @@ x#fitem_id_availabilityconditionsjson input[type=text] {
     color: black;
 }
 
-.availability-dialogue.moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd {
+.availability-dialogue.lion-dialogue-base .lion-dialogue .lion-dialogue-bd {
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 2px;
@@ -1071,7 +1071,7 @@ x#fitem_id_availabilityconditionsjson input[type=text] {
 .smartselect .smartselect_menu_content ul li {position:relative;padding:2px 5px;}
 .smartselect .smartselect_menu_content ul li a {color:#333;text-decoration:none;}
 .smartselect .smartselect_menu_content ul li a.selectable {color:inherit;}
-.smartselect .smartselect_submenuitem {background-image:url([[pix:moodle|t/collapsed]]);background-repeat: no-repeat;background-position:100%;}
+.smartselect .smartselect_submenuitem {background-image:url([[pix:lion|t/collapsed]]);background-repeat: no-repeat;background-position:100%;}
 /** Spanning mode */
 .smartselect.spanningmenu .smartselect_submenu {position:absolute;top:-1px;left:100%;}
 .smartselect.spanningmenu .smartselect_submenu a {white-space: nowrap;padding-right:16px;}
@@ -1225,7 +1225,7 @@ x#fitem_id_availabilityconditionsjson input[type=text] {
 .mediaplugin_mp3 object {height:15px;width:300px}
 audio.mediaplugin_html5audio {width: 300px}
 
-/* TinyMCE moodle media preview frame should not have padding */
+/* TinyMCE lion media preview frame should not have padding */
 .core_media_preview.pagelayout-embedded #page-content {padding:0;}
 .core_media_preview.pagelayout-embedded #maincontent {height:0;}
 .core_media_preview.pagelayout-embedded .mediaplugin {margin:0;}
@@ -1359,18 +1359,18 @@ sup {vertical-align: super;}
 #page-admin-grade-edit-scale-edit.dir-rtl .error input#id_name {margin-right: 170px;}
 .initialbar a {padding-right: 2px;}
 
-/* Moodle Dialogue Settings (moodle-core-dialogue)  */
-.moodle-dialogue-base .moodle-dialogue-lightbox {
+/* Lion Dialogue Settings (lion-core-dialogue)  */
+.lion-dialogue-base .lion-dialogue-lightbox {
     background-color:#AAA;
 }
 
-.moodle-dialogue-base .moodle-dialogue {
+.lion-dialogue-base .lion-dialogue {
     outline: #000 dotted 0;
 }
 
-.moodle-dialogue-base .hidden,
-.moodle-dialogue-base .moodle-dialogue-hidden {display:none;}
-.moodle-dialogue-base .moodle-dialogue {
+.lion-dialogue-base .hidden,
+.lion-dialogue-base .lion-dialogue-hidden {display:none;}
+.lion-dialogue-base .lion-dialogue {
     padding: 0;
     margin: 0;
     background: none;
@@ -1381,24 +1381,24 @@ sup {vertical-align: super;}
 
 .no-scrolling { overflow: hidden; }
 
-.moodle-dialogue-base .moodle-dialogue-fullscreen {
+.lion-dialogue-base .lion-dialogue-fullscreen {
     left: 0px;
     top: 0px;
     right: 0px;
     bottom: -50px;
     position: fixed;
 }
-.moodle-dialogue-base .moodle-dialogue-fullscreen .moodle-dialogue-content {
+.lion-dialogue-base .lion-dialogue-fullscreen .lion-dialogue-content {
     overflow: auto;
 }
-.moodle-dialogue-base .moodle-dialogue-fullscreen .closebutton {
+.lion-dialogue-base .lion-dialogue-fullscreen .closebutton {
     width: 28px;
     height: 16px;
     background-size: 100%;
 }
 
 
-.moodle-dialogue-base .moodle-dialogue-wrap {
+.lion-dialogue-base .lion-dialogue-wrap {
     margin-top:-3px;
     margin-left:-3px;
     background-color: #FFFFFF;
@@ -1409,12 +1409,12 @@ sup {vertical-align: super;}
     -moz-box-shadow: 5px 5px 20px 0px #666666;
     overflow: hidden;
 }
-.moodle-dialogue-base h3 {
+.lion-dialogue-base h3 {
     margin: 0;
     line-height: 20px;
 }
-.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd,
-.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
+.lion-dialogue-base .lion-dialogue-wrap .lion-dialogue-hd,
+.lion-dialogue-base .lion-dialogue-wrap .lion-dialogue-hd.yui3-widget-hd {
     margin:0;
     padding:5px;
     font-size:12px;
@@ -1435,17 +1435,17 @@ sup {vertical-align: super;}
     background-image:         linear-gradient(to bottom, #FFFFFF, #CCCCCC); /* Standard syntax; must be last */
 }
 
-.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd h1 {
+.lion-dialogue-base .lion-dialogue-wrap .lion-dialogue-hd h1 {
     margin:0;
     padding:0;
     display:inline;
     font-size: 100%;
     font-weight: bold;
 }
-.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
+.lion-dialogue-base .lion-dialogue-wrap .lion-dialogue-hd .yui3-widget-buttons {
     padding: 5px;
 }
-.moodle-dialogue-base .closebutton {
+.lion-dialogue-base .closebutton {
     width:25px;
     height:15px;
     float:right;
@@ -1457,29 +1457,29 @@ sup {vertical-align: super;}
     background-repeat:no-repeat;
     border-style:none;
 }
-.dir-rtl .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
+.dir-rtl .lion-dialogue-base .lion-dialogue-wrap .lion-dialogue-hd .yui3-widget-buttons {
     left: 0px;
     right: auto;
 }
 
-.moodle-dialogue-base .moodle-dialogue .moodle-dialogue-bd {
+.lion-dialogue-base .lion-dialogue .lion-dialogue-bd {
     padding: 1em;
     line-height: 2em;
     color: #555;
     font-size: 12px;
 }
 
-.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-content {
+.lion-dialogue-base .lion-dialogue-wrap .lion-dialogue-content {
   padding:0px;
   background:#FFF;
 }
 
-.moodle-dialogue-base .moodle-dialogue-fullscreen .moodle-dialogue-hd {
+.lion-dialogue-base .lion-dialogue-fullscreen .lion-dialogue-hd {
     padding: 10px;
     font-size: 16px;
 }
 
-.moodle-dialogue-base .moodle-dialogue-fullscreen .moodle-dialogue-content {
+.lion-dialogue-base .lion-dialogue-fullscreen .lion-dialogue-content {
     overflow: auto;
     position: absolute;
     top: 0px;
@@ -1489,41 +1489,41 @@ sup {vertical-align: super;}
     margin: 0px;
     border: 0px;
 }
-.moodle-dialogue-base .moodle-dialogue-fullscreen .moodle-dialogue-hd,
-.moodle-dialogue-base .moodle-dialogue-fullscreen .moodle-dialogue-wrap {
+.lion-dialogue-base .lion-dialogue-fullscreen .lion-dialogue-hd,
+.lion-dialogue-base .lion-dialogue-fullscreen .lion-dialogue-wrap {
     border-radius: 0px;
 }
 
-.moodle-dialogue-confirm .confirmation-dialogue {text-align:center;}
-.moodle-dialogue-confirm .confirmation-dialogue input {text-align:center;}
-.moodle-dialogue-exception .moodle-exception-message {text-align:center}
-.moodle-dialogue-exception .moodle-exception-param label {font-weight:bold;}
-.moodle-dialogue-exception .param-stacktrace label {
+.lion-dialogue-confirm .confirmation-dialogue {text-align:center;}
+.lion-dialogue-confirm .confirmation-dialogue input {text-align:center;}
+.lion-dialogue-exception .lion-exception-message {text-align:center}
+.lion-dialogue-exception .lion-exception-param label {font-weight:bold;}
+.lion-dialogue-exception .param-stacktrace label {
     background-color:#EEE;
     border:1px solid #ccc;
     border-bottom-width:0;
 }
 
-.moodle-dialogue-exception .param-stacktrace pre {
+.lion-dialogue-exception .param-stacktrace pre {
     border:1px solid #ccc;
     background-color:#fff;
 }
 
-.moodle-dialogue-exception .param-stacktrace .stacktrace-file {
+.lion-dialogue-exception .param-stacktrace .stacktrace-file {
     color:navy;
     font-size:80%;
 }
-.moodle-dialogue-exception .param-stacktrace .stacktrace-line {
+.lion-dialogue-exception .param-stacktrace .stacktrace-line {
     color:#AA0000;
     font-size:80%;
 }
-.moodle-dialogue-exception .param-stacktrace .stacktrace-call {
+.lion-dialogue-exception .param-stacktrace .stacktrace-call {
     color:#333;
     font-size:90%;
     border-bottom:1px solid #eee;
 }
 
-.moodle-dialogue-base .moodle-dialogue .moodle-dialogue-content .moodle-dialogue-ft {
+.lion-dialogue-base .lion-dialogue .lion-dialogue-content .lion-dialogue-ft {
     padding:0px;
     margin: 0.7em 1em;
     text-align: right;
@@ -1531,38 +1531,38 @@ sup {vertical-align: super;}
     font-size: 12px;
 }
 
-.moodle-dialogue-confirm .confirmation-message {margin:0.5em 1em;}
-.moodle-dialogue-confirm .confirmation-dialogue input {min-width:80px}
-.moodle-dialogue-exception .moodle-exception-message {margin:1em;}
-.moodle-dialogue-exception .moodle-exception-param {margin-bottom:0.5em;}
-.moodle-dialogue-exception .moodle-exception-param label {width:150px;}
-.moodle-dialogue-exception .param-stacktrace label {
+.lion-dialogue-confirm .confirmation-message {margin:0.5em 1em;}
+.lion-dialogue-confirm .confirmation-dialogue input {min-width:80px}
+.lion-dialogue-exception .lion-exception-message {margin:1em;}
+.lion-dialogue-exception .lion-exception-param {margin-bottom:0.5em;}
+.lion-dialogue-exception .lion-exception-param label {width:150px;}
+.lion-dialogue-exception .param-stacktrace label {
     display:block;
     margin:0;
     padding:4px 1em;
 }
-.moodle-dialogue-exception .param-stacktrace pre {
+.lion-dialogue-exception .param-stacktrace pre {
     display:block;
     height:200px;
     overflow:auto;
 }
 
-.moodle-dialogue-exception .param-stacktrace .stacktrace-file {
+.lion-dialogue-exception .param-stacktrace .stacktrace-file {
     display:inline-block;
     margin:4px 0;
 }
-.moodle-dialogue-exception .param-stacktrace .stacktrace-line {
+.lion-dialogue-exception .param-stacktrace .stacktrace-line {
     display:inline-block;
     width:50px;
     margin:4px 1em;
 }
-.moodle-dialogue-exception .param-stacktrace .stacktrace-call {
+.lion-dialogue-exception .param-stacktrace .stacktrace-call {
     padding-left:25px;
     margin-bottom:4px;
     padding-bottom:4px;
 }
 
-.moodle-dialogue .moodle-dialogue-bd .content-lightbox {
+.lion-dialogue .lion-dialogue-bd .content-lightbox {
     opacity: .75;
     width: 100%;
     height: 100%;
@@ -1574,13 +1574,13 @@ sup {vertical-align: super;}
 }
 
 /* Apply a default max-height on tooltip text */
-.moodle-dialogue .tooltiptext {
+.lion-dialogue .tooltiptext {
     max-height: 300px;
 }
-.moodle-dialogue-base .moodle-dialogue.moodle-dialogue-tooltip {
+.lion-dialogue-base .lion-dialogue.lion-dialogue-tooltip {
     z-index: 3001;
 }
-.moodle-dialogue-base .moodle-dialogue.moodle-dialogue-tooltip .moodle-dialogue-bd {
+.lion-dialogue-base .lion-dialogue.lion-dialogue-tooltip .lion-dialogue-bd {
     overflow: auto;
 }
 
@@ -1588,7 +1588,7 @@ sup {vertical-align: super;}
 #page-question-edit.dir-rtl a.container-close {right:auto;left:6px;}
 
 /**
- * Chooser Dialogues (moodle-core-chooserdialogue)
+ * Chooser Dialogues (lion-core-chooserdialogue)
  *
  * This CSS belong to the chooser dialogue which should work both with, and
  * without javascript enabled
@@ -1598,11 +1598,11 @@ sup {vertical-align: super;}
 .choosertitle {
     display:none;
 }
-.moodle-dialogue.chooserdialogue .moodle-dialogue-content .moodle-dialogue-ft {
+.lion-dialogue.chooserdialogue .lion-dialogue-content .lion-dialogue-ft {
     margin: 0;
 }
 
-.chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-bd {
+.chooserdialogue .lion-dialogue-wrap .lion-dialogue-bd {
     padding: 0px;
     background: #F2F2F2;
     border-bottom-left-radius: 10px;
@@ -1960,104 +1960,104 @@ img#persona_signin { cursor: pointer; }
 .path-mod-lesson .centerpadded { padding: 5px; text-align: center; }
 
 /** Action menu component styles **/
-.moodle-actionmenu,
-.moodle-actionmenu > ul,
-.moodle-actionmenu > ul > li {display: inline-block;}
-.moodle-actionmenu ul {padding: 0;margin: 0;list-style-type: none;}
-#page .moodle-actionmenu a.hidden {display: none;}
-.moodle-actionmenu .toggle-display,
-.moodle-actionmenu .menu-action-text {display: none;}
+.lion-actionmenu,
+.lion-actionmenu > ul,
+.lion-actionmenu > ul > li {display: inline-block;}
+.lion-actionmenu ul {padding: 0;margin: 0;list-style-type: none;}
+#page .lion-actionmenu a.hidden {display: none;}
+.lion-actionmenu .toggle-display,
+.lion-actionmenu .menu-action-text {display: none;}
 
 .jsenabled .block .editing_move {display: none;}
-.jsenabled .moodle-actionmenu[data-enhance] {display: block;}
-.jsenabled .moodle-actionmenu[data-enhance] .menu {display: none;}
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display {display: inline;opacity: 0.5;filter: alpha(opacity=50);}
+.jsenabled .lion-actionmenu[data-enhance] {display: block;}
+.jsenabled .lion-actionmenu[data-enhance] .menu {display: none;}
+.jsenabled .lion-actionmenu[data-enhance] .toggle-display {display: inline;opacity: 0.5;filter: alpha(opacity=50);}
 
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
+.jsenabled .lion-actionmenu[data-enhance] .toggle-display.textmenu {
     display: block;
     margin-left: 4px;
     padding-left: 4px;
     padding-right: 4px;
 }
 
-.jsenabled.dir-rtl .moodle-actionmenu[data-enhance] .toggle-display.textmenu {
+.jsenabled.dir-rtl .lion-actionmenu[data-enhance] .toggle-display.textmenu {
     margin-right: 4px;
     margin-left: initial;
 }
 
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall {
+.jsenabled .lion-actionmenu[data-enhance] .toggle-display.textmenu .iconsmall {
     margin: 8px 4px 0px 2px;
 }
 
-.jsenabled .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
+.jsenabled .lion-actionmenu[data-enhance] .toggle-display.textmenu .caret {
     margin-top: 4px;
     margin-left: 2px;
 }
 
-.jsenabled.dir-rtl .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
+.jsenabled.dir-rtl .lion-actionmenu[data-enhance] .toggle-display.textmenu .caret {
     margin-right: 2px;
     margin-left: initial;
 }
 
-.jsenabled .moodle-actionmenu[data-enhanced] .toggle-display {opacity: 1;filter: alpha(opacity=100);}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu-action-text {
+.jsenabled .lion-actionmenu[data-enhanced] .toggle-display {opacity: 1;filter: alpha(opacity=100);}
+.jsenabled .lion-actionmenu[data-enhanced] .menu-action-text {
     display: inline;
 }
 
-.moodle-actionmenu[data-enhanced].show {position: relative;}
-.moodle-actionmenu[data-enhanced].show .menu {position: absolute;text-align:left;z-index: 1000;display: block;background-color: #fff;border: 1px solid #ccc;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: 5px 5px 20px 0 #666666;-moz-box-shadow: 5px 5px 20px 0 #666666;box-shadow: 5px 5px 20px 0 #666666;}
-.moodle-actionmenu[data-enhanced].show .menu a {
+.lion-actionmenu[data-enhanced].show {position: relative;}
+.lion-actionmenu[data-enhanced].show .menu {position: absolute;text-align:left;z-index: 1000;display: block;background-color: #fff;border: 1px solid #ccc;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow: 5px 5px 20px 0 #666666;-moz-box-shadow: 5px 5px 20px 0 #666666;box-shadow: 5px 5px 20px 0 #666666;}
+.lion-actionmenu[data-enhanced].show .menu a {
     display: block;
     padding: 2px 1em 2px 28px;
     color: #333333;
 }
-.moodle-actionmenu[data-enhanced].show .menu a > img {
+.lion-actionmenu[data-enhanced].show .menu a > img {
     margin: 4px 4px 4px -24px;
     padding: 4px;
     width: 12px;
     height: 12px;
 }
-.moodle-actionmenu[data-enhanced].show .menu a > img,
-.moodle-actionmenu[data-enhanced].show .menu a > span {
+.lion-actionmenu[data-enhanced].show .menu a > img,
+.lion-actionmenu[data-enhanced].show .menu a > span {
     display: inline-block;
     vertical-align: middle;
 }
-.moodle-actionmenu[data-enhanced].show .menu a:hover {color: #ffffff;background-color: #0088cc;}
-.moodle-actionmenu[data-enhanced].show .menu a:first-child {-webkit-border-top-right-radius: 4px;border-top-right-radius: 4px;-webkit-border-top-left-radius: 4px;border-top-left-radius: 4px;-moz-border-radius-topright: 4px;-moz-border-radius-topleft: 4px;}
-.moodle-actionmenu[data-enhanced].show .menu a:last-child {-webkit-border-bottom-right-radius: 4px;border-bottom-right-radius: 4px;-webkit-border-bottom-left-radius: 4px;border-bottom-left-radius: 4px;-moz-border-radius-bottomright: 4px;-moz-border-radius-bottomleft: 4px;}
-.moodle-actionmenu[data-enhanced].show .menu a.hidden {display: none;}
-.moodle-actionmenu[data-enhanced].show .menu img {vertical-align: middle;}
-.moodle-actionmenu[data-enhanced].show .menu > li {display: block;}
-.block .moodle-actionmenu {text-align: right;}
+.lion-actionmenu[data-enhanced].show .menu a:hover {color: #ffffff;background-color: #0088cc;}
+.lion-actionmenu[data-enhanced].show .menu a:first-child {-webkit-border-top-right-radius: 4px;border-top-right-radius: 4px;-webkit-border-top-left-radius: 4px;border-top-left-radius: 4px;-moz-border-radius-topright: 4px;-moz-border-radius-topleft: 4px;}
+.lion-actionmenu[data-enhanced].show .menu a:last-child {-webkit-border-bottom-right-radius: 4px;border-bottom-right-radius: 4px;-webkit-border-bottom-left-radius: 4px;border-bottom-left-radius: 4px;-moz-border-radius-bottomright: 4px;-moz-border-radius-bottomleft: 4px;}
+.lion-actionmenu[data-enhanced].show .menu a.hidden {display: none;}
+.lion-actionmenu[data-enhanced].show .menu img {vertical-align: middle;}
+.lion-actionmenu[data-enhanced].show .menu > li {display: block;}
+.block .lion-actionmenu {text-align: right;}
 
-.dir-rtl .block .moodle-actionmenu {text-align: right;}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu a { display: block; padding: 2px 28px 2px 1em; }
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu {text-align: right;right: auto;left: 0;}
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu .iconsmall,
-.dir-rtl .moodle-actionmenu[data-enhanced].show .menu .smallicon { margin-right: -24px; margin-left: 4px; }
+.dir-rtl .block .lion-actionmenu {text-align: right;}
+.dir-rtl .lion-actionmenu[data-enhanced].show .menu a { display: block; padding: 2px 28px 2px 1em; }
+.dir-rtl .lion-actionmenu[data-enhanced].show .menu {text-align: right;right: auto;left: 0;}
+.dir-rtl .lion-actionmenu[data-enhanced].show .menu .iconsmall,
+.dir-rtl .lion-actionmenu[data-enhanced].show .menu .smallicon { margin-right: -24px; margin-left: 4px; }
 
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tl-bl {top: 100%;left: 0;margin-top: 4px;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tr-bl {top: 100%;right: 100%;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-bl-bl {bottom: 100%;left: 0;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-br-bl {right: 100%;bottom: 100%;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tl-br {top: 100%;left: 100%;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tr-br {top: 100%;right: 0;margin-top: 4px;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-bl-br {bottom: 100%;left: 100%;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-br-br {right: 0;bottom: 100%;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tl-tl {top: 0;left: 0;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tr-tl {top: 0;right: 100%;margin-right: 4px;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-bl-tl {bottom: 100%;left: 0;margin-bottom: 4px;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-br-tl {right: 100%;bottom: 100%;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tl-tr {top: 0;left: 100%;margin-left: 4px;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-tr-tr {top: 0;right: 0;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-bl-tr {bottom: 100%;left: 100%;}
-.jsenabled .moodle-actionmenu[data-enhanced] .menu.align-br-tr {right: 0;bottom: 100%;margin-bottom: 4px;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tl-bl {top: 100%;left: 0;margin-top: 4px;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tr-bl {top: 100%;right: 100%;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-bl-bl {bottom: 100%;left: 0;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-br-bl {right: 100%;bottom: 100%;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tl-br {top: 100%;left: 100%;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tr-br {top: 100%;right: 0;margin-top: 4px;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-bl-br {bottom: 100%;left: 100%;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-br-br {right: 0;bottom: 100%;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tl-tl {top: 0;left: 0;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tr-tl {top: 0;right: 100%;margin-right: 4px;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-bl-tl {bottom: 100%;left: 0;margin-bottom: 4px;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-br-tl {right: 100%;bottom: 100%;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tl-tr {top: 0;left: 100%;margin-left: 4px;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-tr-tr {top: 0;right: 0;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-bl-tr {bottom: 100%;left: 100%;}
+.jsenabled .lion-actionmenu[data-enhanced] .menu.align-br-tr {right: 0;bottom: 100%;margin-bottom: 4px;}
 
-.moodle-actionmenu > ul > li[role="menuitem"] {
+.lion-actionmenu > ul > li[role="menuitem"] {
     display: none;
 }
 
-.jsenabled .moodle-actionmenu[data-enhance="moodle-core-actionmenu"] > ul > li[role="menuitem"] {
+.jsenabled .lion-actionmenu[data-enhance="lion-core-actionmenu"] > ul > li[role="menuitem"] {
     display: inline-block;
 }
 
@@ -2079,7 +2079,7 @@ img#persona_signin { cursor: pointer; }
 .dir-rtl .menu.align-br-tr {right: auto;left: 0;}
 
 ul.dragdrop-keyboard-drag li { list-style-type: none; }
-.block-control-actions .moodle-core-dragdrop-draghandle img { width: 12px; height: 12px; }
+.block-control-actions .lion-core-dragdrop-draghandle img { width: 12px; height: 12px; }
 
 .block .header h2,
 .course-content h3,
@@ -2301,7 +2301,7 @@ body.lockscroll {
   display: block;
 }
 
-.editor_atto_menu .moodle-dialogue-content {
+.editor_atto_menu .lion-dialogue-content {
     padding: 0;
     border: inherit;
 }

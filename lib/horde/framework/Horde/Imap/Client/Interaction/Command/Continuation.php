@@ -6,28 +6,22 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * An object representing a portion of an IMAP command that requires data
  * sent in a continuation response (RFC 3501 [2.2.1]).
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
- * @since     2.10.0
  */
 class Horde_Imap_Client_Interaction_Command_Continuation
 {
     /**
      * Is this an optional continuation request?
      *
-     * @since 2.13.0
      * @var boolean
      */
     public $optional = false;

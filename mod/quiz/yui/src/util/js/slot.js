@@ -1,19 +1,19 @@
 /**
  * A collection of utility classes for use with slots.
  *
- * @module moodle-mod_quiz-util
- * @submodule moodle-mod_quiz-util-slot
+ * @module lion-mod_quiz-util
+ * @submodule lion-mod_quiz-util-slot
  */
 
-Y.namespace('Moodle.mod_quiz.util.slot');
+Y.namespace('Lion.mod_quiz.util.slot');
 
 /**
  * A collection of utility classes for use with slots.
  *
- * @class Moodle.mod_quiz.util.slot
+ * @class Lion.mod_quiz.util.slot
  * @static
  */
-Y.Moodle.mod_quiz.util.slot = {
+Y.Lion.mod_quiz.util.slot = {
     CSS: {
         SLOT : 'slot',
         QUESTIONTYPEDESCRIPTION : 'qtype_description',
@@ -21,7 +21,7 @@ Y.Moodle.mod_quiz.util.slot = {
     },
     CONSTANTS: {
         SLOTIDPREFIX : 'slot-',
-        QUESTION : M.util.get_string('question', 'moodle')
+        QUESTION : M.util.get_string('question', 'lion')
     },
     SELECTORS: {
         SLOT: 'li.slot',
@@ -175,9 +175,9 @@ Y.Moodle.mod_quiz.util.slot = {
         // Loop through slots incrementing the number each time.
         slots.each(function(slot) {
 
-            if (!Y.Moodle.mod_quiz.util.page.getPageFromSlot(slot)) {
+            if (!Y.Lion.mod_quiz.util.page.getPageFromSlot(slot)) {
                 // Move the next page to the front.
-                var nextpage = slot.next(Y.Moodle.mod_quiz.util.page.SELECTORS.PAGE);
+                var nextpage = slot.next(Y.Lion.mod_quiz.util.page.SELECTORS.PAGE);
                 slot.swap(nextpage);
             }
 
@@ -204,14 +204,14 @@ Y.Moodle.mod_quiz.util.slot = {
      * @return void
      */
     remove: function(slot) {
-        var page = Y.Moodle.mod_quiz.util.page.getPageFromSlot(slot);
+        var page = Y.Lion.mod_quiz.util.page.getPageFromSlot(slot);
         slot.remove();
         // Is the page empty.
-        if (!Y.Moodle.mod_quiz.util.page.isEmpty(page)) {
+        if (!Y.Lion.mod_quiz.util.page.isEmpty(page)) {
             return;
         }
         // If so remove it. Including add menu and page break.
-        Y.Moodle.mod_quiz.util.page.remove(page);
+        Y.Lion.mod_quiz.util.page.remove(page);
     },
 
     /**
@@ -301,7 +301,7 @@ Y.Moodle.mod_quiz.util.slot = {
 
             // Get the correct title.
             var action = '', iconname = '';
-            if (Y.Moodle.mod_quiz.util.page.isPage(slot.next('li.activity'))) {
+            if (Y.Lion.mod_quiz.util.page.isPage(slot.next('li.activity'))) {
                 action = 'removepagebreak';
                 iconname = 'e/remove_page_break';
             } else {
@@ -387,12 +387,12 @@ Y.Moodle.mod_quiz.util.slot = {
             link.set('title', M.util.get_string('questiondependencyremove', 'quiz', a));
             link.setData('action', 'removedependency');
             icon.set('alt', M.util.get_string('questiondependsonprevious', 'quiz'));
-            icon.set('src', M.util.image_url('t/locked', 'moodle'));
+            icon.set('src', M.util.image_url('t/locked', 'lion'));
         } else {
             link.set('title', M.util.get_string('questiondependencyadd', 'quiz', a));
             link.setData('action', 'adddependency');
             icon.set('alt', M.util.get_string('questiondependencyfree', 'quiz'));
-            icon.set('src', M.util.image_url('t/unlocked', 'moodle'));
+            icon.set('src', M.util.image_url('t/unlocked', 'lion'));
         }
     }
 };

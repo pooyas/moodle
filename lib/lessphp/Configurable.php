@@ -3,8 +3,9 @@
 /**
  * Configurable
  *
- * @package Less
- * @subpackage Core
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class Less_Configurable {
 

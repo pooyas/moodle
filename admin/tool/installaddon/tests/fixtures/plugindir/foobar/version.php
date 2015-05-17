@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    admin_tool
+ * @subpackage installaddon
+ * @copyright  2015 Pooya Saeedi
+*/
+
 $module->version = 10; // Ignored, this should use $plugin
 $plugin->version = 2013031900;
 $plugin->component = 'local_foobar';

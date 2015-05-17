@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Tests for class coursecat from lib/coursecatlib.php
  *
- * @package    core
  * @category   phpunit
- * @copyright  2013 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/coursecatlib.php');
@@ -105,34 +92,34 @@ class core_coursecatlib_testcase extends advanced_testcase {
         try {
             coursecat::create(array('name' => ''));
             $this->fail('Missing category name exception expected in coursecat::create');
-        } catch (moodle_exception $e) {
-            $this->assertInstanceOf('moodle_exception', $e);
+        } catch (lion_exception $e) {
+            $this->assertInstanceOf('lion_exception', $e);
         }
         $cat1 = coursecat::create(array('name' => 'Cat1', 'idnumber' => '1'));
         try {
             $cat1->update(array('name' => ''));
             $this->fail('Missing category name exception expected in coursecat::update');
-        } catch (moodle_exception $e) {
-            $this->assertInstanceOf('moodle_exception', $e);
+        } catch (lion_exception $e) {
+            $this->assertInstanceOf('lion_exception', $e);
         }
         try {
             coursecat::create(array('name' => 'Cat2', 'idnumber' => '1'));
             $this->fail('Duplicate idnumber exception expected in coursecat::create');
-        } catch (moodle_exception $e) {
-            $this->assertInstanceOf('moodle_exception', $e);
+        } catch (lion_exception $e) {
+            $this->assertInstanceOf('lion_exception', $e);
         }
         $cat2 = coursecat::create(array('name' => 'Cat2', 'idnumber' => '2'));
         try {
             $cat2->update(array('idnumber' => '1'));
             $this->fail('Duplicate idnumber exception expected in coursecat::update');
-        } catch (moodle_exception $e) {
-            $this->assertInstanceOf('moodle_exception', $e);
+        } catch (lion_exception $e) {
+            $this->assertInstanceOf('lion_exception', $e);
         }
     }
 
     public function test_visibility() {
-        $this->assign_capability('moodle/category:viewhiddencategories');
-        $this->assign_capability('moodle/category:manage');
+        $this->assign_capability('lion/category:viewhiddencategories');
+        $this->assign_capability('lion/category:manage');
 
         // Create category 1 initially hidden.
         $category1 = coursecat::create(array('name' => 'Cat1', 'visible' => 0));
@@ -199,8 +186,8 @@ class core_coursecatlib_testcase extends advanced_testcase {
     }
 
     public function test_hierarchy() {
-        $this->assign_capability('moodle/category:viewhiddencategories');
-        $this->assign_capability('moodle/category:manage');
+        $this->assign_capability('lion/category:viewhiddencategories');
+        $this->assign_capability('lion/category:manage');
 
         $category1 = coursecat::create(array('name' => 'Cat1'));
         $category2 = coursecat::create(array('name' => 'Cat2', 'parent' => $category1->id));
@@ -221,8 +208,8 @@ class core_coursecatlib_testcase extends advanced_testcase {
         try {
             $category2->change_parent($category4->id);
             $this->fail('Exception expected - can not move category');
-        } catch (moodle_exception $e) {
-            $this->assertInstanceOf('moodle_exception', $e);
+        } catch (lion_exception $e) {
+            $this->assertInstanceOf('lion_exception', $e);
         }
 
         $category4->change_parent(0);
@@ -252,8 +239,8 @@ class core_coursecatlib_testcase extends advanced_testcase {
     public function test_delete() {
         global $DB;
 
-        $this->assign_capability('moodle/category:manage');
-        $this->assign_capability('moodle/course:create');
+        $this->assign_capability('lion/category:manage');
+        $this->assign_capability('lion/course:create');
 
         $initialcatid = $DB->get_field_sql('SELECT max(id) from {course_categories}');
 
@@ -284,8 +271,8 @@ class core_coursecatlib_testcase extends advanced_testcase {
         // Delete category 2 and move content to category 3.
         $this->assertFalse($category2->can_move_content_to($category3->id)); // No luck!
         // Add necessary capabilities.
-        $this->assign_capability('moodle/course:create', CAP_ALLOW, context_coursecat::instance($category3->id));
-        $this->assign_capability('moodle/category:manage');
+        $this->assign_capability('lion/course:create', CAP_ALLOW, context_coursecat::instance($category3->id));
+        $this->assign_capability('lion/category:manage');
         $this->assertTrue($category2->can_move_content_to($category3->id)); // Hurray!
         $category2->delete_move($category3->id);
 
@@ -309,7 +296,7 @@ class core_coursecatlib_testcase extends advanced_testcase {
         // Delete category 3 completely.
         $this->assertFalse($category3->can_delete_full()); // No luck!
         // Add necessary capabilities.
-        $this->assign_capability('moodle/course:delete', CAP_ALLOW, context_coursecat::instance($category3->id));
+        $this->assign_capability('lion/course:delete', CAP_ALLOW, context_coursecat::instance($category3->id));
         $this->assertTrue($category3->can_delete_full()); // Hurray!
         $category3->delete_full();
 

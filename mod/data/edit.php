@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This file is part of the Database module for Moodle
+ * This file is part of the Database module for Lion
  *
- * @copyright 2005 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package mod_data
+ * @package    mod
+ * @subpackage data
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');
@@ -36,7 +23,7 @@ $mode ='addtemplate';    //define the mode for this page, only 1 mode available
 
 
 
-$url = new moodle_url('/mod/data/edit.php');
+$url = new lion_url('/mod/data/edit.php');
 if ($rid !== 0) {
     $record = $DB->get_record('data_records', array(
             'id' => $rid,
@@ -84,7 +71,7 @@ if (isguestuser()) {
 $context = context_module::instance($cm->id);
 
 /// If it's hidden then it doesn't show anything.  :)
-if (empty($cm->visible) and !has_capability('moodle/course:viewhiddenactivities', $context)) {
+if (empty($cm->visible) and !has_capability('lion/course:viewhiddenactivities', $context)) {
     $strdatabases = get_string("modulenameplural", "data");
 
     $PAGE->set_title($data->name);
@@ -210,7 +197,7 @@ if ($datarecord = data_submitted() and confirm_sesskey()) {
             $event->add_record_snapshot('data', $data);
             $event->trigger();
 
-            $viewurl = new moodle_url('/mod/data/view.php', array(
+            $viewurl = new lion_url('/mod/data/view.php', array(
                 'd' => $data->id,
                 'rid' => $rid,
             ));
@@ -263,7 +250,7 @@ if ($datarecord = data_submitted() and confirm_sesskey()) {
             $event->trigger();
 
             if (!empty($datarecord->saveandview)) {
-                $viewurl = new moodle_url('/mod/data/view.php', array(
+                $viewurl = new lion_url('/mod/data/view.php', array(
                     'd' => $data->id,
                     'rid' => $recordid,
                 ));

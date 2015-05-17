@@ -1,7 +1,9 @@
 <?php
 /**
  * Class Minify_ClosureCompiler
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -27,9 +29,6 @@
  * @todo unit tests, $options docs
  * @todo more options support (or should just passthru them all?)
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
- * @author Elan Ruusamäe <glen@delfi.ee>
  */
 class Minify_ClosureCompiler {
 

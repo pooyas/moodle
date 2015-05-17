@@ -1,7 +1,7 @@
 {
-    "moodle-atto_indent-button": {
+    "lion-atto_indent-button": {
         "requires": [
-            "moodle-editor_atto-plugin"
+            "lion-editor_atto-plugin"
         ]
     }
 }

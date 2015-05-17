@@ -1,18 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    mod
+ * @subpackage scorm
+ * @copyright  2015 Pooya Saeedi
+*/
 
 // Prevent Caching Headers.
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -35,7 +29,7 @@ $aiccdata = optional_param('aicc_data', '', PARAM_RAW);
 
 $cfgscorm = get_config('scorm');
 
-$url = new moodle_url('/mod/scorm/aicc.php', array('command' => $command, 'session_id' => $sessionid));
+$url = new lion_url('/mod/scorm/aicc.php', array('command' => $command, 'session_id' => $sessionid));
 if ($aiccdata !== 0) {
     $url->param('aicc_data', $aiccdata);
 }
@@ -85,10 +79,10 @@ if (!empty($command)) {
     } else {
         print_error('cannotcallscript');
     }
-    $aiccrequest = "MOODLE scoid: $scoid"
-                 . "\r\nMOODLE mode: $mode"
-                 . "\r\nMOODLE status: $status"
-                 . "\r\nMOODLE attempt: $attempt"
+    $aiccrequest = "LION scoid: $scoid"
+                 . "\r\nLION mode: $mode"
+                 . "\r\nLION status: $status"
+                 . "\r\nLION attempt: $attempt"
                  . "\r\nAICC sessionid: $sessionid"
                  . "\r\nAICC command: $command"
                  . "\r\nAICC aiccdata:\r\n$aiccdata";

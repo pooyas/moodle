@@ -1,7 +1,7 @@
 {
-  "name": "moodle-course-modchooser",
+  "name": "lion-course-modchooser",
   "builds": {
-    "moodle-course-modchooser": {
+    "lion-course-modchooser": {
       "jsfiles": [
         "modchooser.js"
       ]

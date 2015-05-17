@@ -3,6 +3,9 @@
 /**
  * A UTF-8 specific character encoder that handles cleaning and transforming.
  * @note All functions in this class should be static.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Encoder
 {

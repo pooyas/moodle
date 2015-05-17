@@ -12,6 +12,9 @@
  * An attribute transformation can be assigned to run before or after
  * HTMLPurifier_AttrDef validation.  See HTMLPurifier_HTMLDefinition for
  * more details.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 abstract class HTMLPurifier_AttrTransform

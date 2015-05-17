@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The administration and management interface for the cache setup and configuration.
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -120,7 +107,7 @@ if (!empty($action) && confirm_sesskey()) {
                 if (!$confirm) {
                     $title = get_string('confirmstoredeletion', 'cache');
                     $params = array('store' => $store, 'confirm' => 1, 'action' => $action, 'sesskey' => sesskey());
-                    $url = new moodle_url($PAGE->url, $params);
+                    $url = new lion_url($PAGE->url, $params);
                     $button = new single_button($url, get_string('deletestore', 'cache'));
 
                     $PAGE->set_title($title);
@@ -259,7 +246,7 @@ if (!empty($action) && confirm_sesskey()) {
                 if (!$confirm) {
                     $title = get_string('confirmlockdeletion', 'cache');
                     $params = array('lock' => $lock, 'confirm' => 1, 'action' => $action, 'sesskey' => sesskey());
-                    $url = new moodle_url($PAGE->url, $params);
+                    $url = new lion_url($PAGE->url, $params);
                     $button = new single_button($url, get_string('deletelock', 'cache'));
 
                     $PAGE->set_title($title);
@@ -295,7 +282,7 @@ echo $renderer->header();
 echo $renderer->heading($title);
 echo $renderer->notifications($notifications);
 
-if ($mform instanceof moodleform) {
+if ($mform instanceof lionform) {
     $mform->display();
 } else {
     echo $renderer->store_plugin_summaries($plugins);
@@ -306,7 +293,7 @@ if ($mform instanceof moodleform) {
     $applicationstore = join(', ', $defaultmodestores[cache_store::MODE_APPLICATION]);
     $sessionstore = join(', ', $defaultmodestores[cache_store::MODE_SESSION]);
     $requeststore = join(', ', $defaultmodestores[cache_store::MODE_REQUEST]);
-    $editurl = new moodle_url('/cache/admin.php', array('action' => 'editmodemappings', 'sesskey' => sesskey()));
+    $editurl = new lion_url('/cache/admin.php', array('action' => 'editmodemappings', 'sesskey' => sesskey()));
     echo $renderer->mode_mappings($applicationstore, $sessionstore, $requeststore, $editurl);
 }
 

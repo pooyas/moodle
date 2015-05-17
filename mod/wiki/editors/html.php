@@ -2,12 +2,11 @@
 /**
  * This file defines a simple editor
  *
- * @author Jordi Piguillem
- * @author Josep Arus
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_wiki
  *
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**

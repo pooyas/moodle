@@ -14,6 +14,9 @@
  * questionably deprecated elements that do not have good alternatives
  * as well as transform elements that don't have an implementation.
  * See docs/ref-strictness.txt for more details.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_HTMLModule_Legacy extends HTMLPurifier_HTMLModule

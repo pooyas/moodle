@@ -1,7 +1,9 @@
 <?php
 /**
  * Groups configuration for default Minify implementation
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** 

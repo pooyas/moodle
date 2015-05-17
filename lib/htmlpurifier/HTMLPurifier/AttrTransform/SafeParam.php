@@ -11,6 +11,9 @@
  *
  * @warning
  *      This class expects an injector to add the necessary parameters tags.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_SafeParam extends HTMLPurifier_AttrTransform
 {

@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+*/
+
        // phpinfo.php - shows phpinfo for the current server
 
     require_once("../config.php");

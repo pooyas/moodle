@@ -1,7 +1,7 @@
 {
-    "name": "moodle-backup-confirmcancel",
+    "name": "lion-backup-confirmcancel",
     "builds": {
-        "moodle-backup-confirmcancel": {
+        "lion-backup-confirmcancel": {
             "jsfiles": [
                 "confirmcancel.js"
             ]

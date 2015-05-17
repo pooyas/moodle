@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the definition for the grading table which subclassses easy_table
  *
- * @package   tool_assignmentupgrade
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage assignmentupgrade
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/tablelib.php');
 require_once($CFG->libdir.'/gradelib.php');
@@ -31,9 +18,6 @@ require_once($CFG->dirroot.'/mod/assign/locallib.php');
 /**
  * Extends table_sql to provide a table of assignment submissions
  *
- * @package   tool_assignmentupgrade
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_assignmentupgrade_assignments_table extends table_sql implements renderable {
 
@@ -59,7 +43,7 @@ class tool_assignmentupgrade_assignments_table extends table_sql implements rend
         $this->perpage = $perpage;
         $this->output = $PAGE->get_renderer('tool_assignmentupgrade');
 
-        $this->define_baseurl(new moodle_url('/admin/tool/assignmentupgrade/listnotupgraded.php'));
+        $this->define_baseurl(new lion_url('/admin/tool/assignmentupgrade/listnotupgraded.php'));
 
         $this->anyupgradableassignments = tool_assignmentupgrade_any_upgradable_assignments();
 
@@ -127,7 +111,7 @@ class tool_assignmentupgrade_assignments_table extends table_sql implements rend
      * @return string
      */
     public function col_name(stdClass $row) {
-        $url = new moodle_url('/mod/assignment/view.php', array('a' => $row->id));
+        $url = new lion_url('/mod/assignment/view.php', array('a' => $row->id));
         return html_writer::link($url, $row->name);
     }
 
@@ -141,7 +125,7 @@ class tool_assignmentupgrade_assignments_table extends table_sql implements rend
     public function col_upgradable(stdClass $row) {
         if ($row->upgradable) {
             $urlparams = array('id' => $row->id, 'sesskey' => sesskey());
-            $url = new moodle_url('/admin/tool/assignmentupgrade/upgradesingleconfirm.php', $urlparams);
+            $url = new lion_url('/admin/tool/assignmentupgrade/upgradesingleconfirm.php', $urlparams);
             return html_writer::link($url, get_string('supported', 'tool_assignmentupgrade'));
         } else {
             return get_string('notsupported', 'tool_assignmentupgrade');

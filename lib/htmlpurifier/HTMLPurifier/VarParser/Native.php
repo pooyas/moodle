@@ -4,6 +4,9 @@
  * This variable parser uses PHP's internal code engine. Because it does
  * this, it can represent all inputs; however, it is dangerous and cannot
  * be used by users.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_VarParser_Native extends HTMLPurifier_VarParser
 {

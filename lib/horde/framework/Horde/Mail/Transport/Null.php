@@ -30,22 +30,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @copyright 2010 Phil Kernick
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Null implementation of the mail transport interface.
  *
- * @author    Phil Kernick <philk@rotfl.com.au>
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @copyright 2010 Phil Kernick
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  */
 class Horde_Mail_Transport_Null extends Horde_Mail_Transport
 {

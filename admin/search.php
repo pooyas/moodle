@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // searches for admin settings
 
 require_once('../config.php');

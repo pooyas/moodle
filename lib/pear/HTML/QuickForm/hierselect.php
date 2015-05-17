@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -29,10 +36,7 @@ require_once('HTML/QuickForm/select.php');
  * This element is considered as a group. Selects will be named
  * groupName[0], groupName[1], groupName[2]...
  *
- * @author       Herim Vasquez <vasquezh@iro.umontreal.ca>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_hierselect extends HTML_QuickForm_group

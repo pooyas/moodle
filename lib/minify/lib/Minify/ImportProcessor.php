@@ -1,7 +1,9 @@
 <?php
 /**
  * Class Minify_ImportProcessor
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -14,9 +16,6 @@
  *
  * This has a unit test but should be considered "experimental".
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
- * @author Simon Schick <simonsimcity@gmail.com>
  */
 class Minify_ImportProcessor {
 

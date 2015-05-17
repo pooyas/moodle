@@ -1,39 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Class that represents the exclude checkbox on a grade_grade.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace gradereport_singleview\local\ui;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 use grade_grade;
 
 /**
  * Class that represents the exclude checkbox on a grade_grade.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class exclude extends grade_attribute_format implements be_checked {
 
@@ -90,7 +74,7 @@ class exclude extends grade_attribute_format implements be_checked {
 
             // Fill in arbitrary grade to be excluded.
             $gradeitem->update_final_grade(
-                $this->grade->userid, null, 'singleview', null, FORMAT_MOODLE
+                $this->grade->userid, null, 'singleview', null, FORMAT_LION
             );
 
             $gradeparams = array(

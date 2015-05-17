@@ -1,30 +1,14 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /*
  * Question Bank Management.
  *
- * @package    question
- * @copyright  2014 Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
  * Questionbank Management.
  *
- * @module moodle-question-qbankmanager
+ * @module lion-question-qbankmanager
  */
 
 /**
@@ -65,7 +49,7 @@ var manager = {
         }
         this._header.setAttrs({
             disabled: false,
-            title: M.util.get_string('selectall', 'moodle')
+            title: M.util.get_string('selectall', 'lion')
         });
 
         this._header.on('click', this._headerClick, this);
@@ -89,10 +73,10 @@ var manager = {
         // We base the state of all of the questions on the state of the first.
         if (this._firstCheckbox.get('checked')) {
             categoryQuestions.set('checked', false);
-            this._header.setAttribute('title', M.util.get_string('selectall', 'moodle'));
+            this._header.setAttribute('title', M.util.get_string('selectall', 'lion'));
         } else {
             categoryQuestions.set('checked', true);
-            this._header.setAttribute('title', M.util.get_string('deselectall', 'moodle'));
+            this._header.setAttribute('title', M.util.get_string('deselectall', 'lion'));
         }
 
         this._header.set('checked', false);

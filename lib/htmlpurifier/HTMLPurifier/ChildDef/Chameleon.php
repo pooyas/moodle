@@ -8,6 +8,9 @@
  * Chameleon allows this behavior to happen by using two different
  * definitions depending on context.  While this somewhat generalized,
  * it is specifically intended for those two tags.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ChildDef_Chameleon extends HTMLPurifier_ChildDef
 {

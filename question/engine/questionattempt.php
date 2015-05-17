@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file defines the question attempt class, and a few related classes.
  *
- * @package    moodlecore
- * @subpackage questionengine
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question
+ * @subpackage engine
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -38,8 +24,6 @@ defined('MOODLE_INTERNAL') || die();
  * a collection of {@link question_attempt_steps}. Question inteaction models and
  * question types do work with question_attempt objects.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt {
     /**
@@ -535,7 +519,7 @@ class question_attempt {
      * @return string the URL of that file.
      */
     public function get_response_file_url(stored_file $file) {
-        return file_encode_url(new moodle_url('/pluginfile.php'), '/' . implode('/', array(
+        return file_encode_url(new lion_url('/pluginfile.php'), '/' . implode('/', array(
                 $file->get_contextid(),
                 $file->get_component(),
                 $file->get_filearea(),
@@ -1464,8 +1448,6 @@ class question_attempt {
  *
  * All methods that try to modify the question_attempt throw exceptions.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_with_restricted_history extends question_attempt {
     /**
@@ -1550,8 +1532,6 @@ class question_attempt_with_restricted_history extends question_attempt {
  * This is actively linked to question_attempt. If you add an new step
  * mid-iteration, then it will be included.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_step_iterator implements Iterator, ArrayAccess {
     /** @var question_attempt the question_attempt being iterated over. */
@@ -1609,8 +1589,6 @@ class question_attempt_step_iterator implements Iterator, ArrayAccess {
  * A variant of {@link question_attempt_step_iterator} that iterates through the
  * steps in reverse order.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_reverse_step_iterator extends question_attempt_step_iterator {
     public function next() {
@@ -1626,8 +1604,6 @@ class question_attempt_reverse_step_iterator extends question_attempt_step_itera
  * A variant of {@link question_attempt_step_iterator} that iterates through the
  * steps with submitted tries.
  *
- * @copyright  2014 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_attempt_steps_with_submitted_response_iterator extends question_attempt_step_iterator implements Countable {
 

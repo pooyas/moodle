@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once 'Google/Client.php';
@@ -23,8 +26,6 @@ require_once 'Google/Utils/URITemplate.php';
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
  *
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Http_REST
 {

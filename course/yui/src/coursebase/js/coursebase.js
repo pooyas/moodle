@@ -1,8 +1,8 @@
 /**
  * The coursebase class to provide shared functionality to Modules within
- * Moodle.
+ * Lion.
  *
- * @module moodle-course-coursebase
+ * @module lion-course-coursebase
  */
 var COURSEBASENAME = 'course-coursebase';
 
@@ -12,7 +12,7 @@ var COURSEBASE = function() {
 
 /**
  * The coursebase class to provide shared functionality to Modules within
- * Moodle.
+ * Lion.
  *
  * @class M.course.coursebase
  * @constructor
@@ -123,7 +123,7 @@ M.course.format.get_section_selector = M.course.format.get_section_selector || f
     if (config.section_node && config.section_class) {
         return config.section_node + '.' + config.section_class;
     }
-    Y.log('section_node and section_class are not defined in M.course.format.get_config', 'warn', 'moodle-course-coursebase');
+    Y.log('section_node and section_class are not defined in M.course.format.get_config', 'warn', 'lion-course-coursebase');
     return null;
 };
 
@@ -155,7 +155,7 @@ M.course.format.get_containernode = M.course.format.get_containernode || functio
     if (config.container_node) {
         return config.container_node;
     } else {
-        Y.log('container_node is not defined in M.course.format.get_config', 'warn', 'moodle-course-coursebase');
+        Y.log('container_node is not defined in M.course.format.get_config', 'warn', 'lion-course-coursebase');
     }
 };
 
@@ -170,7 +170,7 @@ M.course.format.get_containerclass = M.course.format.get_containerclass || funct
     if (config.container_class) {
         return config.container_class;
     } else {
-        Y.log('container_class is not defined in M.course.format.get_config', 'warn', 'moodle-course-coursebase');
+        Y.log('container_class is not defined in M.course.format.get_config', 'warn', 'lion-course-coursebase');
     }
 };
 
@@ -215,7 +215,7 @@ M.course.format.get_sectionnode = M.course.format.get_sectionnode || function() 
     if (config.section_node) {
         return config.section_node;
     } else {
-        Y.log('section_node is not defined in M.course.format.get_config', 'warn', 'moodle-course-coursebase');
+        Y.log('section_node is not defined in M.course.format.get_config', 'warn', 'lion-course-coursebase');
     }
 };
 
@@ -230,6 +230,6 @@ M.course.format.get_sectionclass = M.course.format.get_sectionclass || function(
     if (config.section_class) {
         return config.section_class;
     } else {
-        Y.log('section_class is not defined in M.course.format.get_config', 'warn', 'moodle-course-coursebase');
+        Y.log('section_class is not defined in M.course.format.get_config', 'warn', 'lion-course-coursebase');
     }
 };

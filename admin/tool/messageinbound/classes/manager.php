@@ -1,36 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The Mail Pickup Manager.
  *
- * @package    tool_messageinbound
- * @copyright  2014 Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage messageinbound
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace tool_messageinbound;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Mail Pickup Manager.
  *
- * @copyright  2014 Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class manager {
 
@@ -652,7 +637,7 @@ class manager {
             // Perform a virus scan now.
             try {
                 \repository::antivir_scan_file($filepath, $attachment->filename, true);
-            } catch (\moodle_exception $e) {
+            } catch (\lion_exception $e) {
                 mtrace("--> A virus was found in the attachment '{$attachment->filename}'.");
                 $this->inform_attachment_virus();
                 return;
@@ -955,7 +940,7 @@ class manager {
         $messageparams = new \stdClass();
         $messageparams->html    = $message->html;
         $messageparams->plain   = $message->plain;
-        $messagepreferencesurl = new \moodle_url("/message/edit.php", array('id' => $USER->id));
+        $messagepreferencesurl = new \lion_url("/message/edit.php", array('id' => $USER->id));
         $messageparams->messagepreferencesurl = $messagepreferencesurl->out();
         $htmlmessage = get_string('messageprocessingsuccesshtml', 'tool_messageinbound', $messageparams);
         $plainmessage = get_string('messageprocessingsuccess', 'tool_messageinbound', $messageparams);

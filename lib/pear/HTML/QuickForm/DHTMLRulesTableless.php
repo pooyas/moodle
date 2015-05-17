@@ -12,16 +12,11 @@
  * send a note to license@php.net so we can mail you a copy immediately.
  *
  * @category   HTML
- * @package    HTML_QuickForm_DHTMLRulesTableless
- * @author     Alexey Borzov <borz_off@cs.msu.su>
- * @author     Adam Daniel <adaniel1@eesus.jnj.com>
- * @author     Bertrand Mansion <bmansion@mamasam.com>
- * @author     Justin Patrin <papercrane@gmail.com>
- * @author     Mark Wiesemann <wiesemann@php.net>
- * @copyright  2005-2006 The PHP Group
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/HTML_QuickForm_DHTMLRulesTableless
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once 'HTML/QuickForm.php';
@@ -31,13 +26,6 @@ require_once 'HTML/QuickForm.php';
  * client-side validation of forms built with HTML_QuickForm
  *
  * @category   HTML
- * @package    HTML_QuickForm_DHTMLRulesTableless
- * @author     Alexey Borzov <borz_off@cs.msu.su>
- * @author     Adam Daniel <adaniel1@eesus.jnj.com>
- * @author     Bertrand Mansion <bmansion@mamasam.com>
- * @author     Justin Patrin <papercrane@gmail.com>
- * @author     Mark Wiesemann <wiesemann@php.net>
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    Release: 0.1.3
  * @link       http://pear.php.net/package/HTML_QuickForm_DHTMLRulesTableless
  */

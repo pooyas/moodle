@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_barcodes_2d.php
 // Version     : 1.0.015
@@ -35,17 +42,13 @@
 /**
  * @file
  * PHP class to creates array representations for 2D barcodes to be used with TCPDF.
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.015
  */
 
 /**
  * @class TCPDF2DBarcode
  * PHP class to creates array representations for 2D barcodes to be used with TCPDF (http://www.tcpdf.org).
- * @package com.tecnick.tcpdf
  * @version 1.0.015
- * @author Nicola Asuni
  */
 class TCPDF2DBarcode {
 

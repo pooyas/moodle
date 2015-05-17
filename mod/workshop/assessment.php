@@ -1,19 +1,6 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Assess a submission or view the single assessment
@@ -29,9 +16,9 @@
  * has been prepared for him/her (during the allocation). So even a user without the
  * peerassess capability (like a 'teacher', for example) can become a reviewer.
  *
- * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -66,7 +53,7 @@ if ($canviewallsubmissions) {
     // check this flag against the group membership yet
     if (groups_get_activity_groupmode($workshop->cm) == SEPARATEGROUPS) {
         // user must have accessallgroups or share at least one group with the submission author
-        if (!has_capability('moodle/site:accessallgroups', $workshop->context)) {
+        if (!has_capability('lion/site:accessallgroups', $workshop->context)) {
             $usersgroups = groups_get_activity_allowed_groups($workshop->cm);
             $authorsgroups = groups_get_all_groups($workshop->course->id, $submission->authorid, $workshop->cm->groupingid, 'g.id');
             $sharedgroups = array_intersect_key($usersgroups, $authorsgroups);
@@ -106,7 +93,7 @@ if ($assessmenteditable and $workshop->useexamples and $workshop->examplesmode =
         $assessmenteditable = false;
         echo $output->header();
         echo $output->heading(format_string($workshop->name));
-        notice(get_string('exampleneedsubmission', 'workshop'), new moodle_url('/mod/workshop/view.php', array('id' => $cm->id)));
+        notice(get_string('exampleneedsubmission', 'workshop'), new lion_url('/mod/workshop/view.php', array('id' => $cm->id)));
         echo $output->footer();
         exit;
     } else {
@@ -116,7 +103,7 @@ if ($assessmenteditable and $workshop->useexamples and $workshop->examplesmode =
                 $assessmenteditable = false;
                 echo $output->header();
                 echo $output->heading(format_string($workshop->name));
-                notice(get_string('exampleneedassessed', 'workshop'), new moodle_url('/mod/workshop/view.php', array('id' => $cm->id)));
+                notice(get_string('exampleneedassessed', 'workshop'), new lion_url('/mod/workshop/view.php', array('id' => $cm->id)));
                 echo $output->footer();
                 exit;
             }

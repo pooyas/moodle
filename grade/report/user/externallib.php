@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * External grade report user API
  *
- * @package    gradereport_user
- * @copyright  2015 Juan Leyva <juan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
@@ -30,10 +17,7 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * External grade report API implementation
  *
- * @package    gradereport_user
- * @copyright  2015 Juan Leyva <juan@moodle.com>
  * @category   external
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gradereport_user_external extends external_api {
 
@@ -41,7 +25,6 @@ class gradereport_user_external extends external_api {
      * Describes the parameters for get_grades_table.
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.9
      */
     public static function get_grades_table_parameters() {
         return new external_function_parameters (
@@ -59,7 +42,6 @@ class gradereport_user_external extends external_api {
      * @param int $userid   Only this user (optional)
      *
      * @return array the grades tables
-     * @since Moodle 2.9
      */
     public static function get_grades_table($courseid, $userid = 0) {
         global $CFG, $USER;
@@ -89,23 +71,23 @@ class gradereport_user_external extends external_api {
         $user = null;
 
         if (empty($userid)) {
-            require_capability('moodle/grade:viewall', $context);
+            require_capability('lion/grade:viewall', $context);
         } else {
             $user = core_user::get_user($userid, '*', MUST_EXIST);
         }
 
         $access = false;
 
-        if (has_capability('moodle/grade:viewall', $context)) {
+        if (has_capability('lion/grade:viewall', $context)) {
             // Can view all course grades.
             $access = true;
-        } else if ($userid == $USER->id and has_capability('moodle/grade:view', $context) and $course->showgrades) {
+        } else if ($userid == $USER->id and has_capability('lion/grade:view', $context) and $course->showgrades) {
             // View own grades.
             $access = true;
         }
 
         if (!$access) {
-            throw new moodle_exception('nopermissiontoviewgrades', 'error');
+            throw new lion_exception('nopermissiontoviewgrades', 'error');
         }
 
         // Require files here to save some memory in case validation fails.
@@ -140,7 +122,7 @@ class gradereport_user_external extends external_api {
         } else {
             $defaultgradeshowactiveenrol = !empty($CFG->grade_report_showonlyactiveenrol);
             $showonlyactiveenrol = get_user_preferences('grade_report_showonlyactiveenrol', $defaultgradeshowactiveenrol);
-            $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('moodle/course:viewsuspendedusers', $context);
+            $showonlyactiveenrol = $showonlyactiveenrol || !has_capability('lion/course:viewsuspendedusers', $context);
 
             $gui = new graded_users_iterator($course);
             $gui->require_active_enrolment($showonlyactiveenrol);
@@ -172,7 +154,6 @@ class gradereport_user_external extends external_api {
      * Creates a table column structure
      *
      * @return array
-     * @since  Moodle 2.9
      */
     private static function grades_table_column() {
         return array (
@@ -186,7 +167,6 @@ class gradereport_user_external extends external_api {
      * Describes tget_grades_table return value.
      *
      * @return external_single_structure
-     * @since Moodle 2.9
      */
     public static function get_grades_table_returns() {
         return new external_single_structure(

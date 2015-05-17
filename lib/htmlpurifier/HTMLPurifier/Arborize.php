@@ -6,6 +6,9 @@
  *
  * @note This transformation is not an equivalence.  We mutate the input
  * token stream to make it so; see all [MUT] markers in code.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Arborize
 {

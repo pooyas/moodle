@@ -8,6 +8,9 @@
  * at the string.  If one of them passes, that's what is returned.  This is
  * especially useful for CSS values, which often are a choice between
  * an enumerated set of predefined values or a flexible data type.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_Composite extends HTMLPurifier_AttrDef
 {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="lib/db" VERSION="20150306" COMMENT="XMLDB file for core Moodle tables"
+<XMLDB PATH="lib/db" VERSION="20150306" COMMENT="XMLDB file for core Lion tables"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="config" COMMENT="Moodle configuration variables">
+    <TABLE NAME="config" COMMENT="Lion configuration variables">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
@@ -15,7 +15,7 @@
         <KEY NAME="name" TYPE="unique" FIELDS="name"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="config_plugins" COMMENT="Moodle modules and plugins configuration variables">
+    <TABLE NAME="config_plugins" COMMENT="Lion modules and plugins configuration variables">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="plugin" TYPE="char" LENGTH="100" NOTNULL="true" DEFAULT="core" SEQUENCE="false"/>
@@ -504,7 +504,7 @@
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="log_display" COMMENT="For a particular module/action, specifies a moodle table/field">
+    <TABLE NAME="log_display" COMMENT="For a particular module/action, specifies a lion table/field">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="module" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
@@ -597,7 +597,7 @@
         <INDEX NAME="name" UNIQUE="false" FIELDS="name"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="my_pages" COMMENT="Extra user pages for the My Moodle system">
+    <TABLE NAME="my_pages" COMMENT="Extra user pages for the My Lion system">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="The user who owns this page or 0 for system defaults"/>
@@ -972,7 +972,7 @@
         <INDEX NAME="subject" UNIQUE="false" FIELDS="subject"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="role" COMMENT="moodle roles">
+    <TABLE NAME="role" COMMENT="lion roles">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Empty names are automatically localised"/>
@@ -1298,7 +1298,7 @@
         <KEY NAME="questionid" TYPE="foreign" FIELDS="questionid" REFTABLE="question" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="question_usages" COMMENT="This table's main purpose it to assign a unique id to each attempt at a set of questions by some part of Moodle. A question usage is made up of a number of question_attempts.">
+    <TABLE NAME="question_usages" COMMENT="This table's main purpose it to assign a unique id to each attempt at a set of questions by some part of Lion. A question usage is made up of a number of question_attempts.">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Every question usage must be associated with some context."/>
@@ -1621,7 +1621,7 @@
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="eventname" TYPE="char" LENGTH="166" NOTNULL="true" SEQUENCE="false" COMMENT="name of the event, e.g. 'grade_updated'"/>
-        <FIELD NAME="component" TYPE="char" LENGTH="166" NOTNULL="true" SEQUENCE="false" COMMENT="e.g. moodle, mod_forum, block_rss_client"/>
+        <FIELD NAME="component" TYPE="char" LENGTH="166" NOTNULL="true" SEQUENCE="false" COMMENT="e.g. lion, mod_forum, block_rss_client"/>
         <FIELD NAME="handlerfile" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="path to the file of the function, eg /grade/export/lib.php"/>
         <FIELD NAME="handlerfunction" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="serialized string or array describing function, suitable to be passed to call_user_func()"/>
         <FIELD NAME="schedule" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="'cron' or 'instant'."/>
@@ -2008,7 +2008,7 @@
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="tagid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="component" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Defines the Moodle component which the tag was added to"/>
+        <FIELD NAME="component" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Defines the Lion component which the tag was added to"/>
         <FIELD NAME="itemtype" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="The context id of the item that was tagged"/>
@@ -2074,7 +2074,7 @@
         <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="timeadded" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
-        <FIELD NAME="component" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Defines the Moodle component which added this group membership (e.g. 'auth_myplugin'), or blank if it was added manually. (Entries which are created by a Moodle component cannot be removed in the normal user interface.)"/>
+        <FIELD NAME="component" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Defines the Lion component which added this group membership (e.g. 'auth_myplugin'), or blank if it was added manually. (Entries which are created by a Lion component cannot be removed in the normal user interface.)"/>
         <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If the 'component' field is set, this can be used to define the instance of the component that created the entry. Otherwise should be left as default (0)."/>
       </FIELDS>
       <KEYS>
@@ -2149,7 +2149,7 @@
         <INDEX NAME="script-value" UNIQUE="false" FIELDS="script, value" COMMENT="index used for key validation"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="grade_letters" COMMENT="Repository for grade letters, for courses and other moodle entities that use grades.">
+    <TABLE NAME="grade_letters" COMMENT="Repository for grade letters, for courses and other lion entities that use grades.">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="What contextid does this letter apply to (for now these will always be courses, but later...)"/>
@@ -2268,7 +2268,7 @@
         <FIELD NAME="caller_component" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="the component name responsible for exporting"/>
         <FIELD NAME="caller_sha1" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="sha1 of exported content as far as the caller is concerned (before the portfolio plugin gets a hold of it)"/>
         <FIELD NAME="tempdataid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="old id from portfolio_tempdata.  This is so that we can gracefully catch a race condition between an external system requesting a file and causing the tempdata to be deleted, before the user gets the &quot;your transfer is requested&quot; page"/>
-        <FIELD NAME="returnurl" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="the original &quot;returnurl&quot; of the export - takes us to the moodle page we started from"/>
+        <FIELD NAME="returnurl" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="the original &quot;returnurl&quot; of the export - takes us to the lion page we started from"/>
         <FIELD NAME="continueurl" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="the url the external system has set to view the transfer"/>
       </FIELDS>
       <KEYS>
@@ -2488,7 +2488,7 @@
         <INDEX NAME="blockinstanceid-contextid-pagetype-subpage" UNIQUE="true" FIELDS="blockinstanceid, contextid, pagetype, subpage"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="comments" COMMENT="moodle comments module">
+    <TABLE NAME="comments" COMMENT="lion comments module">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -2603,7 +2603,7 @@
         <KEY NAME="blogid" TYPE="foreign" FIELDS="blogid" REFTABLE="post" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="blog_external" COMMENT="External blog links used for RSS copying of blog entries to Moodle user blogs">
+    <TABLE NAME="blog_external" COMMENT="External blog links used for RSS copying of blog entries to Lion user blogs">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -2620,7 +2620,7 @@
         <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
       </KEYS>
     </TABLE>
-    <TABLE NAME="rating" COMMENT="moodle ratings">
+    <TABLE NAME="rating" COMMENT="lion ratings">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -2642,7 +2642,7 @@
         <INDEX NAME="uniqueuserrating" UNIQUE="false" FIELDS="component, ratingarea, contextid, itemid" COMMENT="These fields define a unique user rating of an item"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="license" COMMENT="store licenses used by moodle">
+    <TABLE NAME="license" COMMENT="store licenses used by lion">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="shortname" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
@@ -2676,7 +2676,7 @@
         <FIELD NAME="operation" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="backup" SEQUENCE="false" COMMENT="Type of operation (backup/restore)"/>
         <FIELD NAME="type" TYPE="char" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Type of the backup (activity/section/course)"/>
         <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="id of the module/section/activity being backup"/>
-        <FIELD NAME="format" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="format of the backup (moodle/imscc...)"/>
+        <FIELD NAME="format" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="format of the backup (lion/imscc...)"/>
         <FIELD NAME="interactive" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="is the backup interactive (1-yes/0-no)"/>
         <FIELD NAME="purpose" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="purpose (target) of the backup (general, import, hub...)"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="user that owns/performs the backup"/>
@@ -2967,7 +2967,7 @@
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
-        <FIELD NAME="appid" TYPE="char" LENGTH="128" NOTNULL="true" SEQUENCE="false" COMMENT="the app id, usually something like com.moodle.moodlemobile"/>
+        <FIELD NAME="appid" TYPE="char" LENGTH="128" NOTNULL="true" SEQUENCE="false" COMMENT="the app id, usually something like com.lion.lionmobile"/>
         <FIELD NAME="name" TYPE="char" LENGTH="32" NOTNULL="true" SEQUENCE="false" COMMENT="the device name, occam or iPhone etc.."/>
         <FIELD NAME="model" TYPE="char" LENGTH="32" NOTNULL="true" SEQUENCE="false" COMMENT="the device model, Nexus 4 or iPad 1,1"/>
         <FIELD NAME="platform" TYPE="char" LENGTH="32" NOTNULL="true" SEQUENCE="false" COMMENT="the device platform, Android or iOS etc"/>

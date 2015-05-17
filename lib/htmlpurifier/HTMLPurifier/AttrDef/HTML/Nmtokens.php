@@ -2,6 +2,9 @@
 
 /**
  * Validates contents based on NMTOKENS attribute type.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_HTML_Nmtokens extends HTMLPurifier_AttrDef
 {

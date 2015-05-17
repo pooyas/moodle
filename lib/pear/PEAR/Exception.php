@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4 foldmethod=marker: */
 /**
  * PEAR_Exception
@@ -6,16 +13,8 @@
  * PHP versions 4 and 5
  *
  * @category   pear
- * @package    PEAR
- * @author     Tomas V. V. Cox <cox@idecnet.com>
- * @author     Hans Lellelid <hans@velum.net>
- * @author     Bertrand Mansion <bmansion@mamasam.com>
- * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2009 The Authors
- * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/PEAR
- * @since      File available since Release 1.3.3
  */
 
 
@@ -82,16 +81,8 @@
  * </code>
  *
  * @category   pear
- * @package    PEAR
- * @author     Tomas V.V.Cox <cox@idecnet.com>
- * @author     Hans Lellelid <hans@velum.net>
- * @author     Bertrand Mansion <bmansion@mamasam.com>
- * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2009 The Authors
- * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @version    Release: 1.9.1
  * @link       http://pear.php.net/package/PEAR
- * @since      Class available since Release 1.3.3
  *
  */
 class PEAR_Exception extends Exception

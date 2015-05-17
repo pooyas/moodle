@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for /lib/filestorage/file_storage.php
  *
- * @package   core_files
  * @category  phpunit
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/filelib.php');
@@ -40,7 +27,7 @@ class core_files_file_storage_testcase extends advanced_testcase {
 
         $this->resetAfterTest(true);
 
-        // Number of files installed in the database on a fresh Moodle site.
+        // Number of files installed in the database on a fresh Lion site.
         $installedfiles = $DB->count_records('files', array());
 
         $content = 'abcd';
@@ -110,7 +97,7 @@ class core_files_file_storage_testcase extends advanced_testcase {
 
         $this->resetAfterTest(true);
 
-        // Number of files installed in the database on a fresh Moodle site.
+        // Number of files installed in the database on a fresh Lion site.
         $installedfiles = $DB->count_records('files', array());
 
         $filepath = $CFG->dirroot.'/lib/filestorage/tests/fixtures/testimage.jpg';
@@ -264,7 +251,6 @@ class core_files_file_storage_testcase extends advanced_testcase {
     /**
      * Make sure renaming is working
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
      */
     public function test_file_renaming() {
         global $CFG;
@@ -309,7 +295,6 @@ class core_files_file_storage_testcase extends advanced_testcase {
     /**
      * Create file from reference tests
      *
-     * @copyright 2012 Dongsheng Cai {@link http://dongsheng.org}
      */
     public function test_create_file_from_reference() {
         global $CFG, $DB;

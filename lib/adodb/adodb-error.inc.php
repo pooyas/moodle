@@ -9,6 +9,9 @@
  *
  * The following code is adapted from the PEAR DB error handling code.
  * Portions (c)1997-2002 The PHP Group.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 

@@ -2,6 +2,9 @@
 
 /**
  * Concrete element node class.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Node_Element extends HTMLPurifier_Node
 {

@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Tests user menu functionality.
  *
  * @package    core
- * @copyright  2015 Jetha Chan <jetha@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class core_user_menu_testcase extends advanced_testcase {
 
@@ -42,8 +29,8 @@ class core_user_menu_testcase extends advanced_testcase {
 
             // These are valid but have an invalid string identifiers or components. They will still produce a menu
             // item, and no exception should be thrown.
-            array('#my1files,moodle|/user/files.php|download', 1, 0),
-            array('#my1files,moodleakjladf|/user/files.php|download', 1, 0),
+            array('#my1files,lion|/user/files.php|download', 1, 0),
+            array('#my1files,lionakjladf|/user/files.php|download', 1, 0),
             array('#my1files,a/b|/user/files.php|download', 1, 0),
             array('#my1files,#b|/user/files.php|download', 1, 0),
 
@@ -58,7 +45,7 @@ class core_user_menu_testcase extends advanced_testcase {
 
             // And these are combinations containing both valid and invalid.
             array('messages,message|/message/index.php|message
-myfiles,moodle|/user/files.php|download
+myfiles,lion|/user/files.php|download
 ###
 mybadges,badges|/badges/mybadges.php|award
 -|-|-
@@ -82,7 +69,7 @@ test
         // Must reset because of config and user modifications.
         $this->resetAfterTest(true);
 
-        // Test using an admin user at the root of Moodle; this way we don't have to create a test user with avatar.
+        // Test using an admin user at the root of Lion; this way we don't have to create a test user with avatar.
         $this->setAdminUser();
         $PAGE->set_url('/');
 

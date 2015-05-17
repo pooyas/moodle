@@ -1,45 +1,31 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * Form page for an external blog link.
  *
- * @package    moodlecore
+ * @package    core
  * @subpackage blog
- * @copyright  2009 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
 require_once('lib.php');
 require_once('external_blog_edit_form.php');
-require_once($CFG->libdir . '/simplepie/moodle_simplepie.php');
+require_once($CFG->libdir . '/simplepie/lion_simplepie.php');
 require_once($CFG->dirroot.'/tag/lib.php');
 
 require_login();
 $context = context_system::instance();
-require_capability('moodle/blog:manageexternal', $context);
+require_capability('lion/blog:manageexternal', $context);
 
 // TODO redirect if $CFG->useexternalblogs is off,
 //                  $CFG->maxexternalblogsperuser == 0,
 //                  or if user doesn't have caps to manage external blogs.
 
 $id = optional_param('id', null, PARAM_INT);
-$url = new moodle_url('/blog/external_blog_edit.php');
+$url = new lion_url('/blog/external_blog_edit.php');
 if ($id !== null) {
     $url->param('id', $id);
 }
@@ -47,7 +33,7 @@ $PAGE->set_url($url);
 $PAGE->set_context($context);
 $PAGE->set_pagelayout('admin');
 
-$returnurl = new moodle_url('/blog/external_blogs.php');
+$returnurl = new lion_url('/blog/external_blogs.php');
 
 $action = (empty($id)) ? 'add' : 'edit';
 
@@ -73,7 +59,7 @@ if ($externalblogform->is_cancelled()) {
     // Save stuff in db.
     switch ($action) {
         case 'add':
-            $rss = new moodle_simplepie($data->url);
+            $rss = new lion_simplepie($data->url);
 
             $newexternal = new stdClass();
             $newexternal->name = (empty($data->name)) ? $rss->get_title() : $data->name;
@@ -96,7 +82,7 @@ if ($externalblogform->is_cancelled()) {
         case 'edit':
             if ($data->id && $DB->record_exists('blog_external', array('id' => $data->id))) {
 
-                $rss = new moodle_simplepie($data->url);
+                $rss = new lion_simplepie($data->url);
 
                 $external->id = $data->id;
                 $external->name = (empty($data->name)) ? $rss->get_title() : $data->name;

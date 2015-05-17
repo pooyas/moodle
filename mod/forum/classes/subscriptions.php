@@ -1,36 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Forum subscription manager.
  *
- * @package    mod_forum
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace mod_forum;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Forum subscription manager.
  *
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class subscriptions {
 
@@ -236,7 +221,7 @@ class subscriptions {
             if (empty($forum->visible)) {
                 // The forum is hidden - check if the user can view the forum.
                 $context = \context_module::instance($forum->cm);
-                if (!has_capability('moodle/course:viewhiddenactivities', $context)) {
+                if (!has_capability('lion/course:viewhiddenactivities', $context)) {
                     // The user can't see the hidden forum to cannot unsubscribe.
                     continue;
                 }

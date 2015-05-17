@@ -19,11 +19,11 @@ Feature: List the system steps definitions
     Given I set the field "Type" to "Then. Checkings to ensure the outcomes are the expected ones"
     When I press "Filter"
     Then I should see "Checks, that page contains specified text."
-    And I should not see "Opens Moodle homepage."
+    And I should not see "Opens Lion homepage."
 
   @javascript
   Scenario: Filtering by keyword
     Given I set the field "Contains" to "homepage"
     When I press "Filter"
-    Then I should see "Opens Moodle homepage."
+    Then I should see "Opens Lion homepage."
 

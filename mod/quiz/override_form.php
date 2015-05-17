@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Settings form for overrides in the quiz module.
  *
- * @package    mod_quiz
- * @copyright  2010 Matt Petro
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php');
 require_once($CFG->dirroot . '/mod/quiz/mod_form.php');
@@ -32,10 +19,8 @@ require_once($CFG->dirroot . '/mod/quiz/mod_form.php');
 /**
  * Form for editing settings overrides.
  *
- * @copyright  2010 Matt Petro
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class quiz_override_form extends moodleform {
+class quiz_override_form extends lionform {
 
     /** @var object course module object. */
     protected $cm;
@@ -57,7 +42,7 @@ class quiz_override_form extends moodleform {
 
     /**
      * Constructor.
-     * @param moodle_url $submiturl the form action URL.
+     * @param lion_url $submiturl the form action URL.
      * @param object course module object.
      * @param object the quiz settings object.
      * @param context the quiz context.
@@ -99,7 +84,7 @@ class quiz_override_form extends moodleform {
                 $groups = groups_get_all_groups($cm->course);
                 if (empty($groups)) {
                     // Generate an error.
-                    $link = new moodle_url('/mod/quiz/overrides.php', array('cmid'=>$cm->id));
+                    $link = new lion_url('/mod/quiz/overrides.php', array('cmid'=>$cm->id));
                     print_error('groupsnone', 'quiz', $link);
                 }
 
@@ -146,7 +131,7 @@ class quiz_override_form extends moodleform {
 
                 if (empty($users)) {
                     // Generate an error.
-                    $link = new moodle_url('/mod/quiz/overrides.php', array('cmid'=>$cm->id));
+                    $link = new lion_url('/mod/quiz/overrides.php', array('cmid'=>$cm->id));
                     print_error('usersnone', 'quiz', $link);
                 }
 

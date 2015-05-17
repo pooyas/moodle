@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once "Google/Cache/Abstract.php";
@@ -24,7 +27,6 @@ require_once "Google/Cache/Exception.php";
  * It will also get you into a heap of trouble when you try to run
  * this in a clustered environment.
  *
- * @author Chris Chabot <chabotc@google.com>
  */
 class Google_Cache_File extends Google_Cache_Abstract
 {

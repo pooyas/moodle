@@ -39,10 +39,9 @@
  * +-----------------------------------------------------------------------+
  *
  * @category  Horde
- * @copyright 2002-2003 Richard Heyes
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -50,12 +49,6 @@
  * (defined in RFC 2831). This method has been obsoleted by RFC 6331, but
  * still is in use on legacy servers.
  *
- * @author    Richard Heyes <richard@php.net>
- * @author    Michael Slusarz <slusarz@horde.org>
- * @copyright 2002-2003 Richard Heyes
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Auth_DigestMD5
 {

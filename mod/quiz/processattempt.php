@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This page deals with processing responses during an attempt at a quiz.
@@ -23,9 +10,9 @@
  *
  * This code used to be near the top of attempt.php, if you are looking for CVS history.
  *
- * @package   mod_quiz
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../../config.php');
@@ -87,7 +74,7 @@ require_sesskey();
 
 // Check that this attempt belongs to this user.
 if ($attemptobj->get_userid() != $USER->id) {
-    throw new moodle_quiz_exception($attemptobj->get_quizobj(), 'notyourattempt');
+    throw new lion_quiz_exception($attemptobj->get_quizobj(), 'notyourattempt');
 }
 
 // Check capabilities.
@@ -97,7 +84,7 @@ if (!$attemptobj->is_preview_user()) {
 
 // If the attempt is already closed, send them to the review page.
 if ($attemptobj->is_finished()) {
-    throw new moodle_quiz_exception($attemptobj->get_quizobj(),
+    throw new lion_quiz_exception($attemptobj->get_quizobj(),
             'attemptalreadyclosed', null, $attemptobj->review_url());
 }
 

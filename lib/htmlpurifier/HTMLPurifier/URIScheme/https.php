@@ -2,6 +2,9 @@
 
 /**
  * Validates https (Secure HTTP) according to http scheme.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIScheme_https extends HTMLPurifier_URIScheme_http
 {

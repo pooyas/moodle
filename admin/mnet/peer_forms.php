@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains two forms for adding/editing mnet hosts, used by peers.php
  *
- * @package    core
+ * @package    admin
  * @subpackage mnet
- * @copyright  2010 Penny Leach
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php');
 
@@ -32,7 +18,7 @@ require_once($CFG->libdir . '/formslib.php');
  * The very basic first step add new host form - just wwwroot & application
  * The second form is loaded up with the information from this one.
  */
-class mnet_simple_host_form extends moodleform {
+class mnet_simple_host_form extends lionform {
     function definition() {
         global $DB;
 
@@ -70,7 +56,7 @@ class mnet_simple_host_form extends moodleform {
  * The second step of the form - reviewing the host details
  * This is also the same form that is used for editing an existing host
  */
-class mnet_review_host_form extends moodleform {
+class mnet_review_host_form extends lionform {
     function definition() {
         global $OUTPUT;
 

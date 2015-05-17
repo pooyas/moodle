@@ -3,6 +3,9 @@
 /**
  * Validates shorthand CSS property background.
  * @warning Does not support url tokens that have internal spaces.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_Background extends HTMLPurifier_AttrDef
 {

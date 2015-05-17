@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Page for editing questions.
  *
- * @package    moodlecore
- * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage question
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -42,7 +28,7 @@ $appendqnumstring = optional_param('appendqnumstring', '', PARAM_ALPHA);
 $inpopup = optional_param('inpopup', 0, PARAM_BOOL);
 $scrollpos = optional_param('scrollpos', 0, PARAM_INT);
 
-$url = new moodle_url('/question/question.php');
+$url = new lion_url('/question/question.php');
 if ($id !== 0) {
     $url->param('id', $id);
 }
@@ -79,9 +65,9 @@ if ($scrollpos) {
 $PAGE->set_url($url);
 
 if ($cmid) {
-    $questionbankurl = new moodle_url('/question/edit.php', array('cmid' => $cmid));
+    $questionbankurl = new lion_url('/question/edit.php', array('cmid' => $cmid));
 } else {
-    $questionbankurl = new moodle_url('/question/edit.php', array('courseid' => $courseid));
+    $questionbankurl = new lion_url('/question/edit.php', array('courseid' => $courseid));
 }
 navigation_node::override_active_url($questionbankurl);
 
@@ -89,7 +75,7 @@ if ($originalreturnurl) {
     if (strpos($originalreturnurl, '/') !== 0) {
         throw new coding_exception("returnurl must be a local URL starting with '/'. $originalreturnurl was given.");
     }
-    $returnurl = new moodle_url($originalreturnurl);
+    $returnurl = new lion_url($originalreturnurl);
 } else {
     $returnurl = $questionbankurl;
 }
@@ -136,7 +122,7 @@ if ($id) {
 } else if ($categoryid) {
     // Category, but no qtype. They probably came from the addquestion.php
     // script without choosing a question type. Send them back.
-    $addurl = new moodle_url('/question/addquestion.php', $url->params());
+    $addurl = new lion_url('/question/addquestion.php', $url->params());
     $addurl->param('validationerror', 1);
     redirect($addurl);
 
@@ -155,7 +141,7 @@ if (!$category = $DB->get_record('question_categories', array('id' => $question-
 $question->formoptions = new stdClass();
 
 $categorycontext = context::instance_by_id($category->contextid);
-$addpermission = has_capability('moodle/question:add', $categorycontext);
+$addpermission = has_capability('lion/question:add', $categorycontext);
 
 if ($id) {
     $question->formoptions->canedit = question_has_capability_on($question, 'edit');
@@ -179,7 +165,7 @@ if ($id) {
     $question->formoptions->cansaveasnew = false;
     $question->formoptions->repeatelements = true;
     $formeditable = true;
-    require_capability('moodle/question:add', $categorycontext);
+    require_capability('lion/question:add', $categorycontext);
 }
 $question->formoptions->mustbeusable = (bool) $appendqnumstring;
 
@@ -256,7 +242,7 @@ if ($mform->is_cancelled()) {
     if (!empty($question->id)) {
         question_require_capability_on($question, 'edit');
     } else {
-        require_capability('moodle/question:add', context::instance_by_id($contextid));
+        require_capability('lion/question:add', context::instance_by_id($contextid));
         if (!empty($fromform->makecopy) && !$question->formoptions->cansaveasnew) {
             print_error('nopermissions', '', '', 'edit');
         }
@@ -304,7 +290,7 @@ if ($mform->is_cancelled()) {
         }
         $nexturlparams['id'] = $question->id;
         $nexturlparams['wizardnow'] = $fromform->wizard;
-        $nexturl = new moodle_url('/question/question.php', $nexturlparams);
+        $nexturl = new lion_url('/question/question.php', $nexturlparams);
         if ($cmid){
             $nexturl->param('cmid', $cmid);
         } else {

@@ -48,6 +48,6 @@ body.dir-rtl.has_dock  {margin-left: 0px; margin-right: 30px}
 
 /* Hide the move icon for blocks which are docked */
 #dock .editing_move,
-#dock .moodle-core-dragdrop-draghandle {
+#dock .lion-core-dragdrop-draghandle {
     display: none;
 }

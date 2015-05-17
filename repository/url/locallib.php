@@ -33,6 +33,9 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
  * OF SUCH DAMAGE.
+ * @package    repository
+ * @subpackage url
+ * @copyright  2015 Pooya Saeedi
  */
 
 /*
@@ -40,7 +43,7 @@
  * See:  http://www.opensource.org/licenses/bsd-license.php
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Combine a base URL and a relative URL to produce a new

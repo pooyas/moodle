@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 global $CFG;
 require_once($CFG->dirroot . '/lib/password_compat/lib/password.php');
 

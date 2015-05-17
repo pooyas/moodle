@@ -1,32 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Interface and classes for creating appropriate renderers for various parts of Moodle.
+ * Interface and classes for creating appropriate renderers for various parts of Lion.
  *
- * Please see http://docs.moodle.org/en/Developement:How_Moodle_outputs_HTML
+ * Please see http://docs.lion.org/en/Developement:How_Lion_outputs_HTML
  * for an overview.
  *
- * @copyright 2009 Tim Hunt
- * @license  http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core
  * @category output
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** General rendering target, usually normal browser page */
 define('RENDERER_TARGET_GENERAL', 'general');
@@ -51,7 +38,7 @@ define('RENDERER_TARGET_HTMLEMAIL', 'htmlemail');
 
 /**
  * A renderer factory is just responsible for creating an appropriate renderer
- * for any given part of Moodle.
+ * for any given part of Lion.
  *
  * Which renderer factory to use is chose by the current theme, and an instance
  * if created automatically when the theme is set up.
@@ -59,19 +46,15 @@ define('RENDERER_TARGET_HTMLEMAIL', 'htmlemail');
  * A renderer factory must also have a constructor that takes a theme_config object.
  * (See {@link renderer_factory_base::__construct} for an example.)
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 interface renderer_factory {
 
     /**
-     * Return the renderer for a particular part of Moodle.
+     * Return the renderer for a particular part of Lion.
      *
      * The renderer interfaces are defined by classes called {plugin}_renderer
-     * where {plugin} is the name of the component. The renderers for core Moodle are
+     * where {plugin} is the name of the component. The renderers for core Lion are
      * defined in lib/renderer.php. For plugins, they will be defined in a file
      * called renderer.php inside the plugin.
      *
@@ -86,13 +69,13 @@ interface renderer_factory {
      * $subtype parameter. For example workshop_renderer,
      * workshop_allocation_manual_renderer etc.
      *
-     * @param moodle_page $page the page the renderer is outputting content for.
+     * @param lion_page $page the page the renderer is outputting content for.
      * @param string $component name such as 'core', 'mod_forum' or 'qtype_multichoice'.
      * @param string $subtype optional subtype such as 'news' resulting to 'mod_forum_news'
      * @param string $target one of rendering target constants
      * @return renderer_base an object implementing the requested renderer interface.
      */
-    public function get_renderer(moodle_page $page, $component, $subtype=null, $target=null);
+    public function get_renderer(lion_page $page, $component, $subtype=null, $target=null);
 }
 
 
@@ -105,10 +88,6 @@ interface renderer_factory {
  * It also has a method to get the name of, and include the renderer.php with
  * the definition of, the standard renderer class for a given module.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 abstract class renderer_factory_base implements renderer_factory {
@@ -277,14 +256,10 @@ abstract class renderer_factory_base implements renderer_factory {
 }
 
 /**
- * This is the default renderer factory for Moodle.
+ * This is the default renderer factory for Lion.
  *
  * It simply returns an instance of the appropriate standard renderer class.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class standard_renderer_factory extends renderer_factory_base {
@@ -292,13 +267,13 @@ class standard_renderer_factory extends renderer_factory_base {
     /**
      * Implement the subclass method
      *
-     * @param moodle_page $page the page the renderer is outputting content for.
+     * @param lion_page $page the page the renderer is outputting content for.
      * @param string $component name such as 'core', 'mod_forum' or 'qtype_multichoice'.
      * @param string $subtype optional subtype such as 'news' resulting to 'mod_forum_news'
      * @param string $target one of rendering target constants
      * @return renderer_base an object implementing the requested renderer interface.
      */
-    public function get_renderer(moodle_page $page, $component, $subtype = null, $target = null) {
+    public function get_renderer(lion_page $page, $component, $subtype = null, $target = null) {
         $classnames = $this->standard_renderer_classnames($component, $subtype);
         $classname = '';
 
@@ -354,10 +329,6 @@ class standard_renderer_factory extends renderer_factory_base {
  * parenttheme_component_renderer, instead of a component_renderer,
  * if either of those classes exist.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class theme_overridden_renderer_factory extends renderer_factory_base {
@@ -380,13 +351,13 @@ class theme_overridden_renderer_factory extends renderer_factory_base {
     /**
      * Implement the subclass method
      *
-     * @param moodle_page $page the page the renderer is outputting content for.
+     * @param lion_page $page the page the renderer is outputting content for.
      * @param string $component name such as 'core', 'mod_forum' or 'qtype_multichoice'.
      * @param string $subtype optional subtype such as 'news' resulting to 'mod_forum_news'
      * @param string $target one of rendering target constants
      * @return renderer_base an object implementing the requested renderer interface.
      */
-    public function get_renderer(moodle_page $page, $component, $subtype = null, $target = null) {
+    public function get_renderer(lion_page $page, $component, $subtype = null, $target = null) {
         $classnames = $this->standard_renderer_classnames($component, $subtype);
 
         list($target, $suffix) = $this->get_target_suffix($target);

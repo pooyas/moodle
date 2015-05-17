@@ -1,14 +1,14 @@
 <?php
 /**
- * Class Minify_Controller_MinApp  
- * @package Minify
+ * Class Minify_Controller_MinApp
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Controller class for requests to /min/index.php
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class Minify_Controller_MinApp extends Minify_Controller_Base {
     

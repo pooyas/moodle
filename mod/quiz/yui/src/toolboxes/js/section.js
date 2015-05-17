@@ -4,7 +4,7 @@
  * This class is responsible for managing AJAX interactions with activities and resources
  * when viewing a course in editing mode.
  *
- * @module moodle-mod_quiz-toolboxes
+ * @module lion-mod_quiz-toolboxes
  * @namespace M.mod_quiz.toolboxes
  */
 

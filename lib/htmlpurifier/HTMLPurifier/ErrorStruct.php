@@ -5,6 +5,9 @@
  * attributes or CSS properties. They can contain error structs (which apply
  * to components of what they represent), but their main purpose is to hold
  * errors applying to whatever struct is being used.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ErrorStruct
 {

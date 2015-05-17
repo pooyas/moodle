@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    auth
+ * @subpackage fc
+ * @copyright  2015 Pooya Saeedi
+*/
+
     // set to defaults if undefined
     if (!isset($config->host)) {
         $config->host = "127.0.0.1";
@@ -8,7 +15,7 @@
         $config->fppport = "3333";
     }
     if (!isset($config->userid)) {
-        $config->userid = "fcMoodle";
+        $config->userid = "fcLion";
     }
     if (!isset($config->passwd)) {
         $config->passwd = "";
@@ -86,6 +93,13 @@
         <input name="changepasswordurl" id="changepasswordurl" type="text" value="<?php echo $config->changepasswordurl ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage fc
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['changepasswordurl'])) {
             echo $OUTPUT->error_text($err['changepasswordurl']);
         }
@@ -96,6 +110,13 @@
 </tr>
 
 <?php
+
+
+/**
+ * @package    auth
+ * @subpackage fc
+ * @copyright  2015 Pooya Saeedi
+*/
 
 print_auth_lock_options($this->authtype, $user_fields, get_string('auth_fieldlocks_help', 'auth'), false, false);
 

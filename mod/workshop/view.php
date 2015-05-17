@@ -1,19 +1,6 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Prints a particular instance of workshop
@@ -21,9 +8,9 @@
  * You can have a rather longer description of the file as well,
  * if you like, and it can span multiple lines.
  *
- * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -128,7 +115,7 @@ case workshop::PHASE_SETUP:
                 $summary->editable = true;
                 echo $output->render($summary);
             }
-            $aurl = new moodle_url($workshop->exsubmission_url(0), array('edit' => 'on'));
+            $aurl = new lion_url($workshop->exsubmission_url(0), array('edit' => 'on'));
             echo $output->single_button($aurl, get_string('exampleadd', 'workshop'), 'get');
         } else {
             echo $output->container(get_string('noexamplesformready', 'workshop'));
@@ -191,13 +178,13 @@ case workshop::PHASE_SUBMISSION:
         if ($submission = $workshop->get_submission_by_author($USER->id)) {
             echo $output->render($workshop->prepare_submission_summary($submission, true));
             if ($workshop->modifying_submission_allowed($USER->id)) {
-                $btnurl = new moodle_url($workshop->submission_url(), array('edit' => 'on'));
+                $btnurl = new lion_url($workshop->submission_url(), array('edit' => 'on'));
                 $btntxt = get_string('editsubmission', 'workshop');
             }
         } else {
             echo $output->container(get_string('noyoursubmission', 'workshop'));
             if ($workshop->creating_submission_allowed($USER->id)) {
-                $btnurl = new moodle_url($workshop->submission_url(), array('edit' => 'on'));
+                $btnurl = new lion_url($workshop->submission_url(), array('edit' => 'on'));
                 $btntxt = get_string('createsubmission', 'workshop');
             }
         }
@@ -212,7 +199,7 @@ case workshop::PHASE_SUBMISSION:
         $groupmode = groups_get_activity_groupmode($workshop->cm);
         $groupid = groups_get_activity_group($workshop->cm, true);
 
-        if ($groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $workshop->context)) {
+        if ($groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $workshop->context)) {
             $allowedgroups = groups_get_activity_allowed_groups($workshop->cm);
             if (empty($allowedgroups)) {
                 echo $output->container(get_string('groupnoallowed', 'mod_workshop'), 'groupwidget error');
@@ -267,7 +254,7 @@ case workshop::PHASE_ASSESSMENT:
             echo $output->container(get_string('noyoursubmission', 'workshop'));
             $ownsubmissionexists = false;
             if ($workshop->creating_submission_allowed($USER->id)) {
-                $btnurl = new moodle_url($workshop->submission_url(), array('edit' => 'on'));
+                $btnurl = new lion_url($workshop->submission_url(), array('edit' => 'on'));
                 $btntxt = get_string('createsubmission', 'workshop');
             }
         }
@@ -287,7 +274,7 @@ case workshop::PHASE_ASSESSMENT:
             $showreviewernames  = has_capability('mod/workshop:viewreviewernames', $workshop->context);
 
             // prepare paging bar
-            $baseurl = new moodle_url($PAGE->url, array('sortby' => $sortby, 'sorthow' => $sorthow));
+            $baseurl = new lion_url($PAGE->url, array('sortby' => $sortby, 'sorthow' => $sorthow));
             $pagingbar = new paging_bar($data->totalcount, $page, $perpage, $baseurl, 'page');
 
             // grading report display options
@@ -430,13 +417,13 @@ case workshop::PHASE_EVALUATION:
                 echo $output->render($selector);
                 // load the grading evaluator
                 $evaluator = $workshop->grading_evaluation_instance();
-                $form = $evaluator->get_settings_form(new moodle_url($workshop->aggregate_url(),
+                $form = $evaluator->get_settings_form(new lion_url($workshop->aggregate_url(),
                         compact('sortby', 'sorthow', 'page')));
                 $form->display();
             }
 
             // prepare paging bar
-            $baseurl = new moodle_url($PAGE->url, array('sortby' => $sortby, 'sorthow' => $sorthow));
+            $baseurl = new lion_url($PAGE->url, array('sortby' => $sortby, 'sorthow' => $sorthow));
             $pagingbar = new paging_bar($data->totalcount, $page, $perpage, $baseurl, 'page');
 
             // grading report display options
@@ -464,7 +451,7 @@ case workshop::PHASE_EVALUATION:
         echo $output->box_start('generalbox toolbox');
 
         // Clear aggregated grades
-        $url = new moodle_url($workshop->toolbox_url('clearaggregatedgrades'));
+        $url = new lion_url($workshop->toolbox_url('clearaggregatedgrades'));
         $btn = new single_button($url, get_string('clearaggregatedgrades', 'workshop'), 'post');
         $btn->add_confirm_action(get_string('clearaggregatedgradesconfirm', 'workshop'));
         echo $output->container_start('toolboxaction');
@@ -472,7 +459,7 @@ case workshop::PHASE_EVALUATION:
         echo $output->help_icon('clearaggregatedgrades', 'workshop');
         echo $output->container_end();
         // Clear assessments
-        $url = new moodle_url($workshop->toolbox_url('clearassessments'));
+        $url = new lion_url($workshop->toolbox_url('clearassessments'));
         $btn = new single_button($url, get_string('clearassessments', 'workshop'), 'post');
         $btn->add_confirm_action(get_string('clearassessmentsconfirm', 'workshop'));
         echo $output->container_start('toolboxaction');
@@ -554,7 +541,7 @@ case workshop::PHASE_CLOSED:
             $showreviewernames  = has_capability('mod/workshop:viewreviewernames', $workshop->context);
 
             // prepare paging bar
-            $baseurl = new moodle_url($PAGE->url, array('sortby' => $sortby, 'sorthow' => $sorthow));
+            $baseurl = new lion_url($PAGE->url, array('sortby' => $sortby, 'sorthow' => $sorthow));
             $pagingbar = new paging_bar($data->totalcount, $page, $perpage, $baseurl, 'page');
 
             // grading report display options

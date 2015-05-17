@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Renderer class for the manual allocation UI is defined here
  *
- * @package    workshopallocation
- * @subpackage manual
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Manual allocation renderer class
@@ -136,7 +122,7 @@ class workshopallocation_manual_renderer extends mod_workshop_renderer  {
             // todo add an option to exclude users without own submission
             $options = array_diff_key($reviewers, $exclude);
             if ($options) {
-                $handler = new moodle_url($this->page->url, array('mode' => 'new', 'of' => $allocation->userid, 'sesskey' => sesskey()));
+                $handler = new lion_url($this->page->url, array('mode' => 'new', 'of' => $allocation->userid, 'sesskey' => sesskey()));
                 $select = new single_select($handler, 'by', $options, '', array(''=>get_string('chooseuser', 'workshop')), 'addreviewof' . $allocation->userid);
                 $select->set_label(get_string('addreviewer', 'workshopallocation_manual'));
                 $o .= $this->output->render($select);
@@ -149,7 +135,7 @@ class workshopallocation_manual_renderer extends mod_workshop_renderer  {
             $o .= fullname($userinfo[$reviewerid]);
 
             // delete icon
-            $handler = new moodle_url($this->page->url, array('mode' => 'del', 'what' => $assessmentid, 'sesskey' => sesskey()));
+            $handler = new lion_url($this->page->url, array('mode' => 'del', 'what' => $assessmentid, 'sesskey' => sesskey()));
             $o .= $this->helper_remove_allocation_icon($handler);
 
             $o .= html_writer::end_tag('li');
@@ -176,7 +162,7 @@ class workshopallocation_manual_renderer extends mod_workshop_renderer  {
         // todo add an option to exclude users without own submission
         $options = array_diff_key($authors, $exclude);
         if ($options) {
-            $handler = new moodle_url($this->page->url, array('mode' => 'new', 'by' => $allocation->userid, 'sesskey' => sesskey()));
+            $handler = new lion_url($this->page->url, array('mode' => 'new', 'by' => $allocation->userid, 'sesskey' => sesskey()));
             $select = new single_select($handler, 'of', $options, '', array(''=>get_string('chooseuser', 'workshop')), 'addreviewby' . $allocation->userid);
             $select->set_label(get_string('addreviewee', 'workshopallocation_manual'));
             $o .= $this->output->render($select);
@@ -190,7 +176,7 @@ class workshopallocation_manual_renderer extends mod_workshop_renderer  {
             $o .= fullname($userinfo[$authorid]);
 
             // delete icon
-            $handler = new moodle_url($this->page->url, array('mode' => 'del', 'what' => $assessmentid, 'sesskey' => sesskey()));
+            $handler = new lion_url($this->page->url, array('mode' => 'del', 'what' => $assessmentid, 'sesskey' => sesskey()));
             $o .= $this->helper_remove_allocation_icon($handler);
 
             $o .= html_writer::end_tag('li');
@@ -202,7 +188,7 @@ class workshopallocation_manual_renderer extends mod_workshop_renderer  {
     /**
      * Generates an icon link to remove the allocation
      *
-     * @param moodle_url $link to the action
+     * @param lion_url $link to the action
      * @return html code to be displayed
      */
     protected function helper_remove_allocation_icon($link) {

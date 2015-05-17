@@ -4,7 +4,7 @@ var DROPDOWN_NAME = "Dropdown menu",
 /**
  * Provides an in browser PDF editor.
  *
- * @module moodle-assignfeedback_editpdf-editor
+ * @module lion-assignfeedback_editpdf-editor
  */
 
 /**
@@ -107,7 +107,7 @@ Y.Base.modifyAttrs(DROPDOWN, {
     /**
      * Whether the widget should be modal or not.
      *
-     * Moodle override: We override this for commentsearch to force it always false.
+     * Lion override: We override this for commentsearch to force it always false.
      *
      * @attribute Modal
      * @type Boolean

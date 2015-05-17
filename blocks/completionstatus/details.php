@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Block for displaying logged in user's course completion status
  *
- * @package    block_completionstatus
- * @copyright  2009-2012 Catalyst IT Ltd
- * @author     Aaron Barnes <aaronb@catalyst.net.nz>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage completionstatus
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__).'/../../config.php');
@@ -50,7 +36,7 @@ if (!completion_can_view_data($user->id, $course)) {
 // Load completion data.
 $info = new completion_info($course);
 
-$returnurl = new moodle_url('/course/view.php', array('id' => $id));
+$returnurl = new lion_url('/course/view.php', array('id' => $id));
 
 // Don't display if completion isn't enabled.
 if (!$info->is_enabled()) {
@@ -91,7 +77,7 @@ if ($USER->id != $user->id) {
     echo html_writer::start_tag('tr');
     echo html_writer::start_tag('td', array('colspan' => '2'));
     echo html_writer::tag('b', get_string('showinguser', 'completion'));
-    $url = new moodle_url('/user/view.php', array('id' => $user->id, 'course' => $course->id));
+    $url = new lion_url('/user/view.php', array('id' => $user->id, 'course' => $course->id));
     echo html_writer::link($url, fullname($user));
     echo html_writer::end_tag('td');
     echo html_writer::end_tag('tr');
@@ -256,7 +242,7 @@ if (empty($completions)) {
     echo html_writer::end_tag('tbody');
     echo html_writer::end_tag('table');
 }
-$courseurl = new moodle_url("/course/view.php", array('id' => $course->id));
+$courseurl = new lion_url("/course/view.php", array('id' => $course->id));
 echo html_writer::start_tag('div', array('class' => 'buttons'));
 echo $OUTPUT->single_button($courseurl, get_string('returntocourse', 'block_completionstatus'), 'get');
 echo html_writer::end_tag('div');

@@ -2,6 +2,9 @@
 
 /**
  * XHTML 1.1 Target Module, defines target attribute in link elements.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Target extends HTMLPurifier_HTMLModule
 {

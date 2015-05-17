@@ -3,8 +3,9 @@
 /**
  * Utility for css colors
  *
- * @package Less
- * @subpackage color
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Colors {
 

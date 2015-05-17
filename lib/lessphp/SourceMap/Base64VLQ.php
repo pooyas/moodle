@@ -3,8 +3,9 @@
 /**
  * Encode / Decode Base64 VLQ.
  *
- * @package Less
- * @subpackage SourceMap
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_SourceMap_Base64VLQ {
 

@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the definition for the library class for file feedback plugin
  *
  *
- * @package   assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // File areas for file feedback assignment.
 define('ASSIGNFEEDBACK_FILE_FILEAREA', 'feedback_files');
@@ -36,9 +23,6 @@ define('ASSIGNFEEDBACK_FILE_MAXFILEUNZIPTIME', 120);
 /**
  * Library class for file feedback plugin extending feedback plugin base class.
  *
- * @package   assignfeedback_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class assign_feedback_file extends assign_feedback_plugin {
 
@@ -125,12 +109,12 @@ class assign_feedback_file extends assign_feedback_plugin {
      * Get form elements for grading form.
      *
      * @param stdClass $grade
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @param int $userid The userid we are currently grading
      * @return bool true if elements were added to the form
      */
-    public function get_form_elements_for_user($grade, MoodleQuickForm $mform, stdClass $data, $userid) {
+    public function get_form_elements_for_user($grade, LionQuickForm $mform, stdClass $data, $userid) {
 
         $fileoptions = $this->get_file_options();
         $gradeid = $grade ? $grade->id : 0;
@@ -286,7 +270,7 @@ class assign_feedback_file extends assign_feedback_plugin {
     }
 
     /**
-     * Return true if this plugin can upgrade an old Moodle 2.2 assignment of this type
+     * Return true if this plugin can upgrade an old Lion 2.2 assignment of this type
      * and version.
      *
      * @param string $type old assignment subtype
@@ -392,7 +376,7 @@ class assign_feedback_file extends assign_feedback_plugin {
 
             $usersummary = new assign_user_summary($user,
                                                    $this->assignment->get_course()->id,
-                                                   has_capability('moodle/site:viewfullnames',
+                                                   has_capability('lion/site:viewfullnames',
                                                    $this->assignment->get_course_context()),
                                                    $this->assignment->is_blind_marking(),
                                                    $this->assignment->get_uniqueid_for_user($user->id),
@@ -406,7 +390,7 @@ class assign_feedback_file extends assign_feedback_plugin {
         $mform = new assignfeedback_file_batch_upload_files_form(null, $formparams);
 
         if ($mform->is_cancelled()) {
-            redirect(new moodle_url('view.php',
+            redirect(new lion_url('view.php',
                                     array('id'=>$this->assignment->get_course_module()->id,
                                           'action'=>'grading')));
             return;
@@ -457,7 +441,7 @@ class assign_feedback_file extends assign_feedback_plugin {
                                    ASSIGNFEEDBACK_FILE_BATCH_FILEAREA,
                                    $USER->id);
 
-            redirect(new moodle_url('view.php',
+            redirect(new lion_url('view.php',
                                     array('id'=>$this->assignment->get_course_module()->id,
                                           'action'=>'grading')));
             return;
@@ -522,7 +506,7 @@ class assign_feedback_file extends assign_feedback_plugin {
             $importer->delete_import_files($contextid);
             $urlparams = array('id'=>$this->assignment->get_course_module()->id,
                                'action'=>'grading');
-            $url = new moodle_url('view.php', $urlparams);
+            $url = new lion_url('view.php', $urlparams);
             redirect($url);
             return;
         } else if ($confirm) {
@@ -533,7 +517,7 @@ class assign_feedback_file extends assign_feedback_plugin {
                 $importer->delete_import_files($contextid);
                 $urlparams = array('id'=>$this->assignment->get_course_module()->id,
                                    'action'=>'grading');
-                $url = new moodle_url('view.php', $urlparams);
+                $url = new lion_url('view.php', $urlparams);
                 redirect($url);
                 return;
             }

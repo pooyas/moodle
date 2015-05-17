@@ -9,6 +9,9 @@
  *
  * The ADOdb files are formatted so that doxygen can be used to generate documentation.
  * Doxygen is a documentation generation tool and can be downloaded from http://doxygen.org/
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**

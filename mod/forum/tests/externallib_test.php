@@ -1,30 +1,17 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The module forums external functions unit tests
  *
- * @package    mod_forum
  * @category   external
- * @copyright  2012 Mark Nelson <markn@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -106,7 +93,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         // Enrol the user in two courses.
         // DataGenerator->enrol_user automatically sets a role for the user with the permission mod/form:viewdiscussion.
         $this->getDataGenerator()->enrol_user($user->id, $course1->id, null, 'manual');
-        // Execute real Moodle enrolment as we'll call unenrol() method on the instance later.
+        // Execute real Lion enrolment as we'll call unenrol() method on the instance later.
         $enrol = enrol_get_plugin('manual');
         $enrolinstances = enrol_get_instances($course2->id, true);
         foreach ($enrolinstances as $courseenrolinstance) {
@@ -151,7 +138,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         try {
             mod_forum_external::get_forums_by_courses(array($course2->id));
             $this->fail('Exception expected due to being unenrolled from the course.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('requireloginerror', $e->errorcode);
         }
 
@@ -160,7 +147,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         try {
             $forums = mod_forum_external::get_forums_by_courses(array($course1->id));
             $this->fail('Exception expected due to missing capability.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('nopermissions', $e->errorcode);
         }
     }
@@ -355,7 +342,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         try {
             mod_forum_external::get_forum_discussions(array($forum1->id));
             $this->fail('Exception expected due to missing capability.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('nopermissions', $e->errorcode);
         }
         $this->assertDebuggingCalled();
@@ -367,7 +354,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         try {
             mod_forum_external::get_forum_discussions(array($forum2->id));
             $this->fail('Exception expected due to being unenrolled from the course.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('requireloginerror', $e->errorcode);
         }
     }
@@ -442,7 +429,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
             'warnings' => array(),
         );
 
-        $userpictureurl = moodle_url::make_webservice_pluginfile_url(
+        $userpictureurl = lion_url::make_webservice_pluginfile_url(
             context_user::instance($discussion1reply2->userid)->id, 'user', 'icon', null, '/', 'f1')->out(false);
 
         $expectedposts['posts'][] = array(
@@ -468,7 +455,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
             'userpictureurl' => $userpictureurl
         );
 
-        $userpictureurl = moodle_url::make_webservice_pluginfile_url(
+        $userpictureurl = lion_url::make_webservice_pluginfile_url(
             context_user::instance($discussion1reply1->userid)->id, 'user', 'icon', null, '/', 'f1')->out(false);
 
         $expectedposts['posts'][] = array(
@@ -585,11 +572,11 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         // Create what we expect to be returned when querying the forums.
 
         $post1 = $DB->get_record('forum_posts', array('id' => $discussion1->firstpost), '*', MUST_EXIST);
-        $userpictureurl = moodle_url::make_pluginfile_url(
+        $userpictureurl = lion_url::make_pluginfile_url(
                     context_user::instance($user1->id)->id, 'user', 'icon', null, '/', 'f1');
         $userpictureurl = str_replace("pluginfile.php", "webservice/pluginfile.php", $userpictureurl);
 
-        $usermodifiedpictureurl = moodle_url::make_pluginfile_url(
+        $usermodifiedpictureurl = lion_url::make_pluginfile_url(
                     context_user::instance($user4->id)->id, 'user', 'icon', null, '/', 'f1');
         $usermodifiedpictureurl = str_replace("pluginfile.php", "webservice/pluginfile.php", $usermodifiedpictureurl);
 
@@ -636,7 +623,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         try {
             mod_forum_external::get_forum_discussions_paginated($forum1->id);
             $this->fail('Exception expected due to missing capability.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('noviewdiscussionspermission', $e->errorcode);
         }
 
@@ -647,7 +634,7 @@ class mod_forum_external_testcase extends externallib_advanced_testcase {
         try {
             mod_forum_external::get_forum_discussions_paginated($forum1->id);
             $this->fail('Exception expected due to being unenrolled from the course.');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals('requireloginerror', $e->errorcode);
         }
     }

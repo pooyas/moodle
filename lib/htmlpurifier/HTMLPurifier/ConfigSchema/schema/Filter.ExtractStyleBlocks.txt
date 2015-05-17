@@ -16,6 +16,13 @@ EXTERNAL: CSSTidy
 </p>
 <pre><![CDATA[
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
     header('Content-type: text/html; charset=utf-8');
     echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
@@ -25,6 +32,13 @@ EXTERNAL: CSSTidy
 <head>
   <title>Filter.ExtractStyleBlocks</title>
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require_once '/path/to/library/HTMLPurifier.auto.php';
     require_once '/path/to/csstidy.class.php';
 

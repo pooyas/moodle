@@ -2,6 +2,9 @@
 
 /**
  * Pre-transform that changes proprietary background attribute to CSS.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_Background extends HTMLPurifier_AttrTransform
 {

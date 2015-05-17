@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Amf
- * @subpackage Parse_Amf3
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** Zend_Amf_Parse_Deserializer */
@@ -32,10 +31,6 @@ require_once 'Zend/Amf/Parse/TypeLoader.php';
  * @todo       readObject to handle Typed Objects
  * @todo       readXMLStrimg to be implemented.
  * @todo       Class could be implemented as Factory Class with each data type it's own class.
- * @package    Zend_Amf
- * @subpackage Parse_Amf3
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Amf_Parse_Amf3_Deserializer extends Zend_Amf_Parse_Deserializer
 {

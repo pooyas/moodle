@@ -2,6 +2,9 @@
 
 /**
  * Null cache object to use when no caching is on.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_DefinitionCache_Null extends HTMLPurifier_DefinitionCache
 {

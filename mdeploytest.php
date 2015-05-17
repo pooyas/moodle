@@ -1,31 +1,18 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * PHPUnit tests for the mdeploy.php utility
  *
- * Because the mdeploy.php can't be part of the Moodle code itself, this tests must be
+ * Because the mdeploy.php can't be part of the Lion code itself, this tests must be
  * executed using something like:
  *
  *  $ phpunit --no-configuration mdeploytest
  *
- * @package     core
- * @copyright   2012 David Mudrak <david@moodle.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage 
+ * @copyright  2015 Pooya Saeedi
  */
 
 require(__DIR__.'/mdeploy.php');
@@ -33,8 +20,6 @@ require(__DIR__.'/mdeploy.php');
 /**
  * Provides testable input options.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class input_fake_provider extends input_provider {
 
@@ -64,8 +49,6 @@ class input_fake_provider extends input_provider {
 /**
  * Testable subclass.
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class testable_input_manager extends input_manager {
 
@@ -88,8 +71,6 @@ class testable_input_manager extends input_manager {
 /**
  * Testable subclass
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class testable_worker extends worker {
 
@@ -123,8 +104,6 @@ class testable_worker extends worker {
 /**
  * Test cases for the mdeploy utility
  *
- * @copyright 2012 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class mdeploytest extends PHPUnit_Framework_TestCase {
 
@@ -165,11 +144,11 @@ class mdeploytest extends PHPUnit_Framework_TestCase {
 
             array("\nrock'n'roll.mp3\t.exe", input_manager::TYPE_FILE, 'rocknroll.mp3.exe'),
 
-            array('http://localhost/moodle/dev/plugin.zip', input_manager::TYPE_URL, 'http://localhost/moodle/dev/plugin.zip'),
+            array('http://localhost/lion/dev/plugin.zip', input_manager::TYPE_URL, 'http://localhost/lion/dev/plugin.zip'),
             array(
-                'https://moodle.org/plugins/download.php/1292/mod_stampcoll_moodle23_2012062201.zip',
+                'https://lion.org/plugins/download.php/1292/mod_stampcoll_lion23_2012062201.zip',
                 input_manager::TYPE_URL,
-                'https://moodle.org/plugins/download.php/1292/mod_stampcoll_moodle23_2012062201.zip'
+                'https://lion.org/plugins/download.php/1292/mod_stampcoll_lion23_2012062201.zip'
             ),
 
             array('5e8d2ea4f50d154730100b1645fbad67', input_manager::TYPE_MD5, '5e8d2ea4f50d154730100b1645fbad67'),
@@ -189,7 +168,7 @@ class mdeploytest extends PHPUnit_Framework_TestCase {
      */
     public function test_input_type_path_invalid_drive_label() {
         $input = testable_input_manager::instance();
-        $input->cast_value('0:/srv/moodledata', input_manager::TYPE_PATH); // must throw exception
+        $input->cast_value('0:/srv/liondata', input_manager::TYPE_PATH); // must throw exception
     }
 
     /**
@@ -197,7 +176,7 @@ class mdeploytest extends PHPUnit_Framework_TestCase {
      */
     public function test_input_type_path_invalid_colon() {
         $input = testable_input_manager::instance();
-        $input->cast_value('/var/www/moodle:2.5', input_manager::TYPE_PATH); // must throw exception
+        $input->cast_value('/var/www/lion:2.5', input_manager::TYPE_PATH); // must throw exception
     }
 
     /**
@@ -240,7 +219,7 @@ class mdeploytest extends PHPUnit_Framework_TestCase {
      */
     public function test_cast_tilde_in_path() {
         $input = testable_input_manager::instance();
-        $invalid = '~/public_html/moodle_dev';
+        $invalid = '~/public_html/lion_dev';
         $input->cast_value($invalid, input_manager::TYPE_PATH); // must throw exception
     }
 

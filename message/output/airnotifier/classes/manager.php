@@ -1,36 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Airnotifier manager class
  *
- * @package    message_airnotifier
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.7
+ * @package    message
+ * @subpackage output
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Airnotifier helper manager class
  *
- * @copyright  2012 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class message_airnotifier_manager {
 
@@ -48,7 +32,7 @@ class message_airnotifier_manager {
         $config->pageparams = array();
 
         // Include toolboxes.
-        $PAGE->requires->yui_module('moodle-message_airnotifier-toolboxes', 'M.message.init_device_toolbox', array(array(
+        $PAGE->requires->yui_module('lion-message_airnotifier-toolboxes', 'M.message.init_device_toolbox', array(array(
                 'ajaxurl' => $config->resturl,
                 'config' => $config,
                 ))
@@ -56,7 +40,7 @@ class message_airnotifier_manager {
 
         // Required strings for the javascript.
         $PAGE->requires->strings_for_js(array('deletecheckdevicename'), 'message_airnotifier');
-        $PAGE->requires->strings_for_js(array('show', 'hide'), 'moodle');
+        $PAGE->requires->strings_for_js(array('show', 'hide'), 'lion');
 
         return true;
     }
@@ -79,7 +63,7 @@ class message_airnotifier_manager {
 
         $params = array('appid' => $appname, 'userid' => $userid);
 
-        // First, we look all the devices registered for this user in the Moodle core.
+        // First, we look all the devices registered for this user in the Lion core.
         // We are going to allow only ios devices (since these are the ones that supports PUSH notifications).
         $userdevices = $DB->get_records('user_devices', $params);
         foreach ($userdevices as $device) {
@@ -125,7 +109,7 @@ class message_airnotifier_manager {
         $curl = new curl();
         $curl->setHeader($header);
 
-        // Site ids are stored as secrets in md5 in the Moodle public hub.
+        // Site ids are stored as secrets in md5 in the Lion public hub.
         $params = array(
             'url' => $CFG->wwwroot,
             'siteid' => md5($CFG->siteidentifier),

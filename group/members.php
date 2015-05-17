@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * Add/remove members from group.
  *
- * @copyright 2006 The Open University and others, N.D.Freear AT open.ac.uk, J.White AT open.ac.uk and others
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package   core_group
+ * @package    core
+ * @subpackage group
+ * @copyright  2015 Pooya Saeedi
  */
 require_once(dirname(__FILE__) . '/../config.php');
 require_once(dirname(__FILE__) . '/lib.php');
@@ -39,7 +26,7 @@ $PAGE->set_pagelayout('admin');
 
 require_login($course);
 $context = context_course::instance($course->id);
-require_capability('moodle/course:managegroups', $context);
+require_capability('lion/course:managegroups', $context);
 
 $returnurl = $CFG->wwwroot.'/group/index.php?id='.$course->id.'&group='.$group->id;
 
@@ -89,8 +76,8 @@ $strusergroupmembership = get_string('usergroupmembership', 'group');
 $groupname = format_string($group->name);
 
 $PAGE->requires->js('/group/clientlib.js');
-$PAGE->navbar->add($strparticipants, new moodle_url('/user/index.php', array('id'=>$course->id)));
-$PAGE->navbar->add($strgroups, new moodle_url('/group/index.php', array('id'=>$course->id)));
+$PAGE->navbar->add($strparticipants, new lion_url('/user/index.php', array('id'=>$course->id)));
+$PAGE->navbar->add($strgroups, new lion_url('/group/index.php', array('id'=>$course->id)));
 $PAGE->navbar->add($stradduserstogroup);
 
 /// Print header
@@ -114,7 +101,7 @@ if (!empty($group->picture)) {
 $group->description = file_rewrite_pluginfile_urls($group->description, 'pluginfile.php', $context->id, 'group', 'description', $group->id);
 if (!empty($group->description)) {
     if (!isset($group->descriptionformat)) {
-        $group->descriptionformat = FORMAT_MOODLE;
+        $group->descriptionformat = FORMAT_LION;
     }
 
     $options = new stdClass;

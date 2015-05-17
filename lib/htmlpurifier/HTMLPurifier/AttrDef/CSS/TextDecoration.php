@@ -4,6 +4,9 @@
  * Validates the value for the CSS property text-decoration
  * @note This class could be generalized into a version that acts sort of
  *       like Enum except you can compound the allowed values.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_TextDecoration extends HTMLPurifier_AttrDef
 {

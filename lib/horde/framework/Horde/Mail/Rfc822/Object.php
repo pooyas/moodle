@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/bsd.
  *
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Object representation of an RFC 822 element.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  */
 abstract class Horde_Mail_Rfc822_Object
 {

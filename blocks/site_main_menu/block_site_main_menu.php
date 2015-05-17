@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Site main menu block.
  *
- * @package    block_site_main_menu
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage site_main_menu
+ * @copyright  2015 Pooya Saeedi
  */
 
 class block_site_main_menu extends block_list {
@@ -50,7 +37,7 @@ class block_site_main_menu extends block_list {
         $course = $this->page->course;
         require_once($CFG->dirroot.'/course/lib.php');
         $context = context_course::instance($course->id);
-        $isediting = $this->page->user_is_editing() && has_capability('moodle/course:manageactivities', $context);
+        $isediting = $this->page->user_is_editing() && has_capability('lion/course:manageactivities', $context);
 
 /// extra fast view mode
         if (!$isediting) {
@@ -126,8 +113,8 @@ class block_site_main_menu extends block_list {
 
                     // Prepend list of actions with the 'move' action.
                     $actions = array('move' => new action_menu_link_primary(
-                        new moodle_url('/course/mod.php', array('sesskey' => sesskey(), 'copy' => $mod->id)),
-                        new pix_icon('t/move', $strmove, 'moodle', array('class' => 'iconsmall', 'title' => '')),
+                        new lion_url('/course/mod.php', array('sesskey' => sesskey(), 'copy' => $mod->id)),
+                        new pix_icon('t/move', $strmove, 'lion', array('class' => 'iconsmall', 'title' => '')),
                         $strmove
                     )) + $actions;
 
@@ -138,7 +125,7 @@ class block_site_main_menu extends block_list {
                 } else {
                     $editbuttons = '';
                 }
-                if ($mod->visible || has_capability('moodle/course:viewhiddenactivities', $mod->context)) {
+                if ($mod->visible || has_capability('lion/course:viewhiddenactivities', $mod->context)) {
                     if ($ismoving) {
                         if ($mod->id == $USER->activitycopy) {
                             continue;

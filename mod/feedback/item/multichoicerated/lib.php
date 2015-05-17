@@ -1,20 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') OR die('not allowed');
+
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') OR die('not allowed');
 require_once($CFG->dirroot.'/mod/feedback/item/feedback_item_class.php');
 
 define('FEEDBACK_RADIORATED_ADJUST_SEP', '<<<<<');
@@ -534,6 +528,13 @@ class feedback_item_multichoicerated extends feedback_item_base {
                 <li class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                     <span class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                         echo '<input type="radio" '.
                                     'name="'.$item->typ.'_'.$item->id.'" '.
                                     'id="'.$item->typ.'_'.$item->id.'_xxx" '.
@@ -547,6 +548,13 @@ class feedback_item_multichoicerated extends feedback_item_base {
                     </span>
                 </li>
             <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
         }
         foreach ($lines as $line) {
             if ($value == $index) {
@@ -561,6 +569,13 @@ class feedback_item_multichoicerated extends feedback_item_base {
             <li class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                 <span class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                 <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                 echo '<input type="radio" '.
                             'name="'.$inputname.'" '.
                             'id="'.$inputid.'" '.
@@ -570,6 +585,13 @@ class feedback_item_multichoicerated extends feedback_item_base {
                 <span class="feedback_item_radiolabel_<?php echo $hv.'_'.$align;?>">
                     <label for="<?php echo $inputid;?>">
                         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                             if ($showrating) {
                                 $str_rating_value = '('.$radio_value[0].') '.$radio_value[1];
                                 echo format_text($str_rating_value, FORMAT_HTML, array('noclean' => true, 'para' => false));
@@ -581,6 +603,13 @@ class feedback_item_multichoicerated extends feedback_item_base {
                 </span>
             </li>
         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
             $index++;
         }
         echo '</ul>';
@@ -598,6 +627,13 @@ class feedback_item_multichoicerated extends feedback_item_base {
             <select id="<?php echo $item->typ.'_'.$item->id;?>" name="<?php echo $item->typ.'_'.$item->id;?>">
                 <option value="0">&nbsp;</option>
                 <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                 $index = 1;
                 $checked = '';
                 foreach ($lines as $line) {
@@ -622,6 +658,13 @@ class feedback_item_multichoicerated extends feedback_item_base {
             </select>
         </div>
         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
     }
 
     public function prepare_presentation_values($linesep1,

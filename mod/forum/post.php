@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Edit and save a new post to a discussion
  *
- * @package   mod_forum
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');
@@ -124,7 +111,7 @@ if (!empty($forum)) {      // User is starting a new discussion in a forum
         print_error('nopostforum', 'forum');
     }
 
-    if (!$cm->visible and !has_capability('moodle/course:viewhiddenactivities', $modcontext)) {
+    if (!$cm->visible and !has_capability('lion/course:viewhiddenactivities', $modcontext)) {
         print_error("activityiscurrentlyhidden");
     }
 
@@ -199,7 +186,7 @@ if (!empty($forum)) {      // User is starting a new discussion in a forum
     } else {
         $groupmode = $course->groupmode;
     }
-    if ($groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $modcontext)) {
+    if ($groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $modcontext)) {
         if ($discussion->groupid == -1) {
             print_error('nopostforum', 'forum');
         } else {
@@ -209,7 +196,7 @@ if (!empty($forum)) {      // User is starting a new discussion in a forum
         }
     }
 
-    if (!$cm->visible and !has_capability('moodle/course:viewhiddenactivities', $modcontext)) {
+    if (!$cm->visible and !has_capability('lion/course:viewhiddenactivities', $modcontext)) {
         print_error("activityiscurrentlyhidden");
     }
 
@@ -525,7 +512,7 @@ if (!empty($forum)) {      // User is starting a new discussion in a forum
 
         $PAGE->set_cm($cm);
         $PAGE->set_context($modcontext);
-        $PAGE->navbar->add(format_string($post->subject, true), new moodle_url('/mod/forum/discuss.php', array('d'=>$discussion->id)));
+        $PAGE->navbar->add(format_string($post->subject, true), new lion_url('/mod/forum/discuss.php', array('d'=>$discussion->id)));
         $PAGE->navbar->add(get_string("prune", "forum"));
         $PAGE->set_title(format_string($discussion->name).": ".format_string($post->subject));
         $PAGE->set_heading($course->fullname);
@@ -616,7 +603,7 @@ $postid = empty($post->id) ? null : $post->id;
 $draftid_editor = file_get_submitted_draft_itemid('message');
 $currenttext = file_prepare_draft_area($draftid_editor, $modcontext->id, 'mod_forum', 'post', $postid, mod_forum_post_form::editor_options($modcontext, $postid), $post->message);
 
-$manageactivities = has_capability('moodle/course:manageactivities', $coursecontext);
+$manageactivities = has_capability('lion/course:manageactivities', $coursecontext);
 if (\mod_forum\subscriptions::subscription_disabled($forum) && !$manageactivities) {
     // User does not have permission to subscribe to this discussion at all.
     $discussionsubscribe = false;
@@ -675,9 +662,9 @@ $mform_post->set_data(array(        'attachments'=>$draftitemid,
 if ($mform_post->is_cancelled()) {
     if (!isset($discussion->id) || $forum->type === 'qanda') {
         // Q and A forums don't have a discussion page, so treat them like a new thread..
-        redirect(new moodle_url('/mod/forum/view.php', array('f' => $forum->id)));
+        redirect(new lion_url('/mod/forum/view.php', array('f' => $forum->id)));
     } else {
-        redirect(new moodle_url('/mod/forum/discuss.php', array('d' => $discussion->id)));
+        redirect(new lion_url('/mod/forum/discuss.php', array('d' => $discussion->id)));
     }
 } else if ($fromform = $mform_post->get_data()) {
 

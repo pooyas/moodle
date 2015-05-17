@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Unit tests for the Moodle XML format.
+ * Unit tests for the Lion XML format.
  *
- * @package    qformat_xml
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question_format
+ * @subpackage xml
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/questionlib.php');
@@ -34,8 +21,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the matching question definition class.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_xml_test extends question_testcase {
     public function assert_same_xml($expectedxml, $xml) {
@@ -161,13 +146,13 @@ class qformat_xml_test extends question_testcase {
         );
         $q->qtype = 'shortanswer';
         $q->hints = array(
-            new question_hint(0, 'This is the first hint.', FORMAT_MOODLE),
+            new question_hint(0, 'This is the first hint.', FORMAT_LION),
         );
 
         $exporter = new qformat_xml();
         $xml = $exporter->writequestion($q);
 
-        $this->assertRegExp('|<hint format=\"moodle_auto_format\">\s*<text>\s*' .
+        $this->assertRegExp('|<hint format=\"lion_auto_format\">\s*<text>\s*' .
                 'This is the first hint\.\s*</text>\s*</hint>|', $xml);
         $this->assertNotRegExp('|<shownumcorrect/>|', $xml);
         $this->assertNotRegExp('|<clearwrong/>|', $xml);
@@ -364,7 +349,7 @@ END;
     <name>
       <text>An essay</text>
     </name>
-    <questiontext format="moodle_auto_format">
+    <questiontext format="lion_auto_format">
       <text>Write something.</text>
     </questiontext>
     <generalfeedback>
@@ -383,7 +368,7 @@ END;
         $expectedq->qtype = 'essay';
         $expectedq->name = 'An essay';
         $expectedq->questiontext = 'Write something.';
-        $expectedq->questiontextformat = FORMAT_MOODLE;
+        $expectedq->questiontextformat = FORMAT_LION;
         $expectedq->generalfeedback = 'I hope you wrote something interesting.';
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
@@ -394,9 +379,9 @@ END;
         $expectedq->attachments = 0;
         $expectedq->attachmentsrequired = 0;
         $expectedq->graderinfo['text'] = '';
-        $expectedq->graderinfo['format'] = FORMAT_MOODLE;
+        $expectedq->graderinfo['format'] = FORMAT_LION;
         $expectedq->responsetemplate['text'] = '';
-        $expectedq->responsetemplate['format'] = FORMAT_MOODLE;
+        $expectedq->responsetemplate['format'] = FORMAT_LION;
 
         $this->assert(new question_check_specified_fields_expectation($expectedq), $q);
     }
@@ -406,7 +391,7 @@ END;
     <name>
       <text>An essay</text>
     </name>
-    <questiontext format="moodle_auto_format">
+    <questiontext format="lion_auto_format">
       <text>Write something.</text>
     </questiontext>
     <generalfeedback>
@@ -436,7 +421,7 @@ END;
         $expectedq->qtype = 'essay';
         $expectedq->name = 'An essay';
         $expectedq->questiontext = 'Write something.';
-        $expectedq->questiontextformat = FORMAT_MOODLE;
+        $expectedq->questiontextformat = FORMAT_LION;
         $expectedq->generalfeedback = 'I hope you wrote something interesting.';
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
@@ -461,9 +446,9 @@ END;
         $qdata->qtype = 'essay';
         $qdata->name = 'An essay';
         $qdata->questiontext = 'Write something.';
-        $qdata->questiontextformat = FORMAT_MOODLE;
+        $qdata->questiontextformat = FORMAT_LION;
         $qdata->generalfeedback = 'I hope you wrote something interesting.';
-        $qdata->generalfeedbackformat = FORMAT_MOODLE;
+        $qdata->generalfeedbackformat = FORMAT_LION;
         $qdata->defaultmark = 1;
         $qdata->length = 1;
         $qdata->penalty = 0;
@@ -488,10 +473,10 @@ END;
     <name>
       <text>An essay</text>
     </name>
-    <questiontext format="moodle_auto_format">
+    <questiontext format="lion_auto_format">
       <text>Write something.</text>
     </questiontext>
-    <generalfeedback format="moodle_auto_format">
+    <generalfeedback format="lion_auto_format">
       <text>I hope you wrote something interesting.</text>
     </generalfeedback>
     <defaultgrade>1</defaultgrade>
@@ -1488,8 +1473,8 @@ END;
 
         $xml = <<<END
 <questiontext format="html">
-    <text><![CDATA[<p><a href="@@PLUGINFILE@@/moodle.txt">This text file</a> contains the word 'Moodle'.</p>]]></text>
-    <file name="moodle.txt" encoding="base64">TW9vZGxl</file>
+    <text><![CDATA[<p><a href="@@PLUGINFILE@@/lion.txt">This text file</a> contains the word 'Lion'.</p>]]></text>
+    <file name="lion.txt" encoding="base64">TW9vZGxl</file>
 </questiontext>
 END;
 
@@ -1503,7 +1488,7 @@ END;
         $this->assertEquals(1, count($files->list));
 
         $file = $files->list[0];
-        $this->assertEquals('moodle.txt', $file->filename);
+        $this->assertEquals('lion.txt', $file->filename);
         $this->assertEquals('/',          $file->filepath);
         $this->assertEquals(6,            $file->size);
     }
@@ -1517,22 +1502,22 @@ END;
       <text>truefalse</text>
     </name>
     <questiontext format="html">
-      <text><![CDATA[<p><a href="@@PLUGINFILE@@/myfolder/moodle.txt">This text file</a> contains the word Moodle.</p>]]></text>
-<file name="moodle.txt" path="/myfolder/" encoding="base64">TW9vZGxl</file>
+      <text><![CDATA[<p><a href="@@PLUGINFILE@@/myfolder/lion.txt">This text file</a> contains the word Lion.</p>]]></text>
+<file name="lion.txt" path="/myfolder/" encoding="base64">TW9vZGxl</file>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>For further information, see the documentation about Moodle.</p>]]></text>
+      <text><![CDATA[<p>For further information, see the documentation about Lion.</p>]]></text>
 </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>1.0000000</penalty>
     <hidden>0</hidden>
-    <answer fraction="100" format="moodle_auto_format">
+    <answer fraction="100" format="lion_auto_format">
       <text>true</text>
       <feedback format="html">
         <text></text>
       </feedback>
     </answer>
-    <answer fraction="0" format="moodle_auto_format">
+    <answer fraction="0" format="lion_auto_format">
       <text>false</text>
       <feedback format="html">
         <text></text>
@@ -1550,7 +1535,7 @@ END;
         $this->assertEquals(1, count($files->list));
 
         $file = $files->list[0];
-        $this->assertEquals('moodle.txt', $file->filename);
+        $this->assertEquals('lion.txt', $file->filename);
         $this->assertEquals('/myfolder/', $file->filepath);
         $this->assertEquals(6,            $file->size);
     }

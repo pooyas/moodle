@@ -29,19 +29,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * @category  Horde
- * @copyright 2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * LMTP implementation using the Horde_Smtp package.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  */
 class Horde_Mail_Transport_Lmtphorde extends Horde_Mail_Transport_Smtphorde
 {

@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Auxiliary manual user enrolment lib, the main purpose is to lower memory requirements...
  *
- * @package    enrol_manual
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/user/selector/lib.php');
 require_once($CFG->dirroot . '/enrol/locallib.php');
@@ -159,8 +146,6 @@ class enrol_manual_current_participant extends user_selector_base {
 /**
  * A bulk operation for the manual enrolment plugin to edit selected users.
  *
- * @copyright 2011 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class enrol_manual_editselectedusers_operation extends enrol_bulk_enrolment_operation {
 
@@ -280,7 +265,7 @@ class enrol_manual_editselectedusers_operation extends enrol_bulk_enrolment_oper
      * Returns a enrol_bulk_enrolment_operation extension form to be used
      * in collecting required information for this operation to be processed.
      *
-     * @param string|moodle_url|null $defaultaction
+     * @param string|lion_url|null $defaultaction
      * @param mixed $defaultcustomdata
      * @return enrol_manual_editselectedusers_form
      */
@@ -295,8 +280,6 @@ class enrol_manual_editselectedusers_operation extends enrol_bulk_enrolment_oper
 /**
  * A bulk operation for the manual enrolment plugin to delete selected users enrolments.
  *
- * @copyright 2011 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class enrol_manual_deleteselectedusers_operation extends enrol_bulk_enrolment_operation {
 
@@ -323,7 +306,7 @@ class enrol_manual_deleteselectedusers_operation extends enrol_bulk_enrolment_op
      * Returns a enrol_bulk_enrolment_operation extension form to be used
      * in collecting required information for this operation to be processed.
      *
-     * @param string|moodle_url|null $defaultaction
+     * @param string|lion_url|null $defaultaction
      * @param mixed $defaultcustomdata
      * @return enrol_manual_editselectedusers_form
      */
@@ -342,7 +325,7 @@ class enrol_manual_deleteselectedusers_operation extends enrol_bulk_enrolment_op
     /**
      * Processes the bulk operation request for the given userids with the provided properties.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @param course_enrolment_manager $manager
      * @param array $userids
      * @param stdClass $properties The data returned by the form.

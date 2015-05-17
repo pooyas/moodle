@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The library file for the memcache cache store.
  *
  * This file is part of the memcache cache store, it contains the API for interacting with an instance of the store.
  *
- * @package    cachestore_memcache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    cache_stores
+ * @subpackage memcache
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The memcache store class.
@@ -34,8 +21,6 @@ defined('MOODLE_INTERNAL') || die();
  * Configuration options:
  *      servers:        string: host:port:weight , ...
  *
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cachestore_memcache extends cache_store implements cache_is_configurable {
 
@@ -502,10 +487,10 @@ class cachestore_memcache extends cache_store implements cache_is_configurable {
     /**
      * Allows the cache store to set its data against the edit form before it is shown to the user.
      *
-     * @param moodleform $editform
+     * @param lionform $editform
      * @param array $config
      */
-    public static function config_set_edit_form_data(moodleform $editform, array $config) {
+    public static function config_set_edit_form_data(lionform $editform, array $config) {
         $data = array();
         if (!empty($config['servers'])) {
             $servers = array();

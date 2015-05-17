@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * A Handler to store attachments sent in e-mails as private files.
- *
- * @package    core_message
- * @copyright  2014 Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-namespace core\message\inbound;
-
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * A Handler to store attachments sent in e-mails as private files.
  *
  * @package    core
- * @copyright  2014 Andrew Nicols
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+ */
+
+namespace core\message\inbound;
+
+defined('LION_INTERNAL') || die();
+
+/**
+ * A Handler to store attachments sent in e-mails as private files.
+ *
  */
 class private_files_handler extends handler {
 
@@ -50,7 +34,7 @@ class private_files_handler extends handler {
      * @return string
      */
     public function get_description() {
-        return get_string('private_files_handler', 'moodle');
+        return get_string('private_files_handler', 'lion');
     }
 
     /**
@@ -60,7 +44,7 @@ class private_files_handler extends handler {
      * @return string
      */
     public function get_name() {
-        return get_string('private_files_handler_name', 'moodle');
+        return get_string('private_files_handler_name', 'lion');
     }
 
     /**
@@ -76,8 +60,8 @@ class private_files_handler extends handler {
 
         $context = \context_user::instance($USER->id);
 
-        if (!has_capability('moodle/user:manageownfiles', $context)) {
-            throw new \core\message\inbound\processing_failed_exception('emailtoprivatefilesdenied', 'moodle', $data);
+        if (!has_capability('lion/user:manageownfiles', $context)) {
+            throw new \core\message\inbound\processing_failed_exception('emailtoprivatefilesdenied', 'lion', $data);
         }
 
         // Initial setup.
@@ -89,7 +73,7 @@ class private_files_handler extends handler {
 
         // Determine the quota space for this user.
         $maxbytes = $CFG->userquota;
-        if (has_capability('moodle/user:ignoreuserquota', $context)) {
+        if (has_capability('lion/user:ignoreuserquota', $context)) {
             $maxbytes = USER_CAN_IGNORE_FILE_SIZE_LIMITS;
         }
 

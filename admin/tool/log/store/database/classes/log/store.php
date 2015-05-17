@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * External database store.
  *
- * @package    logstore_database
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace logstore_database\log;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class store implements \tool_log\log\writer, \core\log\sql_reader {
     use \tool_log\helper\store,
@@ -32,7 +19,7 @@ class store implements \tool_log\log\writer, \core\log\sql_reader {
         dispose as helper_dispose;
     }
 
-    /** @var \moodle_database $extdb */
+    /** @var \lion_database $extdb */
     protected $extdb;
 
     /** @var bool $logguests true if logging guest access */
@@ -76,7 +63,7 @@ class store implements \tool_log\log\writer, \core\log\sql_reader {
         }
         list($dblibrary, $dbtype) = explode('/', $dbdriver);
 
-        if (!$db = \moodle_database::get_driver_instance($dbtype, $dblibrary, true)) {
+        if (!$db = \lion_database::get_driver_instance($dbtype, $dblibrary, true)) {
             debugging("Unknown driver $dblibrary/$dbtype", DEBUG_DEVELOPER);
             $this->extdb = false;
             return false;
@@ -97,7 +84,7 @@ class store implements \tool_log\log\writer, \core\log\sql_reader {
                 $this->extdb = false;
                 return false;
             }
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             debugging('Cannot connect to external database: ' . $e->getMessage(), DEBUG_DEVELOPER);
             $this->extdb = false;
             return false;
@@ -142,7 +129,7 @@ class store implements \tool_log\log\writer, \core\log\sql_reader {
         }
         try {
             $this->extdb->insert_records($dbtable, $evententries);
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             debugging('Cannot write to external database: ' . $e->getMessage(), DEBUG_DEVELOPER);
         }
     }
@@ -184,7 +171,7 @@ class store implements \tool_log\log\writer, \core\log\sql_reader {
     /**
      * Fetch records using given criteria returning a Traversable object.
      *
-     * Note that the traversable object contains a moodle_recordset, so
+     * Note that the traversable object contains a lion_recordset, so
      * remember that is important that you call close() once you finish
      * using it.
      *

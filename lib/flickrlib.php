@@ -14,26 +14,25 @@
  *   Please submit all problems or questions to the Help Forum on my project page:
  *     {@link http://sourceforge.net/forum/forum.php?forum_id=469652}
  *
- * Modified by Dongsheng Cai <dongsheng@moodle.com>
+ * Modified by Dongsheng Cai <dongsheng@lion.com>
  * ChangeLog:
  *   1. Remove PEAR HTTP LIB, use curl.class.php (created by myself)
  *   2. Remove PEAR DB LIB
  *   3. Remove all cache code, it will implement in curl class.
  *   4. Clean up session code
  *
- * Modified by David Mudrak <david@moodle.com>
+ * Modified by David Mudrak <david@lion.com>
  * ChangeLog:
- *   1. upload() method uses Moodle stored_file
+ *   1. upload() method uses Lion stored_file
  *   2. upload() method supports all params provided by http://www.flickr.com/services/api/upload.api.html
  *
- * @package moodlecore
- * @subpackage 3rd-party
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Flickr Class
- * @package moodlecore
- * @subpackage 3rd-party
  */
 class phpFlickr {
     var $api_key;
@@ -1090,12 +1089,12 @@ class phpFlickr {
     }
 
     /**
-     * Upload a photo from Moodle file pool to Flickr
+     * Upload a photo from Lion file pool to Flickr
      *
      * Optional meta information are title, description, tags, is_public, is_friend, is_family, safety_level,
      * content_type and hidden {@see http://www.flickr.com/services/api/upload.api.html}
      *
-     * @param stored_file $photo stored in Moodle file pool
+     * @param stored_file $photo stored in Lion file pool
      * @param array $meta optional meta information
      * @return boolean
      */

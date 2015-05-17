@@ -2,6 +2,9 @@
 
 /**
  * Decorator that, depending on a token, switches between two definitions.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_Switch
 {

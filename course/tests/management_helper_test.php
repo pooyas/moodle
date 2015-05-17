@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Course and category management helper class tests.
  *
- * @package    core_course
- * @copyright  2013 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    course
+ * @subpackage tests
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot.'/course/lib.php');
@@ -35,14 +22,14 @@ require_once($CFG->dirroot.'/course/tests/fixtures/course_capability_assignment.
  */
 class core_course_management_helper_test extends advanced_testcase {
 
-    /** Category management capability: moodle/category:manage */
-    const CATEGORY_MANAGE = 'moodle/category:manage';
-    /** View hidden category capability: moodle/category:viewhiddencategories */
-    const CATEGORY_VIEWHIDDEN = 'moodle/category:viewhiddencategories';
-    /** View course capability: moodle/course:visibility */
-    const COURSE_VIEW = 'moodle/course:visibility';
-    /** View hidden course capability: moodle/course:viewhiddencourses */
-    const COURSE_VIEWHIDDEN = 'moodle/course:viewhiddencourses';
+    /** Category management capability: lion/category:manage */
+    const CATEGORY_MANAGE = 'lion/category:manage';
+    /** View hidden category capability: lion/category:viewhiddencategories */
+    const CATEGORY_VIEWHIDDEN = 'lion/category:viewhiddencategories';
+    /** View course capability: lion/course:visibility */
+    const COURSE_VIEW = 'lion/course:visibility';
+    /** View hidden course capability: lion/course:viewhiddencourses */
+    const COURSE_VIEWHIDDEN = 'lion/course:viewhiddencourses';
 
     /**
      * Returns a user object and its assigned new role.
@@ -73,8 +60,8 @@ class core_course_management_helper_test extends advanced_testcase {
      *   - action_category_hide
      *   - action_category_show
      *
-     * In order to show/hide the user must have moodle/category:manage on the parent context.
-     * In order to view hidden categories the user must have moodle/category:viewhiddencategories
+     * In order to show/hide the user must have lion/category:manage on the parent context.
+     * In order to view hidden categories the user must have lion/category:viewhiddencategories
      */
     public function test_action_category_hide_and_show() {
         global $DB;
@@ -145,7 +132,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_hide($category);
             $this->fail('Expected exception did not occur when trying to hide a category without permission.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             // The category must still be visible.
             $cat = coursecat::get($category->id);
             $subcat = coursecat::get($subcategory->id);
@@ -176,7 +163,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_show($category);
             $this->fail('Expected exception did not occur when trying to show a category without permission.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             // The category must still be hidden.
             $cat = coursecat::get($category->id);
             $subcat = coursecat::get($subcategory->id);
@@ -223,7 +210,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_hide($category);
             $this->fail('Expected exception did not occur when trying to hide a category without permission.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             // The category must still be visible.
             $this->assertEquals(1, coursecat::get($category->id)->visible);
         }
@@ -303,7 +290,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_hide_by_id($category->id);
             $this->fail('Expected exception did not occur when trying to hide a category without permission.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             // The category must still be visible.
             $cat = coursecat::get($category->id);
             $subcat = coursecat::get($subcategory->id);
@@ -333,7 +320,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_show_by_id($category->id);
             $this->fail('Expected exception did not occur when trying to show a category without permission.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             // The category must still be hidden.
             $cat = coursecat::get($category->id);
             $subcat = coursecat::get($subcategory->id);
@@ -380,7 +367,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_hide_by_id($category->id);
             $this->fail('Expected exception did not occur when trying to hide a category without permission.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             // The category must still be visible.
             $this->assertEquals(1, coursecat::get($category->id)->visible);
         }
@@ -456,7 +443,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_move_courses_into($cat2, $sub2, array($course4->id));
             $this->fail('Moved a course from a category it wasn\'t within');
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             // Check that everything is as it was.
             $this->assertEquals(1, $cat1->get_courses_count());
             $this->assertEquals(0, $cat2->get_courses_count());
@@ -468,7 +455,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_move_courses_into($cat2, $sub2, array($course4->id, $course1->id));
             $this->fail('Moved a course from a category it wasn\'t within');
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             // Check that everything is as it was. Nothing should have been moved.
             $this->assertEquals(1, $cat1->get_courses_count());
             $this->assertEquals(0, $cat2->get_courses_count());
@@ -494,7 +481,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_move_courses_into($sub1, $sub2, array($course2->id));
             $this->fail('Invalid move of course between categories, action can\'t be undone.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             $this->assertEquals(get_string('cannotmovecourses', 'error'), $ex->getMessage());
         }
         // Nothing should have changed.
@@ -509,7 +496,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_move_courses_into($sub2, $cat2, array($course4->id));
             $this->fail('Invalid move of course between categories, action can\'t be undone.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             $this->assertEquals(get_string('cannotmovecourses', 'error'), $ex->getMessage());
         }
         // Nothing should have changed.
@@ -636,7 +623,7 @@ class core_course_management_helper_test extends advanced_testcase {
         course_capability_assignment::prevent(self::CATEGORY_MANAGE, $roleid, $parent->get_context()->id);
         try {
             \core_course\management\helper::action_category_change_sortorder_up_one($cat1);
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             // Check everything is still where it should be.
             $this->assertEquals(
                 array('Three', 'One', 'Two'),
@@ -645,7 +632,7 @@ class core_course_management_helper_test extends advanced_testcase {
         }
         try {
             \core_course\management\helper::action_category_change_sortorder_down_one($cat3);
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             // Check everything is still where it should be.
             $this->assertEquals(
                 array('Three', 'One', 'Two'),
@@ -744,7 +731,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_resort_courses($category, 'shortname');
             $this->fail('Courses sorted without having the required permission.');
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             // Check its the right exception.
             $this->assertEquals('coursecat::can_resort', $exception->debuginfo);
             // Test things are as they were before.
@@ -839,7 +826,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_category_resort_subcategories($parent, 'idnumber');
             $this->fail('Categories sorted without having the required permission.');
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             // Check its the right exception.
             $this->assertEquals('coursecat::can_resort', $exception->debuginfo);
             // Test things are as they were before.
@@ -910,7 +897,7 @@ class core_course_management_helper_test extends advanced_testcase {
 
         try {
             \core_course\management\helper::action_course_show($course);
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             $this->assertEquals('course_in_list::can_change_visbility', $exception->debuginfo);
         }
     }
@@ -974,7 +961,7 @@ class core_course_management_helper_test extends advanced_testcase {
 
         try {
             \core_course\management\helper::action_course_show_by_record($course);
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             $this->assertEquals('course_in_list::can_change_visbility', $exception->debuginfo);
         }
     }
@@ -1074,7 +1061,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::action_course_change_sortorder_down_one(new course_in_list(get_course($course2->id)), $category);
             $this->fail('Course moved without having the required permissions.');
-        } catch (moodle_exception $exception) {
+        } catch (lion_exception $exception) {
             // Check nothing has changed.
             $courses = $category->get_courses();
             $this->assertInternalType('array', $courses);
@@ -1097,9 +1084,9 @@ class core_course_management_helper_test extends advanced_testcase {
         course_capability_assignment::allow(array(
             self::CATEGORY_MANAGE,
             self::CATEGORY_VIEWHIDDEN,
-            'moodle/role:assign',
-            'moodle/cohort:view',
-            'moodle/filter:manage'
+            'lion/role:assign',
+            'lion/cohort:view',
+            'lion/filter:manage'
         ), $roleid, $context->id);
 
         $actions = \core_course\management\helper::get_category_listitem_actions($category);
@@ -1131,11 +1118,11 @@ class core_course_management_helper_test extends advanced_testcase {
         course_capability_assignment::allow(array(
             self::COURSE_VIEW,
             self::COURSE_VIEWHIDDEN,
-            'moodle/course:update',
-            'moodle/course:enrolreview',
-            'moodle/course:delete',
-            'moodle/backup:backupcourse',
-            'moodle/restore:restorecourse'
+            'lion/course:update',
+            'lion/course:enrolreview',
+            'lion/course:delete',
+            'lion/backup:backupcourse',
+            'lion/restore:restorecourse'
         ), $roleid, $context->id);
 
         $actions = \core_course\management\helper::get_course_detail_actions(new course_in_list($course));
@@ -1164,12 +1151,12 @@ class core_course_management_helper_test extends advanced_testcase {
         course_capability_assignment::allow(array(
             self::COURSE_VIEW,
             self::COURSE_VIEWHIDDEN,
-            'moodle/course:update',
-            'moodle/course:enrolreview',
-            'moodle/course:delete',
-            'moodle/backup:backupcourse',
-            'moodle/restore:restorecourse',
-            'moodle/site:accessallgroups'
+            'lion/course:update',
+            'lion/course:enrolreview',
+            'lion/course:delete',
+            'lion/backup:backupcourse',
+            'lion/restore:restorecourse',
+            'lion/site:accessallgroups'
         ), $roleid, $context->id);
 
         $details = \core_course\management\helper::get_course_detail_array(new course_in_list($course));
@@ -1268,7 +1255,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::move_courses_into_category($sub2->id, array($course2->id));
             $this->fail('Invalid move of course between categories, action can\'t be undone.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             $this->assertEquals(get_string('cannotmovecourses', 'error'), $ex->getMessage());
         }
         // Nothing should have changed.
@@ -1283,7 +1270,7 @@ class core_course_management_helper_test extends advanced_testcase {
         try {
             \core_course\management\helper::move_courses_into_category($cat2->id, array($course4->id));
             $this->fail('Invalid move of course between categories, action can\'t be undone.');
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             $this->assertEquals(get_string('cannotmovecourses', 'error'), $ex->getMessage());
         }
         // Nothing should have changed.

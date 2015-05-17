@@ -1,7 +1,7 @@
 {
-    "name": "moodle-form-showadvanced",
+    "name": "lion-form-showadvanced",
     "builds": {
-        "moodle-form-showadvanced": {
+        "lion-form-showadvanced": {
             "jsfiles": [
                 "showadvanced.js"
             ]

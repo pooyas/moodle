@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * Form page for blog preferences
  *
- * @package    moodlecore
+ * @package    core
  * @subpackage blog
- * @copyright  2009 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -34,7 +20,7 @@ $userid   = optional_param('userid', null, PARAM_INT);
 $tagid    = optional_param('tagid', null, PARAM_INT);
 $groupid      = optional_param('groupid', null, PARAM_INT);
 
-$url = new moodle_url('/blog/preferences.php');
+$url = new lion_url('/blog/preferences.php');
 if ($courseid !== SITEID) {
     $url->param('courseid', $courseid);
 }
@@ -63,7 +49,7 @@ if (empty($CFG->enableblogs)) {
 }
 
 // The preference is site wide not blog specific. Hence user should have permissions in site level.
-require_capability('moodle/blog:view', $sitecontext);
+require_capability('lion/blog:view', $sitecontext);
 
 // If data submitted, then process and store.
 

@@ -1,28 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  *
- * Login library file of login/password related Moodle functions.
+ * Login library file of login/password related Lion functions.
  *
  * @package    core
- * @subpackage lib
- * @copyright  Catalyst IT
- * @copyright  Peter Bulmer
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
  */
 define('PWRESET_STATUS_NOEMAILSENT', 1);
 define('PWRESET_STATUS_TOKENSENT', 2);
@@ -68,7 +53,7 @@ function core_login_process_password_reset_request() {
         if ($user and !empty($user->confirmed)) {
             $userauth = get_auth_plugin($user->auth);
             if (!$userauth->can_reset_password() or !is_enabled_auth($user->auth)
-              or !has_capability('moodle/user:changeownpassword', $systemcontext, $user->id)) {
+              or !has_capability('lion/user:changeownpassword', $systemcontext, $user->id)) {
                 if (send_password_change_info($user)) {
                     $pwresetstatus = PWRESET_STATUS_OTHEREMAILSENT;
                 } else {
@@ -302,7 +287,7 @@ function core_login_get_return_url() {
     // If the url to go to is the same as the site page, check for default homepage.
     if ($urltogo == ($CFG->wwwroot . '/')) {
         $homepage = get_home_page();
-        // Go to my-moodle page instead of site homepage if defaulthomepage set to homepage_my.
+        // Go to my-lion page instead of site homepage if defaulthomepage set to homepage_my.
         if ($homepage == HOMEPAGE_MY && !is_siteadmin() && !isguestuser()) {
             if ($urltogo == $CFG->wwwroot or $urltogo == $CFG->wwwroot.'/' or $urltogo == $CFG->wwwroot.'/index.php') {
                 $urltogo = $CFG->wwwroot.'/my/';

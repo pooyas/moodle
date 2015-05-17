@@ -12,6 +12,9 @@
  *
  * @todo Allow injectors to request a re-run on their output. This
  *       would help if an operation is recursive.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_Injector
 {

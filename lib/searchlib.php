@@ -1,28 +1,14 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * @package    core
- * @subpackage search
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** @see lexer.php */
 require_once($CFG->libdir.'/lexer.php');
@@ -42,9 +28,6 @@ define("TOKEN_INSTANCE","8");
 /**
  * Class to hold token/value pairs after they're parsed.
  *
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class search_token {
   private $value;
@@ -76,9 +59,6 @@ class search_token {
  * Using a full-blown lexer is probably overkill for this application, but
  * might be useful for other tasks.
  *
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class search_lexer extends Lexer{
 
@@ -203,9 +183,6 @@ class search_lexer extends Lexer{
  * Most functions in this class should only be called by the lexer, the
  * one exception being getParseArray() which returns the result.
  *
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class search_parser {
     private $tokens;
@@ -345,8 +322,8 @@ class search_parser {
  * using TEXT indexes. If searches aren't suitable to use TEXT
  * this function calls the default search_generate_SQL() one.
  *
- * @deprecated since Moodle 2.9 MDL-48939
- * @todo MDL-48940 This will be deleted in Moodle 3.2
+ * @deprecated since Lion 2.9 MDL-48939
+ * @todo MDL-48940 This will be deleted in Lion 3.2
  * @see search_generate_SQL()
  */
 function search_generate_text_SQL($parsetree, $datafield, $metafield, $mainidfield, $useridfield,

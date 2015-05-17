@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library code used by the roles administration interfaces.
  *
- * @package    core_role
- * @copyright  2009 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage roles
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Subclass of core_role_capability_table_base for use on the Permissions page.
@@ -93,7 +80,7 @@ class core_role_permissions_table extends core_role_capability_table_base {
             if (isset($needed[$id])) {
                 $neededroles[$id] = $roles[$id];
                 if (isset($overridableroles[$id]) and ($allowoverrides or ($allowsafeoverrides and is_safe_capability($capability)))) {
-                    $preventurl = new moodle_url($PAGE->url, array('contextid'=>$contextid, 'roleid'=>$id, 'capability'=>$capability->name, 'prevent'=>1));
+                    $preventurl = new lion_url($PAGE->url, array('contextid'=>$contextid, 'roleid'=>$id, 'capability'=>$capability->name, 'prevent'=>1));
                     $neededroles[$id] .= $OUTPUT->action_icon($preventurl, new pix_icon('t/delete', get_string('prevent', 'core_role')));
                 }
             }
@@ -103,7 +90,7 @@ class core_role_permissions_table extends core_role_capability_table_base {
             if (isset($forbidden[$id])  and ($allowoverrides or ($allowsafeoverrides and is_safe_capability($capability)))) {
                 $forbiddenroles[$id] = $roles[$id];
                 if (isset($overridableroles[$id]) and prohibit_is_removable($id, $context, $capability->name)) {
-                    $unprohibiturl = new moodle_url($PAGE->url, array('contextid'=>$contextid, 'roleid'=>$id, 'capability'=>$capability->name, 'unprohibit'=>1));
+                    $unprohibiturl = new lion_url($PAGE->url, array('contextid'=>$contextid, 'roleid'=>$id, 'capability'=>$capability->name, 'unprohibit'=>1));
                     $forbiddenroles[$id] .= $OUTPUT->action_icon($unprohibiturl, new pix_icon('t/delete', get_string('delete')));
                 }
             }
@@ -111,12 +98,12 @@ class core_role_permissions_table extends core_role_capability_table_base {
         $forbiddenroles = implode(', ', $forbiddenroles);
 
         if ($allowable and ($allowoverrides or ($allowsafeoverrides and is_safe_capability($capability)))) {
-            $allowurl = new moodle_url($PAGE->url, array('contextid'=>$contextid, 'capability'=>$capability->name, 'allow'=>1));
+            $allowurl = new lion_url($PAGE->url, array('contextid'=>$contextid, 'capability'=>$capability->name, 'allow'=>1));
             $neededroles .= '<div class="allowmore">'.$OUTPUT->action_icon($allowurl, new pix_icon('t/add', get_string('allow', 'core_role'))).'</div>';
         }
 
         if ($forbitable and ($allowoverrides or ($allowsafeoverrides and is_safe_capability($capability)))) {
-            $prohibiturl = new moodle_url($PAGE->url, array('contextid'=>$contextid, 'capability'=>$capability->name, 'prohibit'=>1));
+            $prohibiturl = new lion_url($PAGE->url, array('contextid'=>$contextid, 'capability'=>$capability->name, 'prohibit'=>1));
             $forbiddenroles .= '<div class="prohibitmore">'.$OUTPUT->action_icon($prohibiturl, new pix_icon('t/add', get_string('prohibit', 'core_role'))).'</div>';
         }
 
@@ -131,7 +118,7 @@ class core_role_permissions_table extends core_role_capability_table_base {
         global $OUTPUT;
 
         $allrisks = get_all_risks();
-        $risksurl = new moodle_url(get_docs_url(s(get_string('risks', 'core_role'))));
+        $risksurl = new lion_url(get_docs_url(s(get_string('risks', 'core_role'))));
 
         $return = '';
 

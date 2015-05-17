@@ -13,6 +13,9 @@
  *       being stumped when a configuration directive doesn't work.
  *
  * @todo Reconsider some of the public member variables
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Config
 {

@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once "Google/Auth/OAuth2.php";
@@ -22,7 +25,6 @@ require_once "Google/Utils.php";
 /**
  * Credentials object used for OAuth 2.0 Signed JWT assertion grants.
  *
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Auth_AssertionCredentials
 {

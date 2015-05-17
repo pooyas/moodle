@@ -1,7 +1,7 @@
 {
-  "name": "moodle-message_airnotifier-toolboxes",
+  "name": "lion-message_airnotifier-toolboxes",
   "builds": {
-    "moodle-message_airnotifier-toolboxes": {
+    "lion-message_airnotifier-toolboxes": {
       "jsfiles": [
         "toolboxes.js"
       ]

@@ -14,10 +14,9 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 1999-2007 The SquirrelMail Project Team
- * @copyright 2005-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -94,12 +93,7 @@
  *   - RFC 6855: UTF8
  * </pre>
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 1999-2007 The SquirrelMail Project Team
- * @copyright 2005-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Socket extends Horde_Imap_Client_Base
 {

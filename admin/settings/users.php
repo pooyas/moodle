@@ -1,18 +1,25 @@
 <?php
 
+
+/**
+ * @package    admin
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // This file defines settingpages and externalpages under the "users" category
 
 $ADMIN->add('users', new admin_category('accounts', new lang_string('accounts', 'admin')));
 $ADMIN->add('users', new admin_category('roles', new lang_string('permissions', 'role')));
 
 if ($hassiteconfig
- or has_capability('moodle/user:create', $systemcontext)
- or has_capability('moodle/user:update', $systemcontext)
- or has_capability('moodle/user:delete', $systemcontext)
- or has_capability('moodle/role:manage', $systemcontext)
- or has_capability('moodle/role:assign', $systemcontext)
- or has_capability('moodle/cohort:manage', $systemcontext)
- or has_capability('moodle/cohort:view', $systemcontext)) { // speedup for non-admins, add all caps used on this page
+ or has_capability('lion/user:create', $systemcontext)
+ or has_capability('lion/user:update', $systemcontext)
+ or has_capability('lion/user:delete', $systemcontext)
+ or has_capability('lion/role:manage', $systemcontext)
+ or has_capability('lion/role:assign', $systemcontext)
+ or has_capability('lion/cohort:manage', $systemcontext)
+ or has_capability('lion/cohort:view', $systemcontext)) { // speedup for non-admins, add all caps used on this page
 
 
     if (empty($CFG->loginhttps)) {
@@ -21,9 +28,9 @@ if ($hassiteconfig
         $securewwwroot = str_replace('http:','https:',$CFG->wwwroot);
     }
     // stuff under the "accounts" subcategory
-    $ADMIN->add('accounts', new admin_externalpage('editusers', new lang_string('userlist','admin'), "$CFG->wwwroot/$CFG->admin/user.php", array('moodle/user:update', 'moodle/user:delete')));
-    $ADMIN->add('accounts', new admin_externalpage('userbulk', new lang_string('userbulk','admin'), "$CFG->wwwroot/$CFG->admin/user/user_bulk.php", array('moodle/user:update', 'moodle/user:delete')));
-    $ADMIN->add('accounts', new admin_externalpage('addnewuser', new lang_string('addnewuser'), "$securewwwroot/user/editadvanced.php?id=-1", 'moodle/user:create'));
+    $ADMIN->add('accounts', new admin_externalpage('editusers', new lang_string('userlist','admin'), "$CFG->wwwroot/$CFG->admin/user.php", array('lion/user:update', 'lion/user:delete')));
+    $ADMIN->add('accounts', new admin_externalpage('userbulk', new lang_string('userbulk','admin'), "$CFG->wwwroot/$CFG->admin/user/user_bulk.php", array('lion/user:update', 'lion/user:delete')));
+    $ADMIN->add('accounts', new admin_externalpage('addnewuser', new lang_string('addnewuser'), "$securewwwroot/user/editadvanced.php?id=-1", 'lion/user:create'));
 
     // "User default preferences" settingpage.
     $temp = new admin_settingpage('userdefaultpreferences', new lang_string('userdefaultpreferences', 'admin'));
@@ -62,8 +69,8 @@ if ($hassiteconfig
     }
     $ADMIN->add('accounts', $temp);
 
-    $ADMIN->add('accounts', new admin_externalpage('profilefields', new lang_string('profilefields','admin'), "$CFG->wwwroot/user/profile/index.php", 'moodle/site:config'));
-    $ADMIN->add('accounts', new admin_externalpage('cohorts', new lang_string('cohorts', 'cohort'), $CFG->wwwroot . '/cohort/index.php', array('moodle/cohort:manage', 'moodle/cohort:view')));
+    $ADMIN->add('accounts', new admin_externalpage('profilefields', new lang_string('profilefields','admin'), "$CFG->wwwroot/user/profile/index.php", 'lion/site:config'));
+    $ADMIN->add('accounts', new admin_externalpage('cohorts', new lang_string('cohorts', 'cohort'), $CFG->wwwroot . '/cohort/index.php', array('lion/cohort:manage', 'lion/cohort:view')));
 
 
     // stuff under the "roles" subcategory
@@ -172,7 +179,7 @@ if ($hassiteconfig
                        )));
 
         // Select fields to display as part of user identity (only to those
-        // with moodle/site:viewuseridentity).
+        // with lion/site:viewuseridentity).
         // Options include fields from the user table that might be helpful to
         // distinguish when adding or listing users ('I want to add the John
         // Smith from Science faculty').
@@ -203,8 +210,8 @@ if ($hassiteconfig
     if (is_siteadmin()) {
         $ADMIN->add('roles', new admin_externalpage('admins', new lang_string('siteadministrators', 'role'), "$CFG->wwwroot/$CFG->admin/roles/admins.php"));
     }
-    $ADMIN->add('roles', new admin_externalpage('defineroles', new lang_string('defineroles', 'role'), "$CFG->wwwroot/$CFG->admin/roles/manage.php", 'moodle/role:manage'));
-    $ADMIN->add('roles', new admin_externalpage('assignroles', new lang_string('assignglobalroles', 'role'), "$CFG->wwwroot/$CFG->admin/roles/assign.php?contextid=".$systemcontext->id, 'moodle/role:assign'));
-    $ADMIN->add('roles', new admin_externalpage('checkpermissions', new lang_string('checkglobalpermissions', 'role'), "$CFG->wwwroot/$CFG->admin/roles/check.php?contextid=".$systemcontext->id, array('moodle/role:assign', 'moodle/role:safeoverride', 'moodle/role:override', 'moodle/role:manage')));
+    $ADMIN->add('roles', new admin_externalpage('defineroles', new lang_string('defineroles', 'role'), "$CFG->wwwroot/$CFG->admin/roles/manage.php", 'lion/role:manage'));
+    $ADMIN->add('roles', new admin_externalpage('assignroles', new lang_string('assignglobalroles', 'role'), "$CFG->wwwroot/$CFG->admin/roles/assign.php?contextid=".$systemcontext->id, 'lion/role:assign'));
+    $ADMIN->add('roles', new admin_externalpage('checkpermissions', new lang_string('checkglobalpermissions', 'role'), "$CFG->wwwroot/$CFG->admin/roles/check.php?contextid=".$systemcontext->id, array('lion/role:assign', 'lion/role:safeoverride', 'lion/role:override', 'lion/role:manage')));
 
 } // end of speedup

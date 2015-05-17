@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * View a single (usually the own) submission, submit own work.
  *
- * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -103,7 +90,7 @@ if ($canviewall) {
     // check this flag against the group membership yet
     if (groups_get_activity_groupmode($workshop->cm) == SEPARATEGROUPS) {
         // user must have accessallgroups or share at least one group with the submission author
-        if (!has_capability('moodle/site:accessallgroups', $workshop->context)) {
+        if (!has_capability('lion/site:accessallgroups', $workshop->context)) {
             $usersgroups = groups_get_activity_allowed_groups($workshop->cm);
             $authorsgroups = groups_get_all_groups($workshop->course->id, $submission->authorid, $workshop->cm->groupingid, 'g.id');
             $sharedgroups = array_intersect_key($usersgroups, $authorsgroups);
@@ -216,7 +203,7 @@ if ($edit) {
             $event->trigger();
         } else {
             if (empty($formdata->id) or empty($submission->id) or ($formdata->id != $submission->id)) {
-                throw new moodle_exception('err_submissionid', 'workshop');
+                throw new lion_exception('err_submissionid', 'workshop');
             }
         }
         $params['objectid'] = $submission->id;
@@ -328,17 +315,17 @@ if ($submission->id) {
 
 if ($editable) {
     if ($submission->id) {
-        $btnurl = new moodle_url($PAGE->url, array('edit' => 'on', 'id' => $submission->id));
+        $btnurl = new lion_url($PAGE->url, array('edit' => 'on', 'id' => $submission->id));
         $btntxt = get_string('editsubmission', 'workshop');
     } else {
-        $btnurl = new moodle_url($PAGE->url, array('edit' => 'on'));
+        $btnurl = new lion_url($PAGE->url, array('edit' => 'on'));
         $btntxt = get_string('createsubmission', 'workshop');
     }
     echo $output->single_button($btnurl, $btntxt, 'get');
 }
 
 if ($submission->id and !$edit and !$isreviewer and $canallocate and $workshop->assessing_allowed($USER->id)) {
-    $url = new moodle_url($PAGE->url, array('assess' => 1));
+    $url = new lion_url($PAGE->url, array('assess' => 1));
     echo $output->single_button($url, get_string('assess', 'workshop'), 'post');
 }
 

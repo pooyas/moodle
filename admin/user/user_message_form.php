@@ -1,12 +1,19 @@
 <?php
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+
+/**
+ * @package    admin
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+*/
+
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once($CFG->libdir.'/formslib.php');
 
-class user_message_form extends moodleform {
+class user_message_form extends lionform {
 
     function definition() {
         $mform =& $this->_form;

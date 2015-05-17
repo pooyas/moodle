@@ -1,20 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') OR die('not allowed');
+
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') OR die('not allowed');
 require_once($CFG->dirroot.'/mod/feedback/item/feedback_item_class.php');
 
 define('FEEDBACK_MULTICHOICE_TYPE_SEP', '>>>>>');
@@ -356,6 +350,13 @@ class feedback_item_multichoice extends feedback_item_base {
         <li class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
             <span class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                 <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                     echo '<input type="radio" '.
                             'name="'.$item->typ.'_'.$item->id.'[]" '.
                             'id="'.$item->typ.'_'.$item->id.'_xxx" '.
@@ -369,6 +370,13 @@ class feedback_item_multichoice extends feedback_item_base {
             </span>
         </li>
         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
         }
 
         switch($info->subtype) {
@@ -459,6 +467,13 @@ class feedback_item_multichoice extends feedback_item_base {
             <li class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                 <span class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                     <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                     $checked = '';
                     // if (!$value) {
                         // $checked = 'checked="checked"';
@@ -479,6 +494,13 @@ class feedback_item_multichoice extends feedback_item_base {
                 </span>
             </li>
         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
         }
 
         switch($info->subtype) {
@@ -709,6 +731,13 @@ class feedback_item_multichoice extends feedback_item_base {
             <li class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                 <span class="feedback_item_radio_<?php echo $hv.'_'.$align;?>">
                     <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                         echo '<input type="radio" '.
                                 'name="'.$inputname.'[]" '.
                                 'id="'.$inputid.'" '.
@@ -722,6 +751,13 @@ class feedback_item_multichoice extends feedback_item_base {
                 </span>
             </li>
         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
             $index++;
         }
     }
@@ -757,6 +793,13 @@ class feedback_item_multichoice extends feedback_item_base {
             <li class="feedback_item_check_<?php echo $hv.'_'.$align;?>">
                 <span class="feedback_item_check_<?php echo $hv.'_'.$align;?>">
                     <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                         echo '<input type="checkbox" '.
                               'name="'.$inputname.'[]" '.
                               'id="'.$inputid.'" '.
@@ -770,6 +813,13 @@ class feedback_item_multichoice extends feedback_item_base {
                 </span>
             </li>
         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
             $index++;
         }
     }
@@ -792,6 +842,13 @@ class feedback_item_multichoice extends feedback_item_base {
             <select  id="<?php echo $item->typ .'_' . $item->id;?>" name="<?php echo $item->typ .'_' . $item->id;?>[]" size="1">
                 <option value="0">&nbsp;</option>
                 <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                 $index = 1;
                 $selected = '';
                 foreach ($presentation as $dropdown) {
@@ -808,12 +865,26 @@ class feedback_item_multichoice extends feedback_item_base {
                         <?php echo format_text($dropdown, FORMAT_HTML, array('noclean' => true, 'para' => false));?>
                     </option>
                 <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
                     $index++;
                 }
                 ?>
             </select>
         </div>
         <?php
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
     }
 
     public function set_ignoreempty($item, $ignoreempty=true) {

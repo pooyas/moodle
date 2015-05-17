@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Test helpers for the randomsamatch question type.
  *
- * @package    qtype_randomsamatch
- * @copyright  2013 Jean-Michel Vedrine
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question_type
+ * @subpackage randomsamatch
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/question/type/randomsamatch/question.php');
@@ -33,8 +20,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Test helper class for the randomsamatch question type.
  *
- * @copyright  2013 Jean-Michel Vedrine
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_randomsamatch_test_helper extends question_test_helper {
     public function get_test_questions() {
@@ -111,8 +96,6 @@ class qtype_randomsamatch_test_helper extends question_test_helper {
  * Test implementation of {@link qtype_randomsamatch_question_loader}. Gets the questions
  * from an array passed to the constructor, rather than querying the database.
  *
- * @copyright  2013 Jean-Michel Vedrine
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_randomsamatch_test_question_loader extends qtype_randomsamatch_question_loader {
     /** @var array hold available shortanswers questions to choose from. */

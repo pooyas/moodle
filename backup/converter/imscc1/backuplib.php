@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    backup
+ * @subpackage converter
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once($CFG->dirroot . '/backup/converter/convertlib.php');
 
 class imscc1_export_converter extends base_converter {

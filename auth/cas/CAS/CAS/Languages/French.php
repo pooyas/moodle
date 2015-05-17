@@ -21,10 +21,10 @@
  *
  * @file     CAS/Language/French.php
  * @category Authentication
- * @package  PhpCAS
- * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -32,9 +32,6 @@
  *
  * @class    CAS_Languages_French
  * @category Authentication
- * @package  PhpCAS
- * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  *
  * @sa @link internalLang Internationalization @endlink

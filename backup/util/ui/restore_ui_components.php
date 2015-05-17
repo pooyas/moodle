@@ -1,33 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains components used by the restore UI
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * A base class that can be used to build a specific search upon
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class restore_search_base implements renderable {
 
@@ -49,7 +33,7 @@ abstract class restore_search_base implements renderable {
     private $search = null;
     /**
      * The URL for this page including required params to return to it
-     * @var moodle_url
+     * @var lion_url
      */
     private $url = null;
     /**
@@ -97,15 +81,15 @@ abstract class restore_search_base implements renderable {
 
     /**
      * The URL for this search
-     * @global moodle_page $PAGE
-     * @return moodle_url The URL for this page
+     * @global lion_page $PAGE
+     * @return lion_url The URL for this page
      */
     final public function get_url() {
         global $PAGE;
         $params = array(
             $this->get_varsearch()    => $this->get_search()
         );
-        return ($this->url !== null) ? new moodle_url($this->url, $params) : new moodle_url($PAGE->url, $params);
+        return ($this->url !== null) ? new lion_url($this->url, $params) : new lion_url($PAGE->url, $params);
     }
 
     /**
@@ -140,9 +124,9 @@ abstract class restore_search_base implements renderable {
 
     /**
      * Sets the page URL
-     * @param moodle_url $url
+     * @param lion_url $url
      */
-    final public function set_url(moodle_url $url) {
+    final public function set_url(lion_url $url) {
         $this->url = $url;
     }
 
@@ -172,7 +156,7 @@ abstract class restore_search_base implements renderable {
     /**
      * Executes the search
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return int The number of results
      */
     final public function search() {
@@ -261,9 +245,6 @@ abstract class restore_search_base implements renderable {
 /**
  * A course search component
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_course_search extends restore_search_base {
 
@@ -302,12 +283,12 @@ class restore_course_search extends restore_search_base {
      * This will typically call $this->require_capability().
      */
     protected function setup_restrictions() {
-        $this->require_capability('moodle/restore:restorecourse');
+        $this->require_capability('lion/restore:restorecourse');
     }
 
     /**
      * Get the search SQL.
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return array
      */
     protected function get_searchsql() {
@@ -367,9 +348,6 @@ class restore_course_search extends restore_search_base {
 /**
  * A category search component
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_category_search extends restore_search_base  {
 
@@ -385,11 +363,11 @@ class restore_category_search extends restore_search_base  {
      */
     public function __construct(array $config = array()) {
         parent::__construct($config);
-        $this->require_capability('moodle/course:create');
+        $this->require_capability('lion/course:create');
     }
     /**
      * Returns the search SQL.
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return array
      */
     protected function get_searchsql() {

@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Strings for component 'auth_ldap', language 'en'.
  *
- * @package   auth_ldap
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    auth
+ * @subpackage ldap
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['auth_ldap_ad_create_req'] = 'Cannot create the new account in Active Directory. Make sure you meet all the requirements for this to work (LDAPS connection, bind user with adequate rights, etc.)';
@@ -33,15 +20,15 @@ $string['auth_ldap_bind_pw_key'] = 'Password';
 $string['auth_ldap_bind_settings'] = 'Bind settings';
 $string['auth_ldap_contexts'] = 'List of contexts where users are located. Separate different contexts with \';\'. For example: \'ou=users,o=org; ou=others,o=org\'';
 $string['auth_ldap_contexts_key'] = 'Contexts';
-$string['auth_ldap_create_context'] = 'If you enable user creation with email confirmation, specify the context where users are created. This context should be different from other users to prevent security issues. You don\'t need to add this context to ldap_context-variable, Moodle will search for users from this context automatically.<br /><b>Note!</b> You have to modify the method user_create() in file auth/ldap/auth.php to make user creation work';
+$string['auth_ldap_create_context'] = 'If you enable user creation with email confirmation, specify the context where users are created. This context should be different from other users to prevent security issues. You don\'t need to add this context to ldap_context-variable, Lion will search for users from this context automatically.<br /><b>Note!</b> You have to modify the method user_create() in file auth/ldap/auth.php to make user creation work';
 $string['auth_ldap_create_context_key'] = 'Context for new users';
 $string['auth_ldap_create_error'] = 'Error creating user in LDAP.';
 $string['auth_ldap_creators'] = 'List of groups or contexts whose members are allowed to create new courses. Separate multiple groups with \';\'. Usually something like \'cn=teachers,ou=staff,o=myorg\'';
 $string['auth_ldap_creators_key'] = 'Creators';
 $string['auth_ldapdescription'] = 'This method provides authentication against an external LDAP server.
-                                  If the given username and password are valid, Moodle creates a new user
+                                  If the given username and password are valid, Lion creates a new user
                                   entry in its database. This module can read user attributes from LDAP and prefill
-                                  wanted fields in Moodle.  For following logins only the username and
+                                  wanted fields in Lion.  For following logins only the username and
                                   password are checked.';
 $string['auth_ldap_expiration_desc'] = 'Select No to disable expired password checking or LDAP to read passwordexpiration time directly from LDAP';
 $string['auth_ldap_expiration_key'] = 'Expiration';
@@ -49,7 +36,7 @@ $string['auth_ldap_expiration_warning_desc'] = 'Number of days before password e
 $string['auth_ldap_expiration_warning_key'] = 'Expiration warning';
 $string['auth_ldap_expireattr_desc'] = 'Optional: overrides ldap-attribute that stores password expiration time';
 $string['auth_ldap_expireattr_key'] = 'Expiration attribute';
-$string['auth_ldapextrafields'] = 'These fields are optional.  You can choose to pre-fill some Moodle user fields with information from the <b>LDAP fields</b> that you specify here. <p>If you leave these fields blank, then nothing will be transferred from LDAP and Moodle defaults will be used instead.</p><p>In either case, the user will be able to edit all of these fields after they log in.</p>';
+$string['auth_ldapextrafields'] = 'These fields are optional.  You can choose to pre-fill some Lion user fields with information from the <b>LDAP fields</b> that you specify here. <p>If you leave these fields blank, then nothing will be transferred from LDAP and Lion defaults will be used instead.</p><p>In either case, the user will be able to edit all of these fields after they log in.</p>';
 $string['auth_ldap_graceattr_desc'] = 'Optional: Overrides  gracelogin attribute';
 $string['auth_ldap_gracelogin_key'] = 'Grace login attribute';
 $string['auth_ldap_gracelogins_desc'] = 'Enable LDAP gracelogin support. After password has expired user can login until gracelogin count is 0. Enabling this setting displays grace login message if password is expired.';
@@ -78,13 +65,13 @@ $string['auth_ldap_opt_deref_key'] = 'Dereference aliases';
 $string['auth_ldap_passtype'] = 'Specify the format of new or changed passwords in LDAP server.';
 $string['auth_ldap_passtype_key'] = 'Password format';
 $string['auth_ldap_passwdexpire_settings'] = 'LDAP password expiration settings.';
-$string['auth_ldap_preventpassindb'] = 'Select yes to prevent passwords from being stored in Moodle\'s DB.';
+$string['auth_ldap_preventpassindb'] = 'Select yes to prevent passwords from being stored in Lion\'s DB.';
 $string['auth_ldap_preventpassindb_key'] = 'Don\'t cache passwords';
 $string['auth_ldap_search_sub'] = 'Search users from subcontexts.';
 $string['auth_ldap_search_sub_key'] = 'Search subcontexts';
 $string['auth_ldap_server_settings'] = 'LDAP server settings';
 $string['auth_ldap_unsupportedusertype'] = 'auth: ldap user_create() does not support selected usertype: {$a}';
-$string['auth_ldap_update_userinfo'] = 'Update user information (firstname, lastname, address..) from LDAP to Moodle.  Specify "Data mapping" settings as you need.';
+$string['auth_ldap_update_userinfo'] = 'Update user information (firstname, lastname, address..) from LDAP to Lion.  Specify "Data mapping" settings as you need.';
 $string['auth_ldap_user_attribute'] = 'Optional: Overrides the attribute used to name/search users. Usually \'cn\'.';
 $string['auth_ldap_user_attribute_key'] = 'User attribute';
 $string['auth_ldap_user_exists'] = 'LDAP username already exists.';
@@ -96,7 +83,7 @@ $string['auth_ldap_usertypeundefined2'] = 'config.user_type not defined or funct
 $string['auth_ldap_version'] = 'The version of the LDAP protocol your server is using.';
 $string['auth_ldap_version_key'] = 'Version';
 $string['auth_ntlmsso'] = 'NTLM SSO';
-$string['auth_ntlmsso_enabled'] = 'Set to yes to attempt Single Sign On with the NTLM domain. <strong>Note:</strong> this requires additional setup on the webserver to work, see <a href="http://docs.moodle.org/en/NTLM_authentication">http://docs.moodle.org/en/NTLM_authentication</a>';
+$string['auth_ntlmsso_enabled'] = 'Set to yes to attempt Single Sign On with the NTLM domain. <strong>Note:</strong> this requires additional setup on the webserver to work, see <a href="http://docs.lion.org/en/NTLM_authentication">http://docs.lion.org/en/NTLM_authentication</a>';
 $string['auth_ntlmsso_enabled_key'] = 'Enable';
 $string['auth_ntlmsso_ie_fastpath'] = 'Set to enable the NTLM SSO fast path (bypasses certain steps if the client\'s browser is MS Internet Explorer).';
 $string['auth_ntlmsso_ie_fastpath_key'] = 'MS IE fast path?';
@@ -130,7 +117,7 @@ $string['ntlmsso_attempting'] = 'Attempting Single Sign On via NTLM...';
 $string['ntlmsso_failed'] = 'Auto-login failed, try the normal login page...';
 $string['ntlmsso_isdisabled'] = 'NTLM SSO is disabled.';
 $string['ntlmsso_unknowntype'] = 'Unknown ntlmsso type!';
-$string['pagedresultsnotsupp'] = 'LDAP paged results not supported (either your PHP version lacks support or you have configured Moodle to use LDAP protocol version 2)';
+$string['pagedresultsnotsupp'] = 'LDAP paged results not supported (either your PHP version lacks support or you have configured Lion to use LDAP protocol version 2)';
 $string['pagesize'] = 'Make sure this value is smaller than your LDAP server result set size limit (the maximum number of entries that can be returned in a single query)';
 $string['pagesize_key'] = 'Page Size';
 $string['pluginname'] = 'LDAP server';
@@ -139,8 +126,8 @@ $string['renamingnotallowed'] = 'User renaming not allowed in LDAP';
 $string['rootdseerror'] = 'Error querying rootDSE for Active Directory';
 $string['start_tls'] = 'Use regular LDAP service (port 389) with TLS encryption';
 $string['start_tls_key'] = 'Use TLS';
-$string['updateremfail'] = 'Error updating LDAP record. Error code: {$a->errno}; Error string: {$a->errstring}<br/>Key ({$a->key}) - old moodle value: \'{$a->ouvalue}\' new value: \'{$a->nuvalue}\'';
-$string['updateremfailamb'] = 'Failed to update LDAP with ambiguous field {$a->key}; old moodle value: \'{$a->ouvalue}\', new value: \'{$a->nuvalue}\'';
+$string['updateremfail'] = 'Error updating LDAP record. Error code: {$a->errno}; Error string: {$a->errstring}<br/>Key ({$a->key}) - old lion value: \'{$a->ouvalue}\' new value: \'{$a->nuvalue}\'';
+$string['updateremfailamb'] = 'Failed to update LDAP with ambiguous field {$a->key}; old lion value: \'{$a->ouvalue}\', new value: \'{$a->nuvalue}\'';
 $string['updatepasserror'] = 'Error in user_update_password(). Error code: {$a->errno}; Error string: {$a->errstring}';
 $string['updatepasserrorexpire'] = 'Error in user_update_password() when reading password expiration time. Error code: {$a->errno}; Error string: {$a->errstring}';
 $string['updatepasserrorexpiregrace'] = 'Error in user_update_password() when modifying expirationtime and/or gracelogins. Error code: {$a->errno}; Error string: {$a->errstring}';

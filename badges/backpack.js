@@ -52,7 +52,7 @@ function badges_set_connection_progress(status) {
     switch (status) {
     case 'connecting':
         var connecting = M.util.get_string('connecting', 'badges');
-        var imageurl = M.util.image_url('i/loading_small', 'moodle');
+        var imageurl = M.util.image_url('i/loading_small', 'lion');
         var loading = Y.Node.create(connecting + '&nbsp;<img src="'+imageurl+'" width="16" height="16" alt="'+connecting+'"/>');
         Y.one('#connection-status').removeClass('notconnected').addClass('connecting').setHTML(loading);
         break;
@@ -116,7 +116,7 @@ function badges_handle_assertion(assertion) {
  */
 function badges_init_persona_login_button() {
     // Create the login button and add to the page via Javascript.
-    var imageurl = M.util.image_url('i/persona_sign_in_black', 'moodle');
+    var imageurl = M.util.image_url('i/persona_sign_in_black', 'lion');
     var imagealt = M.util.get_string('signinwithyouremail', 'badges');
     var button = Y.Node.create('<img id="persona_signin" src="'+imageurl+'" width="202" height="25" alt="'+imagealt+'"/>');
     Y.one('#persona-container').append(button);

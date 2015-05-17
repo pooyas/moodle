@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Utility helper for automated backups run through cron.
  *
- * @package    core
- * @subpackage backup
- * @copyright  2010 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * This class is an abstract class with methods that can be called to aid the
@@ -64,7 +50,7 @@ abstract class backup_cron_automated_helper {
     /**
      * Runs the automated backups if required
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      */
     public static function run_automated_backup($rundirective = self::RUN_ON_SCHEDULE) {
         global $CFG, $DB;
@@ -258,7 +244,7 @@ abstract class backup_cron_automated_helper {
 
             //Send the message
             $eventdata = new stdClass();
-            $eventdata->modulename        = 'moodle';
+            $eventdata->modulename        = 'lion';
             $eventdata->userfrom          = $admin;
             $eventdata->userto            = $admin;
             $eventdata->subject           = $subject;
@@ -267,7 +253,7 @@ abstract class backup_cron_automated_helper {
             $eventdata->fullmessagehtml   = '';
             $eventdata->smallmessage      = '';
 
-            $eventdata->component         = 'moodle';
+            $eventdata->component         = 'lion';
             $eventdata->name         = 'backup';
 
             message_send($eventdata);
@@ -285,7 +271,7 @@ abstract class backup_cron_automated_helper {
      * Gets the results from the last automated backup that was run based upon
      * the statuses of the courses that were looked at.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return array
      */
     public static function get_backup_status_array() {
@@ -376,7 +362,7 @@ abstract class backup_cron_automated_helper {
         $dir = $config->backup_auto_destination;
         $storage = (int)$config->backup_auto_storage;
 
-        $bc = new backup_controller(backup::TYPE_1COURSE, $course->id, backup::FORMAT_MOODLE, backup::INTERACTIVE_NO,
+        $bc = new backup_controller(backup::TYPE_1COURSE, $course->id, backup::FORMAT_LION, backup::INTERACTIVE_NO,
                 backup::MODE_AUTOMATED, $userid);
 
         try {
@@ -398,7 +384,7 @@ abstract class backup_cron_automated_helper {
             $file = $results['backup_destination']; // May be empty if file already moved to target location.
 
             // If we need to copy the backup file to an external dir and it is not writable, change status to error.
-            // This is a feature to prevent moodledata to be filled up and break a site when the admin misconfigured
+            // This is a feature to prevent liondata to be filled up and break a site when the admin misconfigured
             // the automated backups storage type and destination directory.
             if ($storage !== 0 && (empty($dir) || !file_exists($dir) || !is_dir($dir) || !is_writable($dir))) {
                 $bc->log('Specified backup directory is not writable - ', backup::LOG_ERROR, $dir);
@@ -424,7 +410,7 @@ abstract class backup_cron_automated_helper {
                 }
             }
 
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $bc->log('backup_auto_failed_on_course', backup::LOG_ERROR, $course->shortname); // Log error header.
             $bc->log('Exception: ' . $e->errorcode, backup::LOG_ERROR, $e->a, 1); // Log original exception problem.
             $bc->log('Debug: ' . $e->debuginfo, backup::LOG_DEBUG, null, 1); // Log original debug information.
@@ -479,7 +465,7 @@ abstract class backup_cron_automated_helper {
      * Removes deleted courses fromn the backup_courses table so that we don't
      * waste time backing them up.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return int
      */
     public static function remove_deleted_courses_from_schedule() {
@@ -499,7 +485,7 @@ abstract class backup_cron_automated_helper {
     /**
      * Gets the state of the automated backup system.
      *
-     * @global moodle_database $DB
+     * @global lion_database $DB
      * @return int One of self::STATE_*
      */
     public static function get_automated_backup_state($rundirective = self::RUN_ON_SCHEDULE) {
@@ -602,7 +588,7 @@ abstract class backup_cron_automated_helper {
         if (!empty($dir) && ($storage == 1 || $storage == 2)) {
             // Calculate backup filename regex, ignoring the date/time/info parts that can be
             // variable, depending of languages, formats and automated backup settings.
-            $filename = backup::FORMAT_MOODLE . '-' . backup::TYPE_1COURSE . '-' . $course->id . '-';
+            $filename = backup::FORMAT_LION . '-' . backup::TYPE_1COURSE . '-' . $course->id . '-';
             $regex = '#' . preg_quote($filename, '#') . '.*\.mbz$#';
 
             // Store all the matching files into filename => timemodified array.
@@ -622,7 +608,7 @@ abstract class backup_cron_automated_helper {
                 }
 
                 // Make sure this backup concerns the course and site we are looking for.
-                if ($bcinfo->format === backup::FORMAT_MOODLE &&
+                if ($bcinfo->format === backup::FORMAT_LION &&
                         $bcinfo->type === backup::TYPE_1COURSE &&
                         $bcinfo->original_course_id == $course->id &&
                         backup_general_helper::backup_is_samesite($bcinfo)) {

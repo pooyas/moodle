@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 /*
 Copyright (c) 2003, Michael Bretterklieber <michael@bretterklieber.com>
@@ -40,20 +47,17 @@ require_once 'PEAR.php';
 * the RADIUS PECL.
 * Provides RADIUS Authentication (RFC2865) and RADIUS Accounting (RFC2866).
 *
-* @package Auth_RADIUS
-* @author  Michael Bretterklieber <michael@bretterklieber.com>
 * @access  public
 * @version $Revision$
 */
 
-// PEAR::loadExtension('radius'); // Moodle commented. See MDL-38373.
+// PEAR::loadExtension('radius'); // Lion commented. See MDL-38373.
 
 /**
  * class Auth_RADIUS
  *
  * Abstract base class for RADIUS
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS extends PEAR {
 
@@ -127,7 +131,7 @@ class Auth_RADIUS extends PEAR {
      */
     function Auth_RADIUS()
     {
-        $this->loadExtension('radius'); // Moodle added. See MDL-38373.
+        $this->loadExtension('radius'); // Lion added. See MDL-38373.
         $this->PEAR();
     }
 
@@ -564,7 +568,6 @@ class Auth_RADIUS extends PEAR {
  *
  * Class for authenticating using PAP (Plaintext)
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_PAP extends Auth_RADIUS
 {
@@ -640,7 +643,6 @@ class Auth_RADIUS_PAP extends Auth_RADIUS
  * Instead og the plaintext password the challenge and
  * the response are needed.
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_CHAP_MD5 extends Auth_RADIUS_PAP
 {
@@ -722,7 +724,6 @@ class Auth_RADIUS_CHAP_MD5 extends Auth_RADIUS_PAP
  *
  * Class for authenticating using MS-CHAPv1 see RFC2433
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_MSCHAPv1 extends Auth_RADIUS_CHAP_MD5
 {
@@ -775,7 +776,6 @@ class Auth_RADIUS_MSCHAPv1 extends Auth_RADIUS_CHAP_MD5
  *
  * Class for authenticating using MS-CHAPv2 see RFC2759
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_MSCHAPv2 extends Auth_RADIUS_MSCHAPv1
 {
@@ -841,7 +841,6 @@ class Auth_RADIUS_MSCHAPv2 extends Auth_RADIUS_MSCHAPv1
  *
  * Class for RADIUS accounting
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_Acct extends Auth_RADIUS
 {
@@ -950,7 +949,6 @@ class Auth_RADIUS_Acct extends Auth_RADIUS
  *
  * Class for RADIUS accounting. Its usualy used, after the user has logged in.
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_Acct_Start extends Auth_RADIUS_Acct
 {
@@ -967,7 +965,6 @@ class Auth_RADIUS_Acct_Start extends Auth_RADIUS_Acct
  *
  * Class for RADIUS accounting. Its usualy used, after the user has logged out.
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_Acct_Stop extends Auth_RADIUS_Acct
 {
@@ -987,7 +984,6 @@ if (!defined('RADIUS_UPDATE'))
  *
  * Class for interim RADIUS accounting updates.
  *
- * @package Auth_RADIUS
  */
 class Auth_RADIUS_Acct_Update extends Auth_RADIUS_Acct
 {

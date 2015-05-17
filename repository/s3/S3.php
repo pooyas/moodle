@@ -26,6 +26,9 @@
 * POSSIBILITY OF SUCH DAMAGE.
 *
 * Amazon S3 is a trademark of Amazon.com, Inc. or its affiliates.
+ * @package    repository
+ * @subpackage s3
+ * @copyright  2015 Pooya Saeedi
 */
 
 /**

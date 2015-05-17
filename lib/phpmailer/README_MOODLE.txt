@@ -1,4 +1,4 @@
-Description of PHPMailer 5.2.9 library import into Moodle
+Description of PHPMailer 5.2.9 library import into Lion
 
 We now use a vanilla version of phpmailer and do our customisations in a
 subclass.
@@ -10,7 +10,7 @@ class.pop3.php
 .scrutinizer.yml
 composer.json
 travis.phpunit.xml.dist
-PHPMailerAutoload.php (make sure all files are included in moodle_phpmailer.php)
+PHPMailerAutoload.php (make sure all files are included in lion_phpmailer.php)
 docs/
 examples/
 test/

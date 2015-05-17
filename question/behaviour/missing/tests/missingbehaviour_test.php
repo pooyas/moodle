@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains tests for the 'missing' behaviour.
  *
- * @package    qbehaviour
+ * @package    question_behaviour
  * @subpackage missing
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once(dirname(__FILE__) . '/../../../engine/lib.php');
@@ -35,35 +21,33 @@ require_once(dirname(__FILE__) . '/../behaviour.php');
 /**
  * Unit tests for the 'missing' behaviour.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_missing_test extends advanced_testcase {
     public function test_missing_cannot_start() {
         $qa = new question_attempt(test_question_maker::make_question('truefalse', 'true'), 0);
         $behaviour = new qbehaviour_missing($qa, 'deferredfeedback');
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $behaviour->init_first_step(new question_attempt_step(array()), 1);
     }
 
     public function test_missing_cannot_process() {
         $qa = new question_attempt(test_question_maker::make_question('truefalse', 'true'), 0);
         $behaviour = new qbehaviour_missing($qa, 'deferredfeedback');
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $behaviour->process_action(new question_attempt_pending_step(array()));
     }
 
     public function test_missing_cannot_get_min_fraction() {
         $qa = new question_attempt(test_question_maker::make_question('truefalse', 'true'), 0);
         $behaviour = new qbehaviour_missing($qa, 'deferredfeedback');
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $behaviour->get_min_fraction();
     }
 
     public function test_missing_cannot_get_max_fraction() {
         $qa = new question_attempt(test_question_maker::make_question('truefalse', 'true'), 0);
         $behaviour = new qbehaviour_missing($qa, 'deferredfeedback');
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $behaviour->get_max_fraction();
     }
 

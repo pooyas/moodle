@@ -1,31 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package   moodlecore
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Generic abstract dependency class
  *
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class setting_dependency {
 
@@ -147,11 +132,11 @@ abstract class setting_dependency {
      */
     abstract public function enforce();
     /**
-     * Returns an array of properties suitable to be used to define a moodleforms
+     * Returns an array of properties suitable to be used to define a lionforms
      * disabled command
      * @return array
      */
-    abstract public function get_moodleform_properties();
+    abstract public function get_lionform_properties();
     /**
      * Returns true if the dependent setting is locked.
      * @return bool
@@ -163,8 +148,6 @@ abstract class setting_dependency {
  * A dependency that disables the secondary setting if the primary setting is
  * equal to the provided value
  *
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class setting_dependency_disabledif_equals extends setting_dependency {
     /**
@@ -260,11 +243,11 @@ class setting_dependency_disabledif_equals extends setting_dependency {
         return $changes;
     }
     /**
-     * Returns an array of properties suitable to be used to define a moodleforms
+     * Returns an array of properties suitable to be used to define a lionforms
      * disabled command
      * @return array
      */
-    public function get_moodleform_properties() {
+    public function get_lionform_properties() {
         return array(
             'setting'=>$this->dependentsetting->get_ui_name(),
             'dependenton'=>$this->setting->get_ui_name(),
@@ -278,8 +261,6 @@ class setting_dependency_disabledif_equals extends setting_dependency {
 * A dependency that disables the secondary setting if the primary setting is
 * not equal to the provided value
 *
-* @copyright 2011 Darko Miletic <dmiletic@moodlerooms.com>
-* @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 */
 class setting_dependency_disabledif_not_equals extends setting_dependency_disabledif_equals {
     /**
@@ -304,11 +285,11 @@ class setting_dependency_disabledif_not_equals extends setting_dependency_disabl
         return $changes;
     }
     /**
-    * Returns an array of properties suitable to be used to define a moodleforms
+    * Returns an array of properties suitable to be used to define a lionforms
     * disabled command
     * @return array
     */
-    public function get_moodleform_properties() {
+    public function get_lionform_properties() {
         return array(
                 'setting'=>$this->dependentsetting->get_ui_name(),
                 'dependenton'=>$this->setting->get_ui_name(),
@@ -413,11 +394,11 @@ class setting_dependency_disabledif_equals2 extends setting_dependency {
         return $changes;
     }
     /**
-     * Returns an array of properties suitable to be used to define a moodleforms
+     * Returns an array of properties suitable to be used to define a lionforms
      * disabled command
      * @return array
      */
-    public function get_moodleform_properties() {
+    public function get_lionform_properties() {
         return array(
             'setting'=>$this->dependentsetting->get_ui_name(),
             'dependenton'=>$this->setting->get_ui_name(),
@@ -432,8 +413,6 @@ class setting_dependency_disabledif_equals2 extends setting_dependency {
  * A dependency that disables the secondary element if the primary element is
  * true or checked
  *
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class setting_dependency_disabledif_checked extends setting_dependency_disabledif_equals {
     public function __construct(base_setting $setting, base_setting $dependentsetting, $defaultvalue = false) {
@@ -441,11 +420,11 @@ class setting_dependency_disabledif_checked extends setting_dependency_disabledi
         $this->value = true;
     }
     /**
-     * Returns an array of properties suitable to be used to define a moodleforms
+     * Returns an array of properties suitable to be used to define a lionforms
      * disabled command
      * @return array
      */
-    public function get_moodleform_properties() {
+    public function get_lionform_properties() {
         return array(
             'setting'=>$this->dependentsetting->get_ui_name(),
             'dependenton'=>$this->setting->get_ui_name(),
@@ -458,8 +437,6 @@ class setting_dependency_disabledif_checked extends setting_dependency_disabledi
  * A dependency that disables the secondary element if the primary element is
  * false or not checked
  *
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class setting_dependency_disabledif_not_checked extends setting_dependency_disabledif_equals {
     public function __construct(base_setting $setting, base_setting $dependentsetting, $defaultvalue = false) {
@@ -467,11 +444,11 @@ class setting_dependency_disabledif_not_checked extends setting_dependency_disab
         $this->value = false;
     }
     /**
-     * Returns an array of properties suitable to be used to define a moodleforms
+     * Returns an array of properties suitable to be used to define a lionforms
      * disabled command
      * @return array
      */
-    public function get_moodleform_properties() {
+    public function get_lionform_properties() {
         return array(
             'setting'=>$this->dependentsetting->get_ui_name(),
             'dependenton'=>$this->setting->get_ui_name(),
@@ -484,8 +461,6 @@ class setting_dependency_disabledif_not_checked extends setting_dependency_disab
  * A dependency that disables the secondary setting if the value of the primary setting
  * is not empty.
  *
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class setting_dependency_disabledif_not_empty extends setting_dependency_disabledif_equals {
     public function __construct(base_setting $setting, base_setting $dependentsetting, $defaultvalue = false) {
@@ -493,11 +468,11 @@ class setting_dependency_disabledif_not_empty extends setting_dependency_disable
         $this->value = false;
     }
     /**
-     * Returns an array of properties suitable to be used to define a moodleforms
+     * Returns an array of properties suitable to be used to define a lionforms
      * disabled command
      * @return array
      */
-    public function get_moodleform_properties() {
+    public function get_lionform_properties() {
         return array(
             'setting'=>$this->dependentsetting->get_ui_name(),
             'dependenton'=>$this->setting->get_ui_name(),
@@ -549,8 +524,6 @@ class setting_dependency_disabledif_not_empty extends setting_dependency_disable
  * A dependency that disables the secondary setting if the value of the primary setting
  * is empty.
  *
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class setting_dependency_disabledif_empty extends setting_dependency_disabledif_equals {
     public function __construct(base_setting $setting, base_setting $dependentsetting, $defaultvalue = false) {
@@ -558,11 +531,11 @@ class setting_dependency_disabledif_empty extends setting_dependency_disabledif_
         $this->value = false;
     }
     /**
-     * Returns an array of properties suitable to be used to define a moodleforms
+     * Returns an array of properties suitable to be used to define a lionforms
      * disabled command
      * @return array
      */
-    public function get_moodleform_properties() {
+    public function get_lionform_properties() {
         return array(
             'setting'=>$this->dependentsetting->get_ui_name(),
             'dependenton'=>$this->setting->get_ui_name(),

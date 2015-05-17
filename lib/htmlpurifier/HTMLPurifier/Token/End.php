@@ -6,6 +6,9 @@
  * @warning This class accepts attributes even though end tags cannot. This
  * is for optimization reasons, as under normal circumstances, the Lexers
  * do not pass attributes.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Token_End extends HTMLPurifier_Token_Tag
 {

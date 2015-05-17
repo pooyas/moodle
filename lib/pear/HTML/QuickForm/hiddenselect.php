@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -28,10 +35,8 @@ require_once('HTML/QuickForm/select.php');
  * you have a select ring that you don't want visible, but you need all
  * selected values to be passed.
  *
- * @author       Isaac Shepard <ishepard@bsiweb.com>
  *
  * @version      1.0
- * @since        2.1
  * @access       public
  */
 class HTML_QuickForm_hiddenselect extends HTML_QuickForm_select
@@ -45,7 +50,6 @@ class HTML_QuickForm_hiddenselect extends HTML_QuickForm_select
      * @param     mixed     Label(s) for the select (not used)
      * @param     mixed     Data to be used to populate options
      * @param     mixed     Either a typical HTML attribute string or an associative array (not used)
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -65,7 +69,6 @@ class HTML_QuickForm_hiddenselect extends HTML_QuickForm_select
     /**
      * Returns the SELECT in HTML
      *
-     * @since     1.0
      * @access    public
      * @return    string
      * @throws

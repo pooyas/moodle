@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Enrol config manipulation script.
  *
  * @package    core
- * @subpackage enrol
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('NO_OUTPUT_BUFFERING', true);
@@ -36,13 +22,13 @@ $PAGE->set_url('/admin/enrol.php');
 $PAGE->set_context(context_system::instance());
 
 require_login();
-require_capability('moodle/site:config', context_system::instance());
+require_capability('lion/site:config', context_system::instance());
 require_sesskey();
 
 $enabled = enrol_get_plugins(true);
 $all     = enrol_get_plugins(false);
 
-$return = new moodle_url('/admin/settings.php', array('section'=>'manageenrols'));
+$return = new lion_url('/admin/settings.php', array('section'=>'manageenrols'));
 
 $syscontext = context_system::instance();
 
@@ -122,7 +108,7 @@ switch ($action) {
         echo $OUTPUT->notification(get_string('success'), 'notifysuccess');
 
         if (!$return = core_plugin_manager::instance()->get_uninstall_url('enrol_'.$enrol, 'manage')) {
-            $return = new moodle_url('/admin/plugins.php');
+            $return = new lion_url('/admin/plugins.php');
         }
         echo $OUTPUT->continue_button($return);
         echo $OUTPUT->footer();

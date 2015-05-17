@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package   mod_forum
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** Include required files */
 require_once(__DIR__ . '/deprecatedlib.php');
@@ -323,7 +310,7 @@ function forum_supports($feature) {
         case FEATURE_GRADE_HAS_GRADE:         return true;
         case FEATURE_GRADE_OUTCOMES:          return true;
         case FEATURE_RATE:                    return true;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
         case FEATURE_PLAGIARISM:              return true;
 
@@ -674,7 +661,7 @@ function forum_cron() {
                 // Fill caches.
                 if (!isset($userto->viewfullnames[$forum->id])) {
                     $modcontext = context_module::instance($cm->id);
-                    $userto->viewfullnames[$forum->id] = has_capability('moodle/site:viewfullnames', $modcontext);
+                    $userto->viewfullnames[$forum->id] = has_capability('lion/site:viewfullnames', $modcontext);
                 }
                 if (!isset($userto->canpost[$discussion->id])) {
                     $modcontext = context_module::instance($cm->id);
@@ -701,7 +688,7 @@ function forum_cron() {
                         continue;
                     }
 
-                    if (!groups_is_member($discussion->groupid) and !has_capability('moodle/site:accessallgroups', $modcontext)) {
+                    if (!groups_is_member($discussion->groupid) and !has_capability('lion/site:accessallgroups', $modcontext)) {
                         // Do not send posts from other groups when in SEPARATEGROUPS or VISIBLEGROUPS.
                         continue;
                     }
@@ -735,7 +722,7 @@ function forum_cron() {
 
                 $userfrom->customheaders = array (
                     // Headers to make emails easier to track.
-                    'List-Id: "'        . $cleanforumname . '" <moodleforum' . $forum->id . '@' . $hostname.'>',
+                    'List-Id: "'        . $cleanforumname . '" <lionforum' . $forum->id . '@' . $hostname.'>',
                     'List-Help: '       . $CFG->wwwroot . '/mod/forum/view.php?f=' . $forum->id,
                     'Message-ID: '      . forum_get_email_message_id($post->id, $userto->id, $hostname),
                     'X-Course-Id: '     . $course->id,
@@ -808,7 +795,7 @@ function forum_cron() {
                 // Make sure strings are in message recipients language.
                 $eventdata->smallmessage = get_string_manager()->get_string('smallmessage', 'forum', $smallmessagestrings, $userto->lang);
 
-                $contexturl = new moodle_url('/mod/forum/discuss.php', array('d' => $discussion->id), 'p' . $post->id);
+                $contexturl = new lion_url('/mod/forum/discuss.php', array('d' => $discussion->id), 'p' . $post->id);
                 $eventdata->contexturl = $contexturl->out();
                 $eventdata->contexturlname = $discussion->name;
 
@@ -992,7 +979,7 @@ function forum_cron() {
                     // Fill caches
                     if (!isset($userto->viewfullnames[$forum->id])) {
                         $modcontext = context_module::instance($cm->id);
-                        $userto->viewfullnames[$forum->id] = has_capability('moodle/site:viewfullnames', $modcontext);
+                        $userto->viewfullnames[$forum->id] = has_capability('lion/site:viewfullnames', $modcontext);
                     }
                     if (!isset($userto->canpost[$discussion->id])) {
                         $modcontext = context_module::instance($cm->id);
@@ -1177,7 +1164,7 @@ function forum_make_mail_text($course, $cm, $forum, $discussion, $post, $userfro
     $modcontext = context_module::instance($cm->id);
 
     if (!isset($userto->viewfullnames[$forum->id])) {
-        $viewfullnames = has_capability('moodle/site:viewfullnames', $modcontext, $userto->id);
+        $viewfullnames = has_capability('lion/site:viewfullnames', $modcontext, $userto->id);
     } else {
         $viewfullnames = $userto->viewfullnames[$forum->id];
     }
@@ -1304,11 +1291,11 @@ function forum_make_mail_html($course, $cm, $forum, $discussion, $post, $userfro
     if ($canunsubscribe) {
         if (\mod_forum\subscriptions::is_subscribed($userto->id, $forum, null, $cm)) {
             // If subscribed to this forum, offer the unsubscribe link.
-            $unsublink = new moodle_url('/mod/forum/subscribe.php', array('id' => $forum->id));
+            $unsublink = new lion_url('/mod/forum/subscribe.php', array('id' => $forum->id));
             $footerlinks[] = html_writer::link($unsublink, get_string('unsubscribe', 'mod_forum'));
         }
         // Always offer the unsubscribe from discussion link.
-        $unsublink = new moodle_url('/mod/forum/subscribe.php', array(
+        $unsublink = new lion_url('/mod/forum/subscribe.php', array(
                 'id' => $forum->id,
                 'd' => $discussion->id,
             ));
@@ -1416,7 +1403,6 @@ function forum_user_complete($course, $user, $mod, $forum) {
 /**
  * Filters the forum discussions according to groups membership and config.
  *
- * @since  Moodle 2.8, 2.7.1, 2.6.4
  * @param  array $discussions Discussions with new posts array
  * @return array Forums with the number of new posts
  */
@@ -1453,7 +1439,6 @@ function forum_filter_user_groups_discussions($discussions) {
 /**
  * Returns whether the discussion group is visible by the current user or not.
  *
- * @since Moodle 2.8, 2.7.1, 2.6.4
  * @param cm_info $cm The discussion course module
  * @param int $discussiongroupid The discussion groupid
  * @return bool
@@ -1468,7 +1453,7 @@ function forum_is_user_group_discussion(cm_info $cm, $discussiongroupid) {
         return false;
     }
 
-    if (has_capability('moodle/site:accessallgroups', context_module::instance($cm->id)) ||
+    if (has_capability('lion/site:accessallgroups', context_module::instance($cm->id)) ||
             in_array($discussiongroupid, $cm->get_modinfo()->get_groups($cm->groupingid))) {
         return true;
     }
@@ -2025,7 +2010,7 @@ function forum_get_readable_forums($userid, $courseid=0) {
             }
 
          /// group access
-            if (groups_get_activity_groupmode($cm, $course) == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+            if (groups_get_activity_groupmode($cm, $course) == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
 
                 $forum->onlygroups = $modinfo->get_groups($cm->groupingid);
                 $forum->onlygroups[] = -1;
@@ -2546,7 +2531,7 @@ function forum_count_discussions($forum, $cm, $course) {
         return $cache[$course->id][$forum->id];
     }
 
-    if (has_capability('moodle/site:accessallgroups', context_module::instance($cm->id))) {
+    if (has_capability('lion/site:accessallgroups', context_module::instance($cm->id))) {
         return $cache[$course->id][$forum->id];
     }
 
@@ -2643,7 +2628,7 @@ function forum_get_discussions($cm, $forumsort="d.timemodified DESC", $fullpost=
             $modcontext = context_module::instance($cm->id);
         }
 
-        if ($groupmode == VISIBLEGROUPS or has_capability('moodle/site:accessallgroups', $modcontext)) {
+        if ($groupmode == VISIBLEGROUPS or has_capability('lion/site:accessallgroups', $modcontext)) {
             if ($currentgroup) {
                 $groupselect = "AND (d.groupid = ? OR d.groupid = -1)";
                 $params[] = $currentgroup;
@@ -2746,7 +2731,7 @@ function forum_get_discussion_neighbours($cm, $discussion) {
     // Limiting to posts accessible according to groups.
     $groupselect = '';
     if ($groupmode) {
-        if ($groupmode == VISIBLEGROUPS || has_capability('moodle/site:accessallgroups', $modcontext)) {
+        if ($groupmode == VISIBLEGROUPS || has_capability('lion/site:accessallgroups', $modcontext)) {
             if ($currentgroup) {
                 $groupselect = 'AND (d.groupid = :groupid OR d.groupid = -1)';
                 $params['groupid'] = $currentgroup;
@@ -2807,7 +2792,7 @@ function forum_get_discussions_unread($cm) {
     if ($groupmode) {
         $modcontext = context_module::instance($cm->id);
 
-        if ($groupmode == VISIBLEGROUPS or has_capability('moodle/site:accessallgroups', $modcontext)) {
+        if ($groupmode == VISIBLEGROUPS or has_capability('lion/site:accessallgroups', $modcontext)) {
             if ($currentgroup) {
                 $groupselect = "AND (d.groupid = :currentgroup OR d.groupid = -1)";
                 $params['currentgroup'] = $currentgroup;
@@ -2877,7 +2862,7 @@ function forum_get_discussions_count($cm) {
     if ($groupmode) {
         $modcontext = context_module::instance($cm->id);
 
-        if ($groupmode == VISIBLEGROUPS or has_capability('moodle/site:accessallgroups', $modcontext)) {
+        if ($groupmode == VISIBLEGROUPS or has_capability('lion/site:accessallgroups', $modcontext)) {
             if ($currentgroup) {
                 $groupselect = "AND (d.groupid = ? OR d.groupid = -1)";
                 $params[] = $currentgroup;
@@ -3034,7 +3019,7 @@ function forum_make_mail_post($course, $cm, $forum, $discussion, $post, $userfro
     $modcontext = context_module::instance($cm->id);
 
     if (!isset($userto->viewfullnames[$forum->id])) {
-        $viewfullnames = has_capability('moodle/site:viewfullnames', $modcontext, $userto->id);
+        $viewfullnames = has_capability('lion/site:viewfullnames', $modcontext, $userto->id);
     } else {
         $viewfullnames = $userto->viewfullnames[$forum->id];
     }
@@ -3188,7 +3173,7 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
     if (!isset($cm->cache->caps)) {
         $cm->cache->caps = array();
         $cm->cache->caps['mod/forum:viewdiscussion']   = has_capability('mod/forum:viewdiscussion', $modcontext);
-        $cm->cache->caps['moodle/site:viewfullnames']  = has_capability('moodle/site:viewfullnames', $modcontext);
+        $cm->cache->caps['lion/site:viewfullnames']  = has_capability('lion/site:viewfullnames', $modcontext);
         $cm->cache->caps['mod/forum:editanypost']      = has_capability('mod/forum:editanypost', $modcontext);
         $cm->cache->caps['mod/forum:splitdiscussions'] = has_capability('mod/forum:splitdiscussions', $modcontext);
         $cm->cache->caps['mod/forum:deleteownpost']    = has_capability('mod/forum:deleteownpost', $modcontext);
@@ -3258,15 +3243,15 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
         $str->markunread   = get_string('markunread', 'forum');
     }
 
-    $discussionlink = new moodle_url('/mod/forum/discuss.php', array('d'=>$post->discussion));
+    $discussionlink = new lion_url('/mod/forum/discuss.php', array('d'=>$post->discussion));
 
     // Build an object that represents the posting user
     $postuser = new stdClass;
     $postuserfields = explode(',', user_picture::fields());
     $postuser = username_load_fields_from_object($postuser, $post, null, $postuserfields);
     $postuser->id = $post->userid;
-    $postuser->fullname    = fullname($postuser, $cm->cache->caps['moodle/site:viewfullnames']);
-    $postuser->profilelink = new moodle_url('/user/view.php', array('id'=>$post->userid, 'course'=>$course->id));
+    $postuser->fullname    = fullname($postuser, $cm->cache->caps['lion/site:viewfullnames']);
+    $postuser->profilelink = new lion_url('/user/view.php', array('id'=>$post->userid, 'course'=>$course->id));
 
     // Prepare the groups the posting user belongs to
     if (isset($cm->cache->usersgroups)) {
@@ -3293,7 +3278,7 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
     // SPECIAL CASE: The front page can display a news item post to non-logged in users.
     // Don't display the mark read / unread controls in this case.
     if ($istracked && $CFG->forum_usermarksread && isloggedin()) {
-        $url = new moodle_url($discussionlink, array('postid'=>$post->id, 'mark'=>'unread'));
+        $url = new lion_url($discussionlink, array('postid'=>$post->id, 'mark'=>'unread'));
         $text = $str->markunread;
         if (!$postisread) {
             $url->param('mark', 'read');
@@ -3309,7 +3294,7 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
 
     // Zoom in to the parent specifically
     if ($post->parent) {
-        $url = new moodle_url($discussionlink);
+        $url = new lion_url($discussionlink);
         if ($str->displaymode == FORUM_MODE_THREADED) {
             $url->param('parent', $post->parent);
         } else {
@@ -3325,26 +3310,26 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
     }
 
     if ($forum->type == 'single' and $discussion->firstpost == $post->id) {
-        if (has_capability('moodle/course:manageactivities', $modcontext)) {
+        if (has_capability('lion/course:manageactivities', $modcontext)) {
             // The first post in single simple is the forum description.
-            $commands[] = array('url'=>new moodle_url('/course/modedit.php', array('update'=>$cm->id, 'sesskey'=>sesskey(), 'return'=>1)), 'text'=>$str->edit);
+            $commands[] = array('url'=>new lion_url('/course/modedit.php', array('update'=>$cm->id, 'sesskey'=>sesskey(), 'return'=>1)), 'text'=>$str->edit);
         }
     } else if (($ownpost && $age < $CFG->maxeditingtime) || $cm->cache->caps['mod/forum:editanypost']) {
-        $commands[] = array('url'=>new moodle_url('/mod/forum/post.php', array('edit'=>$post->id)), 'text'=>$str->edit);
+        $commands[] = array('url'=>new lion_url('/mod/forum/post.php', array('edit'=>$post->id)), 'text'=>$str->edit);
     }
 
     if ($cm->cache->caps['mod/forum:splitdiscussions'] && $post->parent && $forum->type != 'single') {
-        $commands[] = array('url'=>new moodle_url('/mod/forum/post.php', array('prune'=>$post->id)), 'text'=>$str->prune, 'title'=>$str->pruneheading);
+        $commands[] = array('url'=>new lion_url('/mod/forum/post.php', array('prune'=>$post->id)), 'text'=>$str->prune, 'title'=>$str->pruneheading);
     }
 
     if ($forum->type == 'single' and $discussion->firstpost == $post->id) {
         // Do not allow deleting of first post in single simple type.
     } else if (($ownpost && $age < $CFG->maxeditingtime && $cm->cache->caps['mod/forum:deleteownpost']) || $cm->cache->caps['mod/forum:deleteanypost']) {
-        $commands[] = array('url'=>new moodle_url('/mod/forum/post.php', array('delete'=>$post->id)), 'text'=>$str->delete);
+        $commands[] = array('url'=>new lion_url('/mod/forum/post.php', array('delete'=>$post->id)), 'text'=>$str->delete);
     }
 
     if ($reply) {
-        $commands[] = array('url'=>new moodle_url('/mod/forum/post.php#mformforum', array('reply'=>$post->id)), 'text'=>$str->reply);
+        $commands[] = array('url'=>new lion_url('/mod/forum/post.php#mformforum', array('reply'=>$post->id)), 'text'=>$str->reply);
     }
 
     if ($CFG->enableportfolios && ($cm->cache->caps['mod/forum:exportpost'] || ($ownpost && $cm->cache->caps['mod/forum:exportownpost']))) {
@@ -3451,7 +3436,7 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
         $postcontent  = format_text($post->message, $post->messageformat, $options);
         $postcontent  = shorten_text($postcontent, $CFG->forum_shortpost);
         $postcontent .= html_writer::link($discussionlink, get_string('readtherest', 'forum'));
-        $postcontent .= html_writer::tag('div', '('.get_string('numwords', 'moodle', count_words($post->message)).')',
+        $postcontent .= html_writer::tag('div', '('.get_string('numwords', 'lion', count_words($post->message)).')',
             array('class'=>'post-word-count'));
     } else {
         // Prepare whole post
@@ -3461,7 +3446,7 @@ function forum_print_post($post, $discussion, $forum, &$cm, $course, $ownpost=fa
             $postcontent = highlight($highlight, $postcontent);
         }
         if (!empty($forum->displaywordcount)) {
-            $postcontent .= html_writer::tag('div', get_string('numwords', 'moodle', count_words($post->message)),
+            $postcontent .= html_writer::tag('div', get_string('numwords', 'lion', count_words($post->message)),
                 array('class'=>'post-word-count'));
         }
         $postcontent .= html_writer::tag('div', $attachedimages, array('class'=>'attachedimages'));
@@ -3640,7 +3625,7 @@ function forum_rating_validate($params) {
             throw new rating_exception('cannotfindgroup');//something is wrong
         }
 
-        if (!groups_is_member($discussion->groupid) and !has_capability('moodle/site:accessallgroups', $context)) {
+        if (!groups_is_member($discussion->groupid) and !has_capability('lion/site:accessallgroups', $context)) {
             // do not allow rating of posts from other groups when in SEPARATEGROUPS or VISIBLEGROUPS
             throw new rating_exception('notmemberofgroup');
         }
@@ -3713,7 +3698,7 @@ function forum_print_discussion_header(&$post, $forum, $group=-1, $datestring=""
     echo "</td>\n";
 
     // User name
-    $fullname = fullname($postuser, has_capability('moodle/site:viewfullnames', $modcontext));
+    $fullname = fullname($postuser, has_capability('lion/site:viewfullnames', $modcontext));
     echo '<td class="author">';
     echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$post->userid.'&amp;course='.$forum->course.'">'.$fullname.'</a>';
     echo "</td>\n";
@@ -3819,7 +3804,7 @@ function forum_get_discussion_subscription_icon($forum, $discussionid, $returnur
 
     $o = '';
     $subscriptionstatus = \mod_forum\subscriptions::is_subscribed($USER->id, $forum, $discussionid);
-    $subscriptionlink = new moodle_url('/mod/forum/subscribe.php', array(
+    $subscriptionlink = new lion_url('/mod/forum/subscribe.php', array(
         'sesskey' => sesskey(),
         'id' => $forum->id,
         'd' => $discussionid,
@@ -3885,11 +3870,11 @@ function forum_get_discussion_subscription_icon_preloaders() {
 function forum_print_mode_form($id, $mode, $forumtype='') {
     global $OUTPUT;
     if ($forumtype == 'single') {
-        $select = new single_select(new moodle_url("/mod/forum/view.php", array('f'=>$id)), 'mode', forum_get_layout_modes(), $mode, null, "mode");
+        $select = new single_select(new lion_url("/mod/forum/view.php", array('f'=>$id)), 'mode', forum_get_layout_modes(), $mode, null, "mode");
         $select->set_label(get_string('displaymode', 'forum'), array('class' => 'accesshide'));
         $select->class = "forummode";
     } else {
-        $select = new single_select(new moodle_url("/mod/forum/discuss.php", array('d'=>$id)), 'mode', forum_get_layout_modes(), $mode, null, "mode");
+        $select = new single_select(new lion_url("/mod/forum/discuss.php", array('d'=>$id)), 'mode', forum_get_layout_modes(), $mode, null, "mode");
         $select->set_label(get_string('displaymode', 'forum'), array('class' => 'accesshide'));
     }
     echo $OUTPUT->render($select);
@@ -4052,7 +4037,7 @@ function forum_print_attachments($post, $cm, $type) {
         foreach ($files as $file) {
             $filename = $file->get_filename();
             $mimetype = $file->get_mimetype();
-            $iconimage = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'moodle', array('class' => 'icon'));
+            $iconimage = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'lion', array('class' => 'icon'));
             $path = file_encode_url($CFG->wwwroot.'/pluginfile.php', '/'.$context->id.'/mod_forum/attachment/'.$post->id.'/'.$filename);
 
             if ($type == 'html') {
@@ -4116,7 +4101,6 @@ function forum_print_attachments($post, $cm, $type) {
 /**
  * Lists all browsable file areas
  *
- * @package  mod_forum
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -4133,7 +4117,6 @@ function forum_get_file_areas($course, $cm, $context) {
 /**
  * File browsing support for forum module.
  *
- * @package  mod_forum
  * @category files
  * @param stdClass $browser file browser object
  * @param stdClass $areas file areas
@@ -4210,11 +4193,11 @@ function forum_get_file_info($browser, $areas, $course, $cm, $context, $filearea
 
     // Checks to see if the user can manage files or is the owner.
     // TODO MDL-33805 - Do not use userid here and move the capability check above.
-    if (!has_capability('moodle/course:managefiles', $context) && $storedfile->get_userid() != $USER->id) {
+    if (!has_capability('lion/course:managefiles', $context) && $storedfile->get_userid() != $USER->id) {
         return null;
     }
     // Make sure groups allow this user to see this file
-    if ($discussion->groupid > 0 && !has_capability('moodle/site:accessallgroups', $context)) {
+    if ($discussion->groupid > 0 && !has_capability('lion/site:accessallgroups', $context)) {
         $groupmode = groups_get_activity_groupmode($cm, $course);
         if ($groupmode == SEPARATEGROUPS && !groups_is_member($discussion->groupid)) {
             return null;
@@ -4233,7 +4216,6 @@ function forum_get_file_info($browser, $areas, $course, $cm, $context, $filearea
 /**
  * Serves the forum attachments. Implements needed access control ;-)
  *
- * @package  mod_forum
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -4285,7 +4267,7 @@ function forum_pluginfile($course, $cm, $context, $filearea, $args, $forcedownlo
     if ($discussion->groupid > 0) {
         $groupmode = groups_get_activity_groupmode($cm, $course);
         if ($groupmode == SEPARATEGROUPS) {
-            if (!groups_is_member($discussion->groupid) and !has_capability('moodle/site:accessallgroups', $context)) {
+            if (!groups_is_member($discussion->groupid) and !has_capability('lion/site:accessallgroups', $context)) {
                 return false;
             }
         }
@@ -4378,7 +4360,7 @@ function forum_add_new_post($post, $mform, $unused = null) {
         forum_tp_mark_post_read($post->userid, $post, $post->forum);
     }
 
-    // Let Moodle know that assessable content is uploaded (eg for plagiarism detection)
+    // Let Lion know that assessable content is uploaded (eg for plagiarism detection)
     forum_trigger_content_uploaded_event($post, $cm, 'forum_add_new_post');
 
     return $post->id;
@@ -4427,7 +4409,7 @@ function forum_update_post($post, $mform, &$message) {
         forum_tp_mark_post_read($post->userid, $post, $post->forum);
     }
 
-    // Let Moodle know that assessable content is uploaded (eg for plagiarism detection)
+    // Let Lion know that assessable content is uploaded (eg for plagiarism detection)
     forum_trigger_content_uploaded_event($post, $cm, 'forum_update_post');
 
     return true;
@@ -4505,7 +4487,7 @@ function forum_add_discussion($discussion, $mform=null, $unused=null, $userid=nu
         forum_tp_mark_post_read($post->userid, $post, $post->forum);
     }
 
-    // Let Moodle know that assessable content is uploaded (eg for plagiarism detection)
+    // Let Lion know that assessable content is uploaded (eg for plagiarism detection)
     if (!empty($cm->id)) {
         forum_trigger_content_uploaded_event($post, $cm, 'forum_add_discussion');
     }
@@ -4706,7 +4688,7 @@ function forum_post_subscription($fromform, $forum, $discussion) {
         return "";
     } else if (\mod_forum\subscriptions::subscription_disabled($forum)) {
         $subscribed = \mod_forum\subscriptions::is_subscribed($USER->id, $forum);
-        if ($subscribed && !has_capability('moodle/course:manageactivities', context_course::instance($forum->course), $USER->id)) {
+        if ($subscribed && !has_capability('lion/course:manageactivities', context_course::instance($forum->course), $USER->id)) {
             // This user should not be subscribed to the forum.
             \mod_forum\subscriptions::unsubscribe_user($USER->id, $forum);
         }
@@ -4794,7 +4776,7 @@ function forum_get_subscribe_link($forum, $context, $messages = array(), $cantac
         }
         $options['id'] = $forum->id;
         $options['sesskey'] = sesskey();
-        $url = new moodle_url('/mod/forum/subscribe.php', $options);
+        $url = new lion_url('/mod/forum/subscribe.php', $options);
         $link .= $OUTPUT->single_button($url, $linktext, 'get', array('title'=>$linktitle));
         if ($fakelink) {
             $link .= '</noscript>';
@@ -4941,7 +4923,7 @@ function forum_user_can_post_discussion($forum, $currentgroup=null, $unused=-1, 
         }
     }
 
-    if (!$groupmode or has_capability('moodle/site:accessallgroups', $context)) {
+    if (!$groupmode or has_capability('lion/site:accessallgroups', $context)) {
         return true;
     }
 
@@ -5025,13 +5007,13 @@ function forum_user_can_post($forum, $discussion, $user=NULL, $cm=NULL, $course=
         return true;
     }
 
-    if (has_capability('moodle/site:accessallgroups', $context)) {
+    if (has_capability('lion/site:accessallgroups', $context)) {
         return true;
     }
 
     if ($groupmode == VISIBLEGROUPS) {
         if ($discussion->groupid == -1) {
-            // allow students to reply to all participants discussions - this was not possible in Moodle <1.8
+            // allow students to reply to all participants discussions - this was not possible in Lion <1.8
             return true;
         }
         return groups_is_member($discussion->groupid);
@@ -5084,7 +5066,7 @@ function forum_user_can_see_group_discussion($discussion, $cm, $context) {
     if ($discussion->groupid > 0) {
         $groupmode = groups_get_activity_groupmode($cm);
         if ($groupmode == SEPARATEGROUPS) {
-            return groups_is_member($discussion->groupid) || has_capability('moodle/site:accessallgroups', $context);
+            return groups_is_member($discussion->groupid) || has_capability('lion/site:accessallgroups', $context);
         }
     }
 
@@ -5198,7 +5180,7 @@ function forum_user_can_see_post($forum, $discussion, $post, $user=NULL, $cm=NUL
     }
 
     $canviewdiscussion = !empty($cm->cache->caps['mod/forum:viewdiscussion']) || has_capability('mod/forum:viewdiscussion', $modcontext, $user->id);
-    if (!$canviewdiscussion && !has_all_capabilities(array('moodle/user:viewdetails', 'moodle/user:readuserposts'), context_user::instance($post->userid))) {
+    if (!$canviewdiscussion && !has_all_capabilities(array('lion/user:viewdetails', 'lion/user:readuserposts'), context_user::instance($post->userid))) {
         return false;
     }
 
@@ -5345,7 +5327,7 @@ function forum_print_latest_discussions($course, $forum, $maxdiscussions = -1, $
         $forum->type != 'qanda' and !has_capability('mod/forum:startdiscussion', $context)) {
         // no button and no info
 
-    } else if ($groupmode and !has_capability('moodle/site:accessallgroups', $context)) {
+    } else if ($groupmode and !has_capability('lion/site:accessallgroups', $context)) {
         // inform users why they can not post new discussion
         if (!$currentgroup) {
             echo $OUTPUT->notification(get_string('cannotadddiscussionall', 'forum'));
@@ -5393,7 +5375,7 @@ function forum_print_latest_discussions($course, $forum, $maxdiscussions = -1, $
         }
     }
 
-    $canviewparticipants = has_capability('moodle/course:viewparticipants',$context);
+    $canviewparticipants = has_capability('lion/course:viewparticipants',$context);
 
     $strdatestring = get_string('strftimerecentfull');
 
@@ -5707,7 +5689,7 @@ function forum_print_posts_threaded($course, &$cm, $forum, $discussion, $parent,
         $posts = $posts[$parent->id]->children;
 
         $modcontext       = context_module::instance($cm->id);
-        $canviewfullnames = has_capability('moodle/site:viewfullnames', $modcontext);
+        $canviewfullnames = has_capability('lion/site:viewfullnames', $modcontext);
 
         foreach ($posts as $post) {
 
@@ -5838,7 +5820,7 @@ function forum_get_recent_mod_activity(&$activities, &$index, $timestart, $cours
     $groupmode       = groups_get_activity_groupmode($cm, $course);
     $cm_context      = context_module::instance($cm->id);
     $viewhiddentimed = has_capability('mod/forum:viewhiddentimedposts', $cm_context);
-    $accessallgroups = has_capability('moodle/site:accessallgroups', $cm_context);
+    $accessallgroups = has_capability('lion/site:accessallgroups', $cm_context);
 
     $printposts = array();
     foreach ($posts as $post) {
@@ -6309,7 +6291,7 @@ function forum_tp_count_forum_unread_posts($cm, $course) {
         return $readcache[$course->id][$forumid];
     }
 
-    if (has_capability('moodle/site:accessallgroups', context_module::instance($cm->id))) {
+    if (has_capability('lion/site:accessallgroups', context_module::instance($cm->id))) {
         return $readcache[$course->id][$forumid];
     }
 
@@ -6749,7 +6731,6 @@ function forum_check_throttling($forum, $cm = null) {
  * or exceeded the number of posts specified in 'Post threshold for blocking'
  * setting.
  *
- * @since Moodle 2.5
  * @param stdClass $thresholdwarning the warning information returned
  *        from the function forum_check_throttling.
  */
@@ -6793,7 +6774,7 @@ function forum_reset_gradebook($courseid, $type='') {
 }
 
 /**
- * This function is used by the reset_course_userdata function in moodlelib.
+ * This function is used by the reset_course_userdata function in lionlib.
  * This function will remove all posts from the specified forum
  * and clean up any related data.
  *
@@ -7037,7 +7018,7 @@ function forum_get_forum_types_all() {
  * @return array
  */
 function forum_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups', 'moodle/site:viewfullnames', 'moodle/site:trustcontent', 'moodle/rating:view', 'moodle/rating:viewany', 'moodle/rating:viewall', 'moodle/rating:rate');
+    return array('lion/site:accessallgroups', 'lion/site:viewfullnames', 'lion/site:trustcontent', 'lion/rating:view', 'lion/rating:viewany', 'lion/rating:viewall', 'lion/rating:rate');
 }
 
 /**
@@ -7071,10 +7052,10 @@ function forum_extend_settings_navigation(settings_navigation $settingsnav, navi
     if ($canmanage) {
         $mode = $forumnode->add(get_string('subscriptionmode', 'forum'), null, navigation_node::TYPE_CONTAINER);
 
-        $allowchoice = $mode->add(get_string('subscriptionoptional', 'forum'), new moodle_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_CHOOSESUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
-        $forceforever = $mode->add(get_string("subscriptionforced", "forum"), new moodle_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_FORCESUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
-        $forceinitially = $mode->add(get_string("subscriptionauto", "forum"), new moodle_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_INITIALSUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
-        $disallowchoice = $mode->add(get_string('subscriptiondisabled', 'forum'), new moodle_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_DISALLOWSUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
+        $allowchoice = $mode->add(get_string('subscriptionoptional', 'forum'), new lion_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_CHOOSESUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
+        $forceforever = $mode->add(get_string("subscriptionforced", "forum"), new lion_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_FORCESUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
+        $forceinitially = $mode->add(get_string("subscriptionauto", "forum"), new lion_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_INITIALSUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
+        $disallowchoice = $mode->add(get_string('subscriptiondisabled', 'forum'), new lion_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'mode'=>FORUM_DISALLOWSUBSCRIBE, 'sesskey'=>sesskey())), navigation_node::TYPE_SETTING);
 
         switch ($subscriptionmode) {
             case FORUM_CHOOSESUBSCRIBE : // 0
@@ -7119,7 +7100,7 @@ function forum_extend_settings_navigation(settings_navigation $settingsnav, navi
         } else {
             $linktext = get_string('subscribe', 'forum');
         }
-        $url = new moodle_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'sesskey'=>sesskey()));
+        $url = new lion_url('/mod/forum/subscribe.php', array('id'=>$forumobject->id, 'sesskey'=>sesskey()));
         $forumnode->add($linktext, $url, navigation_node::TYPE_SETTING);
 
         if (isset($discussionid)) {
@@ -7128,7 +7109,7 @@ function forum_extend_settings_navigation(settings_navigation $settingsnav, navi
             } else {
                 $linktext = get_string('subscribediscussion', 'forum');
             }
-            $url = new moodle_url('/mod/forum/subscribe.php', array(
+            $url = new lion_url('/mod/forum/subscribe.php', array(
                     'id' => $forumobject->id,
                     'sesskey' => sesskey(),
                     'd' => $discussionid,
@@ -7139,7 +7120,7 @@ function forum_extend_settings_navigation(settings_navigation $settingsnav, navi
     }
 
     if (has_capability('mod/forum:viewsubscribers', $PAGE->cm->context)){
-        $url = new moodle_url('/mod/forum/subscribers.php', array('id'=>$forumobject->id));
+        $url = new lion_url('/mod/forum/subscribers.php', array('id'=>$forumobject->id));
         $forumnode->add(get_string('showsubscribers', 'forum'), $url, navigation_node::TYPE_SETTING);
     }
 
@@ -7151,7 +7132,7 @@ function forum_extend_settings_navigation(settings_navigation $settingsnav, navi
             } else {
                 $linktext = get_string('trackforum', 'forum');
             }
-            $url = new moodle_url('/mod/forum/settracking.php', array(
+            $url = new lion_url('/mod/forum/settracking.php', array(
                     'id' => $forumobject->id,
                     'sesskey' => sesskey(),
                 ));
@@ -7180,7 +7161,7 @@ function forum_extend_settings_navigation(settings_navigation $settingsnav, navi
             $string = get_string('rsssubscriberssposts','forum');
         }
 
-        $url = new moodle_url(rss_get_url($PAGE->cm->context->id, $userid, "mod_forum", $forumobject->id));
+        $url = new lion_url(rss_get_url($PAGE->cm->context->id, $userid, "mod_forum", $forumobject->id));
         $forumnode->add($string, $url, settings_navigation::TYPE_SETTING, null, null, new pix_icon('i/rss', ''));
     }
 }
@@ -7225,7 +7206,7 @@ function forum_page_type_list($pagetype, $parentcontext, $currentcontext) {
 /**
  * Gets all of the courses where the provided user has posted in a forum.
  *
- * @global moodle_database $DB The database connection
+ * @global lion_database $DB The database connection
  * @param stdClass $user The user who's posts we are looking for
  * @param bool $discussionsonly If true only look for discussions started by the user
  * @param bool $includecontexts If set to trye contexts for the courses will be preloaded
@@ -7278,7 +7259,7 @@ function forum_get_courses_user_posted_in($user, $discussionsonly = false, $incl
 /**
  * Gets all of the forums a user has posted in for one or more courses.
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param stdClass $user
  * @param array $courseids An array of courseids to search or if not provided
  *                       all courses the user has posted within
@@ -7336,7 +7317,7 @@ function forum_get_forums_user_posted_in($user, array $courseids = null, $discus
  *
  * This function is safe to use with usercapabilities.
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param stdClass $user The user whose posts we want to get
  * @param array $courses The courses to search
  * @param bool $musthaveaccess If set to true errors will be thrown if the user
@@ -7379,7 +7360,7 @@ function forum_get_posts_by_user($user, array $courses, $musthaveaccess = false,
     // users content.
     $usercontext = context_user::instance($user->id, MUST_EXIST);
     $hascapsonuser = !$iscurrentuser && $DB->record_exists('role_assignments', array('userid' => $USER->id, 'contextid' => $usercontext->id));
-    $hascapsonuser = $hascapsonuser && has_all_capabilities(array('moodle/user:viewdetails', 'moodle/user:readuserposts'), $usercontext);
+    $hascapsonuser = $hascapsonuser && has_all_capabilities(array('lion/user:viewdetails', 'lion/user:readuserposts'), $usercontext);
 
     // Before we actually search each course we need to check the user's access to the
     // course. If the user doesn't have the appropraite access then we either throw an
@@ -7427,7 +7408,7 @@ function forum_get_posts_by_user($user, array $courses, $musthaveaccess = false,
             // the capability to access all groups. This is because with that capability
             // a user in group A could post in the group B forum. Grrrr.
             if (groups_get_course_groupmode($course) == SEPARATEGROUPS && $course->groupmodeforce
-              && !has_capability('moodle/site:accessallgroups', $coursecontext) && !has_capability('moodle/site:accessallgroups', $coursecontext, $user->id)) {
+              && !has_capability('lion/site:accessallgroups', $coursecontext) && !has_capability('lion/site:accessallgroups', $coursecontext, $user->id)) {
                 // If its the guest user to bad... the guest user cannot access groups
                 if (!$isloggedin or $isguestuser) {
                     // do not use require_login() here because we might have already used require_login($course)
@@ -7522,7 +7503,7 @@ function forum_get_posts_by_user($user, array $courses, $musthaveaccess = false,
             $forumsearchselect = array();
             if (!$iscurrentuser && !$hascapsonuser) {
                 // Make sure we check group access
-                if (groups_get_activity_groupmode($cm, $course) == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $cm->context)) {
+                if (groups_get_activity_groupmode($cm, $course) == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $cm->context)) {
                     $groups = $modinfo->get_groups($cm->groupingid);
                     $groups[] = -1;
                     list($groupid_sql, $groupid_params) = $DB->get_in_or_equal($groups, SQL_PARAMS_NAMED, 'grps'.$forumid.'_');
@@ -7654,7 +7635,7 @@ function forum_set_user_maildigest($forum, $maildigest, $user = null) {
     $digestoptions = forum_get_user_digest_options($user);
 
     if (!isset($digestoptions[$maildigest])) {
-        throw new moodle_exception('invaliddigestsetting', 'mod_forum');
+        throw new lion_exception('invaliddigestsetting', 'mod_forum');
     }
 
     // Attempt to retrieve any existing forum digest record.

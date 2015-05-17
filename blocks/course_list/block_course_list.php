@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Course list block.
  *
- * @package    block_course_list
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage course_list
+ * @copyright  2015 Pooya Saeedi
  */
 
 include_once($CFG->dirroot . '/course/lib.php');
@@ -56,7 +43,7 @@ class block_course_list extends block_list {
         }
 
         if (empty($CFG->disablemycourses) and isloggedin() and !isguestuser() and
-          !(has_capability('moodle/course:update', context_system::instance()) and $adminseesall)) {    // Just print My Courses
+          !(has_capability('lion/course:update', context_system::instance()) and $adminseesall)) {    // Just print My Courses
             // As this is producing navigation sort order should default to $CFG->navsortmycoursessort instead
             // of using the default.
             if (!empty($CFG->navsortmycoursessort)) {
@@ -73,7 +60,7 @@ class block_course_list extends block_list {
                 }
                 $this->title = get_string('mycourses');
             /// If we can update any course of the view all isn't hidden, show the view all courses link
-                if (has_capability('moodle/course:update', context_system::instance()) || empty($CFG->block_course_list_hideallcourseslink)) {
+                if (has_capability('lion/course:update', context_system::instance()) || empty($CFG->block_course_list_hideallcourseslink)) {
                     $this->content->footer = "<a href=\"$CFG->wwwroot/course/index.php\">".get_string("fulllistofcourses")."</a> ...";
                 }
             }
@@ -92,7 +79,7 @@ class block_course_list extends block_list {
                     $this->content->items[]="<a $linkcss href=\"$CFG->wwwroot/course/index.php?categoryid=$category->id\">".$icon . $categoryname . "</a>";
                 }
             /// If we can update any course of the view all isn't hidden, show the view all courses link
-                if (has_capability('moodle/course:update', context_system::instance()) || empty($CFG->block_course_list_hideallcourseslink)) {
+                if (has_capability('lion/course:update', context_system::instance()) || empty($CFG->block_course_list_hideallcourseslink)) {
                     $this->content->footer .= "<a href=\"$CFG->wwwroot/course/index.php\">".get_string('fulllistofcourses').'</a> ...';
                 }
                 $this->title = get_string('categories');
@@ -111,7 +98,7 @@ class block_course_list extends block_list {
                                    .$icon. format_string(get_course_display_name_for_list($course), true, array('context' => context_course::instance($course->id))) . "</a>";
                     }
                 /// If we can update any course of the view all isn't hidden, show the view all courses link
-                    if (has_capability('moodle/course:update', context_system::instance()) || empty($CFG->block_course_list_hideallcourseslink)) {
+                    if (has_capability('lion/course:update', context_system::instance()) || empty($CFG->block_course_list_hideallcourseslink)) {
                         $this->content->footer .= "<a href=\"$CFG->wwwroot/course/index.php\">".get_string('fulllistofcourses').'</a> ...';
                     }
                     $this->get_remote_courses();
@@ -119,7 +106,7 @@ class block_course_list extends block_list {
 
                     $this->content->icons[] = '';
                     $this->content->items[] = get_string('nocoursesyet');
-                    if (has_capability('moodle/course:create', context_coursecat::instance($category->id))) {
+                    if (has_capability('lion/course:create', context_coursecat::instance($category->id))) {
                         $this->content->footer = '<a href="'.$CFG->wwwroot.'/course/edit.php?category='.$category->id.'">'.get_string("addnewcourse").'</a> ...';
                     }
                     $this->get_remote_courses();

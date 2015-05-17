@@ -1,7 +1,7 @@
 /**
  * The modform class has all the JavaScript specific to mod/quiz/mod_form.php.
  *
- * @module moodle-mod_quiz-modform
+ * @module lion-mod_quiz-modform
  */
 
 var MODFORM = function() {
@@ -10,7 +10,7 @@ var MODFORM = function() {
 
 /**
  * The coursebase class to provide shared functionality to Modules within
- * Moodle.
+ * Lion.
  *
  * @class M.course.coursebase
  * @constructor

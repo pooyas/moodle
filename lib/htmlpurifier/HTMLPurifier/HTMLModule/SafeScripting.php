@@ -3,6 +3,9 @@
 /**
  * A "safe" script module. No inline JS is allowed, and pointed to JS
  * files must match whitelist.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_SafeScripting extends HTMLPurifier_HTMLModule
 {

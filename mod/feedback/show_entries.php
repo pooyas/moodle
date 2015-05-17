@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * print the single entries
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -53,7 +40,7 @@ if (! $feedback = $DB->get_record("feedback", array("id"=>$cm->instance))) {
     print_error('invalidcoursemodule');
 }
 
-$url = new moodle_url('/mod/feedback/show_entries.php', array('id'=>$cm->id, 'do_show'=>$do_show));
+$url = new lion_url('/mod/feedback/show_entries.php', array('id'=>$cm->id, 'do_show'=>$do_show));
 
 $PAGE->set_url($url);
 
@@ -110,7 +97,7 @@ if ($do_show == 'showentries') {
         $mygroupid = groups_get_activity_group($cm);
 
         // preparing the table for output
-        $baseurl = new moodle_url('/mod/feedback/show_entries.php');
+        $baseurl = new lion_url('/mod/feedback/show_entries.php');
         $baseurl->params(array('id'=>$id, 'do_show'=>$do_show, 'showall'=>$showall));
 
         $tablecolumns = array('userpic', 'fullname', 'completed_timemodified');
@@ -180,7 +167,7 @@ if ($do_show == 'showentries') {
 
         $completed_fb_count = feedback_get_completeds_group_count($feedback, $mygroupid);
         if ($feedback->course == SITEID) {
-            $analysisurl = new moodle_url('/mod/feedback/analysis_course.php', array('id'=>$id, 'courseid'=>$courseid));
+            $analysisurl = new lion_url('/mod/feedback/analysis_course.php', array('id'=>$id, 'courseid'=>$courseid));
             echo $OUTPUT->box_start('mdl-align');
             echo '<a href="'.$analysisurl->out().'">';
             echo $str_course.' '.$str_analyse.' ('.$str_complete.': '.intval($completed_fb_count).')';
@@ -188,7 +175,7 @@ if ($do_show == 'showentries') {
             echo $OUTPUT->help_icon('viewcompleted', 'feedback');
             echo $OUTPUT->box_end();
         } else {
-            $analysisurl = new moodle_url('/mod/feedback/analysis.php', array('id'=>$id, 'courseid'=>$courseid));
+            $analysisurl = new lion_url('/mod/feedback/analysis.php', array('id'=>$id, 'courseid'=>$courseid));
             echo $OUTPUT->box_start('mdl-align');
             echo '<a href="'.$analysisurl->out().'">';
             echo $str_analyse.' ('.$str_complete.': '.intval($completed_fb_count).')';
@@ -230,7 +217,7 @@ if ($do_show == 'showentries') {
 
                     $feedbackcompleted = $DB->get_record('feedback_completed', $params);
                     $showentryurl_params = array('userid'=>$student->id, 'do_show'=>'showoneentry');
-                    $showentryurl = new moodle_url($url, $showentryurl_params);
+                    $showentryurl = new lion_url($url, $showentryurl_params);
                     $showentrylink = '<a href="'.$showentryurl->out().'">'.userdate($feedbackcompleted->timemodified).'</a>';
                     $data[] = $showentrylink;
 
@@ -240,7 +227,7 @@ if ($do_show == 'showentries') {
                                             'completedid' => $feedbackcompleted->id,
                                             'do_show' => 'showoneentry');
 
-                        $deleteentryurl = new moodle_url($CFG->wwwroot.'/mod/feedback/delete_completed.php', $delete_url_params);
+                        $deleteentryurl = new lion_url($CFG->wwwroot.'/mod/feedback/delete_completed.php', $delete_url_params);
                         $deleteentrylink = '<a href="'.$deleteentryurl->out().'">'.
                                                 get_string('delete_entry', 'feedback').
                                             '</a>';
@@ -251,7 +238,7 @@ if ($do_show == 'showentries') {
             }
             $table->print_html();
 
-            $allurl = new moodle_url($baseurl);
+            $allurl = new lion_url($baseurl);
 
             if ($showall) {
                 $allurl->param('showall', 0);
@@ -286,7 +273,7 @@ if ($do_show == 'showentries') {
                                         'userid'=>0,
                                         'do_show'=>'showoneentry',
                                         'id'=>$id);
-                        $aurl = new moodle_url('show_entries_anonym.php', $url_params);
+                        $aurl = new lion_url('show_entries_anonym.php', $url_params);
                         echo $OUTPUT->single_button($aurl, get_string('show_entries', 'feedback'));
                     ?>
                 </td>
@@ -342,7 +329,7 @@ if ($do_show == 'showoneentry') {
         }
         echo $OUTPUT->box_end();
     }
-    echo $OUTPUT->continue_button(new moodle_url($url, array('do_show'=>'showentries')));
+    echo $OUTPUT->continue_button(new lion_url($url, array('do_show'=>'showentries')));
 }
 /// Finish the page
 ///////////////////////////////////////////////////////////////////////////

@@ -40,10 +40,10 @@ errorsinenvironment,install
 installation,install
 invalidmd5,error
 langdownloaderror,install
-language,moodle
+language,lion
 memorylimithelp,install
 missingrequiredfield,error
-next,moodle
+next,lion
 parentlanguage,langconfig
 pathserrcreatedataroot,install
 pathshead,install
@@ -59,8 +59,8 @@ pathswrongadmindir,install
 phpextension,install
 phpversionhelp,install
 phpversion,install
-previous,moodle
-reload,moodle
+previous,lion
+reload,lion
 remotedownloaderror,error
 thisdirection,langconfig
 thislanguage,langconfig

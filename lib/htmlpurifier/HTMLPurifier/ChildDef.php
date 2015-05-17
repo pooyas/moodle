@@ -2,6 +2,9 @@
 
 /**
  * Defines allowed child nodes and validates nodes against it.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_ChildDef
 {

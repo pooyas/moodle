@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package moodlecore
- * @subpackage backup-includes
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 // Prevent direct access to this file
-if (!defined('MOODLE_INTERNAL')) {
+if (!defined('LION_INTERNAL')) {
     die('Direct access to this script is forbidden.');
 }
 
@@ -60,7 +46,7 @@ require_once($CFG->dirroot . '/backup/util/helper/backup_null_iterator.class.php
 require_once($CFG->dirroot . '/backup/util/helper/backup_array_iterator.class.php');
 require_once($CFG->dirroot . '/backup/util/helper/backup_anonymizer_helper.class.php');
 require_once($CFG->dirroot . '/backup/util/helper/backup_file_manager.class.php');
-require_once($CFG->dirroot . '/backup/util/helper/restore_moodlexml_parser_processor.class.php'); // Required by backup_general_helper::get_backup_information().
+require_once($CFG->dirroot . '/backup/util/helper/restore_lionxml_parser_processor.class.php'); // Required by backup_general_helper::get_backup_information().
 require_once($CFG->dirroot . '/backup/util/xml/xml_writer.class.php');
 require_once($CFG->dirroot . '/backup/util/xml/output/xml_output.class.php');
 require_once($CFG->dirroot . '/backup/util/xml/output/file_xml_output.class.php');
@@ -89,14 +75,14 @@ require_once($CFG->dirroot . '/backup/util/plan/backup_structure_step.class.php'
 require_once($CFG->dirroot . '/backup/util/plan/backup_execution_step.class.php');
 require_once($CFG->dirroot . '/backup/controller/base_controller.class.php');
 require_once($CFG->dirroot . '/backup/controller/backup_controller.class.php');
-require_once($CFG->dirroot . '/backup/util/ui/base_moodleform.class.php');
+require_once($CFG->dirroot . '/backup/util/ui/base_lionform.class.php');
 require_once($CFG->dirroot . '/backup/util/ui/base_ui.class.php');
 require_once($CFG->dirroot . '/backup/util/ui/base_ui_stage.class.php');
-require_once($CFG->dirroot . '/backup/util/ui/backup_moodleform.class.php');
+require_once($CFG->dirroot . '/backup/util/ui/backup_lionform.class.php');
 require_once($CFG->dirroot . '/backup/util/ui/backup_ui.class.php');
 require_once($CFG->dirroot . '/backup/util/ui/backup_ui_stage.class.php');
 require_once($CFG->dirroot . '/backup/util/ui/backup_ui_setting.class.php');
 
-// And some moodle stuff too
+// And some lion stuff too
 require_once($CFG->dirroot.'/course/lib.php');
 require_once($CFG->libdir.'/gradelib.php');

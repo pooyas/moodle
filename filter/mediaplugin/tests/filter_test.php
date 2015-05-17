@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit test for the filter_mediaplugin
  *
- * @package    filter_mediaplugin
  * @category   phpunit
- * @copyright  2011 Rossiani Wijaya <rwijaya@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    filter
+ * @subpackage mediaplugin
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/filter/mediaplugin/filter.php'); // Include the code to test
@@ -51,39 +38,39 @@ class filter_mediaplugin_testcase extends advanced_testcase {
 
         $filterplugin = new filter_mediaplugin(null, array());
 
-        $longurl = '<a href="http://moodle/.mp4">my test file</a>';
+        $longurl = '<a href="http://lion/.mp4">my test file</a>';
         $longhref = '';
 
         do {
             $longhref .= 'a';
         } while(strlen($longhref) + strlen($longurl) < 4095);
 
-        $longurl = '<a href="http://moodle/' . $longhref . '.mp4">my test file</a>';
+        $longurl = '<a href="http://lion/' . $longhref . '.mp4">my test file</a>';
 
         $validtexts = array (
-            '<a href="http://moodle.org/testfile/test.mp3">test mp3</a>',
-            '<a href="http://moodle.org/testfile/test.ogg">test ogg</a>',
-            '<a id="movie player" class="center" href="http://moodle.org/testfile/test.mpg">test mpg</a>',
-            '<a href="http://moodle.org/testfile/test.ram">test</a>',
+            '<a href="http://lion.org/testfile/test.mp3">test mp3</a>',
+            '<a href="http://lion.org/testfile/test.ogg">test ogg</a>',
+            '<a id="movie player" class="center" href="http://lion.org/testfile/test.mpg">test mpg</a>',
+            '<a href="http://lion.org/testfile/test.ram">test</a>',
             '<a href="http://www.youtube.com/watch?v=JghQgA2HMX8" class="href=css">test file</a>',
             '<a href="http://www.youtube-nocookie.com/watch?v=JghQgA2HMX8" class="href=css">test file</a>',
             '<a href="http://youtu.be/JghQgA2HMX8" class="href=css">test file</a>',
             '<a href="http://y2u.be/JghQgA2HMX8" class="href=css">test file</a>',
             '<a class="youtube" href="http://www.youtube.com/watch?v=JghQgA2HMX8">test file</a>',
-            '<a class="_blanktarget" href="http://moodle.org/testfile/test.flv?d=100x100">test flv</a>',
+            '<a class="_blanktarget" href="http://lion.org/testfile/test.flv?d=100x100">test flv</a>',
             '<a class="hrefcss" href="http://www.youtube.com/watch?v=JghQgA2HMX8">test file</a>',
-            '<a  class="content"     href="http://moodle.org/testfile/test.avi">test mp3</a>',
-            '<a     id="audio"      href="http://moodle.org/testfile/test.mp3">test mp3</a>',
-            '<a  href="http://moodle.org/testfile/test.mp3">test mp3</a>',
-            '<a     href="http://moodle.org/testfile/test.mp3">test mp3</a>',
+            '<a  class="content"     href="http://lion.org/testfile/test.avi">test mp3</a>',
+            '<a     id="audio"      href="http://lion.org/testfile/test.mp3">test mp3</a>',
+            '<a  href="http://lion.org/testfile/test.mp3">test mp3</a>',
+            '<a     href="http://lion.org/testfile/test.mp3">test mp3</a>',
             '<a     href="http://www.youtube.com/watch?v=JghQgA2HMX8?d=200x200">youtube\'s</a>',
             '<a
-                            href="http://moodle.org/testfile/test.mp3">
+                            href="http://lion.org/testfile/test.mp3">
                             test mp3</a>',
             '<a                         class="content"
 
 
-                            href="http://moodle.org/testfile/test.avi">test mp3
+                            href="http://lion.org/testfile/test.avi">test mp3
                                     </a>',
             '<a             href="http://www.youtube.com/watch?v=JghQgA2HMX8?d=200x200"     >youtube\'s</a>',
             // Test a long URL under 4096 characters.
@@ -110,21 +97,21 @@ class filter_mediaplugin_testcase extends advanced_testcase {
         $validpaddedurl = str_pad($validpaddedurl, 6000 + (strlen($validpaddedurl) - strlen($originalurl)), 'z');
 
         $invalidtexts = array(
-            '<a class="_blanktarget">href="http://moodle.org/testfile/test.mp3"</a>',
+            '<a class="_blanktarget">href="http://lion.org/testfile/test.mp3"</a>',
             '<a>test test</a>',
             '<a >test test</a>',
             '<a     >test test</a>',
             '<a >test test</a>',
-            '<ahref="http://moodle.org/testfile/test.mp3">sample</a>',
+            '<ahref="http://lion.org/testfile/test.mp3">sample</a>',
             '<a href="" test></a>',
-            '<a href="http://www.moodle.com/path/to?#param=29">test</a>',
-            '<a href="http://moodle.org/testfile/test.mp3">test mp3',
-            '<a href="http://moodle.org/testfile/test.mp3"test</a>',
-            '<a href="http://moodle.org/testfile/">test</a>',
-            '<href="http://moodle.org/testfile/test.avi">test</a>',
-            '<abbr href="http://moodle.org/testfile/test.mp3">test mp3</abbr>',
-            '<ahref="http://moodle.org/testfile/test.mp3">test mp3</a>',
-            '<aclass="content" href="http://moodle.org/testfile/test.mp3">test mp3</a>',
+            '<a href="http://www.lion.com/path/to?#param=29">test</a>',
+            '<a href="http://lion.org/testfile/test.mp3">test mp3',
+            '<a href="http://lion.org/testfile/test.mp3"test</a>',
+            '<a href="http://lion.org/testfile/">test</a>',
+            '<href="http://lion.org/testfile/test.avi">test</a>',
+            '<abbr href="http://lion.org/testfile/test.mp3">test mp3</abbr>',
+            '<ahref="http://lion.org/testfile/test.mp3">test mp3</a>',
+            '<aclass="content" href="http://lion.org/testfile/test.mp3">test mp3</a>',
             // Test a long URL over 4096 characters.
             $longurl
         );
@@ -137,7 +124,7 @@ class filter_mediaplugin_testcase extends advanced_testcase {
         }
 
         // Valid mediaurl followed by a longurl.
-        $precededlongurl = '<a href="http://moodle.org/testfile/test.mp3">test.mp3</a>'. $longurl;
+        $precededlongurl = '<a href="http://lion.org/testfile/test.mp3">test.mp3</a>'. $longurl;
         $filter = $filterplugin->filter($precededlongurl);
         $this->assertEquals(1, substr_count($filter, 'M.util.add_audio_player'));
         $this->assertContains($longurl, $filter);

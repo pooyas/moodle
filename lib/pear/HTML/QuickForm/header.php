@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,7 +30,6 @@ require_once 'HTML/QuickForm/static.php';
 /**
  * A pseudo-element used for adding headers to form
  *
- * @author Alexey Borzov <borz_off@cs.msu.su>
  * @access public
  */
 class HTML_QuickForm_header extends HTML_QuickForm_static

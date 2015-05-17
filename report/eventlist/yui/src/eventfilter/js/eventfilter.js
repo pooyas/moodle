@@ -1,7 +1,7 @@
 /**
  * A tool for displaying and filtering system events.
  *
- * @module moodle-report_eventlist-eventfilter
+ * @module lion-report_eventlist-eventfilter
  */
 
 /**

@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * shows an analysed view of a feedback on the mainsite
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -34,7 +21,7 @@ $courseitemfiltertyp = optional_param('courseitemfiltertyp', '0', PARAM_ALPHANUM
 $searchcourse = optional_param('searchcourse', '', PARAM_RAW);
 $courseid = optional_param('courseid', false, PARAM_INT);
 
-$url = new moodle_url('/mod/feedback/analysis_course.php', array('id'=>$id));
+$url = new lion_url('/mod/feedback/analysis_course.php', array('id'=>$id));
 if ($courseid !== false) {
     $url->param('courseid', $courseid);
 }
@@ -93,7 +80,7 @@ echo $OUTPUT->box_start('generalbox boxaligncenter boxwidthwide');
 if (has_capability('mod/feedback:viewreports', $context)) {
     //button "export to excel"
     echo $OUTPUT->container_start('mdl-align');
-    $aurl = new moodle_url('analysis_to_excel.php',
+    $aurl = new lion_url('analysis_to_excel.php',
                            array('sesskey' => sesskey(),
                                  'id' => $id,
                                  'coursefilter' => $coursefilter));
@@ -187,7 +174,7 @@ if ($courseitemfilter > 0) {
          echo html_writer::select($courses, 'coursefilter', $coursefilter,
                                   null, array('id'=>'coursefilterid', 'class' => 'autosubmit'));
 
-        $PAGE->requires->yui_module('moodle-core-formautosubmit',
+        $PAGE->requires->yui_module('lion-core-formautosubmit',
             'M.core.init_formautosubmit',
             array(array('selectid' => 'coursefilterid', 'nothing' => false))
         );

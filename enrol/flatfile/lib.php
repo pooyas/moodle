@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Flatfile enrolment plugin.
@@ -20,12 +7,12 @@
  * This plugin lets the user specify a "flatfile" (CSV) containing enrolment information.
  * On a regular cron cycle, the specified file is parsed and then deleted.
  *
- * @package    enrol_flatfile
- * @copyright  2010 Eugene Venter
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage flatfile
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -41,8 +28,6 @@ defined('MOODLE_INTERNAL') || die();
  *   starttime        = start time (in seconds since epoch) - optional
  *   endtime          = end time (in seconds since epoch) - optional
  *
- * @author  Eugene Venter - based on code by Petr Skoda, Martin Dougiamas, Martin Langhoff and others
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class enrol_flatfile_plugin extends enrol_plugin {
     protected $lasternoller = null;
@@ -128,14 +113,14 @@ class enrol_flatfile_plugin extends enrol_plugin {
         $actions = array();
         $context = $manager->get_context();
         $instance = $ue->enrolmentinstance;
-        $params = $manager->get_moodlepage()->url->params();
+        $params = $manager->get_lionpage()->url->params();
         $params['ue'] = $ue->id;
         if ($this->allow_unenrol_user($instance, $ue) && has_capability("enrol/flatfile:unenrol", $context)) {
-            $url = new moodle_url('/enrol/unenroluser.php', $params);
+            $url = new lion_url('/enrol/unenroluser.php', $params);
             $actions[] = new user_enrolment_action(new pix_icon('t/delete', ''), get_string('unenrol', 'enrol'), $url, array('class'=>'unenrollink', 'rel'=>$ue->id));
         }
         if ($this->allow_manage($instance) && has_capability("enrol/flatfile:manage", $context)) {
-            $url = new moodle_url('/enrol/editenrolment.php', $params);
+            $url = new lion_url('/enrol/editenrolment.php', $params);
             $actions[] = new user_enrolment_action(new pix_icon('t/edit', ''), get_string('edit'), $url, array('class'=>'editenrollink', 'rel'=>$ue->id));
         }
         return $actions;
@@ -192,7 +177,7 @@ class enrol_flatfile_plugin extends enrol_plugin {
         if ($processed and $mailadmins) {
             if ($log = $buffer->get_buffer()) {
                 $eventdata = new stdClass();
-                $eventdata->modulename        = 'moodle';
+                $eventdata->modulename        = 'lion';
                 $eventdata->component         = 'enrol_flatfile';
                 $eventdata->name              = 'flatfile_enrolment';
                 $eventdata->userfrom          = get_admin();
@@ -346,7 +331,7 @@ class enrol_flatfile_plugin extends enrol_plugin {
 
         if (!unlink($filelocation)) {
             $eventdata = new stdClass();
-            $eventdata->modulename        = 'moodle';
+            $eventdata->modulename        = 'lion';
             $eventdata->component         = 'enrol_flatfile';
             $eventdata->name              = 'flatfile_enrolment';
             $eventdata->userfrom          = get_admin();
@@ -469,7 +454,7 @@ class enrol_flatfile_plugin extends enrol_plugin {
                 $subject = get_string('enrolmentnew', 'enrol', format_string($course->shortname, true, array('context' => $context)));
 
                 $eventdata = new stdClass();
-                $eventdata->modulename        = 'moodle';
+                $eventdata->modulename        = 'lion';
                 $eventdata->component         = 'enrol_flatfile';
                 $eventdata->name              = 'flatfile_enrolment';
                 $eventdata->userfrom          = $this->get_enroller($course->id);
@@ -500,7 +485,7 @@ class enrol_flatfile_plugin extends enrol_plugin {
                 $subject = get_string('enrolmentnew', 'enrol', format_string($course->shortname, true, array('context' => $context)));
 
                 $eventdata = new stdClass();
-                $eventdata->modulename        = 'moodle';
+                $eventdata->modulename        = 'lion';
                 $eventdata->component         = 'enrol_flatfile';
                 $eventdata->name              = 'flatfile_enrolment';
                 $eventdata->userfrom          = get_admin();
@@ -616,7 +601,7 @@ class enrol_flatfile_plugin extends enrol_plugin {
      *
      * Usually it is the first editing teacher - the person with "highest authority"
      * as defined by sort_by_roleassignment_authority() having 'enrol/flatfile:manage'
-     * or 'moodle/role:assign' capability.
+     * or 'lion/role:assign' capability.
      *
      * @param int $courseid enrolment instance id
      * @return stdClass user record
@@ -630,7 +615,7 @@ class enrol_flatfile_plugin extends enrol_plugin {
 
         $users = get_enrolled_users($context, 'enrol/flatfile:manage');
         if (!$users) {
-            $users = get_enrolled_users($context, 'moodle/role:assign');
+            $users = get_enrolled_users($context, 'lion/role:assign');
         }
 
         if ($users) {

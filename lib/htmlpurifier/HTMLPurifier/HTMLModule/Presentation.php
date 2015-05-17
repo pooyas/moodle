@@ -9,6 +9,9 @@
  *          - Inline Presentation (b, big, i, small, sub, sup, tt)
  *       We have chosen not to heed this distinction, as content_sets
  *       provides satisfactory disambiguation.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Presentation extends HTMLPurifier_HTMLModule
 {

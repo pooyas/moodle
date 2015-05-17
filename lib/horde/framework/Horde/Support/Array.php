@@ -6,8 +6,9 @@
  *       - http://docs.python.org/lib/typesmapping.html
  *
  * @category   Horde
- * @package    Support
- * @license    http://www.horde.org/licenses/bsd
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Support_Array implements ArrayAccess, Countable, IteratorAggregate
 {

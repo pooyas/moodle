@@ -1,29 +1,18 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+/**
+ * @package    core
+ * @subpackage repository
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //
 
 /**
  * This file is used to browse repositories in non-javascript mode
  *
- * @since Moodle 2.0
- * @package    core
- * @subpackage repository
- * @copyright  2009 Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once('../config.php');
@@ -97,11 +86,11 @@ $maxbytes = get_user_max_upload_file_size($context, $CFG->maxbytes, $course->max
 $params = array('ctx_id' => $contextid, 'itemid' => $itemid, 'env' => $env, 'course'=>$courseid, 'maxbytes'=>$maxbytes, 'areamaxbytes'=>$areamaxbytes, 'maxfiles'=>$maxfiles, 'subdirs'=>$subdirs, 'sesskey'=>sesskey());
 $params['action'] = 'browse';
 $params['draftpath'] = $draftpath;
-$home_url = new moodle_url('/repository/draftfiles_manager.php', $params);
+$home_url = new lion_url('/repository/draftfiles_manager.php', $params);
 
 $params['savepath'] = $savepath;
 $params['repo_id'] = $repo_id;
-$url = new moodle_url($CFG->httpswwwroot."/repository/filepicker.php", $params);
+$url = new lion_url($CFG->httpswwwroot."/repository/filepicker.php", $params);
 $PAGE->set_url('/repository/filepicker.php', $params);
 
 switch ($action) {
@@ -111,7 +100,7 @@ case 'upload':
     try {
         $repo->upload('', $maxbytes);
         redirect($home_url, get_string('uploadsucc','repository'));
-    } catch (moodle_exception $e) {
+    } catch (lion_exception $e) {
         // inject target URL
         $e->link = $PAGE->url->out();
         echo $OUTPUT->header(); // hack: we need the embedded header here, standard error printing would not use it
@@ -127,7 +116,7 @@ case 'search':
         $search_result['repo_id'] = $repo_id;
 
         // TODO: need a better solution
-        $purl = new moodle_url($url, array('search_paging' => 1, 'action' => 'search', 'repo_id' => $repo_id));
+        $purl = new lion_url($url, array('search_paging' => 1, 'action' => 'search', 'repo_id' => $repo_id));
         $pagingbar = new paging_bar($search_result['total'], $search_result['page'] - 1, $search_result['perpage'], $purl, 'p');
         echo $OUTPUT->render($pagingbar);
 
@@ -198,7 +187,7 @@ case 'sign':
                     //echo '<input style="display:inline" type="submit" value="'.s($p['name']).'" />';
                     //echo '</form>';
 
-                    $pathurl = new moodle_url($url, array(
+                    $pathurl = new lion_url($url, array(
                         'p'=>$p['path'],
                         'action'=>'list',
                         'draftpath'=>$draftpath,
@@ -212,7 +201,7 @@ case 'sign':
                 // TODO MDL-28482: need a better solution
                 // paging_bar is not a good option because it starts page numbering from 0 and
                 // repositories number pages starting from 1.
-                $pagingurl = new moodle_url("$CFG->httpswwwroot/repository/filepicker.php?action=list&itemid=$itemid&ctx_id=$contextid&repo_id=$repo_id&course=$courseid&sesskey=".  sesskey());
+                $pagingurl = new lion_url("$CFG->httpswwwroot/repository/filepicker.php?action=list&itemid=$itemid&ctx_id=$contextid&repo_id=$repo_id&course=$courseid&sesskey=".  sesskey());
                 if (!isset($list['perpage']) && !isset($list['total'])) {
                     $list['perpage'] = 10; // instead of setting perpage&total we use number of pages, the result is the same
                 }
@@ -292,8 +281,8 @@ case 'download':
     // If file is already a reference, set $fileurl = file source, $repo = file repository
     // note that in this case user may not have permission to access the source file directly
     // so no file_browser/file_info can be used below
-    if ($repo->has_moodle_files()) {
-        $file = repository::get_moodle_file($reference);
+    if ($repo->has_lion_files()) {
+        $file = repository::get_lion_file($reference);
         if ($file && $file->is_external_file()) {
             $sourcefield = $file->get_source(); // remember the original source
             $record->source = $repo::build_source_field($sourcefield);
@@ -318,7 +307,7 @@ case 'download':
     $record->contextid = $user_context->id;
     $record->sortorder = 0;
 
-    if ($repo->has_moodle_files()) {
+    if ($repo->has_lion_files()) {
         $fileinfo = $repo->copy_to_area($reference, $record, $maxbytes, $areamaxbytes);
         redirect($home_url, get_string('downloadsucc', 'repository'));
     } else {
@@ -337,7 +326,7 @@ case 'download':
             try {
                 $info = repository::move_to_filepool($thefile['path'], $record);
                 redirect($home_url, get_string('downloadsucc', 'repository'));
-            } catch (moodle_exception $e) {
+            } catch (lion_exception $e) {
                 // inject target URL
                 $e->link = $PAGE->url->out();
                 echo $OUTPUT->header(); // hack: we need the embedded header here, standard error printing would not use it

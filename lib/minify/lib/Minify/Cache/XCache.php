@@ -3,7 +3,9 @@
  * Class Minify_Cache_XCache
  *
  * @link http://xcache.lighttpd.net/
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -14,8 +16,6 @@
  * Minify::setCache(new Minify_Cache_XCache());
  * </code>
  *
- * @package Minify
- * @author Elan Ruusamäe <glen@delfi.ee>
  **/
 class Minify_Cache_XCache {
 

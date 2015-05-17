@@ -10,6 +10,9 @@
  * Latest version is available at http://php.weblogs.com
  *
  * Oracle 8.0.5 driver
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
 */
 
 // security - hide paths

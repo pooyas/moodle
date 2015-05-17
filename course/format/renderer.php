@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Base renderer for outputting course formats.
  *
- * @package core
- * @copyright 2012 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.3
+ * @package    course
+ * @subpackage format
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -31,10 +17,6 @@ defined('MOODLE_INTERNAL') || die();
  * to reduce code duplication. It is not necessary for all course formats to
  * use this and its likely to change in future releases.
  *
- * @package core
- * @copyright 2012 Dan Poltawski
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.3
  */
 abstract class format_section_renderer_base extends plugin_renderer_base {
 
@@ -44,10 +26,10 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
     /**
      * Constructor method, calls the parent constructor
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param string $target one of rendering target constants
      */
-    public function __construct(moodle_page $page, $target) {
+    public function __construct(lion_page $page, $target) {
         parent::__construct($page, $target);
         $this->courserenderer = $this->page->get_renderer('core', 'course');
     }
@@ -183,8 +165,8 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
         $o.= $this->format_summary_text($section);
 
         $context = context_course::instance($course->id);
-        if ($PAGE->user_is_editing() && has_capability('moodle/course:update', $context)) {
-            $url = new moodle_url('/course/editsection.php', array('id'=>$section->id, 'sr'=>$sectionreturn));
+        if ($PAGE->user_is_editing() && has_capability('lion/course:update', $context)) {
+            $url = new lion_url('/course/editsection.php', array('id'=>$section->id, 'sr'=>$sectionreturn));
             $o.= html_writer::link($url,
                 html_writer::empty_tag('img', array('src' => $this->output->pix_url('i/settings'),
                     'class' => 'iconsmall edit', 'alt' => get_string('edit'))),
@@ -193,7 +175,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
         $o.= html_writer::end_tag('div');
 
         $o .= $this->section_availability_message($section,
-                has_capability('moodle/course:viewhiddensections', $context));
+                has_capability('lion/course:viewhiddensections', $context));
 
         return $o;
     }
@@ -238,7 +220,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
         $controls = array();
 
         $url = clone($baseurl);
-        if (!$isstealth && has_capability('moodle/course:sectionvisibility', $coursecontext)) {
+        if (!$isstealth && has_capability('lion/course:sectionvisibility', $coursecontext)) {
             if ($section->visible) { // Show the hide/show eye.
                 $strhidefromothers = get_string('hidefromothers', 'format_'.$course->format);
                 $url->param('hide', $section->section);
@@ -262,7 +244,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
             } else {
                 $strdelete = get_string('deletesection');
             }
-            $url = new moodle_url('/course/editsection.php', array('id' => $section->id,
+            $url = new lion_url('/course/editsection.php', array('id' => $section->id,
                 'sr' => $onsectionpage ? $section->section : 0, 'delete' => 1));
             $controls[] = html_writer::link($url,
                 html_writer::empty_tag('img', array('src' => $this->output->pix_url('t/delete'),
@@ -270,7 +252,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
                 array('title' => $strdelete));
         }
 
-        if (!$isstealth && !$onsectionpage && has_capability('moodle/course:movesections', $coursecontext)) {
+        if (!$isstealth && !$onsectionpage && has_capability('lion/course:movesections', $coursecontext)) {
             $url = clone($baseurl);
             if ($section->section > 1) { // Add a arrow to move section up.
                 $url->param('section', $section->section);
@@ -341,7 +323,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
 
         $context = context_course::instance($course->id);
         $o .= $this->section_availability_message($section,
-                has_capability('moodle/course:viewhiddensections', $context));
+                has_capability('lion/course:viewhiddensections', $context));
 
         $o .= html_writer::end_tag('div');
         $o .= html_writer::end_tag('li');
@@ -473,7 +455,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
         $o = '';
         // If currently moving a file then show the current clipboard.
         if (ismoving($course->id)) {
-            $url = new moodle_url('/course/mod.php',
+            $url = new lion_url('/course/mod.php',
                 array('sesskey' => sesskey(),
                       'cancelcopy' => true,
                       'sr' => $sectionno,
@@ -500,7 +482,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
     protected function get_nav_links($course, $sections, $sectionno) {
         // FIXME: This is really evil and should by using the navigation API.
         $course = course_get_format($course)->get_course();
-        $canviewhidden = has_capability('moodle/course:viewhiddensections', context_course::instance($course->id))
+        $canviewhidden = has_capability('lion/course:viewhiddensections', context_course::instance($course->id))
             or !$course->hiddensections;
 
         $links = array('previous' => '', 'next' => '');
@@ -789,7 +771,7 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
             }
         }
 
-        if ($PAGE->user_is_editing() and has_capability('moodle/course:update', $context)) {
+        if ($PAGE->user_is_editing() and has_capability('lion/course:update', $context)) {
             // Print stealth sections if present.
             foreach ($modinfo->get_section_info_all() as $section => $thissection) {
                 if ($section <= $course->numsections or empty($modinfo->sections[$section])) {
@@ -806,8 +788,8 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
             echo html_writer::start_tag('div', array('id' => 'changenumsections', 'class' => 'mdl-right'));
 
             // Increase number of sections.
-            $straddsection = get_string('increasesections', 'moodle');
-            $url = new moodle_url('/course/changenumsections.php',
+            $straddsection = get_string('increasesections', 'lion');
+            $url = new lion_url('/course/changenumsections.php',
                 array('courseid' => $course->id,
                       'increase' => true,
                       'sesskey' => sesskey()));
@@ -816,8 +798,8 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
 
             if ($course->numsections > 0) {
                 // Reduce number of sections sections.
-                $strremovesection = get_string('reducesections', 'moodle');
-                $url = new moodle_url('/course/changenumsections.php',
+                $strremovesection = get_string('reducesections', 'lion');
+                $url = new lion_url('/course/changenumsections.php',
                     array('courseid' => $course->id,
                           'increase' => false,
                           'sesskey' => sesskey()));

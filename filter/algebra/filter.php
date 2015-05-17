@@ -1,35 +1,21 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Moodle - Filter for converting simple calculator-type algebraic
+ * Lion - Filter for converting simple calculator-type algebraic
  * expressions to cached gif images
  *
+ *             Originally based on code provided by Bruno Vernier bruno@vsbeducation.ca
  * @package    filter
  * @subpackage algebra
- * @copyright  2004 Zbigniew Fiedorowicz fiedorow@math.ohio-state.edu
- *             Originally based on code provided by Bruno Vernier bruno@vsbeducation.ca
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 //-------------------------------------------------------------------------
-// NOTE: This Moodle text filter converts algebraic expressions delimited
+// NOTE: This Lion text filter converts algebraic expressions delimited
 // by either @@...@@ or by <algebra...>...</algebra> tags
 // first converts it to TeX using WeBWorK algebra parser Perl library
 // AlgParser.pm, part of the WeBWorK distribution obtained from
@@ -41,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 // Note that there may be patent restrictions on the production of gif images
 // in Canada and some parts of Western Europe and Japan until July 2004.
 //-------------------------------------------------------------------------
-// You will then need to edit your moodle/config.php to invoke mathml_filter.php
+// You will then need to edit your lion/config.php to invoke mathml_filter.php
 //-------------------------------------------------------------------------
 
 function filter_algebra_image($imagefile, $tex= "", $height="", $width="", $align="middle") {
@@ -73,11 +59,11 @@ function filter_algebra_image($imagefile, $tex= "", $height="", $width="", $alig
     }
     $anchorcontents .= "\" $style />";
 
-    if (!file_exists("$CFG->dataroot/filter/algebra/$imagefile") && has_capability('moodle/site:config', context_system::instance())) {
+    if (!file_exists("$CFG->dataroot/filter/algebra/$imagefile") && has_capability('lion/site:config', context_system::instance())) {
         $link = '/filter/algebra/algebradebug.php';
         $action = null;
     } else {
-        $link = new moodle_url('/filter/tex/displaytex.php', array('texexp'=>$tex));
+        $link = new lion_url('/filter/tex/displaytex.php', array('texexp'=>$tex));
         $action = new popup_action('click', $link, 'popup', array('width'=>320,'height'=>240)); //TODO: the popups do not work when text caching is enabled!!
     }
     $output .= $OUTPUT->action_link($link, $anchorcontents, $action, array('title'=>'TeX'));
@@ -88,7 +74,7 @@ function filter_algebra_image($imagefile, $tex= "", $height="", $width="", $alig
   return $output;
 }
 
-class filter_algebra extends moodle_text_filter {
+class filter_algebra extends lion_text_filter {
     public function filter($text, array $options = array()){
         global $CFG, $DB;
 
@@ -97,7 +83,7 @@ class filter_algebra extends moodle_text_filter {
             return $text;
         }
 
-//restrict filtering to forum 130 (Maths Tools on moodle.org)
+//restrict filtering to forum 130 (Maths Tools on lion.org)
 #    $scriptname = $_SERVER['SCRIPT_NAME'];
 #    if (!strstr($scriptname,'/forum/')) {
 #        return $text;

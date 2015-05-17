@@ -1,7 +1,7 @@
 /**
  * Drag and Drop for course sections and course modules.
  *
- * @module moodle-course-dragdrop
+ * @module lion-course-dragdrop
  */
 
 var CSS = {

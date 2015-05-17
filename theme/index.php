@@ -1,24 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This page provides the Administration -> ... -> Theme selector UI.
  *
- * @package core
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage theme
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../config.php');
@@ -54,7 +42,7 @@ if ($reset and confirm_sesskey()) {
 
     // Create a new page for the display of the themes readme.
     // This ensures that the readme page is shown using the new theme.
-    $confirmpage = new moodle_page();
+    $confirmpage = new lion_page();
     $confirmpage->set_context($PAGE->context);
     $confirmpage->set_url($PAGE->url);
     $confirmpage->set_pagelayout($PAGE->pagelayout);
@@ -68,7 +56,7 @@ if ($reset and confirm_sesskey()) {
     echo $output->header();
     echo $output->heading(get_string('themesaved'));
     echo $output->box_start();
-    echo format_text(get_string('choosereadme', 'theme_'.$theme->name), FORMAT_MOODLE);
+    echo format_text(get_string('choosereadme', 'theme_'.$theme->name), FORMAT_LION);
     echo $output->box_end();
     echo $output->continue_button($CFG->wwwroot . '/theme/index.php');
     echo $output->footer();
@@ -117,7 +105,7 @@ if (!empty($CFG->enabledevicedetection) && empty($device)) {
                 $strthemename = get_string('pluginname', 'theme_'.$themename);
                 // Link to the screenshot, now mandatory - the image path is hardcoded because we need image from other themes,
                 // not the current one.
-                $screenshoturl = new moodle_url('/theme/image.php',
+                $screenshoturl = new lion_url('/theme/image.php',
                     array('theme' => $themename, 'image' => 'screenshot', 'component' => 'theme'));
                 // Contents of the screenshot/preview cell.
                 $screenshotcell = html_writer::empty_tag('img', array('src' => $screenshoturl, 'alt' => $strthemename));
@@ -127,14 +115,14 @@ if (!empty($CFG->enabledevicedetection) && empty($device)) {
             // If not default device then show option to unset theme.
             if ($thedevice != 'default') {
                 $unsetthemestr = get_string('unsettheme', 'admin');
-                $unsetthemeurl = new moodle_url('/theme/index.php',
+                $unsetthemeurl = new lion_url('/theme/index.php',
                     array('device' => $thedevice, 'sesskey' => sesskey(), 'unsettheme' => true));
                 $unsetthemebutton = new single_button($unsetthemeurl, $unsetthemestr, 'get');
                 $unsetthemebutton = $OUTPUT->render($unsetthemebutton);
             }
         }
 
-        $deviceurl = new moodle_url('/theme/index.php', array('device' => $thedevice, 'sesskey' => sesskey()));
+        $deviceurl = new lion_url('/theme/index.php', array('device' => $thedevice, 'sesskey' => sesskey()));
         $select = new single_button($deviceurl, $strthemeselect, 'get');
 
         $table->data[] = array(
@@ -192,7 +180,7 @@ if (!empty($CFG->enabledevicedetection) && empty($device)) {
 
         // Link to the screenshot, now mandatory - the image path is hardcoded because we need image from other themes,
         // not the current one.
-        $screenshotpath = new moodle_url('/theme/image.php',
+        $screenshotpath = new lion_url('/theme/image.php',
             array('theme'=>$themename, 'image'=>'screenshot', 'component'=>'theme'));
         // Contents of the first screenshot/preview cell.
         $row[] = html_writer::empty_tag('img', array('src'=>$screenshotpath, 'alt'=>$strthemename));
@@ -202,13 +190,13 @@ if (!empty($CFG->enabledevicedetection) && empty($device)) {
         // Button to choose this as the main theme or unset this theme for devices other then default.
         if (($ischosentheme) && ($device != 'default')) {
             $unsetthemestr = get_string('unsettheme', 'admin');
-            $unsetthemeurl = new moodle_url('/theme/index.php',
+            $unsetthemeurl = new lion_url('/theme/index.php',
                 array('device' => $device, 'unsettheme' => true, 'sesskey' => sesskey()));
             $unsetbutton = new single_button($unsetthemeurl, $unsetthemestr, 'get');
             $infocell .= $OUTPUT->render($unsetbutton);
         } else if ((!$ischosentheme)) {
             $setthemestr = get_string('usetheme');
-            $setthemeurl = new moodle_url('/theme/index.php',
+            $setthemeurl = new lion_url('/theme/index.php',
                 array('device' => $device, 'choose' => $themename, 'sesskey' => sesskey()));
             $setthemebutton = new single_button($setthemeurl, $setthemestr, 'get');
             $infocell .= $OUTPUT->render($setthemebutton);
@@ -227,7 +215,7 @@ $params = array('sesskey' => sesskey(), 'reset' => 1);
 if (!empty($device)) {
     $params['device'] = $device;
 }
-echo $OUTPUT->single_button(new moodle_url('index.php', $params), get_string('themeresetcaches', 'admin'));
+echo $OUTPUT->single_button(new lion_url('index.php', $params), get_string('themeresetcaches', 'admin'));
 
 echo html_writer::table($table);
 

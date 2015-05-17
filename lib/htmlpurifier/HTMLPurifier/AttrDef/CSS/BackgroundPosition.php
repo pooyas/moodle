@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* W3C says:
     [ // adjective and number must be in correct order, even if
       // you could switch them without introducing ambiguity.

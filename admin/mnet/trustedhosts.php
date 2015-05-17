@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
     // Allows the admin to configure services for remote hosts
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
@@ -10,7 +17,7 @@
 
     $context = context_system::instance();
 
-    require_capability('moodle/site:config', $context, $USER->id, true, "nopermissions");
+    require_capability('lion/site:config', $context, $USER->id, true, "nopermissions");
 
     if (!extension_loaded('openssl')) {
         echo $OUTPUT->header();

@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines calendar class to manage recurrence rule (rrule) during ical imports.
  *
- * @package core_calendar
- * @copyright 2014 onwards Ankit Agarwal
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    calendar
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core_calendar;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->dirroot . '/calendar/lib.php');
 
 /**
@@ -83,9 +70,6 @@ require_once($CFG->dirroot . '/calendar/lib.php');
  * bysplist   = setposday / ( setposday *("," setposday) )
  * setposday  = yeardaynum
  *
- * @package core_calendar
- * @copyright 2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class rrule_manager {
 
@@ -205,7 +189,7 @@ class rrule_manager {
      * Parse a property of the recurrence rule.
      *
      * @param string $prop property string with type-value pair
-     * @throws \moodle_exception
+     * @throws \lion_exception
      */
     protected function parse_rrule_property($prop) {
         list($property, $value) = explode('=', $prop);
@@ -254,7 +238,7 @@ class rrule_manager {
                 break;
             default:
                 // We should never get here, something is very wrong.
-                throw new \moodle_exception('errorrrule', 'calendar');
+                throw new \lion_exception('errorrrule', 'calendar');
         }
     }
 
@@ -262,7 +246,7 @@ class rrule_manager {
      * Sets Frequency property.
      *
      * @param string $freq Frequency of event
-     * @throws \moodle_exception
+     * @throws \lion_exception
      */
     protected function set_frequency($freq) {
         switch ($freq) {
@@ -289,7 +273,7 @@ class rrule_manager {
                 break;
             default:
                 // We should never get here, something is very wrong.
-                throw new \moodle_exception('errorrrulefreq', 'calendar');
+                throw new \lion_exception('errorrrulefreq', 'calendar');
         }
     }
 
@@ -297,7 +281,7 @@ class rrule_manager {
      * Gets the day from day string.
      *
      * @param string $daystring Day string (MO, TU, etc)
-     * @throws \moodle_exception
+     * @throws \lion_exception
      *
      * @return string Day represented by the parameter.
      */
@@ -326,7 +310,7 @@ class rrule_manager {
                 break;
             default:
                 // We should never get here, something is very wrong.
-                throw new \moodle_exception('errorrruleday', 'calendar');
+                throw new \lion_exception('errorrruleday', 'calendar');
         }
     }
 
@@ -334,7 +318,7 @@ class rrule_manager {
      * Create events for specified rrule.
      *
      * @param \calendar_event $passedevent Properties of event to create.
-     * @throws \moodle_exception
+     * @throws \lion_exception
      */
     public function create_events($passedevent) {
         global $DB;
@@ -365,7 +349,7 @@ class rrule_manager {
                 break;
             default :
                 // We should never get here, something is very wrong.
-                throw new \moodle_exception('errorrulefreq', 'calendar');
+                throw new \lion_exception('errorrulefreq', 'calendar');
 
         }
 
@@ -410,7 +394,7 @@ class rrule_manager {
             // No count specified, use datetime constraints.
             $until = $this->until;
             if (empty($until)) {
-                // Forever event. We don't have any such concept in Moodle, hence we repeat it for a constant time.
+                // Forever event. We don't have any such concept in Lion, hence we repeat it for a constant time.
                 $until = time() + (YEARSECS * self::TIME_UNLIMITED_YEARS);
             }
             for (; $event->timestart < $until; $event->timestart += $timediff) {
@@ -464,7 +448,7 @@ class rrule_manager {
             // No count specified, use datetime constraints.
             $until = $this->until;
             if (empty($until)) {
-                // Forever event. We don't have any such concept in Moodle, hence we repeat it for a constant time.
+                // Forever event. We don't have any such concept in Lion, hence we repeat it for a constant time.
                 $until = time() + (YEARSECS * self::TIME_UNLIMITED_YEARS );
             }
             for (; $event->timestart < $until;) {
@@ -529,7 +513,7 @@ class rrule_manager {
             // No count specified, use datetime constraints.
             $until = $this->until;
             if (empty($until)) {
-                // Forever event. We don't have any such concept in Moodle, hence we repeat it for a constant time.
+                // Forever event. We don't have any such concept in Lion, hence we repeat it for a constant time.
                 $until = time() + (YEARSECS * self::TIME_UNLIMITED_YEARS );
             }
             for (; $event->timestart < $until;) {

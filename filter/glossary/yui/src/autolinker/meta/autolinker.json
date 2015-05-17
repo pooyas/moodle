@@ -1,5 +1,5 @@
 {
-  "moodle-filter_glossary-autolinker": {
+  "lion-filter_glossary-autolinker": {
     "requires": [
         "base",
         "node",
@@ -7,8 +7,8 @@
         "json-parse",
         "event-delegate",
         "overlay",
-        "moodle-core-event",
-        "moodle-core-notification-alert"
+        "lion-core-event",
+        "lion-core-notification-alert"
     ]
   }
 }

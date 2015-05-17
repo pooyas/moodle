@@ -1,8 +1,9 @@
 <?php
 /**
- * Class HTTP_ConditionalGet  
- * @package Minify
- * @subpackage HTTP
+ * Class HTTP_ConditionalGet
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -56,9 +57,6 @@
  *     exit();
  * }
  * </code>
- * @package Minify
- * @subpackage HTTP
- * @author Stephen Clay <steve@mrclay.org>
  */
 class HTTP_ConditionalGet {
 

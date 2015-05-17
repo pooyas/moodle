@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 $type = 'cidfont0';
 $name = 'MSungStd-Light-Acro';
 $displayname = 'MSung Light (Trad. Chinese)';

@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Question behaviour for the old adaptive mode.
  *
- * @package    qbehaviour
+ * @package    question_behaviour
  * @subpackage adaptive
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -32,8 +18,6 @@ defined('MOODLE_INTERNAL') || die();
  *
  * This is the old version of interactive mode.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_adaptive extends question_behaviour_with_multiple_tries {
     const IS_ARCHETYPAL = true;
@@ -282,8 +266,6 @@ class qbehaviour_adaptive extends question_behaviour_with_multiple_tries {
  * This class encapsulates all the information about the current state-of-play
  * scoring-wise. It is used to communicate between the beahviour and the renderer.
  *
- * @copyright  2012 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_adaptive_mark_details {
     /** @var question_state the current state of the question. */

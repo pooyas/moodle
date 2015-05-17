@@ -6,20 +6,16 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Stream
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Object that adds convenience/utility methods to interacting with PHP
  * streams.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Stream
  *
  * @property boolean $utf8_char  Parse character as UTF-8 data instead of
  *                               single byte (@since 1.4.0).
@@ -103,7 +99,6 @@ class Horde_Stream implements Serializable
     /**
      * String representation of object.
      *
-     * @since 1.1.0
      *
      * @return string  The full stream converted to a string.
      */
@@ -351,7 +346,6 @@ class Horde_Stream implements Serializable
     /**
      * Return part of the stream as a string.
      *
-     * @since 1.4.0
      *
      * @param integer $start   Start, as an offset from the current postion.
      * @param integer $length  Length of string to return. If null, returns
@@ -412,7 +406,6 @@ class Horde_Stream implements Serializable
     /**
      * Auto-determine the EOL string.
      *
-     * @since 1.3.0
      *
      * @return string  The EOL string, or null if no EOL found.
      */
@@ -441,7 +434,6 @@ class Horde_Stream implements Serializable
     /**
      * Return a character from the string.
      *
-     * @since 1.4.0
      *
      * @return string  Character (single byte, or UTF-8 character if
      *                 $utf8_char is true).
@@ -481,7 +473,6 @@ class Horde_Stream implements Serializable
     /**
      * Return the current stream pointer position.
      *
-     * @since 1.4.0
      *
      * @return mixed  The current position (integer), or false.
      */
@@ -493,7 +484,6 @@ class Horde_Stream implements Serializable
     /**
      * Rewind the internal stream to the beginning.
      *
-     * @since 1.4.0
      *
      * @return boolean  True if successful.
      */
@@ -505,7 +495,6 @@ class Horde_Stream implements Serializable
     /**
      * Move internal pointer.
      *
-     * @since 1.4.0
      *
      * @param integer $offset  The offset.
      * @param boolean $curr    If true, offset is from current position. If
@@ -559,7 +548,6 @@ class Horde_Stream implements Serializable
     /**
      * Move internal pointer to the end of the stream.
      *
-     * @since 1.4.0
      *
      * @param integer $offset  Move this offset from the end.
      *
@@ -573,7 +561,6 @@ class Horde_Stream implements Serializable
     /**
      * Has the end of the stream been reached?
      *
-     * @since 1.4.0
      *
      * @return boolean  True if the end of the stream has been reached.
      */
@@ -585,7 +572,6 @@ class Horde_Stream implements Serializable
     /**
      * Close the stream.
      *
-     * @since 1.4.0
      */
     public function close()
     {

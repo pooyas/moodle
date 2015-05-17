@@ -5,6 +5,9 @@
  * @note In Slashdot-speak, dupe means duplicate.
  * @note The default constructor does not accept $config or $context objects:
  *       use must use the static build() factory method to perform initialization.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_IDAccumulator
 {

@@ -9,6 +9,9 @@
  * pales in comparison to HTMLPurifier_Lexer_DOMLex.
  *
  * @todo Reread XML spec and document differences.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Lexer_DirectLex extends HTMLPurifier_Lexer
 {

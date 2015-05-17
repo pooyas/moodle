@@ -1,5 +1,5 @@
 {
-    "moodle-core-handlebars": {
+    "lion-core-handlebars": {
         "condition": {
             "trigger": "handlebars",
             "when": "after"

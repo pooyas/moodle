@@ -1,23 +1,10 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Authentication Plugin: PAM Authentication
  *
- * PAM (Pluggable Authentication Modules) for Moodle
+ * PAM (Pluggable Authentication Modules) for Lion
  *
  * Description:
  * Authentication by using the PHP4 PAM module:
@@ -31,12 +18,12 @@
  * Website 1: http://elearning.zhwin.ch/
  * Website 2: http://birdy1976.com/
  *
- * @package auth_pam
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage pam
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/authlib.php');
 

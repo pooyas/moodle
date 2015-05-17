@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This function fetches math. images from the data directory
  * If not, it obtains the corresponding TeX expression from the cache_tex db table
  * and uses mimeTeX to create the image file
  *
+ *             Originally based on code provided by Bruno Vernier bruno@vsbeducation.ca
  * @package    filter
  * @subpackage tex
- * @copyright  2004 Zbigniew Fiedorowicz fiedorow@math.ohio-state.edu
- *             Originally based on code provided by Bruno Vernier bruno@vsbeducation.ca
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
     require_once("../../config.php");
@@ -40,7 +26,7 @@
     $texexp = optional_param('tex', '', PARAM_RAW);
 
     require_login();
-    require_capability('moodle/site:config', context_system::instance(), $USER->id); /// Required cap to run this. MDL-18552
+    require_capability('lion/site:config', context_system::instance(), $USER->id); /// Required cap to run this. MDL-18552
     if ($action || $texexp) {
         require_sesskey();
     }
@@ -305,8 +291,8 @@
         echo "It should display correctly as ";
         echo "<img src=\"$CFG->wwwroot/filter/tex/pix.php?file=$image\" align=\"absmiddle\"></p>\n";
         echo "<p>If neither equation image displays correctly, please seek ";
-        echo "further help at moodle.org at the ";
-        echo "<a href=\"http://moodle.org/mod/forum/view.php?id=752&loginguest=true\" target=\"_blank\">";
+        echo "further help at lion.org at the ";
+        echo "<a href=\"http://lion.org/mod/forum/view.php?id=752&loginguest=true\" target=\"_blank\">";
         echo "Mathematics Tools Forum</a></p>";
     }
 
@@ -378,15 +364,15 @@ fails a likely cause is that the mimetex binary you are using is
 incompatible with your operating system. You can try compiling it from the
 C sources downloaded from <a href="http://www.forkosh.com/mimetex.zip">
 http://www.forkosh.com/mimetex.zip</a>, or looking for an appropriate
-binary at <a href="http://moodle.org/download/mimetex/">
-http://moodle.org/download/mimetex/</a>. You may then also need to
-edit your moodle/filter/tex/pix.php file to add
+binary at <a href="http://lion.org/download/mimetex/">
+http://lion.org/download/mimetex/</a>. You may then also need to
+edit your lion/filter/tex/pix.php file to add
 <br /><?php echo "case &quot;" . PHP_OS . "&quot;:" ;?><br ?> to the list of operating systems
 in the switch (PHP_OS) statement. Windows users may have a problem properly
 unzipping mimetex.exe. Make sure that mimetex.exe is is <b>PRECISELY</b>
 433152 bytes in size. If not, download a fresh copy from
-<a href="http://moodle.org/download/mimetex/windows/mimetex.exe">
-http://moodle.org/download/mimetex/windows/mimetex.exe</a>.
+<a href="http://lion.org/download/mimetex/windows/mimetex.exe">
+http://lion.org/download/mimetex/windows/mimetex.exe</a>.
 Another possible problem which may affect
 both Unix and Windows servers is that the web server doesn't have execute permission
 on the mimetex binary. In that case change permissions accordingly</li>

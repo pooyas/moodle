@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /*
 Copyright (c) 2002-2010, Michael Bretterklieber <michael@bretterklieber.com>
 All rights reserved.
@@ -40,8 +47,6 @@ require_once 'PEAR.php';
 * MS-CHAPv1: RFC2433
 * MS-CHAPv2: RFC2759
 *
-* @package Crypt_CHAP
-* @author  Michael Bretterklieber <michael@bretterklieber.com>
 * @access  public
 * @version $Revision$
 */
@@ -51,7 +56,6 @@ require_once 'PEAR.php';
  *
  * Abstract base class for CHAP
  *
- * @package Crypt_CHAP
  */
 class Crypt_CHAP extends PEAR
 {
@@ -123,7 +127,6 @@ class Crypt_CHAP extends PEAR
  *
  * Generate CHAP-MD5 Packets
  *
- * @package Crypt_CHAP
  */
 class Crypt_CHAP_MD5 extends Crypt_CHAP
 {
@@ -150,7 +153,6 @@ class Crypt_CHAP_MD5 extends Crypt_CHAP
  * The NT-HASH is MD4(str2unicode(plaintextpass)).
  * You need the hash extension for this class.
  *
- * @package Crypt_CHAP
  */
 class Crypt_CHAP_MSv1 extends Crypt_CHAP
 {
@@ -387,7 +389,6 @@ class Crypt_CHAP_MSv1 extends Crypt_CHAP
  * in this version. The challenge is already a SHA1 challenge hash of both challenges
  * and of the username.
  *
- * @package Crypt_CHAP
  */
 class Crypt_CHAP_MSv2 extends Crypt_CHAP_MSv1
 {

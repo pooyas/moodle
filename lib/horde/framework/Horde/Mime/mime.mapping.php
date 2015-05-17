@@ -14,7 +14,9 @@
  * Generated: 06/12/13 15:54:33 by slusarz on bigworm.curecanti.org
  *
  * @category Horde
- * @package  Horde_Mime
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 $mime_extension_map = array(
     '__MAXPERIOD__' => '1',

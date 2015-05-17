@@ -1,23 +1,10 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * Auto-save functionality for during quiz attempts.
  *
- * @module moodle-mod_quiz-autosave
+ * @module lion-mod_quiz-autosave
  */
 
 /**
@@ -192,7 +179,7 @@ M.mod_quiz.autosave = {
     init: function(delay) {
         this.form = Y.one(this.SELECTORS.QUIZ_FORM);
         if (!this.form) {
-            Y.log('No response form found. Why did you try to set up autosave?', 'debug', 'moodle-mod_quiz-autosave');
+            Y.log('No response form found. Why did you try to set up autosave?', 'debug', 'lion-mod_quiz-autosave');
             return;
         }
 
@@ -254,12 +241,12 @@ M.mod_quiz.autosave = {
             if (repeatcount > 0) {
                 Y.later(this.TINYMCE_DETECTION_DELAY, this, this.init_tinymce, [repeatcount - 1]);
             } else {
-                Y.log('Gave up looking for TinyMCE.', 'debug', 'moodle-mod_quiz-autosave');
+                Y.log('Gave up looking for TinyMCE.', 'debug', 'lion-mod_quiz-autosave');
             }
             return;
         }
 
-        Y.log('Found TinyMCE.', 'debug', 'moodle-mod_quiz-autosave');
+        Y.log('Found TinyMCE.', 'debug', 'lion-mod_quiz-autosave');
         this.editor_change_handler = Y.bind(this.editor_changed, this);
         window.tinyMCE.onAddEditor.add(Y.bind(this.init_tinymce_editor, this));
     },
@@ -272,7 +259,7 @@ M.mod_quiz.autosave = {
      * @param {Object} editor The TinyMCE editor object
      */
     init_tinymce_editor: function(e, editor) {
-        Y.log('Found TinyMCE editor ' + editor.id + '.', 'debug', 'moodle-mod_quiz-autosave');
+        Y.log('Found TinyMCE editor ' + editor.id + '.', 'debug', 'lion-mod_quiz-autosave');
         editor.onChange.add(this.editor_change_handler);
         editor.onRedo.add(this.editor_change_handler);
         editor.onUndo.add(this.editor_change_handler);
@@ -287,12 +274,12 @@ M.mod_quiz.autosave = {
 
         // Fallback to the ID when the name is not present (in the case of content editable).
         name = name || '#' + e.target.getAttribute('id');
-        Y.log('Detected a value change in element ' + name + '.', 'debug', 'moodle-mod_quiz-autosave');
+        Y.log('Detected a value change in element ' + name + '.', 'debug', 'lion-mod_quiz-autosave');
         this.start_save_timer_if_necessary();
     },
 
     editor_changed: function(editor) {
-        Y.log('Detected a value change in editor ' + editor.id + '.', 'debug', 'moodle-mod_quiz-autosave');
+        Y.log('Detected a value change in editor ' + editor.id + '.', 'debug', 'lion-mod_quiz-autosave');
         this.start_save_timer_if_necessary();
     },
 
@@ -324,12 +311,12 @@ M.mod_quiz.autosave = {
         this.dirty = false;
 
         if (this.is_time_nearly_over()) {
-            Y.log('No more saving, time is nearly over.', 'debug', 'moodle-mod_quiz-autosave');
+            Y.log('No more saving, time is nearly over.', 'debug', 'lion-mod_quiz-autosave');
             this.stop_autosaving();
             return;
         }
 
-        Y.log('Doing a save.', 'debug', 'moodle-mod_quiz-autosave');
+        Y.log('Doing a save.', 'debug', 'lion-mod_quiz-autosave');
         if (typeof window.tinyMCE !== 'undefined') {
             window.tinyMCE.triggerSave();
         }
@@ -346,17 +333,17 @@ M.mod_quiz.autosave = {
 
     save_done: function(transactionid, response) {
         if (response.responseText !== 'OK') {
-            // Because IIS is useless, Moodle can't send proper HTTP response
+            // Because IIS is useless, Lion can't send proper HTTP response
             // codes, so we have to detect failures manually.
             this.save_failed(transactionid, response);
             return;
         }
 
-        Y.log('Save completed.', 'debug', 'moodle-mod_quiz-autosave');
+        Y.log('Save completed.', 'debug', 'lion-mod_quiz-autosave');
         this.save_transaction = null;
 
         if (this.dirty) {
-            Y.log('Dirty after save.', 'debug', 'moodle-mod_quiz-autosave');
+            Y.log('Dirty after save.', 'debug', 'lion-mod_quiz-autosave');
             this.start_save_timer();
         }
 
@@ -371,7 +358,7 @@ M.mod_quiz.autosave = {
     },
 
     save_failed: function() {
-        Y.log('Save failed.', 'debug', 'moodle-mod_quiz-autosave');
+        Y.log('Save failed.', 'debug', 'lion-mod_quiz-autosave');
         this.save_transaction = null;
 
         // We want to retry soon.

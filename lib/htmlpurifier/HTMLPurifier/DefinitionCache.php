@@ -7,6 +7,9 @@
  *       cache their custom HTMLDefinition, which can be loaded
  *       via a configuration directive
  * @todo Implement memcached
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_DefinitionCache
 {

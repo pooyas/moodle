@@ -3,9 +3,10 @@
 /**
  * Builtin functions
  *
- * @package Less
- * @subpackage function
  * @see http://lesscss.org/functions/
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Functions{
 

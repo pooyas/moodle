@@ -13,10 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Amf
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** @see Zend_Auth_Adapter_Interface */
@@ -25,10 +25,6 @@ require_once 'Zend/Auth/Adapter/Interface.php';
 /**
  * Base abstract class for AMF authentication implementation
  *
- * @package    Zend_Amf
- * @subpackage Auth
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 abstract class Zend_Amf_Auth_Abstract implements Zend_Auth_Adapter_Interface
 {

@@ -1,35 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the setting user interface classes that all backup/restore
  * settings use to represent the UI they have.
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Abstract class used to represent the user interface that a setting has.
  *
  * @todo extend as required for restore
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class base_setting_ui {
     /**
@@ -186,9 +170,6 @@ class base_setting_ui {
 /**
  * Abstract class to represent the user interface backup settings have
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class backup_setting_ui extends base_setting_ui {
     /**
@@ -337,9 +318,6 @@ abstract class backup_setting_ui extends base_setting_ui {
 /**
  * A text input user interface element for backup settings
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_setting_ui_text extends backup_setting_ui {
     /**
@@ -373,9 +351,6 @@ class backup_setting_ui_text extends backup_setting_ui {
 /**
  * A checkbox user interface element for backup settings (default)
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_setting_ui_checkbox extends backup_setting_ui {
 
@@ -479,9 +454,6 @@ class backup_setting_ui_checkbox extends backup_setting_ui {
 /**
  * Radio button user interface element for backup settings
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_setting_ui_radio extends backup_setting_ui {
     /**
@@ -564,9 +536,6 @@ class backup_setting_ui_radio extends backup_setting_ui {
 /**
  * A select box, drop down user interface for backup settings
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_setting_ui_select extends backup_setting_ui {
     /**
@@ -649,9 +618,6 @@ class backup_setting_ui_select extends backup_setting_ui {
 /**
  * A date selector user interface widget for backup settings.
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_setting_ui_dateselector extends backup_setting_ui_text {
 
@@ -686,17 +652,11 @@ class backup_setting_ui_dateselector extends backup_setting_ui_text {
 /**
  * Base setting UI exception class.
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class base_setting_ui_exception extends base_setting_exception {}
 
 /**
  * Backup setting UI exception class.
  *
- * @package core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_setting_ui_exception extends base_setting_ui_exception {};

@@ -1,6 +1,13 @@
 <?php
 
-defined('MOODLE_INTERNAL') || die;
+
+/**
+ * @package    filter
+ * @subpackage multilang
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
 

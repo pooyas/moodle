@@ -1,5 +1,5 @@
 {
-  "moodle-backup-backupselectall": {
+  "lion-backup-backupselectall": {
     "requires": [
         "node",
         "event",

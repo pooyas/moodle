@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
  
 require_once "Google/Cache/Abstract.php";
@@ -24,7 +27,6 @@ require_once "Google/Cache/Exception.php";
  * the storage will be wiped, however for debugging and/or speed
  * it can be useful, and cache is a lot cheaper then storage.
  *
- * @author Chris Chabot <chabotc@google.com>
  */
 class Google_Cache_Apc extends Google_Cache_Abstract
 {

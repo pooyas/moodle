@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * stats report
  *
  * @package    report
  * @subpackage stats
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');
@@ -61,12 +47,12 @@ require_login($course);
 $context = context_course::instance($course->id);
 require_capability('report/stats:view', $context);
 
-$PAGE->set_url(new moodle_url('/report/stats/index.php', array('course' => $course->id,
+$PAGE->set_url(new lion_url('/report/stats/index.php', array('course' => $course->id,
                                                                'report' => $report,
                                                                'time'   => $time,
                                                                'mode'   => $mode,
                                                                'userid' => $userid)));
-navigation_node::override_active_url(new moodle_url('/report/stats/index.php', array('course' => $course->id)));
+navigation_node::override_active_url(new lion_url('/report/stats/index.php', array('course' => $course->id)));
 
 // Trigger a content view event.
 $event = \report_stats\event\report_viewed::create(array('context' => $context, 'relateduserid' => $userid,
@@ -91,7 +77,7 @@ if ($course->id == SITEID) {
 report_stats_report($course, $report, $mode, $user, $roleid, $time);
 
 if (empty($CFG->enablestats)) {
-    if (has_capability('moodle/site:config', context_system::instance())) {
+    if (has_capability('lion/site:config', context_system::instance())) {
         redirect("$CFG->wwwroot/$CFG->admin/settings.php?section=stats", get_string('mustenablestats', 'admin'), 3);
     } else {
         print_error('statsdisable');

@@ -1,31 +1,18 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage 
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// Moodle configuration file                                             //
+// Lion configuration file                                             //
 //                                                                       //
 // This file should be renamed "config.php" in the top-level directory   //
 //                                                                       //
-///////////////////////////////////////////////////////////////////////////
-//                                                                       //
-// NOTICE OF COPYRIGHT                                                   //
-//                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.org                                            //
-//                                                                       //
-// Copyright (C) 1999 onwards  Martin Dougiamas  http://moodle.com       //
-//                                                                       //
-// This program is free software; you can redistribute it and/or modify  //
-// it under the terms of the GNU General Public License as published by  //
-// the Free Software Foundation; either version 3 of the License, or     //
-// (at your option) any later version.                                   //
-//                                                                       //
-// This program is distributed in the hope that it will be useful,       //
-// but WITHOUT ANY WARRANTY; without even the implied warranty of        //
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
-// GNU General Public License for more details:                          //
-//                                                                       //
-//          http://www.gnu.org/copyleft/gpl.html                         //
-//                                                                       //
+
 ///////////////////////////////////////////////////////////////////////////
 unset($CFG);  // Ignore this line
 global $CFG;  // This is necessary here for PHPUnit execution
@@ -34,14 +21,14 @@ $CFG = new stdClass();
 //=========================================================================
 // 1. DATABASE SETUP
 //=========================================================================
-// First, you need to configure the database where all Moodle data       //
+// First, you need to configure the database where all Lion data       //
 // will be stored.  This database must already have been created         //
 // and a username/password created to access it.                         //
 
 $CFG->dbtype    = 'pgsql';      // 'pgsql', 'mariadb', 'mysqli', 'mssql', 'sqlsrv' or 'oci'
 $CFG->dblibrary = 'native';     // 'native' only at the moment
 $CFG->dbhost    = 'localhost';  // eg 'localhost' or 'db.isp.com' or IP
-$CFG->dbname    = 'moodle';     // database name, eg moodle
+$CFG->dbname    = 'lion';     // database name, eg lion
 $CFG->dbuser    = 'username';   // your database username
 $CFG->dbpass    = 'password';   // your database password
 $CFG->prefix    = 'mdl_';       // prefix to use for all table names
@@ -65,21 +52,21 @@ $CFG->dboptions = array(
 //=========================================================================
 // 2. WEB SITE LOCATION
 //=========================================================================
-// Now you need to tell Moodle where it is located. Specify the full
-// web address to where moodle has been installed.  If your web site
+// Now you need to tell Lion where it is located. Specify the full
+// web address to where lion has been installed.  If your web site
 // is accessible via multiple URLs then choose the most natural one
 // that your students would use.  Do not include a trailing slash
 //
 // If you need both intranet and Internet access please read
-// http://docs.moodle.org/en/masquerading
+// http://docs.lion.org/en/masquerading
 
-$CFG->wwwroot   = 'http://example.com/moodle';
+$CFG->wwwroot   = 'http://example.com/lion';
 
 
 //=========================================================================
 // 3. DATA FILES LOCATION
 //=========================================================================
-// Now you need a place where Moodle can save uploaded files.  This
+// Now you need a place where Lion can save uploaded files.  This
 // directory should be readable AND WRITEABLE by the web server user
 // (usually 'nobody' or 'apache'), but it should not be accessible
 // directly via the web.
@@ -87,16 +74,16 @@ $CFG->wwwroot   = 'http://example.com/moodle';
 // - On hosting systems you might need to make sure that your "group" has
 //   no permissions at all, but that "others" have full permissions.
 //
-// - On Windows systems you might specify something like 'c:\moodledata'
+// - On Windows systems you might specify something like 'c:\liondata'
 
-$CFG->dataroot  = '/home/example/moodledata';
+$CFG->dataroot  = '/home/example/liondata';
 
 
 //=========================================================================
 // 4. DATA FILES PERMISSIONS
 //=========================================================================
 // The following parameter sets the permissions of new directories
-// created by Moodle within the data directory.  The format is in
+// created by Lion within the data directory.  The format is in
 // octal format (as used by the Unix utility chmod, for example).
 // The default is usually OK, but you may want to change it to 0750
 // if you are concerned about world-access to the files (you will need
@@ -111,9 +98,9 @@ $CFG->directorypermissions = 02777;
 //=========================================================================
 // A very few webhosts use /admin as a special URL for you to access a
 // control panel or something.  Unfortunately this conflicts with the
-// standard location for the Moodle admin pages.  You can work around this
+// standard location for the Lion admin pages.  You can work around this
 // by renaming the admin directory in your installation, and putting that
-// new name here.  eg "moodleadmin".  This should fix all admin links in Moodle.
+// new name here.  eg "lionadmin".  This should fix all admin links in Lion.
 // After any change you need to visit your new admin directory
 // and purge all caches.
 
@@ -124,7 +111,7 @@ $CFG->admin = 'admin';
 // 6. OTHER MISCELLANEOUS SETTINGS (ignore these for new installations)
 //=========================================================================
 //
-// These are additional tweaks for which no GUI exists in Moodle yet.
+// These are additional tweaks for which no GUI exists in Lion yet.
 //
 // Starting in PHP 5.3 administrators should specify default timezone
 // in PHP.ini, you can also specify it here if needed.
@@ -132,7 +119,7 @@ $CFG->admin = 'admin';
 // List of time zones at: http://php.net/manual/en/timezones.php
 //     date_default_timezone_set('Australia/Perth');
 //
-// Change the key pair lifetime for Moodle Networking
+// Change the key pair lifetime for Lion Networking
 // The default is 28 days. You would only want to change this if the key
 // was not getting regenerated for any reason. You would probably want
 // make it much longer. Note that you'll need to delete and manually update
@@ -140,7 +127,7 @@ $CFG->admin = 'admin';
 //      $CFG->mnetkeylifetime = 28;
 //
 // Not recommended: Set the following to true to allow the use
-// off non-Moodle standard characters in usernames.
+// off non-Lion standard characters in usernames.
 //      $CFG->extendedusernamechars = true;
 //
 // Allow user passwords to be included in backup files. Very dangerous
@@ -166,7 +153,7 @@ $CFG->admin = 'admin';
 // Modify the restore process in order to force the "user checks" to assume
 // that the backup originated from a different site, so detection of matching
 // users is performed with different (more "relaxed") rules. Note that this is
-// only useful if the backup file has been created using Moodle < 1.9.4 and the
+// only useful if the backup file has been created using Lion < 1.9.4 and the
 // site has been rebuilt from scratch using backup files (not the best way btw).
 // If you obtain user conflicts on restore, rather than enabling this setting
 // permanently, try restoring the backup on a different site, back it up again
@@ -203,8 +190,8 @@ $CFG->admin = 'admin';
 // reason why you would need to change that. It just felt wrong to hard-code the
 // the class name. You are strongly advised not to use these to settings unless
 // you are absolutely sure you know what you are doing.
-//      $CFG->moodlepageclass = 'moodle_page';
-//      $CFG->moodlepageclassfile = "$CFG->dirroot/local/myplugin/mypageclass.php";
+//      $CFG->lionpageclass = 'lion_page';
+//      $CFG->lionpageclassfile = "$CFG->dirroot/local/myplugin/mypageclass.php";
 //      $CFG->blockmanagerclass = 'block_manager';
 //      $CFG->blockmanagerclassfile = "$CFG->dirroot/local/myplugin/myblockamanagerclass.php";
 //
@@ -213,7 +200,7 @@ $CFG->admin = 'admin';
 //     $CFG->filelifetime = 60*60*6;
 //
 // Some web servers can offload the file serving from PHP process,
-// comment out one the following options to enable it in Moodle:
+// comment out one the following options to enable it in Lion:
 //     $CFG->xsendfile = 'X-Sendfile';           // Apache {@see https://tn123.org/mod_xsendfile/}
 //     $CFG->xsendfile = 'X-LIGHTTPD-send-file'; // Lighttpd {@see http://redmine.lighttpd.net/projects/lighttpd/wiki/X-LIGHTTPD-send-file}
 //     $CFG->xsendfile = 'X-Accel-Redirect';     // Nginx {@see http://wiki.nginx.org/XSendfile}
@@ -221,10 +208,10 @@ $CFG->admin = 'admin';
 // in the following array setting:
 //     $CFG->xsendfilealiases = array(
 //         '/dataroot/' => $CFG->dataroot,
-//         '/cachedir/' => '/var/www/moodle/cache',    // for custom $CFG->cachedir locations
+//         '/cachedir/' => '/var/www/lion/cache',    // for custom $CFG->cachedir locations
 //         '/localcachedir/' => '/var/local/cache',    // for custom $CFG->localcachedir locations
-//         '/tempdir/'  => '/var/www/moodle/temp',     // for custom $CFG->tempdir locations
-//         '/filedir'   => '/var/www/moodle/filedir',  // for custom $CFG->filedir locations
+//         '/tempdir/'  => '/var/www/lion/temp',     // for custom $CFG->tempdir locations
+//         '/filedir'   => '/var/www/lion/filedir',  // for custom $CFG->filedir locations
 //     );
 //
 // YUI caching may be sometimes improved by slasharguments:
@@ -265,7 +252,7 @@ $CFG->admin = 'admin';
 // Following setting allows you to alter how frequently is timemodified updated in sessions table.
 //      $CFG->session_update_timemodified_frequency = 20; // In seconds.
 //
-// If this setting is set to true, then Moodle will track the IP of the
+// If this setting is set to true, then Lion will track the IP of the
 // current user to make sure it hasn't changed during a session.  This
 // will prevent the possibility of sessions being hijacked via XSS, but it
 // may break things for users coming using proxies that change all the time,
@@ -298,17 +285,17 @@ $CFG->admin = 'admin';
 // This setting will make some graphs (eg user logs) use lines instead of bars
 //      $CFG->preferlinegraphs = true;
 //
-// Enabling this will allow custom scripts to replace existing moodle scripts.
+// Enabling this will allow custom scripts to replace existing lion scripts.
 // For example: if $CFG->customscripts/course/view.php exists then
 // it will be used instead of $CFG->wwwroot/course/view.php
 // At present this will only work for files that include config.php and are called
 // as part of the url (index.php is implied).
 // Some examples are:
-//      http://my.moodle.site/course/view.php
-//      http://my.moodle.site/index.php
-//      http://my.moodle.site/admin            (index.php implied)
+//      http://my.lion.site/course/view.php
+//      http://my.lion.site/index.php
+//      http://my.lion.site/admin            (index.php implied)
 // Custom scripts should not include config.php
-// Warning: Replacing standard moodle scripts may pose security risks and/or may not
+// Warning: Replacing standard lion scripts may pose security risks and/or may not
 // be compatible with upgrades. Use this option only if you are aware of the risks
 // involved.
 // Specify the full directory path to the custom scripts
@@ -354,14 +341,14 @@ $CFG->admin = 'admin';
 //     $CFG->apacheloguser = 3; // Log username.
 // To get the values logged in Apache's log, add to your httpd.conf
 // the following statements. In the General part put:
-//     LogFormat "%h %l %{MOODLEUSER}n %t \"%r\" %s %b \"%{Referer}i\" \"%{User-Agent}i\"" moodleformat
-// And in the part specific to your Moodle install / virtualhost:
-//     CustomLog "/your/path/to/log" moodleformat
+//     LogFormat "%h %l %{LIONUSER}n %t \"%r\" %s %b \"%{Referer}i\" \"%{User-Agent}i\"" lionformat
+// And in the part specific to your Lion install / virtualhost:
+//     CustomLog "/your/path/to/log" lionformat
 // CAUTION: Use of this option will expose usernames in the Apache log,
 // If you are going to publish your log, or the output of your web stats analyzer
 // this will weaken the security of your website.
 //
-// Email database connection errors to someone.  If Moodle cannot connect to the
+// Email database connection errors to someone.  If Lion cannot connect to the
 // database, then email this address with a notice.
 //
 //     $CFG->emailconnectionerrorsto = 'your@emailaddress.com';
@@ -384,8 +371,8 @@ $CFG->admin = 'admin';
 // Localcachedir is intended for server clusters, it does not have to be shared by cluster nodes.
 // The directories must not be accessible via web.
 //
-//     $CFG->tempdir = '/var/www/moodle/temp';        // Files used during one HTTP request only.
-//     $CFG->cachedir = '/var/www/moodle/cache';      // Directory MUST BE SHARED by all cluster nodes, locking required.
+//     $CFG->tempdir = '/var/www/lion/temp';        // Files used during one HTTP request only.
+//     $CFG->cachedir = '/var/www/lion/cache';      // Directory MUST BE SHARED by all cluster nodes, locking required.
 //     $CFG->localcachedir = '/var/local/cache';      // Intended for local node caching.
 //
 // Some filesystems such as NFS may not support file locking operations.
@@ -398,15 +385,15 @@ $CFG->admin = 'admin';
 //
 //     $CFG->lang = 'yourlangcode'; // for example 'cs'
 //
-// When Moodle is about to perform an intensive operation it raises PHP's memory
+// When Lion is about to perform an intensive operation it raises PHP's memory
 // limit. The following setting should be used on large sites to set the raised
 // memory limit to something higher.
 // The value for the settings should be a valid PHP memory value. e.g. 512M, 1G
 //
 //     $CFG->extramemorylimit = '1024M';
 //
-// Moodle 2.4 introduced a new cache API.
-// The cache API stores a configuration file within the Moodle data directory and
+// Lion 2.4 introduced a new cache API.
+// The cache API stores a configuration file within the Lion data directory and
 // uses that rather than the database in order to function in a stand-alone manner.
 // Using altcacheconfigpath you can change the location where this config file is
 // looked for.
@@ -414,11 +401,11 @@ $CFG->admin = 'admin';
 // file if you want to take full control. Either way it must be writable by the
 // webserver.
 //
-//     $CFG->altcacheconfigpath = '/var/www/shared/moodle.cache.config.php
+//     $CFG->altcacheconfigpath = '/var/www/shared/lion.cache.config.php
 //
-// The CSS files the Moodle produces can be extremely large and complex, especially
+// The CSS files the Lion produces can be extremely large and complex, especially
 // if you are using a custom theme that builds upon several other themes.
-// In Moodle 2.3 a CSS optimiser was added as an experimental feature for advanced
+// In Lion 2.3 a CSS optimiser was added as an experimental feature for advanced
 // users. The CSS optimiser organises the CSS in order to reduce the overall number
 // of rules and styles being sent to the client. It does this by collating the
 // CSS before it is cached removing excess styles and rules and stripping out any
@@ -462,7 +449,7 @@ $CFG->admin = 'admin';
 //
 //      $CFG->preventscheduledtaskchanges = true;
 //
-// As of version 2.4 Moodle serves icons as SVG images if the users browser appears
+// As of version 2.4 Lion serves icons as SVG images if the users browser appears
 // to support SVG.
 // For those wanting to control the serving of SVG images the following setting can
 // be defined in your config.php.
@@ -480,15 +467,15 @@ $CFG->admin = 'admin';
 // config.php file
 //      $CFG->preventexecpath = true;
 //
-// Use the following flag to set userid for noreply user. If not set then moodle will
+// Use the following flag to set userid for noreply user. If not set then lion will
 // create dummy user and use -ve value as user id.
 //      $CFG->noreplyuserid = -10;
 //
-// As of version 2.6 Moodle supports admin to set support user. If not set, all mails
+// As of version 2.6 Lion supports admin to set support user. If not set, all mails
 // will be sent to supportemail.
 //      $CFG->supportuserid = -20;
 //
-// Moodle 2.7 introduces a locking api for critical tasks (e.g. cron).
+// Lion 2.7 introduces a locking api for critical tasks (e.g. cron).
 // The default locking system to use is DB locking for MySQL and Postgres, and File
 // locking for Oracle and SQLServer. If $CFG->preventfilelocking is set, then the default
 // will always be DB locking. It can be manually set to one of the lock
@@ -513,7 +500,7 @@ $CFG->admin = 'admin';
 // on a shared file system that supports locking.
 //      $CFG->lock_file_root = $CFG->dataroot . '/lock';
 //
-// Moodle 2.9 allows administrators to customise the list of supported file types.
+// Lion 2.9 allows administrators to customise the list of supported file types.
 // To add a new filetype or override the definition of an existing one, set the
 // customfiletypes variable like this:
 //
@@ -556,12 +543,12 @@ $CFG->admin = 'admin';
 //   http://yuilibrary.com/yui/docs/api/classes/config.html#property_logInclude
 //   http://yuilibrary.com/yui/docs/api/classes/config.html#property_logExclude
 // $CFG->yuiloginclude = array(
-//     'moodle-core-dock-loader' => true,
-//     'moodle-course-categoryexpander' => true,
+//     'lion-core-dock-loader' => true,
+//     'lion-course-categoryexpander' => true,
 // );
 // $CFG->yuilogexclude = array(
-//     'moodle-core-dock' => true,
-//     'moodle-core-notification' => true,
+//     'lion-core-dock' => true,
+//     'lion-core-notification' => true,
 // );
 //
 // Set the minimum log level for YUI logging statements.
@@ -615,7 +602,7 @@ $CFG->admin = 'admin';
 // 9. PHPUNIT SUPPORT
 //=========================================================================
 // $CFG->phpunit_prefix = 'phpu_';
-// $CFG->phpunit_dataroot = '/home/example/phpu_moodledata';
+// $CFG->phpunit_dataroot = '/home/example/phpu_liondata';
 // $CFG->phpunit_directorypermissions = 02777; // optional
 //
 //
@@ -643,13 +630,13 @@ $CFG->admin = 'admin';
 //=========================================================================
 // Behat test site needs a unique www root, data directory and database prefix:
 //
-// $CFG->behat_wwwroot = 'http://127.0.0.1/moodle';
+// $CFG->behat_wwwroot = 'http://127.0.0.1/lion';
 // $CFG->behat_prefix = 'bht_';
-// $CFG->behat_dataroot = '/home/example/bht_moodledata';
+// $CFG->behat_dataroot = '/home/example/bht_liondata';
 //
-// You can override default Moodle configuration for Behat and add your own
+// You can override default Lion configuration for Behat and add your own
 // params; here you can add more profiles, use different Mink drivers than Selenium...
-// These params would be merged with the default Moodle behat.yml, giving priority
+// These params would be merged with the default Lion behat.yml, giving priority
 // to the ones specified here. The array format is YAML, following the Behat
 // params hierarchy. More info: http://docs.behat.org/guides/7.config.html
 // Example:
@@ -698,7 +685,7 @@ $CFG->admin = 'admin';
 // Example:
 //   $CFG->behat_restart_browser_after = 7200;     // Restarts the browser session after 2 hours
 //
-// All this page's extra Moodle settings are compared against a white list of allowed settings
+// All this page's extra Lion settings are compared against a white list of allowed settings
 // (the basic and behat_* ones) to avoid problems with production environments. This setting can be
 // used to expand the default white list with an array of extra settings.
 // Example:
@@ -727,13 +714,13 @@ $CFG->admin = 'admin';
 //           'dbtype' => 'mysqli',
 //           'dblibrary' => 'native',
 //           'dbhost' => 'localhost',
-//           'dbname' => 'moodletest',
-//           'dbuser' => 'moodle',
-//           'dbpass' => 'moodle',
+//           'dbname' => 'liontest',
+//           'dbuser' => 'lion',
+//           'dbpass' => 'lion',
 //           'behat_prefix' => 'mdl_',
 //           'wd_host' => 'http://127.0.0.1:4444/wd/hub',
-//           'behat_wwwroot' => 'http://127.0.0.1/moodle',
-//           'behat_dataroot' => '/home/example/bht_moodledata'
+//           'behat_wwwroot' => 'http://127.0.0.1/lion',
+//           'behat_dataroot' => '/home/example/bht_liondata'
 //       ),
 //   );
 //
@@ -809,7 +796,7 @@ $CFG->admin = 'admin';
 // Probably something like /usr/bin/dot. To be able to generate graphics from
 // DOT files, you must have installed the dot executable and point to it here.
 // Note that, for now, this only used by the profiling features
-// (Development->Profiling) built into Moodle.
+// (Development->Profiling) built into Lion.
 //      $CFG->pathtodot = '';
 
 //=========================================================================

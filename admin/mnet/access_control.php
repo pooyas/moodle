@@ -1,6 +1,13 @@
 <?php
 
-// Allows the admin to control user logins from remote moodles.
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
+// Allows the admin to control user logins from remote lions.
 
 require_once dirname(dirname(dirname(__FILE__))) . '/config.php';
 require_once($CFG->libdir.'/adminlib.php');
@@ -36,7 +43,7 @@ if (array_key_exists($CFG->mnet_localhost_id, $mnethosts)) {
 if (!empty($action) and confirm_sesskey()) {
 
     // boot if insufficient permission
-    if (!has_capability('moodle/user:delete', $sitecontext)) {
+    if (!has_capability('lion/user:delete', $sitecontext)) {
         print_error('nomodifyacl','mnet');
     }
 
@@ -83,7 +90,7 @@ if (!empty($action) and confirm_sesskey()) {
 if ($form = data_submitted() and confirm_sesskey()) {
 
     // check permissions and verify form input
-    if (!has_capability('moodle/user:delete', $sitecontext)) {
+    if (!has_capability('lion/user:delete', $sitecontext)) {
         print_error('nomodifyacl','mnet', "$CFG->wwwroot/$CFG->admin/mnet/access_control.php");
     }
     if (empty($form->username)) {
@@ -185,7 +192,7 @@ if (!$acl) {
 if (!empty($table)) {
     echo html_writer::table($table);
     echo '<p>&nbsp;</p>';
-    $baseurl = new moodle_url('/admin/mnet/access_control.php', array('sort' => $sort, 'dir' => $dir, 'perpage' => $perpage));
+    $baseurl = new lion_url('/admin/mnet/access_control.php', array('sort' => $sort, 'dir' => $dir, 'perpage' => $perpage));
     echo $OUTPUT->paging_bar($aclcount, $page, $perpage, $baseurl);
 }
 
@@ -199,6 +206,13 @@ echo $OUTPUT->box_start();
   <form id="mnetaddtoacl" method="post">
     <input type="hidden" name="sesskey" value="<?php echo $sesskey; ?>" />
 <?php
+
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
 
 // enter a username
 echo get_string('username') . ":\n";

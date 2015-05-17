@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Performance overview report
  *
- * @package   report_performance
- * @copyright 2013 Rajesh Taneja
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    report
+ * @subpackage performance
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('NO_OUTPUT_BUFFERING', true);
@@ -69,7 +56,7 @@ if ($issue and ($issueresult = $reportperformance::$issue())) {
 
     echo $OUTPUT->box($issueresult->details, 'generalbox boxwidthnormal boxaligncenter');
 
-    echo $OUTPUT->continue_button(new moodle_url('/report/performance/index.php'));
+    echo $OUTPUT->continue_button(new lion_url('/report/performance/index.php'));
 } else {
     // Add Performance report description on main list page.
     $morehelplink = $OUTPUT->doc_link('report/performance', get_string('morehelp', 'report_performance'));

@@ -1,7 +1,7 @@
 {
-    "name": "moodle-mod_quiz-autosave",
+    "name": "lion-mod_quiz-autosave",
     "builds": {
-        "moodle-mod_quiz-autosave": {
+        "lion-mod_quiz-autosave": {
             "jsfiles": [
                 "autosave.js"
             ]

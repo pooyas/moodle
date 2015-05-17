@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify_Build  
- * @package Minify
+ * Class Minify_Build
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -30,9 +32,7 @@
  *   ,'setExpires' => (time() + 86400 * 365)
  * ));
  * </code>
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class Minify_Build {
     

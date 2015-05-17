@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once('../../config.php');
 require_once('lib.php');
 require_once('edit_form.php');
@@ -23,7 +30,7 @@ if (!$glossary = $DB->get_record('glossary', array('id'=>$cm->instance))) {
     print_error('invalidid', 'glossary');
 }
 
-$url = new moodle_url('/mod/glossary/edit.php', array('cmid'=>$cm->id));
+$url = new lion_url('/mod/glossary/edit.php', array('cmid'=>$cm->id));
 if (!empty($id)) {
     $url->param('id', $id);
 }

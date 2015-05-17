@@ -1,32 +1,34 @@
 <?php
 
+
+/**
+ * @package    course
+ * @subpackage publish
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /**
  * Course publish renderer.
- * @package   course
- * @subpackage publish
- * @copyright 2010 Moodle Pty Ltd (http://moodle.com)
- * @author    Jerome Mouneyrac
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_publish_renderer extends plugin_renderer_base {
 
@@ -36,7 +38,7 @@ class core_publish_renderer extends plugin_renderer_base {
     public function publicationselector($courseid) {
         $text = '';
 
-        $advertiseurl = new moodle_url("/course/publish/hubselector.php",
+        $advertiseurl = new lion_url("/course/publish/hubselector.php",
                         array('sesskey' => sesskey(), 'id' => $courseid, 'advertise' => true));
         $advertisebutton = new single_button($advertiseurl, get_string('advertise', 'hub'));
         $text .= $this->output->render($advertisebutton);
@@ -45,7 +47,7 @@ class core_publish_renderer extends plugin_renderer_base {
 
         $text .= html_writer::empty_tag('br');  /// TODO Delete
 
-        $uploadurl = new moodle_url("/course/publish/hubselector.php",
+        $uploadurl = new lion_url("/course/publish/hubselector.php",
                         array('sesskey' => sesskey(), 'id' => $courseid, 'share' => true));
         $uploadbutton = new single_button($uploadurl, get_string('share', 'hub'));
         $text .= $this->output->render($uploadbutton);
@@ -76,7 +78,7 @@ class core_publish_renderer extends plugin_renderer_base {
                 'huburl' => $publication->huburl, 'hubname' => $publication->hubname,
                 'cancel' => true, 'publicationid' => $publication->id,
                 'timepublished' => $publication->timepublished);
-            $cancelurl = new moodle_url("/course/publish/index.php", $params);
+            $cancelurl = new lion_url("/course/publish/index.php", $params);
             $cancelbutton = new single_button($cancelurl, get_string('removefromhub', 'hub'));
             $cancelbutton->class = 'centeredbutton';
             $cancelbuttonhtml = $this->output->render($cancelbutton);
@@ -85,7 +87,7 @@ class core_publish_renderer extends plugin_renderer_base {
                 $params = array('sesskey' => sesskey(), 'id' => $publication->courseid,
                     'huburl' => $publication->huburl, 'hubname' => $publication->hubname,
                     'share' => !$publication->enrollable, 'advertise' => $publication->enrollable);
-                $updateurl = new moodle_url("/course/publish/metadata.php", $params);
+                $updateurl = new lion_url("/course/publish/metadata.php", $params);
                 $updatebutton = new single_button($updateurl, get_string('update', 'hub'));
                 $updatebutton->class = 'centeredbutton';
                 $updatebuttonhtml = $this->output->render($updatebutton);
@@ -150,9 +152,9 @@ class core_publish_renderer extends plugin_renderer_base {
         $optionsno = array('sesskey' => sesskey(), 'id' => $publication->courseid);
         $publication->hubname = html_writer::tag('a', $publication->hubname,
                         array('href' => $publication->huburl));
-        $formcontinue = new single_button(new moodle_url("/course/publish/index.php",
+        $formcontinue = new single_button(new lion_url("/course/publish/index.php",
                                 $optionsyes), get_string('unpublish', 'hub'), 'post');
-        $formcancel = new single_button(new moodle_url("/course/publish/index.php",
+        $formcancel = new single_button(new lion_url("/course/publish/index.php",
                                 $optionsno), get_string('cancel'), 'get');
         return $this->output->confirm(get_string('unpublishconfirmation', 'hub', $publication),
                 $formcontinue, $formcancel);
@@ -181,7 +183,7 @@ class core_publish_renderer extends plugin_renderer_base {
     public function sentbackupinfo($id, $huburl, $hubname) {
         $html = html_writer::tag('div', get_string('sent', 'hub'),
                         array('class' => 'courseuploadtextinfo'));
-        $publishindexurl = new moodle_url('/course/publish/index.php',
+        $publishindexurl = new lion_url('/course/publish/index.php',
                         array('sesskey' => sesskey(), 'id' => $id,
                             'published' => true, 'huburl' => $huburl, 'hubname' => $hubname));
         $continue = $this->output->render(
@@ -197,7 +199,7 @@ class core_publish_renderer extends plugin_renderer_base {
      */
     public function hubinfo($hubinfo) {
         $params = array('filetype' => HUB_HUBSCREENSHOT_FILE_TYPE);
-        $imgurl = new moodle_url($hubinfo['url'] .
+        $imgurl = new lion_url($hubinfo['url'] .
                         "/local/hub/webservice/download.php", $params);
         $screenshothtml = html_writer::empty_tag('img',
                         array('src' => $imgurl, 'alt' => $hubinfo['name']));

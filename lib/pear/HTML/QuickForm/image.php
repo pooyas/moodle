@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -22,11 +29,8 @@ require_once("HTML/QuickForm/input.php");
 
 /**
  * HTML class for a image type element
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_image extends HTML_QuickForm_input
@@ -40,7 +44,6 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * @param     string    $src            (optional)Image source
      * @param     mixed     $attributes     (optional)Either a typical HTML attribute string 
      *                                      or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -58,7 +61,6 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * Sets source for image element
      * 
      * @param     string    $src  source for image element
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -74,7 +76,6 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * Sets border size for image element
      * 
      * @param     string    $border  border for image element
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -90,7 +91,6 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * Sets alignment for image element
      * 
      * @param     string    $align  alignment for image element
-     * @since     1.0
      * @access    public
      * @return    void
      */

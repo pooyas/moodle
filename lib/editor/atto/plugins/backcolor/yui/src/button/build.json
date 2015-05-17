@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_backcolor-button",
+    "name": "lion-atto_backcolor-button",
     "builds": {
-        "moodle-atto_backcolor-button": {
+        "lion-atto_backcolor-button": {
             "jsfiles": [
                 "button.js"
             ]

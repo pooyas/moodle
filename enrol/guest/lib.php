@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Guest access plugin.
@@ -20,12 +7,12 @@
  * This plugin does not add any entries into the user_enrolments table,
  * the access control is granted on the fly via the tricks in require_login().
  *
- * @package    enrol_guest
- * @copyright  2010 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage guest
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class enrol_guest_plugin extends enrol_plugin {
 
@@ -95,14 +82,14 @@ class enrol_guest_plugin extends enrol_plugin {
     /**
      * Returns link to page which may be used to add new instance of enrolment plugin in course.
      * @param int $courseid
-     * @return moodle_url page url
+     * @return lion_url page url
      */
     public function get_newinstance_link($courseid) {
         global $DB;
 
         $context = context_course::instance($courseid, MUST_EXIST);
 
-        if (!has_capability('moodle/course:enrolconfig', $context) or !has_capability('enrol/guest:config', $context)) {
+        if (!has_capability('lion/course:enrolconfig', $context) or !has_capability('enrol/guest:config', $context)) {
             return NULL;
         }
 
@@ -110,7 +97,7 @@ class enrol_guest_plugin extends enrol_plugin {
             return NULL;
         }
 
-        return new moodle_url('/enrol/guest/addinstance.php', array('sesskey'=>sesskey(), 'id'=>$courseid));
+        return new lion_url('/enrol/guest/addinstance.php', array('sesskey'=>sesskey(), 'id'=>$courseid));
     }
 
     /**
@@ -169,12 +156,12 @@ class enrol_guest_plugin extends enrol_plugin {
      * Adds enrol instance UI to course edit form
      *
      * @param object $instance enrol instance or null if does not exist yet
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param object $data
      * @param object $context context of existing course or parent category if course does not exist
      * @return void
      */
-    public function course_edit_form($instance, MoodleQuickForm $mform, $data, $context) {
+    public function course_edit_form($instance, LionQuickForm $mform, $data, $context) {
 
         $i = isset($instance->id) ? $instance->id : 0;
 

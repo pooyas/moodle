@@ -58,7 +58,7 @@ Feature: Organize students into groups
     And I should not see "Student 0"
 
   @javascript
-  Scenario: Create groups and groupings without the 'moodle/course:changeidnumber' capability
+  Scenario: Create groups and groupings without the 'lion/course:changeidnumber' capability
     Given the following "courses" exist:
       | fullname | shortname | category | groupmode |
       | Course 1 | C1 | 0 | 1 |
@@ -70,7 +70,7 @@ Feature: Organize students into groups
       | teacher1 | C1 | editingteacher |
     And I log in as "admin"
     And I set the following system permissions of "Teacher" role:
-      | moodle/course:changeidnumber | Prevent |
+      | lion/course:changeidnumber | Prevent |
     And I log out
     And I log in as "teacher1"
     And I follow "Course 1"

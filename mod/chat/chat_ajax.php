@@ -1,18 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    mod
+ * @subpackage chat
+ * @copyright  2015 Pooya Saeedi
+*/
 
 define('AJAX_SCRIPT', true);
 
@@ -28,24 +22,24 @@ $chatlasttime = optional_param('chat_lasttime', 0, PARAM_INT);
 $chatlastrow  = optional_param('chat_lastrow', 1, PARAM_INT);
 
 if (!confirm_sesskey()) {
-    throw new moodle_exception('invalidsesskey', 'error');
+    throw new lion_exception('invalidsesskey', 'error');
 }
 
 if (!$chatuser = $DB->get_record('chat_users', array('sid' => $chatsid))) {
-    throw new moodle_exception('notlogged', 'chat');
+    throw new lion_exception('notlogged', 'chat');
 }
 if (!$chat = $DB->get_record('chat', array('id' => $chatuser->chatid))) {
-    throw new moodle_exception('invaliduserid', 'error');
+    throw new lion_exception('invaliduserid', 'error');
 }
 if (!$course = $DB->get_record('course', array('id' => $chat->course))) {
-    throw new moodle_exception('invalidcourseid', 'error');
+    throw new lion_exception('invalidcourseid', 'error');
 }
 if (!$cm = get_coursemodule_from_instance('chat', $chat->id, $course->id)) {
-    throw new moodle_exception('invalidcoursemodule', 'error');
+    throw new lion_exception('invalidcoursemodule', 'error');
 }
 
 if (!isloggedin()) {
-    throw new moodle_exception('notlogged', 'chat');
+    throw new lion_exception('notlogged', 'chat');
 }
 
 // Set up $PAGE so that format_text will work properly.
@@ -75,7 +69,7 @@ switch ($action) {
     case 'chat':
         \core\session\manager::write_close();
         chat_delete_old_users();
-        $chatmessage = clean_text($chatmessage, FORMAT_MOODLE);
+        $chatmessage = clean_text($chatmessage, FORMAT_LION);
 
         if (!empty($beepid)) {
             $chatmessage = 'beep '.$beepid;

@@ -1,8 +1,9 @@
 <?php
 /**
  * Slovak PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author Michal Tinka <michaltinka@gmail.com>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP Error: Chyba autentifikácie.';

@@ -6,9 +6,9 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -17,11 +17,7 @@
  * Additional server debug information MAY be found in the $details
  * property.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Exception extends Horde_Exception_Wrapped
 {
@@ -238,7 +234,6 @@ class Horde_Imap_Client_Exception extends Horde_Exception_Wrapped
     /**
      * Raw error message (in English).
      *
-     * @since 2.18.0
      *
      * @var string
      */

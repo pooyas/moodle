@@ -1,7 +1,9 @@
 <?php
 /**
  * Class Minify_Cache_Memcache
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**

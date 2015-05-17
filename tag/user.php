@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once('../config.php');
 require_once('lib.php');
 
@@ -45,7 +52,7 @@ switch ($action) {
         break;
 
     case 'flaginappropriate':
-        require_capability('moodle/tag:flag', context_system::instance());
+        require_capability('lion/tag:flag', context_system::instance());
         $tagid = tag_get_id($tag);
 
         tag_set_flag($tagid);

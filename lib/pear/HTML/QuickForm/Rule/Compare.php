@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -27,7 +34,6 @@ require_once 'HTML/QuickForm/Rule.php';
  * confirmation field matches the password field
  * 
  * @access public
- * @package HTML_QuickForm
  * @version $Revision$
  */
 class HTML_QuickForm_Rule_Compare extends HTML_QuickForm_Rule

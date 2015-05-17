@@ -1,35 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Renderer for block recent_activity
  *
- * @package    block_recent_activity
- * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage recent_activity
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * recent_activity block rendrer
  *
- * @package    block_recent_activity
- * @copyright  2012 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class block_recent_activity_renderer extends plugin_renderer_base {
 
@@ -51,7 +35,7 @@ class block_recent_activity_renderer extends plugin_renderer_base {
                 array('class' => 'activityhead'));
 
         $output .= html_writer::tag('div',
-                html_writer::link(new moodle_url('/course/recent.php', array('id' => $course->id)),
+                html_writer::link(new lion_url('/course/recent.php', array('id' => $course->id)),
                     get_string('recentactivityreport')),
                 array('class' => 'activityhead'));
 
@@ -61,14 +45,14 @@ class block_recent_activity_renderer extends plugin_renderer_base {
         if ($recentenrolments) {
             $content = true;
             $context = context_course::instance($course->id);
-            $viewfullnames = has_capability('moodle/site:viewfullnames', $context);
+            $viewfullnames = has_capability('lion/site:viewfullnames', $context);
             $output .= html_writer::start_tag('div', array('class' => 'newusers'));
             $output .= $this->heading(get_string("newusers").':', 3);
             //Accessibility: new users now appear in an <OL> list.
             $output .= html_writer::start_tag('ol', array('class' => 'list'));
             foreach ($recentenrolments as $user) {
                 $output .= html_writer::tag('li',
-                        html_writer::link(new moodle_url('/user/view.php', array('id' => $user->id, 'course' => $course->id)),
+                        html_writer::link(new lion_url('/user/view.php', array('id' => $user->id, 'course' => $course->id)),
                                 fullname($user, $viewfullnames)),
                         array('class' => 'name'));
             }
@@ -110,14 +94,14 @@ class block_recent_activity_renderer extends plugin_renderer_base {
         $cm = $change['module'];
         switch ($change['action']) {
             case 'delete mod':
-                $text = get_string('deletedactivity', 'moodle', $cm->modfullname);
+                $text = get_string('deletedactivity', 'lion', $cm->modfullname);
                 break;
             case 'add mod':
-                $text = get_string('added', 'moodle', $cm->modfullname). '<br />'.
+                $text = get_string('added', 'lion', $cm->modfullname). '<br />'.
                     html_writer::link($cm->url, format_string($cm->name, true));
                 break;
             case 'update mod':
-                $text = get_string('updated', 'moodle', $cm->modfullname). '<br />'.
+                $text = get_string('updated', 'lion', $cm->modfullname). '<br />'.
                     html_writer::link($cm->url, format_string($cm->name, true));
                 break;
             default:

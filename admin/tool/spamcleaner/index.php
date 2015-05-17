@@ -3,12 +3,11 @@
 /**
  * Spam Cleaner
  *
- * Helps an admin to clean up spam in Moodle
+ * Helps an admin to clean up spam in Lion
  *
- * @author Dongsheng Cai
- * @author Martin Dougiamas
- * @author Amr Hourani
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    admin_tool
+ * @subpackage spamcleaner
+ * @copyright  2015 Pooya Saeedi
  */
 
 // List of known spammy keywords, please add more here
@@ -352,7 +351,7 @@ function print_user_entry($user, $keywords, $count) {
         }
 
         if (!isset($user->descriptionformat)) {
-            $user->descriptionformat = FORMAT_MOODLE;
+            $user->descriptionformat = FORMAT_LION;
         }
 
         $html .= '<td align="left">'.format_text($user->description, $user->descriptionformat, array('overflowdiv'=>true)).'</td>';

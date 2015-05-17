@@ -3,6 +3,9 @@
 /**
  * XHTML 1.1 Edit Module, defines editing-related elements. Text Extension
  * Module.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Edit extends HTMLPurifier_HTMLModule
 {

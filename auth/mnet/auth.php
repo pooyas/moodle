@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Authentication Plugin: Moodle Network Authentication
- * Multiple host authentication support for Moodle Network.
+ * Authentication Plugin: Lion Network Authentication
+ * Multiple host authentication support for Lion Network.
  *
- * @package auth_mnet
- * @author Martin Dougiamas
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/authlib.php');
 
 /**
- * Moodle Network authentication plugin.
+ * Lion Network authentication plugin.
  */
 class auth_plugin_mnet extends auth_plugin_base {
 
@@ -146,7 +133,7 @@ class auth_plugin_mnet extends auth_plugin_base {
         }
 
         // check remote login permissions
-        if (! has_capability('moodle/site:mnetlogintoremote', context_system::instance())
+        if (! has_capability('lion/site:mnetlogintoremote', context_system::instance())
                 or is_mnet_remote_user($USER)
                 or isguestuser()
                 or !isloggedin()) {
@@ -263,7 +250,7 @@ class auth_plugin_mnet extends auth_plugin_base {
         $remoteuser->auth = 'mnet';
         $remoteuser->wwwroot = $remotepeer->wwwroot;
 
-        // the user may roam from Moodle 1.x where lang has _utf8 suffix
+        // the user may roam from Lion 1.x where lang has _utf8 suffix
         // also, make sure that the lang is actually installed, otherwise set site default
         if (isset($remoteuser->lang)) {
             $remoteuser->lang = clean_param(str_replace('_utf8', '', $remoteuser->lang), PARAM_LANG);
@@ -333,7 +320,7 @@ class auth_plugin_mnet extends auth_plugin_base {
                             }
                             unlink($imagefilename);
                         }
-                        // note that since Moodle 2.0 we ignore $fetchrequest->response['f2']
+                        // note that since Lion 2.0 we ignore $fetchrequest->response['f2']
                         // the mimetype information provided is ignored and the type of the file is detected
                         // by process_new_icon()
                     }
@@ -405,7 +392,7 @@ class auth_plugin_mnet extends auth_plugin_base {
                         $courses[$id] = (array)$courses[$id];
                     }
                 } else {
-                    throw new moodle_exception('unknownrole', 'error', '', 'student');
+                    throw new lion_exception('unknownrole', 'error', '', 'student');
                 }
             } else {
                 // if the array is empty, send it anyway
@@ -600,7 +587,7 @@ class auth_plugin_mnet extends auth_plugin_base {
      * Returns the URL for changing the user's pw, or false if the default can
      * be used.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     function change_password_url() {
         return null;
@@ -768,7 +755,7 @@ class auth_plugin_mnet extends auth_plugin_base {
      * Receives an array of log entries from an SP and adds them to the mnet_log
      * table
      *
-     * @deprecated since Moodle 2.8 Please don't use this function for recording mnet logs.
+     * @deprecated since Lion 2.8 Please don't use this function for recording mnet logs.
      * @param   array   $array      An array of usernames
      * @return  string              "All ok" or an error message
      */
@@ -841,7 +828,7 @@ class auth_plugin_mnet extends auth_plugin_base {
     /**
      * Cleanup any remote mnet_sessions, kill the local mnet_session data
      *
-     * This is called by require_logout in moodlelib
+     * This is called by require_logout in lionlib
      *
      * @return   void
      */
@@ -852,11 +839,11 @@ class auth_plugin_mnet extends auth_plugin_base {
             return;
         }
 
-        // If the user is local to this Moodle:
+        // If the user is local to this Lion:
         if ($USER->mnethostid == $this->mnet->id) {
             $this->kill_children($USER->username, sha1($_SERVER['HTTP_USER_AGENT']));
 
-        // Else the user has hit 'logout' at a Service Provider Moodle:
+        // Else the user has hit 'logout' at a Service Provider Lion:
         } else {
             $this->kill_parent($USER->username, sha1($_SERVER['HTTP_USER_AGENT']));
 
@@ -1017,7 +1004,7 @@ class auth_plugin_mnet extends auth_plugin_base {
      *  f2          - the content of the 35x35px variant of the image
      *  f2_mimetype - the mimetype of the f2 file
      *
-     * The mimetype information was added in Moodle 2.0. In Moodle 1.x, images are always jpegs.
+     * The mimetype information was added in Lion 2.0. In Lion 1.x, images are always jpegs.
      *
      * @see process_new_icon()
      * @uses mnet_remote_client callable via MNet XML-RPC
@@ -1101,7 +1088,7 @@ class auth_plugin_mnet extends auth_plugin_base {
 
     /**
      * Checks the MNET access control table to see if the username/mnethost
-     * is permitted to login to this moodle.
+     * is permitted to login to this lion.
      *
      * @param string $username   The username
      * @param int    $mnethostid The id of the remote mnethost
@@ -1186,7 +1173,7 @@ class auth_plugin_mnet extends auth_plugin_base {
         $idps = array();
         foreach ($hosts as $host) {
             $idps[] = array(
-                'url'  => new moodle_url($host->wwwroot . $host->sso_jump_url, array('hostwwwroot' => $CFG->wwwroot, 'wantsurl' => $wantsurl, 'remoteurl' => 1)),
+                'url'  => new lion_url($host->wwwroot . $host->sso_jump_url, array('hostwwwroot' => $CFG->wwwroot, 'wantsurl' => $wantsurl, 'remoteurl' => 1)),
                 'icon' => new pix_icon('i/' . $host->application . '_host', $host->name),
                 'name' => $host->name,
             );

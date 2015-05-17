@@ -1,38 +1,25 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Form for grader report preferences
  *
- * @package    gradereport_grader
- * @copyright  2009 Nicolas Connault
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage grader
+ * @copyright  2015 Pooya Saeedi
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once($CFG->libdir.'/formslib.php');
 
 /**
- * First implementation of the preferences in the form of a moodleform.
+ * First implementation of the preferences in the form of a lionform.
  * TODO add "reset to site defaults" button
  */
-class grader_report_preferences_form extends moodleform {
+class grader_report_preferences_form extends lionform {
 
     function definition() {
         global $USER, $CFG;
@@ -42,7 +29,7 @@ class grader_report_preferences_form extends moodleform {
 
         $context = context_course::instance($course->id);
 
-        $canviewhidden = has_capability('moodle/grade:viewhidden', $context);
+        $canviewhidden = has_capability('lion/grade:viewhidden', $context);
 
         $checkbox_default = array(GRADE_REPORT_PREFERENCE_DEFAULT => '*default*', 0 => get_string('no'), 1 => get_string('yes'));
 
@@ -52,7 +39,7 @@ class grader_report_preferences_form extends moodleform {
         $preferences = array();
 
         // Initialise the preferences arrays with grade:manage capabilities
-        if (has_capability('moodle/grade:manage', $context)) {
+        if (has_capability('lion/grade:manage', $context)) {
 
             $preferences['prefshow'] = array();
 
@@ -93,7 +80,7 @@ class grader_report_preferences_form extends moodleform {
         }
 
         // quickgrading and showquickfeedback are conditional on grade:edit capability
-        if (has_capability('moodle/grade:edit', $context)) {
+        if (has_capability('lion/grade:edit', $context)) {
             $preferences['prefgeneral']['quickgrading'] = $checkbox_default;
             $preferences['prefgeneral']['showquickfeedback'] = $checkbox_default;
         }
@@ -101,7 +88,7 @@ class grader_report_preferences_form extends moodleform {
         // View capability is the lowest permission. Users with grade:manage or grade:edit must also have grader:view
         if (has_capability('gradereport/grader:view', $context)) {
             $preferences['prefgeneral']['studentsperpage'] = 'text';
-            if (has_capability('moodle/course:viewsuspendedusers', $context)) {
+            if (has_capability('lion/course:viewsuspendedusers', $context)) {
                 $preferences['prefgeneral']['showonlyactiveenrol'] = $checkbox_default;
             }
             $preferences['prefgeneral']['aggregationposition'] = array(GRADE_REPORT_PREFERENCE_DEFAULT => '*default*',
@@ -193,7 +180,7 @@ class grader_report_preferences_form extends moodleform {
         $this->add_action_buttons();
     }
 
-/// perform some extra moodle validation
+/// perform some extra lion validation
     function validation($data, $files) {
         return parent::validation($data, $files);
     }

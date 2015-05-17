@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,11 +30,8 @@ require_once("HTML/QuickForm/input.php");
 
 /**
  * HTML class for a checkbox type field
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.1
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_checkbox extends HTML_QuickForm_input
@@ -37,7 +41,6 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
     /**
      * Checkbox display text
      * @var       string
-     * @since     1.1
      * @access    private
      */
     var $_text = '';
@@ -53,7 +56,6 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @param     string    $text           (optional)Checkbox display text
      * @param     mixed     $attributes     (optional)Either a typical HTML attribute string 
      *                                      or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -73,7 +75,6 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * Sets whether a checkbox is checked
      * 
      * @param     bool    $checked  Whether the field is checked or not
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -91,8 +92,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
 
     /**
      * Returns whether a checkbox is checked
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    bool
      */
@@ -106,8 +106,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
 
     /**
      * Returns the checkbox element in HTML
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -129,8 +128,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
 
     /**
      * Returns the value of field without HTML tags
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -150,8 +148,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
     /**
      * Sets the checkbox text
      * 
-     * @param     string    $text  
-     * @since     1.1
+     * @param     string    $text
      * @access    public
      * @return    void
      */
@@ -165,8 +162,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
 
     /**
      * Returns the checkbox text 
-     * 
-     * @since     1.1
+     *
      * @access    public
      * @return    string
      */
@@ -182,7 +178,6 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * Sets the value of the form element
      *
      * @param     string    $value      Default value of the form element
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -197,7 +192,6 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
     /**
      * Returns the value of the form element
      *
-     * @since     1.0
      * @access    public
      * @return    bool
      */
@@ -215,7 +209,6 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @param     string    $event  Name of event
      * @param     mixed     $arg    event arguments
      * @param     object    $caller calling object
-     * @since     1.0
      * @access    public
      * @return    void
      */

@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The library file for the file cache store.
@@ -20,10 +7,10 @@
  * This file is part of the file cache store, it contains the API for interacting with an instance of the store.
  * This is used as a default cache store within the Cache API. It should never be deleted.
  *
- * @package    cachestore_file
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    cache_stores
+ * @subpackage file
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -34,8 +21,6 @@
  *      autocreate:     true, false
  *      prescan:        true, false
  *
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cachestore_file extends cache_store implements cache_is_key_aware, cache_is_configurable, cache_is_searchable  {
 
@@ -597,10 +582,10 @@ class cachestore_file extends cache_store implements cache_is_key_aware, cache_i
     /**
      * Allows the cache store to set its data against the edit form before it is shown to the user.
      *
-     * @param moodleform $editform
+     * @param lionform $editform
      * @param array $config
      */
-    public static function config_set_edit_form_data(moodleform $editform, array $config) {
+    public static function config_set_edit_form_data(lionform $editform, array $config) {
         $data = array();
         if (!empty($config['path'])) {
             $data['path'] = $config['path'];

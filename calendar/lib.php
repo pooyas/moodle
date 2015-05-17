@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Calendar extension
  *
- * @package    core_calendar
- * @copyright  2004 Greek School Network (http://www.sch.gr), Jon Papaioannou,
  *             Avgoustos Tsinakos
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 /**
@@ -133,10 +120,9 @@ function calendar_get_days() {
 /**
  * Get the subscription from a given id
  *
- * @since Moodle 2.5
  * @param int $id id of the subscription
  * @return stdClass Subscription record from DB
- * @throws moodle_exception for an invalid id
+ * @throws lion_exception for an invalid id
  */
 function calendar_get_subscription($id) {
     global $DB;
@@ -343,7 +329,7 @@ function calendar_get_mini($courses, $groups, $users, $calmonth = false, $calyea
 
             $class .= ' hasevent';
             $hrefparams['view'] = 'day';
-            $dayhref = calendar_get_link_href(new moodle_url(CALENDAR_URL . 'view.php', $hrefparams), 0, 0, 0, $daytime);
+            $dayhref = calendar_get_link_href(new lion_url(CALENDAR_URL . 'view.php', $hrefparams), 0, 0, 0, $daytime);
 
             $popupcontent = '';
             foreach($eventsbyday[$day] as $eventid) {
@@ -352,7 +338,7 @@ function calendar_get_mini($courses, $groups, $users, $calmonth = false, $calyea
                 }
                 $event = new calendar_event($events[$eventid]);
                 $popupalt  = '';
-                $component = 'moodle';
+                $component = 'lion';
                 if (!empty($event->modulename)) {
                     $popupicon = 'icon';
                     $popupalt  = $event->modulename;
@@ -463,7 +449,7 @@ function calendar_get_mini($courses, $groups, $users, $calmonth = false, $calyea
 
     static $jsincluded = false;
     if (!$jsincluded) {
-        $PAGE->requires->yui_module('moodle-calendar-info', 'Y.M.core_calendar.info.init');
+        $PAGE->requires->yui_module('lion-calendar-info', 'Y.M.core_calendar.info.init');
         $jsincluded = true;
     }
     return $content;
@@ -608,7 +594,7 @@ function calendar_get_courselink($courseid) {
     calendar_get_course_cached($coursecache, $courseid);
     $context = context_course::instance($courseid);
     $fullname = format_string($coursecache[$courseid]->fullname, true, array('context' => $context));
-    $url = new moodle_url('/course/view.php', array('id' => $courseid));
+    $url = new lion_url('/course/view.php', array('id' => $courseid));
     $link = html_writer::link($url, $fullname);
 
     return $link;
@@ -766,7 +752,6 @@ function calendar_get_events($tstart, $tend, $users, $groups, $courses, $withdur
 
 /** Get calendar events by id
  *
- * @since Moodle 2.5
  * @param array $eventids list of event ids
  * @return array Array of event entries, empty array if nothing found
  */
@@ -844,7 +829,7 @@ function calendar_top_controls($type, $data) {
         case 'frontpage':
             $prevlink = calendar_get_link_previous(get_string('monthprev', 'access'), $urlbase, false, false, false, true, $prevmonthtime);
             $nextlink = calendar_get_link_next(get_string('monthnext', 'access'), $urlbase, false, false, false, true, $nextmonthtime);
-            $calendarlink = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view' => 'month')), false, false, false, $time);
+            $calendarlink = calendar_get_link_href(new lion_url(CALENDAR_URL.'view.php', array('view' => 'month')), false, false, false, $time);
 
             if (!empty($data['id'])) {
                 $calendarlink->param('course', $data['id']);
@@ -869,7 +854,7 @@ function calendar_top_controls($type, $data) {
         case 'course':
             $prevlink = calendar_get_link_previous(get_string('monthprev', 'access'), $urlbase, false, false, false, true, $prevmonthtime);
             $nextlink = calendar_get_link_next(get_string('monthnext', 'access'), $urlbase, false, false, false, true, $nextmonthtime);
-            $calendarlink = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view' => 'month')), false, false, false, $time);
+            $calendarlink = calendar_get_link_href(new lion_url(CALENDAR_URL.'view.php', array('view' => 'month')), false, false, false, $time);
 
             if (!empty($data['id'])) {
                 $calendarlink->param('course', $data['id']);
@@ -891,7 +876,7 @@ function calendar_top_controls($type, $data) {
             $content .= html_writer::end_tag('div');
             break;
         case 'upcoming':
-            $calendarlink = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view' => 'upcoming')), false, false, false, $time);
+            $calendarlink = calendar_get_link_href(new lion_url(CALENDAR_URL.'view.php', array('view' => 'upcoming')), false, false, false, $time);
             if (!empty($data['id'])) {
                 $calendarlink->param('course', $data['id']);
             }
@@ -899,7 +884,7 @@ function calendar_top_controls($type, $data) {
             $content .= html_writer::tag('div', $calendarlink, array('class'=>'centered'));
             break;
         case 'display':
-            $calendarlink = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view' => 'month')), false, false, false, $time);
+            $calendarlink = calendar_get_link_href(new lion_url(CALENDAR_URL.'view.php', array('view' => 'month')), false, false, false, $time);
             if (!empty($data['id'])) {
                 $calendarlink->param('course', $data['id']);
             }
@@ -962,11 +947,11 @@ function calendar_top_controls($type, $data) {
 /**
  * Formats a filter control element.
  *
- * @param moodle_url $url of the filter
+ * @param lion_url $url of the filter
  * @param int $type constant defining the type filter
  * @return string html content of the element
  */
-function calendar_filter_controls_element(moodle_url $url, $type) {
+function calendar_filter_controls_element(lion_url $url, $type) {
     global $OUTPUT;
     switch ($type) {
         case CALENDAR_EVENT_GLOBAL:
@@ -1007,15 +992,15 @@ function calendar_filter_controls_element(moodle_url $url, $type) {
  *
  * Filter is used to hide calendar info from the display page
  *
- * @param moodle_url $returnurl return-url for filter controls
+ * @param lion_url $returnurl return-url for filter controls
  * @return string $content return filter controls in html
  */
-function calendar_filter_controls(moodle_url $returnurl) {
+function calendar_filter_controls(lion_url $returnurl) {
     global $CFG, $USER, $OUTPUT;
 
     $groupevents = true;
     $id = optional_param( 'id',0,PARAM_INT );
-    $seturl = new moodle_url('/calendar/set.php', array('return' => base64_encode($returnurl->out_as_local_url(false)), 'sesskey'=>sesskey()));
+    $seturl = new lion_url('/calendar/set.php', array('return' => base64_encode($returnurl->out_as_local_url(false)), 'sesskey'=>sesskey()));
     $content = html_writer::start_tag('ul');
 
     $seturl->param('var', 'showglobal');
@@ -1112,22 +1097,22 @@ function calendar_time_representation($time) {
 }
 
 /**
- * Adds day, month, year arguments to a URL and returns a moodle_url object.
+ * Adds day, month, year arguments to a URL and returns a lion_url object.
  *
- * @param string|moodle_url $linkbase
+ * @param string|lion_url $linkbase
  * @param int $d The number of the day.
  * @param int $m The number of the month.
  * @param int $y The number of the year.
  * @param int $time the unixtime, used for multiple calendar support. The values $d,
  *     $m and $y are kept for backwards compatibility.
- * @return moodle_url|null $linkbase
+ * @return lion_url|null $linkbase
  */
 function calendar_get_link_href($linkbase, $d, $m, $y, $time = 0) {
     if (empty($linkbase)) {
         return '';
     }
-    if (!($linkbase instanceof moodle_url)) {
-        $linkbase = new moodle_url($linkbase);
+    if (!($linkbase instanceof lion_url)) {
+        $linkbase = new lion_url($linkbase);
     }
 
     // If a day, month and year were passed then convert it to a timestamp. If these were passed
@@ -1152,7 +1137,7 @@ function calendar_get_link_href($linkbase, $d, $m, $y, $time = 0) {
  * Build and return a previous month HTML link, with an arrow.
  *
  * @param string $text The text label.
- * @param string|moodle_url $linkbase The URL stub.
+ * @param string|lion_url $linkbase The URL stub.
  * @param int $d The number of the date.
  * @param int $m The number of the month.
  * @param int $y year The number of the year.
@@ -1162,7 +1147,7 @@ function calendar_get_link_href($linkbase, $d, $m, $y, $time = 0) {
  * @return string HTML string.
  */
 function calendar_get_link_previous($text, $linkbase, $d, $m, $y, $accesshide = false, $time = 0) {
-    $href = calendar_get_link_href(new moodle_url($linkbase), $d, $m, $y, $time);
+    $href = calendar_get_link_href(new lion_url($linkbase), $d, $m, $y, $time);
     if (empty($href)) {
         return $text;
     }
@@ -1173,7 +1158,7 @@ function calendar_get_link_previous($text, $linkbase, $d, $m, $y, $accesshide = 
  * Build and return a next month HTML link, with an arrow.
  *
  * @param string $text The text label.
- * @param string|moodle_url $linkbase The URL stub.
+ * @param string|lion_url $linkbase The URL stub.
  * @param int $d the number of the Day
  * @param int $m The number of the month.
  * @param int $y The number of the year.
@@ -1183,7 +1168,7 @@ function calendar_get_link_previous($text, $linkbase, $d, $m, $y, $accesshide = 
  * @return string HTML string.
  */
 function calendar_get_link_next($text, $linkbase, $d, $m, $y, $accesshide = false, $time = 0) {
-    $href = calendar_get_link_href(new moodle_url($linkbase), $d, $m, $y, $time);
+    $href = calendar_get_link_href(new lion_url($linkbase), $d, $m, $y, $time);
     if (empty($href)) {
         return $text;
     }
@@ -1216,7 +1201,7 @@ function calendar_days_in_month($month, $year) {
  * Get the upcoming event block
  *
  * @param array $events list of events
- * @param moodle_url|string $linkhref link to event referer
+ * @param lion_url|string $linkhref link to event referer
  * @param boolean $showcourselink whether links to courses should be shown
  * @return string|null $content html block content
  */
@@ -1238,7 +1223,7 @@ function calendar_get_block_upcoming($events, $linkhref = NULL, $showcourselink 
             $content .= $events[$i]->referer;
         } else {
             if(!empty($linkhref)) {
-                $href = calendar_get_link_href(new moodle_url(CALENDAR_URL . $linkhref), 0, 0, 0, $events[$i]->timestart);
+                $href = calendar_get_link_href(new lion_url(CALENDAR_URL . $linkhref), 0, 0, 0, $events[$i]->timestart);
                 $href->set_anchor('event_'.$events[$i]->id);
                 $content .= html_writer::link($href, $events[$i]->name);
             }
@@ -1445,8 +1430,8 @@ function calendar_set_filters(array $courseeventsfrom, $ignorefilters = false) {
     $group = false;
 
     // capabilities that allow seeing group events from all groups
-    // TODO: rewrite so that moodle/calendar:manageentries is not necessary here
-    $allgroupscaps = array('moodle/site:accessallgroups', 'moodle/calendar:manageentries');
+    // TODO: rewrite so that lion/calendar:manageentries is not necessary here
+    $allgroupscaps = array('lion/site:accessallgroups', 'lion/calendar:manageentries');
 
     $isloggedin = isloggedin();
 
@@ -1538,7 +1523,7 @@ function calendar_edit_event_allowed($event) {
 
     $sitecontext = context_system::instance();
     // if user has manageentries at site level, return true
-    if (has_capability('moodle/calendar:manageentries', $sitecontext)) {
+    if (has_capability('lion/calendar:manageentries', $sitecontext)) {
         return true;
     }
 
@@ -1549,18 +1534,18 @@ function calendar_edit_event_allowed($event) {
         // 2) They have managegroupentries AND are in the group
         $group = $DB->get_record('groups', array('id'=>$event->groupid));
         return $group && (
-            has_capability('moodle/calendar:manageentries', $event->context) ||
-            (has_capability('moodle/calendar:managegroupentries', $event->context)
+            has_capability('lion/calendar:manageentries', $event->context) ||
+            (has_capability('lion/calendar:managegroupentries', $event->context)
                 && groups_is_member($event->groupid)));
     } else if (!empty($event->courseid)) {
     // if groupid is not set, but course is set,
     // it's definiely a course event
-        return has_capability('moodle/calendar:manageentries', $event->context);
+        return has_capability('lion/calendar:manageentries', $event->context);
     } else if (!empty($event->userid) && $event->userid == $USER->id) {
     // if course is not set, but userid id set, it's a user event
-        return (has_capability('moodle/calendar:manageownentries', $event->context));
+        return (has_capability('lion/calendar:manageownentries', $event->context));
     } else if (!empty($event->userid)) {
-        return (has_capability('moodle/calendar:manageentries', $event->context));
+        return (has_capability('lion/calendar:manageentries', $event->context));
     }
     return false;
 }
@@ -1579,7 +1564,7 @@ function calendar_get_default_courses() {
     }
 
     $courses = array();
-    if (!empty($CFG->calendar_adminseesall) && has_capability('moodle/calendar:manageentries', context_system::instance())) {
+    if (!empty($CFG->calendar_adminseesall) && has_capability('lion/calendar:manageentries', context_system::instance())) {
         $select = ', ' . context_helper::get_preload_record_columns_sql('ctx');
         $join = "LEFT JOIN {context} ctx ON (ctx.instanceid = c.id AND ctx.contextlevel = :contextlevel)";
         $sql = "SELECT c.* $select
@@ -1613,7 +1598,7 @@ function calendar_preferences_button(stdClass $course) {
         return '';
     }
 
-    return $OUTPUT->single_button(new moodle_url('/calendar/preferences.php', array('course' => $course->id)), get_string("preferences", "calendar"));
+    return $OUTPUT->single_button(new lion_url('/calendar/preferences.php', array('course' => $course->id)), get_string("preferences", "calendar"));
 }
 
 /**
@@ -1657,7 +1642,7 @@ function calendar_format_event_time($event, $now, $linkparams = null, $usecommon
             // Set printable representation.
             if (!$showtime) {
                 $day = calendar_day_representation($event->timestart, $now, $usecommonwords);
-                $url = calendar_get_link_href(new moodle_url(CALENDAR_URL . 'view.php', $linkparams), 0, 0, 0, $endtime);
+                $url = calendar_get_link_href(new lion_url(CALENDAR_URL . 'view.php', $linkparams), 0, 0, 0, $endtime);
                 $eventtime = html_writer::link($url, $day) . ', ' . $time;
             } else {
                 $eventtime = $time;
@@ -1676,13 +1661,13 @@ function calendar_format_event_time($event, $now, $linkparams = null, $usecommon
 
             // Set printable representation.
             if ($now >= $usermidnightstart && $now < strtotime('+1 day', $usermidnightstart)) {
-                $url = calendar_get_link_href(new moodle_url(CALENDAR_URL . 'view.php', $linkparams), 0, 0, 0, $endtime);
+                $url = calendar_get_link_href(new lion_url(CALENDAR_URL . 'view.php', $linkparams), 0, 0, 0, $endtime);
                 $eventtime = $timestart . ' <strong>&raquo;</strong> ' . html_writer::link($url, $dayend) . $timeend;
             } else {
-                $url = calendar_get_link_href(new moodle_url(CALENDAR_URL . 'view.php', $linkparams), 0, 0, 0, $endtime);
+                $url = calendar_get_link_href(new lion_url(CALENDAR_URL . 'view.php', $linkparams), 0, 0, 0, $endtime);
                 $eventtime  = html_writer::link($url, $daystart) . $timestart . ' <strong>&raquo;</strong> ';
 
-                $url = calendar_get_link_href(new moodle_url(CALENDAR_URL . 'view.php', $linkparams),  0, 0, 0, $starttime);
+                $url = calendar_get_link_href(new lion_url(CALENDAR_URL . 'view.php', $linkparams),  0, 0, 0, $starttime);
                 $eventtime .= html_writer::link($url, $dayend) . $timeend;
             }
         }
@@ -1691,7 +1676,7 @@ function calendar_format_event_time($event, $now, $linkparams = null, $usecommon
         // Set printable representation.
         if (!$showtime) {
             $day = calendar_day_representation($event->timestart, $now, $usecommonwords);
-            $url = calendar_get_link_href(new moodle_url(CALENDAR_URL . 'view.php', $linkparams),  0, 0, 0, $starttime);
+            $url = calendar_get_link_href(new lion_url(CALENDAR_URL . 'view.php', $linkparams),  0, 0, 0, $starttime);
             $eventtime = html_writer::link($url, $day) . ', ' . trim($time);
         } else {
             $eventtime = $time;
@@ -1751,7 +1736,7 @@ function calendar_show_event_type($type, $user = null) {
  *
  * @param CALENDAR_EVENT_GLOBAL|CALENDAR_EVENT_COURSE|CALENDAR_EVENT_GROUP|CALENDAR_EVENT_USER $type object of CALENDAR_EVENT_XXX
  * @param bool $display option to display event type
- * @param stdClass|int $user moodle user object or id, null means current user
+ * @param stdClass|int $user lion user object or id, null means current user
  */
 function calendar_set_event_type_display($type, $display = null, $user = null) {
     $persist = get_user_preferences('calendar_persistflt', 0, $user);
@@ -1794,10 +1779,10 @@ function calendar_set_event_type_display($type, $display = null, $user = null) {
 function calendar_get_allowed_types(&$allowed, $course = null) {
     global $USER, $CFG, $DB;
     $allowed = new stdClass();
-    $allowed->user = has_capability('moodle/calendar:manageownentries', context_system::instance());
+    $allowed->user = has_capability('lion/calendar:manageownentries', context_system::instance());
     $allowed->groups = false; // This may change just below
     $allowed->courses = false; // This may change just below
-    $allowed->site = has_capability('moodle/calendar:manageentries', context_course::instance(SITEID));
+    $allowed->site = has_capability('lion/calendar:manageentries', context_course::instance(SITEID));
 
     if (!empty($course)) {
         if (!is_object($course)) {
@@ -1805,21 +1790,21 @@ function calendar_get_allowed_types(&$allowed, $course = null) {
         }
         if ($course->id != SITEID) {
             $coursecontext = context_course::instance($course->id);
-            $allowed->user = has_capability('moodle/calendar:manageownentries', $coursecontext);
+            $allowed->user = has_capability('lion/calendar:manageownentries', $coursecontext);
 
-            if (has_capability('moodle/calendar:manageentries', $coursecontext)) {
+            if (has_capability('lion/calendar:manageentries', $coursecontext)) {
                 $allowed->courses = array($course->id => 1);
 
                 if ($course->groupmode != NOGROUPS || !$course->groupmodeforce) {
-                    if (has_capability('moodle/site:accessallgroups', $coursecontext)) {
+                    if (has_capability('lion/site:accessallgroups', $coursecontext)) {
                         $allowed->groups = groups_get_all_groups($course->id);
                     } else {
                         $allowed->groups = groups_get_all_groups($course->id, $USER->id);
                     }
                 }
-            } else if (has_capability('moodle/calendar:managegroupentries', $coursecontext)) {
+            } else if (has_capability('lion/calendar:managegroupentries', $coursecontext)) {
                 if($course->groupmode != NOGROUPS || !$course->groupmodeforce) {
-                    if (has_capability('moodle/site:accessallgroups', $coursecontext)) {
+                    if (has_capability('lion/site:accessallgroups', $coursecontext)) {
                         $allowed->groups = groups_get_all_groups($course->id);
                     } else {
                         $allowed->groups = groups_get_all_groups($course->id, $USER->id);
@@ -1861,13 +1846,13 @@ function calendar_add_event_allowed($event) {
 
     $sitecontext = context_system::instance();
     // if user has manageentries at site level, always return true
-    if (has_capability('moodle/calendar:manageentries', $sitecontext)) {
+    if (has_capability('lion/calendar:manageentries', $sitecontext)) {
         return true;
     }
 
     switch ($event->eventtype) {
         case 'course':
-            return has_capability('moodle/calendar:manageentries', $event->context);
+            return has_capability('lion/calendar:manageentries', $event->context);
 
         case 'group':
             // Allow users to add/edit group events if:
@@ -1875,21 +1860,21 @@ function calendar_add_event_allowed($event) {
             // 2) They have managegroupentries AND are in the group
             $group = $DB->get_record('groups', array('id'=>$event->groupid));
             return $group && (
-                has_capability('moodle/calendar:manageentries', $event->context) ||
-                (has_capability('moodle/calendar:managegroupentries', $event->context)
+                has_capability('lion/calendar:manageentries', $event->context) ||
+                (has_capability('lion/calendar:managegroupentries', $event->context)
                     && groups_is_member($event->groupid)));
 
         case 'user':
             if ($event->userid == $USER->id) {
-                return (has_capability('moodle/calendar:manageownentries', $event->context));
+                return (has_capability('lion/calendar:manageownentries', $event->context));
             }
             //there is no 'break;' intentionally
 
         case 'site':
-            return has_capability('moodle/calendar:manageentries', $event->context);
+            return has_capability('lion/calendar:manageentries', $event->context);
 
         default:
-            return has_capability('moodle/calendar:manageentries', $event->context);
+            return has_capability('lion/calendar:manageentries', $event->context);
     }
 }
 
@@ -1945,14 +1930,11 @@ function calendar_normalize_tz($tz) {
  * Manage calendar events
  *
  * This class provides the required functionality in order to manage calendar events.
- * It was introduced as part of Moodle 2.0 and was created in order to provide a
+ * It was introduced as part of Lion 2.0 and was created in order to provide a
  * better framework for dealing with calendar events in particular regard to file
  * handling through the new file API
  *
- * @package    core_calendar
  * @category   calendar
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  * @property int $id The id within the event table
  * @property string $name The name of the event
@@ -2206,7 +2188,7 @@ class calendar_event {
      * @see update_event()
      *
      * @param stdClass $data object of event
-     * @param bool $checkcapability if moodle should check calendar managing capability or not
+     * @param bool $checkcapability if lion should check calendar managing capability or not
      * @return bool event updated
      */
     public function update($data, $checkcapability=true) {
@@ -2503,7 +2485,7 @@ class calendar_event {
      * This function returns all of the events properties as an object and optionally
      * can prepare an editor for the description field at the same time. This is
      * designed to work when the properties are going to be used to set the default
-     * values of a moodle forms form.
+     * values of a lion forms form.
      *
      * @param bool $prepareeditor If set to true a editor is prepared for use with
      *              the mforms editor element. (for description)
@@ -2703,10 +2685,7 @@ class calendar_event {
  * This class is used simply to organise the information pertaining to a calendar
  * and is used primarily to make information easily available.
  *
- * @package core_calendar
  * @category calendar
- * @copyright 2010 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class calendar_information {
 
@@ -2784,10 +2763,10 @@ class calendar_information {
 
     /**
      * Ensures the date for the calendar is correct and either sets it to now
-     * or throws a moodle_exception if not
+     * or throws a lion_exception if not
      *
      * @param bool $defaultonow use current time
-     * @throws moodle_exception
+     * @throws lion_exception
      * @return bool validation of checkdate
      */
     public function checkdate($defaultonow = true) {
@@ -2799,7 +2778,7 @@ class calendar_information {
                 $this->year = intval($now['year']);
                 return true;
             } else {
-                throw new moodle_exception('invaliddate');
+                throw new lion_exception('invaliddate');
             }
         }
         return true;
@@ -2927,7 +2906,7 @@ function calendar_add_subscription($sub) {
 }
 
 /**
- * Add an iCalendar event to the Moodle calendar.
+ * Add an iCalendar event to the Lion calendar.
  *
  * @param stdClass $event The RFC-2445 iCalendar event
  * @param int $courseid The course ID
@@ -3096,7 +3075,7 @@ function calendar_get_icalendar($url) {
     $calendar = $curl->get($url);
     // Http code validation should actually be the job of curl class.
     if (!$calendar || $curl->info['http_code'] != 200 || !empty($curl->errorno)) {
-        throw new moodle_exception('errorinvalidicalurl', 'calendar');
+        throw new lion_exception('errorinvalidicalurl', 'calendar');
     }
 
     $ical = new iCalendar();
@@ -3190,7 +3169,6 @@ function calendar_update_subscription_events($subscriptionid) {
  *
  * @param stdClass|array $subscription Subscription record.
  * @throws coding_exception If something goes wrong
- * @since Moodle 2.5
  */
 function calendar_update_subscription($subscription) {
     global $DB;
@@ -3271,7 +3249,7 @@ function calendar_cron() {
         try {
             $log = calendar_update_subscription_events($sub->id);
             mtrace(trim(strip_tags($log)));
-        } catch (moodle_exception $ex) {
+        } catch (lion_exception $ex) {
             mtrace('Error updating calendar subscription: ' . $ex->getMessage());
         }
     }

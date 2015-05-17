@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -20,9 +7,9 @@
  *
  * Contains HTML class for a filemanager form element
  *
- * @package   core_form
- * @copyright 2009 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 global $CFG;
@@ -35,12 +22,9 @@ require_once($CFG->dirroot.'/repository/lib.php');
  * Filemanager form element
  *
  * FilemaneManager lets user to upload/manage multiple files
- * @package   core_form
  * @category  form
- * @copyright 2009 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_filemanager extends HTML_QuickForm_element {
+class LionQuickForm_filemanager extends HTML_QuickForm_element {
     /** @var string html for help button, if empty then no help will icon will be dispalyed. */
     public $_helpbutton = '';
 
@@ -60,7 +44,7 @@ class MoodleQuickForm_filemanager extends HTML_QuickForm_element {
      *              or an associative array
      * @param array $options set of options to initalize filemanager
      */
-    function MoodleQuickForm_filemanager($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
+    function LionQuickForm_filemanager($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
         global $CFG, $PAGE;
 
         $options = (array)$options;
@@ -294,9 +278,6 @@ class MoodleQuickForm_filemanager extends HTML_QuickForm_element {
  *
  * This class defines the data structure for file mnager
  *
- * @package   core_form
- * @copyright 2010 Dongsheng Cai
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @todo      do not use this abstraction (skodak)
  */
 class form_filemanager implements renderable {
@@ -397,7 +378,7 @@ class form_filemanager implements renderable {
 
     public function get_nonjsurl() {
         global $PAGE;
-        return new moodle_url('/repository/draftfiles_manager.php', array(
+        return new lion_url('/repository/draftfiles_manager.php', array(
             'env'=>'filemanager',
             'action'=>'browse',
             'itemid'=>$this->options->itemid,

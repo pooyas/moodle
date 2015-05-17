@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    portfolio
+ * @subpackage download
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // this script is a slightly more user friendly way to 'send' the file to them
 // (using portfolio/file.php) but still give them the 'return to where you were' link
 // to go back to their assignment, or whatever

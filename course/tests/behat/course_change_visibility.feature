@@ -1,6 +1,6 @@
 @core @core_course
 Feature: We can change the visibility of courses in the management interface.
-  As a moodle admin
+  As a lion admin
   I need to test hiding and then showing a course.
   I need to test hiding a course and then hiding and showing the category its within.
 

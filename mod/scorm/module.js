@@ -1,24 +1,8 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Javascript helper function for SCORM module.
  *
- * @package   mod-scorm
- * @copyright 2009 Petr Skoda (http://skodak.org)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 mod_scorm_launch_next_sco = null;
@@ -249,14 +233,14 @@ M.mod_scorm.init = function(Y, nav_display, navposition_left, navposition_top, h
                     toc.addClass(cssclasses.disabled)
                         .setAttribute('disabled-by', 'screen-size');
                     scorm_toc_toggle_btn.setHTML('&gt;')
-                        .set('title', M.util.get_string('show', 'moodle'));
+                        .set('title', M.util.get_string('show', 'lion'));
                     scorm_content.removeClass(cssclasses.scorm_grid_content_toc_visible)
                         .addClass(cssclasses.scorm_grid_content_toc_hidden);
                 } else if (body.get('winWidth') > collapsetocwinsize) {
                     toc.removeClass(cssclasses.disabled)
                         .removeAttribute('disabled-by');
                     scorm_toc_toggle_btn.setHTML('&lt;')
-                        .set('title', M.util.get_string('hide', 'moodle'));
+                        .set('title', M.util.get_string('hide', 'lion'));
                     scorm_content.removeClass(cssclasses.scorm_grid_content_toc_hidden)
                         .addClass(cssclasses.scorm_grid_content_toc_visible);
                 }
@@ -266,14 +250,14 @@ M.mod_scorm.init = function(Y, nav_display, navposition_left, navposition_top, h
                 toc.removeClass(cssclasses.disabled)
                     .removeAttribute('disabled-by');
                 scorm_toc_toggle_btn.setHTML('&lt;')
-                    .set('title', M.util.get_string('hide', 'moodle'));
+                    .set('title', M.util.get_string('hide', 'lion'));
                 scorm_content.removeClass(cssclasses.scorm_grid_content_toc_hidden)
                     .addClass(cssclasses.scorm_grid_content_toc_visible);
             } else {
                 toc.addClass(cssclasses.disabled)
                     .setAttribute('disabled-by', 'user');
                 scorm_toc_toggle_btn.setHTML('&gt;')
-                    .set('title', M.util.get_string('show', 'moodle'));
+                    .set('title', M.util.get_string('show', 'lion'));
                 scorm_content.removeClass(cssclasses.scorm_grid_content_toc_visible)
                     .addClass(cssclasses.scorm_grid_content_toc_hidden);
             }
@@ -539,7 +523,7 @@ M.mod_scorm.init = function(Y, nav_display, navposition_left, navposition_top, h
             Y.one('#scorm_toc_toggle').addClass(cssclasses.scorm_grid_toggle);
             Y.one('#scorm_toc_toggle_btn')
                 .setHTML('&lt;')
-                .setAttribute('title', M.util.get_string('hide', 'moodle'));
+                .setAttribute('title', M.util.get_string('hide', 'lion'));
             Y.one('#scorm_content').addClass(cssclasses.scorm_grid_content_toc_visible);
             scorm_toggle_toc(true);
         }
@@ -550,7 +534,7 @@ M.mod_scorm.init = function(Y, nav_display, navposition_left, navposition_top, h
                 Y.one('#scorm_toc').addClass(cssclasses.disabled);
                 Y.one('#scorm_toc_toggle_btn')
                     .setHTML('&gt;')
-                    .setAttribute('title', M.util.get_string('show', 'moodle'));
+                    .setAttribute('title', M.util.get_string('show', 'lion'));
                 Y.one('#scorm_content')
                     .removeClass(cssclasses.scorm_grid_content_toc_visible)
                     .addClass(cssclasses.scorm_grid_content_toc_hidden);

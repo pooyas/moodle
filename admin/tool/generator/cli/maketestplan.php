@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * CLI interface for creating a test plan
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('CLI_SCRIPT', true);
@@ -59,7 +46,7 @@ $testplansizes
 
 Consider that, the server resources you will need to run the test plan will be higher as the test plan size is higher.
 
-Example from Moodle root directory:
+Example from Lion root directory:
 \$ sudo -u www-data /usr/bin/php admin/tool/generator/cli/maketestplan.php --shortname=\"testcourse_12\" --size=S
 ";
     // Exit with error unless we're showing this because they asked for it.
@@ -102,7 +89,7 @@ $usersfile = tool_generator_testplan_backend::create_users_file($courseid, !empt
 $testplanfile = tool_generator_testplan_backend::create_testplan_file($courseid, $size);
 
 // One file path per line so other CLI scripts can easily parse the output.
-echo moodle_url::make_pluginfile_url(
+echo lion_url::make_pluginfile_url(
         $testplanfile->get_contextid(),
         $testplanfile->get_component(),
         $testplanfile->get_filearea(),
@@ -111,7 +98,7 @@ echo moodle_url::make_pluginfile_url(
         $testplanfile->get_filename()
     ) .
     PHP_EOL .
-    moodle_url::make_pluginfile_url(
+    lion_url::make_pluginfile_url(
         $usersfile->get_contextid(),
         $usersfile->get_component(),
         $usersfile->get_filearea(),

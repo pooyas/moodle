@@ -58,11 +58,11 @@ Feature: Automatic deletion of groups and groupings
     And I should not see "Grouping (with ID)"
 
   @javascript
-  Scenario: Delete groups and groupings with and without ID numbers without the 'moodle/course:changeidnumber' capability
+  Scenario: Delete groups and groupings with and without ID numbers without the 'lion/course:changeidnumber' capability
     Given I log out
     And I log in as "admin"
     And I set the following system permissions of "Teacher" role:
-     | moodle/course:changeidnumber | Prevent |
+     | lion/course:changeidnumber | Prevent |
     And I log out
     And I log in as "teacher1"
     And I follow "Course 1"

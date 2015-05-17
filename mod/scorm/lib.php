@@ -1,23 +1,10 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package   mod_scorm
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage scorm
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** SCORM_TYPE_LOCAL = local */
@@ -516,7 +503,7 @@ function scorm_user_complete($course, $user, $mod, $scorm) {
 }
 
 /**
- * Function to be run periodically according to the moodle cron
+ * Function to be run periodically according to the lion cron
  * This function searches for things that need to be done, such
  * as sending out mail, toggling flags etc ...
  *
@@ -832,7 +819,7 @@ function scorm_reset_userdata($data) {
  * @return array
  */
 function scorm_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -853,7 +840,6 @@ function scorm_get_file_areas($course, $cm, $context) {
 /**
  * File browsing support for SCORM file areas
  *
- * @package  mod_scorm
  * @category files
  * @param file_browser $browser file browser instance
  * @param array $areas file areas
@@ -869,7 +855,7 @@ function scorm_get_file_areas($course, $cm, $context) {
 function scorm_get_file_info($browser, $areas, $course, $cm, $context, $filearea, $itemid, $filepath, $filename) {
     global $CFG;
 
-    if (!has_capability('moodle/course:managefiles', $context)) {
+    if (!has_capability('lion/course:managefiles', $context)) {
         return null;
     }
 
@@ -918,7 +904,6 @@ function scorm_get_file_info($browser, $areas, $course, $cm, $context, $filearea
 /**
  * Serves scorm content, introduction images and packages. Implements needed access control ;-)
  *
- * @package  mod_scorm
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -947,7 +932,7 @@ function scorm_pluginfile($course, $cm, $context, $filearea, $args, $forcedownlo
         // TODO: add any other access restrictions here if needed!
 
     } else if ($filearea === 'package') {
-        if (!has_capability('moodle/course:manageactivities', $context)) {
+        if (!has_capability('lion/course:manageactivities', $context)) {
             return false;
         }
         $relativepath = implode('/', $args);
@@ -1007,7 +992,7 @@ function scorm_supports($feature) {
         case FEATURE_COMPLETION_HAS_RULES:    return true;
         case FEATURE_GRADE_HAS_GRADE:         return true;
         case FEATURE_GRADE_OUTCOMES:          return true;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;

@@ -1,31 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains all the form definitions used by the portfolio code.
  *
- * @package core_portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>,
  *            Martin Dougiamas (http://dougiamas.com)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
-// make sure we include moodleform first!
+// make sure we include lionform first!
 require_once ($CFG->libdir.'/formslib.php');
 
 /**
@@ -35,15 +22,12 @@ require_once ($CFG->libdir.'/formslib.php');
  * Plugins and callers don't get to define their own class
  * as we have to handle form elements from both places
  * See the docs here for more information:
- * http://docs.moodle.org/dev/Writing_a_Portfolio_Plugin#has_export_config
- * http://docs.moodle.org/dev/Adding_a_Portfolio_Button_to_a_page#has_export_config
+ * http://docs.lion.org/dev/Writing_a_Portfolio_Plugin#has_export_config
+ * http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page#has_export_config
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-final class portfolio_export_form extends moodleform {
+final class portfolio_export_form extends lionform {
 
     /**
      * prepare form
@@ -132,14 +116,11 @@ final class portfolio_export_form extends moodleform {
  *
  * This form is extendable by plugins who want the admin to be able to configure more than just the name of the instance.
  * This is NOT done by subclassing this class, see the docs for portfolio_plugin_base for more information:
- * {@link http://docs.moodle.org/dev/Writing_a_Portfolio_Plugin#has_admin_config}
+ * {@link http://docs.lion.org/dev/Writing_a_Portfolio_Plugin#has_admin_config}
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-final class portfolio_admin_form extends moodleform {
+final class portfolio_admin_form extends lionform {
 
     /** @var object to hold porfolio instance configuration */
     protected $instance;
@@ -248,14 +229,11 @@ final class portfolio_admin_form extends moodleform {
  * This is the form for letting the user configure an instance of a plugin.
  * In order to extend this, you don't subclass this in the plugin..
  * see the docs in portfolio_plugin_base for more information:
- * {@link http://docs.moodle.org/dev/Writing_a_Portfolio_Plugin#has_user_config}
+ * {@link http://docs.lion.org/dev/Writing_a_Portfolio_Plugin#has_user_config}
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-final class portfolio_user_form extends moodleform {
+final class portfolio_user_form extends lionform {
 
     /** @var object  user porfolio instance */
     protected $instance;
@@ -302,12 +280,9 @@ final class portfolio_user_form extends moodleform {
  * This is not used by portfolio_add_button, but on the first step of the export,
  * if the plugin instance has not yet been selected.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class portfolio_instance_select extends moodleform {
+class portfolio_instance_select extends lionform {
 
     /** @var portfolio_caller_base plugin instance */
     private $caller;

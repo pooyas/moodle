@@ -11,6 +11,9 @@
 *
 *  Portable MSSQL Driver that supports || instead of +
 *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
 */
 
 // security - hide paths

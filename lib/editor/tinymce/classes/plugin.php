@@ -1,25 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
+
+
+/**
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') || die();
 
 /**
  * TinyMCE text editor plugin base class.
  *
- * This is a base class for TinyMCE plugins implemented within Moodle. These
+ * This is a base class for TinyMCE plugins implemented within Lion. These
  * plugins can optionally provide new buttons/plugins within TinyMCE itself,
  * or configure the TinyMCE options.
  *
@@ -29,9 +23,6 @@ defined('MOODLE_INTERNAL') || die();
  * Finally, a static function in this class is used to call into all the
  * plugins when required.
  *
- * @package editor_tinymce
- * @copyright 2012 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class editor_tinymce_plugin {
     /** @var string Plugin folder */
@@ -333,16 +324,16 @@ abstract class editor_tinymce_plugin {
         // Add plugin to list in params, so it doesn't try to load it again.
         $params['plugins'] .= ',-' . $pluginname;
 
-        // Add special param that causes Moodle TinyMCE init to load the plugin.
-        if (!isset($params['moodle_init_plugins'])) {
-            $params['moodle_init_plugins'] = '';
+        // Add special param that causes Lion TinyMCE init to load the plugin.
+        if (!isset($params['lion_init_plugins'])) {
+            $params['lion_init_plugins'] = '';
         } else {
-            $params['moodle_init_plugins'] .= ',';
+            $params['lion_init_plugins'] .= ',';
         }
 
         // Get URL of main JS file and store in params.
         $jsurl = $this->get_tinymce_file_url($jsfile, false);
-        $params['moodle_init_plugins'] .= $pluginname . ':' . $jsurl;
+        $params['lion_init_plugins'] .= $pluginname . ':' . $jsurl;
     }
 
     /**
@@ -415,8 +406,8 @@ abstract class editor_tinymce_plugin {
 
         // Get list of disabled subplugins.
         $disabled = array();
-        if ($params['moodle_config']->disabledsubplugins) {
-            foreach (explode(',', $params['moodle_config']->disabledsubplugins) as $sp) {
+        if ($params['lion_config']->disabledsubplugins) {
+            foreach (explode(',', $params['lion_config']->disabledsubplugins) as $sp) {
                 $sp = trim($sp);
                 if ($sp !== '') {
                     $disabled[$sp] = $sp;
@@ -447,7 +438,7 @@ abstract class editor_tinymce_plugin {
     /**
      * Gets a named plugin object. Will cause fatal error if plugin doesn't exist.
      *
-     * @param string $plugin Name of plugin e.g. 'moodleemoticon'
+     * @param string $plugin Name of plugin e.g. 'lionemoticon'
      * @return editor_tinymce_plugin Plugin object
      */
     public static function get($plugin) {

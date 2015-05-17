@@ -20,12 +20,13 @@
  *  GNU General Public License for more details.
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  ***************************************************************/
 /**
  * Class for conversion between charsets.
  *
- * @author	Kasper Skårhøj <kasperYYYY@typo3.com>
- * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
  */
 
 
@@ -61,10 +62,6 @@
 /**
  * Class for conversion between charsets
  *
- * @author	Kasper Skårhøj <kasperYYYY@typo3.com>
- * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
- * @package TYPO3
- * @subpackage t3lib
  */
 class t3lib_cs {
 
@@ -518,7 +515,6 @@ class t3lib_cs {
 	 *
 	 * @param	string		Input charset
 	 * @return	string		Normalized charset
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function parse_charset($charset) {
 		$charset = trim(strtolower($charset));
@@ -539,7 +535,6 @@ class t3lib_cs {
 	 *
 	 * @param	string		Locale string
 	 * @return	string		Charset resolved for locale string
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function get_locale_charset($locale) {
 		$locale = strtolower($locale);
@@ -1470,7 +1465,6 @@ class t3lib_cs {
 	 * @param	integer		Length (in characters)
 	 * @return	string		The substring
 	 * @see substr(), mb_substr()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function substr($charset, $string, $start, $len = NULL) {
 		if ($len === 0 || $string === '') {
@@ -1525,7 +1519,6 @@ class t3lib_cs {
 	 * @param	string		Character string
 	 * @return	integer		The number of characters
 	 * @see strlen()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function strlen($charset, $string) {
 		if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['t3lib_cs_utils'] == 'mbstring') {
@@ -1579,7 +1572,6 @@ class t3lib_cs {
 	 * @param	string		Crop signifier
 	 * @return	string		The shortened string
 	 * @see substr(), mb_strimwidth()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function crop($charset, $string, $len, $crop = '') {
 		if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['t3lib_cs_utils'] == 'mbstring') {
@@ -1640,7 +1632,6 @@ class t3lib_cs {
 	 * @param	integer		The byte length
 	 * @return	string		The shortened string
 	 * @see mb_strcut()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function strtrunc($charset, $string, $len) {
 		if ($len <= 0) {
@@ -1677,7 +1668,6 @@ class t3lib_cs {
 	 * @param	string		Input string to convert case for
 	 * @param	string		Case keyword: "toLower" means lowercase conversion, anything else is uppercase (use "toUpper" )
 	 * @return	string		The converted string
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 * @see strtolower(), strtoupper()
 	 */
 	function conv_case($charset, $string, $case) {
@@ -1742,7 +1732,6 @@ class t3lib_cs {
 	 * @param	$languageCodesList	list of language codes. something like 'de,en-us;q=0.9,de-de;q=0.7,es-cl;q=0.6,en;q=0.4,es;q=0.3,zh;q=0.1'
 	 *			 see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4
 	 * @return	string	a preferred language that TYPO3 supports, or "default" if none found
-	 * @author	Benjamin Mack (benni.typo3.org)
 	 */
 	public function getPreferredClientLanguage($languageCodesList) {
 		$allLanguageCodes = array();
@@ -1812,7 +1801,6 @@ class t3lib_cs {
 	 * @param	string		mode: 'case' (case folding) or 'ascii' (ASCII transliteration)
 	 * @param	string		'case': conversion 'toLower' or 'toUpper'
 	 * @return	string		the converted string
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function sb_char_mapping($str, $charset, $mode, $opt = '') {
 		switch ($mode) {
@@ -1863,7 +1851,6 @@ class t3lib_cs {
 	 * @param	integer		Length (in characters)
 	 * @return	string		The substring
 	 * @see substr()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_substr($str, $start, $len = NULL) {
 		if (!strcmp($len, '0')) {
@@ -1904,7 +1891,6 @@ class t3lib_cs {
 	 * @param	string		UTF-8 multibyte character string
 	 * @return	integer		The number of characters
 	 * @see strlen()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_strlen($str) {
 		$n = 0;
@@ -1929,7 +1915,6 @@ class t3lib_cs {
 	 * @param	integer		the byte length
 	 * @return	string		the shortened string
 	 * @see mb_strcut()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_strtrunc($str, $len) {
 		$i = $len - 1;
@@ -1961,7 +1946,6 @@ class t3lib_cs {
 	 * @param	integer		Positition to start the search
 	 * @return	integer		The character position
 	 * @see strpos()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_strpos($haystack, $needle, $offset = 0) {
 		if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['t3lib_cs_utils'] == 'mbstring') {
@@ -1990,7 +1974,6 @@ class t3lib_cs {
 	 * @param	string		UTF-8 character to search for (single character)
 	 * @return	integer		The character position
 	 * @see strrpos()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_strrpos($haystack, $needle) {
 		if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['t3lib_cs_utils'] == 'mbstring') {
@@ -2014,7 +1997,6 @@ class t3lib_cs {
 	 * @param	string		UTF-8 string
 	 * @param	integer		Character position (negative values start from the end)
 	 * @return	integer		Byte position
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_char2byte_pos($str, $pos) {
 		$n = 0; // number of characters found
@@ -2063,7 +2045,6 @@ class t3lib_cs {
 	 * @param	string		UTF-8 string
 	 * @param	integer		byte position
 	 * @return	integer		character position
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_byte2char_pos($str, $pos) {
 		$n = 0; // number of characters
@@ -2092,7 +2073,6 @@ class t3lib_cs {
 	 * @param	string		mode: 'case' (case folding) or 'ascii' (ASCII transliteration)
 	 * @param	string		'case': conversion 'toLower' or 'toUpper'
 	 * @return	string		the converted string
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function utf8_char_mapping($str, $mode, $opt = '') {
 		if (!$this->initUnicodeData($mode)) {
@@ -2158,7 +2138,6 @@ class t3lib_cs {
 	 * @param	string		the charset
 	 * @return	string		the shortened string
 	 * @see mb_strcut()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function euc_strtrunc($str, $len, $charset) {
 		$sjis = ($charset == 'shift_jis');
@@ -2194,7 +2173,6 @@ class t3lib_cs {
 	 * @param	string		the charset
 	 * @param	integer		length (in characters)
 	 * @return	string		the substring
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function euc_substr($str, $start, $charset, $len = NULL) {
 		$byte_start = $this->euc_char2byte_pos($str, $start, $charset);
@@ -2227,7 +2205,6 @@ class t3lib_cs {
 	 * @param	string		the charset
 	 * @return	integer		the number of characters
 	 * @see strlen()
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function euc_strlen($str, $charset) {
 		$sjis = ($charset == 'shift_jis');
@@ -2258,7 +2235,6 @@ class t3lib_cs {
 	 * @param	integer		character position (negative values start from the end)
 	 * @param	string		the charset
 	 * @return	integer		byte position
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function euc_char2byte_pos($str, $pos, $charset) {
 		$sjis = ($charset == 'shift_jis');
@@ -2307,7 +2283,6 @@ class t3lib_cs {
 	 * @param	string		mode: 'case' (case folding) or 'ascii' (ASCII transliteration)
 	 * @param	string		'case': conversion 'toLower' or 'toUpper'
 	 * @return	string		the converted string
-	 * @author	Martin Kutschker <martin.t.kutschker@blackbox.net>
 	 */
 	function euc_char_mapping($str, $charset, $mode, $opt = '') {
 		switch ($mode) {

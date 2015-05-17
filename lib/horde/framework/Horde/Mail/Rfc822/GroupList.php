@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/bsd.
  *
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Container object for a collection of group addresses.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  */
 class Horde_Mail_Rfc822_GroupList extends Horde_Mail_Rfc822_List
 {

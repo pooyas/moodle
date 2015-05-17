@@ -3,6 +3,9 @@
 /**
  * XHTML 1.1 Bi-directional Text Module, defines elements that
  * declare directionality of content. Text Extension Module.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Bdo extends HTMLPurifier_HTMLModule
 {

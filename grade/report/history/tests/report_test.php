@@ -1,35 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Grade history report test.
  *
- * @package    gradereport_history
- * @copyright  2014 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Grade history report test class.
  *
- * @package    gradereport_history
- * @copyright  2014 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gradereport_history_report_testcase extends advanced_testcase {
 
@@ -324,7 +308,7 @@ class gradereport_history_report_testcase extends advanced_testcase {
      * @return mixed Count or array of objects.
      */
     protected function get_tablelog_results($coursecontext, $filters = array(), $count = false) {
-        $table = new gradereport_history_tests_tablelog('something', $coursecontext, new moodle_url(''), $filters);
+        $table = new gradereport_history_tests_tablelog('something', $coursecontext, new lion_url(''), $filters);
         return $table->get_test_results($count);
     }
 

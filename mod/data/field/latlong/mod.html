@@ -16,6 +16,13 @@
         <td class="c1">
           <select class="linkservicesdisplayed" name="param1[]" id="param1" multiple="multiple" size="<?php p(sizeof($this->linkoutservices)); ?>">
             <?php
+
+/**
+ * @package    mod
+ * @subpackage data
+ * @copyright  2015 Pooya Saeedi
+*/
+
             $serviceschosen = explode(',', htmlspecialchars($this->field->param1));
             foreach($this->linkoutservices as $servicename=>$serviceurl) {
               $servicename = htmlspecialchars($servicename);
@@ -32,6 +39,13 @@
             <option value="-1"<?php if($this->field->param2==-1) echo ' selected="selected"' ?>><?php echo get_string('entry', 'data') ?> #</option>
             <option value="-2"<?php if($this->field->param2==-2) echo ' selected="selected"' ?>><?php echo get_string('latitude', 'data').'/'.get_string('longitude', 'data') ?></option>
             <?php
+
+/**
+ * @package    mod
+ * @subpackage data
+ * @copyright  2015 Pooya Saeedi
+*/
+
                 // Fetch all "suitable" other fields that exist for this database
                 $textfields = $DB->get_records('data_fields', array('dataid'=>$this->data->id, 'type'=>'text'));
                 if(sizeof($textfields)>0) {

@@ -2,10 +2,10 @@
 /**
  * Library functions for mnet
  *
- * @author  Donal McMullan  donal@catalyst.net.nz
  * @version 0.0.1
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mnet
+ * @package    core
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
  */
 require_once $CFG->dirroot.'/mnet/xmlrpc/xmlparser.php';
 require_once $CFG->dirroot.'/mnet/peer.php';
@@ -53,7 +53,7 @@ function mnet_get_public_key($uri, $application=null) {
     }
 
     if (empty($application)) {
-        $application = $DB->get_record('mnet_application', array('name'=>'moodle'));
+        $application = $DB->get_record('mnet_application', array('name'=>'lion'));
     }
 
     $rq = xmlrpc_encode_request('system/keyswap', array($CFG->wwwroot, $mnet->public_key, $application->name), array("encoding" => "utf-8"));
@@ -62,7 +62,7 @@ function mnet_get_public_key($uri, $application=null) {
     curl_setopt($ch, CURLOPT_TIMEOUT, 60);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_USERAGENT, 'Moodle');
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Lion');
     curl_setopt($ch, CURLOPT_POSTFIELDS, $rq);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml charset=UTF-8"));
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -204,7 +204,7 @@ function mnet_sign_message($message, $privatekey = null) {
 
     $message = '<?xml version="1.0" encoding="iso-8859-1"?>
     <signedMessage>
-        <Signature Id="MoodleSignature" xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <Signature Id="LionSignature" xmlns="http://www.w3.org/2000/09/xmldsig#">
             <SignedInfo>
                 <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
                 <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
@@ -376,7 +376,7 @@ function mnet_generate_keypair($dn = null, $days=28) {
            "stateOrProvinceName" => $province,
            "localityName" => $locality,
            "organizationName" => $organization,
-           "organizationalUnitName" => 'Moodle',
+           "organizationalUnitName" => 'Lion',
            "commonName" => substr($CFG->wwwroot, 0, 64),
            "subjectAltName" => $CFG->wwwroot,
            "emailAddress" => $email
@@ -498,14 +498,14 @@ function mnet_get_peer_host ($mnethostid) {
  * before ultimately being directed to the original url.
  *
  * @param string $jumpurl the url which user should initially be directed to.
- *     This is a URL associated with a moodle networking peer when it
+ *     This is a URL associated with a lion networking peer when it
  *     is fulfiling a role as an identity provider (IDP). Different urls for
  *     different peers, the jumpurl is formed partly from the IDP's webroot, and
  *     partly from a predefined local path within that webwroot.
  *     The result of the user hitting this jump url is that they will be asked
  *     to login (at their identity provider (if they aren't already)), mnet
  *     will prepare the necessary authentication information, then redirect
- *     them back to somewhere at the content provider(CP) moodle (this moodle)
+ *     them back to somewhere at the content provider(CP) lion (this lion)
  * @param array $url array with 2 elements
  *     0 - context the url was taken from, possibly just the url, possibly href="url"
  *     1 - the destination url
@@ -520,7 +520,7 @@ function mnet_sso_apply_indirection ($jumpurl, $url) {
         if (isset($urlparts['path'])) {
             $path = $urlparts['path'];
             // if our wwwroot has a path component, need to strip that path from beginning of the
-            // 'localpart' to make it relative to moodle's wwwroot
+            // 'localpart' to make it relative to lion's wwwroot
             $wwwrootpath = parse_url($CFG->wwwroot, PHP_URL_PATH);
             if (!empty($wwwrootpath) and strpos($path, $wwwrootpath) === 0) {
                 $path = substr($path, strlen($wwwrootpath));
@@ -590,7 +590,7 @@ function mnet_debug($debugdata, $debuglevel=1) {
 }
 
 /**
- * Return an array of information about all moodle's profile fields
+ * Return an array of information about all lion's profile fields
  * which ones are optional, which ones are forced.
  * This is used as the basis of providing lists of profile fields to the administrator
  * to pick which fields to import/export over MNET
@@ -877,7 +877,7 @@ function mnet_fields_to_import(mnet_peer $peer) {
  */
 function _mnet_field_helper(mnet_peer $peer, $key) {
     $tmp = mnet_profile_field_options();
-    $defaults = explode(',', get_config('moodle', 'mnetprofile' . $key . 'fields'));
+    $defaults = explode(',', get_config('lion', 'mnetprofile' . $key . 'fields'));
     if ('1' === get_config('mnet', 'host' . $peer->id . $key . 'default')) {
         return array_merge($tmp['forced'], $defaults);
     }

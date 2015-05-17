@@ -27,6 +27,9 @@
  *
  * @todo Enable nodes to be bubbled out of the structure.  This is
  *       easier with our new algorithm.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy

@@ -6,20 +6,16 @@
  * did not receive this file, see http://www.horde.org/licenses/bsd.
  *
  * @category  Horde
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd BSD
- * @package   Stream_Wrapper
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * A stream wrapper that will combine multiple strings/streams into a single
  * stream.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2009-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd BSD
- * @package   Stream_Wrapper
  */
 class Horde_Stream_Wrapper_Combine
 {
@@ -78,7 +74,6 @@ class Horde_Stream_Wrapper_Combine
     /**
      * Create a stream from multiple data sources.
      *
-     * @since 2.1.0
      *
      * @param array $data  An array of strings and/or streams to combine into
      *                     a single stream.

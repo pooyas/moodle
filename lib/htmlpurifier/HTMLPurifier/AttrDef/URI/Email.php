@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 abstract class HTMLPurifier_AttrDef_URI_Email extends HTMLPurifier_AttrDef
 {
 

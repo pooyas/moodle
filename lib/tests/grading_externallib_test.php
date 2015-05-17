@@ -1,20 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
+
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 
@@ -23,10 +17,7 @@ require_once($CFG->dirroot . '/webservice/tests/helpers.php');
 /**
  * Unit tests for the grading API defined in core_grading_external class.
  *
- * @package core_grading
  * @category external
- * @copyright 2013 Paul Charsley
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_grading_externallib_testcase extends externallib_advanced_testcase {
 
@@ -41,7 +32,7 @@ class core_grading_externallib_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse';
         $coursedata['fullname'] = 'Lightwork Course';
         $coursedata['summary'] = 'Lightwork Course description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course = self::getDataGenerator()->create_course($coursedata);
 
         $assigndata['course'] = $course->id;
@@ -57,7 +48,7 @@ class core_grading_externallib_testcase extends externallib_advanced_testcase {
 
         // Create a teacher and give them capabilities.
         $coursecontext = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $coursecontext->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $coursecontext->id, 3);
         $modulecontext = context_module::instance($cm->cmid);
         $this->assignUserCapability('mod/assign:grade', $modulecontext->id, $roleid);
 
@@ -185,7 +176,7 @@ class core_grading_externallib_testcase extends externallib_advanced_testcase {
         $coursedata['idnumber'] = 'idnumbercourse';
         $coursedata['fullname'] = 'Lightwork Course';
         $coursedata['summary'] = 'Lightwork Course description';
-        $coursedata['summaryformat'] = FORMAT_MOODLE;
+        $coursedata['summaryformat'] = FORMAT_LION;
         $course = self::getDataGenerator()->create_course($coursedata);
 
         $assigndata['course'] = $course->id;
@@ -201,7 +192,7 @@ class core_grading_externallib_testcase extends externallib_advanced_testcase {
 
         // Create a teacher and give them capabilities.
         $coursecontext = context_course::instance($course->id);
-        $roleid = $this->assignUserCapability('moodle/course:viewparticipants', $coursecontext->id, 3);
+        $roleid = $this->assignUserCapability('lion/course:viewparticipants', $coursecontext->id, 3);
         $modulecontext = context_module::instance($assign->cmid);
         $this->assignUserCapability('mod/assign:grade', $modulecontext->id, $roleid);
 
@@ -322,7 +313,7 @@ class core_grading_externallib_testcase extends externallib_advanced_testcase {
         $teacher = self::getDataGenerator()->create_user();
         $USER->id = $teacher->id;
         $teacherrole = $DB->get_record('role', array('shortname' => 'editingteacher'));
-        $this->assignUserCapability('moodle/grade:managegradingforms', $context->id, $teacherrole->id);
+        $this->assignUserCapability('lion/grade:managegradingforms', $context->id, $teacherrole->id);
         $this->getDataGenerator()->enrol_user($teacher->id,
                                               $course->id,
                                               $teacherrole->id);
@@ -536,7 +527,7 @@ class core_grading_externallib_testcase extends externallib_advanced_testcase {
         $this->assertEquals(2, $DB->count_records('gradingform_rubric_levels', array('criterionid' => $criterion1->id)));
 
         $gradingarea['activemethod'] = 'invalid';
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $results = core_grading_external::save_definitions(array($gradingarea));
     }
 
@@ -561,7 +552,7 @@ class core_grading_externallib_testcase extends externallib_advanced_testcase {
         $teacher = self::getDataGenerator()->create_user();
         $USER->id = $teacher->id;
         $teacherrole = $DB->get_record('role', array('shortname' => 'editingteacher'));
-        $this->assignUserCapability('moodle/grade:managegradingforms', $context->id, $teacherrole->id);
+        $this->assignUserCapability('lion/grade:managegradingforms', $context->id, $teacherrole->id);
         $this->getDataGenerator()->enrol_user($teacher->id,
                                               $course->id,
                                               $teacherrole->id);

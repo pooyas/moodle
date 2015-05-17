@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Action for adding a question page.  Prints an HTML form.
  *
- * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
 require_once("../../config.php");
@@ -60,7 +47,7 @@ $editoroptions = array('noclean'=>true, 'maxfiles'=>EDITOR_UNLIMITED_FILES, 'max
 // If the previous page was the Question type selection form, this form
 // will have a different name (e.g. _qf__lesson_add_page_form_selection
 // versus _qf__lesson_add_page_form_multichoice). This causes confusion
-// in moodleform::_process_submission because the array key check doesn't
+// in lionform::_process_submission because the array key check doesn't
 // tie up with the current form name, which in turn means the "submitted"
 // check ends up evaluating as false, thus it's not possible to check whether
 // the Question type selection was cancelled. For this reason, a dummy form
@@ -93,7 +80,7 @@ if ($edit) {
         $answereditor = 'answer_editor['.$answerscount.']';
         if (is_array($data->$answereditor)) {
             $answerdata = $data->$answereditor;
-            if ($answerdata['format'] != FORMAT_MOODLE) {
+            if ($answerdata['format'] != FORMAT_LION) {
                 $answerdata = $data->$answereditor;
                 $answerdraftid = file_get_submitted_draft_itemid($answereditor);
                 $answertext = file_prepare_draft_area($answerdraftid, $PAGE->cm->context->id,
@@ -107,7 +94,7 @@ if ($edit) {
         $responseeditor = 'response_editor['.$answerscount.']';
         if (is_array($data->$responseeditor)) {
             $responsedata = $data->$responseeditor;
-            if ($responsedata['format'] != FORMAT_MOODLE) {
+            if ($responsedata['format'] != FORMAT_LION) {
                 $responsedraftid = file_get_submitted_draft_itemid($responseeditor);
                 $responsetext = file_prepare_draft_area($responsedraftid, $PAGE->cm->context->id,
                         'mod_lesson', 'page_responses', $answer->id, $editoroptions, $responsedata['text']);
@@ -121,7 +108,7 @@ if ($edit) {
     }
 
     $mform->set_data($data);
-    $PAGE->navbar->add(get_string('edit'), new moodle_url('/mod/lesson/edit.php', array('id'=>$id)));
+    $PAGE->navbar->add(get_string('edit'), new lion_url('/mod/lesson/edit.php', array('id'=>$id)));
     $PAGE->navbar->add(get_string('editingquestionpage', 'lesson', get_string($mform->qtypestring, 'lesson')));
 } else {
     // Give the page type being created a chance to override the creation process
@@ -155,7 +142,7 @@ if ($data = $mform->get_data()) {
     } else {
         $editpage = lesson_page::create($data, $lesson, $context, $PAGE->course->maxbytes);
     }
-    redirect(new moodle_url('/mod/lesson/edit.php', array('id'=>$cm->id)));
+    redirect(new lion_url('/mod/lesson/edit.php', array('id'=>$cm->id)));
 }
 
 $lessonoutput = $PAGE->get_renderer('mod_lesson');

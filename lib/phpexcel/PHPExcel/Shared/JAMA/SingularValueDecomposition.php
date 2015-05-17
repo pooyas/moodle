@@ -1,6 +1,5 @@
 <?php
 /**
- *	@package JAMA
  *
  *	For an m-by-n matrix A with m >= n, the singular value decomposition is
  *	an m-by-n orthogonal matrix U, an n-by-n diagonal matrix S, and
@@ -13,9 +12,10 @@
  *	never fail.  The matrix condition number and the effective numerical
  *	rank can be computed from this decomposition.
  *
- *	@author  Paul Meagher
- *	@license PHP v3.0
  *	@version 1.1
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class SingularValueDecomposition  {
 

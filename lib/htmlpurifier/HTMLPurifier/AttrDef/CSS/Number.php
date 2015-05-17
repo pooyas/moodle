@@ -2,6 +2,9 @@
 
 /**
  * Validates a number as defined by the CSS spec.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_Number extends HTMLPurifier_AttrDef
 {

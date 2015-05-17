@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Displays the lesson statistics.
  *
- * @package mod_lesson
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
 require_once('../../config.php');
@@ -64,7 +51,7 @@ if ($attempts = $DB->record_exists('lesson_attempts', array('lessonid' => $lesso
     $nothingtodisplay = true;
 }
 
-$url = new moodle_url('/mod/lesson/report.php', array('id'=>$id));
+$url = new lion_url('/mod/lesson/report.php', array('id'=>$id));
 $url->param('action', $action);
 if ($pageid !== null) {
     $url->param('pageid', $pageid);
@@ -157,7 +144,7 @@ if ($action === 'delete') {
             }
         }
     }
-    redirect(new moodle_url($PAGE->url, array('action'=>'reportoverview')));
+    redirect(new lion_url($PAGE->url, array('action'=>'reportoverview')));
 
 } else if ($action === 'reportoverview') {
     /**************************************************************************
@@ -167,8 +154,8 @@ if ($action === 'delete') {
     groups_print_activity_menu($cm, $url);
 
     $course_context = context_course::instance($course->id);
-    if (has_capability('gradereport/grader:view', $course_context) && has_capability('moodle/grade:viewall', $course_context)) {
-        $seeallgradeslink = new moodle_url('/grade/report/grader/index.php', array('id'=>$course->id));
+    if (has_capability('gradereport/grader:view', $course_context) && has_capability('lion/grade:viewall', $course_context)) {
+        $seeallgradeslink = new lion_url('/grade/report/grader/index.php', array('id'=>$course->id));
         $seeallgradeslink = html_writer::link($seeallgradeslink, get_string('seeallcoursegrades', 'grades'));
         echo $OUTPUT->box($seeallgradeslink, 'allcoursegrades');
     }
@@ -323,7 +310,7 @@ if ($action === 'delete') {
         $checklinks .= '<a href="javascript: checknone();">'.get_string('deselectall').'</a>';
         $checklinks .= html_writer::label('action', 'menuaction', false, array('class' => 'accesshide'));
         $checklinks .= html_writer::select(array('delete' => get_string('deleteselected')), 'action', 0, array(''=>'choosedots'), array('id'=>'actionid', 'class' => 'autosubmit'));
-        $PAGE->requires->yui_module('moodle-core-formautosubmit',
+        $PAGE->requires->yui_module('lion-core-formautosubmit',
             'M.core.init_formautosubmit',
             array(array('selectid' => 'actionid', 'nothing' => false))
         );
@@ -397,8 +384,8 @@ if ($action === 'delete') {
     groups_print_activity_menu($cm, $url);
 
     $course_context = context_course::instance($course->id);
-    if (has_capability('gradereport/grader:view', $course_context) && has_capability('moodle/grade:viewall', $course_context)) {
-        $seeallgradeslink = new moodle_url('/grade/report/grader/index.php', array('id'=>$course->id));
+    if (has_capability('gradereport/grader:view', $course_context) && has_capability('lion/grade:viewall', $course_context)) {
+        $seeallgradeslink = new lion_url('/grade/report/grader/index.php', array('id'=>$course->id));
         $seeallgradeslink = html_writer::link($seeallgradeslink, get_string('seeallcoursegrades', 'grades'));
         echo $OUTPUT->box($seeallgradeslink, 'allcoursegrades');
     }

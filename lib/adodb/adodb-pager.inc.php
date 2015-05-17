@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /*
 	V5.19  23-Apr-2014  (c) 2000-2014 John Lim (jlim#natsoft.com). All rights reserved.
 	  Released under both BSD license and Lesser GPL library license.
@@ -87,6 +94,13 @@ class ADODB_Pager {
 	?>
 		<a href="<?php echo $PHP_SELF,'?',$this->id;?>_next_page=1"><?php echo $this->first;?></a> &nbsp;
 	<?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 		} else {
 			print "$this->first &nbsp; ";
 		}
@@ -102,6 +116,13 @@ class ADODB_Pager {
 		?>
 		<a href="<?php echo $PHP_SELF,'?',$this->id,'_next_page=',$this->rs->AbsolutePage() + 1 ?>"><?php echo $this->next;?></a> &nbsp;
 		<?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 		} else {
 			print "$this->next &nbsp; ";
 		}
@@ -123,6 +144,13 @@ class ADODB_Pager {
 		?>
 			<a href="<?php echo $PHP_SELF,'?',$this->id,'_next_page=',$this->rs->LastPageNo() ?>"><?php echo $this->last;?></a> &nbsp;
 		<?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 		} else {
 			print "$this->last &nbsp; ";
 		}
@@ -172,6 +200,13 @@ class ADODB_Pager {
 	?>
 		<a href="<?php echo $PHP_SELF,'?',$this->id,'_next_page=',$this->rs->AbsolutePage() - 1 ?>"><?php echo $this->prev;?></a> &nbsp;
 	<?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 		} else {
 			print "$this->prev &nbsp; ";
 		}

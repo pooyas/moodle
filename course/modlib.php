@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library of functions specific to course/modedit.php and course API functions.
@@ -20,12 +7,12 @@
  * This file has been created has an alternative solution to a full refactor of course/modedit.php
  * in order to create the course API functions.
  *
- * @copyright 2013 Jerome Mouneyrac
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core_course
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once($CFG->dirroot.'/course/lib.php');
 
@@ -119,7 +106,7 @@ function add_moduleinfo($moduleinfo, $course, $mform = null) {
     $addinstancefunction    = $moduleinfo->modulename."_add_instance";
     try {
         $returnfromfunc = $addinstancefunction($moduleinfo, $mform);
-    } catch (moodle_exception $e) {
+    } catch (lion_exception $e) {
         $returnfromfunc = $e;
     }
     if (!$returnfromfunc or !is_number($returnfromfunc)) {
@@ -129,7 +116,7 @@ function add_moduleinfo($moduleinfo, $course, $mform = null) {
         context_helper::delete_instance(CONTEXT_MODULE, $moduleinfo->coursemodule);
         $DB->delete_records('course_modules', array('id'=>$moduleinfo->coursemodule));
 
-        if ($e instanceof moodle_exception) {
+        if ($e instanceof lion_exception) {
             throw $e;
         } else if (!is_number($returnfromfunc)) {
             print_error('invalidfunction', '', course_get_url($course, $moduleinfo->section));
@@ -173,7 +160,7 @@ function add_moduleinfo($moduleinfo, $course, $mform = null) {
 /**
  * Common create/update module module actions that need to be processed as soon as a module is created/updaded.
  * For example:create grade parent category, add outcomes, rebuild caches, regrade, save plagiarism settings...
- * Please note this api does not trigger events as of MOODLE 2.6. Please trigger events before calling this api.
+ * Please note this api does not trigger events as of LION 2.6. Please trigger events before calling this api.
  *
  * @param object $moduleinfo the module info
  * @param object $course the course of the module
@@ -308,7 +295,7 @@ function edit_module_post_actions($moduleinfo, $course) {
     }
 
     if (plugin_supports('mod', $moduleinfo->modulename, FEATURE_ADVANCED_GRADING, false)
-            and has_capability('moodle/grade:managegradingforms', $modcontext)) {
+            and has_capability('lion/grade:managegradingforms', $modcontext)) {
         require_once($CFG->dirroot.'/grade/grading/lib.php');
         $gradingman = get_grading_manager($modcontext, 'mod_'.$moduleinfo->modulename);
         $showgradingmanagement = false;
@@ -405,7 +392,7 @@ function set_moduleinfo_defaults($moduleinfo) {
  * @param object $modulename the module name
  * @param object $section the section of the module
  * @return array list containing module, context, course section.
- * @throws moodle_exception if user is not allowed to perform the action or module is not allowed in this course
+ * @throws lion_exception if user is not allowed to perform the action or module is not allowed in this course
  */
 function can_add_moduleinfo($course, $modulename, $section) {
     global $DB;
@@ -413,7 +400,7 @@ function can_add_moduleinfo($course, $modulename, $section) {
     $module = $DB->get_record('modules', array('name'=>$modulename), '*', MUST_EXIST);
 
     $context = context_course::instance($course->id);
-    require_capability('moodle/course:manageactivities', $context);
+    require_capability('lion/course:manageactivities', $context);
 
     course_create_sections_if_missing($course, $section);
     $cw = get_fast_modinfo($course)->get_section_info($section);
@@ -430,14 +417,14 @@ function can_add_moduleinfo($course, $modulename, $section) {
  *
  * @param object $cm course module
  * @return array - list of course module, context, module, moduleinfo, and course section.
- * @throws moodle_exception if user is not allowed to perform the action
+ * @throws lion_exception if user is not allowed to perform the action
  */
 function can_update_moduleinfo($cm) {
     global $DB;
 
     // Check the $USER has the right capability.
     $context = context_module::instance($cm->id);
-    require_capability('moodle/course:manageactivities', $context);
+    require_capability('lion/course:manageactivities', $context);
 
     // Check module exists.
     $module = $DB->get_record('modules', array('id'=>$cm->module), '*', MUST_EXIST);
@@ -542,7 +529,7 @@ function update_moduleinfo($cm, $moduleinfo, $course, $mform = null) {
     }
 
     // Make sure visibility is set correctly (in particular in calendar).
-    if (has_capability('moodle/course:activityvisibility', $modcontext)) {
+    if (has_capability('lion/course:activityvisibility', $modcontext)) {
         set_coursemodule_visible($moduleinfo->coursemodule, $moduleinfo->visible);
     }
 
@@ -568,7 +555,7 @@ function update_moduleinfo($cm, $moduleinfo, $course, $mform = null) {
  * Include once the module lib file.
  *
  * @param string $modulename module name of the lib to include
- * @throws moodle_exception if lib.php file for the module does not exist
+ * @throws lion_exception if lib.php file for the module does not exist
  */
 function include_modulelib($modulename) {
     global $CFG;
@@ -576,7 +563,7 @@ function include_modulelib($modulename) {
     if (file_exists($modlib)) {
         include_once($modlib);
     } else {
-        throw new moodle_exception('modulemissingcode', '', '', $modlib);
+        throw new lion_exception('modulemissingcode', '', '', $modlib);
     }
 }
 

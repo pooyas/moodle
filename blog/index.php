@@ -1,23 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * file index.php
  * index page to view blogs. if no blog is specified then site wide entries are shown
  * if a blog id is specified then the latest entries from that blog are shown
+ * @package    core
+ * @subpackage blog
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(__FILE__)).'/config.php');
@@ -99,7 +89,7 @@ if (!empty($groupid) && empty($courseid)) {
 }
 
 
-if (!$userid && has_capability('moodle/blog:view', $sitecontext) && $CFG->bloglevel > BLOG_USER_LEVEL) {
+if (!$userid && has_capability('lion/blog:view', $sitecontext) && $CFG->bloglevel > BLOG_USER_LEVEL) {
     if ($entryid) {
         if (!$entryobject = $DB->get_record('post', array('id'=>$entryid))) {
             print_error('nosuchentry', 'blog');
@@ -124,7 +114,7 @@ if ((empty($courseid) ? true : $courseid == SITEID) && empty($userid)) {
     if ($CFG->bloglevel < BLOG_SITE_LEVEL) {
         print_error('siteblogdisable', 'blog');
     }
-    if (!has_capability('moodle/blog:view', $sitecontext)) {
+    if (!has_capability('lion/blog:view', $sitecontext)) {
         print_error('cannotviewsiteblog', 'blog');
     }
 
@@ -140,7 +130,7 @@ if (!empty($courseid)) {
     $courseid = $course->id;
     require_login($course);
 
-    if (!has_capability('moodle/blog:view', $sitecontext)) {
+    if (!has_capability('lion/blog:view', $sitecontext)) {
         print_error('cannotviewcourseblog', 'blog');
     }
 } else {
@@ -164,11 +154,11 @@ if (!empty($groupid)) {
     $courseid = $course->id;
     require_login($course);
 
-    if (!has_capability('moodle/blog:view', $sitecontext)) {
+    if (!has_capability('lion/blog:view', $sitecontext)) {
         print_error(get_string('cannotviewcourseorgroupblog', 'blog'));
     }
 
-    if (groups_get_course_groupmode($course) == SEPARATEGROUPS && !has_capability('moodle/site:accessallgroups', $coursecontext)) {
+    if (groups_get_course_groupmode($course) == SEPARATEGROUPS && !has_capability('lion/site:accessallgroups', $coursecontext)) {
         if (!groups_is_member($groupid)) {
             print_error('notmemberofgroup');
         }
@@ -192,12 +182,12 @@ if (!empty($userid)) {
     }
 
     if ($USER->id == $userid) {
-        if (!has_capability('moodle/blog:create', $sitecontext)
-          && !has_capability('moodle/blog:view', $sitecontext)) {
+        if (!has_capability('lion/blog:create', $sitecontext)
+          && !has_capability('lion/blog:view', $sitecontext)) {
             print_error('donothaveblog', 'blog');
         }
     } else {
-        if (!has_capability('moodle/blog:view', $sitecontext) || !blog_user_can_view_user_entry($userid)) {
+        if (!has_capability('lion/blog:view', $sitecontext) || !blog_user_can_view_user_entry($userid)) {
             print_error('cannotviewcourseblog', 'blog');
         }
 
@@ -221,7 +211,7 @@ if ($CFG->enablerssfeeds) {
     $rsstitle = $blogheaders['heading'];
 
     // Check we haven't started output by outputting an error message.
-    if ($PAGE->state == moodle_page::STATE_BEFORE_HEADER) {
+    if ($PAGE->state == lion_page::STATE_BEFORE_HEADER) {
         blog_rss_add_http_header($rsscontext, $rsstitle, $filtertype, $thingid, $tagid);
     }
 }

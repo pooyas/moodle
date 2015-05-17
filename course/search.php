@@ -1,24 +1,11 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Displays external information about a course
- * @package    core_course
- * @copyright  1999 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../config.php");
@@ -33,7 +20,7 @@ $modulelist= optional_param('modulelist', '', PARAM_PLUGIN);
 $tagid     = optional_param('tagid', '', PARAM_INT);   // searches for courses tagged with this tag id
 
 // List of minimum capabilities which user need to have for editing/moving course
-$capabilities = array('moodle/course:create', 'moodle/category:manage');
+$capabilities = array('lion/course:create', 'lion/category:manage');
 
 // Populate usercatlist with list of category id's with course:create and category:manage capabilities.
 $usercatlist = coursecat::make_categories_list($capabilities);
@@ -72,8 +59,8 @@ $strsearch = new lang_string("search");
 $strsearchresults = new lang_string("searchresults");
 $strnovalidcourses = new lang_string('novalidcourses');
 
-$PAGE->navbar->add($strcourses, new moodle_url('/course/index.php'));
-$PAGE->navbar->add($strsearch, new moodle_url('/course/search.php'));
+$PAGE->navbar->add($strcourses, new lion_url('/course/index.php'));
+$PAGE->navbar->add($strsearch, new lion_url('/course/search.php'));
 if (!empty($search)) {
     $PAGE->navbar->add(s($search));
 }
@@ -86,7 +73,7 @@ if (empty($searchcriteria)) {
     $PAGE->set_title("$site->fullname : $strsearchresults");
     // Link to manage search results should be visible if user have system or category level capability
     if ((can_edit_in_category() || !empty($usercatlist))) {
-        $aurl = new moodle_url('/course/management.php', $searchcriteria);
+        $aurl = new lion_url('/course/management.php', $searchcriteria);
         $searchform = $OUTPUT->single_button($aurl, get_string('managecourses'), 'get');
     } else {
         $searchform = $courserenderer->course_search_form($search, 'navbar');

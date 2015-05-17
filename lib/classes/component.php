@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Components (core subsystems + plugins) related code.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Constants used in version.php files, these must exist when core_component executes.
 
@@ -378,7 +365,7 @@ $cache = '.var_export($cache, true).';
             'message'     => $CFG->dirroot.'/message',
             'mimetypes'   => null,
             'mnet'        => $CFG->dirroot.'/mnet',
-            //'moodle.org'  => null, // Not used any more.
+            //'lion.org'  => null, // Not used any more.
             'my'          => $CFG->dirroot.'/my',
             'notes'       => $CFG->dirroot.'/notes',
             'pagetype'    => null,
@@ -973,7 +960,7 @@ $cache = '.var_export($cache, true).';
      * @return array as (string)$type => (string)$plugin
      */
     public static function normalize_component($component) {
-        if ($component === 'moodle' or $component === 'core' or $component === '') {
+        if ($component === 'lion' or $component === 'core' or $component === '') {
             return array('core', null);
         }
 
@@ -990,7 +977,7 @@ $cache = '.var_export($cache, true).';
 
         } else {
             list($type, $plugin) = explode('_', $component, 2);
-            if ($type === 'moodle') {
+            if ($type === 'lion') {
                 $type = 'core';
             }
             // Any unknown type must be a subplugin.
@@ -1002,7 +989,7 @@ $cache = '.var_export($cache, true).';
     /**
      * Return exact absolute path to a plugin directory.
      *
-     * @param string $component name such as 'moodle', 'mod_forum'
+     * @param string $component name such as 'lion', 'mod_forum'
      * @return string full path to component directory; NULL if not found
      */
     public static function get_component_directory($component) {

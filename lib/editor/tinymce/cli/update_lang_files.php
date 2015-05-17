@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This script imports TinyMCE lang strings into Moodle English lang pack.
+ * This script imports TinyMCE lang strings into Lion English lang pack.
  *
- * @package    editor_tinymce
- * @copyright  2009 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('CLI_SCRIPT', true);
@@ -61,36 +48,23 @@ if (!$handle = fopen("$CFG->dirroot/lib/editor/tinymce/lang/en/editor_tinymce.ph
 
 $header = <<<EOT
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Strings for component 'editor_tinymce', language 'en'.
  *
  * Note: use editor/tinymce/extra/tools/update_lang_files.php script to import strings from upstream JS lang files.
  *
- * @package    editor_tinymce
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
 EOT;
 
 fwrite($handle, $header);
 
-fwrite($handle, "\n\n//== Custom Moodle strings that are not part of upstream TinyMCE ==\n");
+fwrite($handle, "\n\n//== Custom Lion strings that are not part of upstream TinyMCE ==\n");
 foreach ($old_strings as $key=>$value) {
     fwrite($handle, editor_tinymce_encode_stringline($key, $value));
 }

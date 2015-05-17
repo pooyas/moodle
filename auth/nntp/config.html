@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // set to defaults if undefined
 if (!isset($config->host)) {
     $config->host = "127.0.0.1";
@@ -20,6 +27,13 @@ if (!isset($config->changepasswordurl)) {
         <input name="host" id="host" type="text" size="30" value="<?php echo $config->host ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err["host"])) {
             echo $OUTPUT->error_text($err["host"]);
         }
@@ -28,6 +42,13 @@ if (!isset($config->changepasswordurl)) {
     </td>
     <td>
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi
+*/
 
         print_string("auth_nntphost", "auth_nntp");
         print_string("auth_multiplehosts", "auth");
@@ -41,6 +62,13 @@ if (!isset($config->changepasswordurl)) {
     <td>
         <input name="port" id="port" type="text" size="6" value="<?php echo $config->port ?>" />
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi
+*/
 
         if (isset($err["port"])) {
             echo $OUTPUT->error_text($err["port"]);
@@ -57,6 +85,13 @@ if (!isset($config->changepasswordurl)) {
         <input name="changepasswordurl" id="changepasswordurl" type="text" value="<?php echo $config->changepasswordurl ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['changepasswordurl'])) {
             echo $OUTPUT->error_text($err['changepasswordurl']);
         }
@@ -67,6 +102,13 @@ if (!isset($config->changepasswordurl)) {
 </tr>
 
 <?php
+
+
+/**
+ * @package    auth
+ * @subpackage nntp
+ * @copyright  2015 Pooya Saeedi
+*/
 
 print_auth_lock_options($this->authtype, $user_fields, get_string('auth_fieldlocks_help', 'auth'), false, false);
 

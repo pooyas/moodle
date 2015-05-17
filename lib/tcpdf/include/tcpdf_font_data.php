@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_font_data.php
 // Version     : 1.0.001
@@ -34,16 +41,12 @@
 /**
  * @file
  * Unicode data and encoding maps for TCPDF.
- * @author Nicola Asuni
- * @package com.tecnick.tcpdf
  */
 
 /**
  * @class TCPDF_FONT_DATA
  * Unicode data and encoding maps for TCPDF.
- * @package com.tecnick.tcpdf
  * @version 1.0.001
- * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_FONT_DATA {
 

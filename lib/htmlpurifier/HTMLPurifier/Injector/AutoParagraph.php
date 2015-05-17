@@ -5,6 +5,9 @@
  * double-spacing.
  * @todo Ensure all states are unit tested, including variations as well.
  * @todo Make a graph of the flow control for this Injector.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Injector_AutoParagraph extends HTMLPurifier_Injector
 {

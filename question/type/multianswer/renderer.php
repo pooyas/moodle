@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Multianswer question renderer classes.
  * Handle shortanswer, numerical and various multichoice subquestions
  *
- * @package    qtype
+ * @package    question_type
  * @subpackage multianswer
- * @copyright  2010 Pierre Pichet
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -35,8 +21,6 @@ require_once($CFG->dirroot . '/question/type/shortanswer/renderer.php');
  * the task of display their input elements and status
  * feedback, grade, correct answer(s)
  *
- * @copyright 2010 Pierre Pichet
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_multianswer_renderer extends qtype_renderer {
 
@@ -108,8 +92,6 @@ class qtype_multianswer_renderer extends qtype_renderer {
  * Subclass for generating the bits of output specific to shortanswer
  * subquestions.
  *
- * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
 
@@ -171,8 +153,6 @@ abstract class qtype_multianswer_subq_renderer_base extends qtype_renderer {
  * Subclass for generating the bits of output specific to shortanswer
  * subquestions.
  *
- * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_multianswer_textfield_renderer extends qtype_multianswer_subq_renderer_base {
 
@@ -252,8 +232,6 @@ class qtype_multianswer_textfield_renderer extends qtype_multianswer_subq_render
 /**
  * Render an embedded multiple-choice question that is displayed as a select menu.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_multianswer_multichoice_inline_renderer
         extends qtype_multianswer_subq_renderer_base {
@@ -321,8 +299,6 @@ class qtype_multianswer_multichoice_inline_renderer
  * Render an embedded multiple-choice question vertically, like for a normal
  * multiple-choice question.
  *
- * @copyright  2010 Pierre Pichet
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_multianswer_multichoice_vertical_renderer extends qtype_multianswer_subq_renderer_base {
 
@@ -446,8 +422,6 @@ class qtype_multianswer_multichoice_vertical_renderer extends qtype_multianswer_
  * Render an embedded multiple-choice question vertically, like for a normal
  * multiple-choice question.
  *
- * @copyright  2010 Pierre Pichet
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_multianswer_multichoice_horizontal_renderer
         extends qtype_multianswer_multichoice_vertical_renderer {

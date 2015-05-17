@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // does not support network paths
 
 class HTMLPurifier_URIFilter_MakeAbsolute extends HTMLPurifier_URIFilter

@@ -1,5 +1,5 @@
 {
-  "moodle-core-lockscroll": {
+  "lion-core-lockscroll": {
     "requires": [
         "plugin",
         "base-build"

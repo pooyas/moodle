@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * prints an analysed excel-spreadsheet of the feedback
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -31,7 +18,7 @@ feedback_load_feedback_items();
 $id = required_param('id', PARAM_INT);  //the POST dominated the GET
 $coursefilter = optional_param('coursefilter', '0', PARAM_INT);
 
-$url = new moodle_url('/mod/feedback/analysis_to_excel.php', array('id'=>$id));
+$url = new lion_url('/mod/feedback/analysis_to_excel.php', array('id'=>$id));
 if ($coursefilter !== '0') {
     $url->param('coursefilter', $coursefilter);
 }
@@ -91,7 +78,7 @@ $filename = "feedback.xls";
 $mygroupid = groups_get_activity_group($cm);
 
 // Creating a workbook
-$workbook = new MoodleExcelWorkbook('-');
+$workbook = new LionExcelWorkbook('-');
 $workbook->send($filename);
 
 //creating the needed formats

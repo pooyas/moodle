@@ -12,8 +12,9 @@
  * `import,push`, we also pass it a callback, which it'll call once
  * the file has been fetched, and parsed.
  *
- * @package Less
- * @subpackage tree
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Tree_Import extends Less_Tree{
 

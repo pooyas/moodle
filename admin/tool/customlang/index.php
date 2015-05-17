@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Performs checkout of the strings into the translation table
  *
- * @package    tool
+ * @package    admin_tool
  * @subpackage customlang
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('NO_OUTPUT_BUFFERING', true); // progress bar is used here
@@ -59,7 +45,7 @@ if ($action === 'checkout') {
     raise_memory_limit(MEMORY_EXTRA);
     tool_customlang_utils::checkout($lng, $progressbar);
 
-    echo $output->continue_button(new moodle_url('/admin/tool/customlang/edit.php', array('lng' => $lng)), 'get');
+    echo $output->continue_button(new lion_url('/admin/tool/customlang/edit.php', array('lng' => $lng)), 'get');
     echo $output->footer();
     exit;
 }
@@ -80,11 +66,11 @@ if ($action === 'checkin') {
         if ($numofmodified != 0) {
             echo $output->heading(get_string('modifiednum', 'tool_customlang', $numofmodified), 3);
             echo $output->confirm(get_string('confirmcheckin', 'tool_customlang'),
-                                  new moodle_url($PAGE->url, array('action'=>'checkin', 'lng'=>$lng, 'confirm'=>1)),
-                                  new moodle_url($PAGE->url, array('lng'=>$lng)));
+                                  new lion_url($PAGE->url, array('action'=>'checkin', 'lng'=>$lng, 'confirm'=>1)),
+                                  new lion_url($PAGE->url, array('lng'=>$lng)));
         } else {
             echo $output->heading(get_string('modifiedno', 'tool_customlang', $numofmodified), 3);
-            echo $output->continue_button(new moodle_url($PAGE->url, array('lng' => $lng)));
+            echo $output->continue_button(new lion_url($PAGE->url, array('lng' => $lng)));
         }
         echo $output->footer();
         die();
@@ -122,13 +108,13 @@ $menu = array();
 if (has_capability('tool/customlang:edit', context_system::instance())) {
     $menu['checkout'] = array(
         'title'     => get_string('checkout', 'tool_customlang'),
-        'url'       => new moodle_url($PAGE->url, array('action' => 'checkout', 'lng' => $lng)),
+        'url'       => new lion_url($PAGE->url, array('action' => 'checkout', 'lng' => $lng)),
         'method'    => 'post',
     );
     if ($numofmodified != 0) {
         $menu['checkin'] = array(
             'title'     => get_string('checkin', 'tool_customlang'),
-            'url'       => new moodle_url($PAGE->url, array('action' => 'checkin', 'lng' => $lng)),
+            'url'       => new lion_url($PAGE->url, array('action' => 'checkin', 'lng' => $lng)),
             'method'    => 'post',
         );
     }

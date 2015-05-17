@@ -22,6 +22,9 @@
  *
  * @warning Directives that change this object's structure must be in
  *          the HTML or Attr namespace!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLDefinition extends HTMLPurifier_Definition
 {

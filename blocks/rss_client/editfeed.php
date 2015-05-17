@@ -1,33 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Script to let a user edit the properties of a particular RSS feed.
  *
- * @package   block_rss_client
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  */
 
 
 require_once(dirname(__FILE__) . '/../../config.php');
 require_once($CFG->libdir . '/formslib.php');
-require_once($CFG->libdir .'/simplepie/moodle_simplepie.php');
+require_once($CFG->libdir .'/simplepie/lion_simplepie.php');
 
-class feed_edit_form extends moodleform {
+class feed_edit_form extends lionform {
     protected $isadding;
     protected $caneditshared;
     protected $title = '';
@@ -36,7 +23,7 @@ class feed_edit_form extends moodleform {
     function __construct($actionurl, $isadding, $caneditshared) {
         $this->isadding = $isadding;
         $this->caneditshared = $caneditshared;
-        parent::moodleform($actionurl);
+        parent::lionform($actionurl);
     }
 
     function definition() {
@@ -80,7 +67,7 @@ class feed_edit_form extends moodleform {
     function validation($data, $files) {
         $errors = parent::validation($data, $files);
 
-        $rss =  new moodle_simplepie();
+        $rss =  new lion_simplepie();
         // set timeout for longer than normal to try and grab the feed
         $rss->set_timeout(10);
         $rss->set_feed_url($data['url']);
@@ -127,7 +114,7 @@ class feed_edit_form extends moodleform {
      * @return string URL of feed or original url if none found
      */
     public static function autodiscover_feed_url($url){
-            $rss =  new moodle_simplepie();
+            $rss =  new lion_simplepie();
             $rss->set_feed_url($url);
             $rss->set_autodiscovery_level(SIMPLEPIE_LOCATOR_ALL);
             // When autodiscovering an RSS feed, simplepie will try lots of
@@ -140,7 +127,7 @@ class feed_edit_form extends moodleform {
             }
 
             // return URL without quoting..
-            $discoveredurl = new moodle_url($rss->subscribe_url());
+            $discoveredurl = new lion_url($rss->subscribe_url());
             return $discoveredurl->out(false);
     }
 }
@@ -173,7 +160,7 @@ if ($courseid) {
 if ($returnurl) {
     $urlparams['returnurl'] = $returnurl;
 }
-$managefeeds = new moodle_url('/blocks/rss_client/managefeeds.php', $urlparams);
+$managefeeds = new lion_url('/blocks/rss_client/managefeeds.php', $urlparams);
 
 $PAGE->set_url('/blocks/rss_client/editfeed.php', $urlparams);
 $PAGE->set_pagelayout('admin');

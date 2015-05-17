@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Strings for core subsystem 'blog'
  *
- * @package    core_blog
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    lang
+ * @subpackage en
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['addnewentry'] = 'Add a new entry';
@@ -59,10 +46,10 @@ $string['cannotviewcourseblog'] = 'You do not have the required permissions to v
 $string['cannotviewcourseorgroupblog'] = 'You do not have the required permissions to view blogs in this course/group';
 $string['cannotviewsiteblog'] = 'You do not have the required permissions to view all site blogs';
 $string['cannotviewuserblog'] = 'You do not have the required permissions to read user blogs';
-$string['configexternalblogcrontime'] = 'How often Moodle checks the external blogs for new entries.';
-$string['configmaxexternalblogsperuser'] = 'The number of external blogs each user is allowed to link to their Moodle blog.';
+$string['configexternalblogcrontime'] = 'How often Lion checks the external blogs for new entries.';
+$string['configmaxexternalblogsperuser'] = 'The number of external blogs each user is allowed to link to their Lion blog.';
 $string['configuseblogassociations'] = 'Enables the association of blog entries with courses and course modules.';
-$string['configuseexternalblogs'] = 'Enables users to specify external blog feeds. Moodle regularly checks these blog feeds and copies new entries to the local blog of that user.';
+$string['configuseexternalblogs'] = 'Enables users to specify external blog feeds. Lion regularly checks these blog feeds and copies new entries to the local blog of that user.';
 $string['courseblog'] = 'Course blog: {$a}';
 $string['courseblogdisable'] = 'Course blogs are not enabled';
 $string['courseblogs'] = 'Users can only see blogs for people who share a course';

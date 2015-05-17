@@ -2,6 +2,9 @@
 
 /**
  * Validates a font family list according to CSS spec
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
 {

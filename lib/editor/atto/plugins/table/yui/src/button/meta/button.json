@@ -1,8 +1,8 @@
 {
-    "moodle-atto_table-button": {
+    "lion-atto_table-button": {
         "requires": [
-            "moodle-editor_atto-plugin",
-            "moodle-editor_atto-menu",
+            "lion-editor_atto-plugin",
+            "lion-editor_atto-menu",
             "event",
             "event-valuechange"
         ]

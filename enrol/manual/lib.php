@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Manual enrolment plugin main library file.
  *
- * @package    enrol_manual
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class enrol_manual_plugin extends enrol_plugin {
 
@@ -54,7 +41,7 @@ class enrol_manual_plugin extends enrol_plugin {
      * Does the access control tests automatically.
      *
      * @param stdClass $instance
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_manual_enrol_link($instance) {
         $name = $this->get_name();
@@ -74,7 +61,7 @@ class enrol_manual_plugin extends enrol_plugin {
             return NULL;
         }
 
-        return new moodle_url('/enrol/manual/manage.php', array('enrolid'=>$instance->id, 'id'=>$instance->courseid));
+        return new lion_url('/enrol/manual/manage.php', array('enrolid'=>$instance->id, 'id'=>$instance->courseid));
     }
 
     /**
@@ -84,7 +71,7 @@ class enrol_manual_plugin extends enrol_plugin {
      *
      * @param navigation_node $instancesnode
      * @param stdClass $instance
-     * @return moodle_url;
+     * @return lion_url;
      */
     public function add_course_navigation($instancesnode, stdClass $instance) {
         if ($instance->enrol !== 'manual') {
@@ -93,7 +80,7 @@ class enrol_manual_plugin extends enrol_plugin {
 
         $context = context_course::instance($instance->courseid);
         if (has_capability('enrol/manual:config', $context)) {
-            $managelink = new moodle_url('/enrol/manual/edit.php', array('courseid'=>$instance->courseid));
+            $managelink = new lion_url('/enrol/manual/edit.php', array('courseid'=>$instance->courseid));
             $instancesnode->add($this->get_instance_name($instance), $managelink, navigation_node::TYPE_SETTING);
         }
     }
@@ -114,11 +101,11 @@ class enrol_manual_plugin extends enrol_plugin {
         $icons = array();
 
         if (has_capability('enrol/manual:enrol', $context) or has_capability('enrol/manual:unenrol', $context)) {
-            $managelink = new moodle_url("/enrol/manual/manage.php", array('enrolid'=>$instance->id));
+            $managelink = new lion_url("/enrol/manual/manage.php", array('enrolid'=>$instance->id));
             $icons[] = $OUTPUT->action_icon($managelink, new pix_icon('t/enrolusers', get_string('enrolusers', 'enrol_manual'), 'core', array('class'=>'iconsmall')));
         }
         if (has_capability('enrol/manual:config', $context)) {
-            $editlink = new moodle_url("/enrol/manual/edit.php", array('courseid'=>$instance->courseid));
+            $editlink = new lion_url("/enrol/manual/edit.php", array('courseid'=>$instance->courseid));
             $icons[] = $OUTPUT->action_icon($editlink, new pix_icon('t/edit', get_string('edit'), 'core',
                     array('class' => 'iconsmall')));
         }
@@ -129,14 +116,14 @@ class enrol_manual_plugin extends enrol_plugin {
     /**
      * Returns link to page which may be used to add new instance of enrolment plugin in course.
      * @param int $courseid
-     * @return moodle_url page url
+     * @return lion_url page url
      */
     public function get_newinstance_link($courseid) {
         global $DB;
 
         $context = context_course::instance($courseid, MUST_EXIST);
 
-        if (!has_capability('moodle/course:enrolconfig', $context) or !has_capability('enrol/manual:config', $context)) {
+        if (!has_capability('lion/course:enrolconfig', $context) or !has_capability('enrol/manual:config', $context)) {
             return NULL;
         }
 
@@ -144,7 +131,7 @@ class enrol_manual_plugin extends enrol_plugin {
             return NULL;
         }
 
-        return new moodle_url('/enrol/manual/edit.php', array('courseid'=>$courseid));
+        return new lion_url('/enrol/manual/edit.php', array('courseid'=>$courseid));
     }
 
     /**
@@ -236,12 +223,12 @@ class enrol_manual_plugin extends enrol_plugin {
         $startdateoptions[3] = get_string('today') . ' (' . userdate($today, $timeformat) . ')' ;
         $defaultduration = $instance->enrolperiod > 0 ? $instance->enrolperiod / 86400 : '';
 
-        $modules = array('moodle-enrol_manual-quickenrolment', 'moodle-enrol_manual-quickenrolment-skin');
+        $modules = array('lion-enrol_manual-quickenrolment', 'lion-enrol_manual-quickenrolment-skin');
         $arguments = array(
             'instances'           => $instances,
             'courseid'            => $instance->courseid,
             'ajaxurl'             => '/enrol/manual/ajax.php',
-            'url'                 => $manager->get_moodlepage()->url->out(false),
+            'url'                 => $manager->get_lionpage()->url->out(false),
             'optionsStartDate'    => $startdateoptions,
             'defaultRole'         => $instance->roleid,
             'defaultDuration'     => $defaultduration,
@@ -277,7 +264,7 @@ class enrol_manual_plugin extends enrol_plugin {
             'recovergrades'), 'enrol');
         $button->strings_for_js(array('browseusers', 'browsecohorts'), 'enrol_manual');
         $button->strings_for_js('assignroles', 'role');
-        $button->strings_for_js('startingfrom', 'moodle');
+        $button->strings_for_js('startingfrom', 'lion');
 
         return $button;
     }
@@ -427,14 +414,14 @@ class enrol_manual_plugin extends enrol_plugin {
         $actions = array();
         $context = $manager->get_context();
         $instance = $ue->enrolmentinstance;
-        $params = $manager->get_moodlepage()->url->params();
+        $params = $manager->get_lionpage()->url->params();
         $params['ue'] = $ue->id;
         if ($this->allow_unenrol_user($instance, $ue) && has_capability("enrol/manual:unenrol", $context)) {
-            $url = new moodle_url('/enrol/unenroluser.php', $params);
+            $url = new lion_url('/enrol/unenroluser.php', $params);
             $actions[] = new user_enrolment_action(new pix_icon('t/delete', ''), get_string('unenrol', 'enrol'), $url, array('class'=>'unenrollink', 'rel'=>$ue->id));
         }
         if ($this->allow_manage($instance) && has_capability("enrol/manual:manage", $context)) {
-            $url = new moodle_url('/enrol/editenrolment.php', $params);
+            $url = new lion_url('/enrol/editenrolment.php', $params);
             $actions[] = new user_enrolment_action(new pix_icon('t/edit', ''), get_string('edit'), $url, array('class'=>'editenrollink', 'rel'=>$ue->id));
         }
         return $actions;

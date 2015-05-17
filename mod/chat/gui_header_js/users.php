@@ -1,20 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-define('NO_MOODLE_COOKIES', true); // Session not used here.
+
+
+/**
+ * @package    mod
+ * @subpackage chat
+ * @copyright  2015 Pooya Saeedi
+*/
+
+define('NO_LION_COOKIES', true); // Session not used here.
 
 require_once('../../../config.php');
 require_once($CFG->dirroot.'/mod/chat/lib.php');
@@ -105,7 +99,7 @@ foreach ($chatusers as $chatuser) {
                                                                     $idle,
                                                                     array('name' => 'uidles', 'id' => 'uidle'.$chatuser->id)),
                                 array('class' => 'dimmed_text')) . ' ';
-    $row[1] .= html_writer::tag('a', $strbeep, array('href' => new moodle_url('/mod/chat/gui_header_js/users.php',
+    $row[1] .= html_writer::tag('a', $strbeep, array('href' => new lion_url('/mod/chat/gui_header_js/users.php',
                                                                               array('chat_sid' => $chatsid,
                                                                               'beep' => $chatuser->id))));
     $row[1] .= html_writer::end_tag('font');

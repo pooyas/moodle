@@ -5,7 +5,7 @@
       <FIELDS>
         <FIELD NAME="id" LENGTH="10" NOTNULL="true" SEQUENCE="true"/> <!-- missing TYPE -->
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="name" TYPE="char" LENGTH="30" NOTNULL="false" SEQUENCE="false" DEFAULT="Moodle"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="30" NOTNULL="false" SEQUENCE="false" DEFAULT="Lion"/>
         <FIELD NAME="secondname" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="intro" TYPE="text" LENGTH="medium" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="avatar" TYPE="binary" LENGTH="medium" NOTNULL="false" SEQUENCE="false"/>

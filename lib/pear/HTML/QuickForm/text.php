@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,11 +30,8 @@ require_once("HTML/QuickForm/input.php");
 
 /**
  * HTML class for a text field
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_text extends HTML_QuickForm_input
@@ -42,7 +46,6 @@ class HTML_QuickForm_text extends HTML_QuickForm_input
      * @param     string    $elementLabel   (optional)Input field label
      * @param     mixed     $attributes     (optional)Either a typical HTML attribute string 
      *                                      or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -60,7 +63,6 @@ class HTML_QuickForm_text extends HTML_QuickForm_input
      * Sets size of text field
      * 
      * @param     string    $size  Size of text field
-     * @since     1.3
      * @access    public
      * @return    void
      */
@@ -76,7 +78,6 @@ class HTML_QuickForm_text extends HTML_QuickForm_input
      * Sets maxlength of text field
      * 
      * @param     string    $maxlength  Maximum length of text field
-     * @since     1.3
      * @access    public
      * @return    void
      */

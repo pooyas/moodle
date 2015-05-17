@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 namespace Horde\Socket\Client;
 
 /**
@@ -9,19 +16,12 @@ namespace Horde\Socket\Client;
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Socket_Client
  */
 
 /**
  * Exception handler for the Horde_Socket_Client package.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Socket_Client
  */
 class Exception extends \Horde_Exception_Wrapped
 {

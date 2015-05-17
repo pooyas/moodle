@@ -3,18 +3,15 @@
  * Copyright 2008-2014 Horde LLC (http://www.horde.org/)
  *
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd BSD
- * @package   Support
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Class that can substitute for any object and safely do nothing.
  *
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd BSD
- * @package   Support
  */
 class Horde_Support_Stub implements ArrayAccess, Countable, IteratorAggregate
 {

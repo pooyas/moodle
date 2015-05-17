@@ -1,12 +1,17 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once( dirname(__FILE__).'/Cache.php');
 
 /**
  * Class for parsing and compiling less files into css
  *
- * @package Less
- * @subpackage parser
  *
  */
 class Less_Parser{

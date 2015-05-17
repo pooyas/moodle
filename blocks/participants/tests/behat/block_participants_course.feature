@@ -36,7 +36,7 @@ Feature: People Block used in a course
   Scenario: Student without permission can not view participants link
     Given the following "permission overrides" exist:
          | capability | permission | role | contextlevel | reference |
-         | moodle/course:viewparticipants | Prevent | student | Course | C101 |
+         | lion/course:viewparticipants | Prevent | student | Course | C101 |
     When I log in as "student1"
     And I follow "Course 1"
     Then "People" "block" should not exist

@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * MSSQL specific SQL code generator.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/ddl/sql_generator.php');
 
@@ -32,10 +19,7 @@ require_once($CFG->libdir.'/ddl/sql_generator.php');
  * It extends XMLDBgenerator so everything can be
  * overridden as needed to generate correct SQL.
  *
- * @package    core_ddl
- * @copyright  1999 onwards Martin Dougiamas     http://dougiamas.com
  *             2001-3001 Eloy Lafuente (stronk7) http://contiento.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class mssql_sql_generator extends sql_generator {
 
@@ -495,7 +479,7 @@ class mssql_sql_generator extends sql_generator {
         // Now, check if, with the current field attributes, we have to build one default
         $default_clause = $this->getDefaultClause($xmldb_field);
         if ($default_clause) {
-            // We need to build the default (Moodle) default, so do it
+            // We need to build the default (Lion) default, so do it
             $sql = 'ALTER TABLE ' . $tablename . ' ADD' . $default_clause . ' FOR ' . $fieldname;
             $results[] = $sql;
         }
@@ -513,7 +497,7 @@ class mssql_sql_generator extends sql_generator {
      * @param xmldb_field $xmldb_field The xmldb_field object instance.
      * @return array Array of SQL statements to create a field's default.
      *
-     * @todo MDL-31147 Moodle 2.1 - Drop getDropDefaultSQL()
+     * @todo MDL-31147 Lion 2.1 - Drop getDropDefaultSQL()
      */
     public function getDropDefaultSQL($xmldb_table, $xmldb_field) {
         // MSSQL is a bit special and it requires the corresponding DEFAULT CONSTRAINT to be dropped

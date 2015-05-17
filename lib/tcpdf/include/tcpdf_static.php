@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_static.php
 // Version     : 1.0.004
@@ -36,18 +43,14 @@
 /**
  * @file
  * This is a PHP class that contains static methods for the TCPDF class.<br>
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.004
  */
 
 /**
  * @class TCPDF_STATIC
  * Static methods used by the TCPDF class.
- * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
  * @version 1.0.004
- * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_STATIC {
 
@@ -95,7 +98,6 @@ class TCPDF_STATIC {
 
 	/**
 	 * ByteRange placemark used during digital signature process.
-	 * @since 4.6.028 (2009-08-25)
 	 * @public static
 	 */
 	public static $byterange_string = '/ByteRange[0 ********** ********** **********]';
@@ -111,7 +113,6 @@ class TCPDF_STATIC {
 	/**
 	 * Return the current TCPDF version.
 	 * @return TCPDF version string
-	 * @since 5.9.012 (2010-11-10)
 	 * @public static
 	 */
 	public static function getTCPDFVersion() {
@@ -121,7 +122,6 @@ class TCPDF_STATIC {
 	/**
 	 * Return the current TCPDF producer.
 	 * @return TCPDF producer string
-	 * @since 6.0.000 (2013-03-16)
 	 * @public static
 	 */
 	public static function getTCPDFProducer() {
@@ -131,7 +131,6 @@ class TCPDF_STATIC {
 	/**
 	 * Sets the current active configuration setting of magic_quotes_runtime (if the set_magic_quotes_runtime function exist)
 	 * @param $mqr (boolean) FALSE for off, TRUE for on.
-	 * @since 4.6.025 (2009-08-17)
 	 * @public static
 	 */
 	public static function set_mqr($mqr) {
@@ -147,7 +146,6 @@ class TCPDF_STATIC {
 	/**
 	 * Gets the current active configuration setting of magic_quotes_runtime (if the get_magic_quotes_runtime function exist)
 	 * @return Returns 0 if magic quotes runtime is off or get_magic_quotes_runtime doesn't exist, 1 otherwise.
-	 * @since 4.6.025 (2009-08-17)
 	 * @public static
 	 */
 	public static function get_mqr() {
@@ -472,7 +470,6 @@ class TCPDF_STATIC {
 	 * <li>FR_POT (310x400 mm ; 12.20x15.75 in)</li>
 	 * </ul>
 	 * @return array containing page width and height in points
-	 * @since 5.0.010 (2010-05-17)
 	 * @public static
 	 */
 	public static function getPageSizeFromFormat($format) {
@@ -841,7 +838,6 @@ class TCPDF_STATIC {
 	 * @param $k (float) Scale factor (number of points in user unit).
 	 * @param $pagedim (array) Array of page dimensions.
 	 * @return pagedim array of page dimensions.
-	 * @since 5.0.010 (2010-05-17)
 	 * @public static
 	 */
 	public static function setPageBoxes($page, $type, $llx, $lly, $urx, $ury, $points=false, $k, $pagedim=array()) {
@@ -867,7 +863,6 @@ class TCPDF_STATIC {
 	 * @param $page (int) page number
 	 * @param $pagedim (array) Array of page dimensions.
 	 * @return pagedim array of page dimensions.
-	 * @since 5.0.010 (2010-05-17)
 	 * @public static
 	 */
 	public static function swapPageBoxCoordinates($page, $pagedim) {
@@ -971,7 +966,6 @@ class TCPDF_STATIC {
 	 * Check if the URL exist.
 	 * @param $url (string) URL to check.
 	 * @return Boolean true if the URl exist, false otherwise.
-	 * @since 5.9.204 (2013-01-28)
 	 * @public static
 	 */
 	public static function isValidURL($url) {
@@ -993,7 +987,6 @@ class TCPDF_STATIC {
 	 * @param $txt (string) input string
 	 * @param $unicode (boolean) True if we are in unicode mode, false otherwise.
 	 * @return string without SHY characters.
-	 * @since (4.5.019) 2009-02-28
 	 * @public static
 	 */
 	public static function removeSHY($txt='', $unicode=true) {
@@ -1011,7 +1004,6 @@ class TCPDF_STATIC {
 	 * @param $position (string) multicell position: 'start', 'middle', 'end'
 	 * @param $opencell (boolean) True when the cell is left open at the page bottom, false otherwise.
 	 * @return border mode array
-	 * @since 4.4.002 (2008-12-09)
 	 * @public static
 	 */
 	public static function getBorderMode($brd, $position='start', $opencell=true) {
@@ -1083,7 +1075,6 @@ class TCPDF_STATIC {
 	 * Determine whether a string is empty.
 	 * @param $str (string) string to be checked
 	 * @return boolean true if string is empty
-	 * @since 4.5.044 (2009-04-16)
 	 * @public static
 	 */
 	public static function empty_string($str) {
@@ -1094,7 +1085,6 @@ class TCPDF_STATIC {
 	 * Returns a temporary filename for caching object on filesystem.
 	 * @param $type (string) Type of file (name of the subdir on the tcpdf cache folder).
 	 * @return string filename.
-	 * @since 4.5.000 (2008-12-31)
 	 * @public static
 	 */
 	public static function getObjFilename($type='tmp') {
@@ -1116,7 +1106,6 @@ class TCPDF_STATIC {
 	* Escape some special characters (&lt; &gt; &amp;) for XML output.
 	* @param $str (string) Input string to convert.
 	* @return converted string
-	* @since 5.9.121 (2011-09-28)
 	 * @public static
 	 */
 	public static function _escapeXML($str) {
@@ -1129,7 +1118,6 @@ class TCPDF_STATIC {
 	 * Creates a copy of a class object
 	 * @param $object (object) class object to be cloned
 	 * @return cloned object
-	 * @since 4.5.029 (2009-03-19)
 	 * @public static
 	 */
 	public static function objclone($object) {
@@ -1144,7 +1132,6 @@ class TCPDF_STATIC {
 	 * Ouput input data and compress it if possible.
 	 * @param $data (string) Data to output.
 	 * @param $length (int) Data length in bytes.
-	 * @since 5.9.086
 	 * @public static
 	 */
 	public static function sendOutputData($data, $length) {
@@ -1179,7 +1166,6 @@ class TCPDF_STATIC {
 	 * Returns timestamp in seconds from formatted date-time.
 	 * @param $date (string) Formatted date-time.
 	 * @return int seconds.
-	 * @since 5.9.152 (2012-03-23)
 	 * @public static
 	 */
 	public static function getTimestamp($date) {
@@ -1194,7 +1180,6 @@ class TCPDF_STATIC {
 	 * Returns a formatted date-time.
 	 * @param $time (int) Time in seconds.
 	 * @return string escaped date string.
-	 * @since 5.9.152 (2012-03-23)
 	 * @public static
 	 */
 	public static function getFormattedDate($time) {
@@ -1206,8 +1191,6 @@ class TCPDF_STATIC {
 	 * @param $str (string) string from where to extract value
 	 * @param $offset (int) point from where to read the data
 	 * @return int 32 bit value
-	 * @author Nicola Asuni
-	 * @since 5.2.000 (2010-06-02)
 	 * @public static
 	 */
 	public static function _getULONG($str, $offset) {
@@ -1220,8 +1203,6 @@ class TCPDF_STATIC {
 	 * @param $str (string) string from where to extract value
 	 * @param $offset (int) point from where to read the data
 	 * @return int 16 bit value
-	 * @author Nicola Asuni
-	 * @since 5.2.000 (2010-06-02)
 	 * @public static
 	 */
 	public static function _getUSHORT($str, $offset) {
@@ -1234,8 +1215,6 @@ class TCPDF_STATIC {
 	 * @param $str (string) String from where to extract value.
 	 * @param $offset (int) Point from where to read the data.
 	 * @return int 16 bit value
-	 * @author Nicola Asuni
-	 * @since 5.2.000 (2010-06-02)
 	 * @public static
 	 */
 	public static function _getSHORT($str, $offset) {
@@ -1248,8 +1227,6 @@ class TCPDF_STATIC {
 	 * @param $str (string) String from where to extract value.
 	 * @param $offset (int) Point from where to read the data.
 	 * @return int 16 bit value
-	 * @author Nicola Asuni
-	 * @since 5.9.123 (2011-09-30)
 	 * @public static
 	 */
 	public static function _getFWORD($str, $offset) {
@@ -1265,8 +1242,6 @@ class TCPDF_STATIC {
 	 * @param $str (string) string from where to extract value
 	 * @param $offset (int) point from where to read the data
 	 * @return int 16 bit value
-	 * @author Nicola Asuni
-	 * @since 5.9.123 (2011-09-30)
 	 * @public static
 	 */
 	public static function _getUFWORD($str, $offset) {
@@ -1279,8 +1254,6 @@ class TCPDF_STATIC {
 	 * @param $str (string) string from where to extract value
 	 * @param $offset (int) point from where to read the data
 	 * @return int 16 bit value
-	 * @author Nicola Asuni
-	 * @since 5.9.123 (2011-09-30)
 	 * @public static
 	 */
 	public static function _getFIXED($str, $offset) {
@@ -1297,8 +1270,6 @@ class TCPDF_STATIC {
 	 * @param $str (string) String from where to extract value.
 	 * @param $offset (int) Point from where to read the data.
 	 * @return int 8 bit value
-	 * @author Nicola Asuni
-	 * @since 5.2.000 (2010-06-02)
 	 * @public static
 	 */
 	public static function _getBYTE($str, $offset) {
@@ -1311,8 +1282,6 @@ class TCPDF_STATIC {
 	 * @param $handle (resource)
 	 * @param $length (int)
 	 * @return Returns the read string or FALSE in case of error.
-	 * @author Nicola Asuni
-	 * @since 4.5.027 (2009-03-16)
 	 * @public static
 	 */
 	public static function rfread($handle, $length) {
@@ -1342,8 +1311,6 @@ class TCPDF_STATIC {
 	 * Returns a string containing random data to be used as a seed for encryption methods.
 	 * @param $seed (string) starting seed value
 	 * @return string containing random data
-	 * @author Nicola Asuni
-	 * @since 5.9.006 (2010-10-19)
 	 * @public static
 	 */
 	public static function getRandomSeed($seed='') {
@@ -1387,7 +1354,6 @@ class TCPDF_STATIC {
 	 * Encrypts a string using MD5 and returns it's value as a binary string.
 	 * @param $str (string) input string
 	 * @return String MD5 encrypted binary string
-	 * @since 2.0.000 (2008-01-02)
 	 * @public static
 	 */
 	public static function _md5_16($str) {
@@ -1400,8 +1366,6 @@ class TCPDF_STATIC {
 	 * @param $key (string) encryption key
 	 * @param $text (String) input text to be encrypted
 	 * @return String encrypted text
-	 * @author Nicola Asuni
-	 * @since 5.0.005 (2010-05-11)
 	 * @public static
 	 */
 	public static function _AES($key, $text) {
@@ -1422,8 +1386,6 @@ class TCPDF_STATIC {
 	 * @param $last_enc_key (String) Reference to last RC4 key encrypted.
 	 * @param $last_enc_key_c (String) Reference to last RC4 computed key.
 	 * @return String encrypted text
-	 * @since 2.0.000 (2008-01-02)
-	 * @author Klemen Vodopivec, Nicola Asuni
 	 * @public static
 	 */
 	public static function _RC4($key, $text, &$last_enc_key, &$last_enc_key_c) {
@@ -1466,8 +1428,6 @@ class TCPDF_STATIC {
 	 * Return the premission code used on encryption (P value).
 	 * @param $permissions (Array) the set of permissions (specify the ones you want to block).
 	 * @param $mode (int) encryption strength: 0 = RC4 40 bit; 1 = RC4 128 bit; 2 = AES 128 bit; 3 = AES 256 bit.
-	 * @since 5.0.005 (2010-05-12)
-	 * @author Nicola Asuni
 	 * @public static
 	 */
 	public static function getUserPermissionCode($permissions, $mode=0) {
@@ -1503,8 +1463,6 @@ class TCPDF_STATIC {
 	 * Convert hexadecimal string to string
 	 * @param $bs (string) byte-string to convert
 	 * @return String
-	 * @since 5.0.005 (2010-05-12)
-	 * @author Nicola Asuni
 	 * @public static
 	 */
 	public static function convertHexStringToString($bs) {
@@ -1525,8 +1483,6 @@ class TCPDF_STATIC {
 	 * Convert string to hexadecimal string (byte string)
 	 * @param $s (string) string to convert
 	 * @return byte string
-	 * @since 5.0.010 (2010-05-17)
-	 * @author Nicola Asuni
 	 * @public static
 	 */
 	public static function convertStringToHexString($s) {
@@ -1542,8 +1498,6 @@ class TCPDF_STATIC {
 	 * Convert encryption P value to a string of bytes, low-order byte first.
 	 * @param $protection (string) 32bit encryption permission value (P value)
 	 * @return String
-	 * @since 5.0.005 (2010-05-12)
-	 * @author Nicola Asuni
 	 * @public static
 	 */
 	public static function getEncPermissionsString($protection) {
@@ -1559,8 +1513,6 @@ class TCPDF_STATIC {
 	 * Encode a name object.
 	 * @param $name (string) Name object to encode.
 	 * @return (string) Encoded name object.
-	 * @author Nicola Asuni
-	 * @since 5.9.097 (2011-06-23)
 	 * @public static
 	 */
 	public static function encodeNameObject($name) {
@@ -1583,8 +1535,6 @@ class TCPDF_STATIC {
 	 * @param $spot_colors (array) Reference to spot colors array.
 	 * @param $rtl (boolean) True if in Right-To-Left text direction mode, false otherwise.
 	 * @return array of annotation properties
-	 * @author Nicola Asuni
-	 * @since 4.8.000 (2009-09-06)
 	 * @public static
 	 */
 	public static function getAnnotOptFromJSProp($prop, &$spot_colors, $rtl=false) {
@@ -1950,7 +1900,6 @@ class TCPDF_STATIC {
 	 * Format the page numbers.
 	 * This method can be overriden for custom formats.
 	 * @param $num (int) page number
-	 * @since 4.2.005 (2008-11-06)
 	 * @public static
 	 */
 	public static function formatPageNumber($num) {
@@ -1961,7 +1910,6 @@ class TCPDF_STATIC {
 	 * Format the page numbers on the Table Of Content.
 	 * This method can be overriden for custom formats.
 	 * @param $num (int) page number
-	 * @since 4.5.001 (2009-01-04)
 	 * @see addTOC(), addHTMLTOC()
 	 * @public static
 	 */
@@ -1973,8 +1921,6 @@ class TCPDF_STATIC {
 	 * Extracts the CSS properties from a CSS string.
 	 * @param $cssdata (string) string containing CSS definitions.
 	 * @return An array where the keys are the CSS selectors and the values are the CSS properties.
-	 * @author Nicola Asuni
-	 * @since 5.1.000 (2010-05-25)
 	 * @public static
 	 */
 	public static function extractCSSproperties($cssdata) {
@@ -2068,8 +2014,6 @@ class TCPDF_STATIC {
 	 * @param $tidy_options (array) options for tidy_parse_string function
 	 * @param $tagvspaces (array) Array of vertical spaces for tags.
 	 * @return string XHTML code cleaned up
-	 * @author Nicola Asuni
-	 * @since 5.9.017 (2010-11-16)
 	 * @see setHtmlVSpace()
 	 * @public static
 	 */
@@ -2136,7 +2080,6 @@ class TCPDF_STATIC {
 	 * @param $key (int) key of the current HTML tag
 	 * @param $selector (string) CSS selector string
 	 * @return true if the selector is valid, false otherwise
-	 * @since 5.1.000 (2010-05-25)
 	 * @public static
 	 */
 	public static function isValidCSSSelectorForTag($dom, $key, $selector) {
@@ -2296,7 +2239,6 @@ class TCPDF_STATIC {
 	 * @param $key (int) key of the current HTML tag
 	 * @param $css (array) array of CSS properties
 	 * @return array containing CSS properties
-	 * @since 5.1.000 (2010-05-25)
 	 * @public static
 	 */
 	public static function getCSSdataArray($dom, $key, $css) {
@@ -2341,7 +2283,6 @@ class TCPDF_STATIC {
 	 * Compact CSS data array into single string.
 	 * @param $css (array) array of CSS properties
 	 * @return string containing merged CSS properties
-	 * @since 5.9.070 (2011-04-19)
 	 * @public static
 	 */
 	public static function getTagStyleFromCSSarray($css) {
@@ -2372,7 +2313,6 @@ class TCPDF_STATIC {
 	 * Returns the Roman representation of an integer number
 	 * @param $number (int) number to convert
 	 * @return string roman representation of the specified number
-	 * @since 4.4.004 (2008-12-10)
 	 * @public static
 	 */
 	public static function intToRoman($number) {
@@ -2438,7 +2378,6 @@ class TCPDF_STATIC {
 	 * @param $needle (string) substring to search.
 	 * @param $offset (int) May be specified to begin searching an arbitrary number of characters into the string.
 	 * @return Returns the position where the needle exists. Returns FALSE if the needle was not found.
-	 * @since 4.8.038 (2010-03-13)
 	 * @public static
 	 */
 	public static function revstrpos($haystack, $needle, $offset = 0) {
@@ -2452,7 +2391,6 @@ class TCPDF_STATIC {
 	 * Serialize an array of parameters to be used with TCPDF tag in HTML code.
 	 * @param $data (array) parameters array
 	 * @return string containing serialized data
-	 * @since 4.9.006 (2010-04-02)
 	 * @public static
 	 */
 	public static function serializeTCPDFtagParameters($data) {
@@ -2473,8 +2411,6 @@ class TCPDF_STATIC {
 	 * Returns an array of hyphenation patterns.
 	 * @param $file (string) TEX file containing hypenation patterns. TEX pattrns can be downloaded from http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/
 	 * @return array of hyphenation patterns
-	 * @author Nicola Asuni
-	 * @since 4.9.012 (2010-04-12)
 	 * @public static
 	 */
 	public static function getHyphenPatternsFromTEX($file) {
@@ -2519,8 +2455,6 @@ class TCPDF_STATIC {
 	 *   <li>n: End the path object without filling or stroking it.</li>
 	 * </ul>
 	 * @param $default (string) default style
-	 * @author Nicola Asuni
-	 * @since 5.0.000 (2010-04-30)
 	 * @public static
 	 */
 	public static function getPathPaintOperator($style, $default='S') {
@@ -2598,8 +2532,6 @@ class TCPDF_STATIC {
 	 * @param $ta (array) first SVG tranformation matrix
 	 * @param $tb (array) second SVG tranformation matrix
 	 * @return transformation array
-	 * @author Nicola Asuni
-	 * @since 5.0.000 (2010-05-02)
 	 * @public static
 	 */
 	public static function getTransformationMatrixProduct($ta, $tb) {
@@ -2617,8 +2549,6 @@ class TCPDF_STATIC {
 	 * Get the tranformation matrix from SVG transform attribute
 	 * @param $attribute (string) transformation
 	 * @return array of transformations
-	 * @author Nicola Asuni
-	 * @since 5.0.000 (2010-05-02)
 	 * @public static
 	 */
 	public static function getSVGTransformMatrix($attribute) {
@@ -2714,8 +2644,6 @@ class TCPDF_STATIC {
 	 * @param $y1 (int) Y coordinate of first vector point
 	 * @param $x2 (int) X coordinate of second vector point
 	 * @param $y2 (int) Y coordinate of second vector point
-	 * @author Nicola Asuni
-	 * @since 5.0.000 (2010-05-04)
 	 * @public static
 	 */
 	public static function getVectorsAngle($x1, $y1, $x2, $y2) {
@@ -2741,8 +2669,6 @@ class TCPDF_STATIC {
 	 * @param $limit (int) If specified, then only substrings up to limit are returned with the rest of the string being placed in the last substring. A limit of -1, 0 or NULL means "no limit" and, as is standard across PHP, you can use NULL to skip to the flags parameter.
 	 * @param $flags (int) The flags as specified on the preg_split PHP function.
 	 * @return Returns an array containing substrings of subject split along boundaries matched by pattern.modifier
-	 * @author Nicola Asuni
-	 * @since 6.0.023
 	 * @public static
 	 */
 	public static function pregSplit($pattern, $modifiers, $subject, $limit=NULL, $flags=NULL) {
@@ -2767,9 +2693,7 @@ class TCPDF_STATIC {
 	 * Reads entire file into a string.
 	 * The file can be also an URL.
 	 * @param $file (string) Name of the file or URL to read.
-	 * @return The function returns the read data or FALSE on failure. 
-	 * @author Nicola Asuni
-	 * @since 6.0.025
+	 * @return The function returns the read data or FALSE on failure.
 	 * @public static
 	 */
 	public static function fileGetContents($file) {

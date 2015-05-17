@@ -1,23 +1,22 @@
 <?php
 
+
 /**
  * This file is executed right after the install.xml
  *
- * Note:
- * Installs other features not covered in install.xml like default course,...
- * There is a mnet section in the middle which refers to moodle (mahara) network
+ * For more information, take a look to the documentation available:
+ *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
- *
- * @package   core_install
  * @category  upgrade
- * @copyright 2015 Pooya Saeedi
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Main post-install tasks to be executed after the DB schema is available
+ * Main post-install tasks to be executed after the BD schema is available
  *
  * This function is automatically executed after Lion core DB has been
  * created at initial install. It's in charge of perform the initial tasks
@@ -29,7 +28,8 @@ defined('MOODLE_INTERNAL') || die();
  * and in the corresponding {@link upgrade.php} file (for existing sites).
  *
  * All plugins within Lion (modules, blocks, reports...) support the existence of
- * their own install.php file, using the "Frankenstyle" component name, for example:
+ * their own install.php file, using the "Frankenstyle" component name as
+ * defined at {@link http://docs.lion.org/dev/Frankenstyle}, for example:
  *     - {@link xmldb_page_install()}. (modules don't require the plugintype ("mod_") to be used.
  *     - {@link xmldb_enrol_meta_install()}.
  *     - {@link xmldb_workshopform_accumulative_install()}.
@@ -46,13 +46,13 @@ function xmldb_main_install() {
     // Make sure system context exists
     $syscontext = context_system::instance(0, MUST_EXIST, false);
     if ($syscontext->id != SYSCONTEXTID) {
-        throw new moodle_exception('generalexceptionmessage', 'error', '', 'Unexpected new system context id!');
+        throw new lion_exception('generalexceptionmessage', 'error', '', 'Unexpected new system context id!');
     }
 
 
     // Create site course
     if ($DB->record_exists('course', array())) {
-        throw new moodle_exception('generalexceptionmessage', 'error', '', 'Can not create frontpage course, courses already exist.');
+        throw new lion_exception('generalexceptionmessage', 'error', '', 'Can not create frontpage course, courses already exist.');
     }
     $newsite = new stdClass();
     $newsite->fullname     = '';
@@ -79,7 +79,7 @@ function xmldb_main_install() {
         'sectionid' => 0, 'name' => 'numsections', 'value' => $newsite->numsections));
     $SITE = get_site();
     if ($newsite->id != $SITE->id) {
-        throw new moodle_exception('generalexceptionmessage', 'error', '', 'Unexpected new site course id!');
+        throw new lion_exception('generalexceptionmessage', 'error', '', 'Unexpected new site course id!');
     }
     // Make sure site course context exists
     context_course::instance($SITE->id);
@@ -89,7 +89,7 @@ function xmldb_main_install() {
 
     // Create default course category
     if ($DB->record_exists('course_categories', array())) {
-        throw new moodle_exception('generalexceptionmessage', 'error', '', 'Can not create default course category, categories already exist.');
+        throw new lion_exception('generalexceptionmessage', 'error', '', 'Can not create default course category, categories already exist.');
     }
     $cat = new stdClass();
     $cat->name         = get_string('miscellaneous');
@@ -148,23 +148,19 @@ function xmldb_main_install() {
     set_config('mnet_localhost_id', $mnetid);
 
     // Initial insert of mnet applications info
-    // Note:
-    // This is used for moodle network (MNET)
-    // I should try to tweak it later
-    // Found that it is used in the application section of peers under networking
     $mnet_app = new stdClass();
     $mnet_app->name              = 'lion';
     $mnet_app->display_name      = 'Lion';
     $mnet_app->xmlrpc_server_url = '/mnet/xmlrpc/server.php';
     $mnet_app->sso_land_url      = '/auth/mnet/land.php';
     $mnet_app->sso_jump_url      = '/auth/mnet/jump.php';
-    $moodleapplicationid = $DB->insert_record('mnet_application', $mnet_app);
+    $lionapplicationid = $DB->insert_record('mnet_application', $mnet_app);
 
     // Note:
     // No idea what it does
     // Thinking of removing it?
-    // COMMENTOUT (Pooya)
-    // Not necessary
+    ///COMMENTOUT (Pooya)
+    ///Not necessary
 //     $mnet_app = new stdClass();
 //     $mnet_app->name              = 'mahara';
 //     $mnet_app->display_name      = 'Mahara';
@@ -183,13 +179,13 @@ function xmldb_main_install() {
     $mnetallhosts->last_log_id        = 0;
     $mnetallhosts->deleted            = 0;
     $mnetallhosts->name               = 'All Hosts';
-    $mnetallhosts->applicationid      = $moodleapplicationid;
+    $mnetallhosts->applicationid      = $lionapplicationid;
     $mnetallhosts->id                 = $DB->insert_record('mnet_host', $mnetallhosts, true);
     set_config('mnet_all_hosts_id', $mnetallhosts->id);
 
     // Create guest record - do not assign any role, guest user gets the default guest role automatically on the fly
     if ($DB->record_exists('user', array())) {
-        throw new moodle_exception('generalexceptionmessage', 'error', '', 'Can not create default users, users already exist.');
+        throw new lion_exception('generalexceptionmessage', 'error', '', 'Can not create default users, users already exist.');
     }
     $guest = new stdClass();
     $guest->auth        = 'manual';
@@ -243,8 +239,6 @@ function xmldb_main_install() {
 
 
     // Install the roles system.
-    // Note:
-    // Maybe possible to add roles here before installation ends?
     $managerrole        = create_role('', 'manager', '', 'manager');
     $coursecreatorrole  = create_role('', 'coursecreator', '', 'coursecreator');
     $editteacherrole    = create_role('', 'editingteacher', '', 'editingteacher');
@@ -255,12 +249,10 @@ function xmldb_main_install() {
     $frontpagerole      = create_role('', 'frontpage', '', 'frontpage');
 
     // Now is the correct moment to install capabilities - after creation of legacy roles, but before assigning of roles
-    update_capabilities('moodle');
+    update_capabilities('lion');
 
 
     // Default allow role matrices.
-    // Note:
-    // Should dig in later
     foreach ($DB->get_records('role') as $role) {
         foreach (array('assign', 'override', 'switch') as $type) {
             $function = 'allow_'.$type;
@@ -284,18 +276,16 @@ function xmldb_main_install() {
     set_config('themerev', time());
     set_config('jsrev', time());
 
-    // No admin setting for this any more, GD is now required, remove in Moodle 2.6.
+    // No admin setting for this any more, GD is now required, remove in Lion 2.6.
     set_config('gdversion', 2);
 
     // Install licenses
-    // Note:
-    // Should configure later
     require_once($CFG->libdir . '/licenselib.php');
     license_manager::install_licenses();
 
     // Init profile pages defaults
     if ($DB->record_exists('my_pages', array())) {
-        throw new moodle_exception('generalexceptionmessage', 'error', '', 'Can not create default profile pages, records already exist.');
+        throw new lion_exception('generalexceptionmessage', 'error', '', 'Can not create default profile pages, records already exist.');
     }
     $mypage = new stdClass();
     $mypage->userid = NULL;

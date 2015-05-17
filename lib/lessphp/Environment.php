@@ -4,8 +4,9 @@
 /**
  * Environment
  *
- * @package Less
- * @subpackage environment
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Environment{
 

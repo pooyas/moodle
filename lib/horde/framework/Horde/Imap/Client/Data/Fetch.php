@@ -6,20 +6,16 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Object containing data returned by the Horde_Imap_Client_Base#fetch()
  * command.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2011-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Data_Fetch
 {
@@ -417,7 +413,6 @@ class Horde_Imap_Client_Data_Fetch
     /**
      * Set the internationalized downgraded status for the message.
      *
-     * @since 2.11.0
      *
      * @param boolean $downgraded  True if at least one message component has
      *                             been downgraded.
@@ -435,7 +430,6 @@ class Horde_Imap_Client_Data_Fetch
      * Does the message contain internationalized downgraded data (i.e. it
      * is a "surrogate" message)?
      *
-     * @since 2.11.0
      *
      * @return boolean  True if at least one message components has been
      *                  downgraded.

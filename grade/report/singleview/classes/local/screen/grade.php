@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The screen with a list of users.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace gradereport_singleview\local\screen;
@@ -28,19 +15,16 @@ use gradereport_singleview\local\ui\range;
 use gradereport_singleview\local\ui\bulk_insert;
 use grade_grade;
 use grade_item;
-use moodle_url;
+use lion_url;
 use pix_icon;
 use html_writer;
 use gradereport_singleview;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * The screen with a list of users.
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class grade extends tablelike implements selectable_items, filterable_items {
 
@@ -59,7 +43,7 @@ class grade extends tablelike implements selectable_items, filterable_items {
      * @return bool
      */
     public static function allowcategories() {
-        return get_config('moodle', 'grade_overridecat');
+        return get_config('lion', 'grade_overridecat');
     }
 
     /**
@@ -67,7 +51,7 @@ class grade extends tablelike implements selectable_items, filterable_items {
      * @param grade_item $item The grade item.
      */
     public static function filter($item) {
-        return get_config('moodle', 'grade_overridecat') ||
+        return get_config('lion', 'grade_overridecat') ||
                 !($item->is_course_item() || $item->is_category_item());
     }
 
@@ -205,7 +189,7 @@ class grade extends tablelike implements selectable_items, filterable_items {
         }
 
         $item->imagealt = $fullname;
-        $url = new moodle_url("/user/view.php", array('id' => $item->id, 'course' => $this->courseid));
+        $url = new lion_url("/user/view.php", array('id' => $item->id, 'course' => $this->courseid));
         $iconstring = get_string('filtergrades', 'gradereport_singleview', $fullname);
         $grade->label = $fullname;
 
@@ -270,7 +254,7 @@ class grade extends tablelike implements selectable_items, filterable_items {
 
         return $OUTPUT->paging_bar(
             $this->totalitemcount, $this->page, $this->perpage,
-            new moodle_url('/grade/report/singleview/index.php', array(
+            new lion_url('/grade/report/singleview/index.php', array(
                 'perpage' => $this->perpage,
                 'id' => $this->courseid,
                 'group' => $this->groupid,

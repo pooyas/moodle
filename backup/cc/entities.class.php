@@ -1,27 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
- * @package   moodlecore
- * @subpackage backup-imscc
- * @copyright 2009 Mauro Rondinelli (mauro.rondinelli [AT] uvcms.com)
- * @copyright 2011 Darko Miletic (dmiletic@moodlerooms.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage cc
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') or die('Direct access to this script is forbidden.');
+defined('LION_INTERNAL') or die('Direct access to this script is forbidden.');
 
 class entities {
     /**
@@ -73,10 +58,10 @@ class entities {
 
         $resource = new DOMDocument();
 
-        cc2moodle::log_action('Load the XML resource file: '.$path_to_file);
+        cc2lion::log_action('Load the XML resource file: '.$path_to_file);
 
         if (!$resource->load($path_to_file)) {
-            cc2moodle::log_action('Cannot load the XML resource file: ' . $path_to_file, true);
+            cc2lion::log_action('Cannot load the XML resource file: ' . $path_to_file, true);
         }
 
         return $resource;
@@ -183,7 +168,7 @@ class entities {
 
     public function get_external_xml ($identifier) {
 
-        $xpath = cc2moodle::newx_path(cc2moodle::$manifest, cc2moodle::$namespaces);
+        $xpath = cc2lion::newx_path(cc2lion::$manifest, cc2lion::$namespaces);
 
         $files = $xpath->query('/imscc:manifest/imscc:resources/imscc:resource[@identifier="'.
             $identifier.'"]/imscc:file/@href');
@@ -203,12 +188,12 @@ class entities {
         if (!empty($files)) {
 
             foreach ($files as $file) {
-                $source = cc2moodle::$path_to_manifest_folder . DIRECTORY_SEPARATOR . $file;
+                $source = cc2lion::$path_to_manifest_folder . DIRECTORY_SEPARATOR . $file;
                 $destination = $destination_folder . DIRECTORY_SEPARATOR . $file;
 
                 $destination_directory = dirname($destination);
 
-                cc2moodle::log_action('Copy the file: ' . $source . ' to ' . $destination);
+                cc2lion::log_action('Copy the file: ' . $source . ' to ' . $destination);
 
                 if (!file_exists($destination_directory)) {
                     mkdir($destination_directory, $CFG->directorypermissions, true);
@@ -221,7 +206,7 @@ class entities {
 
                 if (!$copy_success) {
                     notify('WARNING: Cannot copy the file ' . $source . ' to ' . $destination);
-                    cc2moodle::log_action('Cannot copy the file ' . $source . ' to ' . $destination, false);
+                    cc2lion::log_action('Cannot copy the file ' . $source . ' to ' . $destination, false);
                 }
             }
         }
@@ -232,9 +217,9 @@ class entities {
 
         $all_files = array();
 
-        $xpath = cc2moodle::newx_path(cc2moodle::$manifest, cc2moodle::$namespaces);
+        $xpath = cc2lion::newx_path(cc2lion::$manifest, cc2lion::$namespaces);
 
-        foreach (cc2moodle::$restypes as $type) {
+        foreach (cc2lion::$restypes as $type) {
 
             $files = $xpath->query('/imscc:manifest/imscc:resources/imscc:resource[@type="' . $type . '"]/imscc:file/@href');
 
@@ -256,7 +241,7 @@ class entities {
         $labels = $xpath->query($xquery);
         if (!empty($labels) && ($labels->length > 0)) {
             $tname = 'course_files';
-            $dpath = cc2moodle::$path_to_manifest_folder . DIRECTORY_SEPARATOR . $tname;
+            $dpath = cc2lion::$path_to_manifest_folder . DIRECTORY_SEPARATOR . $tname;
             $rfpath = 'files.gif';
             $fpath = $dpath . DIRECTORY_SEPARATOR . $rfpath;
 
@@ -279,7 +264,7 @@ class entities {
         $files = $this->get_all_files();
 
         if (!empty($files)) {
-            $this->move_files($files, cc2moodle::$path_to_manifest_folder . DIRECTORY_SEPARATOR . 'course_files', true);
+            $this->move_files($files, cc2lion::$path_to_manifest_folder . DIRECTORY_SEPARATOR . 'course_files', true);
         }
 
     }

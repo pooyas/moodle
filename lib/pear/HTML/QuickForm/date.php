@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP Version 4                                                        |
@@ -29,7 +36,6 @@ require_once 'HTML/QuickForm/select.php';
  * Inspired by original 'date' element but reimplemented as a subclass
  * of HTML_QuickForm_group
  *
- * @author Alexey Borzov <avb@php.net>
  * @access public
  */
 class HTML_QuickForm_date extends HTML_QuickForm_group

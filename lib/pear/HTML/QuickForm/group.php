@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -24,10 +31,7 @@ require_once("HTML/QuickForm/element.php");
 /**
  * HTML class for a form element group
  *
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_group extends HTML_QuickForm_element
@@ -37,7 +41,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Name of the element
      * @var       string
-     * @since     1.0
      * @access    private
      */
     var $_name = '';
@@ -45,7 +48,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Array of grouped elements
      * @var       array
-     * @since     1.0
      * @access    private
      */
     var $_elements = array();
@@ -53,7 +55,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * String to separate elements
      * @var       mixed
-     * @since     2.5
      * @access    private
      */
     var $_separator = null;
@@ -61,7 +62,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Required elements in this group
      * @var       array
-     * @since     2.5
      * @access    private
      */
     var $_required = array();
@@ -69,7 +69,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
    /**
     * Whether to change elements' names to $groupName[$elementName] or leave them as is
     * @var      bool
-    * @since    3.0
     * @access   private
     */
     var $_appendName = true;
@@ -88,7 +87,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
      * @param     bool      $appendName     (optional)whether to change elements' names to
      *                                      the form $groupName[$elementName] or leave
      *                                      them as is.
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -114,7 +112,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
      * Sets the group name
      *
      * @param     string    $name   Group name
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -129,7 +126,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Returns the group name
      *
-     * @since     1.0
      * @access    public
      * @return    string
      */
@@ -145,7 +141,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
      * Sets values for group's elements
      *
      * @param     mixed    Values for group's elements
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -179,7 +174,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Returns the value of the group
      *
-     * @since     1.0
      * @access    public
      * @return    mixed
      */
@@ -224,7 +218,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
      * Sets the grouped elements
      *
      * @param     array     $elements   Array of elements
-     * @since     1.1
      * @access    public
      * @return    void
      */
@@ -242,7 +235,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Gets the grouped elements
      *
-     * @since     2.4
      * @access    public
      * @return    array
      */
@@ -283,7 +275,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Returns Html for the group
      *
-     * @since       1.0
      * @access      public
      * @return      string
      */
@@ -303,7 +294,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
      * Returns the element name inside the group such as found in the html form
      *
      * @param     mixed     $index  Element name or element index in the group
-     * @since     3.0
      * @access    public
      * @return    mixed     string with element name, false if not found
      */
@@ -346,7 +336,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
     /**
      * Returns the value of field without HTML tags
      *
-     * @since     1.3
      * @access    public
      * @return    string
      */
@@ -377,7 +366,6 @@ class HTML_QuickForm_group extends HTML_QuickForm_element
      * @param     string    $event  Name of event
      * @param     mixed     $arg    event arguments
      * @param     object    $caller calling object
-     * @since     1.0
      * @access    public
      * @return    void
      */

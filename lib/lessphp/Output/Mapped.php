@@ -3,8 +3,9 @@
 /**
  * Parser output with source map
  *
- * @package Less
- * @subpackage Output
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Output_Mapped extends Less_Output {
 

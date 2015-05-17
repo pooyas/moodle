@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
 * Adds or updates modules in a course using new formslib
 *
-* @package    moodlecore
-* @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
-* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
 */
 
 require_once("../config.php");
@@ -37,7 +24,7 @@ $return = optional_param('return', 0, PARAM_BOOL);    //return to course/view.ph
 $type   = optional_param('type', '', PARAM_ALPHANUM); //TODO: hopefully will be removed in 2.0
 $sectionreturn = optional_param('sr', null, PARAM_INT);
 
-$url = new moodle_url('/course/modedit.php');
+$url = new lion_url('/course/modedit.php');
 $url->param('sr', $sectionreturn);
 if (!empty($return)) {
     $url->param('return', $return);
@@ -86,7 +73,7 @@ if (!empty($add)) {
     }
 
     if (plugin_supports('mod', $data->modulename, FEATURE_ADVANCED_GRADING, false)
-            and has_capability('moodle/grade:managegradingforms', $context)) {
+            and has_capability('lion/grade:managegradingforms', $context)) {
         require_once($CFG->dirroot.'/grade/grading/lib.php');
 
         $data->_advancedgradingdata['methods'] = grading_manager::available_methods();
@@ -113,9 +100,9 @@ if (!empty($add)) {
         $heading = new stdClass();
         $heading->what = $fullmodulename;
         $heading->to   = $sectionname;
-        $pageheading = get_string('addinganewto', 'moodle', $heading);
+        $pageheading = get_string('addinganewto', 'lion', $heading);
     } else {
-        $pageheading = get_string('addinganew', 'moodle', $fullmodulename);
+        $pageheading = get_string('addinganew', 'lion', $fullmodulename);
     }
     $navbaraddition = $pageheading;
 
@@ -125,7 +112,7 @@ if (!empty($add)) {
     $PAGE->set_url($url);
 
     // Select the "Edit settings" from navigation.
-    navigation_node::override_active_url(new moodle_url('/course/modedit.php', array('update'=>$update, 'return'=>1)));
+    navigation_node::override_active_url(new lion_url('/course/modedit.php', array('update'=>$update, 'return'=>1)));
 
     // Check the course module exists.
     $cm = get_coursemodule_from_id('', $update, 0, false, MUST_EXIST);
@@ -167,7 +154,7 @@ if (!empty($add)) {
     }
 
     if (plugin_supports('mod', $data->modulename, FEATURE_ADVANCED_GRADING, false)
-            and has_capability('moodle/grade:managegradingforms', $context)) {
+            and has_capability('lion/grade:managegradingforms', $context)) {
         require_once($CFG->dirroot.'/grade/grading/lib.php');
         $gradingman = get_grading_manager($context, 'mod_'.$data->modulename);
         $data->_advancedgradingdata['methods'] = $gradingman->get_available_methods();
@@ -220,9 +207,9 @@ if (!empty($add)) {
         $heading = new stdClass();
         $heading->what = $fullmodulename;
         $heading->in   = $sectionname;
-        $pageheading = get_string('updatingain', 'moodle', $heading);
+        $pageheading = get_string('updatingain', 'lion', $heading);
     } else {
-        $pageheading = get_string('updatinga', 'moodle', $fullmodulename);
+        $pageheading = get_string('updatinga', 'lion', $fullmodulename);
     }
     $navbaraddition = null;
 
@@ -240,9 +227,9 @@ if (!empty($type)) { //TODO: hopefully will be removed in 2.0
 $PAGE->set_pagetype($pagepath);
 $PAGE->set_pagelayout('admin');
 
-$modmoodleform = "$CFG->dirroot/mod/$module->name/mod_form.php";
-if (file_exists($modmoodleform)) {
-    require_once($modmoodleform);
+$modlionform = "$CFG->dirroot/mod/$module->name/mod_form.php";
+if (file_exists($modlionform)) {
+    require_once($modlionform);
 } else {
     print_error('noformdesc');
 }
@@ -271,7 +258,7 @@ if ($mform->is_cancelled()) {
         if (empty($fromform->showgradingmanagement)) {
             redirect("$CFG->wwwroot/mod/$module->name/view.php?id=$fromform->coursemodule");
         } else {
-            $returnurl = new moodle_url("/mod/$module->name/view.php", array('id' => $fromform->coursemodule));
+            $returnurl = new lion_url("/mod/$module->name/view.php", array('id' => $fromform->coursemodule));
             redirect($fromform->gradingman->get_management_url($returnurl));
         }
     } else {
@@ -281,7 +268,7 @@ if ($mform->is_cancelled()) {
 
 } else {
 
-    $streditinga = get_string('editinga', 'moodle', $fullmodulename);
+    $streditinga = get_string('editinga', 'lion', $fullmodulename);
     $strmodulenameplural = get_string('modulenameplural', $module->name);
 
     if (!empty($cm->id)) {

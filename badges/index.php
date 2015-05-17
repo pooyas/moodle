@@ -1,27 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Page for badges management
  *
  * @package    core
  * @subpackage badges
- * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
@@ -71,7 +56,7 @@ if ($course = $DB->get_record('course', array('id' => $courseid))) {
 }
 
 $hdr = get_string('managebadges', 'badges');
-$returnurl = new moodle_url('/badges/index.php', $urlparams);
+$returnurl = new lion_url('/badges/index.php', $urlparams);
 $PAGE->set_url($returnurl);
 
 if ($type == BADGE_TYPE_SITE) {
@@ -79,7 +64,7 @@ if ($type == BADGE_TYPE_SITE) {
     $PAGE->set_context(context_system::instance());
     $PAGE->set_pagelayout('admin');
     $PAGE->set_heading($title . ': ' . $hdr);
-    navigation_node::override_active_url(new moodle_url('/badges/index.php', array('type' => BADGE_TYPE_SITE)), true);
+    navigation_node::override_active_url(new lion_url('/badges/index.php', array('type' => BADGE_TYPE_SITE)), true);
 } else {
     require_login($course);
     $coursecontext = context_course::instance($course->id);
@@ -88,17 +73,17 @@ if ($type == BADGE_TYPE_SITE) {
     $PAGE->set_pagelayout('incourse');
     $PAGE->set_heading(format_string($course->fullname, true, array('context' => $coursecontext)) . ': ' . $hdr);
     navigation_node::override_active_url(
-        new moodle_url('/badges/index.php', array('type' => BADGE_TYPE_COURSE, 'id' => $course->id))
+        new lion_url('/badges/index.php', array('type' => BADGE_TYPE_COURSE, 'id' => $course->id))
     );
 }
 
 if (!has_any_capability(array(
-        'moodle/badges:viewawarded',
-        'moodle/badges:createbadge',
-        'moodle/badges:awardbadge',
-        'moodle/badges:configuremessages',
-        'moodle/badges:configuredetails',
-        'moodle/badges:deletebadge'), $PAGE->context)) {
+        'lion/badges:viewawarded',
+        'lion/badges:createbadge',
+        'lion/badges:awardbadge',
+        'lion/badges:configuremessages',
+        'lion/badges:configuredetails',
+        'lion/badges:deletebadge'), $PAGE->context)) {
     redirect($CFG->wwwroot);
 }
 
@@ -107,7 +92,7 @@ $PAGE->requires->js('/badges/backpack.js');
 $PAGE->requires->js_init_call('check_site_access', null, false);
 $output = $PAGE->get_renderer('core', 'badges');
 
-if (($delete || $archive) && has_capability('moodle/badges:deletebadge', $PAGE->context)) {
+if (($delete || $archive) && has_capability('lion/badges:deletebadge', $PAGE->context)) {
     $badgeid = ($archive != 0) ? $archive : $delete;
     $badge = new badge($badgeid);
     if (!$confirm) {
@@ -115,14 +100,14 @@ if (($delete || $archive) && has_capability('moodle/badges:deletebadge', $PAGE->
         // Archive this badge?
         echo $output->heading(get_string('archivebadge', 'badges', $badge->name));
         $archivebutton = $output->single_button(
-                            new moodle_url($PAGE->url, array('archive' => $badge->id, 'confirm' => 1)),
+                            new lion_url($PAGE->url, array('archive' => $badge->id, 'confirm' => 1)),
                             get_string('archiveconfirm', 'badges'));
         echo $output->box(get_string('archivehelp', 'badges') . $archivebutton, 'generalbox');
 
         // Delete this badge?
         echo $output->heading(get_string('delbadge', 'badges', $badge->name));
         $deletebutton = $output->single_button(
-                            new moodle_url($PAGE->url, array('delete' => $badge->id, 'confirm' => 1)),
+                            new lion_url($PAGE->url, array('delete' => $badge->id, 'confirm' => 1)),
                             get_string('delconfirm', 'badges'));
         echo $output->box(get_string('deletehelp', 'badges') . $deletebutton, 'generalbox');
 
@@ -139,7 +124,7 @@ if (($delete || $archive) && has_capability('moodle/badges:deletebadge', $PAGE->
     }
 }
 
-if ($deactivate && has_capability('moodle/badges:configuredetails', $PAGE->context)) {
+if ($deactivate && has_capability('lion/badges:configuredetails', $PAGE->context)) {
     require_sesskey();
     $badge = new badge($deactivate);
     if ($badge->is_locked()) {
@@ -189,8 +174,8 @@ if ($totalcount) {
 } else {
     echo $output->notification(get_string('nobadges', 'badges'));
 
-    if (has_capability('moodle/badges:createbadge', $PAGE->context)) {
-        echo $OUTPUT->single_button(new moodle_url('newbadge.php', array('type' => $type, 'id' => $courseid)),
+    if (has_capability('lion/badges:createbadge', $PAGE->context)) {
+        echo $OUTPUT->single_button(new lion_url('newbadge.php', array('type' => $type, 'id' => $courseid)),
             get_string('newbadge', 'badges'));
     }
 }

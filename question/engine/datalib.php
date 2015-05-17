@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Code for loading and saving question attempts to and from the database.
@@ -39,33 +26,31 @@
  *    is 0 except when re-grading, and when regrading, there are many more inserts
  *    into question_attempt_step_data than deletes, so it is really hardly worth it.
  *
- * @package    core_question
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question
+ * @subpackage engine
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * This class controls the loading and saving of question engine data to and from
  * the database.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_engine_data_mapper {
     /**
-     * @var moodle_database normally points to global $DB, but I prefer not to
+     * @var lion_database normally points to global $DB, but I prefer not to
      * use globals if I can help it.
      */
     protected $db;
 
     /**
-     * @param moodle_database $db a database connectoin. Defaults to global $DB.
+     * @param lion_database $db a database connectoin. Defaults to global $DB.
      */
-    public function __construct(moodle_database $db = null) {
+    public function __construct(lion_database $db = null) {
         if (is_null($db)) {
             global $DB;
             $this->db = $DB;
@@ -1028,7 +1013,7 @@ ORDER BY
     public function update_question_attempt_flag($qubaid, $questionid, $qaid, $slot, $newstate) {
         if (!$this->db->record_exists('question_attempts', array('id' => $qaid,
                 'questionusageid' => $qubaid, 'questionid' => $questionid, 'slot' => $slot))) {
-            throw new moodle_exception('errorsavingflags', 'question');
+            throw new lion_exception('errorsavingflags', 'question');
         }
 
         $this->db->set_field('question_attempts', 'flagged', $newstate, array('id' => $qaid));
@@ -1208,8 +1193,6 @@ ORDER BY
  * changes to a {@link question_usage_by_activity}, and its constituent parts,
  * so that the changes can be saved to the database when {@link save()} is called.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_engine_unit_of_work implements question_usage_observer {
     /** @var question_usage_by_activity the usage being tracked. */
@@ -1435,8 +1418,6 @@ class question_engine_unit_of_work implements question_usage_observer {
 /**
  * The interface implemented by {@link question_file_saver} and {@link question_file_loader}.
  *
- * @copyright  2012 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 interface question_response_files {
     /**
@@ -1455,8 +1436,6 @@ interface question_response_files {
  * if this question attempt will actually be saved in the database until later,
  * when the {@link question_engine_unit_of_work} is saved, if it is.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_file_saver implements question_response_files {
     /** @var int the id of the draft file area to save files from. */
@@ -1561,8 +1540,6 @@ class question_file_saver implements question_response_files {
  * files to be accessed again later (e.g. when re-grading) using that same
  * API as when doing the original grading.
  *
- * @copyright  2012 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_file_loader implements question_response_files {
     /** @var question_attempt_step the step that these files belong to. */
@@ -1655,8 +1632,6 @@ class question_file_loader implements question_response_files {
  * FROM $qubaids->from_question_attempts('qa')
  * WHERE $qubaids->where() AND qa.slot = 1
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class qubaid_condition {
 
@@ -1701,8 +1676,6 @@ abstract class qubaid_condition {
  * This class represents a restriction on the set of question_usage ids to include
  * in a larger database query based on an explicit list of ids.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qubaid_list extends qubaid_condition {
     /** @var array of ids. */
@@ -1772,8 +1745,6 @@ class qubaid_list extends qubaid_condition {
  *
  * where $from, $usageidcolumn and $where are the arguments to the constructor.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qubaid_join extends qubaid_condition {
     public $from;

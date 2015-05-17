@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Generates a JMeter test plan to performance comparison.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
  */
 
 require(__DIR__ . '/../../../config.php');
@@ -54,7 +41,7 @@ if ($data = $mform->get_data()) {
     $usersfile = tool_generator_testplan_backend::create_users_file($data->courseid, $data->updateuserspassword);
 
     // Test plan link.
-    $testplanurl = moodle_url::make_pluginfile_url(
+    $testplanurl = lion_url::make_pluginfile_url(
         $testplanfile->get_contextid(),
         $testplanfile->get_component(),
         $testplanfile->get_filearea(),
@@ -67,7 +54,7 @@ if ($data = $mform->get_data()) {
     );
 
     // Users file link.
-    $usersfileurl = moodle_url::make_pluginfile_url(
+    $usersfileurl = lion_url::make_pluginfile_url(
         $usersfile->get_contextid(),
         $usersfile->get_component(),
         $usersfile->get_filearea(),

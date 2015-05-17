@@ -32,8 +32,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package moodlecore
- * @copyright (c) 2007 reCAPTCHA -- {@link http://www.google.com/recaptcha}
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -184,8 +185,6 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false) {
 /**
  * A ReCaptchaResponse is returned from recaptcha_check_answer()
  *
- * @package moodlecore
- * @copyright (c) 2007 reCAPTCHA -- {@link http://www.google.com/recaptcha}
  */
 class ReCaptchaResponse {
         var $is_valid;

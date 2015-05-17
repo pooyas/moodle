@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Book module core interaction API
  *
- * @package    mod_book
- * @copyright  2004-2011 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage book
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Returns list of available numbering types
@@ -69,7 +56,7 @@ function book_get_nav_classes() {
  */
 function book_get_extra_capabilities() {
     // used for group-members-only
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -148,7 +135,7 @@ function book_print_recent_activity($course, $viewfullnames, $timestart) {
 }
 
 /**
- * This function is used by the reset_course_userdata function in moodlelib.
+ * This function is used by the reset_course_userdata function in lionlib.
  * @param $data the data submitted from the reset course.
  * @return array status array
  */
@@ -276,7 +263,7 @@ function book_supports($feature) {
         case FEATURE_COMPLETION_TRACKS_VIEWS: return true;
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -314,7 +301,7 @@ function book_extend_settings_navigation(settings_navigation $settingsnav, navig
             $string = get_string("turneditingon");
             $edit = '1';
         }
-        $url = new moodle_url('/mod/book/view.php', array('id'=>$params['id'], 'chapterid'=>$params['chapterid'], 'edit'=>$edit, 'sesskey'=>sesskey()));
+        $url = new lion_url('/mod/book/view.php', array('id'=>$params['id'], 'chapterid'=>$params['chapterid'], 'edit'=>$edit, 'sesskey'=>sesskey()));
         $booknode->add($string, $url, navigation_node::TYPE_SETTING);
     }
 }
@@ -546,7 +533,7 @@ function book_export_contents($cm, $baseurl) {
         // Each chapter in a subdirectory.
         $chapterindexfile['filepath']     = "/{$chapter->id}/";
         $chapterindexfile['filesize']     = 0;
-        $chapterindexfile['fileurl']      = moodle_url::make_webservice_pluginfile_url(
+        $chapterindexfile['fileurl']      = lion_url::make_webservice_pluginfile_url(
                     $context->id, 'mod_book', 'chapter', $chapter->id, '/', 'index.html')->out(false);
         $chapterindexfile['timecreated']  = $book->timecreated;
         $chapterindexfile['timemodified'] = $book->timemodified;
@@ -565,7 +552,7 @@ function book_export_contents($cm, $baseurl) {
             $file['filename']     = $fileinfo->get_filename();
             $file['filepath']     = "/{$chapter->id}/";
             $file['filesize']     = $fileinfo->get_filesize();
-            $file['fileurl']      = moodle_url::make_webservice_pluginfile_url(
+            $file['fileurl']      = lion_url::make_webservice_pluginfile_url(
                                         $context->id, 'mod_book', 'chapter', $chapter->id,
                                         $fileinfo->get_filepath(), $fileinfo->get_filename())->out(false);
             $file['timecreated']  = $fileinfo->get_timecreated();

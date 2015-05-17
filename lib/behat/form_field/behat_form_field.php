@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Generic moodleforms field.
+ * Generic lionforms field.
  *
- * @package    core_form
  * @category   test
- * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-// NOTE: no MOODLE_INTERNAL test here, this file may be required by behat before including /config.php.
+// NOTE: no LION_INTERNAL test here, this file may be required by behat before including /config.php.
 
 use Behat\Mink\Session as Session,
     Behat\Mink\Element\NodeElement as NodeElement;
@@ -33,10 +20,7 @@ use Behat\Mink\Session as Session,
  *
  * Basically an interface with Mink session.
  *
- * @package    core_form
  * @category   test
- * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class behat_form_field {
 
@@ -117,10 +101,10 @@ class behat_form_field {
      *
      * This class is the generic field type, behat_field_manager::get_form_field()
      * should be able to find the appropiate class for the field type, but
-     * in cases like moodle form group elements we can not find the type of
+     * in cases like lion form group elements we can not find the type of
      * the field through the DOM so we also need to take care of the
      * different field types from here. If we need to deal with more complex
-     * moodle form elements we will need to refactor this simple HTML elements
+     * lion form elements we will need to refactor this simple HTML elements
      * guess method.
      *
      * @return behat_form_field

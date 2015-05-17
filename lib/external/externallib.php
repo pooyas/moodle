@@ -1,41 +1,24 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * external API for core library
  *
- * @package    core_webservice
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
 /**
  * Web service related functions
  *
- * @package    core
  * @category   external
- * @copyright  2012 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.4
  */
 class core_external extends external_api {
 
@@ -45,7 +28,6 @@ class core_external extends external_api {
      *
      * @param array $stringparams
      * @return object|string
-     * @since Moodle 2.4
      */
     public static function format_string_parameters($stringparams) {
         // Check if there are some string params.
@@ -67,7 +49,7 @@ class core_external extends external_api {
                     // If a parameter is unnamed throw an exception
                     // unnamed param is only possible if one only param is sent.
                     if (empty($stringparam['name'])) {
-                        throw new moodle_exception('unnamedstringparam', 'webservice');
+                        throw new lion_exception('unnamedstringparam', 'webservice');
                     }
 
                     $strparams->{$stringparam['name']} = $stringparam['value'];
@@ -81,7 +63,6 @@ class core_external extends external_api {
      * Can this function be called directly from ajax?
      *
      * @return boolean
-     * @since Moodle 2.9
      */
     public static function get_string_is_allowed_from_ajax() {
         return true;
@@ -91,12 +72,11 @@ class core_external extends external_api {
      * Returns description of get_string parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.4
      */
     public static function get_string_parameters() {
         return new external_function_parameters(
             array('stringid' => new external_value(PARAM_STRINGID, 'string identifier'),
-                  'component' => new external_value(PARAM_COMPONENT,'component', VALUE_DEFAULT, 'moodle'),
+                  'component' => new external_value(PARAM_COMPONENT,'component', VALUE_DEFAULT, 'lion'),
                   'lang' => new external_value(PARAM_LANG, 'lang', VALUE_DEFAULT, null),
                   'stringparams' => new external_multiple_structure (
                       new external_single_structure(array(
@@ -116,9 +96,8 @@ class core_external extends external_api {
      * @param string $component string component
      * @param array $stringparams the string params
      * @return string
-     * @since Moodle 2.4
      */
-    public static function get_string($stringid, $component = 'moodle', $lang = null, $stringparams = array()) {
+    public static function get_string($stringid, $component = 'lion', $lang = null, $stringparams = array()) {
         $params = self::validate_parameters(self::get_string_parameters(),
                       array('stringid'=>$stringid, 'component' => $component, 'lang' => $lang, 'stringparams' => $stringparams));
 
@@ -131,7 +110,6 @@ class core_external extends external_api {
      * Returns description of get_string() result value
      *
      * @return string
-     * @since Moodle 2.4
      */
     public static function get_string_returns() {
         return new external_value(PARAM_TEXT, 'translated string');
@@ -141,14 +119,13 @@ class core_external extends external_api {
      * Returns description of get_string parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.4
      */
     public static function get_strings_parameters() {
         return new external_function_parameters(
             array('strings' => new external_multiple_structure (
                     new external_single_structure (array(
                         'stringid' => new external_value(PARAM_STRINGID, 'string identifier'),
-                        'component' => new external_value(PARAM_COMPONENT, 'component', VALUE_DEFAULT, 'moodle'),
+                        'component' => new external_value(PARAM_COMPONENT, 'component', VALUE_DEFAULT, 'lion'),
                         'lang' => new external_value(PARAM_LANG, 'lang', VALUE_DEFAULT, null),
                         'stringparams' => new external_multiple_structure (
                             new external_single_structure(array(
@@ -167,7 +144,6 @@ class core_external extends external_api {
      * Can this function be called directly from ajax?
      *
      * @return boolean
-     * @since Moodle 2.9
      */
     public static function get_strings_is_allowed_from_ajax() {
         return true;
@@ -180,7 +156,6 @@ class core_external extends external_api {
      * @param array $strings strings to translate
      * @return array
      *
-     * @since Moodle 2.4
      */
     public static function get_strings($strings) {
         $params = self::validate_parameters(self::get_strings_parameters(),
@@ -211,7 +186,6 @@ class core_external extends external_api {
      * Returns description of get_string() result value
      *
      * @return array
-     * @since Moodle 2.4
      */
     public static function get_strings_returns() {
         return new external_multiple_structure(
@@ -227,7 +201,6 @@ class core_external extends external_api {
      * Returns description of get_component_strings parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.4
      */
     public static function get_component_strings_parameters() {
         return new external_function_parameters(
@@ -241,7 +214,6 @@ class core_external extends external_api {
      * Can this function be called directly from ajax?
      *
      * @return boolean
-     * @since Moodle 2.9
      */
     public static function get_component_strings_is_allowed_from_ajax() {
         return true;
@@ -253,7 +225,6 @@ class core_external extends external_api {
      * @param string $component component name
      * @return array
      *
-     * @since Moodle 2.4
      */
     public static function get_component_strings($component, $lang = null) {
 
@@ -282,7 +253,6 @@ class core_external extends external_api {
      * Returns description of get_component_strings() result value
      *
      * @return array
-     * @since Moodle 2.4
      */
     public static function get_component_strings_returns() {
         return new external_multiple_structure(

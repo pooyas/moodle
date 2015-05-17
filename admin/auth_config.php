@@ -1,6 +1,9 @@
 <?php
 /**
  * Edit configuration for an individual auth plugin
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../config.php';
@@ -79,7 +82,7 @@ echo "</div>\n";
 echo "</form>\n";
 
 $PAGE->requires->string_for_js('unmaskpassword', 'core_form');
-$PAGE->requires->yui_module('moodle-auth-passwordunmask', 'M.auth.passwordunmask');
+$PAGE->requires->yui_module('lion-auth-passwordunmask', 'M.auth.passwordunmask');
 
 echo $OUTPUT->footer();
 exit;

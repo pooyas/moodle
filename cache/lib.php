@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The core cache API.
  *
  * Pretty much just includes the mandatory classes and contains the misc classes that arn't worth separating into individual files.
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains the components that are requried in order to use caching.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include the required classes.
 require_once($CFG->dirroot.'/cache/classes/interfaces.php');
@@ -44,10 +31,7 @@ require_once($CFG->dirroot.'/cache/classes/definition.php');
  *
  * This class gets used when the data is an object that has implemented the cacheable_object interface.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_cached_object {
 
@@ -87,10 +71,7 @@ class cache_cached_object {
  *
  * This class is exactly why you should use event driving invalidation of cache data rather than relying on ttl.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_ttl_wrapper {
 
@@ -129,12 +110,9 @@ class cache_ttl_wrapper {
 /**
  * A cache exception class. Just allows people to catch cache exceptions.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class cache_exception extends moodle_exception {
+class cache_exception extends lion_exception {
     /**
      * Constructs a new exception
      *
@@ -175,8 +153,6 @@ class cache_exception extends moodle_exception {
  * $cache->set($data);
  * </code>
  *
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cacheable_object_array extends ArrayObject implements cacheable_object {
 

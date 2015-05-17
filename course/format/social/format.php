@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    course_format
+ * @subpackage social
+ * @copyright  2015 Pooya Saeedi
+*/
+
       // format.php - course format featuring social forum
       //              included from view.php
 
@@ -19,7 +26,7 @@
             $options->para = false;
             $introcontent = format_module_intro('forum', $forum, $cm->id);
 
-            if ($PAGE->user_is_editing() && has_capability('moodle/course:update', $modcontext)) {
+            if ($PAGE->user_is_editing() && has_capability('lion/course:update', $modcontext)) {
                 $streditsummary  = get_string('editsummary');
                 $introcontent .= '<div class="editinglink"><a title="'.$streditsummary.'" '.
                                  '   href="modedit.php?update='.$cm->id.'&amp;sesskey='.sesskey().'">'.

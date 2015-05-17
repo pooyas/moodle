@@ -8,6 +8,9 @@
  * EDIT THIS FILE, changes will be overwritten the next time the script is run.
  *
  * Changes to include_path are not necessary.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $__dir = dirname(__FILE__);

@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'admin', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'admin', language 'en', branch 'LION_20_STABLE'
  *
- * @package   core
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    lang
+ * @subpackage en
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['accessdenied'] = 'Access denied';
@@ -49,7 +36,7 @@ $string['allowediplist'] = 'Allowed IP list';
 $string['allowemailaddresses'] = 'Allowed email domains';
 $string['allowframembedding'] = 'Allow frame embedding';
 $string['allowframembedding_help'] = 'Allow embedding of this site in frames on external sites. Enabling of this feature is not recommended for security reasons.';
-$string['allowguestmymoodle'] = 'Allow guest access to My home';
+$string['allowguestmylion'] = 'Allow guest access to My home';
 $string['allowobjectembed'] = 'Allow EMBED and OBJECT tags';
 $string['allowthemechangeonurl'] = 'Allow theme changes in the URL';
 $string['allowuserblockhiding'] = 'Allow users to hide blocks';
@@ -100,8 +87,8 @@ $string['calendartype_desc'] = 'Choose a default calendar type for the whole sit
 $string['calendar_weekend'] = 'Weekend days';
 $string['cannotdeletemodfilter'] = 'You cannot uninstall the \'{$a->filter}\' because it is part of the \'{$a->module}\' module.';
 $string['cannotuninstall'] = '{$a} can not be uninstalled.';
-$string['cfgwwwrootslashwarning'] = 'You have defined $CFG->wwwroot incorrectly in your config.php file. You have included a \'/\' character at the end. Please remove it, or you will experience strange bugs like <a href=\'http://tracker.moodle.org/browse/MDL-11061\'>MDL-11061</a>.';
-$string['cfgwwwrootwarning'] = 'You have defined $CFG->wwwroot incorrectly in your config.php file. It does not match the URL you are using to access this page. Please correct it, or you will experience strange bugs like <a href=\'http://tracker.moodle.org/browse/MDL-11061\'>MDL-11061</a>.';
+$string['cfgwwwrootslashwarning'] = 'You have defined $CFG->wwwroot incorrectly in your config.php file. You have included a \'/\' character at the end. Please remove it, or you will experience strange bugs like <a href=\'http://tracker.lion.org/browse/MDL-11061\'>MDL-11061</a>.';
+$string['cfgwwwrootwarning'] = 'You have defined $CFG->wwwroot incorrectly in your config.php file. It does not match the URL you are using to access this page. Please correct it, or you will experience strange bugs like <a href=\'http://tracker.lion.org/browse/MDL-11061\'>MDL-11061</a>.';
 $string['clamfailureonupload'] = 'On clam AV failure';
 $string['cleanup'] = 'Cleanup';
 $string['clianswerno'] = 'n';
@@ -132,14 +119,14 @@ $string['configallowblockstodock'] = 'If enabled and supported by the selected t
 $string['configallowcategorythemes'] = 'If you enable this, then themes can be set at the category level. This will affect all child categories and courses unless they have specifically set their own theme. WARNING: Enabling category themes may affect performance.';
 $string['configallowcoursethemes'] = 'If you enable this, then courses will be allowed to set their own themes.  Course themes override all other theme choices (site, user, or session themes)';
 $string['configallowemailaddresses'] = 'If you want to restrict all new email addresses to particular domains, then list them here separated by spaces.  All other domains will be rejected.  To allow subdomains add the domain with a preceding \'.\'. eg <strong>ourcollege.edu.au .gov.au</strong>';
-$string['configallowguestmymoodle'] = 'If enabled guests can access My home, otherwise guests are redirected to the site front page.';
+$string['configallowguestmylion'] = 'If enabled guests can access My home, otherwise guests are redirected to the site front page.';
 $string['configallowobjectembed'] = 'As a default security measure, normal users are not allowed to embed multimedia (like Flash) within texts using explicit EMBED and OBJECT tags in their HTML (although it can still be done safely using the mediaplugins filter).  If you wish to allow these tags then enable this option.';
 $string['configallowoverride'] = 'You can allow people with the roles on the left side to override some of the column roles';
-$string['configallowoverride2'] = 'Select which role(s) can be overridden by each role in the left column.<br />Note that these settings only apply to users who have either the capability moodle/role:override or the capability moodle/role:safeoverride allowed.';
-$string['configallowswitch'] = 'Select which roles a user may switch to, based on which roles they already have. In addition to an entry in this table, a user must also have the moodle/role:switchroles capability to be able to switch.<br />Note that it is only possible to switch to roles that have the moodle/course:view capability, and that do not have the moodle/site:doanything capability, so some columns in this table are disabled.';
-$string['configallowthemechangeonurl'] = 'If enabled, the theme can be changed by adding either:<br />?theme=themename to any Moodle URL (eg: mymoodlesite.com/?theme=afterburner ) or <br />&theme=themename to any internal Moodle URL (eg: mymoodlesite.com/course/view.php?id=2&theme=afterburner ).';
+$string['configallowoverride2'] = 'Select which role(s) can be overridden by each role in the left column.<br />Note that these settings only apply to users who have either the capability lion/role:override or the capability lion/role:safeoverride allowed.';
+$string['configallowswitch'] = 'Select which roles a user may switch to, based on which roles they already have. In addition to an entry in this table, a user must also have the lion/role:switchroles capability to be able to switch.<br />Note that it is only possible to switch to roles that have the lion/course:view capability, and that do not have the lion/site:doanything capability, so some columns in this table are disabled.';
+$string['configallowthemechangeonurl'] = 'If enabled, the theme can be changed by adding either:<br />?theme=themename to any Lion URL (eg: mylionsite.com/?theme=afterburner ) or <br />&theme=themename to any internal Lion URL (eg: mylionsite.com/course/view.php?id=2&theme=afterburner ).';
 $string['configallowuserblockhiding'] = 'Do you want to allow users to hide/show side blocks throughout this site?  This feature uses Javascript and cookies to remember the state of each collapsible block, and only affects the user\'s own view.';
-$string['configallowuserswitchrolestheycantassign'] = 'By default, moodle/role:assign is required for users to switch roles. Enabling this setting removes this requirement, and results in the roles available in the "Switch role to" dropdown menu being determined by settings in the "Allow role assignments" table only.
+$string['configallowuserswitchrolestheycantassign'] = 'By default, lion/role:assign is required for users to switch roles. Enabling this setting removes this requirement, and results in the roles available in the "Switch role to" dropdown menu being determined by settings in the "Allow role assignments" table only.
 It is recommended that the settings in the "Allow role assignments" table do not allow users to switch to a role with more capabilities than their existing role.';
 $string['configallowuserthemes'] = 'If you enable this, then users will be allowed to set their own themes.  User themes override site themes (but not course themes)';
 $string['configallusersaresitestudents'] = 'For activities on the front page of the site, should ALL users be considered as students?  If you answer "Yes", then any confirmed user account will be allowed to participate as a student in those activities.  If you answer "No", then only users who are already a participant in at least one course will be able to take part in those front page activities. Only admins and specially assigned teachers can act as teachers for these front page activities.';
@@ -168,14 +155,14 @@ $string['configcronremotepassword'] = 'This means that the cron.php script canno
 $string['configcurlcache'] = 'Time-to-live for cURL cache, in seconds.';
 $string['configcustommenuitems'] = 'You can configure a custom menu here to be shown by themes. Each line consists of some menu text, a link URL (optional), a tooltip title (optional) and a language code or comma-separated list of codes (optional, for displaying the line to users of the specified language only), separated by pipe characters. You can specify a structure using hyphens, and dividers can be used by adding a line of one or more # characters where desired. For example:
 <pre>
-Moodle community|https://moodle.org
--Moodle free support|https://moodle.org/support
+Lion community|https://lion.org
+-Lion free support|https://lion.org/support
 -###
--Moodle development|https://moodle.org/development
---Moodle Docs|http://docs.moodle.org|Moodle Docs
---German Moodle Docs|http://docs.moodle.org/de|Documentation in German|de
+-Lion development|https://lion.org/development
+--Lion Docs|http://docs.lion.org|Lion Docs
+--German Lion Docs|http://docs.lion.org/de|Documentation in German|de
 #####
-Moodle.com|http://moodle.com/
+Lion.com|http://lion.com/
 </pre>';
 $string['configcustomusermenuitems'] = 'You can configure the contents of the user menu (with the exception of the log out link, which is automatically added). Each line is separated by | characters and consists of 1) a string in "langstringname, componentname" form or as plain text, 2) a URL, and 3) an icon either as a pix icon or as a URL. Dividers can be used by adding a line of one or more # characters where desired.';
 $string['configdbsessions'] = 'If enabled, this setting will use the database to store information about current sessions. Note that changing this setting now will log out all current users (including you). If you are using MySQL please make sure that \'max_allowed_packet\' in my.cnf (or my.ini) is at least 4M. Other session drivers can be configured directly in config.php, see config-dist.php for more information. This option disappears if you specify session driver in config.php file.';
@@ -197,22 +184,22 @@ $string['configdisableuserimages'] = 'Disable the ability for users to change us
 $string['configdisplayloginfailures'] = 'This will display information to users about previous failed logins.';
 $string['configdndallowtextandlinks'] = 'Enable or disable the dragging and dropping of text and links onto a course page, alongside the dragging and dropping of files. Note that the dragging of text into Firefox or between different browsers is unreliable and may result in no data being uploaded, or corrupted text being uploaded.';
 $string['configdoclang'] = 'This language will be used in links for the documentation pages.';
-$string['configdocroot'] = 'Defines the path to the Moodle Docs for providing context-specific documentation via \'Moodle Docs for this page\' links in the footer of each page. If the field is left blank, links will not be displayed.';
-$string['configdoctonewwindow'] = 'If you enable this, then links to Moodle Docs will be shown in a new window.';
+$string['configdocroot'] = 'Defines the path to the Lion Docs for providing context-specific documentation via \'Lion Docs for this page\' links in the footer of each page. If the field is left blank, links will not be displayed.';
+$string['configdoctonewwindow'] = 'If you enable this, then links to Lion Docs will be shown in a new window.';
 $string['configeditordictionary'] = 'This value will be used if aspell doesn\'t have dictionary for users own language.';
 $string['configeditorfontlist'] = 'Select the fonts that should appear in the editor\'s drop-down list.';
 $string['configemailchangeconfirmation'] = 'Require an email confirmation step when users change their email address in their profile.';
 $string['configenablecalendarexport'] = 'Enable exporting or subscribing to calendars.';
 $string['configenablecomments'] = 'Enable comments';
 $string['configenablecourserequests'] = 'This will allow any user to request a course be created.';
-$string['configenablemobilewebservice'] = 'Enable mobile service for the official Moodle app or other app requesting it. For more information, read the {$a}';
+$string['configenablemobilewebservice'] = 'Enable mobile service for the official Lion app or other app requesting it. For more information, read the {$a}';
 $string['configenablerssfeeds'] = 'If enabled, RSS feeds are generated by various features across the site, such as blogs, forums, database activities and glossaries. Note that RSS feeds also need to be enabled for the particular activity modules.';
 $string['configenablerssfeedsdisabled'] = 'It is not available because RSS feeds are disabled in all the Site. To enable them, go to the Variables settings under Admin Configuration.';
 $string['configenablerssfeedsdisabled2'] = 'RSS feeds are disabled at the server level. You need to enable them first in Server/RSS.';
 $string['configenablesafebrowserintegration'] = 'This adds the choice \'Require Safe Exam Browser\' to the \'Browser security\' field on the quiz settings form. See http://www.safeexambrowser.org/ for more information.';
-$string['configenablestats'] = 'If you choose \'yes\' here, Moodle\'s cronjob will process the logs and gather some statistics.  Depending on the amount of traffic on your site, this can take awhile. If you enable this, you will be able to see some interesting graphs and statistics about each of your courses, or on a sitewide basis.';
-$string['configenabletrusttext'] = 'By default Moodle will always thoroughly clean text that comes from users to remove any possible bad scripts, media etc that could be a security risk.  The Trusted Content system is a way of giving particular users that you trust the ability to include these advanced features in their content without interference.  To enable this system, you need to first enable this setting, and then grant the Trusted Content permission to a specific Moodle role.  Texts created or uploaded by such users will be marked as trusted and will not be cleaned before display.';
-$string['configenablewebservices'] = 'Web services enable other systems to log in to this Moodle and perform operations.  For extra security this feature should be disabled unless you are really using it.';
+$string['configenablestats'] = 'If you choose \'yes\' here, Lion\'s cronjob will process the logs and gather some statistics.  Depending on the amount of traffic on your site, this can take awhile. If you enable this, you will be able to see some interesting graphs and statistics about each of your courses, or on a sitewide basis.';
+$string['configenabletrusttext'] = 'By default Lion will always thoroughly clean text that comes from users to remove any possible bad scripts, media etc that could be a security risk.  The Trusted Content system is a way of giving particular users that you trust the ability to include these advanced features in their content without interference.  To enable this system, you need to first enable this setting, and then grant the Trusted Content permission to a specific Lion role.  Texts created or uploaded by such users will be marked as trusted and will not be cleaned before display.';
+$string['configenablewebservices'] = 'Web services enable other systems to log in to this Lion and perform operations.  For extra security this feature should be disabled unless you are really using it.';
 $string['configenablewsdocumentation'] = 'Enable auto-generation of web services documentation. A user can access to his own documentation on his security keys page {$a}. It displays the documentation for the enabled protocols only.';
 $string['configerrorlevel'] = 'Choose the amount of PHP warnings that you want to be displayed.  Normal is usually the best choice.';
 $string['configexportlookahead'] = 'Days to look ahead during export';
@@ -232,24 +219,24 @@ $string['configfrontpageloggedin'] = 'The items selected above will be displayed
 $string['configfullnamedisplay'] = 'This defines how names are shown when they are displayed in full. The default value, "language", leaves it to the string "fullnamedisplay" in the current language pack to decide. Some languages have different name display conventions.
 
 For most mono-lingual sites the most efficient setting is "firstname lastname", but you may choose to hide surnames altogether. Placeholders that can be used are: firstname, lastname, firstnamephonetic, lastnamephonetic, middlename, and alternatename.';
-$string['configgeoipfile'] = 'Location of GeoIP City binary data file. This file is not part of Moodle distribution and must be obtained separately from <a href="http://www.maxmind.com/">MaxMind</a>. You can either buy a commercial version or use the free version. Simply download <a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" >http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz</a> and extract it into "{$a}" directory on your server.';
+$string['configgeoipfile'] = 'Location of GeoIP City binary data file. This file is not part of Lion distribution and must be obtained separately from <a href="http://www.maxmind.com/">MaxMind</a>. You can either buy a commercial version or use the free version. Simply download <a href="http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" >http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz</a> and extract it into "{$a}" directory on your server.';
 $string['configgetremoteaddrconf'] = 'If your server is behind a reverse proxy, you can use this setting to specify which HTTP headers can be trusted to contain the remote IP address. The headers are read in order, using the first one that is available.';
 $string['configgradebookroles'] = 'This setting allows you to control who appears on the gradebook.  Users need to have at least one of these roles in a course to be shown in the gradebook for that course.';
 $string['configgradeexport'] = 'Choose which gradebook export formats are your primary methods for exporting grades.  Chosen plugins will then set and use a "last exported" field for every grade.  For example, this might result in exported records being identified as being "new" or "updated".  If you are not sure about this then leave everything unchecked.';
 $string['confighiddenuserfields'] = 'Select which user information fields you wish to hide from other users other than course teachers/admins. This will increase student privacy. Hold CTRL key to select multiple fields.';
 $string['configidnumber'] = 'This option specifies whether (a) Users are not be asked for an ID number at all, (b) Users are asked for an ID number but can leave it blank or (c) Users are asked for an ID Number and cannot leave it blank. If given the User\'s ID number is displayed in their Profile.';
-$string['configintro'] = 'On this page you can specify a number of configuration variables that help make Moodle work properly on your server.  Don\'t worry too much about it - the defaults will usually work fine and you can always come back to this page later and change these settings.';
+$string['configintro'] = 'On this page you can specify a number of configuration variables that help make Lion work properly on your server.  Don\'t worry too much about it - the defaults will usually work fine and you can always come back to this page later and change these settings.';
 $string['configintroadmin'] = 'On this page you should configure your main administrator account which will have complete control over the site. Make sure you give it a secure username and password as well as a valid email address.  You can create more admin accounts later on.';
 $string['configintrosite'] = 'This page allows you to configure the front page and name of this new site.  You can come back here later to change these settings any time using the Administration menus.';
 $string['configiplookup'] = 'When you click on an IP address (such as 34.12.222.93), such as in the logs, you are shown a map with a best guess of where that IP is located.  There are different plugins for this that you can choose from, each has benefits and disadvantages.';
 $string['configkeeptagnamecase'] = 'Check this if you want tag names to keep the original casing as entered by users who created them';
 $string['configlang'] = 'Choose a default language for the whole site. Users can override this setting using the language menu or the setting in their personal profile.';
-$string['configlangstringcache'] = 'Caches all the language strings into compiled files in the data directory.  If you are translating Moodle or changing strings in the Moodle source code then you may want to switch this off.  Otherwise leave it on to see performance benefits.';
-$string['configlanglist'] = 'Leave this blank to allow users to choose from any language you have in this installation of Moodle.  However, you can shorten the language menu by entering a comma-separated list of language codes that you want.  For example:  en,es_es,fr,it';
+$string['configlangstringcache'] = 'Caches all the language strings into compiled files in the data directory.  If you are translating Lion or changing strings in the Lion source code then you may want to switch this off.  Otherwise leave it on to see performance benefits.';
+$string['configlanglist'] = 'Leave this blank to allow users to choose from any language you have in this installation of Lion.  However, you can shorten the language menu by entering a comma-separated list of language codes that you want.  For example:  en,es_es,fr,it';
 $string['configlangmenu'] = 'Choose whether or not you want to display the general-purpose language menu on the home page, login page etc.  This does not affect the user\'s ability to set the preferred language in their own profile.';
 $string['configlatinexcelexport'] = 'Choose the encoding for Excel exports.';
 $string['configlocale'] = 'Choose a sitewide locale - this will override the format and language of dates for all language packs (though names of days in calendar are not affected). You need to have this locale data installed on your operating system (eg for linux en_US.UTF-8 or es_ES.UTF-8). In most cases this field should be left blank.';
-$string['configloginhttps'] = 'Turning this on will make Moodle use a secure https connection just for the login page (providing a secure login), and then afterwards revert back to the normal http URL for general speed.  CAUTION: this setting REQUIRES https to be specifically enabled on the web server - if it is not then YOU COULD LOCK YOURSELF OUT OF YOUR SITE.';
+$string['configloginhttps'] = 'Turning this on will make Lion use a secure https connection just for the login page (providing a secure login), and then afterwards revert back to the normal http URL for general speed.  CAUTION: this setting REQUIRES https to be specifically enabled on the web server - if it is not then YOU COULD LOCK YOURSELF OUT OF YOUR SITE.';
 $string['configloglifetime'] = 'This specifies the length of time you want to keep logs about user activity.  Logs that are older than this age are automatically deleted.  It is best to keep logs as long as possible, in case you need them, but if you have a very busy server and are experiencing performance problems, then you may want to lower the log lifetime. Values lower than 30 are not recommended because statistics may not work properly.';
 $string['configlookahead'] = 'Days to look ahead';
 $string['configmaxbytes'] = 'This specifies a maximum size that uploaded files can be throughout the whole site. This setting is limited by the PHP settings post_max_size and upload_max_filesize, as well as the Apache setting LimitRequestBody. In turn, maxbytes limits the range of sizes that can be chosen at course level or module level. If \'Server Limit\' is chosen, the server maximum allowed by the server will be used.';
@@ -268,7 +255,7 @@ $string['configminpasswordupper'] = 'Passwords must have at least these many upp
 $string['configmobilecssurl'] = 'A CSS file to customise your mobile app interface.';
 $string['configmodchooserdefault'] = 'Should the activity chooser be presented to users by default?';
 $string['configmycoursesperpage'] = 'Maximum number of courses to display in any list of a user\'s own courses';
-$string['configmymoodleredirect'] = 'This setting forces redirects to /my on login for non-admins and replaces the top level site navigation with /my';
+$string['configmylionredirect'] = 'This setting forces redirects to /my on login for non-admins and replaces the top level site navigation with /my';
 $string['configmypagelocked'] = 'This setting prevents the default page from being edited by any non-admins';
 $string['confignavcourselimit'] = 'Limits the number of courses shown to the user when they are either not logged in or are not enrolled in any courses.';
 $string['confignavshowallcourses'] = 'This setting determines whether users who are enrolled in courses can see Courses (listing all courses) in the navigation, in addition to My Courses (listing courses in which they are enrolled).';
@@ -278,7 +265,7 @@ $string['confignotifyloginthreshold'] = 'If notifications about failed logins ar
 $string['confignotloggedinroleid'] = 'Users who are not logged in to the site will be treated as if they have this role granted to them at the site context.  Guest is almost always what you want here, but you might want to create roles that are less or more restrictive.  Things like creating posts still require the user to log in properly.';
 $string['configopentogoogle'] = 'If you enable this setting, then Google will be allowed to enter your site as a Guest.  In addition, people coming in to your site via a Google search will automatically be logged in as a Guest.  Note that this only provides transparent access to courses that already allow guest access.';
 $string['configoverride'] = 'Defined in config.php';
-$string['configpasswordpolicy'] = 'Turning this on will make Moodle check user passwords against a valid password policy. Use the settings below to specify your policy (they will be ignored if you set this to \'No\').';
+$string['configpasswordpolicy'] = 'Turning this on will make Lion check user passwords against a valid password policy. Use the settings below to specify your policy (they will be ignored if you set this to \'No\').';
 $string['configpasswordresettime'] = 'This specifies the amount of time people have to validate a password reset request before it expires. Usually 30 minutes is a good value.';
 $string['configpathtoclam'] = 'Path to clam AV.  Probably something like /usr/bin/clamscan or /usr/bin/clamdscan. You need this in order for clam AV to run.';
 $string['configpathtodu'] = 'Path to du. Probably something like /usr/bin/du. If you enter this, pages that display directory contents will run much faster for directories with a lot of files.';
@@ -293,7 +280,7 @@ $string['configproxyport'] = 'If this server needs to use a proxy computer, then
 $string['configproxytype'] = 'Type of web proxy (PHP5 and cURL extension required for SOCKS5 support).';
 $string['configproxyuser'] = 'Username needed to access internet through proxy if required, empty if none (PHP cURL extension required).';
 $string['configquarantinedir'] = 'If you want clam AV to move infected files to a quarantine directory, enter it here. It must be writable by the webserver.  If you leave this blank, or if you enter a directory that doesn\'t exist or isn\'t writable, infected files will be deleted.  Do not include a trailing slash.';
-$string['configrecaptchaprivatekey'] = 'String of characters used to communicate between your Moodle server and the recaptcha server. Obtain one for this site by visiting http://www.google.com/recaptcha';
+$string['configrecaptchaprivatekey'] = 'String of characters used to communicate between your Lion server and the recaptcha server. Obtain one for this site by visiting http://www.google.com/recaptcha';
 $string['configrecaptchapublickey'] = 'String of characters used to display the reCAPTCHA element in the signup form. Generated by http://www.google.com/recaptcha';
 $string['configrequestcategoryselection'] = 'Allow the selection of a category when requesting a course.';
 $string['configrequestedstudentname'] = 'Word for student used in requested courses';
@@ -314,10 +301,10 @@ $string['configsectionrequestedcourse'] = 'Course requests';
 $string['configsectionsecurity'] = 'Security';
 $string['configsectionstats'] = 'Statistics';
 $string['configsectionuser'] = 'User';
-$string['configsecureforms'] = 'Moodle can use an additional level of security when accepting data from web forms. If this is enabled, then the browser\'s HTTP_REFERER variable is checked against the current form address.  In a very few cases this can cause problems if the user is using a firewall (eg Zonealarm) configured to strip HTTP_REFERER from their web traffic.  Symptoms are getting \'stuck\' on a form. If your users are having problems with the login page (for example) you might want to disable this setting, although it might leave your site more open to brute-force password attacks.  If in doubt, leave this set to \'Yes\'.';
-$string['configsessioncookie'] = 'This setting customises the name of the cookie used for Moodle sessions.  This is optional, and only useful to avoid cookies being confused when there is more than one copy of Moodle running within the same web site.';
-$string['configsessioncookiedomain'] = 'This allows you to change the domain that the Moodle cookies are available from. This is useful for Moodle customisations (e.g. authentication or enrolment plugins) that need to share Moodle session information with a web application on another subdomain. <strong>WARNING: it is strongly recommended to leave this setting at the default (empty) - an incorrect value will prevent all logins to the site.</strong>';
-$string['configsessioncookiepath'] = 'If you need to change where browsers send the Moodle cookies, you can change this setting to specify a subdirectory of your web site.  Otherwise the default \'/\' should be fine.';
+$string['configsecureforms'] = 'Lion can use an additional level of security when accepting data from web forms. If this is enabled, then the browser\'s HTTP_REFERER variable is checked against the current form address.  In a very few cases this can cause problems if the user is using a firewall (eg Zonealarm) configured to strip HTTP_REFERER from their web traffic.  Symptoms are getting \'stuck\' on a form. If your users are having problems with the login page (for example) you might want to disable this setting, although it might leave your site more open to brute-force password attacks.  If in doubt, leave this set to \'Yes\'.';
+$string['configsessioncookie'] = 'This setting customises the name of the cookie used for Lion sessions.  This is optional, and only useful to avoid cookies being confused when there is more than one copy of Lion running within the same web site.';
+$string['configsessioncookiedomain'] = 'This allows you to change the domain that the Lion cookies are available from. This is useful for Lion customisations (e.g. authentication or enrolment plugins) that need to share Lion session information with a web application on another subdomain. <strong>WARNING: it is strongly recommended to leave this setting at the default (empty) - an incorrect value will prevent all logins to the site.</strong>';
+$string['configsessioncookiepath'] = 'If you need to change where browsers send the Lion cookies, you can change this setting to specify a subdirectory of your web site.  Otherwise the default \'/\' should be fine.';
 $string['configsessiontimeout'] = 'If people logged in to this site are idle for a long time (without loading pages) then they are automatically logged out (their session is ended).  This variable specifies how long this time should be.';
 $string['configshowicalsource'] = 'Show source information for iCal events';
 $string['configshowcommentscount'] = 'Show comments count, it will cost one more query when display comments link';
@@ -327,14 +314,14 @@ $string['configsitedefaultlicensehelp'] = 'The default licence for publishing co
 $string['configsitemaxcategorydepth'] = 'Maximum category depth';
 $string['configsitemaxcategorydepthhelp'] = 'This specifies the maximum depth of child categories expanded when displaying categories or combo list. Deeper level categories will appear as links and user can expand them with AJAX request.';
 $string['configslasharguments'] = 'Files (images, uploads etc) are provided via a script using \'slash arguments\'. This method allows files to be more easily cached in web browsers, proxy servers etc.  Unfortunately, some PHP servers don\'t allow this method, so if you have trouble viewing uploaded files or images (eg user pictures), disable this setting.';
-$string['configsmartpix'] = 'With this on, icons are served through a PHP script that searches the current theme, then all parent themes, then the Moodle /pix folder. This reduces the need to duplicate image files within themes, but has a slight performance cost.';
+$string['configsmartpix'] = 'With this on, icons are served through a PHP script that searches the current theme, then all parent themes, then the Lion /pix folder. This reduces the need to duplicate image files within themes, but has a slight performance cost.';
 $string['configstartwday'] = 'Start of week';
 $string['configstatsfirstrun'] = 'This specifies how far back the logs should be processed <b>the first time</b> the cronjob wants to process statistics. If you have a lot of traffic and are on shared hosting, it\'s probably not a good idea to go too far back, as it could take a long time to run and be quite resource intensive. (Note that for this setting, 1 month = 28 days. In the graphs and reports generated, 1 month = 1 calendar month.)';
 $string['configstatsmaxruntime'] = 'Stats processing can be quite intensive, so use a combination of this field and the next one to specify when it will run and how long for.';
 $string['configstatsmaxruntime2'] = 'Stats processing can be quite intensive, specify maximum time allowed for gathering of one day of statistics. Maximum number of days processed in one cron execution is 31.';
 $string['configstatsmaxruntime3'] = 'This specifies the maximum time allowed to calculate the statistics for one day, bearing in mind that statistics processing can put a big load on the server. The maximum number of days processed in one cron can be specified below.';
 $string['configstatsruntimedays'] = 'This specifies the maximum number of days processed in each statistics execution. Once the statistics are up-to-date, only one day will be processed, so adjust this value depending of your server load, reducing it if shorter cron executions are needed.';
-$string['configstatsruntimestart'] = 'What time should the cronjob that does the statistics processing start? Specifying different times is recommended if there are multiple Moodle sites on one server.';
+$string['configstatsruntimestart'] = 'What time should the cronjob that does the statistics processing start? Specifying different times is recommended if there are multiple Lion sites on one server.';
 $string['configstatsuserthreshold'] = 'This setting specifies the minimum number of enrolled users for a course to be included in statistics calculations.';
 $string['configstrictformsrequired'] = 'If enabled, users are prevented from entering a space or line break only in required fields in forms.';
 $string['configstripalltitletags'] = 'Uncheck this setting to allow HTML tags in activity and resource names.';
@@ -345,7 +332,7 @@ $string['configtempdatafoldercleanup'] = 'Remove temporary data files from the d
 $string['configthemedesignermode'] = 'Normally all theme images and style sheets are cached in browsers and on the server for a very long time, for performance. If you are designing themes or developing code then you probably want to turn this mode on so that you are not served cached versions.  Warning: this will make your site slower for all users!  Alternatively, you can also reset the theme caches manually from the Theme selection page.';
 $string['configthemelist'] = 'Leave this blank to allow any valid theme to be used.  If you want to shorten the theme menu, you can specify a comma-separated list of names here (Don\'t use spaces!).
 For example:  standard,orangewhite.';
-$string['configtimezone'] = 'This is the default timezone for displaying dates - each user can override this setting in their profile. "Server timezone" here will make Moodle default to the server setting in PHP, but "Server timezone" in the user profile will make the user default to this timezone setting. It is recommended that you update timezones then select a named timezone specific to your region.';
+$string['configtimezone'] = 'This is the default timezone for displaying dates - each user can override this setting in their profile. "Server timezone" here will make Lion default to the server setting in PHP, but "Server timezone" in the user profile will make the user default to this timezone setting. It is recommended that you update timezones then select a named timezone specific to your region.';
 $string['configuseblogassociations'] = 'Should users be able to organize their blog by associating entries with courses and course modules?';
 $string['configuseexternalyui'] = 'Instead of using local files, use online files available on Yahoo&#145;s servers. WARNING: This requires an internet connection, or no AJAX will work on your site. This setting is not compatible with sites using https.';
 $string['configusesitenameforsitepages'] = 'If enabled the site\'s shortname will be used for the site pages node in the navigation rather than the string \'Site pages\'';
@@ -377,7 +364,7 @@ $string['courseswithsummarieslimit'] = 'Courses with summaries limit';
 $string['creatornewroleid'] = 'Creators\' role in new courses';
 $string['creatornewroleid_help'] = 'If the user does not already have the permission to manage the new course, the user is automatically enrolled using this role.';
 $string['cron'] = 'Cron';
-$string['cron_help'] = 'The cron.php maintenance script assists some of Moodle\'s modules to perform tasks on a scheduled basis, such as mailing out copies of new forum posts. A mechanism is required to run the script regularly e.g. every 5 minutes.';
+$string['cron_help'] = 'The cron.php maintenance script assists some of Lion\'s modules to perform tasks on a scheduled basis, such as mailing out copies of new forum posts. A mechanism is required to run the script regularly e.g. every 5 minutes.';
 $string['cron_link'] = 'admin/cron';
 $string['cronclionly'] = 'Cron execution via command line only';
 $string['cronerrorclionly'] = 'Sorry, internet access to this page has been disabled by the administrator.';
@@ -385,9 +372,9 @@ $string['cronerrorpassword'] = 'Sorry, you have not provided a valid password to
 $string['cronremotepassword'] = 'Cron password for remote access';
 $string['cronwarning'] = 'The <a href="{$a}">cron.php maintenance script</a> has not been run for at least 24 hours.';
 $string['cronwarningcli'] = 'The cli/cron.php maintenance script has not been run for at least 24 hours.';
-$string['ctyperequired'] = 'The ctype PHP extension is now required by Moodle, in order to improve site performance and to offer multilingual compatibility.';
+$string['ctyperequired'] = 'The ctype PHP extension is now required by Lion, in order to improve site performance and to offer multilingual compatibility.';
 $string['curlcache'] = 'cURL cache TTL';
-$string['curlrequired'] = 'The cURL PHP extension is now required by Moodle, in order to communicate with Moodle repositories.';
+$string['curlrequired'] = 'The cURL PHP extension is now required by Lion, in order to communicate with Lion repositories.';
 $string['curltimeoutkbitrate'] = 'Bitrate to use when calculating cURL timeouts (Kbps)';
 $string['curltimeoutkbitrate_help'] = 'This setting is used to calculate an appropriate timeout during large cURL requests. As part of this calculation an HTTP HEAD request is made to determine the size of the content. Setting this to 0 disables this request from being made.';
 $string['currenttheme'] = 'Current theme';
@@ -401,7 +388,7 @@ $string['datarootsecuritywarning'] = 'Your site configuration might not be secur
 $string['dbsessions'] = 'Use database for session information';
 $string['debug'] = 'Debug messages';
 $string['debugall'] = 'ALL: Show all reasonable PHP debug messages';
-$string['debugdeveloper'] = 'DEVELOPER: extra Moodle debug messages for developers';
+$string['debugdeveloper'] = 'DEVELOPER: extra Lion debug messages for developers';
 $string['debugdisplay'] = 'Display debug messages';
 $string['debugging'] = 'Debugging';
 $string['debugminimal'] = 'MINIMAL: Show only fatal errors';
@@ -426,7 +413,7 @@ $string['density'] = 'Density';
 $string['denyemailaddresses'] = 'Denied email domains';
 $string['development'] = 'Development';
 $string['devicedetectregex'] = 'Device detection regular expressions';
-$string['devicedetectregex_desc'] = '<p>By default, Moodle can detect devices of the type default (desktop PCs, laptops, etc), mobile (phones and small hand held devices), tablet (iPads, Android tablets) and legacy (Internet Explorer 6 users).  The theme selector can be used to apply separate themes to all of these.  This setting allows regular expressions that allow the detection of extra device types (these take precedence over the default types).</p>
+$string['devicedetectregex_desc'] = '<p>By default, Lion can detect devices of the type default (desktop PCs, laptops, etc), mobile (phones and small hand held devices), tablet (iPads, Android tablets) and legacy (Internet Explorer 6 users).  The theme selector can be used to apply separate themes to all of these.  This setting allows regular expressions that allow the detection of extra device types (these take precedence over the default types).</p>
 <p>For example, you could enter the regular expression \'/(MIDP-1.0|Maemo|Windows CE)/\' to detect some commonly used feature phones add the return value \'featurephone\'.  This adds \'featurephone\' on the theme selector that would allow you to add a theme that would be used on these devices.  Other phones would still use the theme selected for the mobile device type.</p>';
 $string['devicedetectregexexpression'] = 'Regular expression';
 $string['devicedetectregexvalue'] = 'Return value';
@@ -436,7 +423,7 @@ $string['displayerrorswarning'] = 'Enabling the PHP setting <em>display_errors</
 $string['displayloginfailures'] = 'Display login failures';
 $string['dndallowtextandlinks'] = 'Drag and drop upload of text/links';
 $string['doclang'] = 'Language for docs';
-$string['docroot'] = 'Moodle Docs document root';
+$string['docroot'] = 'Lion Docs document root';
 $string['doctonewwindow'] = 'Open in new window';
 $string['download'] = 'Download';
 $string['durationunits'] = 'duration units';
@@ -475,7 +462,7 @@ $string['enablecssoptimiser_desc'] = 'When enabled CSS will be run through an op
 $string['enabled'] = 'Enabled';
 $string['enabledevicedetection'] = 'Enable device detection';
 $string['enablegravatar'] = 'Enable Gravatar';
-$string['enablegravatar_help'] = 'When enabled Moodle will attempt to fetch a user profile picture from Gravatar if the user has not uploaded an image.';
+$string['enablegravatar_help'] = 'When enabled Lion will attempt to fetch a user profile picture from Gravatar if the user has not uploaded an image.';
 $string['enablemobilewebservice'] = 'Enable web services for mobile devices';
 $string['enablerecordcache'] = 'Enable record cache';
 $string['enablerssfeeds'] = 'Enable RSS feeds';
@@ -488,8 +475,8 @@ $string['enrolinstancedefaults'] = 'Enrolment instance defaults';
 $string['enrolinstancedefaults_desc'] = 'Default enrolment settings in new courses.';
 $string['enrolmultipleusers'] = 'Enrol the users';
 $string['environment'] = 'Environment';
-$string['environmenterrortodo'] = 'You must solve all the environmental problems (errors) found above before proceeding to install this Moodle version!';
-$string['environmenterrorupgrade'] = 'Warning: you should solve all the environmental problems (errors) found above before proceeding to upgrade this Moodle version!  Upgrading without fixing these requirements could cause problems such as data loss.  Are you sure you want to continue with the upgrade?';
+$string['environmenterrortodo'] = 'You must solve all the environmental problems (errors) found above before proceeding to install this Lion version!';
+$string['environmenterrorupgrade'] = 'Warning: you should solve all the environmental problems (errors) found above before proceeding to upgrade this Lion version!  Upgrading without fixing these requirements could cause problems such as data loss.  Are you sure you want to continue with the upgrade?';
 $string['environmentmustfixsetting'] = 'PHP setting must be changed.';
 $string['environmentok'] = 'Your server environment meets all minimum requirements.';
 $string['environmentrecommendcustomcheck'] = 'if this test fails, it indicates a potential problem';
@@ -511,7 +498,7 @@ $string['experimental'] = 'Experimental';
 $string['experimentalsettings'] = 'Experimental settings';
 $string['extendedusernamechars'] = 'Allow extended characters in usernames';
 $string['extramemorylimit'] = 'Extra PHP memory limit';
-$string['fatalsessionautostart'] = '<p>Serious configuration error detected, please notify server administrator.</p><p> To operate properly, Moodle requires that administrator changes PHP settings.</p><p><code>session.auto_start</code> must be set to <code>off</code>.</p><p>This setting is controlled by editing <code>php.ini</code>, Apache/IIS <br />configuration or <code>.htaccess</code> file on the server.</p>';
+$string['fatalsessionautostart'] = '<p>Serious configuration error detected, please notify server administrator.</p><p> To operate properly, Lion requires that administrator changes PHP settings.</p><p><code>session.auto_start</code> must be set to <code>off</code>.</p><p>This setting is controlled by editing <code>php.ini</code>, Apache/IIS <br />configuration or <code>.htaccess</code> file on the server.</p>';
 $string['filecreated'] = 'New file created';
 $string['filestoredin'] = 'Save file into folder :';
 $string['filestoredinhelp'] = 'Where the file will be stored';
@@ -540,19 +527,19 @@ $string['frontpageroles'] = 'Front page roles';
 $string['frontpagesettings'] = 'Front page settings';
 $string['fullnamedisplay'] = 'Full name format';
 $string['fullnamedisplayprivate'] = 'Full name format - private';
-$string['gdrequired'] = 'The GD extension is now required by Moodle for image conversion.';
+$string['gdrequired'] = 'The GD extension is now required by Lion for image conversion.';
 $string['generalsettings'] = 'General settings';
 $string['geoipfile'] = 'GeoIP city data file';
 $string['getremoteaddrconf'] = 'Logged IP address source';
 $string['groupenrolmentkeypolicy'] = 'Group enrolment key policy';
-$string['groupenrolmentkeypolicy_desc'] = 'Turning this on will make Moodle check group enrolment keys against a valid password policy.';
+$string['groupenrolmentkeypolicy_desc'] = 'Turning this on will make Lion check group enrolment keys against a valid password policy.';
 $string['googlemapkey3'] = 'Google Maps API V3 key';
 $string['googlemapkey3_help'] = 'You need to enter a special key to use Google Maps for IP address lookup visualization. You can obtain the key free of charge at <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key" target="_blank">https://developers.google.com/maps/documentation/javascript/tutorial#api_key</a>';
 $string['gotofirst'] = 'Go to first missing string';
 $string['gradebook'] = 'Gradebook';
 $string['gradebookroles'] = 'Graded roles';
 $string['gravatardefaulturl'] = 'Gravatar default image URL';
-$string['gravatardefaulturl_help'] = 'Gravatar needs a default image to display if it is unable to find a picture for a given user. Provide a full URL for an image. If you leave this setting empty, Moodle will attempt to use the most appropriate default image for the page you are viewing. Note also that Gravatar has a number of codes which can be used to <a href="https://en.gravatar.com/site/implement/images/#default-image">generate default images</a>.';
+$string['gravatardefaulturl_help'] = 'Gravatar needs a default image to display if it is unable to find a picture for a given user. Provide a full URL for an image. If you leave this setting empty, Lion will attempt to use the most appropriate default image for the page you are viewing. Note also that Gravatar has a number of codes which can be used to <a href="https://en.gravatar.com/site/implement/images/#default-image">generate default images</a>.';
 $string['gradeexport'] = 'Primary grade export methods';
 $string['guestroleid'] = 'Role for guest';
 $string['guestroleid_help'] = 'This role is automatically assigned to the guest user. It is also temporarily assigned to not enrolled users that enter the course via guest enrolment plugin.';
@@ -595,7 +582,7 @@ $string['ipblocker'] = 'IP blocker';
 $string['ipblockersyntax'] = 'Put every entry on one line. Valid entries are either full IP address (such as <b>192.168.10.1</b>) which matches a single host; or partial address (such as <b>192.168.</b>) which matches any address starting with those numbers; or CIDR notation (such as <b>231.54.211.0/20</b>); or a range of IP addresses (such as <b>231.3.56.10-20</b>) where the range applies to the last part of the address. Text domain names (like \'example.com\') are not supported. Blank lines are ignored.';
 $string['iplookup'] = 'IP address lookup';
 $string['iplookupgeoplugin'] = '<a href="http://www.geoplugin.com">geoPlugin</a> service is currently being used to look up geographical information. For more accurate results we recommend installing a local copy of the MaxMind GeoLite database.';
-$string['iplookupinfo'] = 'By default Moodle uses the free online NetGeo (The Internet Geographic Database) server to lookup location of IP addresses, unfortunately this database is not maintained anymore and may return <em>wildly incorrect</em> data.
+$string['iplookupinfo'] = 'By default Lion uses the free online NetGeo (The Internet Geographic Database) server to lookup location of IP addresses, unfortunately this database is not maintained anymore and may return <em>wildly incorrect</em> data.
 It is recommended to install local copy of free GeoLite City database from MaxMind.<br />
 IP address location is displayed on simple map or using Google Maps. Please note that you need to have a Google account and apply for free Google Maps API key to enable interactive maps.';
 $string['iplookupmaxmindnote'] = 'This product includes GeoLite data created by MaxMind, available from <a href="http://www.maxmind.com/">http://www.maxmind.com/</a>.';
@@ -605,7 +592,7 @@ $string['langcache'] = 'Cache language menu';
 $string['langcache_desc'] = 'Cache the language menu. If enabled, the list of available translations is cached. The cache is automatically refreshed when you install or delete a language pack via the in-built language packs management tool. If you install a new language pack manually, you have to use Purge all caches feature to refresh the cached list.';
 $string['langlist'] = 'Languages on language menu';
 $string['langmenu'] = 'Display language menu';
-$string['langpackwillbeupdated'] = 'NOTE: Moodle will try to download updates for your language packs during the upgrade.';
+$string['langpackwillbeupdated'] = 'NOTE: Lion will try to download updates for your language packs during the upgrade.';
 $string['langstringcache'] = 'Cache all language strings';
 $string['languagesettings'] = 'Language settings';
 $string['latinexcelexport'] = 'Excel encoding';
@@ -674,10 +661,10 @@ $string['maturity150'] = 'Release candidate';
 $string['maturity200'] = 'Stable version';
 $string['maturityallowunstable'] = 'Hint: You may want to run this script with --allow-unstable option';
 $string['maturitycoreinfo'] = 'Your site is currently running unstable "{$a}" development code.';
-$string['maturitycorewarning'] = 'The version of Moodle that you are about to install or upgrade to contains
+$string['maturitycorewarning'] = 'The version of Lion that you are about to install or upgrade to contains
 unstable "{$a}" development code that is not suitable for use on most production
 sites. If this is not what you wanted then you should make sure you are updating
-from a STABLE branch of the Moodle code. See Moodle Docs for more details.';
+from a STABLE branch of the Lion code. See Lion Docs for more details.';
 $string['maxbytes'] = 'Maximum uploaded file size';
 $string['maxconsecutiveidentchars'] = 'Consecutive identical characters';
 $string['maxeditingtime'] = 'Maximum time to edit posts';
@@ -703,18 +690,18 @@ $string['messaging'] = 'Enable messaging system';
 $string['messagingallowemailoverride'] = 'Notification email override';
 $string['messaginghidereadnotifications'] = 'Hide read notifications';
 $string['messagingdeletereadnotificationsdelay'] = 'Delete read notifications';
-$string['moodleorghubname'] = 'Moodle.net';
+$string['lionorghubname'] = 'Lion.net';
 $string['minpassworddigits'] = 'Digits';
 $string['minpasswordlength'] = 'Password length';
 $string['minpasswordlower'] = 'Lowercase letters';
 $string['minpasswordnonalphanum'] = 'Non-alphanumeric characters';
 $string['minpasswordupper'] = 'Uppercase letters';
 $string['misc'] = 'Miscellaneous';
-$string['mnetrestore_extusers'] = '<strong>Note:</strong> This backup file contains remote Moodle Network user accounts which will be restored as part of the process.';
-$string['mnetrestore_extusers_admin'] = '<strong>Note:</strong> This backup file seems to come from a different Moodle installation and contains remote Moodle Network user accounts. The restore process will try to match the Moodle Network hosts for all created users. Those not matching will be automatically switched to internal authentication (instead of mnet one). The restore log will inform you about that.';
-$string['mnetrestore_extusers_mismatch'] = '<strong>Note:</strong> This backup file apparently originates from a different Moodle installation and contains remote Moodle Network user accounts that may fail to restore. This operation is unsupported. If you are certain that it was created on this Moodle installation, or you can ensure that all the needed Moodle Network Hosts are configured, you may want to still try the restore.';
-$string['mnetrestore_extusers_noadmin'] = '<strong>Note:</strong> This backup file seems to come from a different Moodle installation and contains remote Moodle Network user accounts. You are not allowed to execute this type of restore. Contact the administrator of the site or, alternatively, restore this course without any user information (modules, files...)';
-$string['mnetrestore_extusers_switchuserauth'] = 'Remote Moodle Network user {$a->username} (coming from {$a->mnethosturl}) switched to local {$a->auth} authenticated user.';
+$string['mnetrestore_extusers'] = '<strong>Note:</strong> This backup file contains remote Lion Network user accounts which will be restored as part of the process.';
+$string['mnetrestore_extusers_admin'] = '<strong>Note:</strong> This backup file seems to come from a different Lion installation and contains remote Lion Network user accounts. The restore process will try to match the Lion Network hosts for all created users. Those not matching will be automatically switched to internal authentication (instead of mnet one). The restore log will inform you about that.';
+$string['mnetrestore_extusers_mismatch'] = '<strong>Note:</strong> This backup file apparently originates from a different Lion installation and contains remote Lion Network user accounts that may fail to restore. This operation is unsupported. If you are certain that it was created on this Lion installation, or you can ensure that all the needed Lion Network Hosts are configured, you may want to still try the restore.';
+$string['mnetrestore_extusers_noadmin'] = '<strong>Note:</strong> This backup file seems to come from a different Lion installation and contains remote Lion Network user accounts. You are not allowed to execute this type of restore. Contact the administrator of the site or, alternatively, restore this course without any user information (modules, files...)';
+$string['mnetrestore_extusers_switchuserauth'] = 'Remote Lion Network user {$a->username} (coming from {$a->mnethosturl}) switched to local {$a->auth} authenticated user.';
 $string['mobile'] = 'Mobile';
 $string['mobilecssurl'] = 'CSS';
 $string['modchooserdefault'] = 'Activity chooser default';
@@ -727,8 +714,8 @@ $string['multilangforceold'] = 'Force old multilang syntax: &lt;span&gt; without
 $string['mustenablestats'] = 'Statistics have not yet been enabled on this site.';
 $string['mycoursesperpage'] = 'Number of courses';
 $string['mydashboard'] = 'System default dashboard';
-$string['mymoodle'] = 'My home';
-$string['mymoodleredirect'] = 'Force users to use My Moodle';
+$string['mylion'] = 'My home';
+$string['mylionredirect'] = 'Force users to use My Lion';
 $string['mypage'] = 'Default My home page';
 $string['myprofile'] = 'Default profile page';
 $string['mypagelocked'] = 'Lock default page';
@@ -751,13 +738,13 @@ $string['navsortmycoursessort_help'] = 'This determines whether courses are list
 $string['neverdeleteruns'] = 'Never delete runs';
 $string['nobookmarksforuser'] = 'You do not have any bookmarks.';
 $string['nodatabase'] = 'No database';
-$string['nohttpsformobilewarning'] = 'It is recommended to enable HTTPS with a valid certificate. The Moodle app will always try to use a secured connection first.';
+$string['nohttpsformobilewarning'] = 'It is recommended to enable HTTPS with a valid certificate. The Lion app will always try to use a secured connection first.';
 $string['nomissingstrings'] = 'No missing strings';
 $string['nonewsettings'] = 'No new settings were added during this upgrade.';
 $string['nonexistentbookmark'] = 'The bookmark you requested does not exist.';
 $string['nosupportedlogstore'] = 'No supported logstore found';
 $string['maxtimelimit'] = 'Maximum time limit';
-$string['maxtimelimit_desc'] = 'To restrict the maximum PHP execution time that Moodle will allow without any output being displayed, enter a value in seconds here. 0 means that Moodle default restrictions are used. If you have a front-end server with its own time limit, set this value lower to receive PHP errors in logs. Does not apply to CLI scripts.';
+$string['maxtimelimit_desc'] = 'To restrict the maximum PHP execution time that Lion will allow without any output being displayed, enter a value in seconds here. 0 means that Lion default restrictions are used. If you have a front-end server with its own time limit, set this value lower to receive PHP errors in logs. Does not apply to CLI scripts.';
 $string['noresults'] = 'No results found.';
 $string['noroles'] = 'No roles';
 $string['notifications'] = 'Notifications';
@@ -767,7 +754,7 @@ $string['notloggedinroleid'] = 'Role for visitors';
 $string['numberofmissingstrings'] = 'Number of missing strings: {$a}';
 $string['numberofstrings'] = 'Total number of strings: {$a->strings}<br />Missing: {$a->missing} ({$a->missingpercent}&nbsp;%)';
 $string['opcacherecommended'] = 'PHP opcode caching improves performance and lowers memory requirements, OPcache extension is recommended and fully supported.';
-$string['opensslrecommended'] = 'Installing the optional OpenSSL library is highly recommended -- it enables Moodle Networking functionality.';
+$string['opensslrecommended'] = 'Installing the optional OpenSSL library is highly recommended -- it enables Lion Networking functionality.';
 $string['opentogoogle'] = 'Open to Google';
 $string['optionalmaintenancemessage'] = 'Optional maintenance message';
 $string['order1'] = 'First';
@@ -782,7 +769,7 @@ $string['passwordreuselimit'] = 'Password rotation limit';
 $string['passwordreuselimit_desc'] = 'Number of times a user must change their password before they are allowed to reuse a password. Hashes of previously used passwords are stored in local database table. This feature might not be compatible with some external authentication plugins.';
 $string['pathtoclam'] = 'clam AV path';
 $string['pathtodot'] = 'Path to dot';
-$string['pathtodot_help'] = 'Path to dot. Probably something like /usr/bin/dot. To be able to generate graphics from DOT files, you must have installed the dot executable and point to it here. Note that, for now, this only used by the profiling features (Development->Profiling) built into Moodle.';
+$string['pathtodot_help'] = 'Path to dot. Probably something like /usr/bin/dot. To be able to generate graphics from DOT files, you must have installed the dot executable and point to it here. Note that, for now, this only used by the profiling features (Development->Profiling) built into Lion.';
 $string['pathtodu'] = 'Path to du';
 $string['pathtogs'] = 'Path to ghostscript';
 $string['pathtogs_help'] = 'On most Linux installs, this can be left as \'/usr/bin/gs\'. On Windows it will be something like \'c:\\gs\\bin\\gswin32c.exe\' (make sure there are no spaces in the path - if necessary copy the files \'gswin32c.exe\' and \'gsdll32.dll\' to a new folder without a space in the path)';
@@ -804,7 +791,7 @@ $string['plugin'] = 'Plugin';
 $string['plugins'] = 'Plugins';
 $string['pluginscheck'] = 'Plugin dependencies check';
 $string['pluginscheckfailed'] = 'Dependencies check failed for {$a->pluginslist}';
-$string['pluginschecktodo'] = 'You must solve all the plugin requirements before proceeding to install this Moodle version!';
+$string['pluginschecktodo'] = 'You must solve all the plugin requirements before proceeding to install this Lion version!';
 $string['pluginsoverview'] = 'Plugins overview';
 $string['pluginsoverviewsee'] = 'See <a href="{$a->url}">plugins overview</a> page for more details.';
 $string['profilecategory'] = 'Category';
@@ -862,7 +849,7 @@ $string['profilevisiblenone'] = 'Not visible';
 $string['profilevisibleprivate'] = 'Visible to user';
 $string['profiling'] = 'Profiling';
 $string['profilingallowall'] = 'Continuous profiling';
-$string['profilingallowall_help'] = 'If you enable this setting, then, at any moment, you can use the PROFILEALL parameter anywhere (PGC) to enable profiling for all the executed scripts along the Moodle session life. Analogously, you can use the PROFILEALLSTOP parameter to stop it.';
+$string['profilingallowall_help'] = 'If you enable this setting, then, at any moment, you can use the PROFILEALL parameter anywhere (PGC) to enable profiling for all the executed scripts along the Lion session life. Analogously, you can use the PROFILEALLSTOP parameter to stop it.';
 $string['profilingallowme'] = 'Selective profiling';
 $string['profilingallowme_help'] = 'If you enable this setting, then, selectively, you can use the PROFILEME parameter anywhere (PGC) and profiling for that script will happen. Analogously, you can use the DONTPROFILEME parameter to prevent profiling to happen';
 $string['profilingautofrec'] = 'Automatic profiling';
@@ -887,31 +874,31 @@ $string['proxyuser'] = 'Proxy username';
 $string['quarantinedir'] = 'Quarantine directory';
 $string['question'] = 'Question';
 $string['questionbehaviours'] = 'Question behaviours';
-$string['questioncwqpfscheck'] = 'One or more \'random\' questions in a quiz are set up to select questions from a mixture of shared and unshared question categories. There is a more detailed report <a href="{$a->reporturl}">here</a> and see Moodle Docs page <a href="{$a->docsurl}">here</a>.';
+$string['questioncwqpfscheck'] = 'One or more \'random\' questions in a quiz are set up to select questions from a mixture of shared and unshared question categories. There is a more detailed report <a href="{$a->reporturl}">here</a> and see Lion Docs page <a href="{$a->docsurl}">here</a>.';
 $string['questioncwqpfsok'] = 'Good. There are no \'random\' questions in your quizzes that are set up to select questions from a mixture of shared and unshared question categories.';
 $string['questiontype'] = 'Question type';
 $string['questiontypes'] = 'Question types';
-$string['quizattemptsupgradedmessage'] = 'In Moodle 2.1 there was a major upgrade to questions. It was possible to delay parts of the database upgrade to be run later. Before upgrading to Moodle 2.7, this upgrade must be completed.';
+$string['quizattemptsupgradedmessage'] = 'In Lion 2.1 there was a major upgrade to questions. It was possible to delay parts of the database upgrade to be run later. Before upgrading to Lion 2.7, this upgrade must be completed.';
 $string['recaptchaprivatekey'] = 'ReCAPTCHA private key';
 $string['recaptchapublickey'] = 'ReCAPTCHA public key';
 $string['register'] = 'Register your site';
-$string['registermoodleorg'] = 'When you register your site';
-$string['registermoodleorgli1'] = 'You are added to a low-volume mailing list for important notifications such as security alerts and new releases of Moodle.';
-$string['registermoodleorgli2'] = 'Statistics about your site will be added to the {$a} of the worldwide Moodle community.';
-$string['registerwithmoodleorg'] = 'Register your site';
+$string['registerlionorg'] = 'When you register your site';
+$string['registerlionorgli1'] = 'You are added to a low-volume mailing list for important notifications such as security alerts and new releases of Lion.';
+$string['registerlionorgli2'] = 'Statistics about your site will be added to the {$a} of the worldwide Lion community.';
+$string['registerwithlionorg'] = 'Register your site';
 $string['registration'] = 'Registration';
-$string['registration_help'] = 'Registering your site with Moodle.org is recommended in order to receive security alert notifications, to contribute <a href="http://moodle.org/stats">Moodle usage statistics</a> and to be able to share courses on <a href="http://moodle.net/">Moodle.net</a>.';
+$string['registration_help'] = 'Registering your site with Lion.org is recommended in order to receive security alert notifications, to contribute <a href="http://lion.org/stats">Lion usage statistics</a> and to be able to share courses on <a href="http://lion.net/">Lion.net</a>.';
 $string['registrationwarning'] = 'Your site is not yet registered.';
-$string['releasenoteslink'] = 'For information about this version of Moodle, please see the online <a target="_blank" href="{$a}">Release Notes</a>';
+$string['releasenoteslink'] = 'For information about this version of Lion, please see the online <a target="_blank" href="{$a}">Release Notes</a>';
 $string['rememberusername'] = 'Remember username';
 $string['rememberusername_desc'] = 'Enable if you want to store permanent cookies with usernames during user login. Permanent cookies may be considered a privacy issue if used without consent.';
 $string['reportsmanage'] = 'Manage reports';
-$string['requiredentrieschanged'] = '<strong>IMPORTANT - PLEASE READ<br/>(This warning message will only be displayed during this upgrade)</strong><br/>Due to a bug fix, the behaviour of database activities using the \'Required entries\' and \'Required entries before viewing settings\' settings will change. A more detailed explanation of the changes can be read on <a href="http://moodle.org/mod/forum/discuss.php?d=110928" target="_blank">the database module forum</a>. The expected behavior of these settings can also be read on <a href="http://docs.moodle.org/en/Adding/editing_a_database#Required_entries" target="_blank">Moodle Docs</a>.
+$string['requiredentrieschanged'] = '<strong>IMPORTANT - PLEASE READ<br/>(This warning message will only be displayed during this upgrade)</strong><br/>Due to a bug fix, the behaviour of database activities using the \'Required entries\' and \'Required entries before viewing settings\' settings will change. A more detailed explanation of the changes can be read on <a href="http://lion.org/mod/forum/discuss.php?d=110928" target="_blank">the database module forum</a>. The expected behavior of these settings can also be read on <a href="http://docs.lion.org/en/Adding/editing_a_database#Required_entries" target="_blank">Lion Docs</a>.
 <br/><br/>This change affects the following databases in your system: (Please save this list now, and after the upgrade, check that these activities still work the way that the teacher intends.)<br/><strong>{$a->text}</strong><br/>';
 $string['requiremodintro'] = 'Require activity description';
 $string['requires'] = 'Requires';
 $string['purgecaches']= 'Purge all caches';
-$string['purgecachesconfirm']= 'Moodle can cache themes, javascript, language strings, filtered text, rss feeds and many other pieces of calculated data.  Purging these caches will delete that data from the server and force browsers to refetch data, so that you can be sure you are seeing the most up-to-date values produced by the current code.  There is no danger in purging caches, but your site may appear slower for a while until the server and clients calculate new information and cache it.';
+$string['purgecachesconfirm']= 'Lion can cache themes, javascript, language strings, filtered text, rss feeds and many other pieces of calculated data.  Purging these caches will delete that data from the server and force browsers to refetch data, so that you can be sure you are seeing the most up-to-date values produced by the current code.  There is no danger in purging caches, but your site may appear slower for a while until the server and clients calculate new information and cache it.';
 $string['purgecachesfinished']= 'All caches were purged.';
 $string['requestcategoryselection'] = 'Enable category selection';
 $string['restorecourse'] = 'Restore course';
@@ -946,7 +933,7 @@ $string['selecttheme'] = 'Select theme for {$a} device';
 $string['server'] = 'Server';
 $string['serverchecks'] = 'Server checks';
 $string['serverlimit'] = 'Server limit';
-$string['sessionautostartwarning'] = '<p>Serious configuration error detected, please notify server administrator.</p><p> To operate properly, Moodle requires that administrator changes PHP settings.</p><p><code>session.auto_start</code> must be set to <code>off</code>.</p><p>This setting is controlled by editing <code>php.ini</code>, Apache/IIS <br />configuration or <code>.htaccess</code> file on the server.</p>';
+$string['sessionautostartwarning'] = '<p>Serious configuration error detected, please notify server administrator.</p><p> To operate properly, Lion requires that administrator changes PHP settings.</p><p><code>session.auto_start</code> must be set to <code>off</code>.</p><p>This setting is controlled by editing <code>php.ini</code>, Apache/IIS <br />configuration or <code>.htaccess</code> file on the server.</p>';
 $string['sessioncookie'] = 'Cookie prefix';
 $string['sessioncookiedomain'] = 'Cookie domain';
 $string['sessioncookiepath'] = 'Cookie path';
@@ -954,12 +941,12 @@ $string['sessionhandling'] = 'Session handling';
 $string['sessiontimeout'] = 'Timeout';
 $string['settingfileuploads'] = 'File uploading is required for normal operation, please enable it in PHP configuration.';
 $string['settingmemorylimit'] = 'Insufficient memory detected, please set higher memory limit in PHP settings.';
-$string['settingsafemode'] = 'Moodle is not fully compatible with safe mode, please ask server administrator to turn it off. Running Moodle under safe mode is not supported, please expect various problems if you do so.';
+$string['settingsafemode'] = 'Lion is not fully compatible with safe mode, please ask server administrator to turn it off. Running Lion under safe mode is not supported, please expect various problems if you do so.';
 $string['showcommentscount'] = 'Show comments count';
 $string['showdetails'] = 'Show details';
 $string['showuseridentity'] = 'Show user identity';
-$string['showuseridentity_desc'] = 'When selecting or searching for users, and when displaying lists of users, these fields may be shown in addition to their full name. The fields are only shown to users who have the moodle/site:viewuseridentity capability; by default, teachers and managers. (This option makes most sense if you choose one or two fields that are mandatory at your institution.)';
-$string['simplexmlrequired'] = 'The SimpleXML PHP extension is now required by Moodle.';
+$string['showuseridentity_desc'] = 'When selecting or searching for users, and when displaying lists of users, these fields may be shown in addition to their full name. The fields are only shown to users who have the lion/site:viewuseridentity capability; by default, teachers and managers. (This option makes most sense if you choose one or two fields that are mandatory at your institution.)';
+$string['simplexmlrequired'] = 'The SimpleXML PHP extension is now required by Lion.';
 $string['sitemaintenance'] = 'The site is undergoing maintenance and is currently not available';
 $string['sitemaintenancemode'] = 'Maintenance mode';
 $string['sitemaintenanceoff'] = 'Maintenance mode has been disabled and the site is running normally again';
@@ -982,18 +969,18 @@ $string['sort_shortname'] = 'Course short name';
 $string['sort_sortorder'] = 'Sort order';
 $string['spellengine'] = 'Spell engine';
 $string['spelllanguagelist'] = 'Spell language list';
-$string['splrequired'] = 'The SPL PHP extension is now required by Moodle.';
+$string['splrequired'] = 'The SPL PHP extension is now required by Lion.';
 $string['stats'] = 'Statistics';
 $string['statsfirstrun'] = 'Maximum processing interval';
 $string['statsmaxruntime'] = 'Maximum runtime';
-$string['statsmoodleorg'] = 'statistics';
+$string['statslionorg'] = 'statistics';
 $string['statsruntimedays'] = 'Days to process';
 $string['statsruntimestart'] = 'Run at';
 $string['statsuserthreshold'] = 'User threshold';
 $string['stickyblocks'] = 'Sticky blocks';
 $string['stickyblockscourseview'] = 'Course page';
 $string['stickyblocksduplicatenotice'] = 'If any block you add here is already present in a particular page, it will result in a duplicate.<br />Only the pinned block will be non-editable, the duplicate will still be editable.';
-$string['stickyblocksmymoodle'] = 'My Moodle';
+$string['stickyblocksmylion'] = 'My Lion';
 $string['stickyblockspagetype'] = 'Page type to configure';
 $string['strictformsrequired'] = 'Strict validation of required fields';
 $string['stripalltitletags'] = 'Remove HTML tags from all activity names';
@@ -1055,7 +1042,7 @@ $string['timezone'] = 'Default timezone';
 $string['timezoneforced'] = 'This is forced by the site administrator';
 $string['timezoneisforcedto'] = 'Force all users to use';
 $string['timezonenotforced'] = 'Users can choose their own timezone';
-$string['tokenizerrecommended'] = 'Installing the optional PHP Tokenizer extension is recommended -- it improves Moodle Networking functionality.';
+$string['tokenizerrecommended'] = 'Installing the optional PHP Tokenizer extension is recommended -- it improves Lion Networking functionality.';
 $string['tools'] = 'Admin tools';
 $string['toolsmanage'] = 'Manage admin tools';
 $string['unattendedoperation'] = 'Unattended operation';
@@ -1069,56 +1056,56 @@ $string['unsupporteddbstorageengine'] = 'The database storage engine being used 
 $string['unsuspenduser'] = 'Activate user account';
 $string['updateaccounts'] = 'Update existing accounts';
 $string['updatecomponent'] = 'Update component';
-$string['updateavailable'] = 'There is a newer Moodle version available!';
+$string['updateavailable'] = 'There is a newer Lion version available!';
 $string['updateavailabledetailslink'] = 'See {$a->url} for more details';
 $string['updateavailableforplugin'] = 'There is a newer version for some of your plugins available!';
 $string['updateavailable_moreinfo'] = 'More info...';
-$string['updateavailable_release'] = 'Moodle {$a}';
+$string['updateavailable_release'] = 'Lion {$a}';
 $string['updateavailable_version'] = 'Version {$a}';
 $string['updateavailableinstall'] = 'Install this update';
-$string['updateavailablenot'] = 'Your Moodle code is up-to-date!';
+$string['updateavailablenot'] = 'Your Lion code is up-to-date!';
 $string['updatenotifications'] = 'Update notifications';
-$string['updatenotificationfooter'] = 'Your Moodle site {$a->siteurl} is configured to automatically check for available updates. You are receiving this message as the administrator of the site. You can disable automatic checks for available updates in the Site administration section of the Administration block. You can customize the delivery of this message via your personal Messaging setting in the My profile settings section.';
-$string['updatenotificationsubject'] = 'Moodle updates are available ({$a->siteurl})';
+$string['updatenotificationfooter'] = 'Your Lion site {$a->siteurl} is configured to automatically check for available updates. You are receiving this message as the administrator of the site. You can disable automatic checks for available updates in the Site administration section of the Administration block. You can customize the delivery of this message via your personal Messaging setting in the My profile settings section.';
+$string['updatenotificationsubject'] = 'Lion updates are available ({$a->siteurl})';
 $string['updateautocheck'] = 'Automatically check for available updates';
-$string['updateautocheck_desc'] = 'If enabled, your site will automatically check for available updates for both Moodle code and all additional plugins. If there is a new update available, a notification will be sent to site admins.';
+$string['updateautocheck_desc'] = 'If enabled, your site will automatically check for available updates for both Lion code and all additional plugins. If there is a new update available, a notification will be sent to site admins.';
 $string['updateautodeploy'] = 'Enable updates deployment';
-$string['updateautodeploy_desc'] = 'If enabled, you will be able to download and install available updates directly from Moodle administration pages. Note that your web server process has to have write access into folders with Moodle installation to make this work. That can be seen as a potential security risk.';
+$string['updateautodeploy_desc'] = 'If enabled, you will be able to download and install available updates directly from Lion administration pages. Note that your web server process has to have write access into folders with Lion installation to make this work. That can be seen as a potential security risk.';
 $string['updateminmaturity'] = 'Required code maturity';
 $string['updateminmaturity_desc'] = 'Notify about available updates only if the available code has the selected maturity level at least. Updates for plugins that do not declare their code maturity level are always reported regardless this setting.';
 $string['updatenotifybuilds'] = 'Notify about new builds';
-$string['updatenotifybuilds_desc'] = 'If enabled, the available update for Moodle code is also reported when a new build for the current version is available. Builds are continuous improvements of a given Moodle version. They are generally released every week. If disabled, the available update will be reported only when there is a higher version of Moodle released. Checks for plugins are not affected by this setting.';
-$string['upgradestart'] = 'Upgrade Moodle database now';
+$string['updatenotifybuilds_desc'] = 'If enabled, the available update for Lion code is also reported when a new build for the current version is available. Builds are continuous improvements of a given Lion version. They are generally released every week. If disabled, the available update will be reported only when there is a higher version of Lion released. Checks for plugins are not affected by this setting.';
+$string['upgradestart'] = 'Upgrade Lion database now';
 $string['upgradepluginsfirst'] = 'It is recommended to install all available updates first';
 $string['upgradepluginsinfo'] = 'Updating plugins';
-$string['upgradepluginsinfo_help'] = 'There are available updates for some of your plugins. You should install them all prior to upgrading Moodle database. If your site does not support automatic updates deployment, you have to download and install new plugin versions at your server manually.';
+$string['upgradepluginsinfo_help'] = 'There are available updates for some of your plugins. You should install them all prior to upgrading Lion database. If your site does not support automatic updates deployment, you have to download and install new plugin versions at your server manually.';
 $string['upgradepluginsinfo_link'] = 'admin/upgradepluginsinfo';
 $string['upgradeerror'] = 'Unknown error upgrading {$a->plugin} to version {$a->version}, can not continue.';
-$string['upgradeforumread'] = 'A new feature has been added in Moodle 1.5 to track read/unread forum posts.<br />To use this functionality you need to <a href="{$a}">update your tables</a>.';
-$string['upgradeforumreadinfo'] = 'A new feature has been added in Moodle 1.5 to track read/unread forum posts.  To use this functionality you need to update your tables with all the tracking information for existing posts.  Depending on the size of your site this can take a long time (hours) and can be quite taxing on the database, so it\'s best to do it during a quiet period.  However, your site will continue functioning during this upgrade and users won\'t be affected.  Once you start this process you should let it finish (keep your browser window open).  However, if you stop the process by closing the window: don\'t worry, you can start over.<br /><br />Do you want to start the upgrading process now?';
+$string['upgradeforumread'] = 'A new feature has been added in Lion 1.5 to track read/unread forum posts.<br />To use this functionality you need to <a href="{$a}">update your tables</a>.';
+$string['upgradeforumreadinfo'] = 'A new feature has been added in Lion 1.5 to track read/unread forum posts.  To use this functionality you need to update your tables with all the tracking information for existing posts.  Depending on the size of your site this can take a long time (hours) and can be quite taxing on the database, so it\'s best to do it during a quiet period.  However, your site will continue functioning during this upgrade and users won\'t be affected.  Once you start this process you should let it finish (keep your browser window open).  However, if you stop the process by closing the window: don\'t worry, you can start over.<br /><br />Do you want to start the upgrading process now?';
 $string['upgradelogs'] = 'For full functionality, your old logs need to be upgraded.  <a href="{$a}">More information</a>';
 $string['upgradelogsinfo'] = 'Some changes have recently been made in the way logs are stored.  To be able to view all of your old logs on a per-activity basis, your old logs need to be upgraded.  Depending on your site this can take a long time (eg several hours) and can be quite taxing on the database for large sites.  Once you start this process you should let it finish (by keeping the browser window open).  Don\'t worry - your site will work fine for other people while the logs are being upgraded.<br /><br />Do you want to upgrade your logs now?';
 $string['upgradesettings'] = 'New settings';
-$string['upgradesettingsintro'] = 'The settings shown below were added during your last Moodle upgrade. Make any changes necessary to the defaults and then click the &quot;Save changes&quot; button at the bottom of this page.';
-$string['upgradestalefiles'] = 'Mixed Moodle versions detected, upgrade cannot continue';
-$string['upgradestalefilesinfo'] = 'The Moodle update process has been paused because PHP scripts from at least two major versions of Moodle have been detected in the Moodle directory.
+$string['upgradesettingsintro'] = 'The settings shown below were added during your last Lion upgrade. Make any changes necessary to the defaults and then click the &quot;Save changes&quot; button at the bottom of this page.';
+$string['upgradestalefiles'] = 'Mixed Lion versions detected, upgrade cannot continue';
+$string['upgradestalefilesinfo'] = 'The Lion update process has been paused because PHP scripts from at least two major versions of Lion have been detected in the Lion directory.
 
-This can cause significant problems later, so in order to continue you must ensure that the Moodle directory contains only files for a single version of Moodle.
+This can cause significant problems later, so in order to continue you must ensure that the Lion directory contains only files for a single version of Lion.
 
-The recommended way to clean your Moodle directory is as follows:
+The recommended way to clean your Lion directory is as follows:
 
-* rename the current Moodle directory to "moodle_old"
-* create a new Moodle directory containing only files from either a standard Moodle package download, or from the Moodle Git repository
-* move the original config.php file and any non-standard plugins from the "moodle_old" directory to the new Moodle directory
+* rename the current Lion directory to "lion_old"
+* create a new Lion directory containing only files from either a standard Lion package download, or from the Lion Git repository
+* move the original config.php file and any non-standard plugins from the "lion_old" directory to the new Lion directory
 
-When you have a clean Moodle directory, refresh this page to resume the Moodle update process.
+When you have a clean Lion directory, refresh this page to resume the Lion update process.
 
-This warning is often caused by unzipping a standard Moodle package over a previous version of Moodle. While this is OK for minor upgrades, it is strongly discouraged for major Moodle upgrades.
+This warning is often caused by unzipping a standard Lion package over a previous version of Lion. While this is OK for minor upgrades, it is strongly discouraged for major Lion upgrades.
 
 This warning can also be caused by an incomplete checkout or update operation from the Git repository, in which case you may just have to wait for the operation to complete, or perhaps run the appropriate clean-up command and retry the operation.
 
 You can find more information in upgrade documentation at <a href="{$a}">{$a}</a>.';
-$string['upgradesure'] = '<p>Your Moodle files have been changed, and you are about to automatically upgrade your server to this version:</p>
+$string['upgradesure'] = '<p>Your Lion files have been changed, and you are about to automatically upgrade your server to this version:</p>
 <p><strong>{$a}</strong></p>
 <p>Once you do this you can not go back again. Please note that this process can take a long time.</p>
 <p>Are you sure you want to upgrade this server to this version?</p>';
@@ -1144,10 +1131,10 @@ $string['verifychangedemail'] = 'Restrict domains when changing email';
 $string['warningcurrentsetting'] = 'Invalid current value: {$a}';
 $string['warningiconvbuggy'] = 'Your version of the iconv library does not support the //IGNORE modifier. You should install the mbstring extension which can be used instead for cleaning strings containing invalid UTF-8 characters.';
 $string['webproxy'] = 'Web proxy';
-$string['webproxyinfo'] = 'Fill in following options if your Moodle server can not access internet directly. Internet access is required for download of environment data, language packs, RSS feeds, timezones, etc.<br /><em>PHP cURL extension is highly recommended.</em>';
-$string['xmlrpcrecommended'] = 'The xmlrpc extension is needed for hub communication, and useful for web services and Moodle networking';
+$string['webproxyinfo'] = 'Fill in following options if your Lion server can not access internet directly. Internet access is required for download of environment data, language packs, RSS feeds, timezones, etc.<br /><em>PHP cURL extension is highly recommended.</em>';
+$string['xmlrpcrecommended'] = 'The xmlrpc extension is needed for hub communication, and useful for web services and Lion networking';
 $string['yuicomboloading'] = 'YUI combo loading';
-$string['ziprequired'] = 'The Zip PHP extension is now required by Moodle, info-ZIP binaries or PclZip library are not used anymore.';
+$string['ziprequired'] = 'The Zip PHP extension is now required by Lion, info-ZIP binaries or PclZip library are not used anymore.';
 
 
 $string['caching'] = 'Caching';

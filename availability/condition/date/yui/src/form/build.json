@@ -1,7 +1,7 @@
 {
-  "name": "moodle-availability_date-form",
+  "name": "lion-availability_date-form",
   "builds": {
-    "moodle-availability_date-form": {
+    "lion-availability_date-form": {
       "jsfiles": [
         "form.js"
       ]

@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for qtype_calculated_variable_substituter.
  *
- * @package    qtype
+ * @package    question_type
  * @subpackage calculated
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/question/type/calculated/question.php');
@@ -34,8 +20,6 @@ require_once($CFG->dirroot . '/question/type/calculated/questiontype.php');
 /**
  * Unit tests for {@link qtype_calculated_variable_substituter}.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_calculated_variable_substituter_test extends advanced_testcase {
     public function test_simple_expression() {
@@ -49,18 +33,18 @@ class qtype_calculated_variable_substituter_test extends advanced_testcase {
     }
 
     public function test_cannot_use_nonnumbers() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $vs = new qtype_calculated_variable_substituter(array('a' => 'frog', 'b' => -2), '.');
     }
 
     public function test_invalid_expression() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $vs = new qtype_calculated_variable_substituter(array('a' => 1, 'b' => 2), '.');
         $vs->calculate('{a} + {b}?');
     }
 
     public function test_tricky_invalid_expression() {
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $vs = new qtype_calculated_variable_substituter(array('a' => 1, 'b' => 2), '.');
         $vs->calculate('{a}{b}'); // Have to make sure this does not just evaluate to 12.
     }

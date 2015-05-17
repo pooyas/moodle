@@ -2,9 +2,9 @@
 /**
  * general.php
  *
- * @package MCManager.includes
- * @author Moxiecode
- * @copyright Copyright © 2007, Moxiecode Systems AB, All rights reserved.
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
 @error_reporting(E_ALL ^ E_NOTICE);
@@ -74,7 +74,7 @@ function info($msg) {
 	$log->info(implode(', ', $args));
 }
 
-function xx_error($msg) { // collides with our moodle error(), it does not look to be used at all
+function xx_error($msg) { // collides with our lion error(), it does not look to be used at all
 	$args = func_get_args();
 
 	$log = getLogger();

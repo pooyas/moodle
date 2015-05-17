@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //
 //  FPDI - Version 1.4.4
 //
@@ -28,7 +35,7 @@ require_once($CFG->libdir.'/pdflib.php');
  * We'll simply remap TCPDF to FPDF again.
  * 
  * It'll be loaded and extended by FPDF_TPL.
- * Modified to extend the moodle TCPDF wrapper instead.
+ * Modified to extend the lion TCPDF wrapper instead.
  */
 class FPDF extends pdf {
     

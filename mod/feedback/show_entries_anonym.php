@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * print the single-values of anonymous completeds
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -34,7 +21,7 @@ $showall = optional_param('showall', false, PARAM_INT);  // should we show all u
 
 $current_tab = $do_show;
 
-$url = new moodle_url('/mod/feedback/show_entries_anonym.php', array('id'=>$id));
+$url = new lion_url('/mod/feedback/show_entries_anonym.php', array('id'=>$id));
 // if ($userid !== '') {
     // $url->param('userid', $userid);
 // }
@@ -99,7 +86,7 @@ if (!$showcompleted) {
     $feedbackcompletedscount = $DB->count_records('feedback_completed', $params);
 
     // preparing the table for output
-    $baseurl = new moodle_url('/mod/feedback/show_entries_anonym.php');
+    $baseurl = new lion_url('/mod/feedback/show_entries_anonym.php');
     $baseurl->params(array('id'=>$id, 'do_show'=>$do_show, 'showall'=>$showall));
 
     $tablecolumns = array('response', 'showresponse');
@@ -157,7 +144,7 @@ if (!$showcompleted) {
             $data[] = get_string('response_nr', 'feedback').': '. $compl->random_response;
 
             //link to the entry
-            $showentryurl = new moodle_url($baseurl, array('showcompleted'=>$compl->id));
+            $showentryurl = new lion_url($baseurl, array('showcompleted'=>$compl->id));
             $showentrylink = '<a href="'.$showentryurl->out().'">'.get_string('show_entry', 'feedback').'</a>';
             $data[] = $showentrylink;
 
@@ -168,7 +155,7 @@ if (!$showcompleted) {
                                     'do_show'=>'',
                                     'return'=>'entriesanonym');
 
-                $deleteentryurl = new moodle_url($CFG->wwwroot.'/mod/feedback/delete_completed.php', $delet_url_params);
+                $deleteentryurl = new lion_url($CFG->wwwroot.'/mod/feedback/delete_completed.php', $delet_url_params);
                 $deleteentrylink = '<a href="'.$deleteentryurl->out().'">'.get_string('delete_entry', 'feedback').'</a>';
                 $data[] = $deleteentrylink;
             }
@@ -176,7 +163,7 @@ if (!$showcompleted) {
         }
         $table->print_html();
 
-        $allurl = new moodle_url($baseurl);
+        $allurl = new lion_url($baseurl);
 
         if ($showall) {
             $allurl->param('showall', 0);
@@ -191,7 +178,7 @@ if (!$showcompleted) {
 }
 //print the items
 if ($showcompleted) {
-    $continueurl = new moodle_url('/mod/feedback/show_entries_anonym.php',
+    $continueurl = new lion_url('/mod/feedback/show_entries_anonym.php',
                                 array('id'=>$id, 'do_show'=>''));
 
     echo $OUTPUT->continue_button($continueurl);

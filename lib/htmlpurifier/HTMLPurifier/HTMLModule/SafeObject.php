@@ -5,6 +5,9 @@
  * be safe, and untrusted users can be allowed to embed arbitrary flash objects
  * (maybe other types too, but only Flash is supported as of right now).
  * Highly experimental.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_SafeObject extends HTMLPurifier_HTMLModule
 {

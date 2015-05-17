@@ -9,6 +9,9 @@
  *
  * Latest version is available at http://php.weblogs.com
  *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
 */
 
 

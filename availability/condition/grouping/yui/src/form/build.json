@@ -1,7 +1,7 @@
 {
-  "name": "moodle-availability_grouping-form",
+  "name": "lion-availability_grouping-form",
   "builds": {
-    "moodle-availability_grouping-form": {
+    "lion-availability_grouping-form": {
       "jsfiles": [
         "form.js"
       ]

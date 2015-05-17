@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Base capability table.
  *
- * @package    core_role
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage roles
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * This class represents a table with one row for each of a list of capabilities
@@ -78,8 +65,8 @@ abstract class core_role_capability_table_base {
                 'name' => 'rolescapfilter',
                 'fullpath' => '/admin/roles/module.js',
                 'strings' => array(
-                    array('filter', 'moodle'),
-                    array('clear', 'moodle'),                ),
+                    array('filter', 'lion'),
+                    array('clear', 'lion'),                ),
                 'requires' => array('node', 'cookie', 'escape')
             );
             $PAGE->requires->js_init_call('M.core_role.init_cap_table_filter', array($this->id, $this->context->id), false,

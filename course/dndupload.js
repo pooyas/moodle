@@ -1,25 +1,8 @@
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Javascript library for enableing a drag and drop upload to courses
  *
- * @package    core
- * @subpackage course
- * @copyright  2012 Davo Smith
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 M.course_dndupload = {
     // YUI object.
@@ -140,7 +123,7 @@ M.course_dndupload = {
         if (handlelink) {
             $msgident += 'link';
         }
-        div.setContent(M.util.get_string($msgident, 'moodle'));
+        div.setContent(M.util.get_string($msgident, 'lion'));
 
         styletop = div.getStyle('top') || '0px';
         styletopunit = styletop.replace(/^\d+/, '');
@@ -275,7 +258,7 @@ M.course_dndupload = {
                 }
                 return {
                     realtype: 'Files',
-                    addmessage: M.util.get_string('addfilehere', 'moodle'),
+                    addmessage: M.util.get_string('addfilehere', 'lion'),
                     namemessage: null, // Should not be asked for anyway
                     type: 'Files'
                 };
@@ -545,7 +528,7 @@ M.course_dndupload = {
         preview.div.appendChild(document.createTextNode(' '));
 
         preview.namespan.className = 'instancename';
-        preview.namespan.innerHTML = M.util.get_string('addfilehere', 'moodle');
+        preview.namespan.innerHTML = M.util.get_string('addfilehere', 'lion');
         preview.div.appendChild(preview.namespan);
 
         modsel.appendChild(preview.li);
@@ -617,7 +600,7 @@ M.course_dndupload = {
         } else {
             sel = handlers[0].module;
         }
-        content += '<p>'+M.util.get_string('actionchoice', 'moodle', file.name)+'</p>';
+        content += '<p>'+M.util.get_string('actionchoice', 'lion', file.name)+'</p>';
         content += '<div id="dndupload_handlers'+uploadid+'">';
         for (var i=0; i<handlers.length; i++) {
             var id = 'dndupload_handler'+uploadid+handlers[i].module;
@@ -653,7 +636,7 @@ M.course_dndupload = {
 
         // Add the submit/cancel buttons to the bottom of the dialog.
         panel.addButton({
-            label: M.util.get_string('upload', 'moodle'),
+            label: M.util.get_string('upload', 'lion'),
             action: function(e) {
                 e.preventDefault();
                 // Find out which module was selected
@@ -676,7 +659,7 @@ M.course_dndupload = {
             section: Y.WidgetStdMod.FOOTER
         });
         panel.addButton({
-            label: M.util.get_string('cancel', 'moodle'),
+            label: M.util.get_string('cancel', 'lion'),
             action: function(e) {
                 e.preventDefault();
                 panel.hide();
@@ -723,7 +706,7 @@ M.course_dndupload = {
         var self = this;
 
         if (file.size > this.maxbytes) {
-            alert("'"+file.name+"' "+M.util.get_string('filetoolarge', 'moodle'));
+            alert("'"+file.name+"' "+M.util.get_string('filetoolarge', 'lion'));
             return;
         }
 
@@ -761,7 +744,7 @@ M.course_dndupload = {
                         }
                     }
                 } else {
-                    alert(M.util.get_string('servererror', 'moodle'));
+                    alert(M.util.get_string('servererror', 'lion'));
                 }
             }
         };
@@ -893,13 +876,13 @@ M.course_dndupload = {
 
         // Add the submit/cancel buttons to the bottom of the dialog.
         panel.addButton({
-            label: M.util.get_string('upload', 'moodle'),
+            label: M.util.get_string('upload', 'lion'),
             action: submit,
             section: Y.WidgetStdMod.FOOTER,
             name: 'submit'
         });
         panel.addButton({
-            label: M.util.get_string('cancel', 'moodle'),
+            label: M.util.get_string('cancel', 'lion'),
             action: function(e) {
                 e.preventDefault();
                 panel.hide();
@@ -986,7 +969,7 @@ M.course_dndupload = {
                         }
                     }
                 } else {
-                    alert(M.util.get_string('servererror', 'moodle'));
+                    alert(M.util.get_string('servererror', 'lion'));
                 }
             }
         };
@@ -1014,7 +997,7 @@ M.course_dndupload = {
      */
     add_editing: function(elementid) {
         var node = Y.one('#' + elementid);
-        YUI().use('moodle-course-coursebase', function(Y) {
+        YUI().use('lion-course-coursebase', function(Y) {
             Y.log("Invoking setup_for_resource", 'debug', 'coursedndupload');
             M.course.coursebase.invoke_function('setup_for_resource', node);
         });

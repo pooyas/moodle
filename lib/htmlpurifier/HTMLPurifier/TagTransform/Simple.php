@@ -4,6 +4,9 @@
  * Simple transformation, just change tag name to something else,
  * and possibly add some styling. This will cover most of the deprecated
  * tag cases.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_TagTransform_Simple extends HTMLPurifier_TagTransform
 {

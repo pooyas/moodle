@@ -1,29 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * End of cluster
  *
- * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
  /** End of Cluster page */
 define("LESSON_PAGE_ENDOFCLUSTER",   "31");
@@ -62,7 +49,7 @@ class lesson_page_type_endofcluster extends lesson_page {
         } else {
             $nextpageid = $this->properties->nextpageid;
         }
-        redirect(new moodle_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id,'pageid'=>$nextpageid)));
+        redirect(new lion_url('/mod/lesson/view.php', array('id'=>$PAGE->cm->id,'pageid'=>$nextpageid)));
     }
     public function get_grayout() {
         return 1;
@@ -84,7 +71,7 @@ class lesson_page_type_endofcluster extends lesson_page {
     public function add_page_link($previd) {
         global $PAGE, $CFG;
         if ($previd != 0) {
-            $addurl = new moodle_url('/mod/lesson/editpage.php', array('id'=>$PAGE->cm->id, 'pageid'=>$previd, 'sesskey'=>sesskey(), 'qtype'=>LESSON_PAGE_ENDOFCLUSTER));
+            $addurl = new lion_url('/mod/lesson/editpage.php', array('id'=>$PAGE->cm->id, 'pageid'=>$previd, 'sesskey'=>sesskey(), 'qtype'=>LESSON_PAGE_ENDOFCLUSTER));
             return array('addurl'=>$addurl, 'type'=>LESSON_PAGE_ENDOFCLUSTER, 'name'=>get_string('addendofcluster', 'lesson'));
         }
         return false;

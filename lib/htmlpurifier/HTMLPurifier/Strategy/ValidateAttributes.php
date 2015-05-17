@@ -2,6 +2,9 @@
 
 /**
  * Validate all attributes in the tokens.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_Strategy_ValidateAttributes extends HTMLPurifier_Strategy

@@ -1,15 +1,15 @@
 <?php
 /**
  * Class Minify_JS_ClosureCompiler
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Minify Javascript using Google's Closure Compiler API
  *
  * @link http://code.google.com/closure/compiler/
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
  *
  * @todo can use a stream wrapper to unit test this?
  */

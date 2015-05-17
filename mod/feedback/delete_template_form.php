@@ -1,35 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * prints the form to confirm delete a completed
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
-//It must be included from a Moodle page
-if (!defined('MOODLE_INTERNAL')) {
+//It must be included from a Lion page
+if (!defined('LION_INTERNAL')) {
     die('Direct access to this script is forbidden.');
 }
 
 require_once($CFG->libdir.'/formslib.php');
 
-class mod_feedback_delete_template_form extends moodleform {
+class mod_feedback_delete_template_form extends lionform {
     public function definition() {
         $mform =& $this->_form;
 

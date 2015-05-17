@@ -3,6 +3,9 @@
 /**
  * Converts HTMLPurifier_ConfigSchema_Interchange to our runtime
  * representation used to perform checks on user configuration.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema_Builder_ConfigSchema
 {

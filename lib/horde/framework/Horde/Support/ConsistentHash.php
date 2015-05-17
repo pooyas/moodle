@@ -12,8 +12,9 @@
  *     calling code can take an action (say, transferring data).
  *
  * @category Horde
- * @package  Support
- * @license  http://www.horde.org/licenses/bsd
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Support_ConsistentHash
 {

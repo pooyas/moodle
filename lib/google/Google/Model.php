@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -20,7 +23,6 @@
  * from a given json schema.
  * http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5
  *
- * @author Chirag Shah <chirags@google.com>
  *
  */
 class Google_Model implements ArrayAccess

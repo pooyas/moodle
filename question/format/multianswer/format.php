@@ -1,37 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Embedded answer (Cloze) question importer.
  *
- * @package   qformat_multianswer
- * @copyright 2003 Henrik Kaipe
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question_format
+ * @subpackage multianswer
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Importer that imports a text file containing a single Multianswer question
  * from a text file.
  *
- * @copyright 2003 Henrik Kaipe
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_multianswer extends qformat_default {
 
@@ -49,7 +34,7 @@ class qformat_multianswer extends qformat_default {
 
         $questiontext = array();
         $questiontext['text'] = implode('', $lines);
-        $questiontext['format'] = FORMAT_MOODLE;
+        $questiontext['format'] = FORMAT_LION;
         $questiontext['itemid'] = '';
         $question = qtype_multianswer_extract_question($questiontext);
         $question->questiontext = $question->questiontext['text'];
@@ -57,7 +42,7 @@ class qformat_multianswer extends qformat_default {
 
         $question->qtype = 'multianswer';
         $question->generalfeedback = '';
-        $question->generalfeedbackformat = FORMAT_MOODLE;
+        $question->generalfeedbackformat = FORMAT_LION;
         $question->length = 1;
         $question->penalty = 0.3333333;
 

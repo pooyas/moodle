@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -36,8 +43,6 @@ require_once('HTML/QuickForm/checkbox.php');
  * checked, PHP overwrites the value of the hidden field with
  * its value.
  *
- * @author       Jason Rust <jrust@php.net>
- * @since        2.0
  * @access       public
  */
 class HTML_QuickForm_advcheckbox extends HTML_QuickForm_checkbox
@@ -73,7 +78,6 @@ class HTML_QuickForm_advcheckbox extends HTML_QuickForm_checkbox
      *                                      or an associative array
      * @param     mixed     $values         (optional)Values to pass if checked or not checked
      *
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -228,7 +232,6 @@ class HTML_QuickForm_advcheckbox extends HTML_QuickForm_checkbox
      * @param     string    $event  Name of event
      * @param     mixed     $arg    event arguments
      * @param     object    $caller calling object
-     * @since     1.0
      * @access    public
      * @return    void
      */

@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/bsd.
  *
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd BSD
- * @package   Support
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * An array implemented as an object that contains case-insensitive keys.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd BSD
- * @package   Support
  */
 class Horde_Support_CaseInsensitiveArray extends ArrayIterator
 {

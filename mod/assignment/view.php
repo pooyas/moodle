@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage assignment
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once("../../config.php");
 
 $id = optional_param('id', 0, PARAM_INT);  // Course Module ID.
@@ -21,11 +28,11 @@ if ($id) {
 
 if (!$mapping) {
     $url = '';
-    if (has_capability('moodle/site:config', context_system::instance())) {
-        $url = new moodle_url('/admin/tool/assignmentupgrade/listnotupgraded.php');
+    if (has_capability('lion/site:config', context_system::instance())) {
+        $url = new lion_url('/admin/tool/assignmentupgrade/listnotupgraded.php');
     }
     print_error('assignmentneedsupgrade', 'assignment', $url);
 }
 
-$url = new moodle_url('/mod/assign/view.php', array('id' => $mapping->newcmid));
+$url = new lion_url('/mod/assign/view.php', array('id' => $mapping->newcmid));
 redirect($url);

@@ -20,7 +20,7 @@
 #filesskin .yui3-widget-hd {border-radius:10px 10px 0px 0px;border-bottom:1px solid #BBBBBB;padding:5px 5px 5px 5px;text-align:center;font-size:12px;letter-spacing:1px;color:#333333;text-shadow:1px 1px 1px #FFFFFF;filter:dropshadow(color=#FFFFFF, offx=1, offy=1);
 background:#E2E2E2;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CCCCCC');background:-webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CCCCCC));background:-moz-linear-gradient(top,  #FFFFFF,  #CCCCCC);}
 .fp-panel-button {background:#FFFFFF;padding:3px 20px 2px 20px;text-align:center;margin:10px;border-radius:10px;display:inline-block;-webkit-box-shadow:2px 2px 3px .1px #999999;-moz-box-shadow:2px 2px 3px .1px #999999;box-shadow:2px 2px 3px .1px #999999;}
-.moodle-dialogue-base .filepicker .moodle-dialogue-wrap .moodle-dialogue-bd {
+.lion-dialogue-base .filepicker .lion-dialogue-wrap .lion-dialogue-bd {
     padding:0px;
 }
 
@@ -33,7 +33,7 @@ background:#E2E2E2;filter:progid:DXImageTransform.Microsoft.gradient(startColors
 .file-picker .fp-repo-items {overflow: hidden;}
 .file-picker .fp-navbar {background:#F2F2F2;min-height:40px;border-bottom:1px solid #BBBBBB;}
 .file-picker .fp-content {background:#FFFFFF;clear:both;overflow:auto;height:452px;}
-.filepicker.moodle-dialogue-fullscreen .file-picker .fp-content {width:100%;}
+.filepicker.lion-dialogue-fullscreen .file-picker .fp-content {width:100%;}
 
 .file-picker .fp-content-loading {height:100%;width:100%;display:table;text-align:center;}
 .file-picker .fp-content .fp-object-container {width:98%;height:98%;}
@@ -47,7 +47,7 @@ background:#E2E2E2;filter:progid:DXImageTransform.Microsoft.gradient(startColors
 .dir-rtl #filemenu .yuimenuitemlabel {text-align:right;}
 .dir-rtl .filepicker .yui-layout-unit-left {left:500px;}
 .dir-rtl .filepicker .yui-layout-unit-center {left:0px;}
-.dir-rtl .filepicker.moodle-dialogue-fullscreen .file-picker .fp-repo-items { float:none; }
+.dir-rtl .filepicker.lion-dialogue-fullscreen .file-picker .fp-repo-items { float:none; }
 
 /**
  * File Manager
@@ -135,35 +135,35 @@ background:#E2E2E2;filter:progid:DXImageTransform.Microsoft.gradient(startColors
  */
 /*.file-picker .fp-treeview .fp-folder .fp-icon, .filemanager .fp-treeview .fp-folder .fp-icon {}*/
 /* first or middle sibling, no children */
-.file-picker .ygtvtn, .filemanager .ygtvtn {background:url('[[pix:moodle|y/tn]]') 0px 0px no-repeat;width:17px;height:22px;}
-.dir-rtl .file-picker .ygtvtn, .dir-rtl .filemanager .ygtvtn {background:url('[[pix:moodle|y/tn_rtl]]') 0px 0px no-repeat;}
+.file-picker .ygtvtn, .filemanager .ygtvtn {background:url('[[pix:lion|y/tn]]') 0px 0px no-repeat;width:17px;height:22px;}
+.dir-rtl .file-picker .ygtvtn, .dir-rtl .filemanager .ygtvtn {background:url('[[pix:lion|y/tn_rtl]]') 0px 0px no-repeat;}
 /* first or middle sibling, collapsable */
-.file-picker .ygtvtm, .filemanager .ygtvtm {background:url('[[pix:moodle|y/tm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
+.file-picker .ygtvtm, .filemanager .ygtvtm {background:url('[[pix:lion|y/tm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
 /* first or middle sibling, collapsable, hover */
-.file-picker .ygtvtmh, .filemanager .ygtvtmh {background:url('[[pix:moodle|y/tm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
+.file-picker .ygtvtmh, .filemanager .ygtvtmh {background:url('[[pix:lion|y/tm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
 /* first or middle sibling, expandable */
-.file-picker .ygtvtp, .filemanager .ygtvtp {background:url('[[pix:moodle|y/tp]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
-.dir-rtl .file-picker .ygtvtp, .dir-rtl .filemanager .ygtvtp {background:url('[[pix:moodle|y/tp_rtl]]') 0px 10px no-repeat;}
+.file-picker .ygtvtp, .filemanager .ygtvtp {background:url('[[pix:lion|y/tp]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
+.dir-rtl .file-picker .ygtvtp, .dir-rtl .filemanager .ygtvtp {background:url('[[pix:lion|y/tp_rtl]]') 0px 10px no-repeat;}
 /* first or middle sibling, expandable, hover */
-.file-picker .ygtvtph, .filemanager .ygtvtph {background:url('[[pix:moodle|y/tp]]') 0px 10px no-repeat;width:13px;height:22px;cursor:pointer;}
-.dir-rtl .file-picker .ygtvtph, .dir-rtl .filemanager .ygtvtph {background:url('[[pix:moodle|y/tp_rtl]]') 0px 10px no-repeat}
+.file-picker .ygtvtph, .filemanager .ygtvtph {background:url('[[pix:lion|y/tp]]') 0px 10px no-repeat;width:13px;height:22px;cursor:pointer;}
+.dir-rtl .file-picker .ygtvtph, .dir-rtl .filemanager .ygtvtph {background:url('[[pix:lion|y/tp_rtl]]') 0px 10px no-repeat}
 /* last sibling, no children */
-.file-picker .ygtvln, .filemanager .ygtvln {background:url('[[pix:moodle|y/ln]]') 0px 0px no-repeat;width:17px;height:22px;}
-.dir-rtl .file-picker .ygtvln, .dir-rtl .filemanager .ygtvln {background:url('[[pix:moodle|y/ln_rtl]]') 0px 0px no-repeat;}
+.file-picker .ygtvln, .filemanager .ygtvln {background:url('[[pix:lion|y/ln]]') 0px 0px no-repeat;width:17px;height:22px;}
+.dir-rtl .file-picker .ygtvln, .dir-rtl .filemanager .ygtvln {background:url('[[pix:lion|y/ln_rtl]]') 0px 0px no-repeat;}
 /* Last sibling, collapsable */
-.file-picker .ygtvlm, .filemanager .ygtvlm {background:url('[[pix:moodle|y/lm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
+.file-picker .ygtvlm, .filemanager .ygtvlm {background:url('[[pix:lion|y/lm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
 /* Last sibling, collapsable, hover */
-.file-picker .ygtvlmh, .filemanager .ygtvlmh {background:url('[[pix:moodle|y/lm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
+.file-picker .ygtvlmh, .filemanager .ygtvlmh {background:url('[[pix:lion|y/lm]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
 /* Last sibling, expandable */
-.file-picker .ygtvlp, .filemanager .ygtvlp {background:url('[[pix:moodle|y/lp]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
-.dir-rtl .file-picker .ygtvlp, .dir-rtl .filemanager .ygtvlp {background:url('[[pix:moodle|y/lp_rtl]]') 0px 10px no-repeat;}
+.file-picker .ygtvlp, .filemanager .ygtvlp {background:url('[[pix:lion|y/lp]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
+.dir-rtl .file-picker .ygtvlp, .dir-rtl .filemanager .ygtvlp {background:url('[[pix:lion|y/lp_rtl]]') 0px 10px no-repeat;}
 /* Last sibling, expandable, hover */
-.file-picker .ygtvlph, .filemanager .ygtvlph {background:url('[[pix:moodle|y/lp]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
-.dir-rtl .file-picker .ygtvlph, .dir-rtl .filemanager .ygtvlph {background:url('[[pix:moodle|y/lp_rtl]]') 0px 10px no-repeat;}
+.file-picker .ygtvlph, .filemanager .ygtvlph {background:url('[[pix:lion|y/lp]]') 0px 10px no-repeat;width:13px;height:12px;cursor:pointer;}
+.dir-rtl .file-picker .ygtvlph, .dir-rtl .filemanager .ygtvlph {background:url('[[pix:lion|y/lp_rtl]]') 0px 10px no-repeat;}
 /* Loading icon */
-.file-picker .ygtvloading, .filemanager .ygtvloading {background:transparent url('[[pix:moodle|y/loading]]') 0 0 no-repeat;width:16px;height:22px;}
+.file-picker .ygtvloading, .filemanager .ygtvloading {background:transparent url('[[pix:lion|y/loading]]') 0 0 no-repeat;width:16px;height:22px;}
 /* the style for the empty cells that are used for rendering the depth* of the node */
-.file-picker .ygtvdepthcell, .filemanager .ygtvdepthcell {background:url('[[pix:moodle|y/vline]]') 0 0 no-repeat;width:17px;height:/*22px;*/32px;}
+.file-picker .ygtvdepthcell, .filemanager .ygtvdepthcell {background:url('[[pix:lion|y/vline]]') 0 0 no-repeat;width:17px;height:/*22px;*/32px;}
 .file-picker .ygtvblankdepthcell, .filemanager .ygtvblankdepthcell {width:17px;height:22px;}
 /* the style of the div around each node */
 /*.file-picker .ygtvitem  table, .filemanager .ygtvitem  table{margin-bottom:0;}*/
@@ -474,5 +474,5 @@ a.ygtvspacer:hover {color:transparent;text-decoration:none;}
     .fp-formset, .fp-forminset {margin:0 10px;width:auto;}
     .fp-formset label, .fp-forminset label {float:none;width:210px;text-align:left;margin:5px 0;}
     .dir-rtl .fp-formset label, .dir-rtl .fp-forminset label {text-align:right;float:none;}
-    .dir-rtl .filepicker.moodle-dialogue-fullscreen .file-picker .fp-repo-items { float:right; }
+    .dir-rtl .filepicker.lion-dialogue-fullscreen .file-picker .fp-repo-items { float:right; }
 }

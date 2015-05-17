@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Store management setting.
  *
- * @package    tool_log
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("$CFG->libdir/adminlib.php");
 
@@ -143,7 +130,7 @@ class tool_log_setting_managestores extends admin_setting {
         // Iterate through store plugins and add to the display table.
         $updowncount = 1;
         $storecount = count($enabled);
-        $url = new moodle_url('/admin/tool/log/stores.php', array('sesskey' => sesskey()));
+        $url = new lion_url('/admin/tool/log/stores.php', array('sesskey' => sesskey()));
         $printed = array();
         foreach ($allstores as $store => $unused) {
             $plugininfo = $pluginmanager->get_plugin_info($store);
@@ -167,14 +154,14 @@ class tool_log_setting_managestores extends admin_setting {
 
             // Hide/show links.
             if (isset($enabled[$store])) {
-                $aurl = new moodle_url($url, array('action' => 'disable', 'store' => $store));
+                $aurl = new lion_url($url, array('action' => 'disable', 'store' => $store));
                 $hideshow = "<a href=\"$aurl\">";
                 $hideshow .= "<img src=\"" . $OUTPUT->pix_url('t/hide') . "\" class=\"iconsmall\" alt=\"$strdisable\" /></a>";
                 $isenabled = true;
                 $displayname = "<span>$name</span>";
             } else {
                 if (isset($available[$store])) {
-                    $aurl = new moodle_url($url, array('action' => 'enable', 'store' => $store));
+                    $aurl = new lion_url($url, array('action' => 'enable', 'store' => $store));
                     $hideshow = "<a href=\"$aurl\">";
                     $hideshow .= "<img src=\"" . $OUTPUT->pix_url('t/show') . "\" class=\"iconsmall\" alt=\"$strenable\" /></a>";
                     $isenabled = false;
@@ -188,21 +175,21 @@ class tool_log_setting_managestores extends admin_setting {
             if ($PAGE->theme->resolve_image_location('icon', $store, false)) {
                 $icon = $OUTPUT->pix_icon('icon', '', $store, array('class' => 'icon pluginicon'));
             } else {
-                $icon = $OUTPUT->pix_icon('spacer', '', 'moodle', array('class' => 'icon pluginicon noicon'));
+                $icon = $OUTPUT->pix_icon('spacer', '', 'lion', array('class' => 'icon pluginicon noicon'));
             }
 
             // Up/down link (only if store is enabled).
             $updown = '';
             if ($isenabled) {
                 if ($updowncount > 1) {
-                    $aurl = new moodle_url($url, array('action' => 'up', 'store' => $store));
+                    $aurl = new lion_url($url, array('action' => 'up', 'store' => $store));
                     $updown .= "<a href=\"$aurl\">";
                     $updown .= "<img src=\"" . $OUTPUT->pix_url('t/up') . "\" alt=\"$strup\" class=\"iconsmall\" /></a>&nbsp;";
                 } else {
                     $updown .= "<img src=\"" . $OUTPUT->pix_url('spacer') . "\" class=\"iconsmall\" alt=\"\" />&nbsp;";
                 }
                 if ($updowncount < $storecount) {
-                    $aurl = new moodle_url($url, array('action' => 'down', 'store' => $store));
+                    $aurl = new lion_url($url, array('action' => 'down', 'store' => $store));
                     $updown .= "<a href=\"$aurl\">";
                     $updown .= "<img src=\"" . $OUTPUT->pix_url('t/down') . "\" alt=\"$strdown\" class=\"iconsmall\" /></a>";
                 } else {

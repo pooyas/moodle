@@ -1,8 +1,9 @@
 <?php
 /**
  * Georgian PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author Avtandil Kikabidze aka LONGMAN <akalongman@gmail.com>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate'] 			= 'SMTP შეცდომა: ავტორიზაცია შეუძლებელია.';

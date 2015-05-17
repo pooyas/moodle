@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for workshop api class defined in mod/workshop/locallib.php
  *
- * @package    mod_workshop
  * @category   phpunit
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/mod/workshop/locallib.php'); // Include the code to test
@@ -379,7 +366,7 @@ class mod_workshop_internal_api_testcase extends advanced_testcase {
         $a = $this->workshop->prepare_example_assessment($fakerawrecord);
         // verify
         $this->assertTrue($a instanceof workshop_example_assessment);
-        $this->assertTrue($a->url instanceof moodle_url);
+        $this->assertTrue($a->url instanceof lion_url);
 
         // modify setup
         $fakerawrecord->weight = 1;

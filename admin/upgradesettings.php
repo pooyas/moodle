@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // detects settings that were added during an upgrade, displays a screen for the admin to
 // modify them, and then processes modifications
 
@@ -12,7 +19,7 @@ $return = optional_param('return', '', PARAM_ALPHA);
 require_login(0, false);
 if (isguestuser()) {
     // Login as real user!
-    $SESSION->wantsurl = (string)new moodle_url('/admin/upgradesettings.php', array('return'=>$return));
+    $SESSION->wantsurl = (string)new lion_url('/admin/upgradesettings.php', array('return'=>$return));
     redirect(get_login_url());
 }
 

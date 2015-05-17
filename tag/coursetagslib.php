@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * coursetagslib.php
  *
- * @package    core_tag
- * @copyright  2007 j.beedell@open.ac.uk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once $CFG->dirroot.'/tag/lib.php';
@@ -30,12 +17,11 @@ require_once $CFG->dirroot.'/tag/locallib.php';
  * Returns an ordered array of tags associated with visible courses
  * (boosted replacement of get_all_tags() allowing association with user and tagtype).
  *
- * @package  core_tag
  * @category tag
  * @param    int      $courseid A course id. Passing 0 will return all distinct tags for all visible courses
  * @param    int      $userid   (optional) the user id, a default of 0 will return all users tags for the course
- * @param    string   $tagtype  (optional) The type of tag, empty string returns all types. Currently (Moodle 2.2) there are two
- *                              types of tags which are used within Moodle, they are 'official' and 'default'.
+ * @param    string   $tagtype  (optional) The type of tag, empty string returns all types. Currently (Lion 2.2) there are two
+ *                              types of tags which are used within Lion, they are 'official' and 'default'.
  * @param    int      $numtags  (optional) number of tags to display, default of 80 is set in the block, 0 returns all
  * @param    string   $unused   (optional) was selected sorting, moved to tag_print_cloud()
  * @return   array
@@ -110,7 +96,6 @@ function coursetag_get_tags($courseid, $userid=0, $tagtype='', $numtags=0, $unus
  * Returns an ordered array of tags
  * (replaces popular_tags_count() allowing sorting).
  *
- * @package  core_tag
  * @category tag
  * @param    string $unused (optional) was selected sorting - moved to tag_print_cloud()
  * @param    int    $numtags (optional) number of tags to display, default of 20 is set in the block, 0 returns all
@@ -151,7 +136,6 @@ function coursetag_get_all_tags($unused='', $numtags=0) {
 /**
  * Returns javascript for use in tags block and supporting pages
  *
- * @package  core_tag
  * @category tag
  * @return   null
  */
@@ -175,7 +159,6 @@ function coursetag_get_jscript() {
 /**
  * Returns javascript to create the links in the tag block footer.
  *
- * @package  core_tag
  * @category tag
  * @param    string   $elementid       the element to attach the footer to
  * @param    array    $coursetagslinks links arrays each consisting of 'title', 'onclick' and 'text' elements
@@ -196,7 +179,6 @@ function coursetag_get_jscript_links($elementid, $coursetagslinks) {
 /**
  * Returns all tags created by a user for a course
  *
- * @package  core_tag
  * @category tag
  * @param    int      $courseid tags are returned for the course that has this courseid
  * @param    int      $userid   return tags which were created by this user
@@ -217,7 +199,6 @@ function coursetag_get_records($courseid, $userid) {
 /**
  * Stores a tag for a course for a user
  *
- * @package  core_tag
  * @category tag
  * @param    array  $tags     simple array of keywords to be stored
  * @param    int    $courseid the id of the course we wish to store a tag for
@@ -260,7 +241,6 @@ function coursetag_store_keywords($tags, $courseid, $userid=0, $tagtype='officia
 /**
  * Deletes a personal tag for a user for a course.
  *
- * @package  core_tag
  * @category tag
  * @param    int      $tagid    the tag we wish to delete
  * @param    int      $userid   the user that the tag is associated with
@@ -273,8 +253,7 @@ function coursetag_delete_keyword($tagid, $userid, $courseid) {
 /**
  * Get courses tagged with a tag
  *
- * @global moodle_database $DB
- * @package  core_tag
+ * @global lion_database $DB
  * @category tag
  * @param int $tagid
  * @return array of course objects
@@ -298,7 +277,7 @@ function coursetag_get_tagged_courses($tagid) {
     $rs = $DB->get_recordset_sql($sql, $params);
     foreach ($rs as $course) {
         context_helper::preload_from_record($course);
-        if ($course->visible == 1 || has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id))) {
+        if ($course->visible == 1 || has_capability('lion/course:viewhiddencourses', context_course::instance($course->id))) {
             $courses[$course->id] = $course;
         }
     }
@@ -306,9 +285,8 @@ function coursetag_get_tagged_courses($tagid) {
 }
 
 /**
- * Course tagging function used only during the deletion of a course (called by lib/moodlelib.php) to clean up associated tags
+ * Course tagging function used only during the deletion of a course (called by lib/lionlib.php) to clean up associated tags
  *
- * @package core_tag
  * @param   int      $courseid     the course we wish to delete tag instances from
  * @param   bool     $showfeedback if we should output a notification of the delete to the end user
  */

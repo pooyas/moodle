@@ -1,35 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Bulk course upload step 2.
  *
- * @package    tool_uploadcourse
- * @copyright  2011 Piers Harding
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Specify course upload details.
  *
- * @package    tool_uploadcourse
- * @copyright  2011 Piers Harding
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_uploadcourse_step2_form extends tool_uploadcourse_base_form {
 
@@ -42,7 +26,7 @@ class tool_uploadcourse_step2_form extends tool_uploadcourse_base_form {
 
         $mform   = $this->_form;
         $data    = $this->_customdata['data'];
-        $courseconfig = get_config('moodlecourse');
+        $courseconfig = get_config('lioncourse');
 
         // Import options.
         $this->add_import_options();
@@ -80,7 +64,7 @@ class tool_uploadcourse_step2_form extends tool_uploadcourse_base_form {
         $mform->addElement('header', 'defaultheader', get_string('defaultvalues', 'tool_uploadcourse'));
         $mform->setExpanded('defaultheader', true);
 
-        $displaylist = coursecat::make_categories_list('moodle/course:create');
+        $displaylist = coursecat::make_categories_list('lion/course:create');
         $mform->addElement('select', 'defaults[category]', get_string('coursecategory'), $displaylist);
         $mform->addHelpButton('defaults[category]', 'coursecategory');
 

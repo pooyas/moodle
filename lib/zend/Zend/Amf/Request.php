@@ -13,10 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Amf
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** @see Zend_Amf_Parse_InputStream */
@@ -39,9 +39,6 @@ require_once 'Zend/Amf/Value/MessageBody.php';
  * types and storing the data for Zend_Amf_Server to handle for processing.
  *
  * @todo       Currently not checking if the object needs to be Type Mapped to a server object.
- * @package    Zend_Amf
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Amf_Request
 {

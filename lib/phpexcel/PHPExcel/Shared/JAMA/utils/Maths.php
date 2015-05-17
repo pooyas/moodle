@@ -1,6 +1,5 @@
 <?php
 /**
- *	@package JAMA
  *
  *	Pythagorean Theorem:
  *
@@ -10,6 +9,9 @@
  *	r = 5
  *
  *	r = sqrt(a^2 + b^2) without under/overflow.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 function hypo($a, $b) {
 	if (abs($a) > abs($b)) {

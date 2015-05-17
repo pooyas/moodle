@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Strings for core_completion subsystem.
  *
- * @package     core_completion
  * @category    string
- * @copyright   &copy; 2008 The Open University
- * @author      Sam Marshall
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    lang
+ * @subpackage en
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['achievinggrade'] = 'Achieving grade';
@@ -122,7 +108,7 @@ $string['enrolmentdurationlength'] = 'User must remain enrolled for';
 $string['err_noactivities'] = 'Completion information is not enabled for any activity, so none can be displayed. You can enable completion information by editing the settings for an activity.';
 $string['err_nocourses'] = 'Course completion is not enabled for any other courses, so none can be displayed. You can enable course completion in the course settings.';
 $string['err_nograde'] = 'A course pass grade has not been set for this course. To enable this criteria type you must create a pass grade for this course.';
-$string['err_noroles'] = 'There are no roles with the capability moodle/course:markcomplete in this course.';
+$string['err_noroles'] = 'There are no roles with the capability lion/course:markcomplete in this course.';
 $string['err_nousers'] = 'There are no students on this course or group for whom completion information is displayed. (By default, completion information is displayed only for students, so if there are no students, you will see this error. Administrators can alter this option via the admin screens.)';
 $string['err_settingslocked'] = 'One or more students have already completed a criterion so the settings have been locked. Unlocking the completion criteria settings will delete any existing user data and may cause confusion.';
 $string['err_system'] = 'An internal error occurred in the completion system. (System administrators can enable debugging information to see more detail.)';
@@ -135,7 +121,7 @@ $string['graderequired'] = 'Required course grade';
 $string['gradexrequired'] = '{$a} required';
 $string['inprogress'] = 'In progress';
 $string['manualcompletionby'] = 'Manual completion by others';
-$string['manualcompletionbynote'] = 'Note: The capability moodle/course:markcomplete must be allowed for a role to appear in the list.';
+$string['manualcompletionbynote'] = 'Note: The capability lion/course:markcomplete must be allowed for a role to appear in the list.';
 $string['manualselfcompletion'] = 'Manual self completion';
 $string['manualselfcompletionnote'] = 'Note: The self completion block should be added to the course if manual self completion is enabled.';
 $string['markcomplete'] = 'Mark complete';

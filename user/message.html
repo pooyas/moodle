@@ -18,6 +18,13 @@
     <td align="right"><label for="menuformat"><b><?php print_string("formattexttype"); ?>:</b></label></td>
     <td>
     <?php
+
+/**
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+*/
+
         print_string('formathtml');
         echo '<input type="hidden" name="format" value="'.FORMAT_HTML.'" />';
      ?>
@@ -29,6 +36,13 @@
 <?php echo $OUTPUT->box_end(); ?>
 <table align="center"><tr><th colspan="4" scope="row"><?php print_string('currentlyselectedusers'); ?></th></tr>
 <?php
+
+/**
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+*/
+
     if (count($SESSION->emailto[$id])) {
         foreach ($SESSION->emailto[$id] as $user) {
             echo '<tr><td>'.fullname($user,true).'</td>';

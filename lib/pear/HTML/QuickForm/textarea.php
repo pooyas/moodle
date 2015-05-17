@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,11 +30,8 @@ require_once("HTML/QuickForm/element.php");
 
 /**
  * HTML class for a textarea type field
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_textarea extends HTML_QuickForm_element
@@ -37,7 +41,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
     /**
      * Field value
      * @var       string
-     * @since     1.0
      * @access    private
      */
     var $_value = null;
@@ -51,7 +54,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @param     string    Input field name attribute
      * @param     mixed     Label(s) for a field
      * @param     mixed     Either a typical HTML attribute string or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -69,7 +71,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * Sets the input field name
      * 
      * @param     string    $name   Input field name attribute
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -83,8 +84,7 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
 
     /**
      * Returns the element name
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -100,7 +100,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * Sets value for textarea element
      * 
      * @param     string    $value  Value for textarea element
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -115,7 +114,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
     /**
      * Returns the value of the form element
      *
-     * @since     1.0
      * @access    public
      * @return    string
      */
@@ -131,7 +129,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * Sets wrap type for textarea element
      * 
      * @param     string    $wrap  Wrap type
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -147,7 +144,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * Sets height in rows for textarea element
      * 
      * @param     string    $rows  Height expressed in rows
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -163,7 +159,6 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * Sets width in cols for textarea element
      * 
      * @param     string    $cols  Width expressed in cols
-     * @since     1.0
      * @access    public
      * @return    void
      */ 
@@ -177,8 +172,7 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
 
     /**
      * Returns the textarea element in HTML
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -200,8 +194,7 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
 
     /**
      * Returns the value of field without HTML tags (in this case, value is changed to a mask)
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */

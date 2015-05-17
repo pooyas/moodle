@@ -84,7 +84,7 @@ Feature: Importing of groups and groupings
     And I expand "Users" node
     And I follow "Permissions"
     And I override the system permissions of "Teacher" role with:
-      | moodle/course:changeidnumber | Prevent |
+      | lion/course:changeidnumber | Prevent |
     And I log out
     And I log in as "teacher1"
     And I follow "Course 1"

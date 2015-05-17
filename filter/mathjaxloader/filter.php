@@ -1,41 +1,28 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This filter provides automatic support for MathJax
  *
- * @package    filter_mathjaxloader
- * @copyright  2013 Damyon Wiese (damyon@moodle.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    filter
+ * @subpackage mathjaxloader
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Mathjax filtering
  */
-class filter_mathjaxloader extends moodle_text_filter {
+class filter_mathjaxloader extends lion_text_filter {
 
     /*
-     * Perform a mapping of the moodle language code to the equivalent for MathJax.
+     * Perform a mapping of the lion language code to the equivalent for MathJax.
      *
-     * @param string $moodlelangcode - The moodle language code - e.g. en_pirate
+     * @param string $lionlangcode - The lion language code - e.g. en_pirate
      * @return string The MathJax language code.
      */
-    public function map_language_code($moodlelangcode) {
+    public function map_language_code($lionlangcode) {
         $mathjaxlangcodes = array('br',
                                   'cdo',
                                   'cs',
@@ -69,20 +56,20 @@ class filter_mathjaxloader extends moodle_text_filter {
         $exceptions = array('cz' => 'cs');
 
         // First see if this is an exception.
-        if (isset($exceptions[$moodlelangcode])) {
-            $moodlelangcode = $exceptions[$moodlelangcode];
+        if (isset($exceptions[$lionlangcode])) {
+            $lionlangcode = $exceptions[$lionlangcode];
         }
 
         // Now look for an exact lang string match.
-        if (in_array($moodlelangcode, $mathjaxlangcodes)) {
-            return $moodlelangcode;
+        if (in_array($lionlangcode, $mathjaxlangcodes)) {
+            return $lionlangcode;
         }
 
-        // Now try shortening the moodle lang string.
-        $moodlelangcode = preg_replace('/-.*/', '', $moodlelangcode);
+        // Now try shortening the lion lang string.
+        $lionlangcode = preg_replace('/-.*/', '', $lionlangcode);
         // Look for a match on the shortened string.
-        if (in_array($moodlelangcode, $mathjaxlangcodes)) {
-            return $moodlelangcode;
+        if (in_array($lionlangcode, $mathjaxlangcodes)) {
+            return $lionlangcode;
         }
         // All failed - use english.
         return 'en';
@@ -91,7 +78,7 @@ class filter_mathjaxloader extends moodle_text_filter {
     /*
      * Add the javascript to enable mathjax processing on this page.
      *
-     * @param moodle_page $page The current page.
+     * @param lion_page $page The current page.
      * @param context $context The current context.
      */
     public function setup($page, $context) {
@@ -105,7 +92,7 @@ class filter_mathjaxloader extends moodle_text_filter {
                 $url = get_config('filter_mathjaxloader', 'httpurl');
             }
             $lang = $this->map_language_code(current_language());
-            $url = new moodle_url($url, array('delayStartupUntil' => 'configured'));
+            $url = new lion_url($url, array('delayStartupUntil' => 'configured'));
 
             $moduleconfig = array(
                 'name' => 'mathjax',
@@ -118,7 +105,7 @@ class filter_mathjaxloader extends moodle_text_filter {
 
             $params = array('mathjaxconfig' => $config, 'lang' => $lang);
 
-            $page->requires->yui_module('moodle-filter_mathjaxloader-loader', 'M.filter_mathjaxloader.configure', array($params));
+            $page->requires->yui_module('lion-filter_mathjaxloader-loader', 'M.filter_mathjaxloader.configure', array($params));
 
             $jsinitialised = true;
         }
@@ -162,7 +149,7 @@ class filter_mathjaxloader extends moodle_text_filter {
             }
         }
         if ($hasinline || $hasdisplay || $hasextra) {
-            $PAGE->requires->yui_module('moodle-filter_mathjaxloader-loader', 'M.filter_mathjaxloader.typeset');
+            $PAGE->requires->yui_module('lion-filter_mathjaxloader-loader', 'M.filter_mathjaxloader.typeset');
             return '<span class="nolink"><span class="filter_mathjaxloader_equation">' . $text . '</span></span>';
         }
         return $text;

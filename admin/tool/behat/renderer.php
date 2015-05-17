@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Behat tool renderer
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage behat
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/behat/classes/behat_selectors.php');
@@ -30,9 +17,6 @@ require_once($CFG->libdir . '/behat/classes/behat_selectors.php');
 /**
  * Renderer for behat tool web features
  *
- * @package    tool_behat
- * @copyright  2012 David Monllaó
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_behat_renderer extends plugin_renderer_base {
 
@@ -40,7 +24,7 @@ class tool_behat_renderer extends plugin_renderer_base {
      * Renders the list of available steps according to the submitted filters.
      *
      * @param mixed $stepsdefinitions Available steps array.
-     * @param moodleform $form
+     * @param lionform $form
      * @return string HTML code
      */
     public function render_stepsdefinitions($stepsdefinitions, $form) {
@@ -89,7 +73,7 @@ class tool_behat_renderer extends plugin_renderer_base {
                     global $CFG;
 
                     // Creating a link to a popup with the help.
-                    $url = new moodle_url(
+                    $url = new lion_url(
                         '/help.php',
                         array(
                             'component' => 'tool_behat',

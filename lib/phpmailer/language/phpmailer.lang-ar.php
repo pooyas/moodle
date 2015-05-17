@@ -1,8 +1,9 @@
 <?php
 /**
  * Arabic PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author bahjat al mostafa <bahjat983@hotmail.com>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'خطأ SMTP : لا يمكن تأكيد الهوية.';

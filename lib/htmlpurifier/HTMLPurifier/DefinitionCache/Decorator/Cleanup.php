@@ -3,6 +3,9 @@
 /**
  * Definition cache decorator class that cleans up the cache
  * whenever there is a cache miss.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_DefinitionCache_Decorator_Cleanup extends HTMLPurifier_DefinitionCache_Decorator
 {

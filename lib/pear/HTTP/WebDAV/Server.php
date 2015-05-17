@@ -41,9 +41,7 @@ require_once "HTTP/WebDAV/Tools/_parse_lockinfo.php";
  * Virtual base class for implementing WebDAV servers 
  *
  * WebDAV server base class, needs to be extended to do useful work
- * 
- * @package HTTP_WebDAV_Server
- * @author  Hartmut Holzgraefe <hholzgra@php.net>
+ *
  * @version @package_version@
  */
 class HTTP_WebDAV_Server 

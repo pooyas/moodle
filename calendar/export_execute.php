@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once('../config.php');
 //require_once($CFG->dirroot.'/course/lib.php');
 require_once($CFG->dirroot.'/calendar/lib.php');
@@ -52,7 +59,7 @@ if (!empty($generateurl)) {
     $params['authtoken'] = $authtoken;
     $params['generateurl'] = true;
 
-    $link = new moodle_url('/calendar/export.php', $params);
+    $link = new lion_url('/calendar/export.php', $params);
     redirect($link->out());
     die;
 }

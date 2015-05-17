@@ -1,14 +1,14 @@
 <?php
 /**
  * Class Minify_HTML_Helper
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Helpers for writing Minfy URIs into HTML
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
  */
 class Minify_HTML_Helper {
     public $rewriteWorks = true;

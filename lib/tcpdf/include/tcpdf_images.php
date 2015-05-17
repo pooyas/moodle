@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_images.php
 // Version     : 1.0.003
@@ -36,24 +43,19 @@
 /**
  * @file
  * This is a PHP class that contains static image methods for the TCPDF class.<br>
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.003
  */
 
 /**
  * @class TCPDF_IMAGES
  * Static image methods used by the TCPDF class.
- * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
  * @version 1.0.003
- * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_IMAGES {
 
 	/**
 	 * Array of hinheritable SVG properties.
-	 * @since 5.0.000 (2010-05-02)
 	 * @public static
 	 */
 	public static $svginheritprop = array('clip-rule', 'color', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'cursor', 'direction', 'fill', 'fill-opacity', 'fill-rule', 'font', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'glyph-orientation-horizontal', 'glyph-orientation-vertical', 'image-rendering', 'kerning', 'letter-spacing', 'marker', 'marker-end', 'marker-mid', 'marker-start', 'pointer-events', 'shape-rendering', 'stroke', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke-width', 'text-anchor', 'text-rendering', 'visibility', 'word-spacing', 'writing-mode');
@@ -65,7 +67,6 @@ class TCPDF_IMAGES {
 	 * @param $imgfile (string) image file name
 	 * @param $iminfo (array) array of image information returned by getimagesize() function.
 	 * @return string image type
-	 * @since 4.8.017 (2009-11-27)
 	 * @public static
 	 */
 	public static function getImageFileType($imgfile, $iminfo=array()) {
@@ -93,7 +94,6 @@ class TCPDF_IMAGES {
 	 * @param $new_image (image) GD image object
 	 * @param $image (image) GD image object.
 	 * return GD image object.
-	 * @since 4.9.016 (2010-04-20)
 	 * @public static
 	 */
 	public static function setGDImageTransparency($new_image, $image) {
@@ -116,7 +116,6 @@ class TCPDF_IMAGES {
 	 * This function requires GD library and write access to the directory defined on K_PATH_CACHE constant.
 	 * @param $image (image) Image object.
 	 * return image PNG image object.
-	 * @since 4.9.016 (2010-04-20)
 	 * @public static
 	 */
 	public static function _toPNG($image) {

@@ -4,6 +4,9 @@
  * Validates the attributes of a token. Doesn't manage required attributes
  * very well. The only reason we factored this out was because RemoveForeignElements
  * also needed it besides ValidateAttributes.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrValidator
 {

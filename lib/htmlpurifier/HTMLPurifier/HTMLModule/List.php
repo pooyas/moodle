@@ -2,6 +2,9 @@
 
 /**
  * XHTML 1.1 List Module, defines list-oriented elements. Core Module.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_List extends HTMLPurifier_HTMLModule
 {

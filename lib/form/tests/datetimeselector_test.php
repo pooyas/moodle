@@ -1,48 +1,32 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for datetimeselector form element
  *
  * This file contains unit test related to datetimeselector form element
  *
- * @package    core_form
  * @category   phpunit
- * @copyright  2012 Rajesh Taneja
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/form/datetimeselector.php');
 require_once($CFG->libdir.'/formslib.php');
 
 /**
- * Unit tests for MoodleQuickForm_date_time_selector
+ * Unit tests for LionQuickForm_date_time_selector
  *
- * Contains test cases for testing MoodleQuickForm_date_time_selector
+ * Contains test cases for testing LionQuickForm_date_time_selector
  *
- * @package    core_form
  * @category   phpunit
- * @copyright  2012 Rajesh Taneja
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_form_datetimeselector_testcase extends basic_testcase {
-    /** @var MoodleQuickForm Keeps reference of dummy form object */
+    /** @var LionQuickForm Keeps reference of dummy form object */
     private $mform;
     /** @var stdClass saves current user data */
     private $olduser;
@@ -156,7 +140,7 @@ class core_form_datetimeselector_testcase extends basic_testcase {
 
             // Create dateselector element with different timezones.
             $elparams = array('optional'=>false, 'timezone' => $vals['timezone']);
-            $el = new MoodleQuickForm_date_time_selector('dateselector', null, $elparams);
+            $el = new LionQuickForm_date_time_selector('dateselector', null, $elparams);
             $el->_createElements();
             $submitvalues = array('dateselector' => $vals);
 
@@ -184,7 +168,7 @@ class core_form_datetimeselector_testcase extends basic_testcase {
 
             // Create dateselector element with different timezones.
             $elparams = array('optional'=>false, 'timezone' => $vals['timezone']);
-            $el = new MoodleQuickForm_date_time_selector('dateselector', null, $elparams);
+            $el = new LionQuickForm_date_time_selector('dateselector', null, $elparams);
             $el->_createElements();
             $expectedvalues = array(
                 'day' => array($vals['day']),
@@ -255,7 +239,7 @@ class core_form_datetimeselector_testcase extends basic_testcase {
 /**
  * Form object to be used in test case
  */
-class temp_form_datetime extends moodleform {
+class temp_form_datetime extends lionform {
     /**
      * Form definition.
      */
@@ -264,7 +248,7 @@ class temp_form_datetime extends moodleform {
     }
     /**
      * Returns form reference.
-     * @return MoodleQuickForm
+     * @return LionQuickForm
      */
     public function getform() {
         $mform = $this->_form;

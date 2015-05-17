@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_config.php
 // Begin       : 2004-06-11
@@ -30,10 +37,7 @@
 
 /**
  * Configuration file for TCPDF.
- * @author Nicola Asuni
- * @package com.tecnick.tcpdf
  * @version 4.9.005
- * @since 2004-10-27
  */
 
 // IMPORTANT:

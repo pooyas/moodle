@@ -1,8 +1,9 @@
 <?php
 /**
  * Faroese PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author Dávur Sørensen <http://www.profo-webdesign.dk>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP feilur: Kundi ikki góðkenna.';

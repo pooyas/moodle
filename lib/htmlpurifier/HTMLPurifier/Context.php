@@ -6,6 +6,9 @@
  *          they don't exist! So use false instead, please.
  * @note Since the variables Context deals with may not be objects,
  *       references are very important here! Do not remove!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Context
 {

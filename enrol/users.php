@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Main course enrolment management UI, this is not compatible with frontpage course.
  *
- * @package    core_enrol
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage enrol
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../config.php');
@@ -46,17 +33,17 @@ $course = $DB->get_record('course', array('id'=>$id), '*', MUST_EXIST);
 $context = context_course::instance($course->id, MUST_EXIST);
 
 if ($course->id == SITEID) {
-    redirect(new moodle_url('/'));
+    redirect(new lion_url('/'));
 }
 
 require_login($course);
-require_capability('moodle/course:enrolreview', $context);
+require_capability('lion/course:enrolreview', $context);
 $PAGE->set_pagelayout('admin');
 
 $manager = new course_enrolment_manager($PAGE, $course, $filter, $role, $search, $fgroup, $status);
 $table = new course_enrolment_users_table($manager, $PAGE);
 $PAGE->set_url('/enrol/users.php', $manager->get_url_params()+$table->get_url_params()+array('newcourse' => $newcourse));
-navigation_node::override_active_url(new moodle_url('/enrol/users.php', array('id' => $id)));
+navigation_node::override_active_url(new lion_url('/enrol/users.php', array('id' => $id)));
 
 // Check if there is an action to take
 if ($action) {
@@ -75,7 +62,7 @@ if ($action) {
          * Removes a role from the user with this course
          */
         case 'unassign':
-            if (has_capability('moodle/role:assign', $manager->get_context())) {
+            if (has_capability('lion/role:assign', $manager->get_context())) {
                 $role = required_param('roleid', PARAM_INT);
                 $user = required_param('user', PARAM_INT);
                 if ($confirm && $manager->unassign_role_from_user($user, $role)) {
@@ -84,7 +71,7 @@ if ($action) {
                     $user = $DB->get_record('user', array('id'=>$user), '*', MUST_EXIST);
                     $allroles = $manager->get_all_roles();
                     $role = $allroles[$role];
-                    $yesurl = new moodle_url($PAGE->url, array('action'=>'unassign', 'roleid'=>$role->id, 'user'=>$user->id, 'confirm'=>1, 'sesskey'=>sesskey()));
+                    $yesurl = new lion_url($PAGE->url, array('action'=>'unassign', 'roleid'=>$role->id, 'user'=>$user->id, 'confirm'=>1, 'sesskey'=>sesskey()));
                     $message = get_string('unassignconfirm', 'role', array('user'=>fullname($user, true), 'role'=>$role->localname));
                     $pagetitle = get_string('unassignarole', 'role', $role->localname);
                     $pagecontent = $OUTPUT->confirm($message, $yesurl, $PAGE->url);
@@ -98,7 +85,7 @@ if ($action) {
          */
         case 'assign':
             $user = $DB->get_record('user', array('id'=>required_param('user', PARAM_INT)), '*', MUST_EXIST);
-            if (is_enrolled($context, $user) && has_capability('moodle/role:assign', $manager->get_context())) {
+            if (is_enrolled($context, $user) && has_capability('lion/role:assign', $manager->get_context())) {
                 $mform = new enrol_users_assign_form(NULL, array('user'=>$user, 'course'=>$course, 'assignable'=>$manager->get_assignable_roles()));
                 $mform->set_data($PAGE->url->params());
                 $data = $mform->get_data();
@@ -114,7 +101,7 @@ if ($action) {
          * Removes the user from the given group
          */
         case 'removemember':
-            if (has_capability('moodle/course:managegroups', $manager->get_context())) {
+            if (has_capability('lion/course:managegroups', $manager->get_context())) {
                 $groupid = required_param('group', PARAM_INT);
                 $userid  = required_param('user', PARAM_INT);
                 $user = $DB->get_record('user', array('id'=>$userid), '*', MUST_EXIST);
@@ -125,7 +112,7 @@ if ($action) {
                     if (!$group) {
                         break;
                     }
-                    $yesurl = new moodle_url($PAGE->url, array('action'=>'removemember', 'group'=>$groupid, 'user'=>$userid, 'confirm'=>1, 'sesskey'=>sesskey()));
+                    $yesurl = new lion_url($PAGE->url, array('action'=>'removemember', 'group'=>$groupid, 'user'=>$userid, 'confirm'=>1, 'sesskey'=>sesskey()));
                     $message = get_string('removefromgroupconfirm', 'group', array('user'=>fullname($user, true), 'group'=>$group->name));
                     $pagetitle = get_string('removefromgroup', 'group', $group->name);
                     $pagecontent = $OUTPUT->confirm($message, $yesurl, $PAGE->url);
@@ -137,7 +124,7 @@ if ($action) {
          * Makes the user a member of a given group
          */
         case 'addmember':
-            if (has_capability('moodle/course:managegroups', $manager->get_context())) {
+            if (has_capability('lion/course:managegroups', $manager->get_context())) {
                 $userid = required_param('user', PARAM_INT);
                 $user = $DB->get_record('user', array('id'=>$userid), '*', MUST_EXIST);
 
@@ -208,7 +195,7 @@ $fields = array(
 );
 
 // Remove hidden fields if the user has no access
-if (!has_capability('moodle/course:viewhiddenuserfields', $context)) {
+if (!has_capability('lion/course:viewhiddenuserfields', $context)) {
     $hiddenfields = array_flip(explode(',', $CFG->hiddenuserfields));
     if (isset($hiddenfields['lastaccess'])) {
         unset($fields['lastcourseaccess']);
@@ -224,12 +211,12 @@ $filterform->set_data(array('search' => $search, 'ifilter' => $filter, 'role' =>
 
 $table->set_fields($fields, $renderer);
 
-$canassign = has_capability('moodle/role:assign', $manager->get_context());
+$canassign = has_capability('lion/role:assign', $manager->get_context());
 $users = $manager->get_users_for_display($manager, $table->sort, $table->sortdirection, $table->page, $table->perpage);
 foreach ($users as $userid=>&$user) {
     $user['picture'] = $OUTPUT->render($user['picture']);
     $user['role'] = $renderer->user_roles_and_actions($userid, $user['roles'], $manager->get_assignable_roles(), $canassign, $PAGE->url);
-    $user['group'] = $renderer->user_groups_and_actions($userid, $user['groups'], $manager->get_all_groups(), has_capability('moodle/course:managegroups', $manager->get_context()), $PAGE->url);
+    $user['group'] = $renderer->user_groups_and_actions($userid, $user['groups'], $manager->get_all_groups(), has_capability('lion/course:managegroups', $manager->get_context()), $PAGE->url);
     $user['enrol'] = $renderer->user_enrolments_and_actions($user['enrolments']);
 }
 $table->set_total_users($manager->get_total_users());
@@ -242,7 +229,7 @@ echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('enrolledusers', 'enrol'));
 echo $renderer->render_course_enrolment_users_table($table, $filterform);
 if ($newcourse == 1) {
-    echo $OUTPUT->single_button(new moodle_url('/course/view.php', array('id' => $id)),
+    echo $OUTPUT->single_button(new lion_url('/course/view.php', array('id' => $id)),
     get_string('proceedtocourse', 'enrol'), 'GET', array('class' => 'enrol-users-page-action'));
 }
 echo $OUTPUT->footer();

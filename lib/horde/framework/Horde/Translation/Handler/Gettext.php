@@ -1,19 +1,19 @@
 <?php
 /**
- * @package Translation
  *
  * Copyright 2010-2014 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * The Horde_Translation_Handler_Gettext provides translations through the
  * gettext extension, but fails gracefully if gettext is not installed.
  *
- * @author  Jan Schneider <jan@horde.org>
- * @package Translation
  */
 class Horde_Translation_Handler_Gettext implements Horde_Translation_Handler
 {

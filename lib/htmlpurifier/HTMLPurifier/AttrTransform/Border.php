@@ -2,6 +2,9 @@
 
 /**
  * Pre-transform that changes deprecated border attribute to CSS.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_Border extends HTMLPurifier_AttrTransform
 {

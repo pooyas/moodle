@@ -1,6 +1,13 @@
 <?php
 
-defined('MOODLE_INTERNAL') || die;
+
+/**
+ * @package    mod
+ * @subpackage data
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
     if (empty($CFG->enablerssfeeds)) {

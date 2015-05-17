@@ -1,7 +1,7 @@
 {
-    "name": "moodle-gradereport_history-userselector",
+    "name": "lion-gradereport_history-userselector",
     "builds": {
-        "moodle-gradereport_history-userselector": {
+        "lion-gradereport_history-userselector": {
             "jsfiles": [
                 "userselector.js"
             ]

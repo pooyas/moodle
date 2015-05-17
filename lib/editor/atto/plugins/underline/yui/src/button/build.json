@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_underline-button",
+  "name": "lion-atto_underline-button",
   "builds": {
-    "moodle-atto_underline-button": {
+    "lion-atto_underline-button": {
       "jsfiles": [
         "button.js"
       ]

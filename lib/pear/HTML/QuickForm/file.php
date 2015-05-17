@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -31,11 +38,8 @@ if (class_exists('HTML_QuickForm')) {
 
 /**
  * HTML class for a file type element
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_file extends HTML_QuickForm_input
@@ -58,7 +62,6 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * @param     string    Input field label
      * @param     mixed     (optional)Either a typical HTML attribute string 
      *                      or an associative array
-     * @since     1.0
      * @access    public
      */
     function HTML_QuickForm_file($elementName=null, $elementLabel=null, $attributes=null)
@@ -74,7 +77,6 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * Sets size of file element
      * 
      * @param     int    Size of file element
-     * @since     1.0
      * @access    public
      */
     function setSize($size)
@@ -87,8 +89,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
 
     /**
      * Returns size of file element
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    int
      */
@@ -124,7 +125,6 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * read-only property with a special meaning.
      * 
      * @param     mixed    Value for file element
-     * @since     3.0
      * @access    public
      */
     function setValue($value)
@@ -138,7 +138,6 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
     /**
      * Returns information about the uploaded file
      *
-     * @since     3.0
      * @access    public
      * @return    array
      */
@@ -156,7 +155,6 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * @param     string    Name of event
      * @param     mixed     event arguments
      * @param     object    calling object
-     * @since     1.0
      * @access    public
      * @return    bool
      */

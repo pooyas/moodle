@@ -8,8 +8,9 @@
  *       Horde_Date_Parser/Horde_Support_Numerizer
  *
  * @category   Horde
- * @package    Support
- * @license    http://www.horde.org/licenses/bsd
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Support_Inflector
 {

@@ -1,9 +1,16 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage backup
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // Require both the backup and restore libs
 require_once('../config.php');
 require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
-require_once($CFG->dirroot . '/backup/moodle2/backup_plan_builder.class.php');
+require_once($CFG->dirroot . '/backup/lion2/backup_plan_builder.class.php');
 require_once($CFG->dirroot . '/backup/util/includes/restore_includes.php');
 require_once($CFG->dirroot . '/backup/util/ui/import_extensions.php');
 
@@ -23,12 +30,12 @@ $context = context_course::instance($courseid);
 // Must pass login
 require_login($course);
 // Must hold restoretargetimport in the current course
-require_capability('moodle/restore:restoretargetimport', $context);
+require_capability('lion/restore:restoretargetimport', $context);
 
 // Set up the page
 $PAGE->set_title($course->shortname . ': ' . get_string('import'));
 $PAGE->set_heading($course->fullname);
-$PAGE->set_url(new moodle_url('/backup/import.php', array('id'=>$courseid)));
+$PAGE->set_url(new lion_url('/backup/import.php', array('id'=>$courseid)));
 $PAGE->set_context($context);
 $PAGE->set_pagelayout('incourse');
 
@@ -38,7 +45,7 @@ $renderer = $PAGE->get_renderer('core','backup');
 // Check if we already have a import course id
 if ($importcourseid === false || $searchcourses) {
     // Obviously not... show the selector so one can be chosen
-    $url = new moodle_url('/backup/import.php', array('id'=>$courseid));
+    $url = new lion_url('/backup/import.php', array('id'=>$courseid));
     $search = new import_course_search(array('url'=>$url));
 
     // show the course selector
@@ -53,12 +60,12 @@ $importcourse = $DB->get_record('course', array('id'=>$importcourseid), '*', MUS
 $importcontext = context_course::instance($importcourseid);
 
 // Make sure the user can backup from that course
-require_capability('moodle/backup:backuptargetimport', $importcontext);
+require_capability('lion/backup:backuptargetimport', $importcontext);
 
 // Attempt to load the existing backup controller (backupid will be false if there isn't one)
 $backupid = optional_param('backup', false, PARAM_ALPHANUM);
 if (!($bc = backup_ui::load_controller($backupid))) {
-    $bc = new backup_controller(backup::TYPE_1COURSE, $importcourse->id, backup::FORMAT_MOODLE,
+    $bc = new backup_controller(backup::TYPE_1COURSE, $importcourse->id, backup::FORMAT_LION,
                             backup::INTERACTIVE_YES, backup::MODE_IMPORT, $USER->id);
     $bc->get_plan()->get_setting('users')->set_status(backup_setting::LOCKED_BY_CONFIG);
     $settings = $bc->get_plan()->get_settings();
@@ -147,7 +154,7 @@ if ($backup->get_stage() == backup_ui::STAGE_FINAL) {
 
                 echo $OUTPUT->header();
                 echo $renderer->precheck_notices($precheckresults);
-                echo $OUTPUT->continue_button(new moodle_url('/course/view.php', array('id'=>$course->id)));
+                echo $OUTPUT->continue_button(new lion_url('/course/view.php', array('id'=>$course->id)));
                 echo $OUTPUT->footer();
                 die();
             }
@@ -185,7 +192,7 @@ if ($backup->get_stage() == backup_ui::STAGE_FINAL) {
         echo $OUTPUT->box_end();
     }
     echo $OUTPUT->notification(get_string('importsuccess', 'backup'), 'notifysuccess');
-    echo $OUTPUT->continue_button(new moodle_url('/course/view.php', array('id'=>$course->id)));
+    echo $OUTPUT->continue_button(new lion_url('/course/view.php', array('id'=>$course->id)));
 
     // Get and display log data if there was any.
     $loghtml = $logger->get_html();

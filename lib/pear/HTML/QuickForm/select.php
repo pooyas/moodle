@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -24,10 +31,7 @@ require_once('HTML/QuickForm/element.php');
 /**
  * Class to dynamically create an HTML SELECT
  *
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_select extends HTML_QuickForm_element {
@@ -38,7 +42,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * Contains the select options
      *
      * @var       array
-     * @since     1.0
      * @access    private
      */
     var $_options = array();
@@ -47,7 +50,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * Default values of the SELECT
      * 
      * @var       string
-     * @since     1.0
      * @access    private
      */
     var $_values = null;
@@ -62,7 +64,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * @param     mixed     Label(s) for the select
      * @param     mixed     Data to be used to populate options
      * @param     mixed     Either a typical HTML attribute string or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -81,8 +82,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns the current API version 
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    double
      */
@@ -98,7 +98,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * Sets the default values of the select box
      * 
      * @param     mixed    $values  Array or comma delimited string of selected values
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -119,8 +118,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns an array of the selected values
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    array of selected values
      */
@@ -136,7 +134,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * Sets the input field name
      * 
      * @param     string    $name   Input field name attribute
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -150,8 +147,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns the element name
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -165,8 +161,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns the element name (possibly with brackets appended)
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -186,7 +181,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * Sets the value of the form element
      *
      * @param     mixed    $values  Array or comma delimited string of selected values
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -200,8 +194,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns an array of the selected values
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    array of selected values
      */
@@ -217,7 +210,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * Sets the select field size, only applies to 'multiple' selects
      * 
      * @param     int    $size  Size of select  field
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -231,8 +223,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns the select field size
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    int
      */
@@ -248,7 +239,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * Sets the select mutiple attribute
      * 
      * @param     bool    $multiple  Whether the select supports multi-selections
-     * @since     1.2
      * @access    public
      * @return    void
      */
@@ -266,8 +256,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns the select mutiple attribute
-     * 
-     * @since     1.2
+     *
      * @access    public
      * @return    bool    true if multiple select, false otherwise
      */
@@ -286,7 +275,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * @param     string    $value      Value for the OPTION
      * @param     mixed     $attributes Either a typical HTML attribute string 
      *                                  or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -318,7 +306,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * 
      * @param     array    $arr     Associative array of options
      * @param     mixed    $values  (optional) Array or comma delimited string of selected values
-     * @since     1.0
      * @access    public
      * @return    PEAR_Error on error or true
      * @throws    PEAR_Error
@@ -350,7 +337,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * @param     string    $textCol    (optional) Name of column to display as the OPTION text 
      * @param     string    $valueCol   (optional) Name of column to use as the OPTION value 
      * @param     mixed     $values     (optional) Array or comma delimited string of selected values
-     * @since     1.0
      * @access    public
      * @return    PEAR_Error on error or true
      * @throws    PEAR_Error
@@ -385,7 +371,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * @param     string    $textCol    (optional) Name of column to display as the OPTION text 
      * @param     string    $valueCol   (optional) Name of column to use as the OPTION value 
      * @param     mixed     $values     (optional) Array or comma delimited string of selected values
-     * @since     1.1
      * @access    public
      * @return    void
      * @throws    PEAR_Error
@@ -432,7 +417,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
      * @param     mixed     $param2     (optional) See function detail
      * @param     mixed     $param3     (optional) See function detail
      * @param     mixed     $param4     (optional) See function detail
-     * @since     1.1
      * @access    public
      * @return    PEAR_Error on error or true
      * @throws    PEAR_Error
@@ -458,7 +442,6 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
     /**
      * Returns the SELECT in HTML
      *
-     * @since     1.0
      * @access    public
      * @return    string
      */
@@ -501,8 +484,7 @@ class HTML_QuickForm_select extends HTML_QuickForm_element {
 
     /**
      * Returns the value of field without HTML tags
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */

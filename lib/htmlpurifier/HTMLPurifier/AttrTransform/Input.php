@@ -3,6 +3,9 @@
 /**
  * Performs miscellaneous cross attribute validation and filtering for
  * input elements. This is meant to be a post-transform.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_Input extends HTMLPurifier_AttrTransform
 {

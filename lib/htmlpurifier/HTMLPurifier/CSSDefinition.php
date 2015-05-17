@@ -3,6 +3,9 @@
 /**
  * Defines allowed CSS attributes and what their values are.
  * @see HTMLPurifier_HTMLDefinition
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
 {

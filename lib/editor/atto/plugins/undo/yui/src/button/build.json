@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_undo-button",
+  "name": "lion-atto_undo-button",
   "builds": {
-    "moodle-atto_undo-button": {
+    "lion-atto_undo-button": {
       "jsfiles": [
         "button.js"
       ]

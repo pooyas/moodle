@@ -5,6 +5,9 @@
  *
  * A multilength is either a integer (pixel count), a percentage, or
  * a relative number.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_HTML_MultiLength extends HTMLPurifier_AttrDef_HTML_Length
 {

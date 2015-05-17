@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 class Less_Tree_Mixin_Definition extends Less_Tree_Ruleset{
 	public $name;
 	public $selectors;

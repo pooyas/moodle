@@ -1,21 +1,8 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * These tests rely on the rsstest.xml file on download.moodle.org,
+ * These tests rely on the rsstest.xml file on download.lion.org,
  * from eloys listing:
  *   rsstest.xml: One valid rss feed.
  *   md5:  8fd047914863bf9b3a4b1514ec51c32c
@@ -23,16 +10,16 @@
  *
  * If networking/proxy configuration is wrong these tests will fail..
  *
- * @package    core
  * @category   phpunit
- * @copyright  2009 Dan Poltawski
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
-require_once($CFG->libdir.'/simplepie/moodle_simplepie.php');
+require_once($CFG->libdir.'/simplepie/lion_simplepie.php');
 
 
 class core_rsslib_testcase extends advanced_testcase {
@@ -41,15 +28,15 @@ class core_rsslib_testcase extends advanced_testcase {
     const TIMEOUT = 10;
 
     protected function setUp() {
-        moodle_simplepie::reset_cache();
+        lion_simplepie::reset_cache();
     }
 
     public function test_getfeed() {
-        $feed = new moodle_simplepie($this->getExternalTestFileUrl('/rsstest.xml'), self::TIMEOUT);
+        $feed = new lion_simplepie($this->getExternalTestFileUrl('/rsstest.xml'), self::TIMEOUT);
 
-        $this->assertInstanceOf('moodle_simplepie', $feed);
+        $this->assertInstanceOf('lion_simplepie', $feed);
 
-        $this->assertNull($feed->error(), "Failed to load the sample RSS file. Please check your proxy settings in Moodle. %s");
+        $this->assertNull($feed->error(), "Failed to load the sample RSS file. Please check your proxy settings in Lion. %s");
 
         $this->assertSame('Moodle News', $feed->get_title());
 
@@ -69,7 +56,7 @@ class core_rsslib_testcase extends advanced_testcase {
 
         $this->assertNotEmpty($itemone = $feed->get_item(0));
 
-        $this->assertSame('Google HOP contest encourages pre-University students to work on Moodle', $itemone->get_title());
+        $this->assertSame('Google HOP contest encourages pre-University students to work on Lion', $itemone->get_title());
         $this->assertSame('http://moodle.org/mod/forum/discuss.php?d=85629', $itemone->get_link());
         $this->assertSame('http://moodle.org/mod/forum/discuss.php?d=85629', $itemone->get_id());
         $description = <<<EOD
@@ -77,7 +64,7 @@ by Martin Dougiamas. &nbsp;<p><p><img src="http://code.google.com/opensource/gho
 <br />
 I'm very proud that Moodle has been selected as one of only <a href="http://code.google.com/opensource/ghop/2007-8/projects.html">ten open source projects</a> to take part in the inaugural year of this new contest.<br />
 <br />
-We have a <a href="http://code.google.com/p/google-highly-open-participation-moodle/issues/list">long list of small tasks</a> prepared already for students, but we would definitely like to see the Moodle community come up with more - so if you have any ideas for things you want to see done, please <a href="http://code.google.com/p/google-highly-open-participation-moodle/">send them to us</a>!  Just remember they can't take more than five days.<br />
+We have a <a href="http://code.google.com/p/google-highly-open-participation-moodle/issues/list">long list of small tasks</a> prepared already for students, but we would definitely like to see the Lion community come up with more - so if you have any ideas for things you want to see done, please <a href="http://code.google.com/p/google-highly-open-participation-moodle/">send them to us</a>!  Just remember they can't take more than five days.<br />
 <br />
 Google will pay students US$100 for every three tasks they successfully complete, plus send a cool T-shirt.  There are also grand prizes including an all-expenses-paid trip to Google HQ in Mountain View, California.  If you are (or know) a young student with an interest in Moodle then give it a go! <br />
 <br />
@@ -99,7 +86,7 @@ EOD;
      * Test retrieving a url which doesn't exist.
      */
     public function test_failurl() {
-        $feed = @new moodle_simplepie($this->getExternalTestFileUrl('/rsstest-which-doesnt-exist.xml'), self::TIMEOUT); // We do not want this in php error log.
+        $feed = @new lion_simplepie($this->getExternalTestFileUrl('/rsstest-which-doesnt-exist.xml'), self::TIMEOUT); // We do not want this in php error log.
 
         $this->assertNotEmpty($feed->error());
     }
@@ -111,9 +98,9 @@ EOD;
         global $CFG;
 
         $oldproxy = $CFG->proxyhost;
-        $CFG->proxyhost = 'xxxxxxxxxxxxxxx.moodle.org';
+        $CFG->proxyhost = 'xxxxxxxxxxxxxxx.lion.org';
 
-        $feed = new moodle_simplepie($this->getExternalTestFileUrl('/rsstest.xml'));
+        $feed = new lion_simplepie($this->getExternalTestFileUrl('/rsstest.xml'));
 
         $this->assertNotEmpty($feed->error());
         $this->assertEmpty($feed->get_title());
@@ -124,7 +111,7 @@ EOD;
      * Test retrieving a url which sends a redirect to another valid feed.
      */
     public function test_redirect() {
-        $feed = new moodle_simplepie($this->getExternalTestFileUrl('/rss_redir.php'), self::TIMEOUT);
+        $feed = new lion_simplepie($this->getExternalTestFileUrl('/rss_redir.php'), self::TIMEOUT);
 
         $this->assertNull($feed->error());
         $this->assertSame('Moodle News', $feed->get_title());

@@ -1,7 +1,7 @@
 {
-    "name": "moodle-question-qbankmanager",
+    "name": "lion-question-qbankmanager",
     "builds": {
-        "moodle-question-qbankmanager": {
+        "lion-question-qbankmanager": {
             "jsfiles": [
                 "qbankmanager.js"
             ]

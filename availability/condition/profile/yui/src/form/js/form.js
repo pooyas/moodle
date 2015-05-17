@@ -1,7 +1,7 @@
 /**
  * JavaScript for form editing profile conditions.
  *
- * @module moodle-availability_profile-form
+ * @module lion-availability_profile-form
  */
 M.availability_profile = M.availability_profile || {};
 
@@ -35,7 +35,7 @@ M.availability_profile.form.getNode = function(json) {
     // Create HTML structure.
     var html = '<span class="availability-group"><label>' + M.util.get_string('conditiontitle', 'availability_profile') + ' ' +
             '<select name="field">' +
-            '<option value="choose">' + M.util.get_string('choosedots', 'moodle') + '</option>';
+            '<option value="choose">' + M.util.get_string('choosedots', 'lion') + '</option>';
     var fieldInfo;
     for (var i = 0; i < this.standardFields.length; i++) {
         fieldInfo = this.standardFields[i];

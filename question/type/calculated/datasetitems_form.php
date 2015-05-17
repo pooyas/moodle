@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines the editing form for the calculated question data set items.
  *
- * @package    qtype
+ * @package    question_type
  * @subpackage calculated
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/question/type/edit_question_form.php');
 
@@ -32,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/edit_question_form.php');
 /**
  * Calculated question data set items editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_dataset_dependent_items_form extends question_wizard_form {
     /**
@@ -72,7 +56,7 @@ class question_dataset_dependent_items_form extends question_wizard_form {
     /**
      * Add question-type specific form fields.
      *
-     * @param MoodleQuickForm $mform the form being built.
+     * @param LionQuickForm $mform the form being built.
      */
     public function __construct($submiturl, $question, $regenerate) {
         global $SESSION, $CFG, $DB;
@@ -227,7 +211,7 @@ class question_dataset_dependent_items_form extends question_wizard_form {
         for ($i=10; $i<=100; $i+=10) {
              $showoptions["{$i}"] = "{$i}";
         }
-        $mform->addElement('header', 'addhdr', get_string('add', 'moodle'));
+        $mform->addElement('header', 'addhdr', get_string('add', 'lion'));
         $mform->closeHeaderBefore('addhdr');
 
         if ($this->qtypeobj->supports_dataset_item_generation()) {
@@ -245,7 +229,7 @@ class question_dataset_dependent_items_form extends question_wizard_form {
         $mform->addElement('submit', 'getnextbutton', get_string('getnextnow', 'qtype_calculated'));
         $mform->addElement('static', "dividera", '', '<hr />');
         $addgrp = array();
-        $addgrp[] =& $mform->createElement('submit', 'addbutton', get_string('add', 'moodle'));
+        $addgrp[] =& $mform->createElement('submit', 'addbutton', get_string('add', 'lion'));
         $addgrp[] =& $mform->createElement('select', "selectadd",
                 get_string('additem', 'qtype_calculated'), $addremoveoptions);
         $addgrp[] = & $mform->createElement('static', "stat", "Items",
@@ -253,10 +237,10 @@ class question_dataset_dependent_items_form extends question_wizard_form {
         $mform->addGroup($addgrp, 'addgrp', get_string('additem', 'qtype_calculated'), ' ', false);
         $mform->addElement('static', "divideradd", '', '');
         if ($this->noofitems > 0) {
-            $mform->addElement('header', 'deleteitemhdr', get_string('delete', 'moodle'));
+            $mform->addElement('header', 'deleteitemhdr', get_string('delete', 'lion'));
             $deletegrp = array();
             $deletegrp[] = $mform->createElement('submit', 'deletebutton',
-                    get_string('delete', 'moodle'));
+                    get_string('delete', 'lion'));
             $deletegrp[] = $mform->createElement('select', 'selectdelete',
                     get_string('deleteitem', 'qtype_calculated')."1", $addremoveoptions);
             $deletegrp[] = $mform->createElement('static', "stat", "Items",

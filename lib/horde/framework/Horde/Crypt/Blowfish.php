@@ -7,23 +7,16 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2005-2008 Matthew Fonda
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Crypt_Blowfish
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Provides blowfish encryption/decryption, with or without a secret key,
  * for PHP strings.
  *
- * @author    Matthew Fonda <mfonda@php.net>
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2005-2008 Matthew Fonda
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Crypt_Blowfish
  *
  * @property string $cipher  The cipher block mode ('ecb' or 'cbc').
  * @property string $key  The encryption key in use.

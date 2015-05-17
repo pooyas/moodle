@@ -1,28 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This library includes all the necessary stuff to use the one-click
- * download and install feature of Moodle, used to keep updated some
+ * download and install feature of Lion, used to keep updated some
  * items like languages, pear, enviroment... i.e, components.
  *
  * It has been developed harcoding some important limits that are
  * explained below:
- *    - It only can check, download and install items under moodledata.
+ *    - It only can check, download and install items under liondata.
  *    - Every downloadeable item must be one zip file.
  *    - The zip file root content must be 1 directory, i.e, everything
  *      is stored under 1 directory.
@@ -67,14 +54,14 @@
  * To install one component:
  * <code>
  *     require_once($CFG->libdir.'/componentlib.class.php');
- *     if ($cd = new component_installer('https://download.moodle.org', 'langpack/2.0',
+ *     if ($cd = new component_installer('https://download.lion.org', 'langpack/2.0',
  *                                       'es.zip', 'languages.md5', 'lang')) {
  *         $status = $cd->install(); //returns COMPONENT_(ERROR | UPTODATE | INSTALLED)
  *         switch ($status) {
  *             case COMPONENT_ERROR:
  *                 if ($cd->get_error() == 'remotedownloaderror') {
  *                     $a = new stdClass();
- *                     $a->url = 'https://download.moodle.org/langpack/2.0/es.zip';
+ *                     $a->url = 'https://download.lion.org/langpack/2.0/es.zip';
  *                     $a->dest= $CFG->dataroot.'/lang';
  *                     print_error($cd->get_error(), 'error', '', $a);
  *                 } else {
@@ -120,12 +107,12 @@
  *
  * That's all!
  *
- * @package   core
- * @copyright (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
  /**
   * @global object $CFG
@@ -142,15 +129,13 @@ define('COMPONENT_INSTALLED',       3);
 
 /**
  * This class is used to check, download and install items from
- * download.moodle.org to the moodledata directory.
+ * download.lion.org to the liondata directory.
  *
  * It always return true/false in all their public methods to say if
  * execution has ended succesfuly or not. If there is any problem
  * its getError() method can be called, returning one error string
  * to be used with the standard get/print_string() functions.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package moodlecore
  */
 class component_installer {
     /**
@@ -165,7 +150,7 @@ class component_installer {
                        /// the extension. And it defines a lot of things:
                        /// the md5 line to search for, the default m5 file name
                        /// and the name of the root dir stored inside the zip file
-    var $destpath;     /// Relative path (from moodledata) where the .zip
+    var $destpath;     /// Relative path (from liondata) where the .zip
                        /// file will be expanded.
     var $errorstring;  /// Latest error produced. It will contain one lang string key.
     var $extramd5info; /// Contents of the optional third field in the .md5 file.
@@ -186,8 +171,8 @@ class component_installer {
      * @param string $zipfilename Name of the .zip file to be downloaded
      * @param string $md5filename Name of the .md5 file to be read (default '' = same
      *               than zipfilename)
-     * @param string $destpath Relative path (from moodledata) where the .zip file will
-     *               be expanded (default='' = moodledataitself)
+     * @param string $destpath Relative path (from liondata) where the .zip file will
+     *               be expanded (default='' = liondataitself)
      * @return object
      */
     function component_installer ($sourcebase, $zippath, $zipfilename, $md5filename='', $destpath='') {
@@ -225,7 +210,7 @@ class component_installer {
             return false;
         }
     /// Check for correct sourcebase (this will be out in the future)
-        if (!PHPUNIT_TEST and $this->sourcebase != 'https://download.moodle.org') {
+        if (!PHPUNIT_TEST and $this->sourcebase != 'https://download.lion.org') {
             $this->errorstring='wrongsourcebase';
             return false;
         }
@@ -573,8 +558,6 @@ class component_installer {
  * and installs them. It detects eventual dependencies and installs
  * all parent languages, too.
  *
- * @copyright 2011 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class lang_installer {
 
@@ -591,7 +574,7 @@ class lang_installer {
     protected $current;
     /** @var array of languages already installed by this instance */
     protected $done = array();
-    /** @var string this Moodle major version */
+    /** @var string this Lion major version */
     protected $version;
 
     /**
@@ -603,7 +586,7 @@ class lang_installer {
         global $CFG;
 
         $this->set_queue($langcode);
-        $this->version = moodle_major_version(true);
+        $this->version = lion_major_version(true);
 
         if (!empty($CFG->langotherroot) and $CFG->langotherroot !== $CFG->dataroot . '/lang') {
             debugging('The in-built language pack installer does not support alternative location ' .
@@ -677,19 +660,19 @@ class lang_installer {
     public function lang_pack_url($langcode = '') {
 
         if (empty($langcode)) {
-            return 'https://download.moodle.org/langpack/'.$this->version.'/';
+            return 'https://download.lion.org/langpack/'.$this->version.'/';
         } else {
-            return 'https://download.moodle.org/download.php/langpack/'.$this->version.'/'.$langcode.'.zip';
+            return 'https://download.lion.org/download.php/langpack/'.$this->version.'/'.$langcode.'.zip';
         }
     }
 
     /**
-     * Returns the list of available language packs from download.moodle.org
+     * Returns the list of available language packs from download.lion.org
      *
      * @return array|bool false if can not download
      */
     public function get_remote_list_of_languages() {
-        $source = 'https://download.moodle.org/langpack/' . $this->version . '/languages.md5';
+        $source = 'https://download.lion.org/langpack/' . $this->version . '/languages.md5';
         $availablelangs = array();
 
         if ($content = download_file_content($source)) {
@@ -781,7 +764,7 @@ class lang_installer {
     protected function install_language_pack($langcode) {
 
         // initialise new component installer to process this language
-        $installer = new component_installer('https://download.moodle.org', 'download.php/direct/langpack/' . $this->version,
+        $installer = new component_installer('https://download.lion.org', 'download.php/direct/langpack/' . $this->version,
             $langcode . '.zip', 'languages.md5', 'lang');
 
         if (!$installer->requisitesok) {
@@ -813,10 +796,8 @@ class lang_installer {
 /**
  * Exception thrown by {@link lang_installer}
  *
- * @copyright 2011 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class lang_installer_exception extends moodle_exception {
+class lang_installer_exception extends lion_exception {
 
     public function __construct($errorcode, $debuginfo = null) {
         parent::__construct($errorcode, 'error', '', null, $debuginfo);

@@ -1,6 +1,5 @@
 <?php
 /**
- *	@package JAMA
  *
  *	For an m-by-n matrix A with m >= n, the LU decomposition is an m-by-n
  *	unit lower triangular matrix L, an n-by-n upper triangular matrix U,
@@ -12,11 +11,10 @@
  *	LU decomposition is in the solution of square systems of simultaneous
  *	linear equations. This will fail if isNonsingular() returns false.
  *
- *	@author Paul Meagher
- *	@author Bartosz Matosiuk
- *	@author Michael Bommarito
  *	@version 1.1
- *	@license PHP v3.0
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class PHPExcel_Shared_JAMA_LUDecomposition {
 

@@ -7,6 +7,9 @@
  *       design decision in that class would prevent this validation from
  *       ever being necessary. We have them anyway, however, for
  *       redundancy.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema_Validator
 {

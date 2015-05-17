@@ -1,27 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * External message API
  *
- * @package    core_message
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage message
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("$CFG->libdir/externallib.php");
@@ -29,11 +16,7 @@ require_once("$CFG->libdir/externallib.php");
 /**
  * Message external functions
  *
- * @package    core_message
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
  */
 class core_message_external extends external_api {
 
@@ -41,7 +24,6 @@ class core_message_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
      */
     public static function send_instant_messages_parameters() {
         return new external_function_parameters(
@@ -65,7 +47,6 @@ class core_message_external extends external_api {
      *
      * @param array $messages An array of message to send.
      * @return array
-     * @since Moodle 2.2
      */
     public static function send_instant_messages($messages = array()) {
         global $CFG, $USER, $DB;
@@ -73,13 +54,13 @@ class core_message_external extends external_api {
 
         // Check if messaging is enabled.
         if (!$CFG->messaging) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         // Ensure the current user is allowed to run this function
         $context = context_system::instance();
         self::validate_context($context);
-        require_capability('moodle/site:sendmessage', $context);
+        require_capability('lion/site:sendmessage', $context);
 
         $params = self::validate_parameters(self::send_instant_messages_parameters(), array('messages' => $messages));
 
@@ -108,7 +89,7 @@ class core_message_external extends external_api {
         }
         $rs->close();
 
-        $canreadallmessages = has_capability('moodle/site:readallmessages', $context);
+        $canreadallmessages = has_capability('lion/site:readallmessages', $context);
 
         $resultmessages = array();
         foreach ($params['messages'] as $message) {
@@ -156,7 +137,7 @@ class core_message_external extends external_api {
             } else {
                 // WARNINGS: for backward compatibility we return this errormessage.
                 //          We should have thrown exceptions as these errors prevent results to be returned.
-                // See http://docs.moodle.org/dev/Errors_handling_in_web_services#When_to_send_a_warning_on_the_server_side .
+                // See http://docs.lion.org/dev/Errors_handling_in_web_services#When_to_send_a_warning_on_the_server_side .
                 $resultmsg['msgid'] = -1;
                 $resultmsg['errormessage'] = $errormessage;
             }
@@ -171,7 +152,6 @@ class core_message_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function send_instant_messages_returns() {
         return new external_multiple_structure(
@@ -189,7 +169,6 @@ class core_message_external extends external_api {
      * Create contacts parameters description.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function create_contacts_parameters() {
         return new external_function_parameters(
@@ -207,14 +186,13 @@ class core_message_external extends external_api {
      *
      * @param array $userids array of user IDs.
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function create_contacts($userids) {
         global $CFG;
 
         // Check if messaging is enabled.
         if (!$CFG->messaging) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         $params = array('userids' => $userids);
@@ -238,7 +216,6 @@ class core_message_external extends external_api {
      * Create contacts return description.
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function create_contacts_returns() {
         return new external_warnings();
@@ -248,7 +225,6 @@ class core_message_external extends external_api {
      * Delete contacts parameters description.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function delete_contacts_parameters() {
         return new external_function_parameters(
@@ -266,14 +242,13 @@ class core_message_external extends external_api {
      *
      * @param array $userids array of user IDs.
      * @return null
-     * @since Moodle 2.5
      */
     public static function delete_contacts($userids) {
         global $CFG;
 
         // Check if messaging is enabled.
         if (!$CFG->messaging) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         $params = array('userids' => $userids);
@@ -290,7 +265,6 @@ class core_message_external extends external_api {
      * Delete contacts return description.
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function delete_contacts_returns() {
         return null;
@@ -300,7 +274,6 @@ class core_message_external extends external_api {
      * Block contacts parameters description.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function block_contacts_parameters() {
         return new external_function_parameters(
@@ -318,14 +291,13 @@ class core_message_external extends external_api {
      *
      * @param array $userids array of user IDs.
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function block_contacts($userids) {
         global $CFG;
 
         // Check if messaging is enabled.
         if (!$CFG->messaging) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         $params = array('userids' => $userids);
@@ -349,7 +321,6 @@ class core_message_external extends external_api {
      * Block contacts return description.
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function block_contacts_returns() {
         return new external_warnings();
@@ -359,7 +330,6 @@ class core_message_external extends external_api {
      * Unblock contacts parameters description.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function unblock_contacts_parameters() {
         return new external_function_parameters(
@@ -377,14 +347,13 @@ class core_message_external extends external_api {
      *
      * @param array $userids array of user IDs.
      * @return null
-     * @since Moodle 2.5
      */
     public static function unblock_contacts($userids) {
         global $CFG;
 
         // Check if messaging is enabled.
         if (!$CFG->messaging) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         $params = array('userids' => $userids);
@@ -401,7 +370,6 @@ class core_message_external extends external_api {
      * Unblock contacts return description.
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function unblock_contacts_returns() {
         return null;
@@ -411,7 +379,6 @@ class core_message_external extends external_api {
      * Get contacts parameters description.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function get_contacts_parameters() {
         return new external_function_parameters(array());
@@ -422,14 +389,13 @@ class core_message_external extends external_api {
      *
      * @param array $userids array of user IDs.
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function get_contacts() {
         global $CFG;
 
         // Check if messaging is enabled.
         if (!$CFG->messaging) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         require_once($CFG->dirroot . '/user/lib.php');
@@ -445,9 +411,9 @@ class core_message_external extends external_api {
                 );
 
                 $usercontextid = context_user::instance($contact->id)->id;
-                $newcontact['profileimageurl'] = moodle_url::make_webservice_pluginfile_url(
+                $newcontact['profileimageurl'] = lion_url::make_webservice_pluginfile_url(
                                                     $usercontextid, 'user', 'icon', null, '/', 'f1')->out(false);
-                $newcontact['profileimageurlsmall'] = moodle_url::make_webservice_pluginfile_url(
+                $newcontact['profileimageurlsmall'] = lion_url::make_webservice_pluginfile_url(
                                                         $usercontextid, 'user', 'icon', null, '/', 'f2')->out(false);
 
                 $allcontacts[$mode][$key] = $newcontact;
@@ -460,7 +426,6 @@ class core_message_external extends external_api {
      * Get contacts return description.
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function get_contacts_returns() {
         return new external_single_structure(
@@ -509,7 +474,6 @@ class core_message_external extends external_api {
      * Search contacts parameters description.
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function search_contacts_parameters() {
         return new external_function_parameters(
@@ -527,7 +491,6 @@ class core_message_external extends external_api {
      * @param string $searchtext query string.
      * @param bool $onlymycourses limit the search to the user's courses only.
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function search_contacts($searchtext, $onlymycourses = false) {
         global $CFG, $USER;
@@ -535,7 +498,7 @@ class core_message_external extends external_api {
 
         // Check if messaging is enabled.
         if (!$CFG->messaging) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         require_once($CFG->libdir . '/enrollib.php');
@@ -545,7 +508,7 @@ class core_message_external extends external_api {
 
         // Extra validation, we do not allow empty queries.
         if ($params['searchtext'] === '') {
-            throw new moodle_exception('querystringcannotbeempty');
+            throw new lion_exception('querystringcannotbeempty');
         }
 
         $courseids = array();
@@ -577,9 +540,9 @@ class core_message_external extends external_api {
             $user->phone2 = null;
 
             $usercontextid = context_user::instance($user->id)->id;
-            $newuser['profileimageurl'] = moodle_url::make_webservice_pluginfile_url(
+            $newuser['profileimageurl'] = lion_url::make_webservice_pluginfile_url(
                                                 $usercontextid, 'user', 'icon', null, '/', 'f1')->out(false);
-            $newuser['profileimageurlsmall'] = moodle_url::make_webservice_pluginfile_url(
+            $newuser['profileimageurlsmall'] = lion_url::make_webservice_pluginfile_url(
                                                     $usercontextid, 'user', 'icon', null, '/', 'f2')->out(false);
 
             $user = $newuser;
@@ -592,7 +555,6 @@ class core_message_external extends external_api {
      * Search contacts return description.
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function search_contacts_returns() {
         return new external_multiple_structure(
@@ -612,7 +574,6 @@ class core_message_external extends external_api {
      * Get messages parameters description.
      *
      * @return external_function_parameters
-     * @since 2.8
      */
     public static function get_messages_parameters() {
         return new external_function_parameters(
@@ -637,9 +598,8 @@ class core_message_external extends external_api {
     /**
      * Get messages function implementation.
      *
-     * @since  2.8
      * @throws invalid_parameter_exception
-     * @throws moodle_exception
+     * @throws lion_exception
      * @param  int      $useridto       the user id who received the message
      * @param  int      $useridfrom     the user id who send the message. -10 or -20 for no-reply or support user
      * @param  string   $type           type of message to return, expected values: notifications, conversations and both
@@ -689,7 +649,7 @@ class core_message_external extends external_api {
         if (empty($CFG->messaging)) {
             // If we are retreiving only conversations, and messaging is disabled, throw an exception.
             if ($type == "conversations") {
-                throw new moodle_exception('disabled', 'message');
+                throw new lion_exception('disabled', 'message');
             }
             if ($type == "both") {
                 $warning = array();
@@ -706,7 +666,7 @@ class core_message_external extends external_api {
             if (core_user::is_real_user($useridto)) {
                 $userto = core_user::get_user($useridto, '*', MUST_EXIST);
             } else {
-                throw new moodle_exception('invaliduser');
+                throw new lion_exception('invaliduser');
             }
         }
 
@@ -717,8 +677,8 @@ class core_message_external extends external_api {
 
         // Check if the current user is the sender/receiver or just a privileged user.
         if ($useridto != $USER->id and $useridfrom != $USER->id and
-             !has_capability('moodle/site:readallmessages', $context)) {
-            throw new moodle_exception('accessdenied', 'admin');
+             !has_capability('lion/site:readallmessages', $context)) {
+            throw new lion_exception('accessdenied', 'admin');
         }
 
         // Which type of messages to retrieve.
@@ -731,7 +691,7 @@ class core_message_external extends external_api {
         $sort = "mr.timecreated $orderdirection";
 
         if ($messages = message_get_messages($useridto, $useridfrom, $notifications, $read, $sort, $limitfrom, $limitnum)) {
-            $canviewfullname = has_capability('moodle/site:viewfullnames', $context);
+            $canviewfullname = has_capability('lion/site:viewfullnames', $context);
 
             // In some cases, we don't need to get the to/from user objects from the sql query.
             $userfromfullname = '';
@@ -796,7 +756,6 @@ class core_message_external extends external_api {
      * Get messages return description.
      *
      * @return external_single_structure
-     * @since 2.8
      */
     public static function get_messages_returns() {
         return new external_single_structure(
@@ -832,7 +791,6 @@ class core_message_external extends external_api {
      * Get blocked users parameters description.
      *
      * @return external_function_parameters
-     * @since 2.9
      */
     public static function get_blocked_users_parameters() {
         return new external_function_parameters(
@@ -849,7 +807,6 @@ class core_message_external extends external_api {
      *
      * @param  int $userid the user whose blocked users we want to retrieve
      * @return external_description
-     * @since 2.9
      */
     public static function get_blocked_users($userid) {
         global $CFG, $USER;
@@ -871,14 +828,14 @@ class core_message_external extends external_api {
 
         // Check if private messaging between users is allowed.
         if (empty($CFG->messaging)) {
-            throw new moodle_exception('disabled', 'message');
+            throw new lion_exception('disabled', 'message');
         }
 
         $user = core_user::get_user($userid, 'id', MUST_EXIST);
 
         // Check if we have permissions for retrieve the information.
-        if ($userid != $USER->id and !has_capability('moodle/site:readallmessages', $context)) {
-            throw new moodle_exception('accessdenied', 'admin');
+        if ($userid != $USER->id and !has_capability('lion/site:readallmessages', $context)) {
+            throw new lion_exception('accessdenied', 'admin');
         }
 
         // Now, we can get safely all the blocked users.
@@ -890,7 +847,7 @@ class core_message_external extends external_api {
                 'id' => $user->id,
                 'fullname' => fullname($user),
             );
-            $newuser['profileimageurl'] = moodle_url::make_webservice_pluginfile_url(
+            $newuser['profileimageurl'] = lion_url::make_webservice_pluginfile_url(
                 context_user::instance($user->id)->id, 'user', 'icon', null, '/', 'f1')->out(false);
 
             $blockedusers[] = $newuser;
@@ -907,7 +864,6 @@ class core_message_external extends external_api {
      * Get blocked users return description.
      *
      * @return external_single_structure
-     * @since 2.9
      */
     public static function get_blocked_users_returns() {
         return new external_single_structure(
@@ -932,21 +888,16 @@ class core_message_external extends external_api {
 /**
  * Deprecated message external functions
  *
- * @package    core_message
- * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.1
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+ * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_notes_external
  */
-class moodle_message_external extends external_api {
+class lion_message_external extends external_api {
 
     /**
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_message_external::send_instant_messages_parameters()
      */
     public static function send_instantmessages_parameters() {
@@ -958,8 +909,7 @@ class moodle_message_external extends external_api {
      *
      * @param array $messages An array of message to send.
      * @return array
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_message_external::send_instant_messages()
      */
     public static function send_instantmessages($messages = array()) {
@@ -970,8 +920,7 @@ class moodle_message_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.1
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_message_external::send_instant_messages_returns()
      */
     public static function send_instantmessages_returns() {

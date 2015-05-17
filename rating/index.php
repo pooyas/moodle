@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * A page to display a list of ratings for a given item (forum post etc)
  *
- * @package    core_rating
  * @category   rating
- * @copyright  2010 Andrew Davis
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage rating
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../config.php");
@@ -37,7 +24,7 @@ $popup      = optional_param('popup', 0, PARAM_INT); // Any non-zero value if in
 list($context, $course, $cm) = get_context_info_array($contextid);
 require_login($course, false, $cm);
 
-$url = new moodle_url('/rating/index.php', array('contextid' => $contextid,
+$url = new lion_url('/rating/index.php', array('contextid' => $contextid,
                                                  'component' => $component,
                                                  'ratingarea' => $ratingarea,
                                                  'itemid' => $itemid,
@@ -55,11 +42,11 @@ if ($popup) {
     $PAGE->set_pagelayout('popup');
 }
 
-if (!has_capability('moodle/rating:view', $context)) {
+if (!has_capability('lion/rating:view', $context)) {
     print_error('noviewrate', 'rating');
 }
 
-$canviewallratings = has_capability('moodle/rating:viewall', $context);
+$canviewallratings = has_capability('lion/rating:viewall', $context);
 
 switch ($sort) {
     case 'firstname':
@@ -95,7 +82,7 @@ if (!$ratings) {
     echo html_writer::tag('div', $msg, array('class' => 'mdl-align'));
 } else {
     // To get the sort URL, copy the current URL and remove any previous sort.
-    $sorturl = new moodle_url($url);
+    $sorturl = new lion_url($url);
     $sorturl->remove_params('sort');
 
     $table = new html_table;
@@ -104,9 +91,9 @@ if (!$ratings) {
     $table->attributes['class'] = 'generalbox ratingtable';
     $table->head = array(
         '',
-        html_writer::link(new moodle_url($sorturl, array('sort' => 'firstname')), $strname),
-        html_writer::link(new moodle_url($sorturl, array('sort' => 'rating')), $strrating),
-        html_writer::link(new moodle_url($sorturl, array('sort' => 'time')), $strtime)
+        html_writer::link(new lion_url($sorturl, array('sort' => 'firstname')), $strname),
+        html_writer::link(new lion_url($sorturl, array('sort' => 'rating')), $strrating),
+        html_writer::link(new lion_url($sorturl, array('sort' => 'time')), $strtime)
     );
     $table->colclasses = array('', 'firstname', 'rating', 'time');
     $table->data = array();

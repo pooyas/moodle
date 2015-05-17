@@ -1,33 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the capabilities used by the lti module
  *
- * @package    mod_lti
- * @copyright  2009 Marc Alier, Jordi Piguillem, Nikolas Galanis, marc.alier@upc.edu
- * @copyright  2009 Universitat Politecnica de Catalunya http://www.upc.edu
- * @author     Marc Alier
- * @author     Jordi Piguillem
- * @author     Nikolas Galanis
- * @author     Chris Scribner
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage lti
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 $capabilities = array(
 
@@ -53,11 +35,11 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:manageactivities'
+        'clonepermissionsfrom' => 'lion/course:manageactivities'
     ),
 
     // When the user arrives at the external tool, if they have this capability
-    // in Moodle, then they are given the Instructor role in the remote system,
+    // in Lion, then they are given the Instructor role in the remote system,
     // otherwise they are given Learner. See the lti_get_ims_role function.
     'mod/lti:manage' => array(
         'riskbitmask' => RISK_PERSONAL, // A bit of a guess, but seems likely.

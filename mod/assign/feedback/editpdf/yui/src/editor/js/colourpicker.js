@@ -4,7 +4,7 @@ var COLOURPICKER_NAME = "Colourpicker",
 /**
  * Provides an in browser PDF editor.
  *
- * @module moodle-assignfeedback_editpdf-editor
+ * @module lion-assignfeedback_editpdf-editor
  */
 
 /**

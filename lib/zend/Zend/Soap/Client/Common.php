@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Soap
- * @subpackage Client
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -25,8 +24,6 @@ if (extension_loaded('soap')) {
 
 /**
  * @category   Zend
- * @package    Zend_Soap
- * @subpackage Client
  */
 class Zend_Soap_Client_Common extends SoapClient
 {

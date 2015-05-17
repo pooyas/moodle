@@ -1,39 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the definition for the library class for onlinetext submission plugin
  *
  * This class provides all the functionality for the new assign module.
  *
- * @package assignsubmission_onlinetext
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 // File area for online text submission assignment.
 define('ASSIGNSUBMISSION_ONLINETEXT_FILEAREA', 'submissions_onlinetext');
 
 /**
  * library class for onlinetext submission plugin extending submission plugin base class
  *
- * @package assignsubmission_onlinetext
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class assign_submission_onlinetext extends assign_submission_plugin {
 
@@ -61,10 +45,10 @@ class assign_submission_onlinetext extends assign_submission_plugin {
     /**
      * Get the settings for onlinetext submission plugin
      *
-     * @param MoodleQuickForm $mform The form to add elements to
+     * @param LionQuickForm $mform The form to add elements to
      * @return void
      */
-    public function get_settings(MoodleQuickForm $mform) {
+    public function get_settings(LionQuickForm $mform) {
         global $CFG, $COURSE;
 
         $defaultwordlimit = $this->get_config('wordlimit') == 0 ? '' : $this->get_config('wordlimit');
@@ -125,11 +109,11 @@ class assign_submission_onlinetext extends assign_submission_plugin {
      * Add form elements for settings
      *
      * @param mixed $submission can be null
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @return true if elements were added to the form
      */
-    public function get_form_elements($submission, MoodleQuickForm $mform, stdClass $data) {
+    public function get_form_elements($submission, LionQuickForm $mform, stdClass $data) {
         $elements = array();
 
         $editoroptions = $this->get_edit_options();
@@ -442,7 +426,7 @@ class assign_submission_onlinetext extends assign_submission_plugin {
     }
 
     /**
-     * Return true if this plugin can upgrade an old Moodle 2.2 assignment of this type and version.
+     * Return true if this plugin can upgrade an old Lion 2.2 assignment of this type and version.
      *
      * @param string $type old assignment subtype
      * @param int $version old assignment version

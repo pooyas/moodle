@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines the editing form for the numerical question type.
  *
- * @package    qtype
+ * @package    question_type
  * @subpackage numerical
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/question/type/edit_question_form.php');
 require_once($CFG->dirroot . '/question/type/numerical/questiontype.php');
@@ -33,8 +19,6 @@ require_once($CFG->dirroot . '/question/type/numerical/questiontype.php');
 /**
  * numerical editing form definition.
  *
- * @copyright  2007 Jamie Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_numerical_edit_form extends question_edit_form {
     /** @var int we always show at least this many sets of unit fields. */
@@ -180,7 +164,7 @@ class qtype_numerical_edit_form extends question_edit_form {
 
     /**
      * Get the form fields needed to edit one unit.
-     * @param MoodleQuickForm $mform the form being built.
+     * @param LionQuickForm $mform the form being built.
      * @return array of form fields.
      */
     protected function unit_group($mform) {

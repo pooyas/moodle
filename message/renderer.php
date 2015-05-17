@@ -1,38 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Contains renderer objects for messaging
  *
- * @package    core_message
- * @copyright  2011 Lancaster University Network Services Limited
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage message
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * message Renderer
  *
  * Class for rendering various message objects
  *
- * @package    core_message
- * @subpackage message
- * @copyright  2011 Lancaster University Network Services Limited
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_message_renderer extends plugin_renderer_base {
 
@@ -72,7 +55,7 @@ class core_message_renderer extends plugin_renderer_base {
             } else if (!$processor->configured) {
                 $enable->text = html_writer::nonempty_tag('span', get_string('outputnotconfigured', 'message'), array('class' => 'error'));
             } else if ($processor->enabled) {
-                $url = new moodle_url('/admin/message.php', array('disable' => $processor->id, 'sesskey' => sesskey()));
+                $url = new lion_url('/admin/message.php', array('disable' => $processor->id, 'sesskey' => sesskey()));
                 $enable->text = html_writer::link($url, html_writer::empty_tag('img',
                     array('src'   => $this->output->pix_url('t/hide'),
                           'class' => 'iconsmall',
@@ -82,7 +65,7 @@ class core_message_renderer extends plugin_renderer_base {
                 ));
             } else {
                 $row->attributes['class'] = 'dimmed_text';
-                $url = new moodle_url('/admin/message.php', array('enable' => $processor->id, 'sesskey' => sesskey()));
+                $url = new lion_url('/admin/message.php', array('enable' => $processor->id, 'sesskey' => sesskey()));
                 $enable->text = html_writer::link($url, html_writer::empty_tag('img',
                     array('src'   => $this->output->pix_url('t/show'),
                           'class' => 'iconsmall',
@@ -94,7 +77,7 @@ class core_message_renderer extends plugin_renderer_base {
             // Settings
             $settings = new html_table_cell();
             if ($processor->available && $processor->hassettings) {
-                $settingsurl = new moodle_url('settings.php', array('section' => 'messagesetting'.$processor->name));
+                $settingsurl = new lion_url('settings.php', array('section' => 'messagesetting'.$processor->name));
                 $settings->text = html_writer::link($settingsurl, get_string('settings', 'message'));
             }
 
@@ -238,14 +221,14 @@ class core_message_renderer extends plugin_renderer_base {
         $output .= html_writer::nonempty_tag('legend', get_string('providers_config', 'message'), array('class' => 'ftoggler'));
 
         foreach($providers as $provider) {
-            if($provider->component != 'moodle') {
+            if($provider->component != 'lion') {
                 $components[] = $provider->component;
             }
         }
-        // Lets arrange by components so that core settings (moodle) appear as the first table.
+        // Lets arrange by components so that core settings (lion) appear as the first table.
         $components = array_unique($components);
         asort($components);
-        array_unshift($components, 'moodle'); // pop it in front! phew!
+        array_unshift($components, 'lion'); // pop it in front! phew!
         asort($providers);
 
         $numprocs = count($processors);
@@ -255,7 +238,7 @@ class core_message_renderer extends plugin_renderer_base {
             $table = new html_table();
             $table->attributes['class'] = 'generaltable';
             $table->data = array();
-            if ($component != 'moodle') {
+            if ($component != 'lion') {
                 $componentname = get_string('pluginname', $component);
             } else {
                 $componentname = get_string('coresystem');

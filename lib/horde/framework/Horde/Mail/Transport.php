@@ -30,23 +30,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * @category  Horde
- * @copyright 1997-2014 Horde LLC (http://www.horde.org/)
- * @copyright 2002-2007 Richard Heyes
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Mail transport base class.
  *
- * @author    Chuck Hagenbuch <chuck@horde.org>
- * @author    Richard Heyes <richard@phpguru.org>
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 1997-2014 Horde LLC (http://www.horde.org/)
- * @copyright 2002-2007 Richard Heyes
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
  */
 abstract class Horde_Mail_Transport
 {

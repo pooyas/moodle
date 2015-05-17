@@ -2,6 +2,9 @@
 
 /**
  * Validator for the components of a URI for a specific scheme
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_URIScheme
 {

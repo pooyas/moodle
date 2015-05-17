@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 global $CFG;
 
 require_once("../../config.php");
@@ -14,7 +21,7 @@ $mode    = required_param('mode', PARAM_ALPHA);             // mode to show the 
 $hook    = optional_param('hook','ALL', PARAM_CLEAN);       // what to show
 $sortkey = optional_param('sortkey','UPDATE', PARAM_ALPHA); // Sorting key
 
-$url = new moodle_url('/mod/glossary/print.php', array('id'=>$id));
+$url = new lion_url('/mod/glossary/print.php', array('id'=>$id));
 if ($sortorder !== 'asc') {
     $url->param('sortorder', $sortorder);
 }

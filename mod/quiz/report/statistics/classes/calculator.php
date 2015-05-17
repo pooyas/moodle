@@ -1,33 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
+*/
 
 namespace quiz_statistics;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Class to calculate and also manage caching of quiz statistics.
  *
  * These quiz statistics calculations are described here :
  *
- * http://docs.moodle.org/dev/Quiz_statistics_calculations#Test_statistics
+ * http://docs.lion.org/dev/Quiz_statistics_calculations#Test_statistics
  *
- * @package    quiz_statistics
- * @copyright  2013 The Open University
- * @author     James Pratt me@jamiep.org
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class calculator {
 
@@ -88,7 +78,7 @@ class calculator {
 
                 // Skewness.
                 if ($s > 2) {
-                    // See http://docs.moodle.org/dev/Quiz_item_analysis_calculations_in_practise#Skewness_and_Kurtosis.
+                    // See http://docs.lion.org/dev/Quiz_item_analysis_calculations_in_practise#Skewness_and_Kurtosis.
                     $m2 = $powers->power2 / $s;
                     $m3 = $powers->power3 / $s;
                     $m4 = $powers->power4 / $s;
@@ -200,7 +190,7 @@ class calculator {
     /**
      * Calculating count and mean of marks for first and ALL attempts by students.
      *
-     * See : http://docs.moodle.org/dev/Quiz_item_analysis_calculations_in_practise
+     * See : http://docs.lion.org/dev/Quiz_item_analysis_calculations_in_practise
      *                                      #Calculating_MEAN_of_grades_for_all_attempts_by_students
      * @param int $quizid
      * @param array $groupstudents
@@ -226,7 +216,7 @@ class calculator {
     /**
      * Median mark.
      *
-     * http://docs.moodle.org/dev/Quiz_statistics_calculations#Median_Score
+     * http://docs.lion.org/dev/Quiz_statistics_calculations#Median_Score
      *
      * @param $s integer count of attempts
      * @param $fromqa string
@@ -258,7 +248,7 @@ class calculator {
     /**
      * Fetch the sum of squared, cubed and to the power 4 differences between sumgrade and it's mean.
      *
-     * Explanation here : http://docs.moodle.org/dev/Quiz_item_analysis_calculations_in_practise
+     * Explanation here : http://docs.lion.org/dev/Quiz_item_analysis_calculations_in_practise
      *              #Calculating_Standard_Deviation.2C_Skewness_and_Kurtosis_of_grades_for_all_attempts_by_students
      *
      * @param $mean

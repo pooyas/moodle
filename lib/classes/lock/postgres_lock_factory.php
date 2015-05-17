@@ -1,31 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Postgres advisory locking factory.
  *
- * @package    core
  * @category   lock
- * @copyright  Damyon Wiese 2013
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core\lock;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Postgres advisory locking factory.
@@ -37,10 +24,7 @@ defined('MOODLE_INTERNAL') || die();
  * done by storing the strings in the lock_db table and using the auto-id returned. There is a static cache for
  * id's in this function.
  *
- * @package   core
  * @category  lock
- * @copyright Damyon Wiese 2013
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class postgres_lock_factory implements lock_factory {
 
@@ -50,7 +34,7 @@ class postgres_lock_factory implements lock_factory {
     /** @var array $lockidcache - static cache for string -> int conversions required for pg advisory locks. */
     protected static $lockidcache = array();
 
-    /** @var \moodle_database $db Hold a reference to the global $DB */
+    /** @var \lion_database $db Hold a reference to the global $DB */
     protected $db;
 
     /** @var string $type Used to prefix lock keys */
@@ -133,7 +117,7 @@ class postgres_lock_factory implements lock_factory {
      *
      * @param string $key
      * @return int
-     * @throws \moodle_exception
+     * @throws \lion_exception
      */
     protected function get_index_from_key($key) {
         if (isset(self::$lockidcache[$key])) {
@@ -161,7 +145,7 @@ class postgres_lock_factory implements lock_factory {
         }
 
         if (!$index) {
-            throw new \moodle_exception('Could not generate unique index for key');
+            throw new \lion_exception('Could not generate unique index for key');
         }
 
         self::$lockidcache[$key] = $index;

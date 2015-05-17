@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage survey
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require_once("../../config.php");
     require_once("$CFG->libdir/graphlib.php");
     require_once("lib.php");
@@ -10,7 +17,7 @@
     $sid   = optional_param('sid', false, PARAM_INT);  // Student ID
     $qid   = optional_param('qid', 0, PARAM_INT);  // Group ID
 
-    $url = new moodle_url('/mod/survey/graph.php', array('id'=>$id, 'type'=>$type));
+    $url = new lion_url('/mod/survey/graph.php', array('id'=>$id, 'type'=>$type));
     if ($group !== 0) {
         $url->param('group', $group);
     }

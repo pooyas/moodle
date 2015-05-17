@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library functions for managing text filter plugins.
  *
- * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** The states a filter can be in, stored in the filter_active table. */
 define('TEXTFILTER_ON', 1);
@@ -48,9 +35,6 @@ define('TEXTFILTER_EXCL_SEPARATOR', '-%-');
  *
  * This class is a singleton.
  *
- * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class filter_manager {
     /**
@@ -136,7 +120,7 @@ class filter_manager {
      * @param string $filtername The filter name, for example 'tex'.
      * @param context $context context object.
      * @param array $localconfig array of local configuration variables for this filter.
-     * @return moodle_text_filter The filter, or null, if this type of filter is
+     * @return lion_text_filter The filter, or null, if this type of filter is
      *      not recognised or could not be created.
      */
     protected function make_filter_object($filtername, $context, $localconfig) {
@@ -245,9 +229,8 @@ class filter_manager {
      * are responsible of controlling the cardinality of the executions that may
      * be different depending of the stuff to prepare.
      *
-     * @param moodle_page $page the page we are going to add requirements to.
+     * @param lion_page $page the page we are going to add requirements to.
      * @param context $context the context which contents are going to be filtered.
-     * @since Moodle 2.3
      */
     public function setup_page_for_filters($page, $context) {
         $filters = $this->get_text_filters($context);
@@ -263,9 +246,6 @@ class filter_manager {
  *
  * @todo Document this class
  *
- * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class null_filter_manager {
     /**
@@ -295,9 +275,6 @@ class null_filter_manager {
  *
  * @todo Document this class
  *
- * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class performance_measuring_filter_manager extends filter_manager {
     /** @var int */
@@ -369,11 +346,8 @@ class performance_measuring_filter_manager extends filter_manager {
  * Base class for text filters. You just need to override this class and
  * implement the filter method.
  *
- * @package    core_filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-abstract class moodle_text_filter {
+abstract class lion_text_filter {
     /** @var object The context we are in. */
     protected $context;
     /** @var array Any local configuration for this filter in this context. */
@@ -407,9 +381,8 @@ abstract class moodle_text_filter {
      * for each piece of text being filtered, so it is responsible
      * for controlling its own execution cardinality.
      *
-     * @param moodle_page $page the page we are going to add requirements to.
+     * @param lion_page $page the page we are going to add requirements to.
      * @param context $context the context which contents are going to be filtered.
-     * @since Moodle 2.3
      */
     public function setup($page, $context) {
         // Override me, if needed.
@@ -430,10 +403,6 @@ abstract class moodle_text_filter {
  * for how to process it.  Filters can create an array of these to pass
  * to the filter_phrases function below.
  *
- * @package    core
- * @subpackage filter
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  **/
 class filterobject {
     /** @var string */
@@ -503,7 +472,7 @@ function filter_get_name($filter) {
 }
 
 /**
- * Get the names of all the filters installed in this Moodle.
+ * Get the names of all the filters installed in this Lion.
  *
  * @return array path => filter name from the appropriate lang file. e.g.
  * array('tex' => 'TeX Notation');
@@ -891,7 +860,7 @@ function filter_get_active_in_context($context) {
     $contextids = str_replace('/', ',', trim($context->path, '/'));
 
     // The following SQL is tricky. It is explained on
-    // http://docs.moodle.org/dev/Filter_enable/disable_by_context
+    // http://docs.lion.org/dev/Filter_enable/disable_by_context
     $sql = "SELECT active.filter, fc.name, fc.value
          FROM (SELECT f.filter, MAX(f.sortorder) AS sortorder
              FROM {filter_active} f

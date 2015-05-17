@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library code for manipulating PDFs
  *
- * @package assignfeedback_editpdf
- * @copyright 2012 Davo Smith
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace assignfeedback_editpdf;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir.'/pdflib.php');
@@ -33,9 +20,6 @@ require_once($CFG->dirroot.'/mod/assign/feedback/editpdf/fpdi/fpdi.php');
 /**
  * Library code for manipulating PDFs
  *
- * @package assignfeedback_editpdf
- * @copyright 2012 Davo Smith
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class pdf extends \FPDI {
 
@@ -409,7 +393,7 @@ class pdf extends \FPDI {
     /**
      * Generate an image of the specified page in the PDF
      * @param int $pageno the page to generate the image of
-     * @throws moodle_exception
+     * @throws lion_exception
      * @throws coding_exception
      * @return string the filename of the generated image
      */
@@ -456,7 +440,7 @@ class pdf extends \FPDI {
                 $fullerror .= htmlspecialchars($result) . "\n\n";
                 $fullerror .= get_string('output', 'assignfeedback_editpdf')."\n";
                 $fullerror .= htmlspecialchars(implode("\n",$output)) . '</pre>';
-                throw new \moodle_exception('errorgenerateimage', 'assignfeedback_editpdf', '', $fullerror);
+                throw new \lion_exception('errorgenerateimage', 'assignfeedback_editpdf', '', $fullerror);
             }
         }
 
@@ -568,7 +552,7 @@ class pdf extends \FPDI {
         $pdf->set_image_folder($testimagefolder);
         try {
             $pdf->get_image(0);
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $ret->status = self::GSPATH_ERROR;
             $ret->message = $e->getMessage();
         }

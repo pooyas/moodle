@@ -7,6 +7,9 @@
  *          go according to the ID accumulator. Since the accumulator is
  *          automatically generated, it will have already absorbed the
  *          blacklist. If you're hacking around, make sure you use load()!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_AttrDef_HTML_ID extends HTMLPurifier_AttrDef

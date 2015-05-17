@@ -6,21 +6,16 @@
  * did not receive this file, see http://www.horde.org/licenses/bsd.
  *
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Class to parse identification headers (RFC 5322 [3.6.4]): Message-ID,
  * References, and In-Reply-To.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/bsd New BSD License
- * @package   Mail
- * @since     2.2.0
  */
 class Horde_Mail_Rfc822_Identification extends Horde_Mail_Rfc822
 {

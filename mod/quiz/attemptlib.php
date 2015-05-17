@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Back-end code for handling data about quizzes and the current user's attempt.
@@ -20,24 +7,21 @@
  * There are classes for loading all the information about a quiz and attempts,
  * and for displaying the navigation panel.
  *
- * @package   mod_quiz
- * @copyright 2008 onwards Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Class for quiz exceptions. Just saves a couple of arguments on the
- * constructor for a moodle_exception.
+ * constructor for a lion_exception.
  *
- * @copyright 2008 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
  */
-class moodle_quiz_exception extends moodle_exception {
+class lion_quiz_exception extends lion_exception {
     public function __construct($quizobj, $errorcode, $a = null, $link = '', $debuginfo = null) {
         if (!$link) {
             $link = $quizobj->view_url();
@@ -55,9 +39,6 @@ class moodle_quiz_exception extends moodle_exception {
  * extra information only when necessary or when asked. The class tracks which questions
  * are loaded.
  *
- * @copyright  2008 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since      Moodle 2.0
  */
 class quiz {
     // Fields initialised in the constructor.
@@ -253,7 +234,7 @@ class quiz {
         $questions = array();
         foreach ($questionids as $id) {
             if (!array_key_exists($id, $this->questions)) {
-                throw new moodle_exception('cannotstartmissingquestion', 'quiz', $this->view_url());
+                throw new lion_exception('cannotstartmissingquestion', 'quiz', $this->view_url());
             }
             $questions[$id] = $this->questions[$id];
             $this->ensure_question_loaded($id);
@@ -327,7 +308,7 @@ class quiz {
         if ($page) {
             $params['page'] = $page;
         }
-        return new moodle_url('/mod/quiz/startattempt.php', $params);
+        return new lion_url('/mod/quiz/startattempt.php', $params);
     }
 
     /**
@@ -335,7 +316,7 @@ class quiz {
      * @return string the URL of the review of that attempt.
      */
     public function review_url($attemptid) {
-        return new moodle_url('/mod/quiz/review.php', array('attempt' => $attemptid));
+        return new lion_url('/mod/quiz/review.php', array('attempt' => $attemptid));
     }
 
     /**
@@ -343,7 +324,7 @@ class quiz {
      * @return string the URL of the review of that attempt.
      */
     public function summary_url($attemptid) {
-        return new moodle_url('/mod/quiz/summary.php', array('attempt' => $attemptid));
+        return new lion_url('/mod/quiz/summary.php', array('attempt' => $attemptid));
     }
 
     // Bits of content =========================================================
@@ -418,7 +399,7 @@ class quiz {
      */
     protected function ensure_question_loaded($id) {
         if (isset($this->questions[$id]->_partiallyloaded)) {
-            throw new moodle_quiz_exception($this, 'questionnotloaded', $id);
+            throw new lion_quiz_exception($this, 'questionnotloaded', $id);
         }
     }
 }
@@ -428,9 +409,6 @@ class quiz {
  * This class extends the quiz class to hold data about the state of a particular attempt,
  * in addition to the data about the quiz.
  *
- * @copyright  2008 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since      Moodle 2.0
  */
 class quiz_attempt {
 
@@ -756,7 +734,7 @@ class quiz_attempt {
         }
 
         $cm = $this->get_cm();
-        if ($this->has_capability('moodle/site:accessallgroups') ||
+        if ($this->has_capability('lion/site:accessallgroups') ||
                 groups_get_activity_groupmode($cm) != SEPARATEGROUPS) {
             return true;
         }
@@ -914,7 +892,7 @@ class quiz_attempt {
      *
      * @param bool $reviewing true for review page, else attempt page.
      * @param int $slot which question is being displayed.
-     * @param moodle_url $thispageurl to return to after the editing form is
+     * @param lion_url $thispageurl to return to after the editing form is
      *      submitted or cancelled. If null, no edit link will be generated.
      *
      * @return question_display_options the render options for this user on this
@@ -1184,14 +1162,14 @@ class quiz_attempt {
      * @return string the URL of this quiz's summary page.
      */
     public function summary_url() {
-        return new moodle_url('/mod/quiz/summary.php', array('attempt' => $this->attempt->id));
+        return new lion_url('/mod/quiz/summary.php', array('attempt' => $this->attempt->id));
     }
 
     /**
      * @return string the URL of this quiz's summary page.
      */
     public function processattempt_url() {
-        return new moodle_url('/mod/quiz/processattempt.php');
+        return new lion_url('/mod/quiz/processattempt.php');
     }
 
     /**
@@ -1263,7 +1241,7 @@ class quiz_attempt {
     public function restart_preview_button() {
         global $OUTPUT;
         if ($this->is_preview() && $this->is_preview_user()) {
-            return $OUTPUT->single_button(new moodle_url(
+            return $OUTPUT->single_button(new lion_url(
                     $this->start_attempt_url(), array('forcenew' => true)),
                     get_string('startnewpreview', 'quiz'));
         } else {
@@ -1277,7 +1255,7 @@ class quiz_attempt {
      *
      * @param int $id the id of a question in this quiz attempt.
      * @param bool $reviewing is the being printed on an attempt or a review page.
-     * @param moodle_url $thispageurl the URL of the page this question is being printed on.
+     * @param lion_url $thispageurl the URL of the page this question is being printed on.
      * @return string HTML for the question in its current state.
      */
     public function render_question($slot, $reviewing, $thispageurl = null) {
@@ -1402,12 +1380,12 @@ class quiz_attempt {
 
     /**
      * Given a URL containing attempt={this attempt id}, return an array of variant URLs
-     * @param moodle_url $url a URL.
+     * @param lion_url $url a URL.
      * @return string HTML fragment. Comma-separated list of links to the other
      * attempts with the attempt number as the link text. The curent attempt is
      * included but is not a link.
      */
-    public function links_to_other_attempts(moodle_url $url) {
+    public function links_to_other_attempts(lion_url $url) {
         $attempts = quiz_get_user_attempts($this->get_quiz()->id, $this->attempt->userid, 'all');
         if (count($attempts) <= 1) {
             return false;
@@ -1418,7 +1396,7 @@ class quiz_attempt {
             if ($at->id == $this->attempt->id) {
                 $links->links[$at->attempt] = null;
             } else {
-                $links->links[$at->attempt] = new moodle_url($url, array('attempt' => $at->id));
+                $links->links[$at->attempt] = new lion_url($url, array('attempt' => $at->id));
             }
         }
         return $links;
@@ -1430,7 +1408,7 @@ class quiz_attempt {
      * Check this attempt, to see if there are any state transitions that should
      * happen automatically.  This function will update the attempt checkstatetime.
      * @param int $timestamp the timestamp that should be stored as the modifed
-     * @param bool $studentisonline is the student currently interacting with Moodle?
+     * @param bool $studentisonline is the student currently interacting with Lion?
      */
     public function handle_if_time_expired($timestamp, $studentisonline) {
         global $DB;
@@ -1604,7 +1582,7 @@ class quiz_attempt {
     /**
      * Mark this attempt as now overdue.
      * @param int $timestamp the time to deem as now.
-     * @param bool $studentisonline is the student currently interacting with Moodle?
+     * @param bool $studentisonline is the student currently interacting with Lion?
      */
     public function process_going_overdue($timestamp, $studentisonline) {
         global $DB;
@@ -1627,7 +1605,7 @@ class quiz_attempt {
     /**
      * Mark this attempt as abandoned.
      * @param int $timestamp the time to deem as now.
-     * @param bool $studentisonline is the student currently interacting with Moodle?
+     * @param bool $studentisonline is the student currently interacting with Lion?
      */
     public function process_abandon($timestamp, $studentisonline) {
         global $DB;
@@ -1737,10 +1715,10 @@ class quiz_attempt {
 
         // Work out the correct start to the URL.
         if ($thispage == $page) {
-            return new moodle_url($fragment);
+            return new lion_url($fragment);
 
         } else {
-            $url = new moodle_url('/mod/quiz/' . $script . '.php' . $fragment,
+            $url = new lion_url('/mod/quiz/' . $script . '.php' . $fragment,
                     array('attempt' => $this->attempt->id));
             if ($page == 0 && $showall != $defaultshowall) {
                 $url->param('showall', (int) $showall);
@@ -1756,9 +1734,6 @@ class quiz_attempt {
 /**
  * Represents a single link in the navigation panel.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since      Moodle 2.1
  */
 class quiz_nav_question_button implements renderable {
     /** @var string id="..." to add to the HTML for this button. */
@@ -1775,7 +1750,7 @@ class quiz_nav_question_button implements renderable {
     public $currentpage;
     /** @var bool true if this question has been flagged. */
     public $flagged;
-    /** @var moodle_url the link this button goes to, or null if there should not be a link. */
+    /** @var lion_url the link this button goes to, or null if there should not be a link. */
     public $url;
 }
 
@@ -1784,9 +1759,6 @@ class quiz_nav_question_button implements renderable {
  * Represents the navigation panel, and builds a {@link block_contents} to allow
  * it to be output.
  *
- * @copyright  2008 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since      Moodle 2.0
  */
 abstract class quiz_nav_panel_base {
     /** @var quiz_attempt */
@@ -1854,7 +1826,7 @@ abstract class quiz_nav_panel_base {
         if (!$this->attemptobj->is_own_preview()) {
             return '';
         }
-        return $output->restart_preview_button(new moodle_url(
+        return $output->restart_preview_button(new lion_url(
                 $this->attemptobj->start_attempt_url(), array('forcenew' => true)));
     }
 
@@ -1893,9 +1865,6 @@ abstract class quiz_nav_panel_base {
 /**
  * Specialisation of {@link quiz_nav_panel_base} for the attempt quiz page.
  *
- * @copyright  2008 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since      Moodle 2.0
  */
 class quiz_attempt_nav_panel extends quiz_nav_panel_base {
     public function get_question_url($slot) {
@@ -1923,9 +1892,6 @@ class quiz_attempt_nav_panel extends quiz_nav_panel_base {
 /**
  * Specialisation of {@link quiz_nav_panel_base} for the review quiz page.
  *
- * @copyright  2008 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since      Moodle 2.0
  */
 class quiz_review_nav_panel extends quiz_nav_panel_base {
     public function get_question_url($slot) {

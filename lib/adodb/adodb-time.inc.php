@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /**
 ADOdb Date Library, part of the ADOdb abstraction library
 Download: http://phplens.com/phpeverywhere/

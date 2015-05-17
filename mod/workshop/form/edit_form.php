@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file defines a base class for all grading strategy editing forms.
  *
- * @package    mod_workshop
- * @copyright  2009 David Mudrak <david.mudrak@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage workshop
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php'); // parent class definition
 
@@ -33,9 +20,9 @@ require_once($CFG->libdir . '/formslib.php'); // parent class definition
  * Strategies should define their own  class that inherits from this one, and
  * implements the definition_inner() method.
  *
- * @uses moodleform
+ * @uses lionform
  */
-class workshop_edit_strategy_form extends moodleform {
+class workshop_edit_strategy_form extends lionform {
 
     /** strategy logic instance that this class is editor of */
     protected $strategy;

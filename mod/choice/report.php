@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require_once("../../config.php");
     require_once("lib.php");
 
@@ -9,7 +16,7 @@
     $action     = optional_param('action', '', PARAM_ALPHA);
     $attemptids = optional_param_array('attemptid', array(), PARAM_INT); //get array of responses to delete.
 
-    $url = new moodle_url('/mod/choice/report.php', array('id'=>$id));
+    $url = new lion_url('/mod/choice/report.php', array('id'=>$id));
     if ($format !== CHOICE_PUBLISH_NAMES) {
         $url->param('format', $format);
     }
@@ -80,7 +87,7 @@
     /// Calculate file name
         $filename = clean_filename("$course->shortname ".strip_tags(format_string($choice->name,true))).'.ods';
     /// Creating a workbook
-        $workbook = new MoodleODSWorkbook("-");
+        $workbook = new LionODSWorkbook("-");
     /// Send HTTP headers
         $workbook->send($filename);
     /// Creating the first worksheet
@@ -133,7 +140,7 @@
     /// Calculate file name
         $filename = clean_filename("$course->shortname ".strip_tags(format_string($choice->name,true))).'.xls';
     /// Creating a workbook
-        $workbook = new MoodleExcelWorkbook("-");
+        $workbook = new LionExcelWorkbook("-");
     /// Send HTTP headers
         $workbook->send($filename);
     /// Creating the first worksheet
@@ -239,15 +246,15 @@
         $options = array();
         $options["id"] = "$cm->id";
         $options["download"] = "ods";
-        $button =  $OUTPUT->single_button(new moodle_url("report.php", $options), get_string("downloadods"));
+        $button =  $OUTPUT->single_button(new lion_url("report.php", $options), get_string("downloadods"));
         $downloadoptions[] = html_writer::tag('li', $button, array('class'=>'reportoption'));
 
         $options["download"] = "xls";
-        $button = $OUTPUT->single_button(new moodle_url("report.php", $options), get_string("downloadexcel"));
+        $button = $OUTPUT->single_button(new lion_url("report.php", $options), get_string("downloadexcel"));
         $downloadoptions[] = html_writer::tag('li', $button, array('class'=>'reportoption'));
 
         $options["download"] = "txt";
-        $button = $OUTPUT->single_button(new moodle_url("report.php", $options), get_string("downloadtext"));
+        $button = $OUTPUT->single_button(new lion_url("report.php", $options), get_string("downloadtext"));
         $downloadoptions[] = html_writer::tag('li', $button, array('class'=>'reportoption'));
 
         $downloadlist = html_writer::tag('ul', implode('', $downloadoptions));

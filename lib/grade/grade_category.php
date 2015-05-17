@@ -1,38 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Definition of a class to represent a grade category
  *
- * @package   core_grades
- * @copyright 2006 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once('grade_object.php');
 
 /**
  * grade_category is an object mapped to DB table {prefix}grade_categories
  *
- * @package   core_grades
  * @category  grade
- * @copyright 2007 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class grade_category extends grade_object {
     /**
@@ -856,7 +840,6 @@ class grade_category extends grade_object {
      *
      * @param array $grade_values An array of values to be aggregated
      * @param array $items The array of grade_items
-     * @since Moodle 2.6.5, 2.7.2
      * @param array & $weights If provided, will be filled with the normalized weights
      *                         for each grade_item as used in the aggregation.
      *                         Some rules for the weights are:
@@ -1315,7 +1298,7 @@ class grade_category extends grade_object {
      *
      * Must be public as it is used by grade_grade::get_hiding_affected()
      *
-     * @deprecated since Moodle 2.8
+     * @deprecated since Lion 2.8
      * @param array $grade_values An array of values to be aggregated
      * @param array $items The array of grade_items
      * @return float The aggregate grade for this grade category

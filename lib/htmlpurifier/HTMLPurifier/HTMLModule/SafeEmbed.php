@@ -2,6 +2,9 @@
 
 /**
  * A "safe" embed module. See SafeObject. This is a proprietary element.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_SafeEmbed extends HTMLPurifier_HTMLModule
 {

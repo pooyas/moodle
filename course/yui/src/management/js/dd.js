@@ -9,7 +9,7 @@
 function DragDrop(config) {
     Console.superclass.constructor.apply(this, [config]);
 }
-DragDrop.NAME = 'moodle-course-management-dd';
+DragDrop.NAME = 'lion-course-management-dd';
 DragDrop.CSS_PREFIX = 'management-dd';
 DragDrop.ATTRS = {
     /**
@@ -239,7 +239,7 @@ DragDrop.prototype = {
             previousid;
 
         if (!drag.test('.listitem-course')) {
-            Y.log('It was not a course being dragged.', 'warn', 'moodle-course-management');
+            Y.log('It was not a course being dragged.', 'warn', 'lion-course-management');
             return false;
         }
         courseid = drag.getData('id');
@@ -262,7 +262,7 @@ DragDrop.prototype = {
                 course.moveAfter(aftercourseid, previousid);
             }
         } else {
-            Y.log('Course dropped over unhandled target.', 'info', 'moodle-course-management');
+            Y.log('Course dropped over unhandled target.', 'info', 'lion-course-management');
         }
     }
 };

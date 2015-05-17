@@ -2,6 +2,9 @@
 
 /**
  * Defines a mutation of an obsolete tag into a valid tag.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_TagTransform
 {

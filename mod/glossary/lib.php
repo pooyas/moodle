@@ -1,27 +1,14 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library of functions and constants for module glossary
  * (replace glossary with the name of your module and delete this line)
  *
- * @package   mod_glossary
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
  */
 require_once($CFG->libdir . '/completionlib.php');
 
@@ -344,10 +331,10 @@ function glossary_get_recent_mod_activity(&$activities, &$index, $timestart, $co
         return;
     }
 
-    $viewfullnames = has_capability('moodle/site:viewfullnames', $context);
+    $viewfullnames = has_capability('lion/site:viewfullnames', $context);
     // Groups are not yet supported for glossary. See MDL-10728 .
     /*
-    $accessallgroups = has_capability('moodle/site:accessallgroups', $context);
+    $accessallgroups = has_capability('lion/site:accessallgroups', $context);
     $groupmode = groups_get_activity_groupmode($cm, $course);
      */
 
@@ -466,11 +453,11 @@ function glossary_print_recent_mod_activity($activity, $courseid, $detail, $modn
         $urlparams = array('g' => $activity->glossaryid, 'mode' => 'entry', 'hook' => $activity->content->entryid);
         $class = array();
     }
-    echo html_writer::link(new moodle_url('/mod/glossary/view.php', $urlparams),
+    echo html_writer::link(new lion_url('/mod/glossary/view.php', $urlparams),
             strip_tags($activity->content->concept), $class);
     echo html_writer::end_tag('div');
 
-    $url = new moodle_url('/user/view.php', array('course'=>$courseid, 'id'=>$activity->user->id));
+    $url = new lion_url('/user/view.php', array('course'=>$courseid, 'id'=>$activity->user->id));
     $name = $activity->user->fullname;
     $link = html_writer::link($url, $name, $class);
 
@@ -573,7 +560,7 @@ function glossary_print_recent_activity($course, $viewfullnames, $timestart) {
                 $dimmed = ' dimmed_text';
                 $urlparams = array('id' => $ids[$entry->glossaryid], 'mode' => 'approval', 'hook' => format_text($entry->concept, true));
             }
-            $link = new moodle_url($CFG->wwwroot.'/mod/glossary/view.php' , $urlparams);
+            $link = new lion_url($CFG->wwwroot.'/mod/glossary/view.php' , $urlparams);
             echo '<div class="head'.$dimmed.'">';
             echo '<div class="date">'.userdate($entry->timemodified, $strftimerecent).'</div>';
             echo '<div class="name">'.fullname($entry, $viewfullnames).'</div>';
@@ -603,7 +590,7 @@ function glossary_log_info($log) {
 }
 
 /**
- * Function to be run periodically according to the moodle cron
+ * Function to be run periodically according to the lion cron
  * This function searches for things that need to be done, such
  * as sending out mail, toggling flags etc ...
  * @return bool
@@ -985,7 +972,7 @@ function glossary_get_entries_search($concept, $courseid) {
 
     //Check if the user is an admin
     $bypassadmin = 1; //This means NO (by default)
-    if (has_capability('moodle/course:viewhiddenactivities', context_system::instance())) {
+    if (has_capability('lion/course:viewhiddenactivities', context_system::instance())) {
         $bypassadmin = 0; //This means YES
     }
 
@@ -1109,7 +1096,7 @@ function  glossary_print_entry_concept($entry, $return=false) {
 
 /**
  *
- * @global moodle_database DB
+ * @global lion_database DB
  * @param object $entry
  * @param object $glossary
  * @param object $cm
@@ -1387,7 +1374,7 @@ function  glossary_print_entry_approval($cm, $entry, $mode, $align="right", $ins
             echo '<table class="glossaryapproval" align="'.$align.'"><tr><td align="'.$align.'">';
         }
         echo $OUTPUT->action_icon(
-            new moodle_url('approve.php', array('eid' => $entry->id, 'mode' => $mode, 'sesskey' => sesskey())),
+            new lion_url('approve.php', array('eid' => $entry->id, 'mode' => $mode, 'sesskey' => sesskey())),
             new pix_icon('t/approve', get_string('approve','glossary'), '',
                 array('class' => 'iconsmall', 'align' => $align))
         );
@@ -1554,7 +1541,7 @@ function glossary_print_attachments($entry, $cm, $type=NULL, $unused = null) {
         foreach ($files as $file) {
             $filename = $file->get_filename();
             $mimetype = $file->get_mimetype();
-            $iconimage = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'moodle', array('class' => 'icon'));
+            $iconimage = $OUTPUT->pix_icon(file_file_icon($file), get_mimetype_description($file), 'lion', array('class' => 'icon'));
             $path = file_encode_url($CFG->wwwroot.'/pluginfile.php', '/'.$context->id.'/mod_glossary/attachment/'.$entry->id.'/'.$filename);
 
             if ($type == 'html') {
@@ -1593,7 +1580,6 @@ function glossary_print_attachments($entry, $cm, $type=NULL, $unused = null) {
 /**
  * Lists all browsable file areas
  *
- * @package  mod_glossary
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -1670,7 +1656,7 @@ function glossary_get_file_info($browser, $areas, $course, $cm, $context, $filea
 
     // Checks to see if the user can manage files or is the owner.
     // TODO MDL-33805 - Do not use userid here and move the capability check above.
-    if (!has_capability('moodle/course:managefiles', $context) && $storedfile->get_userid() != $USER->id) {
+    if (!has_capability('lion/course:managefiles', $context) && $storedfile->get_userid() != $USER->id) {
         return null;
     }
 
@@ -1682,7 +1668,6 @@ function glossary_get_file_info($browser, $areas, $course, $cm, $context, $filea
 /**
  * Serves the glossary attachments. Implements needed access control ;-)
  *
- * @package  mod_glossary
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -1878,7 +1863,7 @@ function glossary_print_categories_menu($cm, $glossary, $hook, $category) {
              $options['id'] = $cm->id;
              $options['mode'] = 'cat';
              $options['hook'] = $hook;
-             echo $OUTPUT->single_button(new moodle_url("editcategories.php", $options), get_string("editcategories","glossary"), "get");
+             echo $OUTPUT->single_button(new lion_url("editcategories.php", $options), get_string("editcategories","glossary"), "get");
      }
      echo '</td>';
 
@@ -1924,7 +1909,7 @@ function glossary_print_categories_menu($cm, $glossary, $hook, $category) {
      echo '</b></td>';
      echo '<td align="center" style="width:20%">';
 
-     $select = new single_select(new moodle_url("/mod/glossary/view.php", array('id'=>$cm->id, 'mode'=>'cat')), 'hook', $menu, $selected, null, "catmenu");
+     $select = new single_select(new lion_url("/mod/glossary/view.php", array('id'=>$cm->id, 'mode'=>'cat')), 'hook', $menu, $selected, null, "catmenu");
      $select->set_label(get_string('categories', 'glossary'), array('class' => 'accesshide'));
      echo $OUTPUT->render($select);
 
@@ -2423,7 +2408,7 @@ function glossary_full_tag($tag,$level=0,$endline=true,$content) {
 /**
  * How many unrated entries are in the given glossary for a given user?
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param int $glossaryid
  * @param int $userid
  * @return int
@@ -2482,7 +2467,7 @@ function glossary_count_unrated_entries($glossaryid, $userid) {
  * Returns the html code to represent any pagging bar. Paramenters are:
  *
  * The function dinamically show the first and last pages, and "scroll" over pages.
- * Fully compatible with Moodle's print_paging_bar() function. Perhaps some day this
+ * Fully compatible with Lion's print_paging_bar() function. Perhaps some day this
  * could replace the general one. ;-)
  *
  * @param int $totalcount total number of records to be displayed
@@ -2909,7 +2894,7 @@ function glossary_reset_userdata($data) {
  * @return array
  */
 function glossary_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups', 'moodle/site:viewfullnames', 'moodle/site:trustcontent', 'moodle/rating:view', 'moodle/rating:viewany', 'moodle/rating:viewall', 'moodle/rating:rate', 'moodle/comment:view', 'moodle/comment:post', 'moodle/comment:delete');
+    return array('lion/site:accessallgroups', 'lion/site:viewfullnames', 'lion/site:trustcontent', 'lion/rating:view', 'lion/rating:viewany', 'lion/rating:viewall', 'lion/rating:rate', 'lion/comment:view', 'lion/comment:post', 'lion/comment:delete');
 }
 
 /**
@@ -2926,7 +2911,7 @@ function glossary_supports($feature) {
         case FEATURE_GRADE_HAS_GRADE:         return true;
         case FEATURE_GRADE_OUTCOMES:          return true;
         case FEATURE_RATE:                    return true;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -2971,10 +2956,10 @@ function glossary_get_completion_state($course,$cm,$userid,$type) {
 
 function glossary_extend_navigation($navigation, $course, $module, $cm) {
     global $CFG;
-    $navigation->add(get_string('standardview', 'glossary'), new moodle_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'letter')));
-    $navigation->add(get_string('categoryview', 'glossary'), new moodle_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'cat')));
-    $navigation->add(get_string('dateview', 'glossary'), new moodle_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'date')));
-    $navigation->add(get_string('authorview', 'glossary'), new moodle_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'author')));
+    $navigation->add(get_string('standardview', 'glossary'), new lion_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'letter')));
+    $navigation->add(get_string('categoryview', 'glossary'), new lion_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'cat')));
+    $navigation->add(get_string('dateview', 'glossary'), new lion_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'date')));
+    $navigation->add(get_string('authorview', 'glossary'), new lion_url('/mod/glossary/view.php', array('id'=>$cm->id, 'mode'=>'author')));
 }
 
 /**
@@ -2990,19 +2975,19 @@ function glossary_extend_settings_navigation(settings_navigation $settings, navi
     $hook = optional_param('hook', 'ALL', PARAM_CLEAN);
 
     if (has_capability('mod/glossary:import', $PAGE->cm->context)) {
-        $glossarynode->add(get_string('importentries', 'glossary'), new moodle_url('/mod/glossary/import.php', array('id'=>$PAGE->cm->id)));
+        $glossarynode->add(get_string('importentries', 'glossary'), new lion_url('/mod/glossary/import.php', array('id'=>$PAGE->cm->id)));
     }
 
     if (has_capability('mod/glossary:export', $PAGE->cm->context)) {
-        $glossarynode->add(get_string('exportentries', 'glossary'), new moodle_url('/mod/glossary/export.php', array('id'=>$PAGE->cm->id, 'mode'=>$mode, 'hook'=>$hook)));
+        $glossarynode->add(get_string('exportentries', 'glossary'), new lion_url('/mod/glossary/export.php', array('id'=>$PAGE->cm->id, 'mode'=>$mode, 'hook'=>$hook)));
     }
 
     if (has_capability('mod/glossary:approve', $PAGE->cm->context) && ($hiddenentries = $DB->count_records('glossary_entries', array('glossaryid'=>$PAGE->cm->instance, 'approved'=>0)))) {
-        $glossarynode->add(get_string('waitingapproval', 'glossary'), new moodle_url('/mod/glossary/view.php', array('id'=>$PAGE->cm->id, 'mode'=>'approval')));
+        $glossarynode->add(get_string('waitingapproval', 'glossary'), new lion_url('/mod/glossary/view.php', array('id'=>$PAGE->cm->id, 'mode'=>'approval')));
     }
 
     if (has_capability('mod/glossary:write', $PAGE->cm->context)) {
-        $glossarynode->add(get_string('addentry', 'glossary'), new moodle_url('/mod/glossary/edit.php', array('cmid'=>$PAGE->cm->id)));
+        $glossarynode->add(get_string('addentry', 'glossary'), new lion_url('/mod/glossary/edit.php', array('cmid'=>$PAGE->cm->id)));
     }
 
     $glossary = $DB->get_record('glossary', array("id" => $PAGE->cm->instance));
@@ -3012,7 +2997,7 @@ function glossary_extend_settings_navigation(settings_navigation $settings, navi
 
         $string = get_string('rsstype','forum');
 
-        $url = new moodle_url(rss_get_url($PAGE->cm->context->id, $USER->id, 'mod_glossary', $glossary->id));
+        $url = new lion_url(rss_get_url($PAGE->cm->context->id, $USER->id, 'mod_glossary', $glossary->id));
         $glossarynode->add($string, $url, settings_navigation::TYPE_SETTING, null, null, new pix_icon('i/rss', ''));
     }
 }
@@ -3025,7 +3010,6 @@ function glossary_extend_settings_navigation(settings_navigation $settings, navi
  * Capability check has been done in comment->check_permissions(), we
  * don't need to do it again here.
  *
- * @package  mod_glossary
  * @category comment
  *
  * @param stdClass $comment_param {
@@ -3044,7 +3028,6 @@ function glossary_comment_permissions($comment_param) {
 /**
  * Validate comment parameter before perform other comments actions
  *
- * @package  mod_glossary
  * @category comment
  *
  * @param stdClass $comment_param {

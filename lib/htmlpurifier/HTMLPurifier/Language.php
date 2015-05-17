@@ -3,6 +3,9 @@
 /**
  * Represents a language and defines localizable string formatting and
  * other functions, as well as the localized messages for HTML Purifier.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Language
 {

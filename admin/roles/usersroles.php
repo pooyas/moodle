@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * User roles report list all the users who have been assigned a particular
  * role in all contexts.
  *
- * @package    core_role
- * @copyright  &copy; 2007 The Open University and others
- * @author     t.j.hunt@open.ac.uk and others
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage roles
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(__DIR__ . '/../../config.php');
@@ -38,7 +24,7 @@ $usercontext = context_user::instance($user->id);
 $coursecontext = context_course::instance($course->id);
 $systemcontext = context_system::instance();
 
-$baseurl = new moodle_url('/admin/roles/usersroles.php', array('userid'=>$userid, 'courseid'=>$courseid));
+$baseurl = new lion_url('/admin/roles/usersroles.php', array('userid'=>$userid, 'courseid'=>$courseid));
 
 $PAGE->set_url($baseurl);
 $PAGE->set_pagelayout('admin');
@@ -52,8 +38,8 @@ if ($course->id == SITEID) {
     $PAGE->set_context($coursecontext);
 }
 
-$canview = has_any_capability(array('moodle/role:assign', 'moodle/role:safeoverride',
-        'moodle/role:override', 'moodle/role:manage'), $usercontext);
+$canview = has_any_capability(array('lion/role:assign', 'lion/role:safeoverride',
+        'lion/role:override', 'lion/role:manage'), $usercontext);
 if (!$canview) {
     print_error('nopermissions', 'error', '', get_string('checkpermissions', 'core_role'));
 }
@@ -120,7 +106,7 @@ $assignableroles = get_assignable_roles($usercontext, ROLENAME_BOTH);
 $overridableroles = get_overridable_roles($usercontext, ROLENAME_BOTH);
 
 // Print the header.
-$fullname = fullname($user, has_capability('moodle/site:viewfullnames', $coursecontext));
+$fullname = fullname($user, has_capability('lion/site:viewfullnames', $coursecontext));
 $straction = get_string('thisusersroles', 'core_role');
 $title = get_string('xroleassignments', 'core_role', $fullname);
 
@@ -154,7 +140,7 @@ function print_report_tree($contextid, $contexts, $systemcontext, $fullname, $al
     if (is_null($stredit)) {
         $stredit = get_string('edit');
         $strcheckpermissions = get_string('checkpermissions', 'core_role');
-        $globalroleassigner = has_capability('moodle/role:assign', $systemcontext);
+        $globalroleassigner = has_capability('lion/role:assign', $systemcontext);
         $assignurl = $CFG->wwwroot . '/' . $CFG->admin . '/roles/assign.php';
         $checkurl = $CFG->wwwroot . '/' . $CFG->admin . '/roles/check.php';
     }
@@ -175,7 +161,7 @@ function print_report_tree($contextid, $contexts, $systemcontext, $fullname, $al
 
         echo '<p>';
         echo $role->localname;
-        if (has_capability('moodle/role:assign', $context)) {
+        if (has_capability('lion/role:assign', $context)) {
             $raurl = $assignurl . '?contextid=' . $ra->contextid . '&amp;roleid=' .
                     $ra->roleid . '&amp;removeselect[]=' . $ra->userid;
             $churl = $checkurl . '?contextid=' . $ra->contextid . '&amp;reportuser=' . $ra->userid;

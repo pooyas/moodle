@@ -1,7 +1,7 @@
 {
-  "name": "moodle-availability_profile-form",
+  "name": "lion-availability_profile-form",
   "builds": {
-    "moodle-availability_profile-form": {
+    "lion-availability_profile-form": {
       "jsfiles": [
         "form.js"
       ]

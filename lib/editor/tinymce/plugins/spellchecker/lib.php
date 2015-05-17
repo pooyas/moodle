@@ -1,28 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
+
 
 /**
- * Plugin for spell checking (Moodle custom replacement for standard TinyMCE
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') || die();
+
+/**
+ * Plugin for spell checking (Lion custom replacement for standard TinyMCE
  * plugin, but with same name, which seems a bit unhelpful).
  *
- * @package   tinymce_spellchecker
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tinymce_spellchecker extends editor_tinymce_plugin {
     /** @var array list of buttons defined by this plugin */

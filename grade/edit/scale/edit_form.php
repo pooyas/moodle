@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Edit form for grade scales
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once $CFG->libdir.'/formslib.php';
 
-class edit_scale_form extends moodleform {
+class edit_scale_form extends lionform {
     function definition() {
         global $CFG;
         $mform =& $this->_form;
@@ -88,7 +75,7 @@ class edit_scale_form extends moodleform {
             if (empty($courseid)) {
                 $mform->hardFreeze('standard');
 
-            } else if (!has_capability('moodle/course:managescales', context_system::instance())) {
+            } else if (!has_capability('lion/course:managescales', context_system::instance())) {
                 //if they dont have managescales at system level the shouldnt be allowed to make scales standard (or not standard)
                 $mform->hardFreeze('standard');
 
@@ -102,7 +89,7 @@ class edit_scale_form extends moodleform {
 
         } else {
             $mform->removeElement('used');
-            if (empty($courseid) or !has_capability('moodle/course:managescales', context_system::instance())) {
+            if (empty($courseid) or !has_capability('lion/course:managescales', context_system::instance())) {
                 $mform->hardFreeze('standard');
             }
         }

@@ -289,11 +289,11 @@
     width: 150px;
 }
 
-.path-mod-assign .gradingtable .moodle-actionmenu {
+.path-mod-assign .gradingtable .lion-actionmenu {
     white-space: nowrap;
 }
 
-.path-mod-assign .gradingtable .moodle-actionmenu[data-enhanced].show .menu a {
+.path-mod-assign .gradingtable .lion-actionmenu[data-enhanced].show .menu a {
     padding-left: 12px;
     padding-right: 12px;
 }

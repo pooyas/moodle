@@ -2,6 +2,9 @@
 
 /**
  * Validates file as defined by RFC 1630 and RFC 1738.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIScheme_file extends HTMLPurifier_URIScheme
 {

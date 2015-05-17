@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    auth
+ * @subpackage fc
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /************************************************************************/
 /* fcFPP: Php class for FirstClass Flexible Provisining Protocol        */
 /* =============================================================        */

@@ -6,9 +6,9 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Translation
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -16,11 +16,7 @@
  * libraries that want to utilize the Horde_Translation library for
  * translations.
  *
- * @author    Jan Schneider <jan@horde.org>
  * @category  Horde
- * @copyright 2010-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Translation
  */
 abstract class Horde_Translation
 {
@@ -120,7 +116,6 @@ abstract class Horde_Translation
      * the horde translation utilities, but no translation is actually
      * performed (raw gettext = r()).
      *
-     * @since 2.1.0
      *
      * @param string $message  The raw string to mark for translation.
      *

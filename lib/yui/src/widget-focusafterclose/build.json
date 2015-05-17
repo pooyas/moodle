@@ -1,7 +1,7 @@
 {
-    "name": "moodle-core-widget-focusafterclose",
+    "name": "lion-core-widget-focusafterclose",
     "builds": {
-        "moodle-core-widget-focusafterclose": {
+        "lion-core-widget-focusafterclose": {
             "jsfiles": [
                 "focusafter.js"
             ]

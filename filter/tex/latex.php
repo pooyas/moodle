@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    filter
+ * @subpackage tex
+ * @copyright  2015 Pooya Saeedi
+*/
+
     // latex.php
     // render TeX stuff using latex - this will not work on all platforms
     // or configurations. Only works on Linux and Mac with appropriate

@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Database driver test case.
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -33,23 +20,20 @@
  *                         the reason is to allow testing of incomplete drivers that do not allow full PHPUnit environment
  *                         initialisation (the database can be empty).
  * $CFG->phpunit_extra_drivers = array(
- *      1=>array('dbtype'=>'mysqli', 'dbhost'=>'localhost', 'dbname'=>'moodle', 'dbuser'=>'root', 'dbpass'=>'', 'prefix'=>'phpu2_'),
- *      2=>array('dbtype'=>'pgsql', 'dbhost'=>'localhost', 'dbname'=>'moodle', 'dbuser'=>'postgres', 'dbpass'=>'', 'prefix'=>'phpu2_'),
- *      3=>array('dbtype'=>'sqlsrv', 'dbhost'=>'127.0.0.1', 'dbname'=>'moodle', 'dbuser'=>'sa', 'dbpass'=>'', 'prefix'=>'phpu2_'),
+ *      1=>array('dbtype'=>'mysqli', 'dbhost'=>'localhost', 'dbname'=>'lion', 'dbuser'=>'root', 'dbpass'=>'', 'prefix'=>'phpu2_'),
+ *      2=>array('dbtype'=>'pgsql', 'dbhost'=>'localhost', 'dbname'=>'lion', 'dbuser'=>'postgres', 'dbpass'=>'', 'prefix'=>'phpu2_'),
+ *      3=>array('dbtype'=>'sqlsrv', 'dbhost'=>'127.0.0.1', 'dbname'=>'lion', 'dbuser'=>'sa', 'dbpass'=>'', 'prefix'=>'phpu2_'),
  *      4=>array('dbtype'=>'oci', 'dbhost'=>'127.0.0.1', 'dbname'=>'XE', 'dbuser'=>'sa', 'dbpass'=>'', 'prefix'=>'t_'),
  * );
  * define('PHPUNIT_TEST_DRIVER')=1; //number is index in the previous array
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class database_driver_testcase extends PHPUnit_Framework_TestCase {
-    /** @var moodle_database connection to extra database */
+    /** @var lion_database connection to extra database */
     private static $extradb = null;
 
-    /** @var moodle_database used in these tests*/
+    /** @var lion_database used in these tests*/
     protected $tdb;
 
     /**
@@ -89,7 +73,7 @@ abstract class database_driver_testcase extends PHPUnit_Framework_TestCase {
         $prefix = $CFG->phpunit_extra_drivers[PHPUNIT_TEST_DRIVER]['prefix'];
         $dboptions = empty($CFG->phpunit_extra_drivers[PHPUNIT_TEST_DRIVER]['dboptions']) ? array() : $CFG->phpunit_extra_drivers[PHPUNIT_TEST_DRIVER]['dboptions'];
 
-        $classname = "{$dbtype}_{$dblibrary}_moodle_database";
+        $classname = "{$dbtype}_{$dblibrary}_lion_database";
         require_once("$CFG->libdir/dml/$classname.php");
         $d = new $classname();
         if (!$d->driver_installed()) {

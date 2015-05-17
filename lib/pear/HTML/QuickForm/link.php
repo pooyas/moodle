@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -22,11 +29,8 @@ require_once 'HTML/QuickForm/static.php';
 
 /**
  * HTML class for a link type field
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_link extends HTML_QuickForm_static
@@ -36,7 +40,6 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
     /**
      * Link display text
      * @var       string
-     * @since     1.0
      * @access    private
      */
     var $_text = "";
@@ -52,7 +55,6 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @param     string    $text           (optional)Link display text
      * @param     mixed     $attributes     (optional)Either a typical HTML attribute string 
      *                                      or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    
@@ -73,7 +75,6 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * Sets the input field name
      * 
      * @param     string    $name   Input field name attribute
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    
@@ -88,8 +89,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
 
     /**
      * Returns the element name
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      * @throws    
@@ -106,7 +106,6 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * Sets value for textarea element
      * 
      * @param     string    $value  Value for password element
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    
@@ -122,7 +121,6 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
     /**
      * Returns the value of the form element
      *
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    
@@ -140,7 +138,6 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * Sets the links href
      *
      * @param     string    $href
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    
@@ -155,8 +152,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
 
     /**
      * Returns the textarea element in HTML
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      * @throws    
@@ -175,8 +171,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
 
     /**
      * Returns the value of field without HTML tags (in this case, value is changed to a mask)
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      * @throws    

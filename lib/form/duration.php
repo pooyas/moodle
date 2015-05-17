@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -20,9 +7,9 @@
  *
  * Contains class to create length of time for element.
  *
- * @package   core_form
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 global $CFG;
@@ -36,12 +23,9 @@ require_once($CFG->libdir . '/form/text.php');
  * HTML class for a length of time. For example, 30 minutes of 4 days. The
  * values returned to PHP is the duration in seconds.
  *
- * @package   core_form
  * @category  form
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_duration extends MoodleQuickForm_group {
+class LionQuickForm_duration extends LionQuickForm_group {
    /**
     * Control the fieldnames for form elements
     * optional => if true, show a checkbox beside the element to turn it on (or off)
@@ -63,7 +47,7 @@ class MoodleQuickForm_duration extends MoodleQuickForm_group {
     *              If not specified, minutes is used.
     * @param mixed $attributes Either a typical HTML attribute string or an associative array
     */
-    function MoodleQuickForm_duration($elementName = null, $elementLabel = null, $options = array(), $attributes = null) {
+    function LionQuickForm_duration($elementName = null, $elementLabel = null, $options = array(), $attributes = null) {
         $this->HTML_QuickForm_element($elementName, $elementLabel, $attributes);
         $this->_persistantFreeze = true;
         $this->_appendName = true;
@@ -77,7 +61,7 @@ class MoodleQuickForm_duration extends MoodleQuickForm_group {
         if (isset($options['defaultunit'])) {
             if (!array_key_exists($options['defaultunit'], $this->get_units())) {
                 throw new coding_exception($options['defaultunit'] .
-                        ' is not a recognised unit in MoodleQuickForm_duration.');
+                        ' is not a recognised unit in LionQuickForm_duration.');
             }
             $this->_options['defaultunit'] = $options['defaultunit'];
         }
@@ -133,12 +117,12 @@ class MoodleQuickForm_duration extends MoodleQuickForm_group {
         }
         $this->_elements = array();
         // E_STRICT creating elements without forms is nasty because it internally uses $this
-        $this->_elements[] = @MoodleQuickForm::createElement('text', 'number', get_string('time', 'form'), $attributes, true);
+        $this->_elements[] = @LionQuickForm::createElement('text', 'number', get_string('time', 'form'), $attributes, true);
         unset($attributes['size']);
-        $this->_elements[] = @MoodleQuickForm::createElement('select', 'timeunit', get_string('timeunit', 'form'), $this->get_units(), $attributes, true);
+        $this->_elements[] = @LionQuickForm::createElement('select', 'timeunit', get_string('timeunit', 'form'), $this->get_units(), $attributes, true);
         // If optional we add a checkbox which the user can use to turn if on
         if($this->_options['optional']) {
-            $this->_elements[] = @MoodleQuickForm::createElement('checkbox', 'enabled', null, get_string('enable'), $this->getAttributes(), true);
+            $this->_elements[] = @LionQuickForm::createElement('checkbox', 'enabled', null, get_string('enable'), $this->getAttributes(), true);
         }
         foreach ($this->_elements as $element){
             if (method_exists($element, 'setHiddenLabel')){

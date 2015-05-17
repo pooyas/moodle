@@ -1,39 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * A form for cohort upload.
  *
- * @package    core_cohort
- * @copyright  2014 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage cohort
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/formslib.php');
 
 /**
  * Cohort upload form class
  *
- * @package    core_cohort
- * @copyright  2014 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class cohort_upload_form extends moodleform {
+class cohort_upload_form extends lionform {
     /** @var array new cohorts that need to be created */
     public $processeddata = null;
     /** @var array cached list of available contexts */
@@ -142,10 +126,10 @@ class cohort_upload_form extends moodleform {
         require_once($CFG->libdir. '/coursecatlib.php');
         if ($this->contextoptions === null) {
             $this->contextoptions = array();
-            $displaylist = coursecat::make_categories_list('moodle/cohort:manage');
+            $displaylist = coursecat::make_categories_list('lion/cohort:manage');
             // We need to index the options array by context id instead of category id and add option for system context.
             $syscontext = context_system::instance();
-            if (has_capability('moodle/cohort:manage', $syscontext)) {
+            if (has_capability('lion/cohort:manage', $syscontext)) {
                 $this->contextoptions[$syscontext->id] = $syscontext->get_context_name();
             }
             foreach ($displaylist as $cid => $name) {
@@ -179,7 +163,7 @@ class cohort_upload_form extends moodleform {
      */
     protected function get_cohort_file($draftid) {
         global $USER;
-        // We can not use moodleform::get_file_content() method because we need the content before the form is validated.
+        // We can not use lionform::get_file_content() method because we need the content before the form is validated.
         if (!$draftid) {
             return null;
         }
@@ -245,7 +229,7 @@ class cohort_upload_form extends moodleform {
             $context = context::instance_by_id($line['data']['contextid']);
             foreach ($columns as $key => $value) {
                 if ($key === 'contextid') {
-                    $text = html_writer::link(new moodle_url('/cohort/index.php', array('contextid' => $context->id)),
+                    $text = html_writer::link(new lion_url('/cohort/index.php', array('contextid' => $context->id)),
                         $context->get_context_name(false));
                 } else {
                     $text = s($line['data'][$key]);

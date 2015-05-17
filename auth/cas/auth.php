@@ -1,32 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Authentication Plugin: CAS Authentication
  *
  * Authentication using CAS (Central Authentication Server).
  *
- * @author Martin Dougiamas
- * @author Jerome GUTIERREZ
- * @author Iñaki Arenaza
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package auth_cas
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/auth/ldap/auth.php');
 require_once($CFG->dirroot.'/auth/cas/CAS/CAS.php');
@@ -147,7 +132,7 @@ class auth_plugin_cas extends auth_plugin_ldap {
 
             // Redirect to a course if multi-auth is activated, authCAS is set to CAS and the courseid is specified.
             if ($this->config->multiauth && !empty($courseid)) {
-                redirect(new moodle_url('/course/view.php', array('id'=>$courseid)));
+                redirect(new lion_url('/course/view.php', array('id'=>$courseid)));
             }
 
             return;
@@ -186,7 +171,7 @@ class auth_plugin_cas extends auth_plugin_ldap {
             $connected = true;
         }
 
-        // If Moodle is configured to use a proxy, phpCAS needs some curl options set.
+        // If Lion is configured to use a proxy, phpCAS needs some curl options set.
         if (!empty($CFG->proxyhost) && !is_proxybypass($this->config->hostname)) {
             phpCAS::setExtraCurlOption(CURLOPT_PROXY, $CFG->proxyhost);
             if (!empty($CFG->proxyport)) {
@@ -260,7 +245,7 @@ class auth_plugin_cas extends auth_plugin_ldap {
      * Returns the URL for changing the user's pw, or empty if the default can
      * be used.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     function change_password_url() {
         return null;
@@ -471,7 +456,7 @@ class auth_plugin_cas extends auth_plugin_ldap {
     }
 
     /**
-     * Syncronizes users from LDAP server to moodle user table.
+     * Syncronizes users from LDAP server to lion user table.
      *
      * If no LDAP servers are configured, simply return. Otherwise,
      * call parent class method to do the work.

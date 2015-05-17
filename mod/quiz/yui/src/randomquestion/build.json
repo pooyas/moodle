@@ -1,7 +1,7 @@
 {
-    "name": "moodle-mod_quiz-randomquestion",
+    "name": "lion-mod_quiz-randomquestion",
     "builds": {
-        "moodle-mod_quiz-randomquestion": {
+        "lion-mod_quiz-randomquestion": {
             "jsfiles": [
                 "randomquestion.js"
             ]

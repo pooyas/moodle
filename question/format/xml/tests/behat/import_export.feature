@@ -1,5 +1,5 @@
 @qformat @qformat_xml
-Feature: Test importing questions from Moodle XML format.
+Feature: Test importing questions from Lion XML format.
   In order to reuse questions
   As an teacher
   I need to be able to import them in XML format.
@@ -18,7 +18,7 @@ Feature: Test importing questions from Moodle XML format.
     And I follow "Course 1"
 
   @javascript @_file_upload
-  Scenario: import some true/false questions from Moodle XML format
+  Scenario: import some true/false questions from Lion XML format
     When I navigate to "Import" node in "Course administration > Question bank"
     And I set the field "id_format_xml" to "1"
     And I upload "question/format/xml/tests/fixtures/truefalse.xml" file to "Import" filemanager
@@ -28,8 +28,8 @@ Feature: Test importing questions from Moodle XML format.
     And I should see "is an acronym for Modular Object-Oriented Dynamic Learning Education"
     And I should see "is an acronym for Modular Object-Oriented Dynamic Learning Environment"
     When I press "Continue"
-    Then I should see "Moodle acronym (False)"
-    Then I should see "Moodle acronym (True)"
+    Then I should see "Lion acronym (False)"
+    Then I should see "Lion acronym (True)"
 
     # Now export again.
     And I navigate to "Export" node in "Course administration > Question bank"
@@ -38,7 +38,7 @@ Feature: Test importing questions from Moodle XML format.
     And following "click here" should download between "57000" and "58000" bytes
 
   @javascript @_file_upload
-  Scenario: import some multiple choice questions from Moodle XML format
+  Scenario: import some multiple choice questions from Lion XML format
     When I navigate to "Import" node in "Course administration > Question bank"
     And I set the field "id_format_xml" to "1"
     And I upload "question/format/xml/tests/fixtures/multichoice.xml" file to "Import" filemanager
@@ -50,7 +50,7 @@ Feature: Test importing questions from Moodle XML format.
     Then I should see "Greeting"
 
   @javascript @_file_upload
-  Scenario: import some multi-answer questions from Moodle XML format
+  Scenario: import some multi-answer questions from Lion XML format
     When I navigate to "Import" node in "Course administration > Question bank"
     And I set the field "id_format_xml" to "1"
     And I upload "question/format/xml/tests/fixtures/multianswer.xml" file to "Import" filemanager
@@ -62,7 +62,7 @@ Feature: Test importing questions from Moodle XML format.
     Then I should see "cloze with images"
 
   @javascript @_file_upload
-  Scenario: import some questions with legacy-style images from Moodle XML format
+  Scenario: import some questions with legacy-style images from Lion XML format
     When I navigate to "Import" node in "Course administration > Question bank"
     And I set the field "id_format_xml" to "1"
     And I upload "question/format/xml/tests/fixtures/sample_questions_with_old_image_tag.xml" file to "Import" filemanager

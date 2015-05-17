@@ -14,16 +14,16 @@ Y.extend(DRAGRESOURCE, M.core.dragdrop, {
         this.groups = ['resource'];
         this.samenodeclass = CSS.ACTIVITY;
         this.parentnodeclass = CSS.SECTION;
-        this.resourcedraghandle = this.get_drag_handle(M.util.get_string('movecoursemodule', 'moodle'),
+        this.resourcedraghandle = this.get_drag_handle(M.util.get_string('movecoursemodule', 'lion'),
                 CSS.EDITINGMOVE, CSS.ICONCLASS, true);
 
         this.samenodelabel = {
             identifier: 'afterresource',
-            component: 'moodle'
+            component: 'lion'
         };
         this.parentnodelabel = {
             identifier: 'totopofsection',
-            component: 'moodle'
+            component: 'lion'
         };
 
         // Go through all sections
@@ -139,11 +139,11 @@ Y.extend(DRAGRESOURCE, M.core.dragdrop, {
         params.courseId = this.get('courseid');
         params['class'] = 'resource';
         params.field = 'move';
-        params.id = Number(Y.Moodle.core_course.util.cm.getId(dragnode));
-        params.sectionId = Y.Moodle.core_course.util.section.getId(dropnode.ancestor(M.course.format.get_section_wrapper(Y), true));
+        params.id = Number(Y.Lion.core_course.util.cm.getId(dragnode));
+        params.sectionId = Y.Lion.core_course.util.section.getId(dropnode.ancestor(M.course.format.get_section_wrapper(Y), true));
 
         if (dragnode.next()) {
-            params.beforeId = Number(Y.Moodle.core_course.util.cm.getId(dragnode.next()));
+            params.beforeId = Number(Y.Lion.core_course.util.cm.getId(dragnode.next()));
         }
 
         // Do AJAX request

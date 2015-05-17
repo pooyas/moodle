@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_managefiles-button",
+    "name": "lion-atto_managefiles-button",
     "builds": {
-        "moodle-atto_managefiles-button": {
+        "lion-atto_managefiles-button": {
             "jsfiles": [
                 "button.js"
             ]

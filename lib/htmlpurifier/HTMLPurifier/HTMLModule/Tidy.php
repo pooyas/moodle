@@ -4,6 +4,9 @@
  * Abstract class for a set of proprietary modules that clean up (tidy)
  * poorly written HTML.
  * @todo Figure out how to protect some of these methods/properties
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Tidy extends HTMLPurifier_HTMLModule
 {

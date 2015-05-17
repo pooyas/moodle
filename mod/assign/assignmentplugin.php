@@ -1,36 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the functions for assign_plugin abstract class
  *
  *
- * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Abstract class for assign_plugin (submission/feedback).
  *
- * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class assign_plugin {
 
@@ -88,12 +72,12 @@ abstract class assign_plugin {
     }
 
     /**
-     * This function should be overridden to provide an array of elements that can be added to a moodle
+     * This function should be overridden to provide an array of elements that can be added to a lion
      * form for display in the settings page for the assignment.
-     * @param MoodleQuickForm $mform The form to add the elements to
+     * @param LionQuickForm $mform The form to add the elements to
      * @return $array
      */
-    public function get_settings(MoodleQuickForm $mform) {
+    public function get_settings(LionQuickForm $mform) {
         return;
     }
 
@@ -174,7 +158,7 @@ abstract class assign_plugin {
     }
 
     /**
-     * Get the required moodle version for this plugin
+     * Get the required lion version for this plugin
      *
      * @return string
      */
@@ -238,13 +222,13 @@ abstract class assign_plugin {
      *
      * @param mixed $submissionorgrade submission|grade - For submission plugins this is the submission data,
      *                                                    for feedback plugins it is the grade data
-     * @param MoodleQuickForm $mform - This is the form
+     * @param LionQuickForm $mform - This is the form
      * @param stdClass $data - This is the form data that can be modified for example by a filemanager element
      * @param int $userid - This is the userid for the current submission.
      *                      This is passed separately as there may not yet be a submission or grade.
      * @return boolean - true if we added anything to the form
      */
-    public function get_form_elements_for_user($submissionorgrade, MoodleQuickForm $mform, stdClass $data, $userid) {
+    public function get_form_elements_for_user($submissionorgrade, LionQuickForm $mform, stdClass $data, $userid) {
         return $this->get_form_elements($submissionorgrade, $mform, $data);
     }
 
@@ -254,11 +238,11 @@ abstract class assign_plugin {
      *
      * @param mixed $submissionorgrade submission|grade - For submission plugins this is the submission data,
      *                                                    for feedback plugins it is the grade data
-     * @param MoodleQuickForm $mform - This is the form
+     * @param LionQuickForm $mform - This is the form
      * @param stdClass $data - This is the form data that can be modified for example by a filemanager element
      * @return boolean - true if we added anything to the form
      */
-    public function get_form_elements($submissionorgrade, MoodleQuickForm $mform, stdClass $data) {
+    public function get_form_elements($submissionorgrade, LionQuickForm $mform, stdClass $data) {
         return false;
     }
 
@@ -466,7 +450,7 @@ abstract class assign_plugin {
     }
 
     /**
-     * Return true if this plugin can upgrade an old Moodle 2.2 assignment of this type
+     * Return true if this plugin can upgrade an old Lion 2.2 assignment of this type
      * and version.
      *
      * @param string $type The old assignment subtype

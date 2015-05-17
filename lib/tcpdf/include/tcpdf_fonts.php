@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_fonts.php
 // Version     : 1.0.013
@@ -34,16 +41,12 @@
 /**
  * @file
  * Unicode data and font methods for TCPDF library.
- * @author Nicola Asuni
- * @package com.tecnick.tcpdf
  */
 
 /**
  * @class TCPDF_FONTS
  * Font methods for TCPDF library.
- * @package com.tecnick.tcpdf
  * @version 1.0.013
- * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_FONTS {
 
@@ -65,8 +68,6 @@ class TCPDF_FONTS {
 	 * @param $addcbbox (boolean) If true includes the character bounding box information on the php font file.
 	 * @param $link (boolean) If true link to system font instead of copying the font data (not transportable) - Note: do not work with Type1 fonts.
 	 * @return (string) TCPDF font name or boolean false in case of error.
-	 * @author Nicola Asuni
-	 * @since 5.9.123 (2010-09-30)
 	 * @public static
 	 */
 	public static function addTTFfont($fontfile, $fonttype='', $enc='', $flags=32, $outpath='', $platid=3, $encid=1, $addcbbox=false, $link=false) {
@@ -915,8 +916,6 @@ class TCPDF_FONTS {
 	 * @param $table (string) table to check
 	 * @param $length (int) length of table in bytes
 	 * @return int checksum
-	 * @author Nicola Asuni
-	 * @since 5.2.000 (2010-06-02)
 	 * @public static
 	 */
 	public static function _getTTFtableChecksum($table, $length) {
@@ -937,8 +936,6 @@ class TCPDF_FONTS {
 	 * @param $font (string) TrueType font data.
 	 * @param $subsetchars (array) Array of used characters (the glyphs to keep).
 	 * @return (string) A subset of TrueType font data without the unused glyphs.
-	 * @author Nicola Asuni
-	 * @since 5.2.000 (2010-06-02)
 	 * @public static
 	 */
 	public static function _getTrueTypeFontSubset($font, $subsetchars) {
@@ -1382,8 +1379,6 @@ class TCPDF_FONTS {
 	 * @param $font (array) font data
 	 * @param $cidoffset (int) offset for CID values
 	 * @return PDF command string for font widths
-	 * @author Nicola Asuni
-	 * @since 4.4.000 (2008-12-07)
 	 * @public static
 	 */
 	public static function _putfontwidths($font, $cidoffset=0) {
@@ -1487,7 +1482,6 @@ class TCPDF_FONTS {
 	 * @param $c (int) UTF-8 value
 	 * @param $unicode (boolean) True if we are in unicode mode, false otherwise.
 	 * @return Returns the specified character.
-	 * @since 2.3.000 (2008-03-05)
 	 * @public static
 	 */
 	public static function unichr($c, $unicode=true) {
@@ -1564,8 +1558,6 @@ class TCPDF_FONTS {
 	 * @param $setbom (boolean) if true set the Byte Order Mark (BOM = 0xFEFF)
 	 * @return string
 	 * @protected
-	 * @author Nicola Asuni
-	 * @since 2.1.000 (2008-01-08)
 	 * @public static
 	 */
 	public static function arrUTF8ToUTF16BE($unicode, $setbom=false) {
@@ -1599,7 +1591,6 @@ class TCPDF_FONTS {
 	 * @param $ta (array) The input array of UTF8 values.
 	 * @param $isunicode (boolean) True for Unicode mode, false otherwise.
 	 * @return Return array of unicode characters
-	 * @since 4.5.037 (2009-04-07)
 	 * @public static
 	 */
 	public static function UTF8ArrayToUniArray($ta, $isunicode=true) {
@@ -1638,7 +1629,6 @@ class TCPDF_FONTS {
 	 * @param $start (int) the starting element of $strarr.
 	 * @param $end (int) first element that will not be returned.
 	 * @return Return part of a string
-	 * @since 4.5.037 (2009-04-07)
 	 * @public static
 	 */
 	public static function UniArrSubString($uniarr, $start='', $end='') {
@@ -1661,8 +1651,6 @@ class TCPDF_FONTS {
 	 * @param $cid (int) CID value.
 	 * @param $gid (int) GID value.
 	 * @return (string) CIDToGIDMap.
-	 * @author Nicola Asuni
-	 * @since 5.9.123 (2011-09-29)
 	 * @public static
 	 */
 	public static function updateCIDtoGIDmap($map, $cid, $gid) {
@@ -1696,8 +1684,6 @@ class TCPDF_FONTS {
 	 * @param $file (string) Font file name.
 	 * @param $fontdir (string) Font directory (set to false fto search on default directories)
 	 * @return string Font full path or empty string
-	 * @author Nicola Asuni
-	 * @since 6.0.025
 	 * @public static
 	 */
 	public static function getFontFullPath($file, $fontdir=false) {
@@ -1717,8 +1703,6 @@ class TCPDF_FONTS {
 	 * Converts UTF-8 characters array to array of Latin1 characters array<br>
 	 * @param $unicode (array) array containing UTF-8 unicode values
 	 * @return array
-	 * @author Nicola Asuni
-	 * @since 4.8.023 (2010-01-15)
 	 * @public static
 	 */
 	public static function UTF8ArrToLatin1Arr($unicode) {
@@ -1742,8 +1726,6 @@ class TCPDF_FONTS {
 	 * Converts UTF-8 characters array to array of Latin1 string<br>
 	 * @param $unicode (array) array containing UTF-8 unicode values
 	 * @return array
-	 * @author Nicola Asuni
-	 * @since 4.8.023 (2010-01-15)
 	 * @public static
 	 */
 	public static function UTF8ArrToLatin1($unicode) {
@@ -1807,7 +1789,6 @@ class TCPDF_FONTS {
 	 * </pre>
 	 * @param $uch (string) character string to process.
 	 * @return integer Unicode value
-	 * @author Nicola Asuni
 	 * @public static
 	 */
 	public static function getUniord($uch) {
@@ -1876,7 +1857,6 @@ class TCPDF_FONTS {
 	 * @param $isunicode (boolean) True when the documetn is in Unicode mode, false otherwise.
 	 * @param $currentfont (array) Reference to current font array.
 	 * @return array containing codepoints (UTF-8 characters values)
-	 * @author Nicola Asuni
 	 * @public static
 	 */
 	public static function UTF8StringToArray($str, $isunicode=true, &$currentfont) {
@@ -1898,7 +1878,6 @@ class TCPDF_FONTS {
 	 * @param $isunicode (boolean) True when the documetn is in Unicode mode, false otherwise.
 	 * @param $currentfont (array) Reference to current font array.
 	 * @return string
-	 * @since 3.2.000 (2008-06-23)
 	 * @public static
 	 */
 	public static function UTF8ToLatin1($str, $isunicode=true, &$currentfont) {
@@ -1913,8 +1892,6 @@ class TCPDF_FONTS {
 	 * @param $isunicode (boolean) True when the documetn is in Unicode mode, false otherwise.
 	 * @param $currentfont (array) Reference to current font array.
 	 * @return string
-	 * @author Nicola Asuni
-	 * @since 1.53.0.TC005 (2005-01-05)
 	 * @public static
 	 */
 	public static function UTF8ToUTF16BE($str, $setbom=false, $isunicode=true, &$currentfont) {
@@ -1933,8 +1910,6 @@ class TCPDF_FONTS {
 	 * @param $isunicode (boolean) True if the document is in Unicode mode, false otherwise.
 	 * @param $currentfont (array) Reference to current font array.
 	 * @return string
-	 * @author Nicola Asuni
-	 * @since 2.1.000 (2008-01-08)
 	 * @public static
 	 */
 	public static function utf8StrRev($str, $setbom=false, $forcertl=false, $isunicode=true, &$currentfont) {
@@ -1950,8 +1925,6 @@ class TCPDF_FONTS {
 	 * @param $isunicode (boolean) True if the document is in Unicode mode, false otherwise.
 	 * @param $currentfont (array) Reference to current font array.
 	 * @return string
-	 * @author Nicola Asuni
-	 * @since 4.9.000 (2010-03-27)
 	 * @public static
 	 */
 	public static function utf8StrArrRev($arr, $str='', $setbom=false, $forcertl=false, $isunicode=true, &$currentfont) {
@@ -1966,8 +1939,6 @@ class TCPDF_FONTS {
 	 * @param $isunicode (boolean) True if the document is in Unicode mode, false otherwise.
 	 * @param $currentfont (array) Reference to current font array.
 	 * @return array of unicode chars
-	 * @author Nicola Asuni
-	 * @since 2.4.000 (2008-03-06)
 	 * @public static
 	 */
 	public static function utf8Bidi($ta, $str='', $forcertl=false, $isunicode=true, &$currentfont) {

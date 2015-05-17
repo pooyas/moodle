@@ -8,9 +8,9 @@
  * 
  * Thanks, guys!
  *
- * @package   moodlecore
- * @copyright Markus Baker, Harry Fuecks and Matt Mitchell
- * @license   Public Domain {@link http://sourceforge.net/projects/lamplib}
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
     /** LEXER_ENTER = 1 */
@@ -28,9 +28,6 @@
      * Compounded regular expression. Any of
      * the contained patterns could match and
      * when one does it's label is returned.
-     * @package   moodlecore
-     * @copyright Markus Baker, Harry Fuecks and Matt Mitchell
-     * @license   Public Domain {@link http://sourceforge.net/projects/lamplib}
      */
     class ParallelRegex {
         var $_patterns;
@@ -125,9 +122,6 @@
     /**
      * States for a stack machine.
      *
-     * @package   moodlecore
-     * @copyright Markus Baker, Harry Fuecks and Matt Mitchell
-     * @license   Public Domain {@link http://sourceforge.net/projects/lamplib}
      */
     class StateStack {
         var $_stack;
@@ -183,9 +177,6 @@
      * parser once. Lexer modes must not start
      * with leading underscores.
      *
-     * @package   moodlecore
-     * @copyright Markus Baker, Harry Fuecks and Matt Mitchell
-     * @license   Public Domain {@link http://sourceforge.net/projects/lamplib}
      */
     class Lexer {
         var $_regexes;

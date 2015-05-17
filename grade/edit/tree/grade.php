@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Edit a user's grade for a particular activity
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../../../config.php';
@@ -32,7 +19,7 @@ $id       = optional_param('id', 0, PARAM_INT);
 $itemid   = optional_param('itemid', 0, PARAM_INT);
 $userid   = optional_param('userid', 0, PARAM_INT);
 
-$url = new moodle_url('/grade/edit/tree/grade.php', array('courseid'=>$courseid));
+$url = new lion_url('/grade/edit/tree/grade.php', array('courseid'=>$courseid));
 if ($id !== 0) {
     $url->param('id', $id);
 }
@@ -51,8 +38,8 @@ if (!$course = $DB->get_record('course', array('id' => $courseid))) {
 $PAGE->set_pagelayout('incourse');
 require_login($course);
 $context = context_course::instance($course->id);
-if (!has_capability('moodle/grade:manage', $context)) {
-    require_capability('moodle/grade:edit', $context);
+if (!has_capability('lion/grade:manage', $context)) {
+    require_capability('lion/grade:edit', $context);
 }
 
 // default return url
@@ -86,7 +73,7 @@ if (!$grade_item = grade_item::fetch(array('id'=>$itemid, 'courseid'=>$courseid)
 }
 
 // now verify grading user has access to all groups or is member of the same group when separate groups used in course
-if (groups_get_course_groupmode($COURSE) == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+if (groups_get_course_groupmode($COURSE) == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
     if ($groups = groups_get_all_groups($COURSE->id, $userid)) {
         $ok = false;
         foreach ($groups as $group) {
@@ -204,7 +191,7 @@ if ($mform->is_cancelled()) {
     $grade_grade = new grade_grade(array('userid'=>$data->userid, 'itemid'=>$grade_item->id), true);
     $grade_grade->grade_item =& $grade_item; // no db fetching
 
-    if (has_capability('moodle/grade:manage', $context) or has_capability('moodle/grade:edit', $context)) {
+    if (has_capability('lion/grade:manage', $context) or has_capability('lion/grade:edit', $context)) {
         // change overridden flag
         if (!isset($data->overridden)) {
             $data->overridden = 0; // checkbox unticked
@@ -212,7 +199,7 @@ if ($mform->is_cancelled()) {
         $grade_grade->set_overridden($data->overridden);
     }
 
-    if (has_capability('moodle/grade:manage', $context) or has_capability('moodle/grade:hide', $context)) {
+    if (has_capability('lion/grade:manage', $context) or has_capability('lion/grade:hide', $context)) {
         $hidden      = empty($data->hidden) ? 0: $data->hidden;
         $hiddenuntil = empty($data->hiddenuntil) ? 0: $data->hiddenuntil;
 
@@ -233,11 +220,11 @@ if ($mform->is_cancelled()) {
 
     if (isset($data->locked) and !$grade_item->is_locked()) {
         if (($old_grade_grade->locked or $old_grade_grade->locktime)
-          and (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:unlock', $context))) {
+          and (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:unlock', $context))) {
             //ignore data
 
         } else if ((!$old_grade_grade->locked and !$old_grade_grade->locktime)
-          and (!has_capability('moodle/grade:manage', $context) and !has_capability('moodle/grade:lock', $context))) {
+          and (!has_capability('lion/grade:manage', $context) and !has_capability('lion/grade:lock', $context))) {
             //ignore data
 
         } else {
@@ -249,7 +236,7 @@ if ($mform->is_cancelled()) {
         }
     }
 
-    if (isset($data->excluded) and has_capability('moodle/grade:manage', $context)) {
+    if (isset($data->excluded) and has_capability('lion/grade:manage', $context)) {
         $grade_grade->set_excluded($data->excluded);
     }
 

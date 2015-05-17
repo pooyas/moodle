@@ -34,7 +34,7 @@
     min-height: 50px;
 }
 
-.moodle-dialogue-base .moodle-dialogue.assignfeedback_editpdf_widget .moodle-dialogue-bd {
+.lion-dialogue-base .lion-dialogue.assignfeedback_editpdf_widget .lion-dialogue-bd {
     padding: 0px;
 }
 
@@ -181,7 +181,7 @@
 .assignfeedback_editpdf_dropdown li:first-child button {
     border-top: 0px;
 }
-.moodle-dialogue-base .moodle-dialogue.assignfeedback_editpdf_dropdown .moodle-dialogue-wrap {
+.lion-dialogue-base .lion-dialogue.assignfeedback_editpdf_dropdown .lion-dialogue-wrap {
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -190,11 +190,11 @@
     margin-top: 0px;
     border-radius: 4px;
 }
-.moodle-dialogue-base .moodle-dialogue.assignfeedback_editpdf_dropdown .moodle-dialogue-bd {
+.lion-dialogue-base .lion-dialogue.assignfeedback_editpdf_dropdown .lion-dialogue-bd {
     padding: 0px;
 }
-.assignfeedback_editpdf_dropdown .moodle-dialogue-hd,
-.assignfeedback_editpdf_dropdown .moodle-dialogue-ft {
+.assignfeedback_editpdf_dropdown .lion-dialogue-hd,
+.assignfeedback_editpdf_dropdown .lion-dialogue-ft {
     display: none;
 }
 .assignfeedback_editpdf_menu li hr {

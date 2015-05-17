@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /// This file allows to manage the default behaviour of the display formats
 
 require_once("../../config.php");
@@ -9,7 +16,7 @@ require_once("lib.php");
 $id   = required_param('id', PARAM_INT);
 $mode = optional_param('mode', '', PARAM_ALPHANUMEXT);
 
-$url = new moodle_url('/mod/glossary/formats.php', array('id'=>$id));
+$url = new lion_url('/mod/glossary/formats.php', array('id'=>$id));
 if ($mode !== '') {
     $url->param('mode', $mode);
 }
@@ -72,6 +79,13 @@ echo '<table width="90%" align="center" class="generalbox">';
     <td align="right" width="20%"><?php echo html_writer::label(get_string('popupformat','glossary'), 'menupopupformatname'); ?></td>
     <td>
  <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     //get and update available formats
     $recformats = glossary_get_available_formats();
 
@@ -96,6 +110,13 @@ echo '<table width="90%" align="center" class="generalbox">';
     <td>
     <select size="1" id="defaultmode" name="defaultmode">
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     $sletter = '';
     $scat = '';
     $sauthor = '';
@@ -133,6 +154,13 @@ echo '<table width="90%" align="center" class="generalbox">';
     <td>
     <select size="1" id="defaulthook" name="defaulthook">
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     $sall = '';
     $sspecial = '';
     $sallcategories = '';
@@ -170,6 +198,13 @@ echo '<table width="90%" align="center" class="generalbox">';
     <td>
     <select size="1" id="sortkey" name="sortkey">
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     $sfname = '';
     $slname = '';
     $supdate = '';
@@ -207,6 +242,13 @@ echo '<table width="90%" align="center" class="generalbox">';
     <td>
     <select size="1" id="sortorder" name="sortorder">
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     $sasc = '';
     $sdesc = '';
     switch ( strtolower($displayformat->sortorder) ) {
@@ -232,6 +274,13 @@ echo '<table width="90%" align="center" class="generalbox">';
     <td>
     <select size="1" id="showgroup" name="showgroup">
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     $yselected = "";
     $nselected = "";
     if ($displayformat->showgroup) {
@@ -256,6 +305,13 @@ echo '<table width="90%" align="center" class="generalbox">';
 <input type="hidden" name="sesskey" value="<?php echo sesskey() ?>" />
 <input type="hidden" name="mode"    value="edit" />
 <?php
+
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
 
 echo '</table></form>';
 

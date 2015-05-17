@@ -7,6 +7,9 @@
  * @warning For the sake of backwards compatibility with early versions
  *     of PHP 5, you must not use the $hash[$key] syntax; if you do
  *     our version of offsetGet is never called.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_StringHash extends ArrayObject
 {

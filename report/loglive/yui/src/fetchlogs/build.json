@@ -1,7 +1,7 @@
 {
-    "name": "moodle-report_loglive-fetchlogs",
+    "name": "lion-report_loglive-fetchlogs",
     "builds": {
-        "moodle-report_loglive-fetchlogs": {
+        "lion-report_loglive-fetchlogs": {
             "jsfiles": [
                 "fetchlogs.js"
             ]

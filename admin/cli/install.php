@@ -1,6 +1,7 @@
 <?php
 
 
+
 /**
  * This script creates config.php file and prepares database.
  *
@@ -8,25 +9,15 @@
  * Potential problems:
  * - su to apache account or sudo before execution
  * - not compatible with Windows platform
- * 
- * Notes:
- * Contains the main install procedure
- * modified to ignore the language download and stability check
- * the important function is install_cli_database at the end which
- * resides in /lib/installlib.php which initialize the table and populate
- * the data inside
  *
- * @package    core
+ * @package    admin
  * @subpackage cli
  * @copyright  2015 Pooya Saeedi
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 define('CLI_SCRIPT', true);
 
 // extra execution prevention - we can not just require config.php here
-// Note:
-// Should be locally installed (I guess!)
 if (isset($_SERVER['REMOTE_ADDR'])) {
     exit(1);
 }
@@ -37,9 +28,6 @@ if (function_exists('opcache_reset')) {
     opcache_reset();
 }
 
-// Note:
-// Help file for installation format
-// @todo: should look in to local/defaults.php to see how it works
 $help =
 "Command line Lion installer, creates config.php and initializes database.
 Please note you must execute this script with the same uid as apache
@@ -54,7 +42,7 @@ Options:
 --lang=CODE           Installation and default site language.
 --wwwroot=URL         Web address for the Lion site,
                       required in non-interactive mode.
---dataroot=DIR        Location of the Lion data folder,
+--dataroot=DIR        Location of the lion data folder,
                       must not be web accessible. Default is liondata
                       in the parent directory.
 --dbtype=TYPE         Database type. Default is mysqli
@@ -64,13 +52,13 @@ Options:
 --dbpass=PASSWORD     Database password. Default is blank
 --dbport=NUMBER       Use database port.
 --dbsocket=PATH       Use database socket, 1 means default. Available for some databases only.
---prefix=STRING       Table prefix for above database tables. Default is lio_
+--prefix=STRING       Table prefix for above database tables. Default is mdl_
 --fullname=STRING     The fullname of the site
 --shortname=STRING    The shortname of the site
---adminuser=USERNAME  Username for the Lion admin account. Default is admin
---adminpass=PASSWORD  Password for the Lion admin account,
+--adminuser=USERNAME  Username for the lion admin account. Default is admin
+--adminpass=PASSWORD  Password for the lion admin account,
                       required in non-interactive mode.
---adminemail=STRING   Email address for the Lion admin account.
+--adminemail=STRING   Email address for the lion admin account.
 --non-interactive     No interactive questions, installation fails if any
                       problem encountered.
 --agree-license       Indicates agreement with software license,
@@ -80,11 +68,11 @@ Options:
 -h, --help            Print out this help
 
 Example:
-\$sudo -u www-data /usr/bin/php admin/cli/install.php --lang=fa";
+\$sudo -u www-data /usr/bin/php admin/cli/install.php --lang=cs
+"; //TODO: localize, mark as needed in install - to be translated later when everything is finished
 
 
 // distro specific customisation
-// @todo: should look into how the install/distrolib.php works may be needed for distribution
 $distrolibfile = dirname(dirname(dirname(__FILE__))).'/install/distrolib.php';
 $distro = null;
 if (file_exists($distrolibfile)) {
@@ -119,21 +107,19 @@ $olddir = getcwd();
 chdir(dirname($_SERVER['argv'][0]));
 
 // Servers should define a default timezone in php.ini, but if they don't then make sure something is defined.
-
+// This is a quick hack.  Ideally we should ask the admin for a value.  See MDL-22625 for more on this.
 if (function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get')) {
     @date_default_timezone_set(@date_default_timezone_get());
 }
 
 // make sure PHP errors are displayed - helps with diagnosing of problems
-// Note:
-// Can tweak this for error displays
 @error_reporting(E_ALL);
 @ini_set('display_errors', '1');
 // we need a lot of memory
 @ini_set('memory_limit', '128M');
 
 /** Used by library scripts to check they are being called by Lion */
-define('MOODLE_INTERNAL', true);
+define('LION_INTERNAL', true);
 
 // Disables all caching.
 define('CACHE_DISABLE_ALL', true);
@@ -146,13 +132,12 @@ define('IGNORE_COMPONENT_CACHE', true);
 if (version_compare(phpversion(), "5.4.4") < 0) {
     $phpversion = phpversion();
     // do NOT localise - lang strings would not work here and we CAN NOT move it after installib
-    fwrite(STDERR, "Lion requires at least PHP 5.4.4 (currently using version $phpversion).\n");
+    fwrite(STDERR, "Lion 2.7 or later requires at least PHP 5.4.4 (currently using version $phpversion).\n");
+    fwrite(STDERR, "Please upgrade your server software or install older Lion version.\n");
     exit(1);
 }
 
 // set up configuration
-// Note:
-// Can push some defaults here
 global $CFG;
 $CFG = new stdClass();
 $CFG->lang                 = 'en';
@@ -160,7 +145,7 @@ $CFG->dirroot              = dirname(dirname(dirname(__FILE__)));
 $CFG->libdir               = "$CFG->dirroot/lib";
 $CFG->wwwroot              = "http://localhost";
 $CFG->httpswwwroot         = $CFG->wwwroot;
-$CFG->docroot              = 'localhost';
+$CFG->docroot              = 'http://docs.lion.org';
 $CFG->running_installer    = true;
 $CFG->early_install_lang   = true;
 $CFG->ostype               = (stristr(PHP_OS, 'win') && !stristr(PHP_OS, 'darwin')) ? 'WINDOWS' : 'UNIX';
@@ -172,7 +157,7 @@ $CFG->debugdeveloper       = true;
 $parts = explode('/', str_replace('\\', '/', dirname(dirname(__FILE__))));
 $CFG->admin                = array_pop($parts);
 
-//point pear include path to lib/pear so that includes and requires will search there for files before anywhere else
+//point pear include path to lions lib/pear so that includes and requires will search there for files before anywhere else
 //the problem is that we need specific version of quickforms and hacked excel files :-(
 ini_set('include_path', $CFG->libdir.'/pear' . PATH_SEPARATOR . ini_get('include_path'));
 
@@ -186,7 +171,7 @@ require_once($CFG->libdir.'/clilib.php');
 require_once($CFG->libdir.'/setuplib.php');
 require_once($CFG->libdir.'/weblib.php');
 require_once($CFG->libdir.'/dmllib.php');
-require_once($CFG->libdir.'/moodlelib.php');
+require_once($CFG->libdir.'/lionlib.php');
 require_once($CFG->libdir.'/deprecatedlib.php');
 require_once($CFG->libdir.'/adminlib.php');
 require_once($CFG->libdir.'/componentlib.class.php');
@@ -194,15 +179,12 @@ require_once($CFG->dirroot.'/cache/lib.php');
 
 // Register our classloader, in theory somebody might want to replace it to load other hacked core classes.
 // Required because the database checks below lead to session interaction which is going to lead us to requiring autoloaded classes.
-// @todo: dig into classloader to see what it does
 if (defined('COMPONENT_CLASSLOADER')) {
     spl_autoload_register(COMPONENT_CLASSLOADER);
 } else {
     spl_autoload_register('core_component::classloader');
 }
 
-//Note:
-//Should look into version.php
 require($CFG->dirroot.'/version.php');
 $CFG->target_release = $release;
 
@@ -219,12 +201,12 @@ $SITE = $COURSE;
 define('SITEID', 1);
 
 //Database types
-$databases = array('mysqli' => moodle_database::get_driver_instance('mysqli', 'native'),
-                   'mariadb'=> moodle_database::get_driver_instance('mariadb', 'native'),
-                   'pgsql'  => moodle_database::get_driver_instance('pgsql',  'native'),
-                   'oci'    => moodle_database::get_driver_instance('oci',    'native'),
-                   'sqlsrv' => moodle_database::get_driver_instance('sqlsrv', 'native'), // MS SQL*Server PHP driver
-                   'mssql'  => moodle_database::get_driver_instance('mssql',  'native'), // FreeTDS driver
+$databases = array('mysqli' => lion_database::get_driver_instance('mysqli', 'native'),
+                   'mariadb'=> lion_database::get_driver_instance('mariadb', 'native'),
+                   'pgsql'  => lion_database::get_driver_instance('pgsql',  'native'),
+                   'oci'    => lion_database::get_driver_instance('oci',    'native'),
+                   'sqlsrv' => lion_database::get_driver_instance('sqlsrv', 'native'), // MS SQL*Server PHP driver
+                   'mssql'  => lion_database::get_driver_instance('mssql',  'native'), // FreeTDS driver
                   );
 foreach ($databases as $type=>$database) {
     if ($database->driver_installed() !== true) {
@@ -239,8 +221,6 @@ if (empty($databases)) {
 }
 
 // now get cli options
-// Note:
-// geting client parametrs and also giving default value to it
 list($options, $unrecognized) = cli_get_params(
     array(
         'chmod'             => isset($distro->directorypermissions) ? sprintf('%04o',$distro->directorypermissions) : '2777', // let distros set dir permissions
@@ -250,11 +230,11 @@ list($options, $unrecognized) = cli_get_params(
         'dbtype'            => empty($distro->dbtype) ? $defaultdb : $distro->dbtype, // let distro skip dbtype selection
         'dbhost'            => empty($distro->dbhost) ? 'localhost' : $distro->dbhost, // let distros set dbhost
         'dbname'            => 'lion',
-        'dbuser'            => empty($distro->dbuser) ? 'lionuser' : $distro->dbuser, // let distros set dbuser
+        'dbuser'            => empty($distro->dbuser) ? 'root' : $distro->dbuser, // let distros set dbuser
         'dbpass'            => '',
         'dbport'            => '',
         'dbsocket'          => '',
-        'prefix'            => 'lio_',
+        'prefix'            => 'mdl_',
         'fullname'          => '',
         'shortname'         => '',
         'adminuser'         => 'admin',
@@ -273,8 +253,6 @@ list($options, $unrecognized) = cli_get_params(
 $interactive = empty($options['non-interactive']);
 
 // set up language
-// Note:
-// It checks the /install/lang location for available languages
 $lang = clean_param($options['lang'], PARAM_SAFEDIR);
 if (file_exists($CFG->dirroot.'/install/lang/'.$lang)) {
     $CFG->lang = $lang;
@@ -294,13 +272,8 @@ if ($options['help']) {
 echo get_string('cliinstallheader', 'install', $CFG->target_release)."\n";
 
 //Fist select language
-//Note:
-//Let's assume the interactive never happens thanks to my shell install script
-//@todo: commenting interactive section
 if ($interactive) {
     cli_separator();
-    // Note:
-    // This is the list of languages in install/lang
     $languages = get_string_manager()->get_list_of_translations();
     // Do not put the langs into columns because it is not compatible with RTL.
     $langlist = implode("\n", $languages);
@@ -327,9 +300,6 @@ if ($interactive) {
 
 // Set directorypermissions first
 $chmod = octdec(clean_param($options['chmod'], PARAM_INT));
-
-// Note:
-// Another interactive part to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('datarootpermission', 'install'));
@@ -360,9 +330,6 @@ $CFG->umaskpermissions     = (($CFG->directorypermissions & 0777) ^ 0777);
 //We need wwwroot before we test dataroot
 $wwwroot = clean_param($options['wwwroot'], PARAM_URL);
 $wwwroot = trim($wwwroot, '/');
-
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('wwwroot', 'install'));
@@ -396,11 +363,8 @@ $CFG->wwwroot       = $wwwroot;
 $CFG->httpswwwroot  = $CFG->wwwroot;
 
 
-//We need dataroot
+//We need dataroot before lang download
 $CFG->dataroot = $options['dataroot'];
-
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     $i=0;
@@ -440,14 +404,9 @@ if ($interactive) {
     } while ($error !== '');
 
 } else {
-	// Note:
-	// Nice function to test that the dataroot is not accessible from web
     if (is_dataroot_insecure()) {
         cli_error(get_string('pathsunsecuredataroot', 'install'));
     }
-    // Note:
-    // Installs dataroot and lang folder
-    // @todo: maybe it is possible to simply the install script
     if (!install_init_dataroot($CFG->dataroot, $CFG->directorypermissions)) {
         $a = (object)array('dataroot' => $CFG->dataroot);
         cli_error(get_string('pathserrcreatedataroot', 'install', $a));
@@ -461,18 +420,18 @@ $CFG->localcachedir = $CFG->dataroot.'/localcache';
 // COMMENTOUT (Pooya)
 // We deploy language pack with the package
 // Currently we only deploy fa
-//if ($CFG->lang !== 'en') {
-//    $installer = new lang_installer($CFG->lang);
-//    $results = $installer->run();
-//    foreach ($results as $langcode => $langstatus) {
-//        if ($langstatus === lang_installer::RESULT_DOWNLOADERROR) {
-//            $a       = new stdClass();
-//            $a->url  = $installer->lang_pack_url($langcode);
-//            $a->dest = $CFG->dataroot.'/lang';
-//            cli_problem(get_string('remotedownloaderror', 'error', $a));
-//        }
-//    }
-//}
+// if ($CFG->lang !== 'en') {
+//     $installer = new lang_installer($CFG->lang);
+//     $results = $installer->run();
+//     foreach ($results as $langcode => $langstatus) {
+//         if ($langstatus === lang_installer::RESULT_DOWNLOADERROR) {
+//             $a       = new stdClass();
+//             $a->url  = $installer->lang_pack_url($langcode);
+//             $a->dest = $CFG->dataroot.'/lang';
+//             cli_problem(get_string('remotedownloaderror', 'error', $a));
+//         }
+//     }
+// }
 
 // switch the string_manager instance to stop using install/lang/
 $CFG->early_install_lang = false;
@@ -483,7 +442,7 @@ get_string_manager(true);
 // make sure we are installing stable release or require a confirmation
 // COMMENTOUT (Pooya)
 // Not necessary
-//if (isset($maturity)) {
+// if (isset($maturity)) {
 //     if (($maturity < MATURITY_STABLE) and !$options['allow-unstable']) {
 //         $maturitylevel = get_string('maturity'.$maturity, 'admin');
 
@@ -506,8 +465,6 @@ get_string_manager(true);
 // }
 
 // ask for db type - show only drivers available
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     $options['dbtype'] = strtolower($options['dbtype']);
     cli_separator();
@@ -533,8 +490,6 @@ $database = $databases[$CFG->dbtype];
 
 
 // ask for db host
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databasehost', 'install'));
@@ -550,8 +505,6 @@ if ($interactive) {
 }
 
 // ask for db name
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databasename', 'install'));
@@ -567,8 +520,6 @@ if ($interactive) {
 }
 
 // ask for db prefix
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('dbprefix', 'install'));
@@ -585,8 +536,6 @@ if ($interactive) {
 }
 
 // ask for db port
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databaseport', 'install'));
@@ -601,8 +550,6 @@ if ($CFG->dboptions['dbport'] <= 0) {
 }
 
 // ask for db socket
-// Note:
-// another interactive section to ignore
 if ($CFG->ostype === 'WINDOWS') {
     $CFG->dboptions['dbsocket'] = '';
 
@@ -617,8 +564,6 @@ if ($CFG->ostype === 'WINDOWS') {
 }
 
 // ask for db user
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databaseuser', 'install'));
@@ -634,8 +579,6 @@ if ($interactive) {
 }
 
 // ask for db password
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('databasepass', 'install'));
@@ -662,11 +605,9 @@ if ($interactive) {
 }
 
 // ask for fullname
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
-    cli_heading(get_string('fullsitename', 'moodle'));
+    cli_heading(get_string('fullsitename', 'lion'));
 
     if ($options['fullname'] !== '') {
         $prompt = get_string('clitypevaluedefault', 'admin', $options['fullname']);
@@ -685,11 +626,9 @@ if ($interactive) {
 }
 
 // ask for shortname
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
-    cli_heading(get_string('shortsitename', 'moodle'));
+    cli_heading(get_string('shortsitename', 'lion'));
 
     if ($options['shortname'] !== '') {
         $prompt = get_string('clitypevaluedefault', 'admin', $options['shortname']);
@@ -708,8 +647,6 @@ if ($interactive) {
 }
 
 // ask for admin user name
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('cliadminusername', 'install'));
@@ -729,8 +666,6 @@ if ($interactive) {
 }
 
 // ask for admin user password
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('cliadminpassword', 'install'));
@@ -746,8 +681,6 @@ if ($interactive) {
 }
 
 // Ask for the admin email address.
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     cli_separator();
     cli_heading(get_string('cliadminemail', 'install'));
@@ -761,15 +694,16 @@ if (!empty($options['adminemail']) && !validate_email($options['adminemail'])) {
     cli_error(get_string('cliincorrectvalueerror', 'admin', $a));
 }
 
-// Licence agreement 
-// Note:
-// another interactive section to ignore
 if ($interactive) {
     if (!$options['agree-license']) {
         cli_separator();
         cli_heading(get_string('copyrightnotice'));
-        echo "Moodle  - Modular Object-Oriented Dynamic Learning Environment\n";
-        echo get_string('gpl3')."\n\n";
+        /// CODECHANGE (Pooya)
+        /// Changing to Lion
+        echo "Lion  - Learning Is ONline\n";
+        /// COMMENTOUT (Pooya)
+        /// No license for show
+//         echo get_string('gpl3')."\n\n";
         echo get_string('doyouagree')."\n";
         $prompt = get_string('cliyesnoprompt', 'admin');
         $input = cli_input($prompt, '', array(get_string('clianswerno', 'admin'), get_string('cliansweryes', 'admin')));
@@ -809,11 +743,8 @@ $SESSION->lang = $CFG->lang;
 require("$CFG->dirroot/version.php");
 
 // Test environment first.
-// Note
-// The main file that is used for enviroment checking is admin/environment.xml
-// @todo: tweak admin/environment.xml
 require_once($CFG->libdir . '/environmentlib.php');
-list($envstatus, $environment_results) = check_moodle_environment(normalize_version($release), ENV_SELECT_RELEASE);
+list($envstatus, $environment_results) = check_lion_environment(normalize_version($release), ENV_SELECT_RELEASE);
 if (!$envstatus) {
     $errors = environment_get_errors($environment_results);
     cli_heading(get_string('environment', 'admin'));
@@ -825,16 +756,12 @@ if (!$envstatus) {
 }
 
 // Test plugin dependencies.
-// Note:
-// all_plugins_ok checks the dependecy for plugins for Lion version and other components
 $failed = array();
 if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
     cli_problem(get_string('pluginscheckfailed', 'admin', array('pluginslist' => implode(', ', array_unique($failed)))));
     cli_error(get_string('pluginschecktodo', 'admin'));
 }
 
-// Note:
-// This is the main install function
 install_cli_database($options, $interactive);
 
 echo get_string('cliinstallfinished', 'install')."\n";

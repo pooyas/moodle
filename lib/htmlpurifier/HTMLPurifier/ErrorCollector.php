@@ -3,6 +3,9 @@
 /**
  * Error collection class that enables HTML Purifier to report HTML
  * problems back to the user
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ErrorCollector
 {

@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * AMF web service implementation classes and methods.
  *
- * @package    webservice_amf
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    webservice
+ * @subpackage amf
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("$CFG->dirroot/webservice/lib.php");
@@ -32,11 +19,8 @@ require_once 'Zend/Amf/Server.php';
  *
  * Used when an externallib function does not return values of the expected structure.
  *
- * @package    webservice_amf
- * @copyright  2010 Jamie Pratt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class invalid_return_value_exception extends moodle_exception {
+class invalid_return_value_exception extends lion_exception {
 
     /**
      * Constructor
@@ -51,9 +35,6 @@ class invalid_return_value_exception extends moodle_exception {
 /**
  * AMF service server implementation.
  *
- * @package    webservice_amf
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class webservice_amf_server extends webservice_zend_server {
 
@@ -63,7 +44,7 @@ class webservice_amf_server extends webservice_zend_server {
      * @param integer $authmethod authentication method - one of WEBSERVICE_AUTHMETHOD_*
      */
     public function __construct($authmethod) {
-        parent::__construct($authmethod, 'Moodle_Amf_Server');
+        parent::__construct($authmethod, 'Lion_Amf_Server');
         $this->wsname = 'amf';
     }
 
@@ -182,11 +163,8 @@ class webservice_amf_server extends webservice_zend_server {
 /**
  * Zend Amf server with a different fault management
  *
- * @package    webservice_amf
- * @copyright  2010 Jamie Pratt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class Moodle_Amf_Server extends Zend_Amf_Server{
+class Lion_Amf_Server extends Zend_Amf_Server{
 
     /**
      * Raise a server fault

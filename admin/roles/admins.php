@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Select site administrators.
  *
- * @package    core_role
- * @copyright  2010 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage roles
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(__DIR__ . '/../../config.php');
@@ -46,7 +33,7 @@ if (optional_param('add', false, PARAM_BOOL) and confirm_sesskey()) {
         $user = reset($userstoadd);
         $username = fullname($user) . " ($user->username, $user->email)";
         echo $OUTPUT->header();
-        $yesurl = new moodle_url('/admin/roles/admins.php', array('confirmadd'=>$user->id, 'sesskey'=>sesskey()));
+        $yesurl = new lion_url('/admin/roles/admins.php', array('confirmadd'=>$user->id, 'sesskey'=>sesskey()));
         echo $OUTPUT->confirm(get_string('confirmaddadmin', 'core_role', $username), $yesurl, $PAGE->url);
         echo $OUTPUT->footer();
         die;
@@ -60,7 +47,7 @@ if (optional_param('add', false, PARAM_BOOL) and confirm_sesskey()) {
         } else {
             $username = fullname($user) . " ($user->username, $user->email)";
             echo $OUTPUT->header();
-            $yesurl = new moodle_url('/admin/roles/admins.php', array('confirmdel'=>$user->id, 'sesskey'=>sesskey()));
+            $yesurl = new lion_url('/admin/roles/admins.php', array('confirmdel'=>$user->id, 'sesskey'=>sesskey()));
             echo $OUTPUT->confirm(get_string('confirmdeladmin', 'core_role', $username), $yesurl, $PAGE->url);
             echo $OUTPUT->footer();
             die;

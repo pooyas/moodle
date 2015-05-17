@@ -3,6 +3,9 @@
 /**
  * Dummy AttrDef that mimics another AttrDef, BUT it generates clones
  * with make.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_Clone extends HTMLPurifier_AttrDef
 {

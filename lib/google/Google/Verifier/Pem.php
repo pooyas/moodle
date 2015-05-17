@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
  
 require_once 'Google/Auth/Exception.php';
@@ -21,7 +24,6 @@ require_once 'Google/Verifier/Abstract.php';
 /**
  * Verifies signatures using PEM encoded certificates.
  *
- * @author Brian Eaton <beaton@google.com>
  */
 class Google_Verifier_Pem extends Google_Verifier_Abstract
 {

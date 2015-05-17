@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Unit tests for the Moodle Examview format.
+ * Unit tests for the Lion Examview format.
  *
- * @package    qformat_examview
- * @copyright  2012 jean-Michel Vedrine
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question_format
+ * @subpackage examview
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/questionlib.php');
@@ -35,8 +22,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the examview question import format.
  *
- * @copyright  2012 Jean-Michel Vedrine
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_examview_test extends question_testcase {
 
@@ -60,7 +45,7 @@ class qformat_examview_test extends question_testcase {
         $expectedq->questiontext = "42 is the Absolute Answer to everything.";
         $expectedq->questiontextformat = FORMAT_HTML;
         $expectedq->generalfeedback = '';
-        $expectedq->generalfeedbackformat = FORMAT_MOODLE;
+        $expectedq->generalfeedbackformat = FORMAT_LION;
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
         $expectedq->correctanswer = 0;
@@ -98,7 +83,7 @@ class qformat_examview_test extends question_testcase {
         $expectedq->incorrectfeedback = array('text' => '',
                 'format' => FORMAT_HTML, 'files' => array());
         $expectedq->generalfeedback = '';
-        $expectedq->generalfeedbackformat = FORMAT_MOODLE;
+        $expectedq->generalfeedbackformat = FORMAT_LION;
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
         $expectedq->penalty = 0.3333333;
@@ -157,7 +142,7 @@ class qformat_examview_test extends question_testcase {
         $expectedq->questiontext = 'This is a numeric response question.  How much is 12 * 2?';
         $expectedq->questiontextformat = FORMAT_HTML;
         $expectedq->generalfeedback = '';
-        $expectedq->generalfeedbackformat = FORMAT_MOODLE;
+        $expectedq->generalfeedbackformat = FORMAT_LION;
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
         $expectedq->penalty = 0.3333333;
@@ -192,7 +177,7 @@ class qformat_examview_test extends question_testcase {
         $expectedq->questiontext = 'Name an amphibian: __________.';
         $expectedq->questiontextformat = FORMAT_HTML;
         $expectedq->generalfeedback = '';
-        $expectedq->generalfeedbackformat = FORMAT_MOODLE;
+        $expectedq->generalfeedbackformat = FORMAT_LION;
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
         $expectedq->usecase = 0;
@@ -229,7 +214,7 @@ class qformat_examview_test extends question_testcase {
         $expectedq->questiontext = 'How are you?';
         $expectedq->questiontextformat = FORMAT_HTML;
         $expectedq->generalfeedback = '';
-        $expectedq->generalfeedbackformat = FORMAT_MOODLE;
+        $expectedq->generalfeedbackformat = FORMAT_LION;
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
         $expectedq->responseformat = 'editor';
@@ -288,7 +273,7 @@ class qformat_examview_test extends question_testcase {
         $expectedq->incorrectfeedback = array('text' => '',
                 'format' => FORMAT_HTML, 'files' => array());
         $expectedq->generalfeedback = '';
-        $expectedq->generalfeedbackformat = FORMAT_MOODLE;
+        $expectedq->generalfeedbackformat = FORMAT_LION;
         $expectedq->defaultmark = 1;
         $expectedq->length = 1;
         $expectedq->penalty = 0.3333333;

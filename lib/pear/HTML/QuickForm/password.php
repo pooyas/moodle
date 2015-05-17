@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,11 +30,8 @@ require_once("HTML/QuickForm/input.php");
 
 /**
  * HTML class for a password type field
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.1
- * @since        PHP4.04pl1
  * @access       public
  */
 class HTML_QuickForm_password extends HTML_QuickForm_input
@@ -41,7 +45,6 @@ class HTML_QuickForm_password extends HTML_QuickForm_input
      * @param     string    $elementLabel   (optional)Input field label
      * @param     mixed     $attributes     (optional)Either a typical HTML attribute string 
      *                                      or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    
@@ -59,7 +62,6 @@ class HTML_QuickForm_password extends HTML_QuickForm_input
      * Sets size of password element
      * 
      * @param     string    $size  Size of password field
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -75,7 +77,6 @@ class HTML_QuickForm_password extends HTML_QuickForm_input
      * Sets maxlength of password element
      * 
      * @param     string    $maxlength  Maximum length of password field
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -89,8 +90,7 @@ class HTML_QuickForm_password extends HTML_QuickForm_input
 
     /**
      * Returns the value of field without HTML tags (in this case, value is changed to a mask)
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      * @throws    

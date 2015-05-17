@@ -7,6 +7,9 @@
  *      Be careful when reusing instances of PercentEncoder. The object
  *      you use for normalize() SHOULD NOT be used for encode(), or
  *      vice-versa.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_PercentEncoder
 {

@@ -6,20 +6,16 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * An abstracted API interface to IMAP backends supporting the IMAP4rev1
  * protocol (RFC 3501).
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 abstract class Horde_Imap_Client_Base implements Serializable
 {
@@ -29,7 +25,7 @@ abstract class Horde_Imap_Client_Base implements Serializable
     /** Cache names for miscellaneous data. */
     const CACHE_MODSEQ = '_m';
     const CACHE_SEARCH = '_s';
-    /* @since 2.9.0 */
+    /
     const CACHE_SEARCHID = '_i';
 
     /** Cache names used exclusively within this class. @since 2.11.0 */
@@ -63,7 +59,6 @@ abstract class Horde_Imap_Client_Base implements Serializable
      * status() data may not reflect the current state of the mailbox on the
      * server.
      *
-     * @since 2.14.0
      *
      * @var boolean
      */
@@ -3527,7 +3522,6 @@ abstract class Horde_Imap_Client_Base implements Serializable
     /**
      * Returns a unique token for the current mailbox synchronization status.
      *
-     * @since 2.2.0
      *
      * @param mixed $mailbox  A mailbox. Either a Horde_Imap_Client_Mailbox
      *                        object or a string (UTF-8).
@@ -3550,7 +3544,6 @@ abstract class Horde_Imap_Client_Base implements Serializable
     /**
      * Synchronize a mailbox from a sync token.
      *
-     * @since 2.2.0
      *
      * @param mixed $mailbox  A mailbox. Either a Horde_Imap_Client_Mailbox
      *                        object or a string (UTF-8).

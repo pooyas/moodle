@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for page types classes
  *
- * @package   mod_lesson
  * @category  test
- * @copyright 2015 Jean-Michel Vedrine
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/mod/lesson/locallib.php');
@@ -34,8 +21,6 @@ require_once($CFG->dirroot . '/mod/lesson/pagetypes/essay.php');
 /**
  * This class contains the test cases for some of the functions in the lesson essay page type class.
  *
- * @copyright 2015 Jean-Michel Vedrine
- * @license   http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 class mod_lesson_essay_page_type_test extends advanced_testcase {
     public function test_lesson_essay_extract_useranswer() {

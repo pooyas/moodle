@@ -28,6 +28,9 @@
  * If we encounter a thead, tfoot or tbody, we are placed in the former
  * mode, and we *must* wrap any stray tr segments with a tbody. But if
  * we don't run into any of them, just have tr tags is OK.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ChildDef_Table extends HTMLPurifier_ChildDef
 {

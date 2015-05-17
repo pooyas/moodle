@@ -1,41 +1,40 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage files
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Rendering of files viewer related widgets.
- * @package   core
- * @subpackage file
- * @copyright 2010 Dongsheng Cai
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
  */
 
 /**
  * File browser render
  *
- * @copyright 2010 Dongsheng Cai
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
  */
 class core_files_renderer extends plugin_renderer_base {
 
@@ -45,7 +44,7 @@ class core_files_renderer extends plugin_renderer_base {
     }
 
     public function render_files_tree_viewer(files_tree_viewer $tree) {
-        $html = $this->output->heading_with_help(get_string('coursefiles'), 'courselegacyfiles', 'moodle');
+        $html = $this->output->heading_with_help(get_string('coursefiles'), 'courselegacyfiles', 'lion');
 
         $html .= $this->output->container_start('coursefilesbreadcrumb');
         foreach($tree->path as $path) {
@@ -84,7 +83,7 @@ class core_files_renderer extends plugin_renderer_base {
         }
 
         $html .= html_writer::table($table);
-        $html .= $this->output->single_button(new moodle_url('/files/coursefilesedit.php', array('contextid'=>$tree->context->id)), get_string('coursefilesedit'), 'get');
+        $html .= $this->output->single_button(new lion_url('/files/coursefilesedit.php', array('contextid'=>$tree->context->id)), get_string('coursefilesedit'), 'get');
         $html .= $this->output->box_end();
         return $html;
     }
@@ -106,14 +105,14 @@ class core_files_renderer extends plugin_renderer_base {
         $module = array(
             'name'=>'form_filemanager',
             'fullpath'=>'/lib/form/filemanager.js',
-            'requires' => array('moodle-core-notification-dialogue', 'core_filepicker', 'base', 'io-base', 'node', 'json', 'core_dndupload', 'panel', 'resize-plugin', 'dd-plugin'),
+            'requires' => array('lion-core-notification-dialogue', 'core_filepicker', 'base', 'io-base', 'node', 'json', 'core_dndupload', 'panel', 'resize-plugin', 'dd-plugin'),
             'strings' => array(
-                array('error', 'moodle'), array('info', 'moodle'), array('confirmdeletefile', 'repository'),
+                array('error', 'lion'), array('info', 'lion'), array('confirmdeletefile', 'repository'),
                 array('draftareanofiles', 'repository'), array('entername', 'repository'), array('enternewname', 'repository'),
                 array('invalidjson', 'repository'), array('popupblockeddownload', 'repository'),
                 array('unknownoriginal', 'repository'), array('confirmdeletefolder', 'repository'),
                 array('confirmdeletefilewithhref', 'repository'), array('confirmrenamefolder', 'repository'),
-                array('confirmrenamefile', 'repository'), array('newfolder', 'repository'), array('edit', 'moodle')
+                array('confirmrenamefile', 'repository'), array('newfolder', 'repository'), array('edit', 'lion')
             )
         );
         if ($this->page->requires->should_create_one_time_item_now('core_file_managertemplate')) {
@@ -180,14 +179,14 @@ class core_files_renderer extends plugin_renderer_base {
         $options = $fm->options;
         $client_id = $options->client_id;
         $straddfile  = get_string('addfile', 'repository');
-        $strmakedir  = get_string('makeafolder', 'moodle');
+        $strmakedir  = get_string('makeafolder', 'lion');
         $strdownload = get_string('downloadfolder', 'repository');
         $strloading  = get_string('loading', 'repository');
-        $strdroptoupload = get_string('droptoupload', 'moodle');
+        $strdroptoupload = get_string('droptoupload', 'lion');
         $icon_progress = $OUTPUT->pix_icon('i/loading_small', $strloading).'';
         $restrictions = $this->fm_print_restrictions($fm);
-        $strdndnotsupported = get_string('dndnotsupported_insentence', 'moodle').$OUTPUT->help_icon('dndnotsupported');
-        $strdndenabledinbox = get_string('dndenabled_inbox', 'moodle');
+        $strdndnotsupported = get_string('dndnotsupported_insentence', 'lion').$OUTPUT->help_icon('dndnotsupported');
+        $strdndenabledinbox = get_string('dndenabled_inbox', 'lion');
         $loading = get_string('loading', 'repository');
         $straddfiletext = get_string('addfiletext', 'repository');
         $strcreatefolder = get_string('createfolder', 'repository');
@@ -445,7 +444,7 @@ class core_files_renderer extends plugin_renderer_base {
                 </div>
         </div>
         <div class="fp-select-buttons">
-            <button class="fp-file-update btn-primary btn">'.get_string('update', 'moodle').'</button>
+            <button class="fp-file-update btn-primary btn">'.get_string('update', 'lion').'</button>
             <button class="fp-file-cancel btn-cancel btn">'.get_string('cancel').'</button>
         </div>
     </form>
@@ -512,13 +511,13 @@ class core_files_renderer extends plugin_renderer_base {
         $hasmaxfiles = !empty($fm->options->maxfiles) && $fm->options->maxfiles > 0;
         $hasarealimit = !empty($fm->options->areamaxbytes) && $fm->options->areamaxbytes != -1;
         if ($hasmaxfiles && $hasarealimit) {
-            $maxsize = get_string('maxsizeandattachmentsandareasize', 'moodle', $strparam);
+            $maxsize = get_string('maxsizeandattachmentsandareasize', 'lion', $strparam);
         } else if ($hasmaxfiles) {
-            $maxsize = get_string('maxsizeandattachments', 'moodle', $strparam);
+            $maxsize = get_string('maxsizeandattachments', 'lion', $strparam);
         } else if ($hasarealimit) {
-            $maxsize = get_string('maxsizeandareasize', 'moodle', $strparam);
+            $maxsize = get_string('maxsizeandareasize', 'lion', $strparam);
         } else {
-            $maxsize = get_string('maxfilesize', 'moodle', $maxbytes);
+            $maxsize = get_string('maxfilesize', 'lion', $maxbytes);
         }
         // TODO MDL-32020 also should say about 'File types accepted'
         return '<span>'. $maxsize . '</span>';
@@ -1066,11 +1065,8 @@ class core_files_renderer extends plugin_renderer_base {
 }
 
 /**
- * Data structure representing a general moodle file tree viewer
+ * Data structure representing a general lion file tree viewer
  *
- * @copyright 2010 Dongsheng Cai
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
  */
 class files_tree_viewer implements renderable {
     public $tree;
@@ -1078,7 +1074,7 @@ class files_tree_viewer implements renderable {
     public $context;
 
     /**
-     * Constructor of moodle_file_tree_viewer class
+     * Constructor of lion_file_tree_viewer class
      * @param file_info $file_info
      * @param array $options
      */
@@ -1107,7 +1103,7 @@ class files_tree_viewer implements renderable {
             unset($params['filearea']);
             unset($params['filename']);
             unset($params['itemid']);
-            $url = new moodle_url('/files/index.php', $params);
+            $url = new lion_url('/files/index.php', $params);
             $this->path[] = html_writer::link($url, $level->get_visible_name());
             $level = $level->get_parent();
         }
@@ -1132,7 +1128,7 @@ class files_tree_viewer implements renderable {
                     'filedate' => $filedate ? $filedate : '',
                     'filesize' => $filesize ? $filesize : ''
                     );
-            $url = new moodle_url('/files/index.php', $params);
+            $url = new lion_url('/files/index.php', $params);
             if ($child->is_directory()) {
                 $fileitem['isdir'] = true;
                 $fileitem['url'] = $url->out(false);

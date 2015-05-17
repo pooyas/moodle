@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for the parts of {@link question_engine_data_mapper} related to reporting.
  *
- * @package   core_question
  * @category  test
- * @copyright 2013 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question
+ * @subpackage engine
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once(dirname(__FILE__) . '/../lib.php');
@@ -34,8 +21,6 @@ require_once(dirname(__FILE__) . '/helpers.php');
 /**
  * Unit tests for the parts of {@link question_engine_data_mapper} related to reporting.
  *
- * @copyright 2013 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_engine_data_mapper_reporting_testcase extends qbehaviour_walkthrough_test_base {
 

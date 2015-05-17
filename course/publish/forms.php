@@ -1,31 +1,33 @@
 <?php
 
+
+/**
+ * @package    course
+ * @subpackage publish
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /*
- * @package    course
- * @subpackage publish
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  *
  * The forms used for course publication
  */
@@ -39,7 +41,7 @@ require_once($CFG->dirroot . "/course/publish/lib.php");
  * Hub selector to choose on which hub we want to publish.
  */
 
-class hub_publish_selector_form extends moodleform {
+class hub_publish_selector_form extends lionform {
 
     public function definition() {
         global $CFG;
@@ -64,7 +66,7 @@ class hub_publish_selector_form extends moodleform {
                 $hubname = $hub->huburl;
             }
             $mform->addElement('radio', 'huburl', null, ' ' . $hubname, $hub->huburl);
-            if ($hub->huburl == HUB_MOODLEORGHUBURL) {
+            if ($hub->huburl == HUB_LIONORGHUBURL) {
                 $mform->setDefault('huburl', $hub->huburl);
             }
         }
@@ -91,7 +93,7 @@ class hub_publish_selector_form extends moodleform {
  * Course publication form
  */
 
-class course_publication_form extends moodleform {
+class course_publication_form extends lionform {
 
     public function definition() {
         global $CFG, $DB, $USER, $OUTPUT;
@@ -161,7 +163,7 @@ class course_publication_form extends moodleform {
             $screenshotsnumber = $publishedcourse['screenshots'];
             $privacy = $publishedcourse['privacy'];
             if (($screenshotsnumber > 0) and !empty($privacy)) {
-                $page->requires->yui_module('moodle-block_community-imagegallery',
+                $page->requires->yui_module('lion-block_community-imagegallery',
                         'M.blocks_community.init_imagegallery',
                         array(array('imageids' => array($hubcourseid),
                                 'imagenumbers' => array($screenshotsnumber),
@@ -196,7 +198,7 @@ class course_publication_form extends moodleform {
         }
 
         //the input parameters
-        $mform->addElement('header', 'moodle', get_string('publicationinfo', 'hub'));
+        $mform->addElement('header', 'lion', get_string('publicationinfo', 'hub'));
 
         $mform->addElement('text', 'name', get_string('coursename', 'hub'),
                 array('class' => 'metadatatext'));
@@ -216,7 +218,7 @@ class course_publication_form extends moodleform {
             $mform->addElement('text', 'demourl', get_string('demourl', 'hub'),
                     array('class' => 'metadatatext'));
             $mform->setType('demourl', PARAM_URL);
-            $mform->setDefault('demourl', new moodle_url("/course/view.php?id=" . $course->id));
+            $mform->setDefault('demourl', new lion_url("/course/view.php?id=" . $course->id));
             $mform->addHelpButton('demourl', 'demourl', 'hub');
         }
 
@@ -231,7 +233,7 @@ class course_publication_form extends moodleform {
             $mform->addElement('hidden', 'courseurl', $CFG->wwwroot . "/course/view.php?id=" . $course->id);
             $mform->setType('courseurl', PARAM_URL);
             $mform->addElement('static', 'courseurlstring', get_string('courseurl', 'hub'));
-            $mform->setDefault('courseurlstring', new moodle_url("/course/view.php?id=" . $course->id));
+            $mform->setDefault('courseurlstring', new lion_url("/course/view.php?id=" . $course->id));
             $mform->addHelpButton('courseurlstring', 'courseurl', 'hub');
         }
 
@@ -353,7 +355,7 @@ class course_publication_form extends moodleform {
             if (!empty($screenshotsnumber)) {
 
                 if (!empty($privacy)) {
-                    $baseurl = new moodle_url($huburl . '/local/hub/webservice/download.php',
+                    $baseurl = new lion_url($huburl . '/local/hub/webservice/download.php',
                                     array('courseid' => $hubcourseid, 'filetype' => HUB_SCREENSHOT_FILE_TYPE));
                     $screenshothtml = html_writer::empty_tag('img',
                                     array('src' => $baseurl, 'alt' => $defaultfullname));

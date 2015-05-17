@@ -2,6 +2,9 @@
 
 /**
  * Implements special behavior for class attribute (normally NMTOKENS)
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_HTML_Class extends HTMLPurifier_AttrDef_HTML_Nmtokens
 {

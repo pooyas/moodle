@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //  Copyright (c) 2009 Facebook
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -378,7 +385,6 @@ $metrics = null;
  * tuples) that compares array elements based on the sort column
  * specified in $sort_col (global parameter).
  *
- * @author Kannan
  */
 function sort_cbk($a, $b) {
   global $sort_col;
@@ -417,7 +423,6 @@ function sort_cbk($a, $b) {
  * (depending upon whether we are in diff report mode
  * or single run report mode).
  *
- * @author Kannan
  */
 function stat_description($stat) {
   global $descriptions;
@@ -650,7 +655,6 @@ function print_td_pct($numer, $denom, $bold=false, $attributes=null) {
 /**
  * Print "flat" data corresponding to one function.
  *
- * @author Kannan
  */
 function print_function_info($url_params, $info, $sort, $run1, $run2) {
   static $odd_even = 0;
@@ -710,7 +714,6 @@ function print_function_info($url_params, $info, $sort, $run1, $run2) {
 /**
  * Print non-hierarchical (flat-view) of profiler data.
  *
- * @author Kannan
  */
 function print_flat_data($url_params, $title, $flat_data, $sort, $run1, $run2, $limit) {
 
@@ -776,7 +779,6 @@ function print_flat_data($url_params, $title, $flat_data, $sort, $run1, $run2, $
 /**
  * Generates a tabular report for all functions. This is the top-level report.
  *
- * @author Kannan
  */
 function full_report($url_params, $symbol_tab, $sort, $run1, $run2) {
   global $vwbar;
@@ -930,7 +932,6 @@ function get_tooltip_attributes($type, $metric) {
  * Print info for a parent or child function in the
  * parent & children report.
  *
- * @author Kannan
  */
 function pc_info($info, $base_ct, $base_info, $parent) {
   global $sort_col;
@@ -1031,7 +1032,6 @@ function print_symbol_summary($symbol_info, $stat, $base) {
 /**
  * Generates a report for a single function/symbol.
  *
- * @author Kannan
  */
 function symbol_report($url_params,
                        $run_data, $symbol_info, $sort, $rep_symbol,
@@ -1297,7 +1297,6 @@ function symbol_report($url_params,
 /**
  * Generate the profiler report for a single run.
  *
- * @author Kannan
  */
 function profiler_single_run_report ($url_params,
                                      $xhprof_data,
@@ -1317,7 +1316,6 @@ function profiler_single_run_report ($url_params,
 /**
  * Generate the profiler report for diff mode (delta between two runs).
  *
- * @author Kannan
  */
 function profiler_diff_report($url_params,
                               $xhprof_data1,

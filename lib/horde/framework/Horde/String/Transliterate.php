@@ -6,21 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Util
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Provides utility methods used to transliterate a string.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
- * @author    Jan Schneider <jan@horde.org>
  * @category  Horde
- * @copyright 2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Util
- * @since     2.4.0
  */
 class Horde_String_Transliterate
 {

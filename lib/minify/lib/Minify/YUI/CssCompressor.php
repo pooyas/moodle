@@ -1,7 +1,6 @@
 <?php
 /**
- * Class Minify_YUI_CssCompressor 
- * @package Minify
+ * Class Minify_YUI_CssCompressor
  *
  * YUI Compressor
  * Author: Julien Lecomte -  http://www.julienlecomte.net/
@@ -11,6 +10,9 @@
  * Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
  * The copyrights embodied in the content of this file are licensed
  * by Yahoo! Inc. under the BSD (revised) open source license.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -18,7 +20,6 @@
  * 
  * @see https://github.com/yui/yuicompressor/blob/master/src/com/yahoo/platform/yui/compressor/CssCompressor.java
  *
- * @package Minify
  */
 class Minify_YUI_CssCompressor {
 

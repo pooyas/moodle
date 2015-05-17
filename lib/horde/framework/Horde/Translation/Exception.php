@@ -7,8 +7,9 @@
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
- * @author  Jan Schneider <jan@horde.org>
- * @package Translation
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Translation_Exception extends Exception
 {

@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package    moodlecore
- * @subpackage backup-helper
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -204,7 +190,7 @@ abstract class backup_helper {
 
     /**
      * Given one backupid and the (FS) final generated file, perform its final storage
-     * into Moodle file storage. For stored files it returns the complete file_info object
+     * into Lion file storage. For stored files it returns the complete file_info object
      *
      * Note: the $filepath is deleted if the backup file is created successfully
      *
@@ -216,13 +202,13 @@ abstract class backup_helper {
      * @param \core\progress\base $progress Optional progress monitor
      * @return stored_file if created, null otherwise
      *
-     * @throws moodle_exception in case of any problems
+     * @throws lion_exception in case of any problems
      */
     static public function store_backup_file($backupid, $filepath, \core\progress\base $progress = null) {
         global $CFG;
 
         // First of all, get some information from the backup_controller to help us decide
-        list($dinfo, $cinfo, $sinfo) = backup_controller_dbops::get_moodle_backup_information(
+        list($dinfo, $cinfo, $sinfo) = backup_controller_dbops::get_lion_backup_information(
                 $backupid, $progress);
 
         // Extract useful information to decide
@@ -239,7 +225,7 @@ abstract class backup_helper {
         // Quick hack. If for any reason, filename is blank, fix it here.
         // TODO: This hack will be out once MDL-22142 - P26 gets fixed
         if (empty($filename)) {
-            $filename = backup_plan_dbops::get_default_backup_filename('moodle2', $backuptype, $id, $hasusers, $isannon);
+            $filename = backup_plan_dbops::get_default_backup_filename('lion2', $backuptype, $id, $hasusers, $isannon);
         }
 
         // Backups of type IMPORT aren't stored ever

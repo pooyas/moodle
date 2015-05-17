@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core-lockscroll",
+  "name": "lion-core-lockscroll",
   "builds": {
-    "moodle-core-lockscroll": {
+    "lion-core-lockscroll": {
       "jsfiles": [
         "lockscroll.js"
       ]

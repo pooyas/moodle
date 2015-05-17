@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the definition for the grading table which subclassses easy_table
  *
- * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/tablelib.php');
 require_once($CFG->libdir.'/gradelib.php');
@@ -31,9 +18,6 @@ require_once($CFG->dirroot.'/mod/assign/locallib.php');
 /**
  * Extends table_sql to provide a table of assignment submissions
  *
- * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class assign_grading_table extends table_sql implements renderable {
     /** @var assign $assignment */
@@ -110,7 +94,7 @@ class assign_grading_table extends table_sql implements renderable {
         $this->output = $PAGE->get_renderer('mod_assign');
 
         $urlparams = array('action'=>'grading', 'id'=>$assignment->get_course_module()->id);
-        $url = new moodle_url($CFG->wwwroot . '/mod/assign/view.php', $urlparams);
+        $url = new lion_url($CFG->wwwroot . '/mod/assign/view.php', $urlparams);
         $this->define_baseurl($url);
 
         // Do some business - then set the sql.
@@ -731,7 +715,7 @@ class assign_grading_table extends table_sql implements renderable {
     public function col_fullname($row) {
         if (!$this->is_downloading()) {
             $courseid = $this->assignment->get_course()->id;
-            $link= new moodle_url('/user/view.php', array('id' =>$row->id, 'course'=>$courseid));
+            $link= new lion_url('/user/view.php', array('id' =>$row->id, 'course'=>$courseid));
             $fullname = $this->output->action_link($link, $this->assignment->fullname($row));
         } else {
             $fullname = $this->assignment->fullname($row);
@@ -826,7 +810,7 @@ class assign_grading_table extends table_sql implements renderable {
             $urlparams = array('id' => $this->assignment->get_course_module()->id,
                                'rownum'=>$this->rownum,
                                'action'=>'grade');
-            $url = new moodle_url('/mod/assign/view.php', $urlparams);
+            $url = new lion_url('/mod/assign/view.php', $urlparams);
             $link = $this->output->action_link($url, $icon);
             $grade .= $link . $separator;
         }
@@ -986,7 +970,7 @@ class assign_grading_table extends table_sql implements renderable {
         $urlparams = array('id'=>$this->assignment->get_course_module()->id,
                            'rownum'=>$this->rownum,
                            'action'=>'grade');
-        $url = new moodle_url('/mod/assign/view.php', $urlparams);
+        $url = new lion_url('/mod/assign/view.php', $urlparams);
         $noimage = null;
 
         if (!$row->grade) {
@@ -1029,7 +1013,7 @@ class assign_grading_table extends table_sql implements renderable {
                                        'action'=>'lock',
                                        'sesskey'=>sesskey(),
                                        'page'=>$this->currpage);
-                    $url = new moodle_url('/mod/assign/view.php', $urlparams);
+                    $url = new lion_url('/mod/assign/view.php', $urlparams);
 
                     $description = get_string('preventsubmissionsshort', 'assign');
                     $actions['lock'] = new action_menu_link_secondary(
@@ -1043,7 +1027,7 @@ class assign_grading_table extends table_sql implements renderable {
                                        'action'=>'unlock',
                                        'sesskey'=>sesskey(),
                                        'page'=>$this->currpage);
-                    $url = new moodle_url('/mod/assign/view.php', $urlparams);
+                    $url = new lion_url('/mod/assign/view.php', $urlparams);
                     $description = get_string('allowsubmissionsshort', 'assign');
                     $actions['unlock'] = new action_menu_link_secondary(
                         $url,
@@ -1061,7 +1045,7 @@ class assign_grading_table extends table_sql implements renderable {
                                    'action'=>'editsubmission',
                                    'sesskey'=>sesskey(),
                                    'page'=>$this->currpage);
-                $url = new moodle_url('/mod/assign/view.php', $urlparams);
+                $url = new lion_url('/mod/assign/view.php', $urlparams);
                 $description = get_string('editsubmission', 'assign');
                 $actions['editsubmission'] = new action_menu_link_secondary(
                     $url,
@@ -1078,7 +1062,7 @@ class assign_grading_table extends table_sql implements renderable {
                                 'action' => 'grantextension',
                                 'sesskey' => sesskey(),
                                 'page' => $this->currpage);
-             $url = new moodle_url('/mod/assign/view.php', $urlparams);
+             $url = new lion_url('/mod/assign/view.php', $urlparams);
              $description = get_string('grantextension', 'assign');
              $actions['grantextension'] = new action_menu_link_secondary(
                  $url,
@@ -1093,7 +1077,7 @@ class assign_grading_table extends table_sql implements renderable {
                                'action'=>'reverttodraft',
                                'sesskey'=>sesskey(),
                                'page'=>$this->currpage);
-            $url = new moodle_url('/mod/assign/view.php', $urlparams);
+            $url = new lion_url('/mod/assign/view.php', $urlparams);
             $description = get_string('reverttodraftshort', 'assign');
             $actions['reverttodraft'] = new action_menu_link_secondary(
                 $url,
@@ -1111,7 +1095,7 @@ class assign_grading_table extends table_sql implements renderable {
                                'action'=>'submitotherforgrading',
                                'sesskey'=>sesskey(),
                                'page'=>$this->currpage);
-            $url = new moodle_url('/mod/assign/view.php', $urlparams);
+            $url = new lion_url('/mod/assign/view.php', $urlparams);
             $description = get_string('submitforgrading', 'assign');
             $actions['submitforgrading'] = new action_menu_link_secondary(
                 $url,
@@ -1132,7 +1116,7 @@ class assign_grading_table extends table_sql implements renderable {
                                'action'=>'addattempt',
                                'sesskey'=>sesskey(),
                                'page'=>$this->currpage);
-            $url = new moodle_url('/mod/assign/view.php', $urlparams);
+            $url = new lion_url('/mod/assign/view.php', $urlparams);
             $description = get_string('addattempt', 'assign');
             $actions['addattempt'] = new action_menu_link_secondary(
                 $url,
@@ -1188,7 +1172,7 @@ class assign_grading_table extends table_sql implements renderable {
                                                      'action'=>'viewplugin' . $plugin->get_subtype(),
                                                      'returnaction'=>$returnaction,
                                                      'returnparams'=>http_build_query($returnparams));
-            $url = new moodle_url('/mod/assign/view.php', $urlparams);
+            $url = new lion_url('/mod/assign/view.php', $urlparams);
             $link = $this->output->action_link($url, $icon);
             $separator = $this->output->spacer(array(), true);
         }
@@ -1362,7 +1346,7 @@ class assign_grading_table extends table_sql implements renderable {
     public function can_view_all_grades() {
         $context = $this->assignment->get_course_context();
         return has_capability('gradereport/grader:view', $context) &&
-               has_capability('moodle/grade:viewall', $context);
+               has_capability('lion/grade:viewall', $context);
     }
 
     /**

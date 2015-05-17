@@ -1,39 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Lang import controller
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage langimport
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace tool_langimport;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once($CFG->libdir.'/filelib.php');
 require_once($CFG->libdir.'/componentlib.class.php');
 
 /**
  * Lang import controller
  *
- * @package    tool_langimport
- * @copyright  2014 Dan Poltawski <dan@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class controller {
     /** @var array list of informational messages */
@@ -65,7 +49,7 @@ class controller {
      * @param string|array $langs array of langcodes or individual langcodes
      * @param bool $updating true if updating the langpacks
      * @return int false if an error encountered or
-     * @throws \moodle_exception when error is encountered installing langpack
+     * @throws \lion_exception when error is encountered installing langpack
      */
     public function install_languagepacks($langs, $updating = false) {
         global $CFG;
@@ -82,7 +66,7 @@ class controller {
                     $a->url  = $this->installer->lang_pack_url($langcode);
                     $a->dest = $CFG->dataroot.'/lang';
                     $this->errors[] = get_string('remotedownloaderror', 'error', $a);
-                    throw new \moodle_exception('remotedownloaderror', 'error', $a);
+                    throw new \lion_exception('remotedownloaderror', 'error', $a);
                     break;
                 case \lang_installer::RESULT_INSTALLED:
                     $updatedpacks++;
@@ -177,7 +161,7 @@ class controller {
 
         try {
             $updated = $this->install_languagepacks($neededlangs, true);
-        } catch (\moodle_exception $e) {
+        } catch (\lion_exception $e) {
             $this->errors[] = 'An exception occurred while installing language packs: ' . $e->getMessage();
             return false;
         }
@@ -192,7 +176,7 @@ class controller {
     }
 
     /**
-     * checks the md5 of the zip file, grabbed from download.moodle.org,
+     * checks the md5 of the zip file, grabbed from download.lion.org,
      * against the md5 of the local language file from last update
      * @param string $lang language code
      * @param string $md5check md5 to check

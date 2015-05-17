@@ -1,19 +1,6 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This script creates config.php file and prepares database.
@@ -23,10 +10,9 @@
  * - su to apache account or sudo before execution
  * - not compatible with Windows platform
  *
- * @package    core
+ * @package    admin
  * @subpackage cli
- * @copyright  2009 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 // Force OPcache reset if used, we do not want any stale caches
@@ -65,7 +51,7 @@ if ($unrecognized) {
 
 if ($options['help']) {
     $help =
-"Command line Moodle upgrade.
+"Command line Lion upgrade.
 Please note you must execute this script with the same uid as apache!
 
 Site defaults may be changed via local/defaults.php.
@@ -98,12 +84,12 @@ if ($version < $CFG->version) {
 $oldversion = "$CFG->release ($CFG->version)";
 $newversion = "$release ($version)";
 
-if (!moodle_needs_upgrading()) {
+if (!lion_needs_upgrading()) {
     cli_error(get_string('cliupgradenoneed', 'core_admin', $newversion), 0);
 }
 
 // Test environment first.
-list($envstatus, $environment_results) = check_moodle_environment(normalize_version($release), ENV_SELECT_RELEASE);
+list($envstatus, $environment_results) = check_lion_environment(normalize_version($release), ENV_SELECT_RELEASE);
 if (!$envstatus) {
     $errors = environment_get_errors($environment_results);
     cli_heading(get_string('environment', 'admin'));

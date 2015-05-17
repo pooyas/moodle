@@ -1,6 +1,8 @@
 <?php
 /**
- * @package JAMA
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** PHPExcel root directory */
@@ -16,12 +18,7 @@ if (!defined('PHPEXCEL_ROOT')) {
 /*
  *	Matrix class
  *
- *	@author Paul Meagher
- *	@author Michael Bommarito
- *	@author Lukasz Karapuda
- *	@author Bartek Matosiuk
  *	@version 1.8
- *	@license PHP v3.0
  *	@see http://math.nist.gov/javanumerics/jama/
  */
 class PHPExcel_Shared_JAMA_Matrix {

@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //  Copyright (c) 2009 Facebook
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -56,7 +63,6 @@ function xhprof_http_header($name, $value) {
 /**
  * Genearte and send MIME header for the output image to client browser.
  *
- * @author cjiang
  */
 function xhprof_generate_mime_header($type, $length) {
   switch ($type) {
@@ -95,7 +101,6 @@ function xhprof_generate_mime_header($type, $length) {
  * @returns, binary content of the generated image on success. empty string on
  *           failure.
  *
- * @author cjiang
  */
 function xhprof_generate_image_by_dot($dot_script, $type) {
   $descriptorspec = array(
@@ -107,11 +112,11 @@ function xhprof_generate_image_by_dot($dot_script, $type) {
        2 => array("pipe", "w")
        );
 
-  // Start moodle modification: use $CFG->pathtodot for executing this.
+  // Start lion modification: use $CFG->pathtodot for executing this.
   // $cmd = " dot -T".$type;
   global $CFG;
   $cmd = (!empty($CFG->pathtodot) ? $CFG->pathtodot : 'dot') . ' -T' . $type;
-  // End moodle modification.
+  // End lion modification.
 
   $process = proc_open($cmd, $descriptorspec, $pipes, "/tmp", array());
   if (is_resource($process)) {
@@ -166,7 +171,6 @@ function xhprof_get_children_table($raw_data) {
  *                             bold lines.
  * @returns, string, the DOT script to generate image.
  *
- * @author cjiang
  */
 function xhprof_generate_dot_script($raw_data, $threshold, $source, $page,
                                     $func, $critical_path, $right=null,
@@ -434,7 +438,6 @@ function  xhprof_render_diff_image($xhprof_runs_impl, $run1, $run2,
  * @param func, string, the focus function.
  * @returns, string, the DOT script to generate image.
  *
- * @author cjiang
  */
 function xhprof_get_content_by_run($xhprof_runs_impl, $run_id, $type,
                                    $threshold, $func, $source,
@@ -470,7 +473,6 @@ function xhprof_get_content_by_run($xhprof_runs_impl, $run_id, $type,
  *                   generated image.
  * @param func, string, the focus function.
  * @param bool, does this run correspond to a PHProfLive run or a dev run?
- * @author cjiang
  */
 function xhprof_render_image($xhprof_runs_impl, $run_id, $type, $threshold,
                              $func, $source, $critical_path) {

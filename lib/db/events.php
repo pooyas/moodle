@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Definition of core event observers.
@@ -21,16 +8,16 @@
  * support this.
  *
  * For more information, take a look to the documentation available:
- *     - Events API: {@link http://docs.moodle.org/dev/Event_2}
- *     - Upgrade API: {@link http://docs.moodle.org/dev/Upgrade_API}
+ *     - Events API: {@link http://docs.lion.org/dev/Event_2}
+ *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
- * @package   core
  * @category  event
- * @copyright 2007 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // List of legacy event handlers.
 
@@ -57,4 +44,4 @@ $observers = array(
 
 );
 
-// List of all events triggered by Moodle can be found using Events list report.
+// List of all events triggered by Lion can be found using Events list report.

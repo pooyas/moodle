@@ -2,6 +2,9 @@
 
 /**
  * Represents a directive ID in the interchange format.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema_Interchange_Id
 {

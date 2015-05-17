@@ -4,6 +4,9 @@
  * Performs safe variable parsing based on types which can be used by
  * users. This may not be able to represent all possible data inputs,
  * however.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_VarParser_Flexible extends HTMLPurifier_VarParser
 {

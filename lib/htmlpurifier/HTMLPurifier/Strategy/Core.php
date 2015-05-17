@@ -2,6 +2,9 @@
 
 /**
  * Core strategy composed of the big four strategies.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Strategy_Core extends HTMLPurifier_Strategy_Composite
 {

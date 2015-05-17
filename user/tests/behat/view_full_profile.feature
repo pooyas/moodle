@@ -55,7 +55,7 @@ Feature: Access to full profiles of users
   Scenario: Viewing full profiles with global permission
     Given I log in as "admin"
     And I set the following system permissions of "Authenticated user" role:
-      | moodle/user:viewdetails | Allow |
+      | lion/user:viewdetails | Allow |
     And I log out
     When I log in as "student1"
     And I follow "Course 1"

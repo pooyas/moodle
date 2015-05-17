@@ -33,7 +33,7 @@
 
 /**
  * The following CSS is a cut down version of PURE CSS SPEECH BUBBLES.
- * Moodle only uses a small subset of the original.
+ * Lion only uses a small subset of the original.
  * The original version is available at http://nicolasgallagher.com/pure-css-speech-bubbles/
  */
 
@@ -63,12 +63,12 @@ Dual licensed under MIT and GNU GPLv2 © Nicolas Gallagher
     -moz-border-radius:10px;
     border-radius:10px;
 
-    /* moodle specific */
+    /* lion specific */
     margin-top:0px;
-    /* end moodle specific */
+    /* end lion specific */
 }
 
-/* moodle specific */
+/* lion specific */
 @media all and (max-device-width: 320px) {
     .triangle-border {
         width:50%;
@@ -84,16 +84,16 @@ Dual licensed under MIT and GNU GPLv2 © Nicolas Gallagher
         width:65%;
     }
 }
-/* end moodle specific */
+/* end lion specific */
 
 /* Variant : for left positioned triangle
 ------------------------------------------ */
 
 .triangle-border.left {
     margin-left:30px;
-    /* moodle specific */
+    /* lion specific */
     float:right;
-    /* end moodle specific */
+    /* end lion specific */
 }
 
 /* Variant : for right positioned triangle
@@ -101,9 +101,9 @@ Dual licensed under MIT and GNU GPLv2 © Nicolas Gallagher
 
 .triangle-border.right {
     margin-right:30px;
-    /* moodle specific */
+    /* lion specific */
     float:left;
-    /* end moodle specific */
+    /* end lion specific */
 }
 
 .triangle-border:before {

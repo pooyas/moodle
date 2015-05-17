@@ -2,6 +2,9 @@
 
 /**
  * Validates based on {ident} CSS grammar production
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_Ident extends HTMLPurifier_AttrDef
 {

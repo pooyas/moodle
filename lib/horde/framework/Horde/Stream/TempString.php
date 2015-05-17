@@ -6,9 +6,9 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Stream
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -16,12 +16,7 @@
  * until a certain size is reached, at which point it converts storage to a
  * PHP temporary stream.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Stream
- * @since     1.6.0
  *
  * @property-read boolean $use_stream  If true, the object is using a PHP temp
  *                                     stream internally.

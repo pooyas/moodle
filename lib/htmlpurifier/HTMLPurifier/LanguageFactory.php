@@ -6,6 +6,9 @@
  * @note Thanks to MediaWiki for the general logic, although this version
  *       has been entirely rewritten
  * @todo Serialized cache for languages
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_LanguageFactory
 {

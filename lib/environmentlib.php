@@ -1,35 +1,21 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This library includes all the necessary stuff to execute some standard
- * tests of required versions and libraries to run Moodle. It can be
+ * tests of required versions and libraries to run Lion. It can be
  * used from the admin interface, and both at install and upgrade.
  *
  * All the info is stored in the admin/environment.xml file,
  * supporting to have an updated version in dataroot/environment
  *
- * @copyright  (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @package    core
- * @subpackage admin
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /// Add required files
 /**
@@ -92,7 +78,7 @@ defined('MOODLE_INTERNAL') || die();
  *      on whether the check passed. The second element is an array of environment_results
  *      objects that has detailed information about the checks and which ones passed.
  */
-function check_moodle_environment($version, $env_select = ENV_SELECT_NEWER) {
+function check_lion_environment($version, $env_select = ENV_SELECT_NEWER) {
     if ($env_select != ENV_SELECT_NEWER and $env_select != ENV_SELECT_DATAROOT and $env_select != ENV_SELECT_RELEASE) {
         throw new coding_exception('Incorrect value of $env_select parameter');
     }
@@ -314,15 +300,15 @@ function load_environment_xml($env_select=ENV_SELECT_NEWER) {
 
 
 /**
- * This function will return the list of Moodle versions available
+ * This function will return the list of Lion versions available
  *
  * @return array of versions
  */
 function get_list_of_environment_versions($contents) {
     $versions = array();
 
-    if (isset($contents['COMPATIBILITY_MATRIX']['#']['MOODLE'])) {
-        foreach ($contents['COMPATIBILITY_MATRIX']['#']['MOODLE'] as $version) {
+    if (isset($contents['COMPATIBILITY_MATRIX']['#']['LION'])) {
+        foreach ($contents['COMPATIBILITY_MATRIX']['#']['LION'] as $version) {
             $versions[] = $version['@']['version'];
         }
     }
@@ -379,7 +365,7 @@ function get_latest_version_available($version, $env_select) {
 
 
 /**
- * This function will return the xmlized data belonging to one Moodle version
+ * This function will return the xmlized data belonging to one Lion version
  *
  * @param string $version top version from which we start to look backwards
  * @param int|string $env_select one of ENV_SELECT_NEWER | ENV_SELECT_DATAROOT | ENV_SELECT_RELEASE decide xml to use. String means plugin name.
@@ -402,7 +388,7 @@ function get_environment_for_version($version, $env_select) {
 
     // If $env_select is not numeric then this is being called on a plugin, and not the core environment.xml
     // If a version of 'all' is in the arry is also means that the new <PLUGIN> tag was found, this should
-    // be matched against any version of Moodle.
+    // be matched against any version of Lion.
     if (!is_numeric($env_select) && in_array('all', $versions)
             && environment_verify_plugin($env_select, $contents['COMPATIBILITY_MATRIX']['#']['PLUGIN'][0])) {
         return $contents['COMPATIBILITY_MATRIX']['#']['PLUGIN'][0];
@@ -416,7 +402,7 @@ function get_environment_for_version($version, $env_select) {
 /// We now we have it. Extract from full contents.
     $fl_arr = array_flip($versions);
 
-    return $contents['COMPATIBILITY_MATRIX']['#']['MOODLE'][$fl_arr[$version]];
+    return $contents['COMPATIBILITY_MATRIX']['#']['LION'][$fl_arr[$version]];
 }
 
 /**
@@ -454,9 +440,9 @@ function environment_check($version, $env_select) {
 
     $results = array(); //To store all the results
 
-/// Only run the moodle versions checker on upgrade, not on install
+/// Only run the lion versions checker on upgrade, not on install
     if (!empty($CFG->version)) {
-        $results[] = environment_check_moodle($version, $env_select);
+        $results[] = environment_check_lion($version, $env_select);
     }
     $results[] = environment_check_unicode($version, $env_select);
     $results[] = environment_check_database($version, $env_select);
@@ -689,7 +675,7 @@ function environment_custom_checks($version, $env_select) {
 
     $results = array();
 
-/// Get current Moodle version (release) for later compare
+/// Get current Lion version (release) for later compare
     $release = isset($CFG->release) ? $CFG->release : $version; /// In case $CFG fails (at install) use $version
     $current_version = normalize_version($release);
 
@@ -770,16 +756,16 @@ function environment_custom_checks($version, $env_select) {
 }
 
 /**
- * This function will check if Moodle requirements are satisfied
+ * This function will check if Lion requirements are satisfied
  *
  * @uses NO_VERSION_DATA_FOUND
  * @param string $version xml version we are going to use to test this server
  * @param int|string $env_select one of ENV_SELECT_NEWER | ENV_SELECT_DATAROOT | ENV_SELECT_RELEASE decide xml to use. String means plugin name.
  * @return object results encapsulated in one environment_result object
  */
-function environment_check_moodle($version, $env_select) {
+function environment_check_lion($version, $env_select) {
 
-    $result = new environment_results('moodle');
+    $result = new environment_results('lion');
 
 /// Get the enviroment version we need
     if (!$data = get_environment_for_version($version, $env_select)) {
@@ -789,11 +775,11 @@ function environment_check_moodle($version, $env_select) {
         return $result;
     }
 
-/// Extract the moodle part
+/// Extract the lion part
     if (!isset($data['@']['requires'])) {
-        $needed_version = '1.0'; /// Default to 1.0 if no moodle requires is found
+        $needed_version = '1.0'; /// Default to 1.0 if no lion requires is found
     } else {
-    /// Extract required moodle version
+    /// Extract required lion version
         $needed_version = $data['@']['requires'];
     }
 
@@ -878,7 +864,7 @@ function environment_check_php($version, $env_select) {
 }
 
 /**
- * Looks for buggy PCRE implementation, we need unicode support in Moodle...
+ * Looks for buggy PCRE implementation, we need unicode support in Lion...
  * @param string $version xml version we are going to use to test this server
  * @param int|string $env_select one of ENV_SELECT_NEWER | ENV_SELECT_DATAROOT | ENV_SELECT_RELEASE decide xml to use. String means plugin name.
  * @return stdClass results encapsulated in one environment_result object, null if irrelevant
@@ -1206,9 +1192,6 @@ function process_environment_messages($xml, &$result) {
 /**
  * Helper Class to return results to caller
  *
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package moodlecore
  */
 class environment_results {
     /**

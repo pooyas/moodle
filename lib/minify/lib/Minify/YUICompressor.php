@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify_YUICompressor 
- * @package Minify
+ * Class Minify_YUICompressor
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -25,9 +27,7 @@
  *   array('stack-size' => '2048k')
  *
  * @todo unit tests, $options docs
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class Minify_YUICompressor {
 

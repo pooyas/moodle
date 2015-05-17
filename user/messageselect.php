@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This file is part of the User section Moodle
+ * This file is part of the User section Lion
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core_user
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -31,10 +18,10 @@ $send = optional_param('send', '', PARAM_BOOL);
 $preview = optional_param('preview', '', PARAM_BOOL);
 $edit = optional_param('edit', '', PARAM_BOOL);
 $returnto = optional_param('returnto', '', PARAM_LOCALURL);
-$format = optional_param('format', FORMAT_MOODLE, PARAM_INT);
+$format = optional_param('format', FORMAT_LION, PARAM_INT);
 $deluser = optional_param('deluser', 0, PARAM_INT);
 
-$url = new moodle_url('/user/messageselect.php', array('id' => $id));
+$url = new lion_url('/user/messageselect.php', array('id' => $id));
 if ($messagebody !== '') {
     $url->param('messagebody', $messagebody);
 }
@@ -50,7 +37,7 @@ if ($edit !== '') {
 if ($returnto !== '') {
     $url->param('returnto', $returnto);
 }
-if ($format !== FORMAT_MOODLE) {
+if ($format !== FORMAT_LION) {
     $url->param('format', $format);
 }
 if ($deluser !== 0) {
@@ -66,7 +53,7 @@ require_login($course);
 
 $coursecontext = context_course::instance($id);   // Course context.
 $systemcontext = context_system::instance();   // SYSTEM context.
-require_capability('moodle/course:bulkmessaging', $coursecontext);
+require_capability('lion/course:bulkmessaging', $coursecontext);
 
 if (empty($SESSION->emailto)) {
     $SESSION->emailto = array();
@@ -115,9 +102,9 @@ if ($course->id == SITEID) {
 }
 
 $link = null;
-if (has_capability('moodle/course:viewparticipants', $coursecontext) ||
-    has_capability('moodle/site:viewparticipants', $systemcontext)) {
-    $link = new moodle_url("/user/index.php", array('id' => $course->id));
+if (has_capability('lion/course:viewparticipants', $coursecontext) ||
+    has_capability('lion/site:viewparticipants', $systemcontext)) {
+    $link = new lion_url("/user/index.php", array('id' => $course->id));
 }
 $PAGE->navbar->add(get_string('participants'), $link);
 $PAGE->navbar->add($strtitle);
@@ -131,9 +118,9 @@ if (empty($CFG->messaging)) {
 
 if ($count) {
     if ($count == 1) {
-        $heading = get_string('addedrecip', 'moodle', $count);
+        $heading = get_string('addedrecip', 'lion', $count);
     } else {
-        $heading = get_string('addedrecips', 'moodle', $count);
+        $heading = get_string('addedrecips', 'lion', $count);
     }
     echo $OUTPUT->heading($heading);
 }

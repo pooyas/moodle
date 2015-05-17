@@ -71,7 +71,7 @@ Y.extend(AUTOLINKER, Y.Base, {
                 for (key in data.entries) {
                     definition = data.entries[key].definition + data.entries[key].attachments;
                     alertpanel = new M.core.alert({title:data.entries[key].concept,
-                        message:definition, modal:false, yesLabel: M.util.get_string('ok', 'moodle')});
+                        message:definition, modal:false, yesLabel: M.util.get_string('ok', 'lion')});
                     alertpanel.show();
                     Y.fire(M.core.event.FILTER_CONTENT_UPDATED, {nodes: (new Y.NodeList(alertpanel.get('boundingBox')))});
 

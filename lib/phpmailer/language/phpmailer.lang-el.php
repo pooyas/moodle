@@ -1,7 +1,9 @@
 <?php
 /**
  * Greek PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP Σφάλμα: Αδυναμία πιστοποίησης (authentication).';

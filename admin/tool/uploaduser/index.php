@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Bulk user registration script from a comma separated file
  *
- * @package    tool
+ * @package    admin_tool
  * @subpackage uploaduser
- * @copyright  2004 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 require('../../../config.php');
@@ -41,7 +27,7 @@ raise_memory_limit(MEMORY_HUGE);
 
 require_login();
 admin_externalpage_setup('tooluploaduser');
-require_capability('moodle/site:uploadusers', context_system::instance());
+require_capability('lion/site:uploadusers', context_system::instance());
 
 $struserrenamed             = get_string('userrenamed', 'tool_uploaduser');
 $strusernotrenamedexists    = get_string('usernotrenamedexists', 'error');
@@ -78,8 +64,8 @@ $stryes                     = get_string('yes');
 $strno                      = get_string('no');
 $stryesnooptions = array(0=>$strno, 1=>$stryes);
 
-$returnurl = new moodle_url('/admin/tool/uploaduser/index.php');
-$bulknurl  = new moodle_url('/admin/user/user_bulk.php');
+$returnurl = new lion_url('/admin/tool/uploaduser/index.php');
+$bulknurl  = new lion_url('/admin/user/user_bulk.php');
 
 $today = time();
 $today = make_timestamp(date('Y', $today), date('m', $today), date('d', $today), 0, 0, 0);
@@ -232,7 +218,7 @@ if ($formdata = $mform2->is_cancelled()) {
                     // this must be some hacky field that is abusing arrays to store content and format
                     $user->$key = array();
                     $user->$key['text']   = $value;
-                    $user->$key['format'] = FORMAT_MOODLE;
+                    $user->$key['format'] = FORMAT_LION;
                 } else {
                     $user->$key = trim($value);
                 }
@@ -511,7 +497,7 @@ if ($formdata = $mform2->is_cancelled()) {
         if ($existinguser) {
             $user->id = $existinguser->id;
 
-            $upt->track('username', html_writer::link(new moodle_url('/user/profile.php', array('id'=>$existinguser->id)), s($existinguser->username)), 'normal', false);
+            $upt->track('username', html_writer::link(new lion_url('/user/profile.php', array('id'=>$existinguser->id)), s($existinguser->username)), 'normal', false);
             $upt->track('suspended', $stryesnooptions[$existinguser->suspended] , 'normal', false);
             $upt->track('auth', $existinguser->auth, 'normal', false);
 
@@ -804,7 +790,7 @@ if ($formdata = $mform2->is_cancelled()) {
             }
 
             $user->id = user_create_user($user, false, false);
-            $upt->track('username', html_writer::link(new moodle_url('/user/profile.php', array('id'=>$user->id)), s($user->username)), 'normal', false);
+            $upt->track('username', html_writer::link(new lion_url('/user/profile.php', array('id'=>$user->id)), s($user->username)), 'normal', false);
 
             // pre-process custom profile menu fields data from csv file
             $user = uu_pre_process_custom_profile_data($user);
@@ -850,7 +836,7 @@ if ($formdata = $mform2->is_cancelled()) {
                         $cohort = $DB->get_record('cohort', array('id'=>$addcohort));
                     } else {
                         $cohort = $DB->get_record('cohort', array('idnumber'=>$addcohort));
-                        if (empty($cohort) && has_capability('moodle/cohort:manage', context_system::instance())) {
+                        if (empty($cohort) && has_capability('lion/cohort:manage', context_system::instance())) {
                             // Cohort was not found. Create a new one.
                             $cohortid = cohort_add_cohort((object)array(
                                 'idnumber' => $addcohort,
@@ -1058,7 +1044,7 @@ if ($formdata = $mform2->is_cancelled()) {
                     }  else {
                         $upt->track('enrolments', get_string('addedtogroupnot', '', s($gname)), 'error');
                     }
-                } catch (moodle_exception $e) {
+                } catch (lion_exception $e) {
                     $upt->track('enrolments', get_string('addedtogroupnot', '', s($gname)), 'error');
                     continue;
                 }
@@ -1131,7 +1117,7 @@ while ($linenum <= $previewrows and $fields = $cir->next()) {
             $rowcols['status'][] = get_string('invalidusernameupload');
         }
         if ($userid = $DB->get_field('user', 'id', array('username'=>$stdusername, 'mnethostid'=>$CFG->mnet_localhost_id))) {
-            $rowcols['username'] = html_writer::link(new moodle_url('/user/profile.php', array('id'=>$userid)), $rowcols['username']);
+            $rowcols['username'] = html_writer::link(new lion_url('/user/profile.php', array('id'=>$userid)), $rowcols['username']);
         }
     } else {
         $rowcols['status'][] = get_string('missingusername');

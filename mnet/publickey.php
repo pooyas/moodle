@@ -2,10 +2,10 @@
 /**
  * Print this server's public key and exit
  *
- * @author  Donal McMullan  donal@catalyst.net.nz
  * @version 0.0.1
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mnet
+ * @package    core
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');

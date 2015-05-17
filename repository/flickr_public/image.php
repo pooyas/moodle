@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * moodle_image class
+ * lion_image class
  *
  * @package    repository
  * @subpackage flickr_public
- * @author     Dongsheng Cai <dongsheng@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * @copyright  2015 Pooya Saeedi
  */
-class moodle_image {
+class lion_image {
     private $imagepath;
     private $info;
     private $width;
@@ -35,10 +21,10 @@ class moodle_image {
         ini_set('gd.jpeg_ignore_warning', 1);
         if(!function_exists('imagecreatefrompng')
             and !function_exists('imagecreatefromjpeg')) {
-            throw new moodle_exception('gdnotexist');
+            throw new lion_exception('gdnotexist');
         }
         if(!file_exists($img) or !is_readable($img)) {
-            throw new moodle_exception('invalidfile');
+            throw new lion_exception('invalidfile');
         }
 
         $this->imagepath = $img;

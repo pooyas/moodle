@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package moodlecore
+ * @package    core
  * @subpackage backup
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -39,8 +25,8 @@ abstract class backup implements checksumable {
     const TYPE_1COURSE   = 'course';
 
     // Backup format
-    const FORMAT_MOODLE  = 'moodle2';
-    const FORMAT_MOODLE1 = 'moodle1';
+    const FORMAT_LION  = 'lion2';
+    const FORMAT_LION1 = 'lion1';
     const FORMAT_IMSCC1  = 'imscc1';
     const FORMAT_IMSCC11 = 'imscc11';
     const FORMAT_UNKNOWN = 'unknown';
@@ -133,7 +119,7 @@ abstract class backup implements checksumable {
 /*
  * Exception class used by all the @backup stuff
  */
-abstract class backup_exception extends moodle_exception {
+abstract class backup_exception extends lion_exception {
 
     public function __construct($errorcode, $a=NULL, $debuginfo=null) {
         parent::__construct($errorcode, 'error', '', $a, $debuginfo);

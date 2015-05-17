@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Store performance test run + output script.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -191,7 +178,7 @@ echo $OUTPUT->heading(get_string('storeperformance', 'cache', $count));
 $possiblecounts = array(1, 10, 100, 500, 1000, 5000, 10000, 50000, 100000);
 $links = array();
 foreach ($possiblecounts as $pcount) {
-    $links[] = html_writer::link(new moodle_url($PAGE->url, array('count' => $pcount)), $pcount);
+    $links[] = html_writer::link(new lion_url($PAGE->url, array('count' => $pcount)), $pcount);
 }
 echo $OUTPUT->box_start('generalbox performance-test-counts');
 echo get_string('requestcount', 'cache', join(', ', $links));

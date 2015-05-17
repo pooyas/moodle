@@ -3,8 +3,9 @@
 /**
  * Join Selector Visitor
  *
- * @package Less
- * @subpackage visitor
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Visitor_joinSelector extends Less_Visitor{
 

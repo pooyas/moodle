@@ -3,6 +3,9 @@
 /**
  * Adds important param elements to inside of object in order to make
  * things safe.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Injector_SafeObject extends HTMLPurifier_Injector
 {

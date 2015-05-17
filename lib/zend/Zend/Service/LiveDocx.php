@@ -13,54 +13,43 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Service
- * @subpackage LiveDocx
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * @category   Zend
- * @package    Zend_Service
- * @subpackage LiveDocx
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @since      LiveDocx 1.0
  */
 class Zend_Service_LiveDocx
 {
     /**
      * LiveDocx service version
-     * @since LiveDocx 1.0
      */
     const VERSION = '1.2';
 
     /**
      * SOAP client used to connect to LiveDocx service
      * @var   Zend_Soap_Client
-     * @since LiveDocx 1.0
      */
     protected $_soapClient;
         
     /**
      * WSDL of LiveDocx web service
      * @var   string
-     * @since LiveDocx 1.0
      */
     protected $_wsdl;
         
     /**
      * Array of credentials (username and password) to log into backend server
      * @var   array
-     * @since LiveDocx 1.2
      */
     protected $_credentials;
     
     /**
      * Set to true, when session is logged into backend server
      * @var   boolean
-     * @since LiveDocx 1.2
      */
     protected $_loggedIn;
     
@@ -127,7 +116,6 @@ class Zend_Service_LiveDocx
      * @param  array|Zend_Config $options
      * @return void
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */    
     public function __construct($options = null)
     {
@@ -149,7 +137,6 @@ class Zend_Service_LiveDocx
      * 
      * @param  $options
      * @return Zend_Service_LiveDocx
-     * @since  LiveDocx 1.2
      */
     public function setOptions(array $options)
     {
@@ -167,7 +154,6 @@ class Zend_Service_LiveDocx
      * Clean up and log out of LiveDocx service
      *
      * @return boolean
-     * @since  LiveDocx 1.0
      */
     public function __destruct()
     {
@@ -180,7 +166,6 @@ class Zend_Service_LiveDocx
      * @param  string $endpoint
      * @throws Zend_Service_LiveDocx_Exception
      * @return void
-     * @since  LiveDocx 1.2
      */
     protected function _initSoapClient($endpoint)
     {
@@ -198,7 +183,6 @@ class Zend_Service_LiveDocx
      * Get SOAP client
      *
      * @return Zend_Soap_Client
-     * @since  LiveDocx 1.2
      */
     public function getSoapClient()
     {
@@ -210,7 +194,6 @@ class Zend_Service_LiveDocx
      *
      * @param  Zend_Soap_Client $soapClient
      * @return Zend_Service_LiveDocx
-     * @since  LiveDocx 1.2
      */
     public function setSoapClient(Zend_Soap_Client $soapClient)
     {
@@ -226,7 +209,6 @@ class Zend_Service_LiveDocx
      *
      * @throws Zend_Service_LiveDocx_Exception
      * @return boolean
-     * @since  LiveDocx 1.2
      */
     public function logIn()
     {
@@ -271,7 +253,6 @@ class Zend_Service_LiveDocx
      *
      * @throws Zend_Service_LiveDocx_Exception
      * @return boolean
-     * @since  LiveDocx 1.2
      */
     public function logOut()
     {
@@ -294,7 +275,6 @@ class Zend_Service_LiveDocx
      * Return true, if session is currently logged into the backend server
      * 
      * @return boolean
-     * @since  LiveDocx 1.2
      */
     public function isLoggedIn()
     {
@@ -305,7 +285,6 @@ class Zend_Service_LiveDocx
      * Set username
      * 
      * @return Zend_Service_LiveDocx
-     * @since  LiveDocx 1.0
      */
     public function setUsername($username)
     {
@@ -317,7 +296,6 @@ class Zend_Service_LiveDocx
      * Set password
      * 
      * @return Zend_Service_LiveDocx
-     * @since  LiveDocx 1.0
      */    
     public function setPassword($password)
     {
@@ -329,7 +307,6 @@ class Zend_Service_LiveDocx
      * Set WSDL of LiveDocx web service
      * 
      * @return Zend_Service_LiveDocx
-     * @since  LiveDocx 1.0
      */      
     public function setWsdl($wsdl) 
     {
@@ -341,7 +318,6 @@ class Zend_Service_LiveDocx
      * Return current username
      * 
      * @return string|null
-     * @since  LiveDocx 1.0
      */
     public function getUsername()
     {
@@ -356,7 +332,6 @@ class Zend_Service_LiveDocx
      * Return current password
      * 
      * @return string|null
-     * @since  LiveDocx 1.0
      */    
     public function getPassword()
     {
@@ -371,7 +346,6 @@ class Zend_Service_LiveDocx
      * Return WSDL of LiveDocx web service
      * 
      * @return Zend_Service_LiveDocx
-     * @since  LiveDocx 1.0
      */      
     public function getWsdl() 
     {
@@ -383,7 +357,6 @@ class Zend_Service_LiveDocx
      *
      * @param  string $filename
      * @return string
-     * @since  LiveDocx 1.0
      */
     public function getFormat($filename)
     {
@@ -394,7 +367,6 @@ class Zend_Service_LiveDocx
      * Return the current API version
      *
      * @return string
-     * @since  LiveDocx 1.0
      */
     public function getVersion()
     {
@@ -406,7 +378,6 @@ class Zend_Service_LiveDocx
      *
      * @param  string $version (STRING NOT FLOAT)
      * @return int -1 (version is less than API version), 0 (versions are equal), or 1 (version is greater than API version)
-     * @since  LiveDocx 1.0
      */
     public function compareVersion($version)
     {

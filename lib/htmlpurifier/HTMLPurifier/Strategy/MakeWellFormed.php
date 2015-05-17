@@ -10,6 +10,9 @@
  *        in particular, if a tag was generated automatically by HTML
  *        Purifier, we may rely on our infrastructure to close it for us
  *        and shouldn't report an error to the user [TagClosedAuto].
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Strategy_MakeWellFormed extends HTMLPurifier_Strategy
 {

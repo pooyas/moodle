@@ -2,6 +2,9 @@
 
 /**
  * Injector that converts http, https and ftp text URLs to actual links.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Injector_Linkify extends HTMLPurifier_Injector
 {

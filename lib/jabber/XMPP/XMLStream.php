@@ -18,12 +18,10 @@
  * along with XMPPHP; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- * @category   xmpphp 
- * @package	XMPPHP
- * @author	 Nathanael C. Fritz <JID: fritzy@netflint.net>
- * @author	 Stephan Wentz <JID: stephan@jabber.wentz.it>
- * @author	 Michael Garvin <JID: gar@netflint.net>
- * @copyright  2008 Nathanael C. Fritz
+ * @category   xmpphp
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** XMPPHP_Exception */
@@ -38,12 +36,7 @@ require_once dirname(__FILE__) . '/Log.php';
 /**
  * XMPPHP XML Stream
  * 
- * @category   xmpphp 
- * @package	XMPPHP
- * @author	 Nathanael C. Fritz <JID: fritzy@netflint.net>
- * @author	 Stephan Wentz <JID: stephan@jabber.wentz.it>
- * @author	 Michael Garvin <JID: gar@netflint.net>
- * @copyright  2008 Nathanael C. Fritz
+ * @category   xmpphp
  * @version	$Id$
  */
 class XMPPHP_XMLStream {

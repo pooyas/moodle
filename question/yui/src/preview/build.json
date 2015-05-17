@@ -1,7 +1,7 @@
 {
-    "name": "moodle-question-preview",
+    "name": "lion-question-preview",
     "builds": {
-        "moodle-question-preview": {
+        "lion-question-preview": {
             "jsfiles": [
                 "preview.js"
             ]

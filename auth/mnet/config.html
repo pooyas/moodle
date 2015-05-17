@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
 global $OUTPUT;
 // set to defaults if undefined
 if (!isset($config->rpc_negotiation_timeout)) {
@@ -27,6 +34,13 @@ if (empty($CFG->mnet_dispatcher_mode) || $CFG->mnet_dispatcher_mode !== 'strict'
         <input name="rpc_negotiation_timeout" id="rpc_negotiation_timeout" type="text" size="5" value="<?php echo $config->rpc_negotiation_timeout ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['rpc_negotiation_timeout'])) {
             echo $OUTPUT->error_text($err['rpc_negotiation_timeout']);
         }
@@ -35,6 +49,13 @@ if (empty($CFG->mnet_dispatcher_mode) || $CFG->mnet_dispatcher_mode !== 'strict'
     </td>
     <td>
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
 
         print_string('auth_mnet_rpc_negotiation_timeout', 'auth_mnet');
 
@@ -49,12 +70,26 @@ if (empty($CFG->mnet_dispatcher_mode) || $CFG->mnet_dispatcher_mode !== 'strict'
     <td>
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
         echo html_writer::select($yesno, 'auto_add_remote_users', $config->auto_add_remote_users, false);
 
         ?>
     </td>
     <td>
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
 
         print_string('auth_mnet_auto_add_remote_users', 'auth_mnet');
 
@@ -66,6 +101,13 @@ if (empty($CFG->mnet_dispatcher_mode) || $CFG->mnet_dispatcher_mode !== 'strict'
     <td colspan="3"><?php print_string('auth_mnet_roamin', 'auth_mnet'); ?>: </td>
 </tr>
 <?php
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
 foreach($id_providers as $host) {
 ?>
 <tr valign="top" class="required">
@@ -73,12 +115,26 @@ foreach($id_providers as $host) {
     <td colspan="2"><?php echo $host['wwwroot']; ?> </td>
 </tr>
 <?php
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
 }
 ?>
 <tr valign="top" class="required">
     <td colspan="3"><?php print_string('auth_mnet_roamout', 'auth_mnet'); ?>: </td>
 </tr>
 <?php
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
 foreach($service_providers as $host) {
 ?>
 <tr valign="top" class="required">
@@ -86,6 +142,13 @@ foreach($service_providers as $host) {
     <td colspan="2"><?php echo $host['wwwroot']; ?> </td>
 </tr>
 <?php
+
+/**
+ * @package    auth
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
 }
 
 // print_auth_lock_options($this->authtype, $user_fields, get_string('auth_fieldlocks_help', 'auth'), false, false);

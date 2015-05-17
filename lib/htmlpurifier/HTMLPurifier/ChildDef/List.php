@@ -8,6 +8,9 @@
  * them into the previous list node.  We generally shouldn't ever
  * see other disallowed elements, because the autoclose behavior
  * in MakeWellFormed handles it.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ChildDef_List extends HTMLPurifier_ChildDef
 {

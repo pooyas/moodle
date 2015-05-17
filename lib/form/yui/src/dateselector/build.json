@@ -1,10 +1,10 @@
 {
-    "name": "moodle-form-dateselector",
+    "name": "lion-form-dateselector",
     "builds": {
-        "moodle-form-dateselector": {
+        "lion-form-dateselector": {
             "jsfiles": [
                 "dateselector.js",
-                "moodlecalendar.js",
+                "lioncalendar.js",
                 "calendar.js"
             ]
         }

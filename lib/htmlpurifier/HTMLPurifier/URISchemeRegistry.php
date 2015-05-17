@@ -2,6 +2,9 @@
 
 /**
  * Registry for retrieving specific URI scheme validator objects.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URISchemeRegistry
 {

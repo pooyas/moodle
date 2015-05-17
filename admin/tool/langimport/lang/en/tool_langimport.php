@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'tool_langimport', language 'en', branch 'MOODLE_22_STABLE'
+ * Strings for component 'tool_langimport', language 'en', branch 'LION_22_STABLE'
  *
- * @package    tool
+ * @package    admin_tool
  * @subpackage langimport
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['install'] = 'Install selected language pack(s)';
@@ -41,7 +27,7 @@ $string['missinglangparent'] = 'Missing parent language <em>{$a->parent}</em> of
 $string['nolangupdateneeded'] = 'All your language packs are up to date, no update is needed';
 $string['pluginname'] = 'Language packs';
 $string['purgestringcaches'] = 'Purge string caches';
-$string['remotelangnotavailable'] = 'Because Moodle cannot connect to download.moodle.org, it is not possible for language packs to be installed automatically. Please download the appropriate ZIP file(s) from <a href="https://download.moodle.org/langpack/">download.moodle.org/langpack</a>, copy them to your {$a} directory and unzip them manually.';
+$string['remotelangnotavailable'] = 'Because Lion cannot connect to download.lion.org, it is not possible for language packs to be installed automatically. Please download the appropriate ZIP file(s) from <a href="https://download.lion.org/langpack/">download.lion.org/langpack</a>, copy them to your {$a} directory and unzip them manually.';
 $string['uninstall'] = 'Uninstall selected language pack';
 $string['uninstallconfirm'] = 'You are about to completely uninstall language pack {$a}, are you sure?';
 $string['updatelangs'] = 'Update all installed language packs';

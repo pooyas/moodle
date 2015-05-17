@@ -1,19 +1,6 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Subscribe to or unsubscribe from a forum or manage forum subscription mode
@@ -26,9 +13,9 @@
  * through a confirmation page that redirects the user back with the
  * sesskey.
  *
- * @package   mod_forum
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -41,7 +28,7 @@ $discussionid   = optional_param('d', null, PARAM_INT);        // The discussion
 $sesskey        = optional_param('sesskey', null, PARAM_RAW);
 $returnurl      = optional_param('returnurl', null, PARAM_RAW);
 
-$url = new moodle_url('/mod/forum/subscribe.php', array('id'=>$id));
+$url = new lion_url('/mod/forum/subscribe.php', array('id'=>$id));
 if (!is_null($mode)) {
     $url->param('mode', $mode);
 }
@@ -81,7 +68,7 @@ if (isset($cm->groupmode) && empty($course->groupmodeforce)) {
 $issubscribed = \mod_forum\subscriptions::is_subscribed($user->id, $forum, $discussionid, $cm);
 
 // For a user to subscribe when a groupmode is set, they must have access to at least one group.
-if ($groupmode && !$issubscribed && !has_capability('moodle/site:accessallgroups', $context)) {
+if ($groupmode && !$issubscribed && !has_capability('lion/site:accessallgroups', $context)) {
     if (!groups_get_all_groups($course->id, $USER->id)) {
         print_error('cannotsubscribe', 'forum');
     }
@@ -95,12 +82,12 @@ if (is_null($mode) and !is_enrolled($context, $USER, '', true)) {   // Guests an
     if (isguestuser()) {
         echo $OUTPUT->header();
         echo $OUTPUT->confirm(get_string('subscribeenrolledonly', 'forum').'<br /><br />'.get_string('liketologin'),
-                     get_login_url(), new moodle_url('/mod/forum/view.php', array('f'=>$id)));
+                     get_login_url(), new lion_url('/mod/forum/view.php', array('f'=>$id)));
         echo $OUTPUT->footer();
         exit;
     } else {
         // there should not be any links leading to this place, just redirect
-        redirect(new moodle_url('/mod/forum/view.php', array('f'=>$id)), get_string('subscribeenrolledonly', 'forum'));
+        redirect(new lion_url('/mod/forum/view.php', array('f'=>$id)), get_string('subscribeenrolledonly', 'forum'));
     }
 }
 
@@ -157,7 +144,7 @@ if ($issubscribed) {
         $PAGE->set_heading($course->fullname);
         echo $OUTPUT->header();
 
-        $viewurl = new moodle_url('/mod/forum/view.php', array('f' => $id));
+        $viewurl = new lion_url('/mod/forum/view.php', array('f' => $id));
         if ($discussionid) {
             $a = new stdClass();
             $a->forum = format_string($forum->name);
@@ -200,7 +187,7 @@ if ($issubscribed) {
         $PAGE->set_heading($course->fullname);
         echo $OUTPUT->header();
 
-        $viewurl = new moodle_url('/mod/forum/view.php', array('f' => $id));
+        $viewurl = new lion_url('/mod/forum/view.php', array('f' => $id));
         if ($discussionid) {
             $a = new stdClass();
             $a->forum = format_string($forum->name);

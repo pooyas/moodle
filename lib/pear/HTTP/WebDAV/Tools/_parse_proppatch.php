@@ -36,9 +36,7 @@
 
 /**
  * helper class for parsing PROPPATCH request bodies
- * 
- * @package HTTP_WebDAV_Server
- * @author Hartmut Holzgraefe <hholzgra@php.net>
+ *
  * @version @package-version@
  */
 class _parse_proppatch 

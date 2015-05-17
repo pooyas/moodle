@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Renderers for outputting parts of the question engine.
  *
- * @package    moodlecore
- * @subpackage questionengine
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question
+ * @subpackage engine
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -32,8 +18,6 @@ defined('MOODLE_INTERNAL') || die();
  * {@link qbehaviour_renderer} and a {@link qtype_renderer} to output the
  * type-specific bits. The main entry point is the {@link question()} method.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_question_renderer extends plugin_renderer_base {
     public function get_page() {
@@ -350,11 +334,11 @@ class core_question_renderer extends plugin_renderer_base {
         }
 
         $params = $options->editquestionparams;
-        if ($params['returnurl'] instanceof moodle_url) {
+        if ($params['returnurl'] instanceof lion_url) {
             $params['returnurl'] = $params['returnurl']->out_as_local_url(false);
         }
         $params['id'] = $qa->get_question()->id;
-        $editurl = new moodle_url('/question/question.php', $params);
+        $editurl = new lion_url('/question/question.php', $params);
 
         return html_writer::tag('div', html_writer::link(
                 $editurl, $this->pix_icon('t/edit', get_string('edit'), '', array('class' => 'iconsmall')) .
@@ -457,7 +441,7 @@ class core_question_renderer extends plugin_renderer_base {
             if ($stepno == $qa->get_num_steps()) {
                 $rowclass = 'current';
             } else if (!empty($options->questionreviewlink)) {
-                $url = new moodle_url($options->questionreviewlink,
+                $url = new lion_url($options->questionreviewlink,
                         array('slot' => $qa->get_slot(), 'step' => $i));
                 $stepno = $this->output->action_link($url, $stepno,
                         new popup_action('click', $url, 'reviewquestion',

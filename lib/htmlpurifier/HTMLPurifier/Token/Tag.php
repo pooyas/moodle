@@ -2,6 +2,9 @@
 
 /**
  * Abstract class of a tag token (start, end or empty), and its behavior.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_Token_Tag extends HTMLPurifier_Token
 {

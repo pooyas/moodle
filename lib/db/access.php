@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Capability definitions for Lion core.
@@ -33,29 +20,29 @@
  *
  * component_name should be the same as the directory name of the mod or block.
  *
- * Core moodle capabilities are defined thus:
- *    moodle/<capabilityclass>:<capabilityname>
+ * Core lion capabilities are defined thus:
+ *    lion/<capabilityclass>:<capabilityname>
  *
  * Examples: mod/forum:viewpost
  *           block/recent_activity:view
- *           moodle/site:deleteuser
+ *           lion/site:deleteuser
  *
  * The variable name for the capability definitions array is $capabilities
  *
  * For more information, take a look to the documentation available:
- *     - Access API: {@link http://docs.moodle.org/dev/Access_API}
- *     - Upgrade API: {@link http://docs.moodle.org/dev/Upgrade_API}
+ *     - Access API: {@link http://docs.lion.org/dev/Access_API}
+ *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
- * @package   core_access
  * @category  access
- * @copyright 2006 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 $capabilities = array(
-    'moodle/site:config' => array(
+    'lion/site:config' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS | RISK_CONFIG | RISK_DATALOSS,
 
@@ -65,7 +52,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:readallmessages' => array(
+    'lion/site:readallmessages' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -77,7 +64,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:sendmessage' => array(
+    'lion/site:sendmessage' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -89,7 +76,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:approvecourse' => array(
+    'lion/site:approvecourse' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -100,7 +87,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/backup:backupcourse' => array(
+    'lion/backup:backupcourse' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -111,10 +98,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/site:backup'
+        'clonepermissionsfrom' =>  'lion/site:backup'
     ),
 
-    'moodle/backup:backupsection' => array(
+    'lion/backup:backupsection' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -125,10 +112,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/backup:backupcourse'
+        'clonepermissionsfrom' =>  'lion/backup:backupcourse'
     ),
 
-    'moodle/backup:backupactivity' => array(
+    'lion/backup:backupactivity' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -139,10 +126,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/backup:backupcourse'
+        'clonepermissionsfrom' =>  'lion/backup:backupcourse'
     ),
 
-    'moodle/backup:backuptargethub' => array(
+    'lion/backup:backuptargethub' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -153,10 +140,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/backup:backupcourse'
+        'clonepermissionsfrom' =>  'lion/backup:backupcourse'
     ),
 
-    'moodle/backup:backuptargetimport' => array(
+    'lion/backup:backuptargetimport' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -167,10 +154,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/backup:backupcourse'
+        'clonepermissionsfrom' =>  'lion/backup:backupcourse'
     ),
 
-    'moodle/backup:downloadfile' => array(
+    'lion/backup:downloadfile' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -181,10 +168,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/site:backupdownload'
+        'clonepermissionsfrom' =>  'lion/site:backupdownload'
     ),
 
-    'moodle/backup:configure' => array(
+    'lion/backup:configure' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -196,7 +183,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/backup:userinfo' => array(
+    'lion/backup:userinfo' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -207,7 +194,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/backup:anonymise' => array(
+    'lion/backup:anonymise' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -218,7 +205,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/restore:restorecourse' => array(
+    'lion/restore:restorecourse' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -229,10 +216,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/site:restore'
+        'clonepermissionsfrom' =>  'lion/site:restore'
     ),
 
-    'moodle/restore:restoresection' => array(
+    'lion/restore:restoresection' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -243,10 +230,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/restore:restorecourse'
+        'clonepermissionsfrom' =>  'lion/restore:restorecourse'
     ),
 
-    'moodle/restore:restoreactivity' => array(
+    'lion/restore:restoreactivity' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -257,10 +244,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/restore:restorecourse'
+        'clonepermissionsfrom' =>  'lion/restore:restorecourse'
     ),
 
-    'moodle/restore:viewautomatedfilearea' => array(
+    'lion/restore:viewautomatedfilearea' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -268,21 +255,7 @@ $capabilities = array(
         'contextlevel' => CONTEXT_COURSE,
     ),
 
-    'moodle/restore:restoretargethub' => array(
-
-        'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
-
-        'captype' => 'write',
-        'contextlevel' => CONTEXT_COURSE,
-        'archetypes' => array(
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        ),
-
-        'clonepermissionsfrom' =>  'moodle/restore:restorecourse'
-    ),
-
-    'moodle/restore:restoretargetimport' => array(
+    'lion/restore:restoretargethub' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -293,10 +266,10 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/site:import'
+        'clonepermissionsfrom' =>  'lion/restore:restorecourse'
     ),
 
-    'moodle/restore:uploadfile' => array(
+    'lion/restore:restoretargetimport' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -307,10 +280,24 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         ),
 
-        'clonepermissionsfrom' =>  'moodle/site:backupupload'
+        'clonepermissionsfrom' =>  'lion/site:import'
     ),
 
-    'moodle/restore:configure' => array(
+    'lion/restore:uploadfile' => array(
+
+        'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
+
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        ),
+
+        'clonepermissionsfrom' =>  'lion/site:backupupload'
+    ),
+
+    'lion/restore:configure' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -322,7 +309,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/restore:rolldates' => array(
+    'lion/restore:rolldates' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -332,7 +319,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/restore:userinfo' => array(
+    'lion/restore:userinfo' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS | RISK_CONFIG,
 
@@ -343,7 +330,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/restore:createuser' => array(
+    'lion/restore:createuser' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
 
@@ -354,7 +341,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:manageblocks' => array(
+    'lion/site:manageblocks' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_XSS,
 
@@ -366,7 +353,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:accessallgroups' => array(
+    'lion/site:accessallgroups' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -377,7 +364,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:viewfullnames' => array(
+    'lion/site:viewfullnames' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -391,7 +378,7 @@ $capabilities = array(
     // In reports that give lists of users, extra information about each user's
     // identity (the fields configured in site option showuseridentity) will be
     // displayed to users who have this capability.
-    'moodle/site:viewuseridentity' => array(
+    'lion/site:viewuseridentity' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -402,7 +389,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:viewreports' => array(
+    'lion/site:viewreports' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -415,7 +402,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:trustcontent' => array(
+    'lion/site:trustcontent' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -427,7 +414,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:uploadusers' => array(
+    'lion/site:uploadusers' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
 
@@ -439,7 +426,7 @@ $capabilities = array(
     ),
 
     // Permission to manage filter setting overrides in subcontexts.
-    'moodle/filter:manage' => array(
+    'lion/filter:manage' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -449,7 +436,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:create' => array(
+    'lion/user:create' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
 
@@ -460,7 +447,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:delete' => array(
+    'lion/user:delete' => array(
 
         'riskbitmask' => RISK_PERSONAL, RISK_DATALOSS,
 
@@ -471,7 +458,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:update' => array(
+    'lion/user:update' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
 
@@ -482,7 +469,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:viewdetails' => array(
+    'lion/user:viewdetails' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -495,27 +482,27 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:viewalldetails' => array(
+    'lion/user:viewalldetails' => array(
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_USER,
         'archetypes' => array(
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/user:update'
+        'clonepermissionsfrom' => 'lion/user:update'
     ),
 
-    'moodle/user:viewlastip' => array(
+    'lion/user:viewlastip' => array(
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_USER,
         'archetypes' => array(
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/user:update'
+        'clonepermissionsfrom' => 'lion/user:update'
     ),
 
-    'moodle/user:viewhiddendetails' => array(
+    'lion/user:viewhiddendetails' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -528,7 +515,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:loginas' => array(
+    'lion/user:loginas' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS | RISK_CONFIG,
 
@@ -540,7 +527,7 @@ $capabilities = array(
     ),
 
     // can the user manage the system default profile page?
-    'moodle/user:managesyspages' => array(
+    'lion/user:managesyspages' => array(
 
         'riskbitmap' => RISK_SPAM | RISK_PERSONAL | RISK_CONFIG,
 
@@ -552,7 +539,7 @@ $capabilities = array(
     ),
 
     // can the user manage another user's profile page?
-    'moodle/user:manageblocks' => array(
+    'lion/user:manageblocks' => array(
 
         'riskbitmap' => RISK_SPAM | RISK_PERSONAL,
 
@@ -561,7 +548,7 @@ $capabilities = array(
     ),
 
     // can the user manage their own profile page?
-    'moodle/user:manageownblocks' => array(
+    'lion/user:manageownblocks' => array(
 
         'riskbitmap' => RISK_SPAM | RISK_PERSONAL,
 
@@ -573,7 +560,7 @@ $capabilities = array(
     ),
 
     // can the user manage their own files?
-    'moodle/user:manageownfiles' => array(
+    'lion/user:manageownfiles' => array(
 
         'riskbitmap' => RISK_SPAM | RISK_PERSONAL,
 
@@ -586,15 +573,15 @@ $capabilities = array(
 
     // Can the user ignore the setting userquota?
     // The permissions are cloned from ignorefilesizelimits as it was partly used for that purpose.
-    'moodle/user:ignoreuserquota' => array(
+    'lion/user:ignoreuserquota' => array(
         'riskbitmap' => RISK_SPAM,
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
-        'clonepermissionsfrom' => 'moodle/course:ignorefilesizelimits'
+        'clonepermissionsfrom' => 'lion/course:ignorefilesizelimits'
     ),
 
     // can the user manage the system default dashboard page?
-    'moodle/my:configsyspages' => array(
+    'lion/my:configsyspages' => array(
 
         'riskbitmap' => RISK_SPAM | RISK_PERSONAL | RISK_CONFIG,
 
@@ -605,7 +592,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/role:assign' => array(
+    'lion/role:assign' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -617,7 +604,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/role:review' => array(
+    'lion/role:review' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -630,7 +617,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/role:override' => array(
+    'lion/role:override' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -641,7 +628,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/role:safeoverride' => array(
+    'lion/role:safeoverride' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -652,7 +639,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/role:manage' => array(
+    'lion/role:manage' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL | RISK_XSS,
 
@@ -663,7 +650,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/role:switchroles' => array(
+    'lion/role:switchroles' => array(
 
         'riskbitmask' => RISK_XSS | RISK_PERSONAL,
 
@@ -677,9 +664,9 @@ $capabilities = array(
 
     // Create, update and delete course categories. (Deleting a course category
     // does not let you delete the courses it contains, unless you also have
-    // moodle/course: delete.) Creating and deleting requires this permission in
+    // lion/course: delete.) Creating and deleting requires this permission in
     // the parent category.
-    'moodle/category:manage' => array(
+    'lion/category:manage' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -688,10 +675,10 @@ $capabilities = array(
         'archetypes' => array(
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/category:update'
+        'clonepermissionsfrom' => 'lion/category:update'
     ),
 
-    'moodle/category:viewhiddencategories' => array(
+    'lion/category:viewhiddencategories' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSECAT,
@@ -699,12 +686,12 @@ $capabilities = array(
             'coursecreator' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/category:visibility'
+        'clonepermissionsfrom' => 'lion/category:visibility'
     ),
 
     // create, delete, move cohorts in system and course categories,
     // (cohorts with component !== null can be only moved)
-    'moodle/cohort:manage' => array(
+    'lion/cohort:manage' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSECAT,
@@ -714,7 +701,7 @@ $capabilities = array(
     ),
 
     // add and remove cohort members (only for cohorts where component !== null)
-    'moodle/cohort:assign' => array(
+    'lion/cohort:assign' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSECAT,
@@ -724,7 +711,7 @@ $capabilities = array(
     ),
 
     // View visible and hidden cohorts defined in the current context.
-    'moodle/cohort:view' => array(
+    'lion/cohort:view' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -734,7 +721,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:create' => array(
+    'lion/course:create' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -746,7 +733,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:request' => array(
+    'lion/course:request' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -754,7 +741,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:delete' => array(
+    'lion/course:delete' => array(
 
         'riskbitmask' => RISK_DATALOSS,
 
@@ -765,7 +752,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:update' => array(
+    'lion/course:update' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -777,7 +764,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:view' => array(
+    'lion/course:view' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -787,7 +774,7 @@ $capabilities = array(
     ),
 
     /* review course enrolments - no group restrictions, it is really full access to all participants info*/
-    'moodle/course:enrolreview' => array(
+    'lion/course:enrolreview' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -800,7 +787,7 @@ $capabilities = array(
     ),
 
     /* add, remove, hide enrol instances in courses */
-    'moodle/course:enrolconfig' => array(
+    'lion/course:enrolconfig' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -812,7 +799,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:reviewotherusers' => array(
+    'lion/course:reviewotherusers' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -820,10 +807,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW,
         ),
-        'clonepermissionsfrom' => 'moodle/role:assign'
+        'clonepermissionsfrom' => 'lion/role:assign'
     ),
 
-    'moodle/course:bulkmessaging' => array(
+    'lion/course:bulkmessaging' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -836,7 +823,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:viewhiddenuserfields' => array(
+    'lion/course:viewhiddenuserfields' => array(
 
         'riskbitmask' => RISK_PERSONAL,
 
@@ -849,7 +836,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:viewhiddencourses' => array(
+    'lion/course:viewhiddencourses' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -861,7 +848,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:visibility' => array(
+    'lion/course:visibility' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -871,7 +858,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:managefiles' => array(
+    'lion/course:managefiles' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -883,7 +870,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:ignorefilesizelimits' => array(
+    'lion/course:ignorefilesizelimits' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -891,7 +878,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:manageactivities' => array(
+    'lion/course:manageactivities' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -903,7 +890,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:activityvisibility' => array(
+    'lion/course:activityvisibility' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_MODULE,
@@ -913,7 +900,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:viewhiddenactivities' => array(
+    'lion/course:viewhiddenactivities' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_MODULE,
@@ -924,7 +911,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:viewparticipants' => array(
+    'lion/course:viewparticipants' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -936,7 +923,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:changefullname' => array(
+    'lion/course:changefullname' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -946,10 +933,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:update'
+        'clonepermissionsfrom' => 'lion/course:update'
     ),
 
-    'moodle/course:changeshortname' => array(
+    'lion/course:changeshortname' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -959,10 +946,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:update'
+        'clonepermissionsfrom' => 'lion/course:update'
     ),
 
-    'moodle/course:changeidnumber' => array(
+    'lion/course:changeidnumber' => array(
 
         'riskbitmask' => RISK_XSS,
 
@@ -972,9 +959,9 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:update'
+        'clonepermissionsfrom' => 'lion/course:update'
     ),
-    'moodle/course:changecategory' => array(
+    'lion/course:changecategory' => array(
         'riskbitmask' => RISK_XSS,
 
         'captype' => 'write',
@@ -983,10 +970,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:update'
+        'clonepermissionsfrom' => 'lion/course:update'
     ),
 
-    'moodle/course:changesummary' => array(
+    'lion/course:changesummary' => array(
         'riskbitmask' => RISK_XSS,
 
         'captype' => 'write',
@@ -995,11 +982,11 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:update'
+        'clonepermissionsfrom' => 'lion/course:update'
     ),
 
 
-    'moodle/site:viewparticipants' => array(
+    'lion/site:viewparticipants' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1008,7 +995,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:isincompletionreports' => array(
+    'lion/course:isincompletionreports' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1016,7 +1003,7 @@ $capabilities = array(
         ),
     ),
 
-    'moodle/course:viewscales' => array(
+    'lion/course:viewscales' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -1028,7 +1015,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:managescales' => array(
+    'lion/course:managescales' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1038,7 +1025,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:managegroups' => array(
+    'lion/course:managegroups' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1048,7 +1035,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:reset' => array(
+    'lion/course:reset' => array(
 
         'riskbitmask' => RISK_DATALOSS,
 
@@ -1060,7 +1047,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:viewsuspendedusers' => array(
+    'lion/course:viewsuspendedusers' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1070,21 +1057,8 @@ $capabilities = array(
         )
     ),
 
-    'moodle/blog:view' => array(
+    'lion/blog:view' => array(
 
-        'captype' => 'read',
-        'contextlevel' => CONTEXT_SYSTEM,
-        'archetypes' => array(
-            'guest' => CAP_ALLOW,
-            'user' => CAP_ALLOW,
-            'student' => CAP_ALLOW,
-            'teacher' => CAP_ALLOW,
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
-    ),
-
-    'moodle/blog:search' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -1097,7 +1071,20 @@ $capabilities = array(
         )
     ),
 
-    'moodle/blog:viewdrafts' => array(
+    'lion/blog:search' => array(
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => array(
+            'guest' => CAP_ALLOW,
+            'user' => CAP_ALLOW,
+            'student' => CAP_ALLOW,
+            'teacher' => CAP_ALLOW,
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        )
+    ),
+
+    'lion/blog:viewdrafts' => array(
 
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
@@ -1107,7 +1094,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/blog:create' => array( // works in CONTEXT_SYSTEM only
+    'lion/blog:create' => array( // works in CONTEXT_SYSTEM only
 
         'riskbitmask' => RISK_SPAM,
 
@@ -1119,7 +1106,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/blog:manageentries' => array(
+    'lion/blog:manageentries' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -1132,7 +1119,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/blog:manageexternal' => array(
+    'lion/blog:manageexternal' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -1147,22 +1134,22 @@ $capabilities = array(
         )
     ),
 
-    // TODO: Remove 'moodle/blog:associatecourse' and 'moodle/blog:associatemodule' after a few releases.
-    'moodle/blog:associatecourse' => array(
+    // TODO: Remove 'lion/blog:associatecourse' and 'lion/blog:associatemodule' after a few releases.
+    'lion/blog:associatecourse' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array()
     ),
 
-    'moodle/blog:associatemodule' => array(
+    'lion/blog:associatemodule' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => array()
     ),
 
-    'moodle/calendar:manageownentries' => array( // works in CONTEXT_SYSTEM only
+    'lion/calendar:manageownentries' => array( // works in CONTEXT_SYSTEM only
 
         'riskbitmask' => RISK_SPAM,
 
@@ -1174,7 +1161,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/calendar:managegroupentries' => array(
+    'lion/calendar:managegroupentries' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -1187,7 +1174,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/calendar:manageentries' => array(
+    'lion/calendar:manageentries' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -1200,7 +1187,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:editprofile' => array(
+    'lion/user:editprofile' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
 
@@ -1211,7 +1198,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:editownprofile' => array(
+    'lion/user:editownprofile' => array(
 
         'riskbitmask' => RISK_SPAM,
 
@@ -1224,7 +1211,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:changeownpassword' => array(
+    'lion/user:changeownpassword' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1237,7 +1224,7 @@ $capabilities = array(
 
     // The next 3 might make no sense for some roles, e.g teacher, etc.
     // since the next level up is site. These are more for the parent role
-    'moodle/user:readuserposts' => array(
+    'lion/user:readuserposts' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_USER,
@@ -1249,7 +1236,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/user:readuserblogs' => array(
+    'lion/user:readuserblogs' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_USER,
@@ -1262,7 +1249,7 @@ $capabilities = array(
     ),
 
     // designed for parent role - not used in legacy roles
-    'moodle/user:viewuseractivitiesreport' => array(
+    'lion/user:viewuseractivitiesreport' => array(
         'riskbitmask' => RISK_PERSONAL,
 
         'captype' => 'read',
@@ -1272,7 +1259,7 @@ $capabilities = array(
     ),
 
     //capabilities designed for the new message system configuration
-    'moodle/user:editmessageprofile' => array(
+    'lion/user:editmessageprofile' => array(
 
          'riskbitmask' => RISK_SPAM,
 
@@ -1283,7 +1270,7 @@ $capabilities = array(
          )
      ),
 
-     'moodle/user:editownmessageprofile' => array(
+     'lion/user:editownmessageprofile' => array(
 
          'captype' => 'write',
          'contextlevel' => CONTEXT_SYSTEM,
@@ -1294,7 +1281,7 @@ $capabilities = array(
          )
      ),
 
-    'moodle/question:managecategory' => array(
+    'lion/question:managecategory' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1304,8 +1291,8 @@ $capabilities = array(
         )
     ),
 
-    //new in moodle 1.9
-    'moodle/question:add' => array(
+    //new in lion 1.9
+    'lion/question:add' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1313,9 +1300,9 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:editmine' => array(
+    'lion/question:editmine' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1323,9 +1310,9 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:editall' => array(
+    'lion/question:editall' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1333,66 +1320,66 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:viewmine' => array(
+    'lion/question:viewmine' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:viewall' => array(
+    'lion/question:viewall' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:usemine' => array(
+    'lion/question:usemine' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:useall' => array(
+    'lion/question:useall' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:movemine' => array(
+    'lion/question:movemine' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    'moodle/question:moveall' => array(
+    'lion/question:moveall' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' =>  'moodle/question:manage'
+        'clonepermissionsfrom' =>  'lion/question:manage'
     ),
-    //END new in moodle 1.9
+    //END new in lion 1.9
 
     // Configure the installed question types.
-    'moodle/question:config' => array(
+    'lion/question:config' => array(
         'riskbitmask' => RISK_CONFIG,
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1402,7 +1389,7 @@ $capabilities = array(
     ),
 
     // While attempting questions, the ability to flag particular questions for later reference.
-    'moodle/question:flag' => array(
+    'lion/question:flag' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1413,7 +1400,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:doclinks' => array(
+    'lion/site:doclinks' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -1423,7 +1410,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:sectionvisibility' => array(
+    'lion/course:sectionvisibility' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1433,7 +1420,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:useremail' => array(
+    'lion/course:useremail' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1443,7 +1430,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:viewhiddensections' => array(
+    'lion/course:viewhiddensections' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1453,7 +1440,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:setcurrentsection' => array(
+    'lion/course:setcurrentsection' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1463,7 +1450,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/course:movesections' => array(
+    'lion/course:movesections' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1471,10 +1458,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:update'
+        'clonepermissionsfrom' => 'lion/course:update'
     ),
 
-    'moodle/site:mnetlogintoremote' => array(
+    'lion/site:mnetlogintoremote' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1482,7 +1469,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/grade:viewall' => array(
+    'lion/grade:viewall' => array(
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE, // and CONTEXT_USER
@@ -1491,10 +1478,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:viewcoursegrades'
+        'clonepermissionsfrom' => 'lion/course:viewcoursegrades'
     ),
 
-    'moodle/grade:view' => array(
+    'lion/grade:view' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1502,7 +1489,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/grade:viewhidden' => array(
+    'lion/grade:viewhidden' => array(
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -1511,10 +1498,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:viewcoursegrades'
+        'clonepermissionsfrom' => 'lion/course:viewcoursegrades'
     ),
 
-    'moodle/grade:import' => array(
+    'lion/grade:import' => array(
         'riskbitmask' => RISK_PERSONAL | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1522,10 +1509,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:managegrades'
+        'clonepermissionsfrom' => 'lion/course:managegrades'
     ),
 
-    'moodle/grade:export' => array(
+    'lion/grade:export' => array(
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -1534,10 +1521,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:managegrades'
+        'clonepermissionsfrom' => 'lion/course:managegrades'
     ),
 
-    'moodle/grade:manage' => array(
+    'lion/grade:manage' => array(
         'riskbitmask' => RISK_PERSONAL | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1545,10 +1532,10 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:managegrades'
+        'clonepermissionsfrom' => 'lion/course:managegrades'
     ),
 
-    'moodle/grade:edit' => array(
+    'lion/grade:edit' => array(
         'riskbitmask' => RISK_PERSONAL | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1556,12 +1543,12 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:managegrades'
+        'clonepermissionsfrom' => 'lion/course:managegrades'
     ),
 
     // ability to define advanced grading forms in activities either from scratch
     // or from a shared template
-    'moodle/grade:managegradingforms' => array(
+    'lion/grade:managegradingforms' => array(
         'riskbitmask' => RISK_PERSONAL | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1569,12 +1556,12 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:managegrades'
+        'clonepermissionsfrom' => 'lion/course:managegrades'
     ),
 
     // ability to save a grading form as a new shared template and eventually edit
     // and remove own templates (templates originally shared by that user)
-    'moodle/grade:sharegradingforms' => array(
+    'lion/grade:sharegradingforms' => array(
         'riskbitmask' => RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1585,7 +1572,7 @@ $capabilities = array(
 
     // ability to edit and remove any shared template, even those originally shared
     // by other users
-    'moodle/grade:managesharedforms' => array(
+    'lion/grade:managesharedforms' => array(
         'riskbitmask' => RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1594,27 +1581,27 @@ $capabilities = array(
         ),
     ),
 
-    'moodle/grade:manageoutcomes' => array(
+    'lion/grade:manageoutcomes' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:managegrades'
+        'clonepermissionsfrom' => 'lion/course:managegrades'
     ),
 
-    'moodle/grade:manageletters' => array(
+    'lion/grade:manageletters' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ),
-        'clonepermissionsfrom' => 'moodle/course:managegrades'
+        'clonepermissionsfrom' => 'lion/course:managegrades'
     ),
 
-    'moodle/grade:hide' => array(
+    'lion/grade:hide' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1623,7 +1610,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/grade:lock' => array(
+    'lion/grade:lock' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1632,7 +1619,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/grade:unlock' => array(
+    'lion/grade:unlock' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1641,7 +1628,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/my:manageblocks' => array(
+    'lion/my:manageblocks' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -1649,7 +1636,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/notes:view' => array(
+    'lion/notes:view' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1659,7 +1646,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/notes:manage' => array(
+    'lion/notes:manage' => array(
         'riskbitmask' => RISK_SPAM,
 
         'captype' => 'write',
@@ -1671,7 +1658,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/tag:manage' => array(
+    'lion/tag:manage' => array(
         'riskbitmask' => RISK_SPAM,
 
         'captype' => 'write',
@@ -1683,7 +1670,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/tag:create' => array(
+    'lion/tag:create' => array(
         'riskbitmask' => RISK_SPAM,
 
         'captype' => 'write',
@@ -1694,7 +1681,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/tag:edit' => array(
+    'lion/tag:edit' => array(
         'riskbitmask' => RISK_SPAM,
 
         'captype' => 'write',
@@ -1705,7 +1692,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/tag:flag' => array(
+    'lion/tag:flag' => array(
         'riskbitmask' => RISK_SPAM,
 
         'captype' => 'write',
@@ -1716,7 +1703,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/tag:editblocks' => array(
+    'lion/tag:editblocks' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -1726,7 +1713,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/block:view' => array(
+    'lion/block:view' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_BLOCK,
         'archetypes' => array(
@@ -1738,7 +1725,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/block:edit' => array(
+    'lion/block:edit' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
 
         'captype' => 'write',
@@ -1749,7 +1736,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/portfolio:export' => array(
+    'lion/portfolio:export' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -1759,7 +1746,7 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
         )
     ),
-    'moodle/comment:view' => array(
+    'lion/comment:view' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1772,7 +1759,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/comment:post' => array(
+    'lion/comment:post' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
         'captype' => 'write',
@@ -1785,7 +1772,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/comment:delete' => array(
+    'lion/comment:delete' => array(
 
         'riskbitmask' => RISK_DATALOSS,
         'captype' => 'write',
@@ -1795,7 +1782,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/webservice:createtoken' => array(
+    'lion/webservice:createtoken' => array(
 
         'riskbitmask' => RISK_CONFIG | RISK_DATALOSS | RISK_SPAM | RISK_PERSONAL | RISK_XSS,
         'captype' => 'write',
@@ -1804,7 +1791,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/webservice:createmobiletoken' => array(
+    'lion/webservice:createmobiletoken' => array(
 
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
         'captype' => 'write',
@@ -1813,7 +1800,7 @@ $capabilities = array(
             'user' => CAP_ALLOW
         )
     ),
-    'moodle/rating:view' => array(
+    'lion/rating:view' => array(
 
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -1825,20 +1812,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/rating:viewany' => array(
-
-        'riskbitmask' => RISK_PERSONAL,
-        'captype' => 'read',
-        'contextlevel' => CONTEXT_COURSE,
-        'archetypes' => array(
-            'user' => CAP_ALLOW,
-            'student' => CAP_ALLOW,
-            'teacher' => CAP_ALLOW,
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
-    ),
-    'moodle/rating:viewall' => array(
+    'lion/rating:viewany' => array(
 
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',
@@ -1851,7 +1825,20 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/rating:rate' => array(
+    'lion/rating:viewall' => array(
+
+        'riskbitmask' => RISK_PERSONAL,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'user' => CAP_ALLOW,
+            'student' => CAP_ALLOW,
+            'teacher' => CAP_ALLOW,
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        )
+    ),
+    'lion/rating:rate' => array(
 
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1863,7 +1850,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-     'moodle/course:publish' => array(
+     'lion/course:publish' => array(
 
         'captype' => 'write',
         'riskbitmask' => RISK_SPAM | RISK_PERSONAL,
@@ -1872,7 +1859,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/course:markcomplete' => array(
+    'lion/course:markcomplete' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
@@ -1881,7 +1868,7 @@ $capabilities = array(
             'manager' => CAP_ALLOW
         )
     ),
-    'moodle/community:add' => array(
+    'lion/community:add' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -1890,7 +1877,7 @@ $capabilities = array(
             'editingteacher' => CAP_ALLOW,
         )
     ),
-    'moodle/community:download' => array(
+    'lion/community:download' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -1900,7 +1887,7 @@ $capabilities = array(
     ),
 
     // Badges.
-    'moodle/badges:manageglobalsettings' => array(
+    'lion/badges:manageglobalsettings' => array(
         'riskbitmask'  => RISK_DATALOSS | RISK_CONFIG,
         'captype'      => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -1910,7 +1897,7 @@ $capabilities = array(
     ),
 
     // View available badges without earning them.
-    'moodle/badges:viewbadges' => array(
+    'lion/badges:viewbadges' => array(
         'captype'       => 'read',
         'contextlevel'  => CONTEXT_COURSE,
         'archetypes'    => array(
@@ -1919,7 +1906,7 @@ $capabilities = array(
     ),
 
     // Manage badges on own private badges page.
-    'moodle/badges:manageownbadges' => array(
+    'lion/badges:manageownbadges' => array(
         'riskbitmap'    => RISK_SPAM,
         'captype'       => 'write',
         'contextlevel'  => CONTEXT_USER,
@@ -1929,7 +1916,7 @@ $capabilities = array(
     ),
 
     // View public badges in other users' profiles.
-    'moodle/badges:viewotherbadges' => array(
+    'lion/badges:viewotherbadges' => array(
         'riskbitmap'    => RISK_PERSONAL,
         'captype'       => 'read',
         'contextlevel'  => CONTEXT_USER,
@@ -1939,7 +1926,7 @@ $capabilities = array(
     ),
 
     // Earn badge.
-    'moodle/badges:earnbadge' => array(
+    'lion/badges:earnbadge' => array(
         'captype'       => 'write',
         'contextlevel'  => CONTEXT_COURSE,
         'archetypes'    => array(
@@ -1948,7 +1935,7 @@ $capabilities = array(
     ),
 
     // Create/duplicate badges.
-    'moodle/badges:createbadge' => array(
+    'lion/badges:createbadge' => array(
         'riskbitmask'  => RISK_SPAM,
         'captype'      => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1959,7 +1946,7 @@ $capabilities = array(
     ),
 
     // Delete badges.
-    'moodle/badges:deletebadge' => array(
+    'lion/badges:deletebadge' => array(
         'riskbitmask'  => RISK_DATALOSS,
         'captype'      => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1970,7 +1957,7 @@ $capabilities = array(
     ),
 
     // Set up/edit badge details.
-    'moodle/badges:configuredetails' => array(
+    'lion/badges:configuredetails' => array(
         'riskbitmask'  => RISK_SPAM,
         'captype'      => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -1981,7 +1968,7 @@ $capabilities = array(
     ),
 
     // Set up/edit criteria of earning a badge.
-    'moodle/badges:configurecriteria' => array(
+    'lion/badges:configurecriteria' => array(
         'captype'      => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes'   => array(
@@ -1991,7 +1978,7 @@ $capabilities = array(
     ),
 
     // Configure badge messages.
-    'moodle/badges:configuremessages' => array(
+    'lion/badges:configuremessages' => array(
         'riskbitmask'  => RISK_SPAM,
         'captype'      => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -2002,7 +1989,7 @@ $capabilities = array(
     ),
 
     // Award badge to a user.
-    'moodle/badges:awardbadge' => array(
+    'lion/badges:awardbadge' => array(
         'riskbitmask'  => RISK_SPAM,
         'captype'      => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -2014,7 +2001,7 @@ $capabilities = array(
     ),
 
     // View users who earned a specific badge without being able to award a badge.
-    'moodle/badges:viewawarded' => array(
+    'lion/badges:viewawarded' => array(
         'riskbitmask'  => RISK_PERSONAL,
         'captype'      => 'read',
         'contextlevel' => CONTEXT_COURSE,
@@ -2025,7 +2012,7 @@ $capabilities = array(
         )
     ),
 
-    'moodle/site:forcelanguage' => array(
+    'lion/site:forcelanguage' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(

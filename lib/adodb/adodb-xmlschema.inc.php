@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // Copyright (c) 2004 ars Cognita Inc., all rights reserved
 /* ******************************************************************************
     Released under both BSD license and Lesser GPL library license.
@@ -11,10 +18,8 @@
  * XML schema.
  *
  * Last Editor: $Author: jlim $
- * @author Richard Tango-Lowy & Dan Cech
  * @version $Revision: 1.12 $
  *
- * @package axmls
  * @tutorial getting_started.pkg
  */
 
@@ -100,7 +105,6 @@ if( !defined( '_ADODB_LAYER' ) ) {
 * Abstract DB Object. This class provides basic methods for database objects, such
 * as tables and indexes.
 *
-* @package axmls
 * @access private
 */
 class dbObject {
@@ -200,7 +204,6 @@ class dbObject {
 * of this class are used to build up the table description in ADOdb's
 * datadict format.
 *
-* @package axmls
 * @access private
 */
 class dbTable extends dbObject {
@@ -608,7 +611,6 @@ class dbTable extends dbObject {
 * of this class are used to build up the index description in ADOdb's
 * datadict format.
 *
-* @package axmls
 * @access private
 */
 class dbIndex extends dbObject {
@@ -769,7 +771,6 @@ class dbIndex extends dbObject {
 *
 * This class stores information about table data.
 *
-* @package axmls
 * @access private
 */
 class dbData extends dbObject {
@@ -954,7 +955,6 @@ class dbData extends dbObject {
 /**
 * Creates the SQL to execute a list of provided SQL queries
 *
-* @package axmls
 * @access private
 */
 class dbQuerySet extends dbObject {
@@ -1210,10 +1210,8 @@ class dbQuerySet extends dbObject {
 *
 * @tutorial getting_started.pkg
 *
-* @author Richard Tango-Lowy & Dan Cech
 * @version $Revision: 1.12 $
 *
-* @package axmls
 */
 class adoSchema {
 

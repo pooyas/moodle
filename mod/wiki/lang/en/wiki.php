@@ -3,11 +3,10 @@
  *
  * This file contains en_utf8 translation of Wiki module
  *
- * @author Jordi Piguillem
- * @author Kenneth Riba
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_wiki
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
  */
 $string['addcomment'] = 'Add comment';
 $string['admin'] = 'Administration';

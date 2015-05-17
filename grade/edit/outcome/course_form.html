@@ -9,6 +9,13 @@
             <br />
             <select id="removeoutcomes" size="20" name="removeoutcomes[]" multiple="multiple">
             <?php
+
+/**
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
+*/
+
             if ($co_standard_notused) {
                 echo '<optgroup label="'.get_string('outcomescoursenotused', 'grades').'">';
                 foreach ($co_standard_notused as $outcome) {
@@ -34,7 +41,14 @@
             </select>
         </td>
         <?php
-        if (has_capability('moodle/grade:manageoutcomes', $context)) {
+
+/**
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
+*/
+
+        if (has_capability('lion/grade:manageoutcomes', $context)) {
         ?>
         <td>
             <p class="arrow_button">
@@ -50,6 +64,13 @@
             <select id="addoutcomes" size="20" name="addoutcomes[]" multiple="multiple">
 
             <?php
+
+/**
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
+*/
+
             foreach ($standardoutcomes as $outcome) {
                 echo '<option value="'.$outcome->id.'">'.shorten_text($outcome->get_name(), $maxlength).'</option>';
             }
@@ -60,12 +81,26 @@
 </table>
 
 <?php
-if (has_capability('moodle/grade:manageoutcomes', $context)) {
+
+/**
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
+*/
+
+if (has_capability('lion/grade:manageoutcomes', $context)) {
 ?>
     <p class="mdl-align">
         <a href="<?php echo $CFG->wwwroot ?>/grade/edit/outcome/index.php?id=<?php echo $courseid; ?>"><?php echo get_string('editoutcomes','grades'); ?></a>
     </p>
 <?php
+
+/**
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
+*/
+
 }
 ?>
 

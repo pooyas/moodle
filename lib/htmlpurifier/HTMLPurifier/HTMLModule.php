@@ -13,6 +13,9 @@
  *       However, the prefix info carries no special meaning in these
  *       objects (include it anyway if that's the correspondence though).
  * @todo Consider making some member functions protected
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_HTMLModule

@@ -1,14 +1,14 @@
 <?php
 /**
  * Class Minify_Loader
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Class autoloader
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
  */
 class Minify_Loader {
     public function loadClass($class)

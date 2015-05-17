@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * prints the form to edit a dedicated item
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -32,13 +19,13 @@ $typ = optional_param('typ', false, PARAM_ALPHA);
 $id = optional_param('id', false, PARAM_INT);
 $action = optional_param('action', false, PARAM_ALPHA);
 
-$editurl = new moodle_url('/mod/feedback/edit.php', array('id'=>$cmid));
+$editurl = new lion_url('/mod/feedback/edit.php', array('id'=>$cmid));
 
 if (!$typ) {
     redirect($editurl->out(false));
 }
 
-$url = new moodle_url('/mod/feedback/edit_item.php', array('cmid'=>$cmid));
+$url = new lion_url('/mod/feedback/edit_item.php', array('cmid'=>$cmid));
 if ($typ !== false) {
     $url->param('typ', $typ);
 }

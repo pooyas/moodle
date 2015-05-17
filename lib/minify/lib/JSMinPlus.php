@@ -25,6 +25,9 @@
  *
  * Latest version of this script: http://files.tweakers.net/jsminplus/jsminplus.zip
  *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /* ***** BEGIN LICENSE BLOCK *****

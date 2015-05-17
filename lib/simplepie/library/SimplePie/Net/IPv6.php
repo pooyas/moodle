@@ -32,29 +32,18 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * @package SimplePie
  * @version 1.3.1
- * @copyright 2004-2012 Ryan Parman, Geoffrey Sneddon, Ryan McCue
- * @author Ryan Parman
- * @author Geoffrey Sneddon
- * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 
 /**
  * Class to validate and to work with IPv6 addresses.
  *
- * @package SimplePie
- * @subpackage HTTP
- * @copyright 2003-2005 The PHP Group
- * @license http://www.opensource.org/licenses/bsd-license.php
  * @link http://pear.php.net/package/Net_IPv6
- * @author Alexander Merz <alexander.merz@web.de>
- * @author elfrink at introweb dot nl
- * @author Josh Peck <jmp at joshpeck dot org>
- * @author Geoffrey Sneddon <geoffers@gmail.com>
  */
 class SimplePie_Net_IPv6
 {
@@ -68,11 +57,6 @@ class SimplePie_Net_IPv6
 	 * Example:  FF01::101   ->  FF01:0:0:0:0:0:0:101
 	 *           ::1         ->  0:0:0:0:0:0:0:1
 	 *
-	 * @author Alexander Merz <alexander.merz@web.de>
-	 * @author elfrink at introweb dot nl
-	 * @author Josh Peck <jmp at joshpeck dot org>
-	 * @copyright 2003-2005 The PHP Group
-	 * @license http://www.opensource.org/licenses/bsd-license.php
 	 * @param string $ip An IPv6 address
 	 * @return string The uncompressed IPv6 address
 	 */

@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -20,9 +7,9 @@
  *
  * Contains HTML class for a url type element
  *
- * @package   core_form
- * @copyright 2009 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("HTML/QuickForm/text.php");
@@ -31,12 +18,9 @@ require_once("HTML/QuickForm/text.php");
  * url type form element
  *
  * HTML class for a url type element
- * @package   core_form
  * @category  form
- * @copyright 2009 Dongsheng Cai <dongsheng@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_url extends HTML_QuickForm_text{
+class LionQuickForm_url extends HTML_QuickForm_text{
     /** @var string html for help button, if empty then no help */
     var $_helpbutton='';
 
@@ -51,7 +35,7 @@ class MoodleQuickForm_url extends HTML_QuickForm_text{
      * @param mixed $attributes Either a typical HTML attribute string or an associative array.
      * @param array $options data which need to be posted.
      */
-    function MoodleQuickForm_url($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
+    function LionQuickForm_url($elementName=null, $elementLabel=null, $attributes=null, $options=null) {
         global $CFG;
         require_once("$CFG->dirroot/repository/lib.php");
         $options = (array)$options;

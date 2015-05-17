@@ -22,6 +22,9 @@
  *          the output of HTML Purifier while keeping the original HTML lying
  *          around, you may want to run Tidy on the resulting output or use
  *          HTMLPurifier_DirectLex
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_Lexer_DOMLex extends HTMLPurifier_Lexer

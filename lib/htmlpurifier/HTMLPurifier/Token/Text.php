@@ -8,6 +8,9 @@
  * data is parsed with all entities expanded. Surprisingly, the text token
  * does have a "tag name" called #PCDATA, which is how the DTD represents it
  * in permissible child nodes.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Token_Text extends HTMLPurifier_Token
 {

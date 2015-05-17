@@ -23,6 +23,9 @@
  *  GNU General Public License for more details.
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  ***************************************************************/
 
 /**
@@ -35,9 +38,6 @@
  * 		- Update 'setup' extension labels (sysext/setup/mod/locallang.xlf)
  * That's it!
  *
- * @package	Core
- * @subpackage	t3lib
- * @author	Xavier Perseguers <typo3@perseguers.ch>
  */
 class t3lib_l10n_Locales implements t3lib_Singleton {
 

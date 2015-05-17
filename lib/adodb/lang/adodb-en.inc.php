@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 $ADODB_LANG_ARRAY = array (
 			'LANG'                      => 'en',
             DB_ERROR                    => 'unknown error',

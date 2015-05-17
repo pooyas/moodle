@@ -2,6 +2,9 @@
 
 /**
  * XHTML 1.1 Hypertext Module, defines hypertext links. Core Module.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Hypertext extends HTMLPurifier_HTMLModule
 {

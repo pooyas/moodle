@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file gives an overview of the monitors present in site.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Simey Lameze <simey@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi
  */
 require(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
@@ -44,8 +31,8 @@ if (empty($courseid)) {
 require_capability('tool/monitor:managerules', $context);
 
 // Set up the page.
-$url = new moodle_url("/admin/tool/monitor/edit.php", array('courseid' => $courseid, 'ruleid' => $ruleid));
-$manageurl = new moodle_url("/admin/tool/monitor/managerules.php", array('courseid' => $courseid));
+$url = new lion_url("/admin/tool/monitor/edit.php", array('courseid' => $courseid, 'ruleid' => $ruleid));
+$manageurl = new lion_url("/admin/tool/monitor/managerules.php", array('courseid' => $courseid));
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('report');
 $PAGE->set_title($coursename);
@@ -58,7 +45,7 @@ $eventlist = array_merge(array('' => get_string('choosedots')), $eventlist);
 $pluginlist = array_merge(array('' => get_string('choosedots')), $pluginlist);
 
 // Set up the yui module.
-$PAGE->requires->yui_module('moodle-tool_monitor-dropdown', 'Y.M.tool_monitor.DropDown.init',
+$PAGE->requires->yui_module('lion-tool_monitor-dropdown', 'Y.M.tool_monitor.DropDown.init',
         array(array('eventlist' => $eventlist)));
 
 // Site level report.
@@ -83,7 +70,7 @@ $mform = new tool_monitor\rule_form(null, array('eventlist' => $eventlist, 'plug
         'courseid' => $courseid, 'subscriptioncount' => $subscriptioncount));
 
 if ($mform->is_cancelled()) {
-    redirect(new moodle_url('/admin/tool/monitor/managerules.php', array('courseid' => $courseid)));
+    redirect(new lion_url('/admin/tool/monitor/managerules.php', array('courseid' => $courseid)));
     exit();
 }
 

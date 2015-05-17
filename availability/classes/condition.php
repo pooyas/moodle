@@ -1,32 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Base class for a single availability condition.
  *
  * All condition types must extend this class.
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    availability
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core_availability;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Base class for a single availability condition.
@@ -48,9 +35,6 @@ defined('MOODLE_INTERNAL') || die();
  * present in a restore, so there should be a default value for any new fields
  * and old ones should be handled correctly).
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class condition extends tree_node {
 
@@ -180,7 +164,7 @@ abstract class condition extends tree_node {
      *
      * Default implementation returns false.
      *
-     * @param \stdClass $course Moodle course object
+     * @param \stdClass $course Lion course object
      * @param int $cmid ID of activity whose completion value is considered
      * @return boolean True if the availability of something else may rely on it
      */

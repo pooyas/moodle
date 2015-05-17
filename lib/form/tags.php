@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -20,9 +7,9 @@
  *
  * Contains HTML class for editing tags, both official and peronal.
  *
- * @package   core_form
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 global $CFG;
@@ -33,12 +20,9 @@ require_once($CFG->libdir . '/form/group.php');
  *
  * HTML class for editing tags, both official and peronal.
  *
- * @package   core_form
  * @category  form
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_tags extends MoodleQuickForm_group {
+class LionQuickForm_tags extends LionQuickForm_group {
     /**
      * Inidcates that the user should be the usual interface, with the official
      * tags listed seprately, and a text box where they can type anything.
@@ -63,7 +47,7 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
      * Control the fieldnames for form elements display => int, one of the constants above.
      * @var array
      */
-    protected $_options = array('display' => MoodleQuickForm_tags::DEFAULTUI);
+    protected $_options = array('display' => LionQuickForm_tags::DEFAULTUI);
 
     /**
      * Caches the list of official tags, to save repeat DB queries.
@@ -79,7 +63,7 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
      * @param array $options Options to control the element's display
      * @param mixed $attributes Either a typical HTML attribute string or an associative array.
      */
-    function MoodleQuickForm_tags($elementName = null, $elementLabel = null, $options = array(), $attributes = null) {
+    function LionQuickForm_tags($elementName = null, $elementLabel = null, $options = array(), $attributes = null) {
         $this->HTML_QuickForm_element($elementName, $elementLabel, $attributes);
         $this->_persistantFreeze = true;
         $this->_appendName = true;
@@ -124,13 +108,13 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
         $this->_elements = array();
 
         // Official tags.
-        $showingofficial = $this->_options['display'] != MoodleQuickForm_tags::NOOFFICIAL;
+        $showingofficial = $this->_options['display'] != LionQuickForm_tags::NOOFFICIAL;
         if ($showingofficial) {
             $this->_load_official_tags();
 
             // If the user can manage official tags, give them a link to manage them.
             $label = get_string('otags', 'tag');
-            if (has_capability('moodle/tag:manage', context_system::instance())) {
+            if (has_capability('lion/tag:manage', context_system::instance())) {
                 $url = $CFG->wwwroot .'/tag/manage.php';
                 $label .= ' (' . $OUTPUT->action_link(
                     $url,
@@ -151,7 +135,7 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
             // Create the element.
             $size = min(5, count($officialtags));
             // E_STRICT creating elements without forms is nasty because it internally uses $this
-            $officialtagsselect = @MoodleQuickForm::createElement('select', 'officialtags', $label, $officialtags, array('size' => $size));
+            $officialtagsselect = @LionQuickForm::createElement('select', 'officialtags', $label, $officialtags, array('size' => $size));
             $officialtagsselect->setMultiple(true);
             if ($noofficial) {
                 $officialtagsselect->updateAttributes(array('disabled' => 'disabled'));
@@ -160,14 +144,14 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
         }
 
         // Other tags.
-        if ($this->_options['display'] != MoodleQuickForm_tags::ONLYOFFICIAL) {
+        if ($this->_options['display'] != LionQuickForm_tags::ONLYOFFICIAL) {
             if ($showingofficial) {
                 $label = get_string('othertags', 'tag');
             } else {
                 $label = get_string('entertags', 'tag');
             }
             // E_STRICT creating elements without forms is nasty because it internally uses $this
-            $othertags = @MoodleQuickForm::createElement('textarea', 'othertags', $label, array('cols'=>'40', 'rows'=>'5'));
+            $othertags = @LionQuickForm::createElement('textarea', 'othertags', $label, array('cols'=>'40', 'rows'=>'5'));
             $this->_elements[] = $othertags;
         }
 
@@ -206,7 +190,7 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
                     // Separate the official and unoffical tags, if necessary.
                     $official = array();
                     $other = array();
-                    if ($this->_options['display'] != MoodleQuickForm_tags::NOOFFICIAL) {
+                    if ($this->_options['display'] != LionQuickForm_tags::NOOFFICIAL) {
                         $this->_load_official_tags();
                         if (!empty($this->_officialtags)) {
                             $officaltags = array_combine($this->_officialtags, $this->_officialtags);
@@ -280,7 +264,7 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
 
         // Get any manually typed tags.
         $tags = array();
-        if ($this->_options['display'] != MoodleQuickForm_tags::ONLYOFFICIAL &&
+        if ($this->_options['display'] != LionQuickForm_tags::ONLYOFFICIAL &&
                 !empty($valuearray['othertags'])) {
             $rawtags = explode(',', clean_param($valuearray['othertags'], PARAM_NOTAGS));
             foreach ($rawtags as $tag) {
@@ -289,7 +273,7 @@ class MoodleQuickForm_tags extends MoodleQuickForm_group {
         }
 
         // Add any official tags that were selected.
-        if ($this->_options['display'] != MoodleQuickForm_tags::NOOFFICIAL &&
+        if ($this->_options['display'] != LionQuickForm_tags::NOOFFICIAL &&
                 !empty($valuearray['officialtags'])) {
             $tags = array_unique(array_merge($tags, $valuearray['officialtags']));
         }

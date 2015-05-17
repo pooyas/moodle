@@ -1,27 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package   core_backup
  * @category  phpunit
- * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // Include all the needed stuff
 global $CFG;
@@ -232,7 +219,7 @@ class progressive_parser_test extends advanced_testcase {
         $this->assertEquals($tags['id'], 1);
         $this->assertEquals($tags['intro'], '<p>One simple glossary to test backup &amp; restore. Here it\'s the standard image:</p>'.
                                            "\n".
-                                           '<p><img src="@@PLUGINFILE@@/88_31.png" alt="pwd by moodle" width="88" height="31" /></p>');
+                                           '<p><img src="@@PLUGINFILE@@/88_31.png" alt="pwd by lion" width="88" height="31" /></p>');
         $this->assertEquals($tags['timemodified'], 1275639747);
         $this->assertTrue(!isset($tags['categories']));
 
@@ -345,10 +332,10 @@ class progressive_parser_test extends advanced_testcase {
         // Instantiate grouped_parser_processor
         $pr = new mock_simplified_parser_processor();
         // Add interesting paths
-        $pr->add_path('/MOODLE_BACKUP/COURSE');
-        $pr->add_path('/MOODLE_BACKUP/COURSE/SECTIONS/SECTION');
-        $pr->add_path('/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $pr->add_path('/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
+        $pr->add_path('/LION_BACKUP/COURSE');
+        $pr->add_path('/LION_BACKUP/COURSE/SECTIONS/SECTION');
+        $pr->add_path('/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $pr->add_path('/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
         $this->assertTrue($pr instanceof progressive_parser_processor);
         // Assign processor to parser
         $pp->set_processor($pr);
@@ -366,26 +353,26 @@ class progressive_parser_test extends advanced_testcase {
         // Check we have received the correct number of notifications
         $this->assertEquals(count($snotifs), 10); // Start tags are dispatched for empties (ROLES_OVERRIDES)
         // Check first and last notifications
-        $this->assertEquals($snotifs[0], '/MOODLE_BACKUP/COURSE');
-        $this->assertEquals($snotifs[1], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION');
-        $this->assertEquals($snotifs[2], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $this->assertEquals($snotifs[3], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
-        $this->assertEquals($snotifs[7], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $this->assertEquals($snotifs[8], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $this->assertEquals($snotifs[9], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($snotifs[0], '/LION_BACKUP/COURSE');
+        $this->assertEquals($snotifs[1], '/LION_BACKUP/COURSE/SECTIONS/SECTION');
+        $this->assertEquals($snotifs[2], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($snotifs[3], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
+        $this->assertEquals($snotifs[7], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($snotifs[8], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($snotifs[9], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
 
         // Now check end notifications
         $enotifs = $pr->get_end_notifications();
         // Check we have received the correct number of notifications
         $this->assertEquals(count($snotifs), 10); // End tags are dispatched for empties (ROLES_OVERRIDES)
         // Check first, and last notifications
-        $this->assertEquals($enotifs[0], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
-        $this->assertEquals($enotifs[1], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $this->assertEquals($enotifs[2], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $this->assertEquals($enotifs[3], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $this->assertEquals($enotifs[7], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $this->assertEquals($enotifs[8], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION');
-        $this->assertEquals($enotifs[9], '/MOODLE_BACKUP/COURSE');
+        $this->assertEquals($enotifs[0], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
+        $this->assertEquals($enotifs[1], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($enotifs[2], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($enotifs[3], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($enotifs[7], '/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $this->assertEquals($enotifs[8], '/LION_BACKUP/COURSE/SECTIONS/SECTION');
+        $this->assertEquals($enotifs[9], '/LION_BACKUP/COURSE');
 
         // Check start and end notifications are balanced
         sort($snotifs);
@@ -459,7 +446,7 @@ class progressive_parser_test extends advanced_testcase {
         $this->assertEquals($tags['id'], 1);
         $this->assertEquals($tags['intro'], '<p>One simple glossary to test backup &amp; restore. Here it\'s the standard image:</p>'.
                                            "\n".
-                                           '<p><img src="@@PLUGINFILE@@/88_31.png" alt="pwd by moodle" width="88" height="31" /></p>');
+                                           '<p><img src="@@PLUGINFILE@@/88_31.png" alt="pwd by lion" width="88" height="31" /></p>');
         $this->assertEquals($tags['timemodified'], 1275639747);
         $this->assertTrue(!isset($tags['categories']));
         $this->assertTrue(isset($tags['entries']));
@@ -587,10 +574,10 @@ class progressive_parser_test extends advanced_testcase {
         // Instantiate grouped_parser_processor
         $pr = new mock_grouped_parser_processor();
         // Add interesting paths
-        $pr->add_path('/MOODLE_BACKUP/COURSE');
-        $pr->add_path('/MOODLE_BACKUP/COURSE/SECTIONS/SECTION', true);
-        $pr->add_path('/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
-        $pr->add_path('/MOODLE_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
+        $pr->add_path('/LION_BACKUP/COURSE');
+        $pr->add_path('/LION_BACKUP/COURSE/SECTIONS/SECTION', true);
+        $pr->add_path('/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD');
+        $pr->add_path('/LION_BACKUP/COURSE/SECTIONS/SECTION/MODS/MOD/ROLES_OVERRIDES');
         $this->assertTrue($pr instanceof progressive_parser_processor);
         // Assign processor to parser
         $pp->set_processor($pr);
@@ -608,16 +595,16 @@ class progressive_parser_test extends advanced_testcase {
         // Check we have received the correct number of notifications
         $this->assertEquals(count($snotifs), 2);
         // Check first and last notifications
-        $this->assertEquals($snotifs[0], '/MOODLE_BACKUP/COURSE');
-        $this->assertEquals($snotifs[1], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION');
+        $this->assertEquals($snotifs[0], '/LION_BACKUP/COURSE');
+        $this->assertEquals($snotifs[1], '/LION_BACKUP/COURSE/SECTIONS/SECTION');
 
         // Now check end notifications
         $enotifs = $pr->get_end_notifications();
         // Check we have received the correct number of notifications
         $this->assertEquals(count($snotifs), 2); // End tags are dispatched for empties (ROLES_OVERRIDES)
         // Check first, and last notifications
-        $this->assertEquals($enotifs[0], '/MOODLE_BACKUP/COURSE/SECTIONS/SECTION');
-        $this->assertEquals($enotifs[1], '/MOODLE_BACKUP/COURSE');
+        $this->assertEquals($enotifs[0], '/LION_BACKUP/COURSE/SECTIONS/SECTION');
+        $this->assertEquals($enotifs[1], '/LION_BACKUP/COURSE');
 
         // Check start and end notifications are balanced
         sort($snotifs);
@@ -641,18 +628,18 @@ class progressive_parser_test extends advanced_testcase {
         // Instantiate grouped_parser_processor.
         $pr = new mock_grouped_parser_processor();
         $this->assertTrue($pr instanceof progressive_parser_processor);
-        // Add interesting paths - moodle1 style.
-        $pr->add_path('/test/MOODLE_BACKUP/COURSE/FORMATDATA', true);
-        $pr->add_path('/test/MOODLE_BACKUP/COURSE/FORMATDATA/WEEKS/WEEK');
-        $pr->add_path('/test/MOODLE_BACKUP/COURSE/EMPTYGROUPED', true);
-        $pr->add_path('/test/MOODLE_BACKUP/COURSE/SECONDGROUPED', true);
-        $pr->add_path('/test/MOODLE_BACKUP/COURSE/SECONDGROUPED/SUBS/SUB');
-        // Add interesting paths - moodle2 style.
-        $pr->add_path('/test/moodle2/grouped', true);
-        $pr->add_path('/test/moodle2/grouped/subs/sub');
-        $pr->add_path('/test/moodle2/groupedemptywithattr', true);
-        $pr->add_path('/test/moodle2/groupednonemptywithattr', true);
-        $pr->add_path('/test/moodle2/groupednonemptywithattr/subs/sub');
+        // Add interesting paths - lion1 style.
+        $pr->add_path('/test/LION_BACKUP/COURSE/FORMATDATA', true);
+        $pr->add_path('/test/LION_BACKUP/COURSE/FORMATDATA/WEEKS/WEEK');
+        $pr->add_path('/test/LION_BACKUP/COURSE/EMPTYGROUPED', true);
+        $pr->add_path('/test/LION_BACKUP/COURSE/SECONDGROUPED', true);
+        $pr->add_path('/test/LION_BACKUP/COURSE/SECONDGROUPED/SUBS/SUB');
+        // Add interesting paths - lion2 style.
+        $pr->add_path('/test/lion2/grouped', true);
+        $pr->add_path('/test/lion2/grouped/subs/sub');
+        $pr->add_path('/test/lion2/groupedemptywithattr', true);
+        $pr->add_path('/test/lion2/groupednonemptywithattr', true);
+        $pr->add_path('/test/lion2/groupednonemptywithattr/subs/sub');
         // Assign processor to parser.
         $pp->set_processor($pr);
         // Set file from fixtures.
@@ -665,27 +652,27 @@ class progressive_parser_test extends advanced_testcase {
         $this->assertEquals(count($chunks), 6); // All grouped elements.
 
         // Check some random data.
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/FORMATDATA', $chunks[0]['path']);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/FORMATDATA', $chunks[0]['path']);
         $this->assertEquals(2, $chunks[0]['tags']['WEEKS']['WEEK'][1]['SECTION']);
 
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/EMPTYGROUPED', $chunks[1]['path']);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/EMPTYGROUPED', $chunks[1]['path']);
         $this->assertEquals(array(), $chunks[1]['tags']);
 
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/SECONDGROUPED', $chunks[2]['path']);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/SECONDGROUPED', $chunks[2]['path']);
         $this->assertEquals('Unit tests rock!', $chunks[2]['tags']['SUBS']['SUB'][0]['PROP']);
 
-        $this->assertEquals('/test/moodle2/grouped', $chunks[3]['path']);
+        $this->assertEquals('/test/lion2/grouped', $chunks[3]['path']);
         $this->assertFalse(isset($chunks[3]['tags']['id'])); // No final elements, this should be fixed one day.
         $this->assertEquals(34, $chunks[3]['tags']['subs']['sub'][0]['id']); // We have final element so this is parsed.
         $this->assertEquals('Oh yeah', $chunks[3]['tags']['subs']['sub'][0]['prop']);
 
-        $this->assertEquals('/test/moodle2/groupednonemptywithattr', $chunks[4]['path']);
+        $this->assertEquals('/test/lion2/groupednonemptywithattr', $chunks[4]['path']);
         $this->assertEquals(78, $chunks[4]['tags']['id']); // We have final element so this is parsed.
         $this->assertEquals('Go baby go', $chunks[4]['tags']['prop']);
         $this->assertEquals(89, $chunks[4]['tags']['subs']['sub'][0]['id']);
-        $this->assertEquals('http://moodle.org', $chunks[4]['tags']['subs']['sub'][0]['prop']);
+        $this->assertEquals('http://lion.org', $chunks[4]['tags']['subs']['sub'][0]['prop']);
 
-        $this->assertEquals('/test/moodle2/groupedemptywithattr', $chunks[5]['path']);
+        $this->assertEquals('/test/lion2/groupedemptywithattr', $chunks[5]['path']);
         $this->assertFalse(isset($chunks[5]['tags']['attr'])); // No final elements, this should be fixed one day.
 
         // Now check start notifications.
@@ -693,24 +680,24 @@ class progressive_parser_test extends advanced_testcase {
         // Check we have received the correct number of notifications.
         $this->assertEquals(count($snotifs), 6);
         // Check the order of notifications (in order they appear in test6.xml).
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/FORMATDATA', $snotifs[0]);
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/EMPTYGROUPED', $snotifs[1]);
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/SECONDGROUPED', $snotifs[2]);
-        $this->assertEquals('/test/moodle2/grouped', $snotifs[3]);
-        $this->assertEquals('/test/moodle2/groupednonemptywithattr', $snotifs[4]);
-        $this->assertEquals('/test/moodle2/groupedemptywithattr', $snotifs[5]);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/FORMATDATA', $snotifs[0]);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/EMPTYGROUPED', $snotifs[1]);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/SECONDGROUPED', $snotifs[2]);
+        $this->assertEquals('/test/lion2/grouped', $snotifs[3]);
+        $this->assertEquals('/test/lion2/groupednonemptywithattr', $snotifs[4]);
+        $this->assertEquals('/test/lion2/groupedemptywithattr', $snotifs[5]);
 
         // Now check end notifications.
         $enotifs = $pr->get_end_notifications();
         // Check we have received the correct number of notifications.
         $this->assertEquals(count($enotifs), 6);
         // Check the order of notifications (in order they appear in test6.xml).
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/FORMATDATA', $enotifs[0]);
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/EMPTYGROUPED', $enotifs[1]);
-        $this->assertEquals('/test/MOODLE_BACKUP/COURSE/SECONDGROUPED', $enotifs[2]);
-        $this->assertEquals('/test/moodle2/grouped', $enotifs[3]);
-        $this->assertEquals('/test/moodle2/groupednonemptywithattr', $enotifs[4]);
-        $this->assertEquals('/test/moodle2/groupedemptywithattr', $enotifs[5]);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/FORMATDATA', $enotifs[0]);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/EMPTYGROUPED', $enotifs[1]);
+        $this->assertEquals('/test/LION_BACKUP/COURSE/SECONDGROUPED', $enotifs[2]);
+        $this->assertEquals('/test/lion2/grouped', $enotifs[3]);
+        $this->assertEquals('/test/lion2/groupednonemptywithattr', $enotifs[4]);
+        $this->assertEquals('/test/lion2/groupedemptywithattr', $enotifs[5]);
 
         // Now verify that the start/process/end order is correct.
         $allnotifs = $pr->get_all_notifications();

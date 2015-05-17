@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
- * @package    core_tag
  * @category   tag
- * @copyright  2007 Luiz Cruz <luiz.laydner@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage tag
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -35,9 +22,9 @@ if (empty($CFG->usetags)) {
     print_error('tagsaredisabled', 'tag');
 }
 
-//Editing a tag requires moodle/tag:edit capability
+//Editing a tag requires lion/tag:edit capability
 $systemcontext   = context_system::instance();
-require_capability('moodle/tag:edit', $systemcontext);
+require_capability('lion/tag:edit', $systemcontext);
 
 if ($tag_name) {
     $tag = tag_get('name', $tag_name, '*');
@@ -52,7 +39,7 @@ if (empty($tag)) {
 $PAGE->set_url('/tag/index.php', array('id' => $tag->id));
 $PAGE->set_subpage($tag->id);
 $PAGE->set_context($systemcontext);
-$PAGE->set_blocks_editing_capability('moodle/tag:editblocks');
+$PAGE->set_blocks_editing_capability('lion/tag:editblocks');
 $PAGE->set_pagelayout('base');
 
 $tagname = tag_display_name($tag);
@@ -91,7 +78,7 @@ $tagform->set_data($tag);
 // If new data has been sent, update the tag record
 if ($tagnew = $tagform->get_data()) {
 
-    if (has_capability('moodle/tag:manage', $systemcontext)) {
+    if (has_capability('lion/tag:manage', $systemcontext)) {
         if (($tag->tagtype != 'default') && (!isset($tagnew->tagtype) || ($tagnew->tagtype != '1'))) {
             tag_type_set($tag->id, 'default');
 
@@ -100,7 +87,7 @@ if ($tagnew = $tagform->get_data()) {
         }
     }
 
-    if (!has_capability('moodle/tag:manage', $systemcontext)) {
+    if (!has_capability('lion/tag:manage', $systemcontext)) {
         unset($tagnew->name);
         unset($tagnew->rawname);
 
@@ -125,7 +112,7 @@ if ($tagnew = $tagform->get_data()) {
 
         $tagnew->timemodified = time();
 
-        if (has_capability('moodle/tag:manage', $systemcontext)) {
+        if (has_capability('lion/tag:manage', $systemcontext)) {
             // Check if we need to rename the tag.
             if (isset($tagnew->name) && ($tag->name != $tagnew->name)) {
                 // Rename the tag.
@@ -143,7 +130,7 @@ if ($tagnew = $tagform->get_data()) {
     }
 }
 
-$PAGE->navbar->add(get_string('tags', 'tag'), new moodle_url('/tag/search.php'));
+$PAGE->navbar->add(get_string('tags', 'tag'), new lion_url('/tag/search.php'));
 $PAGE->navbar->add($tagname);
 $PAGE->navbar->add(get_string('edit'));
 $PAGE->set_title(get_string('tag', 'tag') . ' - '. $tagname);

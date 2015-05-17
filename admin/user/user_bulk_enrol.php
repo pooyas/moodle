@@ -1,6 +1,9 @@
 <?php
 /**
 * script for bulk user multi enrol operations
+ * @package    admin
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
 */
 
 die('this needs to be rewritten to use new enrol framework, sorry');  //TODO: MDL-24064
@@ -13,7 +16,7 @@ $dir  = optional_param('dir', 'asc', PARAM_ALPHA);       //Order to sort (ASC)
 
 require_login();
 admin_externalpage_setup('userbulk');
-require_capability('moodle/role:assign', context_system::instance()); //TODO: use some enrol cap
+require_capability('lion/role:assign', context_system::instance()); //TODO: use some enrol cap
 $return = $CFG->wwwroot.'/'.$CFG->admin.'/user/user_bulk.php';
 //If no users selected then return to user_bulk.php
 if (empty($SESSION->bulk_users)) {

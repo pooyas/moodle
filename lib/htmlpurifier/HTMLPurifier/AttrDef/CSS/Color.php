@@ -2,6 +2,9 @@
 
 /**
  * Validates Color as defined by CSS.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_Color extends HTMLPurifier_AttrDef
 {

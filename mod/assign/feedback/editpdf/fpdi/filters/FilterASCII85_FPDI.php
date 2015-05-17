@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //
 //  FPDI - Version 1.4.4
 //

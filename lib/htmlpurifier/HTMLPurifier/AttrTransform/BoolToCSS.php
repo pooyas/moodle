@@ -2,6 +2,9 @@
 
 /**
  * Pre-transform that changes converts a boolean attribute to fixed CSS
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_BoolToCSS extends HTMLPurifier_AttrTransform
 {

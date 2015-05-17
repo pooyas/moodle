@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * A moodleform allowing the editing of the grade options for an individual grade item
+ * A lionform allowing the editing of the grade options for an individual grade item
  *
- * @package   core_grades
- * @copyright 2007 Petr Skoda
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once $CFG->libdir.'/formslib.php';
 
-class edit_item_form extends moodleform {
+class edit_item_form extends lionform {
     private $displayoptions;
 
     function definition() {
@@ -90,7 +77,7 @@ class edit_item_form extends moodleform {
         $mform->disabledIf('grademax', 'gradetype', 'noteq', GRADE_TYPE_VALUE);
         $mform->setType('grademax', PARAM_RAW);
 
-        if ((bool) get_config('moodle', 'grade_report_showmin')) {
+        if ((bool) get_config('lion', 'grade_report_showmin')) {
             $mform->addElement('text', 'grademin', get_string('grademin', 'grades'));
             $mform->addHelpButton('grademin', 'grademin', 'grades');
             $mform->disabledIf('grademin', 'gradetype', 'noteq', GRADE_TYPE_VALUE);

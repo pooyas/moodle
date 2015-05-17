@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the strings used by backup
  *
- * @package   core
- * @copyright 2010 Eloy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    lang
+ * @subpackage en
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['autoactivedisabled'] = 'Disabled';
@@ -41,10 +28,10 @@ $string['backupcoursesection'] = 'Section: {$a}';
 $string['backupcoursesections'] = 'Course sections';
 $string['backupdate'] = 'Date taken';
 $string['backupdetails'] = 'Backup details';
-$string['backupdetailsnonstandardinfo'] = 'The selected file is not a standard Moodle backup file. The restore process will try to convert the backup file into the standard format and then restore it.';
+$string['backupdetailsnonstandardinfo'] = 'The selected file is not a standard Lion backup file. The restore process will try to convert the backup file into the standard format and then restore it.';
 $string['backupformat'] = 'Format';
-$string['backupformatmoodle1'] = 'Moodle 1';
-$string['backupformatmoodle2'] = 'Moodle 2';
+$string['backupformatlion1'] = 'Lion 1';
+$string['backupformatlion2'] = 'Lion 2';
 $string['backupformatimscc1'] = 'IMS Common Cartridge 1.0';
 $string['backupformatimscc11'] = 'IMS Common Cartridge 1.1';
 $string['backupformatunknown'] = 'Unknown format';
@@ -113,15 +100,15 @@ $string['error_block_for_module_not_found'] = 'Orphan block instance (id: {$a->b
 $string['error_course_module_not_found'] = 'Orphan course module (id: {$a}) found. This module will not be backed up.';
 $string['errorfilenamerequired'] = 'You must enter a valid filename for this backup';
 $string['errorfilenamemustbezip'] = 'The filename you enter must be a ZIP file and have the .mbz extension';
-$string['errorminbackup20version'] = 'This backup file has been created with one development version of Moodle backup ({$a->backup}). Minimum required is {$a->min}. Cannot be restored.';
+$string['errorminbackup20version'] = 'This backup file has been created with one development version of Lion backup ({$a->backup}). Minimum required is {$a->min}. Cannot be restored.';
 $string['errorinvalidformat'] = 'Unknown backup format';
-$string['errorinvalidformatinfo'] = 'The selected file is not a valid Moodle backup file and can\'t be restored.';
+$string['errorinvalidformatinfo'] = 'The selected file is not a valid Lion backup file and can\'t be restored.';
 $string['errorrestorefrontpagebackup'] = 'You can only restore front page backups on the front page';
 $string['executionsuccess'] = 'The backup file was successfully created.';
 $string['filename'] = 'Filename';
 $string['filealiasesrestorefailures'] = 'Aliases restore failures';
 $string['filealiasesrestorefailuresinfo'] = 'Some aliases included in the backup file could not be restored. The following list contains their expected location and the source file they were referring to at the original site.';
-$string['filealiasesrestorefailures_help'] = 'Aliases are symbolic links to other files, including those stored in external repositories. In some cases, Moodle cannot restore them - for example when restoring the backup at another site or when the referenced file does not exist.
+$string['filealiasesrestorefailures_help'] = 'Aliases are symbolic links to other files, including those stored in external repositories. In some cases, Lion cannot restore them - for example when restoring the backup at another site or when the referenced file does not exist.
 
 More details and the actual reason of the failure can be found in the restore log file.';
 $string['filealiasesrestorefailures_link'] = 'restore/filealiases';
@@ -174,7 +161,7 @@ $string['lockedbyhierarchy'] = 'Locked by dependencies';
 $string['loglifetime'] = 'Keep logs for';
 $string['managefiles'] = 'Manage backup files';
 $string['missingfilesinpool'] = 'Some files could not be saved during the backup, it won\'t be possible to restore them.';
-$string['moodleversion'] = 'Moodle version';
+$string['lionversion'] = 'Lion version';
 $string['moreresults'] = 'There are too many results, enter a more specific search.';
 $string['nomatchingcourses'] = 'There are no courses to display';
 $string['norestoreoptions'] = 'There are no categories or existing courses you can restore to.';

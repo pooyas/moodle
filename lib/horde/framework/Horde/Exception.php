@@ -8,8 +8,9 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category Horde
- * @license  http://www.horde.org/licenses/lgpl21 LGPL-2.1
- * @package  Exception
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Horde_Exception extends Exception
 {

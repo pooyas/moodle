@@ -1,39 +1,23 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the marking guide editor element
  *
- * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("HTML/QuickForm/input.php");
 
 /**
  * The editor for the marking guide advanced grading plugin.
  *
- * @package    gradingform_guide
- * @copyright  2012 Dan Marsden <dan@danmarsden.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class moodlequickform_guideeditor extends HTML_QuickForm_input {
+class lionquickform_guideeditor extends HTML_QuickForm_input {
     /** @var string help message */
     public $_helpbutton = '';
     /** @var null|false|string stores the result of the last validation: null - undefined, false - no errors,
@@ -53,7 +37,7 @@ class moodlequickform_guideeditor extends HTML_QuickForm_input {
      * @param string $elementlabel
      * @param array $attributes
      */
-    public function moodlequickform_guideeditor($elementname=null, $elementlabel=null, $attributes=null) {
+    public function lionquickform_guideeditor($elementname=null, $elementlabel=null, $attributes=null) {
         parent::HTML_QuickForm_input($elementname, $elementlabel, $attributes);
     }
 

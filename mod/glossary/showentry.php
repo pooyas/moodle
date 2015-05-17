@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once('../../config.php');
 require_once('lib.php');
 
@@ -8,7 +15,7 @@ $courseid = optional_param('courseid', 0, PARAM_INT);
 $eid      = optional_param('eid', 0, PARAM_INT); // glossary entry id
 $displayformat = optional_param('displayformat',-1, PARAM_SAFEDIR);
 
-$url = new moodle_url('/mod/glossary/showentry.php');
+$url = new lion_url('/mod/glossary/showentry.php');
 $url->param('concept', $concept);
 $url->param('courseid', $courseid);
 $url->param('eid', $eid);

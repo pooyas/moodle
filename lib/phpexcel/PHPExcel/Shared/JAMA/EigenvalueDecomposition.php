@@ -1,6 +1,5 @@
 <?php
 /**
- *	@package JAMA
  *
  *	Class to obtain eigenvalues and eigenvectors of a real matrix.
  *
@@ -17,9 +16,10 @@
  *	conditioned, or even singular, so the validity of the equation
  *	A = V*D*inverse(V) depends upon V.cond().
  *
- *	@author  Paul Meagher
- *	@license PHP v3.0
  *	@version 1.1
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class EigenvalueDecomposition {
 

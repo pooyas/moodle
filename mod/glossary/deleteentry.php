@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once("../../config.php");
 require_once("lib.php");
 
@@ -9,7 +16,7 @@ $entry    = optional_param('entry', 0, PARAM_INT);    // entry id
 $prevmode = required_param('prevmode', PARAM_ALPHA);
 $hook     = optional_param('hook', '', PARAM_CLEAN);
 
-$url = new moodle_url('/mod/glossary/deleteentry.php', array('id'=>$id,'prevmode'=>$prevmode));
+$url = new lion_url('/mod/glossary/deleteentry.php', array('id'=>$id,'prevmode'=>$prevmode));
 if ($confirm !== 0) {
     $url->param('confirm', $confirm);
 }
@@ -150,7 +157,7 @@ if ($confirm and confirm_sesskey()) { // the operation was confirmed.
     $optionsyes = array('id'=>$cm->id, 'entry'=>$entry->id, 'confirm'=>1, 'sesskey'=>sesskey(), 'prevmode'=>$prevmode, 'hook'=>$hook);
     $optionsno  = array('id'=>$cm->id, 'mode'=>$prevmode, 'hook'=>$hook);
 
-    echo $OUTPUT->confirm($areyousure, new moodle_url($linkyes, $optionsyes), new moodle_url($linkno, $optionsno));
+    echo $OUTPUT->confirm($areyousure, new lion_url($linkyes, $optionsyes), new lion_url($linkno, $optionsno));
 
     echo $OUTPUT->footer();
 }

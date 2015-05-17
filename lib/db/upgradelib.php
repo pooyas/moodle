@@ -1,34 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Upgrade helper functions
  *
  * This file is used for special upgrade functions - for example groups and gradebook.
- * These functions must use SQL and database related functions only- no other Moodle API,
+ * These functions must use SQL and database related functions only- no other Lion API,
  * because it might depend on db structures that are not yet present during upgrade.
  * (Do not use functions from accesslib.php, grades classes or group functions at all!)
  *
- * @package   core_install
  * @category  upgrade
- * @copyright 2007 Petr Skoda (http://skodak.org)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Returns all non-view and non-temp tables with sane names.
@@ -121,10 +108,10 @@ function upgrade_mysql_fix_unsigned_and_lob_columns() {
                     $maxvalue = 127;
                 }
                 if ($maxvalue) {
-                    // Make sure nobody is abusing our integer ranges - moodle int sizes are in digits, not bytes!!!
+                    // Make sure nobody is abusing our integer ranges - lion int sizes are in digits, not bytes!!!
                     $invalidcount = $DB->get_field_sql("SELECT COUNT('x') FROM `{{$table}}` WHERE `$column->field` > :maxnumber", array('maxnumber'=>$maxvalue));
                     if ($invalidcount) {
-                        throw new moodle_exception('notlocalisederrormessage', 'error', new moodle_url('/admin/'), "Database table '{$table}'' contains unsigned column '{$column->field}' with $invalidcount values that are out of allowed range, upgrade can not continue.");
+                        throw new lion_exception('notlocalisederrormessage', 'error', new lion_url('/admin/'), "Database table '{$table}'' contains unsigned column '{$column->field}' with $invalidcount values that are out of allowed range, upgrade can not continue.");
                     }
                 }
                 $type = preg_replace('/unsigned/i', 'signed', $column->type);

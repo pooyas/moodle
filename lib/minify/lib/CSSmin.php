@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /*!
  * cssmin.php rev ebaf67b 12/06/2013
  * Author: Tubal Martin - http://tubalmartin.me/

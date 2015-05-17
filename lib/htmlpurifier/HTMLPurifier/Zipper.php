@@ -16,6 +16,9 @@
  *
  * Nota bene: the current class gets confused if you try to store NULLs
  * in the list.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_Zipper

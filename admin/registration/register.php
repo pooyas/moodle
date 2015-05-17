@@ -1,33 +1,35 @@
 <?php
 
+
+/**
+ * @package    admin
+ * @subpackage registration
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /*
- * @package    moodle
- * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  *
- * This page displays the site registration form for Moodle.org/MOOCH or for a different hub.
+ * This page displays the site registration form for Lion.org/MOOCH or for a different hub.
  * It handles redirection to the hub to continue the registration workflow process.
  * It also handles update operation by web service.
  */
@@ -42,8 +44,8 @@ require_once($CFG->dirroot . '/' . $CFG->admin . '/registration/lib.php');
 $huburl = required_param('huburl', PARAM_URL);
 $huburl = rtrim($huburl, "/");
 
-if ($huburl == HUB_MOODLEORGHUBURL) { // register to Moodle.org
-    admin_externalpage_setup('registrationmoodleorg');
+if ($huburl == HUB_LIONORGHUBURL) { // register to Lion.org
+    admin_externalpage_setup('registrationlionorg');
 } else { //register to a hub
     admin_externalpage_setup('registrationhub');
 }
@@ -158,7 +160,7 @@ if (!empty($fromform) and empty($update) and confirm_sesskey()) {
 
         $params['token'] = $unconfirmedhub->token;
         $params['url'] = $CFG->wwwroot;
-        redirect(new moodle_url($huburl . '/local/hub/siteregistration.php', $params));
+        redirect(new lion_url($huburl . '/local/hub/siteregistration.php', $params));
     }
 }
 
@@ -176,8 +178,8 @@ if (!empty($error)) {
     echo $error;
 }
 
-// Some Moodle.org registration explanation.
-if ($huburl == HUB_MOODLEORGHUBURL) {
+// Some Lion.org registration explanation.
+if ($huburl == HUB_LIONORGHUBURL) {
     if (!empty($registeredhub->token)) {
         if ($registeredhub->timemodified == 0) {
             $registrationmessage = get_string('pleaserefreshregistrationunknown', 'admin');
@@ -190,9 +192,9 @@ if ($huburl == HUB_MOODLEORGHUBURL) {
     }
     echo $OUTPUT->notification($registrationmessage);
 
-    echo $OUTPUT->heading(get_string('registerwithmoodleorg', 'admin'));
+    echo $OUTPUT->heading(get_string('registerwithlionorg', 'admin'));
     $renderer = $PAGE->get_renderer('core', 'register');
-    echo $renderer->moodleorg_registration_message();
+    echo $renderer->lionorg_registration_message();
 }
 
 $siteregistrationform->display();

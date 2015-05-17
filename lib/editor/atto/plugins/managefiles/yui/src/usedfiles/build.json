@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_managefiles-usedfiles",
+    "name": "lion-atto_managefiles-usedfiles",
     "builds": {
-        "moodle-atto_managefiles-usedfiles": {
+        "lion-atto_managefiles-usedfiles": {
             "jsfiles": [
                 "usedfiles.js"
             ]

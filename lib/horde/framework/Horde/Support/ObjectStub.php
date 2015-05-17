@@ -5,17 +5,14 @@
  *
  * Copyright 2012-2014 Horde LLC (http://www.horde.org/)
  *
- * @author   Michael Slusarz <slusarz@horde.org>
  * @category Horde
- * @license  http://www.horde.org/licenses/bsd BSD
- * @package  Support
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
- * @author   Michael Slusarz <slusarz@horde.org>
  * @category Horde
- * @license  http://www.horde.org/licenses/bsd BSD
- * @package  Support
  */
 class Horde_Support_ObjectStub
 {

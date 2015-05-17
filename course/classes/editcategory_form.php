@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Edit category form.
  *
- * @package core_course
- * @copyright 2002 onwards Martin Dougiamas (http://dougiamas.com)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    course
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/coursecatlib.php');
@@ -30,11 +17,8 @@ require_once($CFG->libdir.'/coursecatlib.php');
 /**
  * Edit category form.
  *
- * @package core_course
- * @copyright 2002 onwards Martin Dougiamas (http://dougiamas.com)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class core_course_editcategory_form extends moodleform {
+class core_course_editcategory_form extends lionform {
 
     /**
      * The form definition.
@@ -47,12 +31,12 @@ class core_course_editcategory_form extends moodleform {
 
         // Get list of categories to use as parents, with site as the first one.
         $options = array();
-        if (has_capability('moodle/category:manage', context_system::instance()) || $parent == 0) {
+        if (has_capability('lion/category:manage', context_system::instance()) || $parent == 0) {
             $options[0] = get_string('top');
         }
         if ($categoryid) {
             // Editing an existing category.
-            $options += coursecat::make_categories_list('moodle/category:manage', $categoryid);
+            $options += coursecat::make_categories_list('lion/category:manage', $categoryid);
             if (empty($options[$parent])) {
                 // Ensure the the category parent has been included in the options.
                 $options[$parent] = $DB->get_field('course_categories', 'name', array('id'=>$parent));
@@ -60,7 +44,7 @@ class core_course_editcategory_form extends moodleform {
             $strsubmit = get_string('savechanges');
         } else {
             // Making a new category.
-            $options += coursecat::make_categories_list('moodle/category:manage');
+            $options += coursecat::make_categories_list('lion/category:manage');
             $strsubmit = get_string('createcategory');
         }
 

@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 namespace Horde\Socket;
 
 /**
@@ -9,19 +16,12 @@ namespace Horde\Socket;
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Socket_Client
  */
 
 /**
  * Utility interface for establishing a stream socket client.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2013-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Socket_Client
  *
  * @property-read boolean $connected  Is there an active connection?
  * @property-read boolean $secure  Is the active connection secure?

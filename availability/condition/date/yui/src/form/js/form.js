@@ -1,7 +1,7 @@
 /**
  * JavaScript for form editing date conditions.
  *
- * @module moodle-availability_date-form
+ * @module lion-availability_date-form
  */
 M.availability_date = M.availability_date || {};
 
@@ -14,7 +14,7 @@ M.availability_date.form = Y.Object(M.core_availability.plugin);
 /**
  * Initialises this plugin.
  *
- * Because the date fields are complex depending on Moodle calendar settings,
+ * Because the date fields are complex depending on Lion calendar settings,
  * we create the HTML for these fields in PHP and pass it to this method.
  *
  * @method initInner
@@ -105,7 +105,7 @@ M.availability_date.form.getNode = function(json) {
 
 /**
  * Updates time from AJAX. Whenever the field values change, we recompute the
- * actual time via an AJAX request to Moodle.
+ * actual time via an AJAX request to Lion.
  *
  * This will set the 'time' data on the node and then update the form, once it
  * gets an AJAX response.

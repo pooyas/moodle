@@ -1,5 +1,5 @@
 {
-  "moodle-assignfeedback_editpdf-editor": {
+  "lion-assignfeedback_editpdf-editor": {
     "requires": [
         "base",
         "event",
@@ -10,9 +10,9 @@
         "event-move",
         "event-resize",
         "querystring-stringify-simple",
-        "moodle-core-notification-dialog",
-        "moodle-core-notification-exception",
-        "moodle-core-notification-ajaxexception"
+        "lion-core-notification-dialog",
+        "lion-core-notification-exception",
+        "lion-core-notification-ajaxexception"
     ]
   }
 }

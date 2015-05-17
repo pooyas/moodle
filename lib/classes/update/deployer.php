@@ -1,31 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines classes used for updates.
  *
  * @package    core
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 namespace core\update;
 
-use coding_exception, core_component, moodle_url;
+use coding_exception, core_component, lion_url;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Implements a communication bridge to the mdeploy.php utility
@@ -34,9 +21,9 @@ class deployer {
 
     /** @var \core\update\deployer holds the singleton instance */
     protected static $singletoninstance;
-    /** @var moodle_url URL of a page that includes the deployer UI */
+    /** @var lion_url URL of a page that includes the deployer UI */
     protected $callerurl;
-    /** @var moodle_url URL to return after the deployment */
+    /** @var lion_url URL to return after the deployment */
     protected $returnurl;
 
     /**
@@ -93,10 +80,10 @@ class deployer {
     /**
      * Sets some base properties of the class to make it usable.
      *
-     * @param moodle_url $callerurl the base URL of a script that will handle the class'es form data
-     * @param moodle_url $returnurl the final URL to return to when the deployment is finished
+     * @param lion_url $callerurl the base URL of a script that will handle the class'es form data
+     * @param lion_url $returnurl the final URL to return to when the deployment is finished
      */
-    public function initialize(moodle_url $callerurl, moodle_url $returnurl) {
+    public function initialize(lion_url $callerurl, lion_url $returnurl) {
 
         if (!$this->enabled()) {
             throw new coding_exception('Unable to initialize the deployer, the feature is not enabled.');
@@ -227,7 +214,7 @@ class deployer {
         }
 
         $widget = new \single_button(
-            new moodle_url($this->callerurl, $params),
+            new lion_url($this->callerurl, $params),
             get_string('updateavailableinstall', 'core_admin'),
             'post'
         );
@@ -239,10 +226,10 @@ class deployer {
      * Prepares a renderable widget to execute installation of an available update.
      *
      * @param \core\update\info $info component version to deploy
-     * @param moodle_url $returnurl URL to return after the installation execution
+     * @param lion_url $returnurl URL to return after the installation execution
      * @return \renderable
      */
-    public function make_execution_widget(info $info, moodle_url $returnurl = null) {
+    public function make_execution_widget(info $info, lion_url $returnurl = null) {
         global $CFG;
 
         if (!$this->initialized()) {
@@ -260,7 +247,7 @@ class deployer {
         list($passfile, $password) = $this->prepare_authorization();
 
         if (is_null($returnurl)) {
-            $returnurl = new moodle_url('/admin');
+            $returnurl = new lion_url('/admin');
         } else {
             $returnurl = $returnurl;
         }
@@ -302,7 +289,7 @@ class deployer {
         }
 
         $widget = new \single_button(
-            new moodle_url('/mdeploy.php', $params),
+            new lion_url('/mdeploy.php', $params),
             get_string('updateavailableinstall', 'core_admin'),
             'post'
         );
@@ -353,10 +340,10 @@ class deployer {
             'returnurl'   => optional_param('returnurl', null, PARAM_URL),
         );
         if ($data['callerurl']) {
-            $data['callerurl'] = new moodle_url($data['callerurl']);
+            $data['callerurl'] = new lion_url($data['callerurl']);
         }
         if ($data['callerurl']) {
-            $data['returnurl'] = new moodle_url($data['returnurl']);
+            $data['returnurl'] = new lion_url($data['returnurl']);
         }
 
         return $data;
@@ -420,7 +407,7 @@ class deployer {
     }
 
     /**
-     * Generates a random token and stores it in a file in moodledata directory.
+     * Generates a random token and stores it in a file in liondata directory.
      *
      * @return array of the (string)filename and (string)password in this order
      */
@@ -451,7 +438,7 @@ class deployer {
             return array($passfile, $password);
 
         } else {
-            throw new \moodle_exception('unable_prepare_authorization', 'core_plugin');
+            throw new \lion_exception('unable_prepare_authorization', 'core_plugin');
         }
     }
 

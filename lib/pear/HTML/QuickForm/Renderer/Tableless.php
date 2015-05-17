@@ -12,15 +12,11 @@
  * send a note to license@php.net so we can mail you a copy immediately.
  *
  * @category   HTML
- * @package    HTML_QuickForm_Renderer_Tableless
- * @author     Alexey Borzov <borz_off@cs.msu.su>
- * @author     Adam Daniel <adaniel1@eesus.jnj.com>
- * @author     Bertrand Mansion <bmansion@mamasam.com>
- * @author     Mark Wiesemann <wiesemann@php.net>
- * @copyright  2005-2006 The PHP Group
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/HTML_QuickForm_Renderer_Tableless
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once 'HTML/QuickForm/Renderer/Default.php';
@@ -33,12 +29,6 @@ require_once 'HTML/QuickForm/Renderer/Default.php';
  * data/stylesheet.css to make this work.
  *
  * @category   HTML
- * @package    HTML_QuickForm_Renderer_Tableless
- * @author     Alexey Borzov <borz_off@cs.msu.su>
- * @author     Adam Daniel <adaniel1@eesus.jnj.com>
- * @author     Bertrand Mansion <bmansion@mamasam.com>
- * @author     Mark Wiesemann <wiesemann@php.net>
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    Release: 0.3.4
  * @link       http://pear.php.net/package/HTML_QuickForm_Renderer_Tableless
  */
@@ -186,7 +176,7 @@ class HTML_QuickForm_Renderer_Tableless extends HTML_QuickForm_Renderer_Default
             } else {
                 $id = $element->getName();
             }
-            if (!empty($id) and !is_a($element, 'MoodleQuickForm_group') and !is_a($element, 'HTML_QuickForm_static')) { // moodle hack
+            if (!empty($id) and !is_a($element, 'LionQuickForm_group') and !is_a($element, 'HTML_QuickForm_static')) { // lion hack
                 $html = str_replace('<label', '<label for="' . $id . '"', $html);
                 $element_html = preg_replace('#name="' . $id . '#',
                                              'id="' . $id . '" name="' . $id . '',

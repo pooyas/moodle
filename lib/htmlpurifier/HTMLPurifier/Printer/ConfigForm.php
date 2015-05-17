@@ -2,6 +2,9 @@
 
 /**
  * @todo Rewrite to use Interchange objects
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Printer_ConfigForm extends HTMLPurifier_Printer
 {

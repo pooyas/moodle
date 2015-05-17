@@ -3,6 +3,9 @@
 /**
  * Converts HTMLPurifier_ConfigSchema_Interchange to an XML format,
  * which can be further processed to generate documentation.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema_Builder_Xml extends XMLWriter
 {

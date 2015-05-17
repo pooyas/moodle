@@ -1,19 +1,6 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Delete wiki pages or versions
@@ -22,9 +9,9 @@
  * If user have wiki:managewiki ability then only this page will show delete
  * options
  *
- * @package mod_wiki
- * @copyright 2011 Rajesh Taneja
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');
@@ -76,7 +63,7 @@ if (!empty($delete) && confirm_sesskey()) {
     //current pageid is invalid after deletion.
     if ($pageid == $delete) {
         $params = array('swid' => $page->subwikiid, 'title' => $page->title);
-        $url = new moodle_url('/mod/wiki/create.php', $params);
+        $url = new lion_url('/mod/wiki/create.php', $params);
         redirect($url);
     }
 }

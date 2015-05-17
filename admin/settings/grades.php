@@ -1,9 +1,16 @@
 <?php
 
+
+/**
+ * @package    admin
+ * @subpackage settings
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // This file defines settingpages and externalpages under the "grades" section
 
-if (has_capability('moodle/grade:manage', $systemcontext)
- or has_capability('moodle/grade:manageletters', $systemcontext)) { // speedup for non-admins, add all caps used on this page
+if (has_capability('lion/grade:manage', $systemcontext)
+ or has_capability('lion/grade:manageletters', $systemcontext)) { // speedup for non-admins, add all caps used on this page
 
     require_once $CFG->libdir.'/grade/constants.php';
     $display_types = array(GRADE_DISPLAY_TYPE_REAL => new lang_string('real', 'grades'),
@@ -20,7 +27,7 @@ if (has_capability('moodle/grade:manage', $systemcontext)
 
     // General settings
 
-    $temp = new admin_settingpage('gradessettings', new lang_string('generalsettings', 'grades'), 'moodle/grade:manage');
+    $temp = new admin_settingpage('gradessettings', new lang_string('generalsettings', 'grades'), 'lion/grade:manage');
     if ($ADMIN->fulltree) {
 
         // new CFG variable for gradebook (what roles to display)
@@ -79,7 +86,7 @@ if (has_capability('moodle/grade:manage', $systemcontext)
     $ADMIN->add('grades', $temp);
 
     /// Grade category settings
-    $temp = new admin_settingpage('gradecategorysettings', new lang_string('gradecategorysettings', 'grades'), 'moodle/grade:manage');
+    $temp = new admin_settingpage('gradecategorysettings', new lang_string('gradecategorysettings', 'grades'), 'lion/grade:manage');
     if ($ADMIN->fulltree) {
         $temp->add(new admin_setting_configcheckbox('grade_hideforcedsettings', new lang_string('hideforcedsettings', 'grades'), new lang_string('hideforcedsettings_help', 'grades'), '1'));
 
@@ -133,7 +140,7 @@ if (has_capability('moodle/grade:manage', $systemcontext)
 
 
     /// Grade item settings
-    $temp = new admin_settingpage('gradeitemsettings', new lang_string('gradeitemsettings', 'grades'), 'moodle/grade:manage');
+    $temp = new admin_settingpage('gradeitemsettings', new lang_string('gradeitemsettings', 'grades'), 'lion/grade:manage');
     if ($ADMIN->fulltree) {
         $temp->add(new admin_setting_configselect('grade_displaytype', new lang_string('gradedisplaytype', 'grades'),
                                                   new lang_string('gradedisplaytype_help', 'grades'), GRADE_DISPLAY_TYPE_REAL, $display_types));
@@ -172,13 +179,13 @@ if (has_capability('moodle/grade:manage', $systemcontext)
 
     /// Scales and outcomes
 
-    $scales = new admin_externalpage('scales', new lang_string('scales'), $CFG->wwwroot.'/grade/edit/scale/index.php', 'moodle/grade:manage');
+    $scales = new admin_externalpage('scales', new lang_string('scales'), $CFG->wwwroot.'/grade/edit/scale/index.php', 'lion/grade:manage');
     $ADMIN->add('grades', $scales);
     if (!empty($CFG->enableoutcomes)) {
-        $outcomes = new admin_externalpage('outcomes', new lang_string('outcomes', 'grades'), $CFG->wwwroot.'/grade/edit/outcome/index.php', 'moodle/grade:manage');
+        $outcomes = new admin_externalpage('outcomes', new lang_string('outcomes', 'grades'), $CFG->wwwroot.'/grade/edit/outcome/index.php', 'lion/grade:manage');
         $ADMIN->add('grades', $outcomes);
     }
-    $letters = new admin_externalpage('letters', new lang_string('letters', 'grades'), $CFG->wwwroot.'/grade/edit/letter/index.php', 'moodle/grade:manageletters');
+    $letters = new admin_externalpage('letters', new lang_string('letters', 'grades'), $CFG->wwwroot.'/grade/edit/letter/index.php', 'lion/grade:manageletters');
     $ADMIN->add('grades', $letters);
 
     // The plugins must implement a settings.php file that adds their admin settings to the $settings object
@@ -188,7 +195,7 @@ if (has_capability('moodle/grade:manage', $systemcontext)
     foreach (core_component::get_plugin_list('gradereport') as $plugin => $plugindir) {
      // Include all the settings commands for this plugin if there are any
         if (file_exists($plugindir.'/settings.php')) {
-            $settings = new admin_settingpage('gradereport'.$plugin, new lang_string('pluginname', 'gradereport_'.$plugin), 'moodle/grade:manage');
+            $settings = new admin_settingpage('gradereport'.$plugin, new lang_string('pluginname', 'gradereport_'.$plugin), 'lion/grade:manage');
             include($plugindir.'/settings.php');
             if ($settings) {
                 $ADMIN->add('gradereports', $settings);
@@ -202,7 +209,7 @@ if (has_capability('moodle/grade:manage', $systemcontext)
 
      // Include all the settings commands for this plugin if there are any
         if (file_exists($plugindir.'/settings.php')) {
-            $settings = new admin_settingpage('gradeimport'.$plugin, new lang_string('pluginname', 'gradeimport_'.$plugin), 'moodle/grade:manage');
+            $settings = new admin_settingpage('gradeimport'.$plugin, new lang_string('pluginname', 'gradeimport_'.$plugin), 'lion/grade:manage');
             include($plugindir.'/settings.php');
             if ($settings) {
                 $ADMIN->add('gradeimports', $settings);
@@ -216,7 +223,7 @@ if (has_capability('moodle/grade:manage', $systemcontext)
     foreach (core_component::get_plugin_list('gradeexport') as $plugin => $plugindir) {
      // Include all the settings commands for this plugin if there are any
         if (file_exists($plugindir.'/settings.php')) {
-            $settings = new admin_settingpage('gradeexport'.$plugin, new lang_string('pluginname', 'gradeexport_'.$plugin), 'moodle/grade:manage');
+            $settings = new admin_settingpage('gradeexport'.$plugin, new lang_string('pluginname', 'gradeexport_'.$plugin), 'lion/grade:manage');
             include($plugindir.'/settings.php');
             if ($settings) {
                 $ADMIN->add('gradeexports', $settings);

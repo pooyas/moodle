@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //  Copyright (c) 2009 Facebook
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +34,6 @@ function xhprof_error($message) {
  * The list of possible metrics collected as part of XHProf that
  * require inclusive/exclusive handling while reporting.
  *
- * @author Kannan
  */
 function xhprof_get_possible_metrics() {
  static $possible_metrics =
@@ -45,7 +51,6 @@ function xhprof_get_possible_metrics() {
  * Initialize the metrics we'll display based on the information
  * in the raw data.
  *
- * @author Kannan
  */
 function init_metrics($xhprof_data, $rep_symbol, $sort, $diff_report = false) {
   global $stats;
@@ -120,7 +125,6 @@ function init_metrics($xhprof_data, $rep_symbol, $sort, $diff_report = false) {
 /*
  * Get the list of metrics present in $xhprof_data as an array.
  *
- * @author Kannan
  */
 function xhprof_get_metrics($xhprof_data) {
 
@@ -143,7 +147,6 @@ function xhprof_get_metrics($xhprof_data) {
  * Takes a parent/child function name encoded as
  * "a==>b" and returns array("a", "b").
  *
- * @author Kannan
  */
 function xhprof_parse_parent_child($parent_child) {
   $ret = explode("==>", $parent_child);
@@ -160,7 +163,6 @@ function xhprof_parse_parent_child($parent_child) {
  * Given parent & child function name, composes the key
  * in the format present in the raw data.
  *
- * @author Kannan
  */
 function xhprof_build_parent_child_key($parent, $child) {
   if ($parent) {
@@ -181,7 +183,6 @@ function xhprof_build_parent_child_key($parent, $child) {
  *
  *  @return  bool   true on success, false on failure
  *
- *  @author Kannan
  */
 function xhprof_valid_run($run_id, $raw_data) {
 
@@ -235,7 +236,6 @@ function xhprof_valid_run($run_id, $raw_data) {
  *
  * @return array  Trimmed XHProf Report
  *
- * @author Kannan
  */
 function xhprof_trim_run($raw_data, $functions_to_keep) {
 
@@ -263,7 +263,6 @@ function xhprof_trim_run($raw_data, $functions_to_keep) {
  * of runs averages/nomalizes the data. Essentially the various metrics
  * collected are divided by $num_runs.
  *
- * @author Kannan
  */
 function xhprof_normalize_metrics($raw_data, $num_runs) {
 
@@ -315,7 +314,6 @@ function xhprof_normalize_metrics($raw_data, $num_runs) {
  *
  *  @return array  Return aggregated raw data
  *
- *  @author Kannan
  */
 function xhprof_aggregate_runs($xhprof_runs_impl, $runs,
                                $wts, $source="phprof",
@@ -449,7 +447,6 @@ function xhprof_aggregate_runs($xhprof_runs_impl, $runs,
  *               call count and inclusive & exclusive metrics
  *               (such as wall time, etc.).
  *
- * @author Kannan Muthukkaruppan
  */
 function xhprof_compute_flat_info($raw_data, &$overall_totals) {
 
@@ -511,7 +508,6 @@ function xhprof_compute_flat_info($raw_data, &$overall_totals) {
  * Hierarchical diff:
  * Compute and return difference of two call graphs: Run2 - Run1.
  *
- * @author Kannan
  */
 function xhprof_compute_diff($xhprof_data1, $xhprof_data2) {
   global $display_calls;
@@ -562,7 +558,6 @@ function xhprof_compute_diff($xhprof_data1, $xhprof_data2) {
  * @return array  Returns a map of function name to total (across all parents)
  *                inclusive metrics for the function.
  *
- * @author Kannan
  */
 function xhprof_compute_inclusive_times($raw_data) {
   global $display_calls;
@@ -634,7 +629,6 @@ function xhprof_compute_inclusive_times($raw_data) {
  *
  *  @return  array  Returns the pruned raw data.
  *
- *  @author Kannan
  */
 function xhprof_prune_run($raw_data, $prune_percent) {
 
@@ -704,7 +698,6 @@ function xhprof_prune_run($raw_data, $prune_percent) {
 /**
  * Set one key in an array and return the array
  *
- * @author Kannan
  */
 function xhprof_array_set($arr, $k, $v) {
   $arr[$k] = $v;
@@ -714,7 +707,6 @@ function xhprof_array_set($arr, $k, $v) {
 /**
  * Removes/unsets one key in an array and return the array
  *
- * @author Kannan
  */
 function xhprof_array_unset($arr, $k) {
   unset($arr[$k]);
@@ -737,7 +729,6 @@ define('XHPROF_BOOL_PARAM',   4);
  *
  * @param string   name of the URL query string param
  *
- * @author Kannan
  */
 function xhprof_get_param_helper($param) {
   $val = null;
@@ -754,7 +745,6 @@ function xhprof_get_param_helper($param) {
  * string. If param is not specified, return the
  * $default value.
  *
- * @author Kannan
  */
 function xhprof_get_string_param($param, $default = '') {
   $val = xhprof_get_param_helper($param);
@@ -773,7 +763,6 @@ function xhprof_get_string_param($param, $default = '') {
  * If value is not a valid unsigned integer, logs error
  * and returns null.
  *
- * @author Kannan
  */
 function xhprof_get_uint_param($param, $default = 0) {
   $val = xhprof_get_param_helper($param);
@@ -802,7 +791,6 @@ function xhprof_get_uint_param($param, $default = 0) {
  * If value is not a valid unsigned integer, logs error
  * and returns null.
  *
- * @author Kannan
  */
 function xhprof_get_float_param($param, $default = 0) {
   $val = xhprof_get_param_helper($param);
@@ -829,7 +817,6 @@ function xhprof_get_float_param($param, $default = 0) {
  * If value is not a valid unsigned integer, logs error
  * and returns null.
  *
- * @author Kannan
  */
 function xhprof_get_bool_param($param, $default = false) {
   $val = xhprof_get_param_helper($param);
@@ -881,7 +868,6 @@ function xhprof_get_bool_param($param, $default = false) {
  *                       If a param is not specified in the
  *                       query string the default value is
  *                       used.
- * @author Kannan
  */
 function xhprof_param_init($params) {
   /* Create variables specified in $params keys, init defaults */
@@ -916,7 +902,6 @@ function xhprof_param_init($params) {
  * specified XHProf run. This is used for the type ahead function
  * selector.
  *
- * @author Kannan
  */
 function xhprof_get_matching_functions($q, $xhprof_data) {
 

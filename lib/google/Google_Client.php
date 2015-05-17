@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 // Check for the required json and curl extensions, the Google APIs PHP Client
@@ -63,8 +66,6 @@ require_once('service/Google_MediaFileUpload.php');
  * The Google API Client
  * http://code.google.com/p/google-api-php-client/
  *
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Client {
   /**

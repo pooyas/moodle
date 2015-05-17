@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Mandatory public API of imscp module
  *
- * @package mod_imscp
- * @copyright  2009 Petr Skoda  {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage imscp
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * List of features supported in IMS CP module
@@ -38,7 +25,7 @@ function imscp_supports($feature) {
         case FEATURE_COMPLETION_TRACKS_VIEWS: return true;
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -50,11 +37,11 @@ function imscp_supports($feature) {
  * @return array
  */
 function imscp_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
- * This function is used by the reset_course_userdata function in moodlelib.
+ * This function is used by the reset_course_userdata function in lionlib.
  *
  * @param stdClass $data the data submitted from the reset course.
  * @return array status array
@@ -221,7 +208,6 @@ function imscp_delete_instance($id) {
 /**
  * Lists all browsable file areas
  *
- * @package  mod_imscp
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -240,7 +226,6 @@ function imscp_get_file_areas($course, $cm, $context) {
 /**
  * File browsing support for imscp module ontent area.
  *
- * @package  mod_imscp
  * @category files
  * @param stdClass $browser file browser
  * @param stdClass $areas file areas
@@ -258,7 +243,7 @@ function imscp_get_file_info($browser, $areas, $course, $cm, $context, $filearea
 
     // Note: imscp_intro handled in file_browser automatically.
 
-    if (!has_capability('moodle/course:managefiles', $context)) {
+    if (!has_capability('lion/course:managefiles', $context)) {
         // No peeking here for students!
         return null;
     }
@@ -288,7 +273,6 @@ function imscp_get_file_info($browser, $areas, $course, $cm, $context, $filearea
 /**
  * Serves the imscp files.
  *
- * @package  mod_imscp
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -316,7 +300,7 @@ function imscp_pluginfile($course, $cm, $context, $filearea, $args, $forcedownlo
         $fs = get_file_storage();
         $relativepath = implode('/', $args);
         if ($relativepath === 'imsmanifest.xml') {
-            if (!has_capability('moodle/course:managefiles', $context)) {
+            if (!has_capability('lion/course:managefiles', $context)) {
                 // No stealing of detailed package info.
                 return false;
             }
@@ -330,7 +314,7 @@ function imscp_pluginfile($course, $cm, $context, $filearea, $args, $forcedownlo
         send_stored_file($file, null, 0, $forcedownload, $options);
 
     } else if ($filearea === 'backup') {
-        if (!has_capability('moodle/course:managefiles', $context)) {
+        if (!has_capability('lion/course:managefiles', $context)) {
             // No stealing of package backups.
             return false;
         }

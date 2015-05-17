@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once 'Google/Exception.php';
 
 class Google_Service_Exception extends Google_Exception

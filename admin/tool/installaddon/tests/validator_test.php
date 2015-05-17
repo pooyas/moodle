@@ -1,37 +1,22 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Provides the unit tests class and some helper classes
  *
- * @package     tool_installaddon
  * @category    test
- * @copyright   2013 David Mudrak <david@moodle.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage installaddon
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Unit tests for the {@link tool_installaddon_installer} class
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_installaddon_validator_testcase extends basic_testcase {
 
@@ -100,14 +85,14 @@ class tool_installaddon_validator_testcase extends basic_testcase {
 
         // Invalid root directory name
         $validator = testable_tool_installaddon_validator::instance($fixtures.'/github', array(
-            'moodle-repository_mahara-master/' => true,
-            'moodle-repository_mahara-master/lang/' => true,
-            'moodle-repository_mahara-master/lang/en/' => true,
-            'moodle-repository_mahara-master/lang/en/repository_mahara.php' => true,
-            'moodle-repository_mahara-master/version.php' => true));
+            'lion-repository_mahara-master/' => true,
+            'lion-repository_mahara-master/lang/' => true,
+            'lion-repository_mahara-master/lang/en/' => true,
+            'lion-repository_mahara-master/lang/en/repository_mahara.php' => true,
+            'lion-repository_mahara-master/version.php' => true));
         $this->assertFalse($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::ERROR, 'rootdirinvalid',
-            'moodle-repository_mahara-master'));
+            'lion-repository_mahara-master'));
     }
 
     public function test_validate_version_php() {
@@ -119,7 +104,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'noversion/lang/en/' => true,
             'noversion/lang/en/theme_noversion.php' => true));
         $validator->assert_plugin_type('theme');
-        $validator->assert_moodle_version(0);
+        $validator->assert_lion_version(0);
         $this->assertTrue($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::DEBUG, 'missingversionphp'));
         $this->assertTrue(is_null($validator->get_versionphp_info()));
@@ -130,7 +115,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'noversion/lang/en/' => true,
             'noversion/lang/en/noversion.php' => true));
         $validator->assert_plugin_type('mod');
-        $validator->assert_moodle_version(0);
+        $validator->assert_lion_version(0);
         $this->assertFalse($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::ERROR, 'missingversionphp'));
 
@@ -140,7 +125,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'foobar/index.php' => true,
             'foobar/lang/' => true));
         $validator->assert_plugin_type('block');
-        $validator->assert_moodle_version('2013031400.00');
+        $validator->assert_lion_version('2013031400.00');
         $this->assertFalse($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::ERROR, 'componentmismatchtype',
             array('expected' => 'block', 'found' => 'local')));
@@ -153,7 +138,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'foobar/lang/en/' => true,
             'foobar/lang/en/local_foobar.php' => true));
         $validator->assert_plugin_type('local');
-        $validator->assert_moodle_version('2013031400.00');
+        $validator->assert_lion_version('2013031400.00');
         $this->assertTrue($validator->execute());
         $this->assertTrue($validator->get_result());
         $this->assertEquals('foobar', $validator->get_rootdir());
@@ -178,7 +163,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'bah/view.php' => true,
             'bah/version.php' => true));
         $validator->assert_plugin_type('mod');
-        $validator->assert_moodle_version(0);
+        $validator->assert_lion_version(0);
         $this->assertFalse($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::ERROR, 'missinglangenfolder'));
 
@@ -188,7 +173,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'bah/lang/' => true,
             'bah/lang/en/' => true));
         $validator->assert_plugin_type('mod');
-        $validator->assert_moodle_version(0);
+        $validator->assert_lion_version(0);
         $this->assertFalse($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::ERROR, 'missinglangenfile'));
 
@@ -200,7 +185,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'bah/lang/en/bleh.php' => true,
             'bah/lang/en/bah.php' => true));
         $validator->assert_plugin_type('mod');
-        $validator->assert_moodle_version(0);
+        $validator->assert_lion_version(0);
         $this->assertTrue($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::WARNING, 'multiplelangenfiles'));
         $this->assertTrue(is_null($validator->get_language_file_name()));
@@ -212,7 +197,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'bah/lang/en/' => true,
             'bah/lang/en/bah.php' => true));
         $validator->assert_plugin_type('block');
-        $validator->assert_moodle_version(0);
+        $validator->assert_lion_version(0);
         $this->assertFalse($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::ERROR, 'missingexpectedlangenfile', 'block_bah.php'));
         $this->assertEquals('bah', $validator->get_language_file_name());
@@ -223,7 +208,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'noversion/lang/en/' => true,
             'noversion/lang/en/theme_noversion.php' => true));
         $validator->assert_plugin_type('theme');
-        $validator->assert_moodle_version(0);
+        $validator->assert_lion_version(0);
         $this->assertTrue($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::DEBUG, 'foundlangfile', 'theme_noversion'));
         $this->assertEquals('theme_noversion', $validator->get_language_file_name());
@@ -236,7 +221,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'foobar/lang/en/' => true,
             'foobar/lang/en/local_foobar.php' => true));
         $validator->assert_plugin_type('local');
-        $validator->assert_moodle_version('2013031400.00');
+        $validator->assert_lion_version('2013031400.00');
         $this->assertTrue($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::DEBUG, 'foundlangfile', 'local_foobar'));
         $this->assertEquals('local_foobar', $validator->get_language_file_name());
@@ -253,7 +238,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'greenbar/lang/en/' => true,
             'greenbar/lang/en/local_greenbar.php' => true));
         $validator->assert_plugin_type('local');
-        $validator->assert_moodle_version('2013031400.00');
+        $validator->assert_lion_version('2013031400.00');
         $this->assertFalse($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::ERROR, 'targetexists',
             $validator->get_plugintype_location('local').'/greenbar'));
@@ -266,7 +251,7 @@ class tool_installaddon_validator_testcase extends basic_testcase {
             'foobar/lang/en/' => true,
             'foobar/lang/en/local_foobar.php' => true));
         $validator->assert_plugin_type('local');
-        $validator->assert_moodle_version('2013031400.00');
+        $validator->assert_lion_version('2013031400.00');
         $this->assertTrue($validator->execute());
         $this->assertTrue($this->has_message($validator->get_messages(), $validator::INFO, 'pathwritable',
             $validator->get_plugintype_location('local')));
@@ -306,8 +291,6 @@ class tool_installaddon_validator_testcase extends basic_testcase {
 /**
  * Provides access to protected methods we want to explicitly test
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class testable_tool_installaddon_validator extends tool_installaddon_validator {
 

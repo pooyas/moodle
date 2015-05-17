@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Service
- * @subpackage Technorati
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -36,10 +35,6 @@ require_once 'Zend/Service/Technorati/Result.php';
  * Zend_Service_Technorati_Result objects.
  *
  * @category   Zend
- * @package    Zend_Service
- * @subpackage Technorati
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @abstract
  */
 abstract class Zend_Service_Technorati_ResultSet implements SeekableIterator

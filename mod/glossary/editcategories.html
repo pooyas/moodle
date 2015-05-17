@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     global $CFG;
     require_once("../../config.php");
 ?>
@@ -17,11 +24,25 @@
     <td>
       <select size="1" id="usedynalink" name="usedynalink">
       <option value="1" <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
        if ( $usedynalink ) {
           echo "selected=\"selected\"";
        }
        ?>><?php echo get_string("yes") ?></option>
       <option value="0" <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
        if ( !$usedynalink ) {
           echo "selected=\"selected\"";
        }

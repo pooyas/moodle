@@ -11,6 +11,9 @@
  *       This module, functionally, does not distinguish between these
  *       sub-modules, but the code is internally structured to reflect
  *       these distinctions.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Text extends HTMLPurifier_HTMLModule
 {

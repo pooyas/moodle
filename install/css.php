@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This script prints basic CSS for the installer
  *
  * @package    core
  * @subpackage install
- * @copyright  2011 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 if (file_exists(dirname(dirname(__FILE__)).'/config.php')) {
@@ -31,7 +17,7 @@ if (file_exists(dirname(dirname(__FILE__)).'/config.php')) {
 // include only the necessary stuff from themes, keep this small otherwise IE will complain...
 
 // MDL-43839 IE9 cannot handle all of our css.
-// Once IE9 is no longer supported we can include 'bootstrapbase/style/moodle.css'
+// Once IE9 is no longer supported we can include 'bootstrapbase/style/lion.css'
 // and remove some of the CSS in $content.
 $files = array('');
 
@@ -111,7 +97,7 @@ fieldset .alert {
 
 /*
 MDL-43839 IE9 cannot handle all of our CSS.
-Once IE9 is no longer supported we can include 'bootstrapbase/style/moodle.css' above
+Once IE9 is no longer supported we can include 'bootstrapbase/style/lion.css' above
 and remove the following.
 */
 

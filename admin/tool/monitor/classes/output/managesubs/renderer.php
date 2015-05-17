@@ -1,38 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Renderer class for manage subscriptions page.
  *
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage monitor
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace tool_monitor\output\managesubs;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Renderer class for manage subscriptions page.
  *
- * @since      Moodle 2.8
- * @package    tool_monitor
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class renderer extends \plugin_renderer_base {
 
@@ -96,7 +79,7 @@ class renderer extends \plugin_renderer_base {
     /**
      * Html to add a link to go to the rule manager page.
      *
-     * @param moodle_url $ruleurl The url of the rule manager page.
+     * @param lion_url $ruleurl The url of the rule manager page.
      *
      * @return string html for the link to the rule manager page.
      */

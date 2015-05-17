@@ -1,8 +1,9 @@
 <?php
 /**
- * Class HTTP_Encoder  
- * @package Minify
- * @subpackage HTTP
+ * Class HTTP_Encoder
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
  
 /**
@@ -38,10 +39,7 @@
  * Note: If you don't need header mgmt, use PHP's native gzencode, gzdeflate, 
  * and gzcompress functions for gzip, deflate, and compress-encoding
  * respectively.
- * 
- * @package Minify
- * @subpackage HTTP
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class HTTP_Encoder {
 

@@ -2,6 +2,9 @@
 
 /**
  * Configuration definition, defines directives and their defaults.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ConfigSchema
 {

@@ -2,10 +2,10 @@
 /**
  * An object to represent lots of information about an RPC-peer machine
  *
- * @author  Donal McMullan  donal@catalyst.net.nz
  * @version 0.0.1
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mnet
+ * @package    core
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->libdir . '/filelib.php'); // download_file_content() used here
@@ -31,7 +31,7 @@ class mnet_peer {
     var $last_log_id        = 0;
     var $force_theme        = 0;
     var $theme              = '';
-    var $applicationid      = 1; // Default of 1 == Moodle
+    var $applicationid      = 1; // Default of 1 == Lion
     var $keypair            = array();
     var $error              = array();
     var $bootstrapped       = false; // set when the object is populated
@@ -72,7 +72,7 @@ class mnet_peer {
 
         // Couldn't find the IP address?
         if ($ip_address === $hostname && !preg_match('/^\d+\.\d+\.\d+.\d+$/',$hostname)) {
-            throw new moodle_exception('noaddressforhost', 'mnet', '', $hostname);
+            throw new lion_exception('noaddressforhost', 'mnet', '', $hostname);
         }
 
         $this->name = $wwwroot;
@@ -93,7 +93,7 @@ class mnet_peer {
 
         $this->application = $DB->get_record('mnet_application', array('name'=>$application));
         if (empty($this->application)) {
-            $this->application = $DB->get_record('mnet_application', array('name'=>'moodle'));
+            $this->application = $DB->get_record('mnet_application', array('name'=>'lion'));
         }
 
         $this->applicationid = $this->application->id;

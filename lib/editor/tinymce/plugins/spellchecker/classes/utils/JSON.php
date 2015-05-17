@@ -2,9 +2,9 @@
 /**
  * $Id: JSON.php 40 2007-06-18 11:43:15Z spocke $
  *
- * @package MCManager.utils
- * @author Moxiecode
- * @copyright Copyright © 2007, Moxiecode Systems AB, All rights reserved.
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('JSON_BOOL', 1);
@@ -357,7 +357,6 @@ class Moxiecode_JSONReader {
 /**
  * This class handles JSON stuff.
  *
- * @package MCManager.utils
  */
 class Moxiecode_JSON {
 	function Moxiecode_JSON() {

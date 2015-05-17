@@ -6,21 +6,17 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2012-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * An object representing an IMAP client command interaction (RFC 3501
  * [2.2.1]).
  *
- * @author     Michael Slusarz <slusarz@horde.org>
  * @category   Horde
- * @copyright  2012-2014 Horde LLC
  * @deprecated
- * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package    Imap_Client
  */
 class Horde_Imap_Client_Interaction_Client extends Horde_Imap_Client_Data_Format_List
 {

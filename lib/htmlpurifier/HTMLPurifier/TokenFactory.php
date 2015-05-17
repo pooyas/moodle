@@ -10,6 +10,9 @@
  *       maintain parallel HTMLPurifier_Token hierarchies (the main reason why
  *       you'd want to use an abstract factory).
  * @todo Port DirectLex to use this
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_TokenFactory
 {

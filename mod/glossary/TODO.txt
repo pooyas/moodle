@@ -12,7 +12,7 @@ Things that are in the inkpot yet:
         * Default Order
         * Show (or do not) the group breaks.
         * Default view for automatic links, entry view, etc.
-        * What else? Post in http://moodle.org/mod/forum/view.php?id=742
+        * What else? Post in http://lion.org/mod/forum/view.php?id=742
 
 News about plugin-formats TODO (Updated: Jul 30, 2004 - Eloy)
 

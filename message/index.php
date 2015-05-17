@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * A page displaying the user's contacts and messages
  *
- * @package    core_message
- * @copyright  2010 Andrew Davis
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage message
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -64,7 +51,7 @@ $advancedsearch = optional_param('advanced', 0, PARAM_INT);
 //if they have numerous contacts or are viewing course participants we might need to page through them
 $page = optional_param('page', 0, PARAM_INT);
 
-$url = new moodle_url('/message/index.php', array('user1' => $user1id));
+$url = new lion_url('/message/index.php', array('user1' => $user1id));
 
 if ($user2id !== 0) {
     $url->param('user2', $user2id);
@@ -114,14 +101,14 @@ $user2realuser = !empty($user2) && core_user::is_real_user($user2->id);
 $showactionlinks = $showactionlinks && $user2realuser;
 $systemcontext = context_system::instance();
 
-if ($currentuser === false && !has_capability('moodle/site:readallmessages', $systemcontext)) {
+if ($currentuser === false && !has_capability('lion/site:readallmessages', $systemcontext)) {
     print_error('accessdenied','admin');
 }
 
 if (substr($viewing, 0, 7) == MESSAGE_VIEW_COURSE) {
     $courseid = intval(substr($viewing, 7));
     require_login($courseid);
-    require_capability('moodle/course:viewparticipants', context_course::instance($courseid));
+    require_capability('lion/course:viewparticipants', context_course::instance($courseid));
     $PAGE->set_pagelayout('incourse');
 } else {
     $PAGE->set_pagelayout('standard');
@@ -151,10 +138,10 @@ if ($unblockcontact and confirm_sesskey()) {
 
 //was a message sent? Do NOT allow someone looking at someone else's messages to send them.
 $messageerror = null;
-if ($currentuser && !empty($user2) && has_capability('moodle/site:sendmessage', $systemcontext)) {
+if ($currentuser && !empty($user2) && has_capability('lion/site:sendmessage', $systemcontext)) {
     // Check that the user is not blocking us!!
     if ($contact = $DB->get_record('message_contacts', array('userid' => $user2->id, 'contactid' => $user1->id))) {
-        if ($contact->blocked and !has_capability('moodle/site:readallmessages', $systemcontext)) {
+        if ($contact->blocked and !has_capability('lion/site:readallmessages', $systemcontext)) {
             $messageerror = get_string('userisblockingyou', 'message');
         }
     }
@@ -179,7 +166,7 @@ if ($currentuser && !empty($user2) && has_capability('moodle/site:sendmessage', 
             if (!confirm_sesskey()) {
                 print_error('invalidsesskey');
             }
-            $messageid = message_post_message($user1, $user2, $data->message, FORMAT_MOODLE);
+            $messageid = message_post_message($user1, $user2, $data->message, FORMAT_LION);
             if (!empty($messageid)) {
                 //including the id of the user sending the message in the logged URL so the URL works for admins
                 //note message ID may be misleading as the message may potentially get a different ID when moved from message to message_read
@@ -295,7 +282,7 @@ echo html_writer::start_tag('div', array('class' => 'messagearea mdl-align'));
         echo html_writer::end_tag('div');
 
         //send message form
-        if ($currentuser && has_capability('moodle/site:sendmessage', $systemcontext) && $user2realuser) {
+        if ($currentuser && has_capability('lion/site:sendmessage', $systemcontext) && $user2realuser) {
             echo html_writer::start_tag('div', array('class' => 'mdl-align messagesend'));
                 if (!empty($messageerror)) {
                     echo html_writer::tag('span', $messageerror, array('id' => 'messagewarning'));
@@ -316,7 +303,7 @@ echo html_writer::start_tag('div', array('class' => 'messagearea mdl-align'));
                     $defaultmessage->id = $user2->id;
                     $defaultmessage->viewing = $viewing;
                     $defaultmessage->message = '';
-                    //$defaultmessage->messageformat = FORMAT_MOODLE;
+                    //$defaultmessage->messageformat = FORMAT_LION;
                     $mform->set_data($defaultmessage);
                     $mform->display();
                 }

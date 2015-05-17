@@ -2,18 +2,15 @@
 /**
  * Copyright 2007-2014 Horde LLC (http://www.horde.org/)
  *
- * @author   Chuck Hagenbuch <chuck@horde.org>
  * @category Horde
- * @license  http://www.horde.org/licenses/bsd BSD
- * @package  Support
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
- * @author     Chuck Hagenbuch <chuck@horde.org>
  * @category   Horde
  * @deprecated Use Horde_Stream_Wrapper_String::getStream()
- * @license    http://www.horde.org/licenses/bsd BSD
- * @package    Support
  */
 class Horde_Support_StringStream implements Horde_Stream_Wrapper_StringStream
 {

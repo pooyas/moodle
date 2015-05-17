@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains backup and restore output renderers
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -30,9 +17,6 @@
  * $renderer = $PAGE->get_renderer('core', 'backup');
  * ?>
  *
- * @package   core_backup
- * @copyright 2010 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_backup_renderer extends plugin_renderer_base {
 
@@ -88,7 +72,7 @@ class core_backup_renderer extends plugin_renderer_base {
      * Displays the details of a backup file
      *
      * @param stdClass $details
-     * @param moodle_url $nextstageurl
+     * @param lion_url $nextstageurl
      * @return string
      */
     public function backup_details($details, $nextstageurl) {
@@ -103,12 +87,12 @@ class core_backup_renderer extends plugin_renderer_base {
         $html .= $this->backup_detail_pair(get_string('backupformat', 'backup'), get_string('backupformat'.$details->format, 'backup'));
         $html .= $this->backup_detail_pair(get_string('backupmode', 'backup'), get_string('backupmode'.$details->mode, 'backup'));
         $html .= $this->backup_detail_pair(get_string('backupdate', 'backup'), userdate($details->backup_date));
-        $html .= $this->backup_detail_pair(get_string('moodleversion', 'backup'),
-                html_writer::tag('span', $details->moodle_release, array('class' => 'moodle_release')).
-                html_writer::tag('span', '['.$details->moodle_version.']', array('class' => 'moodle_version sub-detail')));
+        $html .= $this->backup_detail_pair(get_string('lionversion', 'backup'),
+                html_writer::tag('span', $details->lion_release, array('class' => 'lion_release')).
+                html_writer::tag('span', '['.$details->lion_version.']', array('class' => 'lion_version sub-detail')));
         $html .= $this->backup_detail_pair(get_string('backupversion', 'backup'),
-                html_writer::tag('span', $details->backup_release, array('class' => 'moodle_release')).
-                html_writer::tag('span', '['.$details->backup_version.']', array('class' => 'moodle_version sub-detail')));
+                html_writer::tag('span', $details->backup_release, array('class' => 'lion_release')).
+                html_writer::tag('span', '['.$details->backup_version.']', array('class' => 'lion_version sub-detail')));
         $html .= $this->backup_detail_pair(get_string('originalwwwroot', 'backup'),
                 html_writer::tag('span', $details->original_wwwroot, array('class' => 'originalwwwroot')).
                 html_writer::tag('span', '['.$details->original_site_identifier_hash.']', array('class' => 'sitehash sub-detail')));
@@ -196,7 +180,7 @@ class core_backup_renderer extends plugin_renderer_base {
     /**
      * Displays the general information about a backup file with non-standard format
      *
-     * @param moodle_url $nextstageurl URL to send user to
+     * @param lion_url $nextstageurl URL to send user to
      * @param array $details basic info about the file (format, type)
      * @return string HTML code to display
      */
@@ -222,10 +206,10 @@ class core_backup_renderer extends plugin_renderer_base {
     /**
      * Displays the general information about a backup file with unknown format
      *
-     * @param moodle_url $nextstageurl URL to send user to
+     * @param lion_url $nextstageurl URL to send user to
      * @return string HTML code to display
      */
-    public function backup_details_unknown(moodle_url $nextstageurl) {
+    public function backup_details_unknown(lion_url $nextstageurl) {
 
         $html  = html_writer::start_div('unknownformat');
         $html .= $this->output->heading(get_string('errorinvalidformat', 'backup'), 2);
@@ -239,14 +223,14 @@ class core_backup_renderer extends plugin_renderer_base {
     /**
      * Displays a course selector for restore
      *
-     * @param moodle_url $nextstageurl
+     * @param lion_url $nextstageurl
      * @param bool $wholecourse true if we are restoring whole course (as with backup::TYPE_1COURSE), false otherwise
      * @param restore_category_search $categories
      * @param restore_course_search $courses
      * @param int $currentcourse
      * @return string
      */
-    public function course_selector(moodle_url $nextstageurl, $wholecourse = true, restore_category_search $categories = null,
+    public function course_selector(lion_url $nextstageurl, $wholecourse = true, restore_category_search $categories = null,
                                     restore_course_search $courses = null, $currentcourse = null) {
         global $CFG, $PAGE;
         require_once($CFG->dirroot.'/course/lib.php');
@@ -356,11 +340,11 @@ class core_backup_renderer extends plugin_renderer_base {
     /**
      * Displays the import course selector
      *
-     * @param moodle_url $nextstageurl
+     * @param lion_url $nextstageurl
      * @param import_course_search $courses
      * @return string
      */
-    public function import_course_selector(moodle_url $nextstageurl, import_course_search $courses = null) {
+    public function import_course_selector(lion_url $nextstageurl, import_course_search $courses = null) {
         $html  = html_writer::start_tag('div', array('class' => 'import-course-selector backup-restore'));
         $html .= html_writer::start_tag('form', array('method' => 'post', 'action' => $nextstageurl->out_omit_querystring()));
         foreach ($nextstageurl->params() as $key => $value) {
@@ -501,13 +485,13 @@ class core_backup_renderer extends plugin_renderer_base {
     /**
      * Displays a continue button
      *
-     * @param string|moodle_url $url
+     * @param string|lion_url $url
      * @param string $method
      * @return string
      */
     public function continue_button($url, $method = 'post') {
-        if (!($url instanceof moodle_url)) {
-            $url = new moodle_url($url);
+        if (!($url instanceof lion_url)) {
+            $url = new lion_url($url);
         }
         if ($method != 'post') {
             $method = 'get';
@@ -548,7 +532,7 @@ class core_backup_renderer extends plugin_renderer_base {
             if ($file->is_directory()) {
                 continue;
             }
-            $fileurl = moodle_url::make_pluginfile_url(
+            $fileurl = lion_url::make_pluginfile_url(
                 $file->get_contextid(),
                 $file->get_component(),
                 $file->get_filearea(),
@@ -566,7 +550,7 @@ class core_backup_renderer extends plugin_renderer_base {
             $params['filecontextid'] = $file->get_contextid();
             $params['contextid'] = $viewer->currentcontext->id;
             $params['itemid'] = $file->get_itemid();
-            $restoreurl = new moodle_url('/backup/restorefile.php', $params);
+            $restoreurl = new lion_url('/backup/restorefile.php', $params);
             $table->data[] = array(
                 $file->get_filename(),
                 userdate($file->get_timemodified()),
@@ -578,7 +562,7 @@ class core_backup_renderer extends plugin_renderer_base {
 
         $html = html_writer::table($table);
         $html .= $this->output->single_button(
-            new moodle_url('/backup/backupfilesedit.php', array(
+            new lion_url('/backup/backupfilesedit.php', array(
                 'currentcontext' => $viewer->currentcontext->id,
                 'contextid' => $viewer->filecontext->id,
                 'filearea' => $viewer->filearea,
@@ -779,9 +763,6 @@ class core_backup_renderer extends plugin_renderer_base {
 /**
  * Data structure representing backup files viewer
  *
- * @copyright 2010 Dongsheng Cai
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since     Moodle 2.0
  */
 class backup_files_viewer implements renderable {
 

@@ -3,6 +3,9 @@
 /**
  * Parses a URI into the components and fragment identifier as specified
  * by RFC 3986.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIParser
 {

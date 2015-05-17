@@ -1,29 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'portfolio_boxnet', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'portfolio_boxnet', language 'en', branch 'LION_20_STABLE'
  *
- * @package   portfolio_boxnet
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    portfolio
+ * @subpackage boxnet
+ * @copyright  2015 Pooya Saeedi
  */
 
-$string['apiv1migration_message_content'] = 'As part of the recent Moodle upgrade to 2.6, the Box portfolio plugin has been disabled. To re-enable it, you need to re-configure it as described in the documentation {$a->docsurl}.';
+$string['apiv1migration_message_content'] = 'As part of the recent Lion upgrade to 2.6, the Box portfolio plugin has been disabled. To re-enable it, you need to re-configure it as described in the documentation {$a->docsurl}.';
 $string['apiv1migration_message_small'] = 'This plugin has been disabled, as it requires configuration as described in the documentation Box APIv1 migration.';
 $string['apiv1migration_message_subject'] = 'Important information regarding Box portfolio plugin';
 $string['clientid'] = 'Client ID';
@@ -44,7 +31,7 @@ $string['password'] = 'Your Box password (will not be stored)';
 $string['pluginname'] = 'Box';
 $string['sendfailed'] = 'Failed to send content to Box: {$a}';
 $string['setupinfo'] = 'Setup instructions';
-$string['setupinfodetails'] = 'To obtain a client ID and secret, log in to Box and visit the <a href="{$a->servicesurl}">Box developers page</a>. Follow \'Create new application\' and create a new application for your Moodle site. The client ID and secret are displayed in the \'OAuth2 parameters\' section of the application edit form. Optionally, you can also provide other information about your Moodle site.';
+$string['setupinfodetails'] = 'To obtain a client ID and secret, log in to Box and visit the <a href="{$a->servicesurl}">Box developers page</a>. Follow \'Create new application\' and create a new application for your Lion site. The client ID and secret are displayed in the \'OAuth2 parameters\' section of the application edit form. Optionally, you can also provide other information about your Lion site.';
 $string['sharedfolder'] = 'Shared';
 $string['sharefile'] = 'Share this file?';
 $string['sharefolder'] = 'Share this new folder?';

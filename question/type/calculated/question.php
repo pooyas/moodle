@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Calculated question definition class.
  *
- * @package    qtype
+ * @package    question_type
  * @subpackage calculated
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/question/type/numerical/question.php');
 
@@ -32,8 +18,6 @@ require_once($CFG->dirroot . '/question/type/numerical/question.php');
 /**
  * Represents a calculated question.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_calculated_question extends qtype_numerical_question
         implements qtype_calculated_question_with_expressions {
@@ -117,8 +101,6 @@ class qtype_calculated_question extends qtype_numerical_question
  * public $datasetloader; // of type qtype_calculated_dataset_loader
  * public $vs; // of type qtype_calculated_variable_substituter
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 interface qtype_calculated_question_with_expressions {
     /**
@@ -137,8 +119,6 @@ interface qtype_calculated_question_with_expressions {
  * {@link qtype_calculated_dataset_loader} to set up the value of each variable
  * in start_attempt, and restore that in apply_attempt_state.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class qtype_calculated_question_helper {
     public static function start_attempt(
@@ -175,8 +155,6 @@ abstract class qtype_calculated_question_helper {
  * This class is responsible for loading the dataset that a question needs from
  * the database.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_calculated_dataset_loader {
     /** @var int the id of the question we are helping. */
@@ -243,7 +221,7 @@ class qtype_calculated_dataset_loader {
             $a = new stdClass();
             $a->id = $this->questionid;
             $a->item = $itemnumber;
-            throw new moodle_exception('cannotgetdsfordependent', 'question', '', $a);
+            throw new lion_exception('cannotgetdsfordependent', 'question', '', $a);
         }
 
         return $this->load_values($itemnumber);
@@ -274,8 +252,6 @@ class qtype_calculated_dataset_loader {
  * It can compute formulae using those values, and can substitute equations
  * embedded in text.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_calculated_variable_substituter {
 
@@ -316,7 +292,7 @@ class qtype_calculated_variable_substituter {
                 $a = new stdClass();
                 $a->name = '{' . $name . '}';
                 $a->value = $value;
-                throw new moodle_exception('notvalidnumber', 'qtype_calculated', '', $a);
+                throw new lion_exception('notvalidnumber', 'qtype_calculated', '', $a);
             }
 
             $this->search[] = '{' . $name . '}';
@@ -421,7 +397,7 @@ class qtype_calculated_variable_substituter {
     public function calculate($expression) {
         // Make sure no malicious code is present in the expression. Refer MDL-46148 for details.
         if ($error = qtype_calculated_find_formula_errors($expression)) {
-            throw new moodle_exception('illegalformulasyntax', 'qtype_calculated', '', $error);
+            throw new lion_exception('illegalformulasyntax', 'qtype_calculated', '', $error);
         }
         return $this->calculate_raw($this->substitute_values_for_eval($expression));
     }
@@ -435,7 +411,7 @@ class qtype_calculated_variable_substituter {
     protected function calculate_raw($expression) {
         // This validation trick from http://php.net/manual/en/function.eval.php .
         if (!@eval('return true; $result = ' . $expression . ';')) {
-            throw new moodle_exception('illegalformulasyntax', 'qtype_calculated', '', $expression);
+            throw new lion_exception('illegalformulasyntax', 'qtype_calculated', '', $expression);
         }
         return eval('return ' . $expression . ';');
     }

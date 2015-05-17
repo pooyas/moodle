@@ -5,6 +5,9 @@
  *
  * This accepts integer pixels or percentages as lengths for certain
  * HTML attributes.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_AttrDef_HTML_Length extends HTMLPurifier_AttrDef_HTML_Pixels

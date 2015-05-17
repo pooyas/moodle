@@ -2,6 +2,9 @@
 
 /**
  * Special-case enum attribute definition that lazy loads allowed frame targets
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_HTML_FrameTarget extends HTMLPurifier_AttrDef_Enum
 {

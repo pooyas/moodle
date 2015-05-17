@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Service
- * @subpackage LiveDocx
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** Zend_Date **/
@@ -28,17 +27,11 @@ require_once 'Zend/Service/LiveDocx.php';
 
 /**
  * @category   Zend
- * @package    Zend_Service
- * @subpackage LiveDocx
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @since      LiveDocx 1.0 
  */
 class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
 {
     /**
      * URI of LiveDocx.MailMerge WSDL
-     * @since LiveDocx 1.0 
      */
     const WSDL = 'https://api.livedocx.com/1.2/mailmerge.asmx?WSDL';
 
@@ -46,7 +39,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Field values
      *
      * @var   array
-     * @since LiveDocx 1.0
      */
     protected $_fieldValues;
 
@@ -54,7 +46,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Block field values
      *
      * @var   array
-     * @since LiveDocx 1.0
      */
     protected $_blockFieldValues;
 
@@ -63,7 +54,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @return void
      * @return throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function __construct($options = null)
     {
@@ -81,7 +71,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string $filename
      * @return Zend_Service_LiveDocx_MailMerge
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function setLocalTemplate($filename)
     {
@@ -109,7 +98,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string $filename
      * @return Zend_Service_LiveDocx_MailMerge
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function setRemoteTemplate($filename)
     {
@@ -135,7 +123,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  array $values
      * @return Zend_Service_LiveDocx_MailMerge
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function setFieldValues($values)
     {
@@ -172,7 +159,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @throws Zend_Service_LiveDocx_Exception
      * @return Zend_Service_LiveDocx_MailMerge
-     * @since  LiveDocx 1.0
      */
     public function setFieldValue($field, $value)
     {
@@ -189,7 +175,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @return Zend_Service_LiveDocx_MailMerge
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function setBlockFieldValues($blockName, $blockFieldValues)
     {
@@ -217,7 +202,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param array|string $value
      * @return Zend_Service_LiveDocx_MailMerge
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function assign($field, $value = null)
     {
@@ -249,7 +233,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string  $password
      * @return Zend_Service_LiveDocx_MailMerge
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.2 Premium
      */
     public function setDocumentPassword($password)
     {
@@ -293,7 +276,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string $password
      * @return Zend_Service_LiveDocx_MailMerge
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.2 Premium
      */
     public function setDocumentAccessPermissions($permissions, $password)
     {
@@ -319,7 +301,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @throws Zend_Service_LiveDocx_Excpetion
      * @return void
-     * @since  LiveDocx 1.0
      */
     public function createDocument()
     {
@@ -349,7 +330,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @throws Zend_Service_LiveDocx_Exception
      * @return binary
-     * @since  LiveDocx 1.0
      */
     public function retrieveDocument($format)
     {
@@ -378,7 +358,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  integer $fromPage
      * @param  integer $toPage
      * @return array
-     * @since  LiveDocx 1.2
      */
     public function getMetafiles($fromPage, $toPage)
     {
@@ -410,7 +389,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return array contains WMF data (binary) - array key is page number
      *
      * @return array
-     * @since  LiveDocx 1.2
      */
     public function getAllMetafiles()
     {
@@ -443,7 +421,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  integer $zoomFactor
      * @param  string  $format
      * @return array
-     * @since  LiveDocx 1.2
      */    
     public function getBitmaps($fromPage, $toPage, $zoomFactor, $format)
     {
@@ -480,7 +457,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  integer $zoomFactor
      * @param  string  $format
      * @return array
-     * @since  LiveDocx 1.2
      */    
     public function getAllBitmaps($zoomFactor, $format)
     {
@@ -511,7 +487,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return all the fields in the template
      *
      * @return array
-     * @since  LiveDocx 1.0
      */
     public function getFieldNames()
     {
@@ -536,7 +511,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @param  string $blockName
      * @return array
-     * @since  LiveDocx 1.0
      */
     public function getBlockFieldNames($blockName)
     {
@@ -562,7 +536,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return all the block fields in the template
      *
      * @return array
-     * @since  LiveDocx 1.0
      */
     public function getBlockNames()
     {
@@ -588,7 +561,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string $filename
      * @return void
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function uploadTemplate($filename)
     {
@@ -613,7 +585,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string $filename
      * @return binary
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function downloadTemplate($filename)
     {
@@ -639,7 +610,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string $filename
      * @return void
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function deleteTemplate($filename)
     {
@@ -654,7 +624,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * List all templates stored on LiveDocx service
      *
      * @return array
-     * @since  LiveDocx 1.0 
      */
     public function listTemplates()
     {
@@ -675,7 +644,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @param  string $filename
      * @return boolean
-     * @since  LiveDocx 1.0
      */
     public function templateExists($filename)
     {
@@ -692,7 +660,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Share a document - i.e. the document is available to all over the Internet
      *
      * @return string
-     * @since  LiveDocx 1.0
      */
     public function shareDocument()
     {
@@ -712,7 +679,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * List all shared documents stored on LiveDocx service
      *
      * @return array
-     * @since  LiveDocx 1.0
      */
     public function listSharedDocuments()
     {
@@ -735,7 +701,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @param  string $filename
      * @return void
-     * @since  LiveDocx 1.0
      */
     public function deleteSharedDocument($filename)
     {
@@ -752,7 +717,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param  string $filename
      * @return binary
      * @throws Zend_Service_LiveDocx_Exception
-     * @since  LiveDocx 1.0
      */
     public function downloadSharedDocument($filename)
     {
@@ -777,7 +741,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @param  string $filename
      * @return boolean
-     * @since  LiveDocx 1.0
      */
     public function sharedDocumentExists($filename)
     {
@@ -801,7 +764,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return supported template formats (lowercase)
      *
      * @return array
-     * @since  LiveDocx 1.0
      */
     public function getTemplateFormats()
     {
@@ -822,7 +784,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return supported document formats (lowercase)
      *
      * @return array
-     * @since  LiveDocx 1.1
      */
     public function getDocumentFormats()
     {
@@ -843,7 +804,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return supported image formats (lowercase)
      *
      * @return array
-     * @since  LiveDocx 1.2
      */
     public function getImageFormats()
     {
@@ -864,7 +824,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return the names of all fonts that are installed on backend server
      *
      * @return array
-     * @since  LiveDocx 1.2
      */
     public function getFontNames()
     {
@@ -884,7 +843,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Return supported document access options
      *
      * @return array
-     * @since  LiveDocx 1.2 Premium
      */
     public function getDocumentAccessOptions()
     {
@@ -905,7 +863,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @param  array $list
      * @return array
-     * @since  LiveDocx 1.0 
      */
     protected function _backendListArrayToMultiAssocArray($list)
     {
@@ -945,7 +902,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param array $assoc
      *
      * @return array
-     * @since  LiveDocx 1.0
      */
     public static function assocArrayToArrayOfArrayOfString($assoc)
     {
@@ -960,7 +916,6 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      *
      * @param  array $multi
      * @return array
-     * @since  LiveDocx 1.0
      */
     public static function multiAssocArrayToArrayOfArrayOfString($multi)
     {

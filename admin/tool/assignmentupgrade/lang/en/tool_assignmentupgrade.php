@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Strings for the assignment upgrade tool
  *
- * @package    tool_assignmentupgrade
- * @copyright  2012 NetSpot
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage assignmentupgrade
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['areyousure'] = 'Are you sure?';
@@ -39,7 +26,7 @@ $string['listnotupgraded_desc'] = 'You can upgrade individual assignments from h
 $string['noassignmentsselected'] = 'No assignments selected';
 $string['noassignmentstoupgrade'] = 'There are no assignments that require upgrading';
 $string['notsupported'] = '';
-$string['notupgradedintro'] = 'This page lists the assignments created with an older version of Moodle that have not been upgraded to the new assignment module in Moodle 2.3. Not all assignments can be upgraded - if they were created with a custom assignment subtype, then that subtype will need to be upgraded to the new assignment plugin format in order to complete the upgrade.';
+$string['notupgradedintro'] = 'This page lists the assignments created with an older version of Lion that have not been upgraded to the new assignment module in Lion 2.3. Not all assignments can be upgraded - if they were created with a custom assignment subtype, then that subtype will need to be upgraded to the new assignment plugin format in order to complete the upgrade.';
 $string['notupgradedtitle'] = 'Assignments not upgraded';
 $string['pluginname'] = 'Assignment upgrade helper';
 $string['select'] = 'Select';

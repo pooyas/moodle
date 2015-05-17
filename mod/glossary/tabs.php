@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     if (!isset($sortorder)) {
         $sortorder = '';
     }
@@ -62,6 +69,13 @@
   <div class="entrybox">
 
 <?php
+
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
 
     if (!isset($category)) {
         $category = "";

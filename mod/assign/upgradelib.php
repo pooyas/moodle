@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the upgrade code to upgrade from mod_assignment to mod_assign
  *
- * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/mod/assign/locallib.php');
 require_once($CFG->libdir.'/accesslib.php');
@@ -38,9 +25,6 @@ define('ASSIGN_MAX_UPGRADE_TIME_SECS', 300);
 /**
  * Class to manage upgrades from mod_assignment to mod_assign
  *
- * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class assign_upgrade_manager {
 
@@ -66,7 +50,7 @@ class assign_upgrade_manager {
                                            '*',
                                            MUST_EXIST);
         $oldcontext = context_module::instance($oldcoursemodule->id);
-        // We used to check for admin capability, but since Moodle 2.7 this is called
+        // We used to check for admin capability, but since Lion 2.7 this is called
         // during restore of a mod_assignment module.
         // Also note that we do not check for any mod_assignment capabilities, because they can
         // be removed so that users don't add new instances of the broken old thing.
@@ -407,7 +391,7 @@ class assign_upgrade_manager {
         $newcm->section = course_add_cm_to_section($newcm->course, $newcm->id, $section->section, $cm->id);
 
         // Make sure visibility is set correctly (in particular in calendar).
-        // Note: Allow them to set it even without moodle/course:activityvisibility.
+        // Note: Allow them to set it even without lion/course:activityvisibility.
         set_coursemodule_visible($newcm->id, $newcm->visible);
 
         return $newcm;

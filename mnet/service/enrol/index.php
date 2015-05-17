@@ -1,27 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Displays the list of remote peers we can enrol our users to
  *
- * @package    mnetservice
- * @subpackage enrol
- * @copyright  2010 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mnet
+ * @subpackage service
+ * @copyright  2015 Pooya Saeedi
  */
 
 require(dirname(dirname(dirname(dirname(__FILE__)))).'/config.php');
@@ -40,10 +26,10 @@ if (!$service->is_available()) {
     die();
 }
 
-$roamingusers = get_users_by_capability(context_system::instance(), 'moodle/site:mnetlogintoremote', 'u.id');
+$roamingusers = get_users_by_capability(context_system::instance(), 'lion/site:mnetlogintoremote', 'u.id');
 if (empty($roamingusers)) {
     $capname = get_string('site:mnetlogintoremote', 'role');
-    $url = new moodle_url('/admin/roles/manage.php');
+    $url = new lion_url('/admin/roles/manage.php');
     echo notice(get_string('noroamingusers', 'mnetservice_enrol', $capname), $url);
 }
 unset($roamingusers);
@@ -66,8 +52,8 @@ $table->head = array(
     get_string('action')
 );
 foreach ($hosts as $host) {
-    $hostlink = html_writer::link(new moodle_url($host->hosturl), s($host->hosturl));
-    $editbtn  = $OUTPUT->single_button(new moodle_url('/mnet/service/enrol/host.php', array('id'=>$host->id)),
+    $hostlink = html_writer::link(new lion_url($host->hosturl), s($host->hosturl));
+    $editbtn  = $OUTPUT->single_button(new lion_url('/mnet/service/enrol/host.php', array('id'=>$host->id)),
                                        get_string('editenrolments', 'mnetservice_enrol'), 'get');
     $table->data[] = array(s($host->appname), s($host->hostname), $hostlink, $editbtn);
 }

@@ -1,11 +1,18 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
 // NOTICE OF COPYRIGHT                                                   //
 //                                                                       //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
-//          http://moodle.org                                            //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
+//          http://lion.org                                            //
 //                                                                       //
 // Copyright (C) 1999 onwards Martin Dougiamas  http://dougiamas.com     //
 //                                                                       //
@@ -26,8 +33,6 @@
 /**
  * Allow the administrator to look through a list of course requests and approve or reject them.
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package course
  */
 
 require_once(dirname(__FILE__) . '/../config.php');
@@ -36,7 +41,7 @@ require_once($CFG->dirroot . '/course/lib.php');
 require_once($CFG->dirroot . '/course/request_form.php');
 
 require_login();
-require_capability('moodle/site:approvecourse', context_system::instance());
+require_capability('lion/site:approvecourse', context_system::instance());
 
 $approve = optional_param('approve', 0, PARAM_INT);
 $reject = optional_param('reject', 0, PARAM_INT);
@@ -121,8 +126,8 @@ if (empty($pending)) {
         $row[] = format_text($course->summary, $course->summaryformat);
         $row[] = $category->get_formatted_name();
         $row[] = format_string($course->reason);
-        $row[] = $OUTPUT->single_button(new moodle_url($baseurl, array('approve' => $course->id, 'sesskey' => sesskey())), get_string('approve'), 'get') .
-                 $OUTPUT->single_button(new moodle_url($baseurl, array('reject' => $course->id)), get_string('rejectdots'), 'get');
+        $row[] = $OUTPUT->single_button(new lion_url($baseurl, array('approve' => $course->id, 'sesskey' => sesskey())), get_string('approve'), 'get') .
+                 $OUTPUT->single_button(new lion_url($baseurl, array('reject' => $course->id)), get_string('rejectdots'), 'get');
 
     /// Add the row to the table.
         $table->data[] = $row;

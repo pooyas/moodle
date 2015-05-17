@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // It's not clear to me whether or not Punycode means that hostnames
 // do not have canonical forms anymore. As far as I can tell, it's
 // not a problem (punycoding should be identity when no Unicode

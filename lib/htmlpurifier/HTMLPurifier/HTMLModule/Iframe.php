@@ -6,6 +6,9 @@
  * @note This module is not considered safe unless an Iframe
  * whitelisting mechanism is specified.  Currently, the only
  * such mechanism is %URL.SafeIframeRegexp
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Iframe extends HTMLPurifier_HTMLModule
 {

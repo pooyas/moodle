@@ -13,6 +13,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once "Google/Auth/Abstract.php";
@@ -22,8 +25,6 @@ require_once "Google/Http/Request.php";
  * Simple API access implementation. Can either be used to make requests
  * completely unauthenticated, or by using a Simple API Access developer
  * key.
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Auth_Simple extends Google_Auth_Abstract
 {

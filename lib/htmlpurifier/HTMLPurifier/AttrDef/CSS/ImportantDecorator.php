@@ -2,6 +2,9 @@
 
 /**
  * Decorator which enables !important to be used in CSS values.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_ImportantDecorator extends HTMLPurifier_AttrDef
 {

@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once('../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 
@@ -131,12 +138,12 @@ if (empty($SITE->fullname)) {
     echo '</form>';
 }
 
-$PAGE->requires->yui_module('moodle-core-formchangechecker',
+$PAGE->requires->yui_module('lion-core-formchangechecker',
         'M.core_formchangechecker.init',
         array(array(
             'formid' => 'adminsettings'
         ))
 );
-$PAGE->requires->string_for_js('changesmadereallygoaway', 'moodle');
+$PAGE->requires->string_for_js('changesmadereallygoaway', 'lion');
 
 echo $OUTPUT->footer();

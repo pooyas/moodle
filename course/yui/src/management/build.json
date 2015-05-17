@@ -1,7 +1,7 @@
 {
-  "name": "moodle-course-management",
+  "name": "lion-course-management",
   "builds": {
-    "moodle-course-management": {
+    "lion-course-management": {
       "jsfiles": [
         "console.js",
         "dd.js",

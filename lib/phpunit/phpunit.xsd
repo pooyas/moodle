@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--moodle: this schema was generated using code from https://github.com/gooh/phpunit-schema-->
+<!--lion: this schema was generated using code from https://github.com/gooh/phpunit-schema-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation source="http://www.phpunit.de/manual/current/en/appendixes.configuration.html">
@@ -238,7 +238,7 @@
   <xs:element name="testsuites" type="testSuitesType" substitutionGroup="testSuiteFacet"/>
   <xs:complexType name="testSuitesType">
     <xs:sequence>
-      <xs:element name="testsuite" type="testSuiteType" maxOccurs="unbounded"/><!--moodle: added macOccures-->
+      <xs:element name="testsuite" type="testSuiteType" maxOccurs="unbounded"/><!--lion: added macOccures-->
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="testSuiteType">

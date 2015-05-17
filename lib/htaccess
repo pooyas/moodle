@@ -1,5 +1,5 @@
 # On some PHP servers it may help if this file is copied
-# to the main moodle directory and renamed .htaccess
+# to the main lion directory and renamed .htaccess
 #
 # As soon as you do this, check your web site.  Is it
 # still working OK?  If you are getting a "configuration
@@ -7,7 +7,7 @@
 # the main httpd.conf for Apache and in the main server
 # or virtual server area, adding something like:
 #
-# <Directory /web/moodle>
+# <Directory /web/lion>
 #     AllowOverride All
 # </Directory>
 #
@@ -20,12 +20,12 @@
     AcceptPathInfo on
 </IfDefine>
 
-### Secondly, you can define the default files in the Moodle
+### Secondly, you can define the default files in the Lion
 ### directories as follows:
 
 DirectoryIndex index.php index.html index.htm
 
-### Thirdly, set up some PHP variables that Moodle needs
+### Thirdly, set up some PHP variables that Lion needs
 
 php_flag file_uploads            1
 php_flag short_open_tag          1
@@ -48,11 +48,11 @@ LimitRequestBody 0
 
 
 ### You can change the following line to point to the
-### error/index.php file in your Moodle distribution.
+### error/index.php file in your Lion distribution.
 ### It provides a form which emails you (the admin)
 ### about 404 errors (URL not found).
 
-#ErrorDocument 404 http://example.org/moodle/error/index.php
+#ErrorDocument 404 http://example.org/lion/error/index.php
 
 
 ### People have reported that these can help in some cases

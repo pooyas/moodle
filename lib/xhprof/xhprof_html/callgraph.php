@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //  Copyright (c) 2009 Facebook
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,15 +33,14 @@
  *  02/15/2008 - cjiang  - The first version of callgraph visualizer
  *                         based on Graphviz's DOT tool.
  *
- * @author Changhao Jiang (cjiang@facebook.com)
  */
 
-// Start moodle modification: moodleize this script.
+// Start lion modification: lionize this script.
 require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/config.php');
-require_once($CFG->libdir . '/xhprof/xhprof_moodle.php');
+require_once($CFG->libdir . '/xhprof/xhprof_lion.php');
 require_login();
-require_capability('moodle/site:config', context_system::instance());
-// End moodle modification.
+require_capability('lion/site:config', context_system::instance());
+// End lion modification.
 
 // by default assume that xhprof_html & xhprof_lib directories
 // are at the same level.
@@ -85,10 +91,10 @@ if (!array_key_exists($type, $xhprof_legal_image_types)) {
   $type = $params['type'][1]; // default image type.
 }
 
-// Start moodle modification: use own XHProfRuns implementation.
+// Start lion modification: use own XHProfRuns implementation.
 // $xhprof_runs_impl = new XHProfRuns_Default();
-$xhprof_runs_impl = new moodle_xhprofrun();
-// End moodle modification.
+$xhprof_runs_impl = new lion_xhprofrun();
+// End lion modification.
 
 if (!empty($run)) {
   // single run call graph image generation

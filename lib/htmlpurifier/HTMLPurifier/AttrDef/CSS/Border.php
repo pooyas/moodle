@@ -2,6 +2,9 @@
 
 /**
  * Validates the border property as defined by CSS.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_Border extends HTMLPurifier_AttrDef
 {

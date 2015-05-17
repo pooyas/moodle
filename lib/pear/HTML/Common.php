@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP Version 4                                                        |
@@ -20,10 +27,8 @@
 
 /**
  * Base class for all HTML classes
- * 
- * @author    Adam Daniel <adaniel1@eesus.jnj.com>
+ *
  * @category  HTML
- * @package   HTML_Common
  * @version   1.2.2
  * @abstract
  */
@@ -31,9 +36,7 @@
 /**
  * Base class for all HTML classes
  *
- * @author      Adam Daniel <adaniel1@eesus.jnj.com>
  * @version     1.7
- * @since       PHP 4.0.3pl1
  * @abstract
  */
 class HTML_Common {
@@ -55,7 +58,6 @@ class HTML_Common {
     /**
      * Tab string
      * @var       string
-     * @since     1.7
      * @access    private
      */
     var $_tab = "\11";
@@ -63,7 +65,6 @@ class HTML_Common {
     /**
      * Contains the line end string
      * @var       string
-     * @since     1.7
      * @access    private
      */
     var $_lineEnd = "\12";
@@ -71,7 +72,6 @@ class HTML_Common {
     /**
      * HTML comment on the object
      * @var       string
-     * @since     1.5
      * @access    private
      */
     var $_comment = '';
@@ -112,8 +112,7 @@ class HTML_Common {
 
     /**
      * Returns the lineEnd
-     * 
-     * @since     1.7
+     *
      * @access    private
      * @return    string
      * @throws
@@ -125,8 +124,7 @@ class HTML_Common {
 
     /**
      * Returns a string containing the unit for indenting HTML
-     * 
-     * @since     1.7
+     *
      * @access    private
      * @return    string
      */
@@ -210,7 +208,6 @@ class HTML_Common {
      * 
      * @param     string    $attr         Attribute
      * @param     array     $attributes   Array of attribute
-     * @since     1.0
      * @access    private
      * @return    bool
      * @throws
@@ -245,7 +242,6 @@ class HTML_Common {
      * 
      * @param     string    $attr           Attribute name
      * @param     array     $attributes     Attribute array
-     * @since     1.4
      * @access    private
      * @return    void
      * @throws
@@ -262,7 +258,6 @@ class HTML_Common {
      * Returns the value of the given attribute
      * 
      * @param     string    $attr   Attribute name
-     * @since     1.5
      * @access    public
      * @return    void
      * @throws
@@ -289,8 +284,7 @@ class HTML_Common {
     /**
      * Returns the assoc array (default) or string of attributes
      *
-     * @param     bool    Whether to return the attributes as string 
-     * @since     1.6
+     * @param     bool    Whether to return the attributes as string
      * @access    public
      * @return    mixed   attributes
      */
@@ -317,7 +311,6 @@ class HTML_Common {
      * Removes an attribute
      * 
      * @param     string    $attr   Attribute name
-     * @since     1.4
      * @access    public
      * @return    void
      * @throws
@@ -331,7 +324,6 @@ class HTML_Common {
      * Sets the line end style to Windows, Mac, Unix or a custom string.
      * 
      * @param   string  $style  "win", "mac", "unix" or custom string.
-     * @since   1.7
      * @access  public
      * @return  void
      */
@@ -365,8 +357,7 @@ class HTML_Common {
 
     /**
      * Returns the tabOffset
-     * 
-     * @since     1.5
+     *
      * @access    public
      * @return    int
      */
@@ -377,8 +368,7 @@ class HTML_Common {
 
     /**
      * Sets the string used to indent HTML
-     * 
-     * @since     1.7
+     *
      * @param     string    $string     String used to indent ("\11", "\t", '  ', etc.).
      * @access    public
      * @return    void
@@ -392,7 +382,6 @@ class HTML_Common {
      * Sets the HTML comment to be displayed at the beginning of the HTML string
      *
      * @param     string
-     * @since     1.4
      * @access    public
      * @return    void
      */
@@ -403,8 +392,7 @@ class HTML_Common {
 
     /**
      * Returns the HTML comment
-     * 
-     * @since     1.5
+     *
      * @access    public
      * @return    string
      */

@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Web CT question importer.
  *
- * @package    qformat_webct
- * @copyright  2004 ASP Consulting http://www.asp-consulting.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question_format
+ * @subpackage webct
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Manipulate HTML editites in a string. Used by WebCT import.
@@ -162,8 +149,6 @@ function qformat_webct_convert_formula($formula) {
 /**
  * Web CT question importer.
  *
- * @copyright  2004 ASP Consulting http://www.asp-consulting.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_webct extends qformat_default {
     /** @var string path to the temporary directory. */
@@ -655,7 +640,7 @@ class qformat_webct extends qformat_default {
                 // Unknow question type.
                 $warnings[] = get_string('unknowntype', 'qformat_webct', $nlinecounter);
                 unset($question);
-                $ignorerestofquestion = true;         // Question Type not handled by Moodle.
+                $ignorerestofquestion = true;         // Question Type not handled by Lion.
                 continue;
             }
 
@@ -786,7 +771,7 @@ class qformat_webct extends qformat_default {
                 continue;
             }
             if (preg_match('~^:LAYOUT:(.*)~i', $line, $webctoptions)) {
-                // Ignore  since layout in question_multichoice  is no more used in Moodle.
+                // Ignore  since layout in question_multichoice  is no more used in Lion.
                 // $webctoptions[1] contains either vertical or horizontal.
                 continue;
             }
@@ -807,7 +792,7 @@ class qformat_webct extends qformat_default {
             }
 
             if (isset($question->qtype )&& 'calculated' == $question->qtype && preg_match('~^:TOLTYPE:percent~i', $line)) {
-                // Percentage case is handled as relative in Moodle.
+                // Percentage case is handled as relative in Lion.
                 $question->tolerance[$currentchoice]  /= 100;
                 $question->tolerancetype[$currentchoice] = 1; // Relative.
                 continue;

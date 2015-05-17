@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage survey
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require_once("../../config.php");
     require_once("lib.php");
 
@@ -34,7 +41,7 @@
     echo $OUTPUT->heading($strsurveys);
 
     if (! $surveys = get_all_instances_in_course("survey", $course)) {
-        notice(get_string('thereareno', 'moodle', $strsurveys), "../../course/view.php?id=$course->id");
+        notice(get_string('thereareno', 'lion', $strsurveys), "../../course/view.php?id=$course->id");
     }
 
     $usesections = course_format_uses_sections($course->format);

@@ -1,27 +1,21 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+
+
+/**
+ * @package    grade
+ * @subpackage export
+ * @copyright  2015 Pooya Saeedi
+*/
+
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once $CFG->libdir.'/formslib.php';
 
-class grade_export_form extends moodleform {
+class grade_export_form extends lionform {
     function definition() {
         global $CFG, $COURSE, $USER, $DB;
 
@@ -52,7 +46,7 @@ class grade_export_form extends moodleform {
 
         if ($grade_items = $gseq->items) {
             $needs_multiselect = false;
-            $canviewhidden = has_capability('moodle/grade:viewhidden', context_course::instance($COURSE->id));
+            $canviewhidden = has_capability('lion/grade:viewhidden', context_course::instance($COURSE->id));
 
             foreach ($grade_items as $grade_item) {
                 // Is the grade_item hidden? If so, can the user see hidden grade_items?
@@ -84,7 +78,7 @@ class grade_export_form extends moodleform {
         $mform->addElement('advcheckbox', 'export_feedback', get_string('exportfeedback', 'grades'));
         $mform->setDefault('export_feedback', 0);
         $coursecontext = context_course::instance($COURSE->id);
-        if (has_capability('moodle/course:viewsuspendedusers', $coursecontext)) {
+        if (has_capability('lion/course:viewsuspendedusers', $coursecontext)) {
             $mform->addElement('advcheckbox', 'export_onlyactive', get_string('exportonlyactive', 'grades'));
             $mform->setType('export_onlyactive', PARAM_BOOL);
             $mform->setDefault('export_onlyactive', 1);

@@ -1,6 +1,5 @@
 <?php
 /**
- *	@package JAMA
  *
  *	For an m-by-n matrix A with m >= n, the QR decomposition is an m-by-n
  *	orthogonal matrix Q and an n-by-n upper triangular matrix R so that
@@ -12,9 +11,10 @@
  *	of simultaneous linear equations.  This will fail if isFullRank()
  *	returns false.
  *
- *	@author  Paul Meagher
- *	@license PHP v3.0
  *	@version 1.1
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class PHPExcel_Shared_JAMA_QRDecomposition {
 

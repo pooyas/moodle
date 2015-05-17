@@ -1,25 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package    moodlecore
- * @subpackage backup-factories
- * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage util
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -75,13 +61,13 @@ abstract class restore_check {
         $typecapstocheck = array();
         switch ($type) {
             case backup::TYPE_1COURSE :
-                $typecapstocheck['moodle/restore:restorecourse'] = $coursectx;
+                $typecapstocheck['lion/restore:restorecourse'] = $coursectx;
                 break;
             case backup::TYPE_1SECTION :
-                $typecapstocheck['moodle/restore:restoresection'] = $coursectx;
+                $typecapstocheck['lion/restore:restoresection'] = $coursectx;
                 break;
             case backup::TYPE_1ACTIVITY :
-                $typecapstocheck['moodle/restore:restoreactivity'] = $coursectx;
+                $typecapstocheck['lion/restore:restoreactivity'] = $coursectx;
                 break;
             default :
                 throw new restore_controller_exception('restore_unknown_restore_type', $type);
@@ -91,20 +77,20 @@ abstract class restore_check {
         // other modes will perform common checks only (restorexxxx capabilities in $typecapstocheck)
         switch ($mode) {
             case backup::MODE_HUB:
-                if (!has_capability('moodle/restore:restoretargethub', $coursectx, $userid)) {
+                if (!has_capability('lion/restore:restoretargethub', $coursectx, $userid)) {
                     $a = new stdclass();
                     $a->userid = $userid;
                     $a->courseid = $courseid;
-                    $a->capability = 'moodle/restore:restoretargethub';
+                    $a->capability = 'lion/restore:restoretargethub';
                     throw new restore_controller_exception('restore_user_missing_capability', $a);
                 }
                 break;
             case backup::MODE_IMPORT:
-                if (!has_capability('moodle/restore:restoretargetimport', $coursectx, $userid)) {
+                if (!has_capability('lion/restore:restoretargetimport', $coursectx, $userid)) {
                     $a = new stdclass();
                     $a->userid = $userid;
                     $a->courseid = $courseid;
-                    $a->capability = 'moodle/restore:restoretargetimport';
+                    $a->capability = 'lion/restore:restoretargetimport';
                     throw new restore_controller_exception('restore_user_missing_capability', $a);
                 }
                 break;
@@ -122,12 +108,12 @@ abstract class restore_check {
                 }
         }
 
-        // Now, enforce 'moodle/restore:userinfo' to 'users' setting, applying changes if allowed,
+        // Now, enforce 'lion/restore:userinfo' to 'users' setting, applying changes if allowed,
         // else throwing exception
         $userssetting = $restore_controller->get_plan()->get_setting('users');
         $prevvalue    = $userssetting->get_value();
         $prevstatus   = $userssetting->get_status();
-        $hasusercap   = has_capability('moodle/restore:userinfo', $coursectx, $userid);
+        $hasusercap   = has_capability('lion/restore:userinfo', $coursectx, $userid);
 
         // If setting is enabled but user lacks permission
         if (!$hasusercap && $prevvalue) { // If user has not the capability and setting is enabled
@@ -136,7 +122,7 @@ abstract class restore_check {
                 $a = new stdclass();
                 $a->setting = 'users';
                 $a->value = $prevvalue;
-                $a->capability = 'moodle/restore:userinfo';
+                $a->capability = 'lion/restore:userinfo';
                 throw new restore_controller_exception('restore_setting_value_wrong_for_capability', $a);
 
             } else { // Can apply changes
@@ -160,7 +146,7 @@ abstract class restore_check {
         // not apply to the import facility, where all the activities (picked on backup)
         // are restored automatically without restore UI
         if ($mode != backup::MODE_IMPORT) {
-            $hasconfigcap = has_capability('moodle/restore:configure', $coursectx, $userid);
+            $hasconfigcap = has_capability('lion/restore:configure', $coursectx, $userid);
             if (!$hasconfigcap) {
                 $settings = $restore_controller->get_plan()->get_settings();
                 foreach ($settings as $setting) {
@@ -171,7 +157,7 @@ abstract class restore_check {
 
         // Ensure the user has the rolldates capability. If not we want to lock this
         // settings so that they cannot change it.
-        $hasrolldatescap = has_capability('moodle/restore:rolldates', $coursectx, $userid);
+        $hasrolldatescap = has_capability('lion/restore:rolldates', $coursectx, $userid);
         if ($type == backup::TYPE_1COURSE && !$hasrolldatescap) {
             $datesetting = $restore_controller->get_plan()->get_setting('course_startdate');
             if ($datesetting) {

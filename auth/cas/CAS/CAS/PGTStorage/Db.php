@@ -21,10 +21,10 @@
  *
  * @file     CAS/PGTStorage/Db.php
  * @category Authentication
- * @package  PhpCAS
- * @author   Daniel Frett <daniel.frett@gmail.com>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
+ * @package    auth
+ * @subpackage cas
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('CAS_PGT_STORAGE_DB_DEFAULT_TABLE', 'cas_pgts');
@@ -35,9 +35,6 @@ define('CAS_PGT_STORAGE_DB_DEFAULT_TABLE', 'cas_pgts');
  *
  * @class    CAS_PGTStorage_Db
  * @category Authentication
- * @package  PhpCAS
- * @author   Daniel Frett <daniel.frett@gmail.com>
- * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  *
  * @ingroup internalPGTStorageDb

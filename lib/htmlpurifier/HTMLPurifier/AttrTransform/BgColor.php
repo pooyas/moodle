@@ -2,6 +2,9 @@
 
 /**
  * Pre-transform that changes deprecated bgcolor attribute to CSS.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_BgColor extends HTMLPurifier_AttrTransform
 {

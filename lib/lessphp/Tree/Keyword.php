@@ -3,8 +3,9 @@
 /**
  * Keyword
  *
- * @package Less
- * @subpackage tree
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Tree_Keyword extends Less_Tree{
 

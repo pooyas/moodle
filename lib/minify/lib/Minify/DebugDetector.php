@@ -3,8 +3,9 @@
 /**
  * Detect whether request should be debugged
  *
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Minify_DebugDetector {
     public static function shouldDebugRequest($cookie, $get, $requestUri)

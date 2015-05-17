@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Service
- * @subpackage Nirvanix
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -29,10 +28,6 @@ require_once 'Zend/Service/Nirvanix/Namespace/Base.php';
  * Namespace proxy with additional convenience methods for the IMFS namespace.
  *
  * @category   Zend
- * @package    Zend_Service
- * @subpackage Nirvanix
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Service_Nirvanix_Namespace_Imfs extends Zend_Service_Nirvanix_Namespace_Base
 {

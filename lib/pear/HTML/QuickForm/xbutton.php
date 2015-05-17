@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP Version 4                                                        |
@@ -22,9 +29,7 @@ require_once 'HTML/QuickForm/element.php';
 
 /**
  * Class for HTML 4.0 <button> element
- * 
- * @author  Alexey Borzov <avb@php.net>
- * @since   3.2.3
+ *
  * @access  public
  */
 class HTML_QuickForm_xbutton extends HTML_QuickForm_element

@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The mform for exporting calendar events
  *
- * @package core_calendar
- * @copyright 2014 Brian Barnes
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    calendar
+ * @subpackage classes
+ * @copyright  2015 Pooya Saeedi
  */
 
 // Always include formslib.
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    // It must be included from a Moodle page.
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    // It must be included from a Lion page.
 }
 
 require_once($CFG->dirroot.'/lib/formslib.php');
@@ -32,10 +19,8 @@ require_once($CFG->dirroot.'/lib/formslib.php');
 /**
  * The mform class for creating and editing a calendar
  *
- * @copyright 2014 Brian Barnes
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class core_calendar_export_form extends moodleform {
+class core_calendar_export_form extends lionform {
 
     /**
      * The export form definition

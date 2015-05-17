@@ -2,6 +2,9 @@
 
 /**
  * Composite strategy that runs multiple strategies on tokens.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_Strategy_Composite extends HTMLPurifier_Strategy
 {

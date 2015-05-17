@@ -1,4 +1,4 @@
-YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
+YUI.add('lion-enrol_manual-quickenrolment', function(Y) {
 
     var UEP = {
         NAME : 'Enrolment Manager',
@@ -108,7 +108,7 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
                                 .append(create('<div class="'+CSS.COLLAPSIBLEHEADING+'"><img alt="" />'+M.util.get_string('enrolmentoptions', 'enrol')+'</div>'))
                                 .append(create('<div class="'+CSS.COLLAPSIBLEAREA+' '+CSS.HIDDEN+'"></div>')
                                     .append(recovergrades)
-                                    .append(create('<div class="'+CSS.ENROLMENTOPTION+' '+CSS.STARTDATE+'">'+M.util.get_string('startingfrom', 'moodle')+'</div>')
+                                    .append(create('<div class="'+CSS.ENROLMENTOPTION+' '+CSS.STARTDATE+'">'+M.util.get_string('startingfrom', 'lion')+'</div>')
                                         .append(create('<select></select>')))
                                     .append(create('<div class="'+CSS.ENROLMENTOPTION+' '+CSS.DURATION+'">'+M.util.get_string('enrolperiod', 'enrol')+'</div>')
                                         .append(create('<select><option value="0" selected="selected">'+M.util.get_string('unlimitedduration', 'enrol')+'</option></select>')))
@@ -118,7 +118,7 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
                         .append(create('<div class="'+CSS.AJAXCONTENT+'"></div>'))
                         .append(create('<div class="'+CSS.LIGHTBOX+' '+CSS.HIDDEN+'"></div>')
                             .append(create('<img alt="loading" class="'+CSS.LOADINGICON+'" />')
-                                .setAttribute('src', M.util.image_url('i/loading', 'moodle')))
+                                .setAttribute('src', M.util.image_url('i/loading', 'lion')))
                             .setStyle('opacity', 0.5)))
                     .append(create('<div class="'+CSS.FOOTER+'"></div>')
                         .append(create('<div class="'+CSS.SEARCH+'"><label for="enrolusersearch" class="accesshide">'+M.util.get_string('usersearch', 'enrol')+'</label></div>')
@@ -176,16 +176,16 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
                 collapsedimage = 't/collapsed';
             }
 
-            this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url(collapsedimage, 'moodle'));
+            this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url(collapsedimage, 'lion'));
             this.populateStartDates();
             this.populateDuration();
             this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).on('click', function(){
                 this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).toggleClass(CSS.ACTIVE);
                 this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEAREA).toggleClass(CSS.HIDDEN);
                 if (this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEAREA).hasClass(CSS.HIDDEN)) {
-                    this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url(collapsedimage, 'moodle'));
+                    this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url(collapsedimage, 'lion'));
                 } else {
-                    this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url('t/expanded', 'moodle'));
+                    this.get(UEP.BASE).one('.'+CSS.SEARCHOPTIONS+' .'+CSS.COLLAPSIBLEHEADING).one('img').setAttribute('src', M.util.image_url('t/expanded', 'lion'));
                 }
             }, this);
             this.populateAssignableRoles();
@@ -652,4 +652,4 @@ YUI.add('moodle-enrol_manual-quickenrolment', function(Y) {
         }
     }
 
-}, '@VERSION@', {requires:['base','node', 'overlay', 'io-base', 'test', 'json-parse', 'event-delegate', 'dd-plugin', 'event-key', 'moodle-core-notification']});
+}, '@VERSION@', {requires:['base','node', 'overlay', 'io-base', 'test', 'json-parse', 'event-delegate', 'dd-plugin', 'event-key', 'lion-core-notification']});

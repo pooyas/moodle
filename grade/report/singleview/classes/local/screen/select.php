@@ -1,40 +1,24 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The gradebook simple view - initial view to select your search options
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage singleview
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace gradereport_singleview\local\screen;
 
 use gradereport_singleview;
-use moodle_url;
+use lion_url;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * The gradebook simple view - initial view to select your search options
  *
- * @package   gradereport_singleview
- * @copyright 2014 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class select extends screen {
 
@@ -46,7 +30,7 @@ class select extends screen {
     public function init($selfitemisempty = false) {
         global $DB;
 
-        $roleids = explode(',', get_config('moodle', 'gradebookroles'));
+        $roleids = explode(',', get_config('lion', 'gradebookroles'));
 
         $this->items = array();
         foreach ($roleids as $roleid) {
@@ -102,7 +86,7 @@ class select extends screen {
                 'group' => $this->groupid
             );
 
-            $url = new moodle_url('/grade/report/singleview/index.php', $params);
+            $url = new lion_url('/grade/report/singleview/index.php', $params);
 
             $select = new \single_select($url, 'itemid', $options, '', array('' => $screen->select_label()));
             $select->set_label($screen->select_label(), array('class'=>'accesshide'));

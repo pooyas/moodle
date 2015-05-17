@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage survey
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // This file replaces:
 //   * STATEMENTS section in db/install.xml
 //   * lib.php/modulename_install() post installation hook

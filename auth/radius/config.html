@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
+*/
+
 // Is Auth/RADIUS really there?
 if (!extension_loaded('radius')) {
     print '<div class="box errorbox errorboxcontent"><p class="errormessage"><strong>Warning: The PHP RADIUS extension is not present. Please ensure it is installed and enabled.</strong></p></div>';
@@ -35,6 +42,13 @@ if (!isset($config->changepasswordurl)) {
         <input name="host" id="host" type="text" size="30" value="<?php echo $config->host ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['host'])) {
             echo $OUTPUT->error_text($err['host']);
         }
@@ -50,6 +64,13 @@ if (!isset($config->changepasswordurl)) {
         <input name="nasport" id="nasport" type="text" size="6" value="<?php echo $config->nasport ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['nasport'])) {
             echo $OUTPUT->error_text($err['nasport']);
         }
@@ -63,6 +84,13 @@ if (!isset($config->changepasswordurl)) {
     <td align="right"><?php echo html_writer::label(get_string('auth_radiustype_key', 'auth_radius'), 'menuradiustype'); ?>: </td>
     <td>
 <?php
+
+
+/**
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
+*/
 
     $radiustype = array();
     $radiustype['PAP']      = get_string('auth_radiustypepap', 'auth_radius');
@@ -87,6 +115,13 @@ if (!isset($config->changepasswordurl)) {
         <input name="secret" id="secret" type="text" size="6" value="<?php echo $config->secret ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['secret'])) {
             echo $OUTPUT->error_text($err['secret']);
         }
@@ -101,6 +136,13 @@ if (!isset($config->changepasswordurl)) {
     <td>
         <input name="changepasswordurl" id="changepasswordurl" type="text" value="<?php echo $config->changepasswordurl ?>" />
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage radius
+ * @copyright  2015 Pooya Saeedi
+*/
 
         if (isset($err['changepasswordurl'])) {
             echo $OUTPUT->error_text($err['changepasswordurl']);

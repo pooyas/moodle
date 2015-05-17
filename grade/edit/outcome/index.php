@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Listing page for grade outcomes.
  *
- * @package   core_grades
- * @copyright 2008 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__).'/../../../config.php');
@@ -37,13 +24,13 @@ if ($courseid) {
     $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
     require_login($course);
     $context = context_course::instance($course->id);
-    require_capability('moodle/grade:manageoutcomes', $context);
+    require_capability('lion/grade:manageoutcomes', $context);
 
     if (empty($CFG->enableoutcomes)) {
         redirect('../../index.php?id='.$courseid);
     }
     // This page doesn't exist on the navigation so map it to another
-    navigation_node::override_active_url(new moodle_url('/grade/edit/outcome/course.php', array('id'=>$courseid)));
+    navigation_node::override_active_url(new lion_url('/grade/edit/outcome/course.php', array('id'=>$courseid)));
 } else {
     if (empty($CFG->enableoutcomes)) {
         redirect('../../../');
@@ -76,7 +63,7 @@ switch ($action) {
         }
 
         if (empty($outcome->courseid)) {
-            require_capability('moodle/grade:manage', context_system::instance());
+            require_capability('lion/grade:manage', context_system::instance());
         } else if ($outcome->courseid != $courseid) {
             print_error('invalidcourseid');
         }
@@ -90,7 +77,7 @@ switch ($action) {
         if(!$deleteconfirmed){
             $PAGE->set_title(get_string('outcomedelete', 'grades'));
             echo $OUTPUT->header();
-            $confirmurl = new moodle_url('index.php', array(
+            $confirmurl = new lion_url('index.php', array(
                     'id' => $courseid, 'outcomeid' => $outcome->id,
                     'action'=> 'delete',
                     'sesskey' =>  sesskey(),
@@ -106,11 +93,11 @@ switch ($action) {
 }
 
 $systemcontext = context_system::instance();
-$caneditsystemscales = has_capability('moodle/course:managescales', $systemcontext);
+$caneditsystemscales = has_capability('lion/course:managescales', $systemcontext);
 
 if ($courseid) {
 
-    $caneditcoursescales = has_capability('moodle/course:managescales', $context);
+    $caneditcoursescales = has_capability('lion/course:managescales', $context);
 
 } else {
     echo $OUTPUT->header();
@@ -140,7 +127,7 @@ if ($courseid and $outcomes = grade_outcome::fetch_all_local($courseid)) {
                 $caneditthisscale = $caneditcoursescales;
             } else {
                 $context = context_course::instance($scale->courseid);
-                $caneditthisscale = has_capability('moodle/course:managescales', $context);
+                $caneditthisscale = has_capability('lion/course:managescales', $context);
             }
             if ($caneditthisscale) {
                 $line[] = grade_print_scale_link($courseid, $scale, $gpr);
@@ -190,7 +177,7 @@ if ($outcomes = grade_outcome::fetch_all_global()) {
                 $caneditthisscale = $caneditcoursescales;
             } else {
                 $context = context_course::instance($scale->courseid);
-                $caneditthisscale = has_capability('moodle/course:managescales', $context);
+                $caneditthisscale = has_capability('lion/course:managescales', $context);
             }
             if ($caneditthisscale) {
                 $line[] = grade_print_scale_link($courseid, $scale, $gpr);
@@ -203,10 +190,10 @@ if ($outcomes = grade_outcome::fetch_all_global()) {
         $line[] = $outcome->get_item_uses_count();
 
         $buttons = "";
-        if (has_capability('moodle/grade:manage', context_system::instance())) {
+        if (has_capability('lion/grade:manage', context_system::instance())) {
             $buttons .= grade_button('edit', $courseid, $outcome);
         }
-        if (has_capability('moodle/grade:manage', context_system::instance()) and $outcome->can_delete()) {
+        if (has_capability('lion/grade:manage', context_system::instance()) and $outcome->can_delete()) {
             $buttons .= grade_button('delete', $courseid, $outcome);
         }
         $line[] = $buttons;
@@ -233,9 +220,9 @@ foreach($outcomes_tables as $table) {
 }
 
 echo $OUTPUT->container_start('buttons');
-echo $OUTPUT->single_button(new moodle_url('edit.php', array('courseid'=>$courseid)), $strcreatenewoutcome);
+echo $OUTPUT->single_button(new lion_url('edit.php', array('courseid'=>$courseid)), $strcreatenewoutcome);
 if ( !empty($outcomes_tables) ) {
-    echo $OUTPUT->single_button(new moodle_url('export.php', array('id'=>$courseid, 'sesskey'=>sesskey())),  get_string('exportalloutcomes', 'grades'));
+    echo $OUTPUT->single_button(new lion_url('export.php', array('id'=>$courseid, 'sesskey'=>sesskey())),  get_string('exportalloutcomes', 'grades'));
 }
 echo $OUTPUT->container_end();
 
@@ -250,7 +237,7 @@ echo $OUTPUT->footer();
  */
 function grade_print_scale_link($courseid, $scale, $gpr) {
     global $CFG, $OUTPUT;
-    $url = new moodle_url('/grade/edit/scale/edit.php', array('courseid' => $courseid, 'id' => $scale->id));
+    $url = new lion_url('/grade/edit/scale/edit.php', array('courseid' => $courseid, 'id' => $scale->id));
     $url = $gpr->add_url_params($url);
     return html_writer::link($url, $scale->get_name());
 }

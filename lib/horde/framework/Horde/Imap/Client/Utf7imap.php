@@ -16,21 +16,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2000 Edmund Grimley Evans <edmundo@rano.org>
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Allows conversions between UTF-8 and UTF7-IMAP (RFC 3501 [5.1.3]).
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2000 Edmund Grimley Evans <edmundo@rano.org>
- * @copyright 2008-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Utf7imap
 {

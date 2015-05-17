@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file is responsible for serving the one huge CSS of each theme.
  *
- * @package   core
- * @copyright 2009 Petr Skoda (skodak)  {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage theme
+ * @copyright  2015 Pooya Saeedi
  */
 
-// Disable moodle specific debug messages and any errors in output,
+// Disable lion specific debug messages and any errors in output,
 // comment out when debugging or better look into error log!
 define('NO_DEBUG_DISPLAY', true);
 
@@ -106,10 +93,10 @@ if (file_exists($candidatesheet)) {
     css_send_cached_css($candidatesheet, $etag);
 }
 
-// Ok, now we need to start normal moodle script, we need to load all libs and $DB.
+// Ok, now we need to start normal lion script, we need to load all libs and $DB.
 define('ABORT_AFTER_CONFIG_CANCEL', true);
 
-define('NO_MOODLE_COOKIES', true); // Session not used here.
+define('NO_LION_COOKIES', true); // Session not used here.
 define('NO_UPGRADE_CHECK', true);  // Ignore upgrade check.
 
 require("$CFG->dirroot/lib/setup.php");

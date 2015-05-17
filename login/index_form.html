@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
+*/
+
 if ($show_instructions) {
     $columns = 'twocolumns';
 } else {
@@ -19,13 +26,34 @@ if (empty($CFG->authloginviaemail)) {
 <div class="loginbox clearfix <?php echo $columns ?>">
   <div class="loginpanel">
 <?php
+
+/**
+ * @package    core
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
+*/
+
   if (($CFG->registerauth == 'email') || !empty($CFG->registerauth)) { ?>
       <div class="skiplinks"><a class="skip" href="signup.php"><?php print_string("tocreatenewaccount"); ?></a></div>
 <?php
+
+/**
+ * @package    core
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
+*/
+
   } ?>
     <h2><?php print_string("login") ?></h2>
       <div class="subcontent loginsub">
         <?php
+
+/**
+ * @package    core
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
+*/
+
           if (!empty($errormsg)) {
               echo html_writer::start_tag('div', array('class' => 'loginerrors'));
               echo html_writer::link('#', $errormsg, array('id' => 'loginerrormessage', 'class' => 'accesshide'));
@@ -58,6 +86,13 @@ if (empty($CFG->authloginviaemail)) {
         </form>
         <div class="desc">
             <?php
+
+/**
+ * @package    core
+ * @subpackage login
+ * @copyright  2015 Pooya Saeedi
+*/
+
                 echo get_string("cookiesenabled");
                 echo $OUTPUT->help_icon('cookiesenabled');
             ?>

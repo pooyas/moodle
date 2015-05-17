@@ -4,7 +4,7 @@
  * This class is responsible for managing AJAX interactions with activities and resources
  * when viewing a course in editing mode.
  *
- * @module moodle-course-toolboxes
+ * @module lion-course-toolboxes
  * @namespace M.course.toolboxes
  */
 
@@ -210,7 +210,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             'class': 'resource',
             'field': 'indent',
             'value': newindent,
-            'id': Y.Moodle.core_course.util.cm.getId(activity)
+            'id': Y.Lion.core_course.util.cm.getId(activity)
         };
         var spinner = this.add_spinner(activity);
         this.send_request(data, spinner);
@@ -266,11 +266,11 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             plugindata = {
                 type: M.util.get_string('pluginname', element.getAttribute('class').match(/modtype_([^\s]*)/)[1])
             };
-        if (Y.Moodle.core_course.util.cm.getName(element) !== null) {
-            plugindata.name = Y.Moodle.core_course.util.cm.getName(element);
-            confirmstring = M.util.get_string('deletechecktypename', 'moodle', plugindata);
+        if (Y.Lion.core_course.util.cm.getName(element) !== null) {
+            plugindata.name = Y.Lion.core_course.util.cm.getName(element);
+            confirmstring = M.util.get_string('deletechecktypename', 'lion', plugindata);
         } else {
-            confirmstring = M.util.get_string('deletechecktype', 'moodle', plugindata);
+            confirmstring = M.util.get_string('deletechecktype', 'lion', plugindata);
         }
 
         // Create the confirmation dialogue.
@@ -289,7 +289,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             var data = {
                 'class': 'resource',
                 'action': 'DELETE',
-                'id': Y.Moodle.core_course.util.cm.getId(element)
+                'id': Y.Lion.core_course.util.cm.getId(element)
             };
             this.send_request(data);
             if (M.core.actionmenu && M.core.actionmenu.instance) {
@@ -326,7 +326,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
         var data = {
             'class': 'resource',
             'field': 'duplicate',
-            'id': Y.Moodle.core_course.util.cm.getId(element),
+            'id': Y.Lion.core_course.util.cm.getId(element),
             'sr': button.getData('sr')
         };
         this.send_request(data, lightbox, function(response) {
@@ -334,7 +334,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
 
             // Append to the section?
             activity.insert(newcm, 'after');
-            Y.use('moodle-course-coursebase', function() {
+            Y.use('lion-course-coursebase', function() {
                 M.course.coursebase.invoke_function('setup_for_resource', newcm);
             });
             if (M.core.actionmenu && M.core.actionmenu.newDOMNode) {
@@ -368,7 +368,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             'class': 'resource',
             'field': 'visible',
             'value': value,
-            'id': Y.Moodle.core_course.util.cm.getId(element)
+            'id': Y.Lion.core_course.util.cm.getId(element)
         };
         var spinner = this.add_spinner(element);
         this.send_request(data, spinner);
@@ -395,7 +395,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             availabilityinfo = activity.one(CSS.AVAILABILITYINFODIV),
             nextaction = (action === 'hide') ? 'show': 'hide',
             buttontext = button.one('span'),
-            newstring = M.util.get_string(nextaction, 'moodle'),
+            newstring = M.util.get_string(nextaction, 'lion'),
             buttonimg = button.one('img');
 
         // Update button info.
@@ -473,15 +473,15 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
 
         if (groupmode === this.GROUPS_NONE) {
             newtitle = 'groupsnone';
-            iconsrc = M.util.image_url('i/groupn', 'moodle');
+            iconsrc = M.util.image_url('i/groupn', 'lion');
         } else if (groupmode === this.GROUPS_SEPARATE) {
             newtitle = 'groupsseparate';
-            iconsrc = M.util.image_url('i/groups', 'moodle');
+            iconsrc = M.util.image_url('i/groups', 'lion');
         } else if (groupmode === this.GROUPS_VISIBLE) {
             newtitle = 'groupsvisible';
-            iconsrc = M.util.image_url('i/groupv', 'moodle');
+            iconsrc = M.util.image_url('i/groupv', 'lion');
         }
-        newtitlestr = M.util.get_string('clicktochangeinbrackets', 'moodle', M.util.get_string(newtitle, 'moodle'));
+        newtitlestr = M.util.get_string('clicktochangeinbrackets', 'lion', M.util.get_string(newtitle, 'lion'));
 
         // Change the UI
         buttonimg.setAttrs({
@@ -500,7 +500,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             'class': 'resource',
             'field': 'groupmode',
             'value': groupmode,
-            'id': Y.Moodle.core_course.util.cm.getId(activity)
+            'id': Y.Lion.core_course.util.cm.getId(activity)
         };
 
         spinner = this.add_spinner(activity);
@@ -521,7 +521,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
      */
     edit_title: function(ev, button, activity) {
         // Get the element we're working on
-        var activityid = Y.Moodle.core_course.util.cm.getId(activity),
+        var activityid = Y.Lion.core_course.util.cm.getId(activity),
             instancename  = activity.one(SELECTOR.INSTANCENAME),
             instance = activity.one(SELECTOR.ACTIVITYINSTANCE),
             currenttitle = instancename.get('firstChild'),
@@ -551,7 +551,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
             // Create the editor and submit button
             var editform = Y.Node.create('<form action="#" />');
             var editinstructions = Y.Node.create('<span class="'+CSS.EDITINSTRUCTIONS+'" id="id_editinstructions" />')
-                .set('innerHTML', M.util.get_string('edittitleinstructions', 'moodle'));
+                .set('innerHTML', M.util.get_string('edittitleinstructions', 'lion'));
             var editor = Y.Node.create('<input name="title" type="text" class="'+CSS.TITLEEDITOR+'" />').setAttrs({
                 'value': titletext,
                 'autocomplete': 'off',
@@ -612,7 +612,7 @@ Y.extend(RESOURCETOOLBOX, TOOLBOX, {
                 'class': 'resource',
                 'field': 'updatetitle',
                 'title': newtitle,
-                'id': Y.Moodle.core_course.util.cm.getId(activity)
+                'id': Y.Lion.core_course.util.cm.getId(activity)
             };
             this.send_request(data, spinner, function(response) {
                 if (response.instancename) {

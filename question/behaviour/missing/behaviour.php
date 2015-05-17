@@ -1,31 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Fake question behaviour that is used when the actual behaviour was not
  * available.
  *
- * @package    qbehaviour
+ * @package    question_behaviour
  * @subpackage missing
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -33,7 +19,7 @@ defined('MOODLE_INTERNAL') || die();
  * is not available.
  *
  * Imagine, for example, that a quiz attempt has been restored from another
- * Moodle site with more behaviours installed, or a behaviour
+ * Lion site with more behaviours installed, or a behaviour
  * that used to be available in this site has been uninstalled. Obviously all we
  * can do is have some code to prevent fatal errors.
  *
@@ -41,8 +27,6 @@ defined('MOODLE_INTERNAL') || die();
  * possible. A warning is shown that behaviour specific bits may be missing.
  * Any attempt to process anything causes an exception to be thrown.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_missing extends question_behaviour {
 

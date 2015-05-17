@@ -1,7 +1,7 @@
 {
-    "name": "Moodle",
-    "description": "YUI documentation for Moodle",
-    "url": "https://moodle.org",
+    "name": "Lion",
+    "description": "YUI documentation for Lion",
+    "url": "https://lion.org",
     "options": {
         "external": {
             "data": "http://yuilibrary.com/yui/docs/api/data.json"

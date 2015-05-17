@@ -3,8 +3,9 @@
 /**
  * toCSS Visitor
  *
- * @package Less
- * @subpackage visitor
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Visitor_toCSS extends Less_VisitorReplacing{
 

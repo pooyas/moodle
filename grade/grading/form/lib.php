@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Common classes used by gradingform plugintypes are defined here
  *
- * @package    core_grading
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Class represents a grading form definition used in a particular area
@@ -41,9 +28,6 @@ defined('MOODLE_INTERNAL') || die();
  * to overwrite functions responsible for loading and saving of the
  * definition to include additional data stored.
  *
- * @package    core_grading
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @category   grading
  */
 abstract class gradingform_controller {
@@ -202,10 +186,10 @@ abstract class gradingform_controller {
     /**
      * Returns URL of a page where the grading form can be defined and edited.
      *
-     * @param moodle_url $returnurl optional URL of a page where the user should be sent once they are finished with editing
-     * @return moodle_url
+     * @param lion_url $returnurl optional URL of a page where the user should be sent once they are finished with editing
+     * @return lion_url
      */
-    public function get_editor_url(moodle_url $returnurl = null) {
+    public function get_editor_url(lion_url $returnurl = null) {
 
         $params = array('areaid' => $this->areaid);
 
@@ -213,14 +197,14 @@ abstract class gradingform_controller {
             $params['returnurl'] = $returnurl->out(false);
         }
 
-        return new moodle_url('/grade/grading/form/'.$this->get_method_name().'/edit.php', $params);
+        return new lion_url('/grade/grading/form/'.$this->get_method_name().'/edit.php', $params);
     }
 
     /**
      * Extends the module settings navigation
      *
      * This function is called when the context for the page is an activity module with the
-     * FEATURE_ADVANCED_GRADING, the user has the permission moodle/grade:managegradingforms
+     * FEATURE_ADVANCED_GRADING, the user has the permission lion/grade:managegradingforms
      * and there is an area with the active grading method set to the given plugin.
      *
      * @param settings_navigation $settingsnav {@link settings_navigation}
@@ -355,7 +339,7 @@ abstract class gradingform_controller {
                 $record->status = self::DEFINITION_STATUS_DRAFT;
             }
             if (empty($record->descriptionformat)) {
-                $record->descriptionformat = FORMAT_MOODLE; // field can not be empty
+                $record->descriptionformat = FORMAT_LION; // field can not be empty
             }
 
             $DB->insert_record('grading_definitions', $record);
@@ -536,10 +520,10 @@ abstract class gradingform_controller {
      * Plugins are forced to override this. Ideally they should delegate
      * the task to their own renderer.
      *
-     * @param moodle_page $page the target page
+     * @param lion_page $page the target page
      * @return string
      */
-    abstract public function render_preview(moodle_page $page);
+    abstract public function render_preview(lion_page $page);
 
     /**
      * Deletes the form definition and all the associated data
@@ -633,7 +617,7 @@ abstract class gradingform_controller {
     /**
      * Returns html code to be included in student's feedback.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param int $itemid
      * @param array $gradinginfo result of function grade_get_grades if plugin want to use some of their info
      * @param string $defaultcontent default string to be returned if no active grading is found or for some reason can not be shown to a user
@@ -696,7 +680,6 @@ abstract class gradingform_controller {
      *    $gradingform_guide_controller->get_external_definition_details()
      * @return array An array of one or more key/value pairs containing the external_multiple_structure/s
      * corresponding to the definition returned by $controller->get_definition()
-     * @since Moodle 2.5
      */
     public static function get_external_definition_details() {
         return null;
@@ -714,7 +697,6 @@ abstract class gradingform_controller {
      *
      * @return array An array of one or more key/value pairs containing the external_multiple_structure/s
      * corresponding to the definition returned by $gradingform_<method>_instance->get_<method>_filling()
-     * @since Moodle 2.6
      */
     public static function get_external_instance_filling_details() {
         return null;
@@ -741,11 +723,8 @@ abstract class gradingform_controller {
  *
  * The reference to an instance of this class is passed to an advanced grading form element
  * included in the grading form, so this class must implement functions for rendering
- * and validation of this form element. See {@link MoodleQuickForm_grading}
+ * and validation of this form element. See {@link LionQuickForm_grading}
  *
- * @package    core_grading
- * @copyright  2011 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @category   grading
  */
 abstract class gradingform_instance {
@@ -790,7 +769,7 @@ abstract class gradingform_instance {
         $instance->itemid = $itemid;
         $instance->status = self::INSTANCE_STATUS_INCOMPLETE;
         $instance->timemodified = time();
-        $instance->feedbackformat = FORMAT_MOODLE;
+        $instance->feedbackformat = FORMAT_LION;
         $instanceid = $DB->insert_record('grading_instances', $instance);
         return $instanceid;
     }
@@ -1009,10 +988,10 @@ abstract class gradingform_instance {
      *
      * Also client-side JS validation may be implemented here
      *
-     * @see MoodleQuickForm_grading in lib/form/grading.php
+     * @see LionQuickForm_grading in lib/form/grading.php
      *
-     * @param moodle_page $page
-     * @param MoodleQuickForm_grading $gradingformelement
+     * @param lion_page $page
+     * @param LionQuickForm_grading $gradingformelement
      * @return string
      */
     abstract function render_grading_element($page, $gradingformelement);

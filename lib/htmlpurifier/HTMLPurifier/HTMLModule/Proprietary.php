@@ -3,6 +3,9 @@
 /**
  * Module defines proprietary tags and attributes in HTML.
  * @warning If this module is enabled, standards-compliance is off!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Proprietary extends HTMLPurifier_HTMLModule
 {

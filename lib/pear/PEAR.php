@@ -7,16 +7,11 @@
  * PHP versions 4 and 5
  *
  * @category   pear
- * @package    PEAR
- * @author     Sterling Hughes <sterling@php.net>
- * @author     Stig Bakken <ssb@php.net>
- * @author     Tomas V.V.Cox <cox@idecnet.com>
- * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2010 The Authors
- * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/PEAR
- * @since      File available since Release 0.1
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**#@+
@@ -72,16 +67,9 @@ $GLOBALS['_PEAR_error_handler_stack']    = array();
  * objects by reference: $obj =& new PEAR_child;
  *
  * @category   pear
- * @package    PEAR
- * @author     Stig Bakken <ssb@php.net>
- * @author     Tomas V.V. Cox <cox@idecnet.com>
- * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2006 The PHP Group
- * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @version    Release: 1.9.1
  * @link       http://pear.php.net/package/PEAR
  * @see        PEAR_Error
- * @since      Class available since PHP 4.0.2
  * @link        http://pear.php.net/manual/en/core.pear.php#core.pear.pear
  */
 class PEAR
@@ -298,7 +286,6 @@ class PEAR
      * @see PEAR_ERROR_CALLBACK
      * @see PEAR_ERROR_EXCEPTION
      *
-     * @since PHP 4.0.5
      */
     function setErrorHandling($mode = null, $options = null)
     {
@@ -379,7 +366,6 @@ class PEAR
      * @param mixed error code
      * @return bool true if the error code was unset, false otherwise
      * @access private
-     * @since PHP 4.3.0
      */
     function _checkDelExpect($error_code)
     {
@@ -406,7 +392,6 @@ class PEAR
      * @param  mixed $error_code error code that should be deleted
      * @return mixed list of error codes that were deleted or error
      * @access public
-     * @since PHP 4.3.0
      */
     function delExpect($error_code)
     {
@@ -467,7 +452,6 @@ class PEAR
      * @access public
      * @return object   a PEAR error object
      * @see PEAR::setErrorHandling
-     * @since PHP 4.0.5
      */
     function &raiseError($message = null,
                          $code = null,
@@ -782,16 +766,9 @@ function _PEAR_call_destructors()
  * This class is supserseded by {@link PEAR_Exception} in PHP 5
  *
  * @category   pear
- * @package    PEAR
- * @author     Stig Bakken <ssb@php.net>
- * @author     Tomas V.V. Cox <cox@idecnet.com>
- * @author     Gregory Beaver <cellog@php.net>
- * @copyright  1997-2006 The PHP Group
- * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @version    Release: 1.9.1
  * @link       http://pear.php.net/manual/en/core.pear.pear-error.php
  * @see        PEAR::raiseError(), PEAR::throwError()
- * @since      Class available since PHP 4.0.2
  */
 class PEAR_Error
 {

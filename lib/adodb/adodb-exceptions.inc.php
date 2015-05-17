@@ -11,6 +11,9 @@
  * Latest version is available at http://php.weblogs.com
  *
  * Exception-handling code using PHP5 exceptions (try-catch-throw).
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 

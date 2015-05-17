@@ -1,27 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Web services tokens admin UI
  *
- * @package   webservice
- * @author Jerome Mouneyrac
- * @copyright 2009 Moodle Pty Ltd (http://moodle.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin
+ * @subpackage webservice
+ * @copyright  2015 Pooya Saeedi
  */
 require_once('../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
@@ -42,9 +28,9 @@ if ($node && $newnode) {
     $newnode->make_active();
 }
 
-require_capability('moodle/site:config', context_system::instance());
+require_capability('lion/site:config', context_system::instance());
 
-$tokenlisturl = new moodle_url("/" . $CFG->admin . "/settings.php", array('section' => 'webservicetokens'));
+$tokenlisturl = new lion_url("/" . $CFG->admin . "/settings.php", array('section' => 'webservicetokens'));
 
 require_once($CFG->dirroot . "/webservice/lib.php");
 $webservicemanager = new webservice();
@@ -64,7 +50,7 @@ switch ($action) {
             if ($selectedservice->restrictedusers) {
                 $restricteduser = $webservicemanager->get_ws_authorised_user($data->service, $data->user);
                 if (empty($restricteduser)) {
-                    $allowuserurl = new moodle_url('/' . $CFG->admin . '/webservice/service_users.php',
+                    $allowuserurl = new lion_url('/' . $CFG->admin . '/webservice/service_users.php',
                             array('id' => $selectedservice->id));
                     $allowuserlink = html_writer::tag('a', $selectedservice->name , array('href' => $allowuserurl));
                     $errormsg = $OUTPUT->notification(get_string('usernotallowed', 'webservice', $allowuserlink));
@@ -74,7 +60,7 @@ switch ($action) {
             //check if the user is deleted. unconfirmed, suspended or guest
             $user = $DB->get_record('user', array('id' => $data->user));
             if ($user->id == $CFG->siteguest or $user->deleted or !$user->confirmed or $user->suspended) {
-                throw new moodle_exception('forbiddenwsuser', 'webservice');
+                throw new lion_exception('forbiddenwsuser', 'webservice');
             }
 
             //process the creation

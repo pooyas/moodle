@@ -1,24 +1,11 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * @package   mod_survey
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage survey
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -766,7 +753,7 @@ function survey_reset_userdata($data) {
  * @return array
  */
 function survey_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
+    return array('lion/site:accessallgroups');
 }
 
 /**
@@ -787,7 +774,7 @@ function survey_supports($feature) {
         case FEATURE_COMPLETION_TRACKS_VIEWS: return true;
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_BACKUP_MOODLE2:          return true;
+        case FEATURE_BACKUP_LION2:          return true;
         case FEATURE_SHOW_DESCRIPTION:        return true;
 
         default: return null;
@@ -809,20 +796,20 @@ function survey_extend_settings_navigation($settings, $surveynode) {
     if (has_capability('mod/survey:readresponses', $PAGE->cm->context)) {
         $responsesnode = $surveynode->add(get_string("responsereports", "survey"));
 
-        $url = new moodle_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'summary'));
+        $url = new lion_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'summary'));
         $responsesnode->add(get_string("summary", "survey"), $url);
 
-        $url = new moodle_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'scales'));
+        $url = new lion_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'scales'));
         $responsesnode->add(get_string("scales", "survey"), $url);
 
-        $url = new moodle_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'questions'));
+        $url = new lion_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'questions'));
         $responsesnode->add(get_string("question", "survey"), $url);
 
-        $url = new moodle_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'students'));
+        $url = new lion_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'students'));
         $responsesnode->add(get_string('participants'), $url);
 
         if (has_capability('mod/survey:download', $PAGE->cm->context)) {
-            $url = new moodle_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'download'));
+            $url = new lion_url('/mod/survey/report.php', array('id' => $PAGE->cm->id, 'action'=>'download'));
             $surveynode->add(get_string('downloadresults', 'survey'), $url);
         }
     }

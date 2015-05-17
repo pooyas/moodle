@@ -1,14 +1,14 @@
 <?php
 /**
- * Class Minify_Logger  
- * @package Minify
+ * Class Minify_Logger
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /** 
  * Message logging class
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  *
  * @todo lose this singleton! pass log object in Minify::serve and distribute to others
  */

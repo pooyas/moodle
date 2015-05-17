@@ -1,38 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines the question behaviour type base class
  *
- * @package    core
- * @subpackage questionbehaviours
- * @copyright  2012 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    question
+ * @subpackage behaviour
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * This class represents the type of behaviour, rather than the instance of the
  * behaviour which control a particular question attempt.
  *
- * @copyright  2012 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class question_behaviour_type {
     /**
@@ -106,12 +90,10 @@ abstract class question_behaviour_type {
 
 
 /**
- * This class exists to allow behaviours that worked in Moodle 2.3 to continue
+ * This class exists to allow behaviours that worked in Lion 2.3 to continue
  * to work. It implements the question_behaviour_type API for the other behaviour
  * as much as possible in a backwards-compatible way.
  *
- * @copyright  2012 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class question_behaviour_type_fallback extends question_behaviour_type {
 

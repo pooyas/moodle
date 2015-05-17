@@ -1,5 +1,5 @@
 {
-  "moodle-question-preview": {
+  "lion-question-preview": {
     "requires": [
         "base",
         "dom",

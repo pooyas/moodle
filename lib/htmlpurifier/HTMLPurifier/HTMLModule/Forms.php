@@ -2,6 +2,9 @@
 
 /**
  * XHTML 1.1 Forms module, defines all form-related elements found in HTML 4.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Forms extends HTMLPurifier_HTMLModule
 {

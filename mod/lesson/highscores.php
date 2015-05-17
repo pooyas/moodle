@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Provides the interface for viewing and adding high scores
  *
- * @package mod_lesson
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
 /** include required files */
@@ -37,7 +24,7 @@ $lesson = new lesson($DB->get_record('lesson', array('id' => $cm->instance), '*'
 
 require_login($course, false, $cm);
 
-$url = new moodle_url('/mod/lesson/highscores.php', array('id'=>$id));
+$url = new lion_url('/mod/lesson/highscores.php', array('id'=>$id));
 if ($mode !== '') {
     $url->param('mode', $mode);
 }
@@ -226,10 +213,10 @@ switch ($mode) {
             echo $OUTPUT->box_start('mdl-align');
             echo $OUTPUT->box_start('lessonbutton standardbutton');
             if ($link) {
-                echo html_writer::link(new moodle_url('/course/view.php', array('id'=>$course->id)), get_string("returntocourse", "lesson"));
+                echo html_writer::link(new lion_url('/course/view.php', array('id'=>$course->id)), get_string("returntocourse", "lesson"));
             } else {
-                echo html_writer::link(new moodle_url('/course/view.php', array('id'=>$course->id)), get_string("cancel", "lesson")). ' ';
-                echo html_writer::link(new moodle_url('/mod/lesson/view.php', array('id'=>$cm->id, 'viewed'=>'1')), get_string("startlesson", "lesson"));
+                echo html_writer::link(new lion_url('/course/view.php', array('id'=>$course->id)), get_string("cancel", "lesson")). ' ';
+                echo html_writer::link(new lion_url('/mod/lesson/view.php', array('id'=>$cm->id, 'viewed'=>'1')), get_string("startlesson", "lesson"));
             }
             echo $OUTPUT->box_end();
             echo $OUTPUT->box_end();

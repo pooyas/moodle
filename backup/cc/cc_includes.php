@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Main include for IMS Common Cartridge export classes
  *
- * @package    backup-convert
- * @copyright  2011 Darko Miletic <dmiletic@moodlerooms.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    backup
+ * @subpackage cc
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->dirroot .'/backup/cc/cc_lib/xmlbase.php');
@@ -42,4 +29,4 @@ require_once($CFG->dirroot .'/backup/cc/cc_lib/cc_converter_quiz.php');
 require_once($CFG->dirroot .'/backup/cc/cc_lib/cc_converter_page.php');
 require_once($CFG->dirroot .'/backup/cc/cc_lib/cc_converter_label.php');
 require_once($CFG->dirroot .'/backup/cc/cc_lib/cc_converter_folder.php');
-require_once($CFG->dirroot .'/backup/cc/cc_lib/cc_convert_moodle2.php');
+require_once($CFG->dirroot .'/backup/cc/cc_lib/cc_convert_lion2.php');

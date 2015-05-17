@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Chat daemon
  *
- * @package    mod_chat
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage chat
+ * @copyright  2015 Pooya Saeedi
  */
 
 define('CLI_SCRIPT', true);
@@ -43,7 +30,7 @@ define('CHAT_SIDEKICK_MESSAGE',     0x22);
 define('CHAT_SIDEKICK_BEEP',        0x23);
 
 $phpversion = phpversion();
-echo 'Moodle chat daemon v1.0 on PHP '.$phpversion."\n\n";
+echo 'Lion chat daemon v1.0 on PHP '.$phpversion."\n\n";
 
 // Set up all the variables we need.
 
@@ -365,7 +352,7 @@ EOD;
                 $header  = "HTTP/1.1 200 OK\n";
                 $header .= "Connection: close\n";
                 $header .= "Date: ".date('r')."\n";
-                $header .= "Server: Moodle\n";
+                $header .= "Server: Lion\n";
                 $header .= "Content-Type: text/html; charset=utf-8\n";
                 $header .= "Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT\n";
                 $header .= "Cache-Control: no-cache, must-revalidate\n";
@@ -385,7 +372,7 @@ EOD;
                 $header  = "HTTP/1.1 200 OK\n";
                 $header .= "Connection: close\n";
                 $header .= "Date: ".date('r')."\n";
-                $header .= "Server: Moodle\n";
+                $header .= "Server: Lion\n";
                 $header .= "Content-Type: text/html; charset=utf-8\n";
                 $header .= "Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT\n";
                 $header .= "Cache-Control: no-cache, must-revalidate\n";
@@ -463,7 +450,7 @@ EOD;
                 $header  = "HTTP/1.1 200 OK\n";
                 $header .= "Connection: close\n";
                 $header .= "Date: ".date('r')."\n";
-                $header .= "Server: Moodle\n";
+                $header .= "Server: Lion\n";
                 $header .= "Content-Type: text/html; charset=utf-8\n";
                 $header .= "Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT\n";
                 $header .= "Cache-Control: no-cache, must-revalidate\n";
@@ -546,7 +533,7 @@ EOD;
         $header  = "HTTP/1.1 200 OK\n";
         $header .= "Connection: close\n";
         $header .= "Date: ".date('r')."\n";
-        $header .= "Server: Moodle\n";
+        $header .= "Server: Lion\n";
         $header .= "Content-Type: text/html; charset=utf-8\n";
         $header .= "Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT\n";
         $header .= "Cache-Control: no-cache, must-revalidate\n";
@@ -917,7 +904,7 @@ if (strpos($commandline, '-') === false) {
 
 if (!$daemon->query_start()) {
     // For some reason we didn't start, so print out some info.
-    echo 'Starts the Moodle chat socket server on port '.$CFG->chat_serverport;
+    echo 'Starts the Lion chat socket server on port '.$CFG->chat_serverport;
     echo "\n\n";
     echo "Usage: chatd.php [parameters]\n\n";
     echo "Parameters:\n";
@@ -937,7 +924,7 @@ if (!function_exists('socket_set_option')) {
 
 $daemon->init_sockets();
 
-$daemon->trace('Started Moodle chatd on port '.$CFG->chat_serverport.', listening socket '.$daemon->listen_socket, E_USER_WARNING);
+$daemon->trace('Started Lion chatd on port '.$CFG->chat_serverport.', listening socket '.$daemon->listen_socket, E_USER_WARNING);
 
 // Clear the decks of old stuff.
 $DB->delete_records('chat_users', array('version' => 'sockets'));

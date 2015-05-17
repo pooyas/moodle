@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
     global $OUTPUT;
     // set to defaults if undefined
     if (!isset($config->host)) {
@@ -58,6 +65,13 @@
         <input id="host" name="host" type="text" size="30" value="<?php echo $config->host?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err["host"])) {
             echo $OUTPUT->error_text($err["host"]);
         }
@@ -97,6 +111,13 @@
         <input id="name" name="name" type="text" size="30" value="<?php echo $config->name?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err["name"])) {
             echo $OUTPUT->error_text($err["name"]);
         }
@@ -112,6 +133,13 @@
         <input id="user" name="user" type="text" size="30" value="<?php echo $config->user?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err["user"])) {
             echo $OUTPUT->error_text($err["user"]);
         }
@@ -126,6 +154,13 @@
     <td>
         <input id="pass" name="pass" type="password" size="30" value="<?php p($config->pass)?>" autocomplete="off"/>
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
 
         if (isset($err["pass"])) {
             echo $OUTPUT->error_text($err["pass"]);
@@ -144,6 +179,13 @@
         <input id="table" name="table" type="text" size="30" value="<?php echo $config->table?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err["table"])) {
             echo $OUTPUT->error_text($err["table"]);
         }
@@ -158,6 +200,13 @@
     <td>
         <input id="fielduser" name="fielduser" type="text" size="30" value="<?php echo $config->fielduser?>" />
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
 
         if (isset($err["fielduser"])) {
             echo $OUTPUT->error_text($err["fielduser"]);
@@ -174,6 +223,13 @@
         <input id="fieldpass" name="fieldpass" type="text" size="30" value="<?php echo $config->fieldpass?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err["fieldpass"])) {
             echo $OUTPUT->error_text($err["fieldpass"]);
         }
@@ -187,6 +243,13 @@
     <td align="right"><label for="menupasstype"><?php print_string("auth_dbpasstype_key", "auth_db") ?></label></td>
     <td>
         <?php
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
         $passtype = array();
         $passtype["plaintext"] = get_string("plaintext", "auth");
         $passtype["md5"]       = get_string("md5", "auth");
@@ -205,6 +268,13 @@
     <td>
         <input id="extencoding" name="extencoding" type="text" value="<?php echo $config->extencoding ?>" />
         <?php
+
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
 
         if (isset($err['extencoding'])) {
             echo $OUTPUT->error_text($err['extencoding']);
@@ -237,6 +307,13 @@
         <input id="changepasswordurl" name="changepasswordurl" type="text" value="<?php echo $config->changepasswordurl ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['changepasswordurl'])) {
             echo $OUTPUT->error_text($err['changepasswordurl']);
         }
@@ -256,6 +333,13 @@
     <td align="right"><label for="menuremoveuser"><?php print_string('auth_remove_user_key','auth') ?></label></td>
     <td>
     <?php
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
+
        $deleteopt = array();
        $deleteopt[AUTH_REMOVEUSER_KEEP] = get_string('auth_remove_keep','auth');
        $deleteopt[AUTH_REMOVEUSER_SUSPEND] = get_string('auth_remove_suspend','auth');
@@ -269,6 +353,13 @@
 </tr>
 
 <?php
+
+
+/**
+ * @package    auth
+ * @subpackage db
+ * @copyright  2015 Pooya Saeedi
+*/
 
 print_auth_lock_options($this->authtype, $user_fields, get_string('auth_dbextrafields', 'auth_db'), true, true, $this->get_custom_user_profile_fields());
 

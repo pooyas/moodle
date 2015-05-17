@@ -1,22 +1,29 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /////////////////////////////////////////////////////////////////////////////
 //                                                                         //
 // NOTICE OF COPYRIGHT                                                     //
 //                                                                         //
-// Moodle - Calendar extension                                             //
+// Lion - Calendar extension                                             //
 //                                                                         //
 // Copyright (C) 2003-2004  Greek School Network            www.sch.gr     //
 //                                                                         //
 // Designed by:                                                            //
 //     Avgoustos Tsinakos (tsinakos@teikav.edu.gr)                         //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // Programming and development:                                            //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // For bugs, suggestions, etc contact:                                     //
-//     Jon Papaioannou (pj@moodle.org)                                     //
+//     Jon Papaioannou (pj@lion.org)                                     //
 //                                                                         //
 // The current module was developed at the University of Macedonia         //
 // (www.uom.gr) under the funding of the Greek School Network (www.sch.gr) //
@@ -39,11 +46,8 @@
 /////////////////////////////////////////////////////////////////////////////
 
 /**
- * This file is part of the User section Moodle
+ * This file is part of the User section Lion
  *
- * @copyright 2003-2004 Jon Papaioannou (pj@moodle.org)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v2 or later
- * @package calendar
  */
 
 require_once('../config.php');
@@ -87,7 +91,7 @@ if ($courseid != SITEID && !empty($courseid)) {
 }
 require_course_login($course);
 
-$url = new moodle_url('/calendar/export.php', array('time' => $time));
+$url = new lion_url('/calendar/export.php', array('time' => $time));
 
 if ($action !== '') {
     $url->param('action', $action);
@@ -105,9 +109,9 @@ $pagetitle = get_string('export', 'calendar');
 
 // Print title and header
 if ($issite) {
-    $PAGE->navbar->add($course->shortname, new moodle_url('/course/view.php', array('id'=>$course->id)));
+    $PAGE->navbar->add($course->shortname, new lion_url('/course/view.php', array('id'=>$course->id)));
 }
-$link = new moodle_url(CALENDAR_URL.'view.php', array('view'=>'upcoming', 'course'=>$calendar->courseid));
+$link = new lion_url(CALENDAR_URL.'view.php', array('view'=>'upcoming', 'course'=>$calendar->courseid));
 $PAGE->navbar->add(get_string('calendar', 'calendar'), calendar_get_link_href($link, 0, 0, 0, $time));
 $PAGE->navbar->add($pagetitle);
 
@@ -148,7 +152,7 @@ if ($data = $exportform->get_data()) {
     $params['preset_what'] = $data->events['exportevents'];
     $params['preset_time'] = $data->period['timeperiod'];
 
-    $link = new moodle_url('/calendar/export_execute.php', $params);
+    $link = new lion_url('/calendar/export_execute.php', $params);
     if (!empty($data->generateurl)) {
         $urlclasses = array('class' => 'generalbox calendarurl');
         $calendarurl = html_writer::tag( 'div', get_string('calendarurl', 'calendar', $link->out()), $urlclasses);

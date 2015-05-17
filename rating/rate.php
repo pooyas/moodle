@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This page receives non-ajax rating submissions
  *
  * It is similar to rate_ajax.php. Unlike rate_ajax.php a return url is required.
  *
- * @package    core_rating
  * @category   rating
- * @copyright  2010 Andrew Davis
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage rating
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -46,7 +33,7 @@ $contextid = null; // Now we have a context object, throw away the id from the u
 $PAGE->set_context($context);
 $PAGE->set_url('/rating/rate.php', array('contextid' => $context->id));
 
-if (!confirm_sesskey() || !has_capability('moodle/rating:rate', $context)) {
+if (!confirm_sesskey() || !has_capability('lion/rating:rate', $context)) {
     print_error('ratepermissiondenied', 'rating');
 }
 

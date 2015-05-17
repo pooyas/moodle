@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Display user activity reports for a course
  *
- * @package   mod_forum
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage forum
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -44,7 +31,7 @@ $discussionsonly = ($mode !== 'posts');
 $isspecificcourse = !is_null($courseid);
 $iscurrentuser = ($USER->id == $userid);
 
-$url = new moodle_url('/mod/forum/user.php', array('id' => $userid));
+$url = new lion_url('/mod/forum/user.php', array('id' => $userid));
 if ($isspecificcourse) {
     $url->param('course', $courseid);
 }
@@ -83,7 +70,7 @@ if ($user->deleted) {
 $isloggedin = isloggedin();
 $isguestuser = $isloggedin && isguestuser();
 $isparent = !$iscurrentuser && $DB->record_exists('role_assignments', array('userid'=>$USER->id, 'contextid'=>$usercontext->id));
-$hasparentaccess = $isparent && has_all_capabilities(array('moodle/user:viewdetails', 'moodle/user:readuserposts'), $usercontext);
+$hasparentaccess = $isparent && has_all_capabilities(array('lion/user:viewdetails', 'lion/user:readuserposts'), $usercontext);
 
 // Check whether a specific course has been requested
 if ($isspecificcourse) {
@@ -142,7 +129,7 @@ if (empty($result->posts)) {
     $canviewuser = ($iscurrentuser || $isspecificcourse || empty($CFG->forceloginforprofiles) || has_coursecontact_role($userid));
     // Next we'll check the caps, if the current user has the view details and a
     // specific course has been requested, or if they have the view all details
-    $canviewuser = ($canviewuser || ($isspecificcourse && has_capability('moodle/user:viewdetails', $coursecontext) || has_capability('moodle/user:viewalldetails', $usercontext)));
+    $canviewuser = ($canviewuser || ($isspecificcourse && has_capability('lion/user:viewdetails', $coursecontext) || has_capability('lion/user:viewalldetails', $usercontext)));
 
     // If none of the above was true the next step is to check a shared relation
     // through some course
@@ -151,7 +138,7 @@ if (empty($result->posts)) {
         $sharedcourses = enrol_get_shared_courses($USER->id, $user->id, true);
         foreach ($sharedcourses as $sharedcourse) {
             // Check the view cap within the course context
-            if (has_capability('moodle/user:viewdetails', context_course::instance($sharedcourse->id))) {
+            if (has_capability('lion/user:viewdetails', context_course::instance($sharedcourse->id))) {
                 $canviewuser = true;
                 break;
             }
@@ -193,9 +180,9 @@ if (empty($result->posts)) {
         // the current uesr doesn't have access to.
         $notification = get_string('cannotviewusersposts', 'forum');
         if ($isspecificcourse) {
-            $url = new moodle_url('/course/view.php', array('id' => $courseid));
+            $url = new lion_url('/course/view.php', array('id' => $courseid));
         } else {
-            $url = new moodle_url('/');
+            $url = new lion_url('/');
         }
         navigation_node::override_active_url($url);
     }
@@ -240,8 +227,8 @@ foreach ($result->posts as $post) {
     $discussion = $discussions[$post->discussion];
     $course = $result->courses[$discussion->course];
 
-    $forumurl = new moodle_url('/mod/forum/view.php', array('id' => $cm->id));
-    $discussionurl = new moodle_url('/mod/forum/discuss.php', array('d' => $post->discussion));
+    $forumurl = new lion_url('/mod/forum/view.php', array('id' => $cm->id));
+    $discussionurl = new lion_url('/mod/forum/discuss.php', array('d' => $post->discussion));
 
     // load ratings
     if ($forum->assessed != RATING_AGGREGATE_NONE) {
@@ -268,7 +255,7 @@ foreach ($result->posts as $post) {
 
     $fullsubjects = array();
     if (!$isspecificcourse && !$hasparentaccess) {
-        $fullsubjects[] = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)), $courseshortname);
+        $fullsubjects[] = html_writer::link(new lion_url('/course/view.php', array('id' => $course->id)), $courseshortname);
         $fullsubjects[] = html_writer::link($forumurl, $forumname);
     } else {
         $fullsubjects[] = html_writer::tag('span', $courseshortname);
@@ -284,7 +271,7 @@ foreach ($result->posts as $post) {
         if ($post->parent != 0) {
             $postname = format_string($post->subject, true, array('context' => $cm->context));
             if (!$isspecificcourse && !$hasparentaccess) {
-                $fullsubjects[] .= html_writer::link(new moodle_url('/mod/forum/discuss.php', array('d' => $post->discussion, 'parent' => $post->id)), $postname);
+                $fullsubjects[] .= html_writer::link(new lion_url('/mod/forum/discuss.php', array('d' => $post->discussion, 'parent' => $post->id)), $postname);
             } else {
                 $fullsubjects[] .= html_writer::tag('span', $postname);
             }

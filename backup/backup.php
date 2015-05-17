@@ -1,23 +1,17 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    core
+ * @subpackage backup
+ * @copyright  2015 Pooya Saeedi
+*/
 
 require_once('../config.php');
 require_once($CFG->dirroot . '/backup/util/includes/backup_includes.php');
-require_once($CFG->dirroot . '/backup/moodle2/backup_plan_builder.class.php');
+require_once($CFG->dirroot . '/backup/lion2/backup_plan_builder.class.php');
 
 
 $courseid = required_param('id', PARAM_INT);
@@ -28,7 +22,7 @@ $cmid = optional_param('cm', null, PARAM_INT);
  */
 $backupid = optional_param('backup', false, PARAM_ALPHANUM);
 
-$url = new moodle_url('/backup/backup.php', array('id'=>$courseid));
+$url = new lion_url('/backup/backup.php', array('id'=>$courseid));
 if ($sectionid !== null) {
     $url->param('section', $sectionid);
 }
@@ -56,12 +50,12 @@ require_login($course, false, $cm);
 
 switch ($type) {
     case backup::TYPE_1COURSE :
-        require_capability('moodle/backup:backupcourse', context_course::instance($course->id));
+        require_capability('lion/backup:backupcourse', context_course::instance($course->id));
         $heading = get_string('backupcourse', 'backup', $course->shortname);
         break;
     case backup::TYPE_1SECTION :
         $coursecontext = context_course::instance($course->id);
-        require_capability('moodle/backup:backupsection', $coursecontext);
+        require_capability('lion/backup:backupsection', $coursecontext);
         if ((string)$section->name !== '') {
             $sectionname = format_string($section->name, true, array('context' => $coursecontext));
             $heading = get_string('backupsection', 'backup', $sectionname);
@@ -72,7 +66,7 @@ switch ($type) {
         }
         break;
     case backup::TYPE_1ACTIVITY :
-        require_capability('moodle/backup:backupactivity', context_module::instance($cm->id));
+        require_capability('lion/backup:backupactivity', context_module::instance($cm->id));
         $heading = get_string('backupactivity', 'backup', $cm->name);
         break;
     default :
@@ -84,7 +78,7 @@ switch ($type) {
 raise_memory_limit(MEMORY_EXTRA);
 
 if (!($bc = backup_ui::load_controller($backupid))) {
-    $bc = new backup_controller($type, $id, backup::FORMAT_MOODLE,
+    $bc = new backup_controller($type, $id, backup::FORMAT_LION,
                             backup::INTERACTIVE_YES, backup::MODE_GENERAL, $USER->id);
 }
 $backup = new backup_ui($bc);

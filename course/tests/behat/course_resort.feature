@@ -1,6 +1,6 @@
 @core @core_course
 Feature: Test we can resort course in the management interface.
-  As a moodle admin
+  As a lion admin
   I need to test we can resort courses within a category.
   I need to test we can manually sort courses.
 

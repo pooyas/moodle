@@ -1,8 +1,9 @@
 <?php
 /**
  * Romanian PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author Catalin Constantin <catalin@dazoot.ro>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Eroare SMTP: Nu a functionat autentificarea.';

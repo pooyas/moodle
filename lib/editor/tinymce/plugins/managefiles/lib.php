@@ -1,27 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
+
+
+/**
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') || die();
 
 /**
  * Plugin for managing files embedded in the text editor
  *
- * @package   tinymce_managefiles
- * @copyright 2013 Marina Glancy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tinymce_managefiles extends editor_tinymce_plugin {
     /** @var array list of buttons defined by this plugin */
@@ -62,11 +53,11 @@ class tinymce_managefiles extends editor_tinymce_plugin {
             }
         }
 
-        if ($row = $this->find_button($params, 'moodlemedia')) {
-            // Add button after 'moodlemedia' button.
-            $this->add_button_after($params, $row, 'managefiles', 'moodlemedia');
+        if ($row = $this->find_button($params, 'lionmedia')) {
+            // Add button after 'lionmedia' button.
+            $this->add_button_after($params, $row, 'managefiles', 'lionmedia');
         } else if ($row = $this->find_button($params, 'image')) {
-            // If 'moodlemedia' is not found add after 'image'.
+            // If 'lionmedia' is not found add after 'image'.
             $this->add_button_after($params, $row, 'managefiles', 'image');
         } else {
             // OTherwise add button in the end of the last row.

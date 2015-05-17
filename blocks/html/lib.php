@@ -1,25 +1,9 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Form for editing HTML block instances.
  *
- * @copyright 2010 Petr Skoda (http://skodak.org)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package   block_html
  * @category  files
  * @param stdClass $course course object
  * @param stdClass $birecord_or_cm block instance record
@@ -30,6 +14,9 @@
  * @param array $options additional options affecting the file serving
  * @return bool
  * @todo MDL-36050 improve capability check on stick blocks, so we can check user capability before sending images.
+ * @package    blocks
+ * @subpackage html
+ * @copyright  2015 Pooya Saeedi
  */
 function block_html_pluginfile($course, $birecord_or_cm, $context, $filearea, $args, $forcedownload, array $options=array()) {
     global $DB, $CFG, $USER;
@@ -50,7 +37,7 @@ function block_html_pluginfile($course, $birecord_or_cm, $context, $filearea, $a
             // Check if category is visible and user can view this category.
             $category = $DB->get_record('course_categories', array('id' => $parentcontext->instanceid), '*', MUST_EXIST);
             if (!$category->visible) {
-                require_capability('moodle/category:viewhiddencategories', $parentcontext);
+                require_capability('lion/category:viewhiddencategories', $parentcontext);
             }
         } else if ($parentcontext->contextlevel === CONTEXT_USER && $parentcontext->instanceid != $USER->id) {
             // The block is in the context of a user, it is only visible to the user who it belongs to.

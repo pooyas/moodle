@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Mime
- * @copyright 2010-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Mime
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Horde_Mime_Translation is the translation wrapper class for Horde_Mime.
  *
- * @author    Jan Schneider <jan@horde.org>
  * @category  Mime
- * @copyright 2010-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Mime
  */
 class Horde_Mime_Translation extends Horde_Translation
 {

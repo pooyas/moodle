@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /*
 V5.19  23-Apr-2014  (c) 2000-2014 John Lim (jlim#natsoft.com). All rights reserved.
   Released under both BSD license and Lesser GPL library license.
@@ -979,7 +986,6 @@ class ADORecordset_mssqlnative extends ADORecordSet {
 	 * into the _fieldobjs array once, to save multiple calls to the
 	 * sqlsrv_field_metadata function
 	 *
-	 * @author 	KM Newnham
 	 * @date 	02/20/2013
 	 */
 	function FetchField($fieldOffset = -1)

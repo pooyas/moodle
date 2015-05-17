@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /// This page allows to edit entries categories for a particular instance of glossary
 
 require_once("../../config.php");
@@ -16,7 +23,7 @@ $mode   = optional_param('mode', '', PARAM_ALPHA);   // cat
 
 $action = strtolower($action);
 
-$url = new moodle_url('/mod/glossary/editcategories.php', array('id'=>$id));
+$url = new lion_url('/mod/glossary/editcategories.php', array('id'=>$id));
 if ($usedynalink !== 0) {
     $url->param('usedynalink', $usedynalink);
 }
@@ -70,7 +77,7 @@ $strglossaries   = get_string("modulenameplural", "glossary");
 $strglossary     = get_string("modulename", "glossary");
 
 $PAGE->navbar->add(get_string("categories","glossary"),
-        new moodle_url('/mod/glossary/editcategories.php', array('id' => $cm->id,'mode' => 'cat')));
+        new lion_url('/mod/glossary/editcategories.php', array('id' => $cm->id,'mode' => 'cat')));
 if (!empty($action)) {
     $navaction = get_string($action). " " . core_text::strtolower(get_string("category","glossary"));
     $PAGE->navbar->add($navaction);
@@ -180,9 +187,16 @@ if ( $hook >0 ) {
                         <td align="$leftalignment" style="width:50%">
 
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
             unset($options);
             $options = array ("id" => $id);
-            echo $OUTPUT->single_button(new moodle_url("editcategories.php", $options), get_string("no"));
+            echo $OUTPUT->single_button(new lion_url("editcategories.php", $options), get_string("no"));
             echo "</td></tr></table>";
             echo "</div>";
             echo $OUTPUT->box_end();
@@ -247,6 +261,13 @@ echo $OUTPUT->heading(format_string($glossary->name), 2);
 
 
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
     $categories = $DB->get_records("glossary_categories", array("glossaryid"=>$glossary->id), "name ASC");
 
     if ( $categories ) {
@@ -258,11 +279,25 @@ echo $OUTPUT->heading(format_string($glossary->name), 2);
              <tr>
                <td style="width:80%" align="$leftalignment">
                <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
                     echo "<span class=\"bold\">".format_string($category->name, true, $fmtoptions)."</span> <span>($num_entries " . get_string("entries","glossary") . ")</span>";
                ?>
                </td>
                <td style="width:19%" align="center" class="action">
                <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
                 echo "<a href=\"editcategories.php?id=$cm->id&amp;action=delete&amp;mode=cat&amp;hook=$category->id\"><img  alt=\"" . get_string("delete") . "\"src=\"" . $OUTPUT->pix_url('t/delete') . "\" class=\"iconsmall\" /></a> ";
                 echo "<a href=\"editcategories.php?id=$cm->id&amp;action=edit&amp;mode=cat&amp;hook=$category->id\"><img  alt=\"" . get_string("edit") . "\" src=\"" . $OUTPUT->pix_url('t/edit') . "\" class=\"iconsmall\" /></a>";
                ?>
@@ -270,6 +305,13 @@ echo $OUTPUT->heading(format_string($glossary->name), 2);
              </tr>
 
              <?php
+
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
 
           }
         echo '</table>';
@@ -281,16 +323,23 @@ echo $OUTPUT->heading(format_string($glossary->name), 2);
         <td style="width:100%" colspan="2"  align="center">
             <?php
 
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
              $options['id'] = $cm->id;
              $options['action'] = "add";
 
              echo "<table class=\"editbuttons\" border=\"0\"><tr><td align=\"$rightalignment\">";
-             echo $OUTPUT->single_button(new moodle_url("editcategories.php", $options), get_string("add") . " " . get_string("category","glossary"));
+             echo $OUTPUT->single_button(new lion_url("editcategories.php", $options), get_string("add") . " " . get_string("category","glossary"));
              echo "</td><td align=\"$leftalignment\">";
              unset($options['action']);
              $options['mode'] = 'cat';
              $options['hook'] = $hook;
-             echo $OUTPUT->single_button(new moodle_url("view.php", $options), get_string("back","glossary"));
+             echo $OUTPUT->single_button(new lion_url("view.php", $options), get_string("back","glossary"));
              echo "</td></tr>";
              echo "</table>";
 
@@ -303,4 +352,11 @@ echo $OUTPUT->heading(format_string($glossary->name), 2);
 </form>
 
 <?php
+
+/**
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
+*/
+
 echo $OUTPUT->footer();

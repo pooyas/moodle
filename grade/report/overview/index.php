@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The gradebook overview report
  *
- * @package   gradereport_overview
- * @copyright 2007 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage overview
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../../../config.php';
@@ -30,7 +17,7 @@ require_once $CFG->dirroot.'/grade/report/overview/lib.php';
 $courseid = required_param('id', PARAM_INT);
 $userid   = optional_param('userid', $USER->id, PARAM_INT);
 
-$PAGE->set_url(new moodle_url('/grade/report/overview/index.php', array('id'=>$courseid)));
+$PAGE->set_url(new lion_url('/grade/report/overview/index.php', array('id'=>$courseid)));
 
 /// basic access checks
 if (!$course = $DB->get_record('course', array('id' => $courseid))) {
@@ -43,7 +30,7 @@ $systemcontext = context_system::instance();
 require_capability('gradereport/overview:view', $context);
 
 if (empty($userid)) {
-    require_capability('moodle/grade:viewall', $context);
+    require_capability('lion/grade:viewall', $context);
 
 } else {
     if (!$DB->get_record('user', array('id'=>$userid, 'deleted'=>0)) or isguestuser($userid)) {
@@ -52,19 +39,19 @@ if (empty($userid)) {
 }
 
 $access = false;
-if (has_capability('moodle/grade:viewall', $systemcontext)) {
+if (has_capability('lion/grade:viewall', $systemcontext)) {
     // Ok - can view all course grades.
     $access = true;
 
-} else if (has_capability('moodle/grade:viewall', $context)) {
+} else if (has_capability('lion/grade:viewall', $context)) {
     // Ok - can view any grades in context.
     $access = true;
 
-} else if ($userid == $USER->id and has_capability('moodle/grade:view', $context) and $course->showgrades) {
+} else if ($userid == $USER->id and has_capability('lion/grade:view', $context) and $course->showgrades) {
     // Ok - can view own course grades.
     $access = true;
 
-} else if (has_capability('moodle/grade:viewall', context_user::instance($userid)) and $course->showgrades) {
+} else if (has_capability('lion/grade:viewall', context_user::instance($userid)) and $course->showgrades) {
     // Ok - can view grades of this user- parent most probably.
     $access = true;
 }
@@ -86,7 +73,7 @@ $USER->grade_last_report[$course->id] = 'overview';
 //first make sure we have proper final grades - this must be done before constructing of the grade tree
 grade_regrade_final_grades($courseid);
 
-if (has_capability('moodle/grade:viewall', $context)) {
+if (has_capability('lion/grade:viewall', $context)) {
     // Please note this would be extremely slow if we wanted to implement this properly for all teachers.
     $groupmode    = groups_get_course_groupmode($course);   // Groups are being used
     $currentgroup = groups_get_course_group($course, true);
@@ -95,7 +82,7 @@ if (has_capability('moodle/grade:viewall', $context)) {
         $currentgroup = NULL;
     }
 
-    $isseparategroups = ($course->groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context));
+    $isseparategroups = ($course->groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context));
 
     if ($isseparategroups and (!$currentgroup)) {
         // no separate group access, can view only self

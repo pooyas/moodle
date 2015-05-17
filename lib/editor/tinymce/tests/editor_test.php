@@ -1,38 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * TinyMCE tests.
  *
- * @package   editor_tinymce
  * @category  phpunit
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * TinyMCE tests.
  *
- * @package   editor_tinymce
  * @category  phpunit
- * @copyright 2012 Petr Skoda {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class editor_tinymce_testcase extends advanced_testcase {
 
@@ -66,7 +50,7 @@ class editor_tinymce_testcase extends advanced_testcase {
         $plugin = new tinymce_testplugin(__DIR__);
         $config = get_config('editor_tinymce');
         $params = array(
-            'moodle_config' => $config,
+            'lion_config' => $config,
             'entity_encoding' => "raw",
             'plugins' => 'lists,table,style,layer,advhr,advlink,emotions,inlinepopups,' .
                 'searchreplace,paste,directionality,fullscreen,nonbreaking,contextmenu,' .
@@ -74,7 +58,7 @@ class editor_tinymce_testcase extends advanced_testcase {
                 'xhtmlxtras,template,pagebreak',
             'gecko_spellcheck' => true,
             'theme_advanced_font_sizes' => "1,2,3,4,5,6,7",
-            'moodle_plugin_base' => "$CFG->httpswwwroot/lib/editor/tinymce/plugins/",
+            'lion_plugin_base' => "$CFG->httpswwwroot/lib/editor/tinymce/plugins/",
             'theme_advanced_font_sizes' => "1,2,3,4,5,6,7",
             'theme_advanced_layout_manager' => "SimpleLayout",
             'theme_advanced_buttons1' => 'one,two,|,three,four',
@@ -157,10 +141,7 @@ class editor_tinymce_testcase extends advanced_testcase {
 /**
  * Pseudo plugin class for testing editor_tinymce_plugin protected methods
  *
- * @package   editor_tinymce
  * @category  phpunit
- * @copyright 2013 Marina Glancy
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tinymce_testplugin extends editor_tinymce_plugin {
     protected function update_init_params(array &$params, context $context, array $options = null) {

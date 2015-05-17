@@ -6,6 +6,9 @@
  *       really, one shouldn't inherit from the other.  Only altered behavior
  *       is to overload a returned false with an array.  Thus, it will never
  *       return false.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ChildDef_Optional extends HTMLPurifier_ChildDef_Required
 {

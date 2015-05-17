@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Edit page for grade outcomes.
  *
- * @package   core_grades
- * @copyright 2008 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../../../config.php';
@@ -30,7 +17,7 @@ require_once 'edit_form.php';
 $courseid = optional_param('courseid', 0, PARAM_INT);
 $id       = optional_param('id', 0, PARAM_INT);
 
-$url = new moodle_url('/grade/edit/outcome/edit.php');
+$url = new lion_url('/grade/edit/outcome/edit.php');
 if ($courseid !== 0) {
     $url->param('courseid', $courseid);
 }
@@ -58,7 +45,7 @@ if ($id) {
         }
         require_login($course);
         $context = context_course::instance($course->id);
-        require_capability('moodle/grade:manage', $context);
+        require_capability('lion/grade:manage', $context);
         $courseid = $course->id;
     } else {
         if ($courseid) {
@@ -69,7 +56,7 @@ if ($id) {
         $outcome_rec->standard = 1;
         $outcome_rec->courseid = $courseid;
         require_login();
-        require_capability('moodle/grade:manage', $systemcontext);
+        require_capability('lion/grade:manage', $systemcontext);
     }
 
 } else if ($courseid){
@@ -78,15 +65,15 @@ if ($id) {
     $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
     require_login($course);
     $context = context_course::instance($course->id);
-    require_capability('moodle/grade:manage', $context);
-    navigation_node::override_active_url(new moodle_url('/grade/edit/outcome/course.php', array('id'=>$courseid)));
+    require_capability('lion/grade:manage', $context);
+    navigation_node::override_active_url(new lion_url('/grade/edit/outcome/course.php', array('id'=>$courseid)));
 
     $outcome_rec = new stdClass();
     $outcome_rec->standard = 0;
     $outcome_rec->courseid = $courseid;
 } else {
     require_login();
-    require_capability('moodle/grade:manage', $systemcontext);
+    require_capability('lion/grade:manage', $systemcontext);
 
     /// adding new outcome from admin section
     $outcome_rec = new stdClass();
@@ -132,7 +119,7 @@ if ($mform->is_cancelled()) {
     if (empty($outcome->id)) {
         $data->description = $data->description_editor['text'];
         grade_outcome::set_properties($outcome, $data);
-        if (!has_capability('moodle/grade:manage', $systemcontext)) {
+        if (!has_capability('lion/grade:manage', $systemcontext)) {
             $data->standard = 0;
         }
         $outcome->courseid = !empty($data->standard) ? null : $courseid;

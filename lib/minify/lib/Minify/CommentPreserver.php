@@ -1,14 +1,14 @@
 <?php
 /**
- * Class Minify_CommentPreserver 
- * @package Minify
+ * Class Minify_CommentPreserver
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * Process a string in pieces preserving C-style comments that begin with "/*!"
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class Minify_CommentPreserver {
     

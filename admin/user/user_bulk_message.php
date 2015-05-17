@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    admin
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
+*/
+
 require_once('../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 require_once($CFG->dirroot.'/message/lib.php');
@@ -9,7 +16,7 @@ $confirm = optional_param('confirm', 0, PARAM_BOOL);
 
 require_login();
 admin_externalpage_setup('userbulk');
-require_capability('moodle/site:readallmessages', context_system::instance());
+require_capability('lion/site:readallmessages', context_system::instance());
 
 $return = $CFG->wwwroot.'/'.$CFG->admin.'/user/user_bulk.php';
 
@@ -27,7 +34,7 @@ if ($confirm and !empty($msg) and confirm_sesskey()) {
     list($in, $params) = $DB->get_in_or_equal($SESSION->bulk_users);
     $rs = $DB->get_recordset_select('user', "id $in", $params);
     foreach ($rs as $user) {
-        //TODO we should probably support all text formats here or only FORMAT_MOODLE
+        //TODO we should probably support all text formats here or only FORMAT_LION
         //For now bulk messaging is still using the html editor and its supplying html
         //so we have to use html format for it to be displayed correctly
         message_post_message($USER, $user, $msg, FORMAT_HTML);
@@ -56,8 +63,8 @@ if ($msgform->is_cancelled()) {
     echo $OUTPUT->heading(get_string('confirmation', 'admin'));
     echo $OUTPUT->box($msg, 'boxwidthnarrow boxaligncenter generalbox', 'preview'); //TODO: clean once we start using proper text formats here
 
-    $formcontinue = new single_button(new moodle_url('user_bulk_message.php', array('confirm' => 1, 'msg' => $msg)), get_string('yes')); //TODO: clean once we start using proper text formats here
-    $formcancel = new single_button(new moodle_url('user_bulk.php'), get_string('no'), 'get');
+    $formcontinue = new single_button(new lion_url('user_bulk_message.php', array('confirm' => 1, 'msg' => $msg)), get_string('yes')); //TODO: clean once we start using proper text formats here
+    $formcancel = new single_button(new lion_url('user_bulk.php'), get_string('no'), 'get');
     echo $OUTPUT->confirm(get_string('confirmmessage', 'bulkusers', $usernames), $formcontinue, $formcancel);
     echo $OUTPUT->footer();
     die;

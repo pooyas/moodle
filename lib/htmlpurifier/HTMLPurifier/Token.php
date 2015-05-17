@@ -2,6 +2,9 @@
 
 /**
  * Abstract base token class that all others inherit from.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_Token
 {

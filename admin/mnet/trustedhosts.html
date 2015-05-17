@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
 echo $OUTPUT->header();
 ?>
 <div id="trustedhosts"><!-- See theme/standard/styles_layout.css #trustedhosts .generaltable for rules -->
@@ -26,11 +33,25 @@ echo $OUTPUT->header();
         <th class="header c0" colspan="2"><?php print_string('testtrustedhosts', 'mnet'); ?></th>
     </tr>
 <?php
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
     if (!empty($test_ip_address)){
 ?>
     <tr>
         <td class="cell c1" colspan="2">
             <?php
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
                 if ($in_range) {
                     print_string('is_in_range',  'mnet', $test_ip_address);
                     echo '<br />';
@@ -42,12 +63,26 @@ echo $OUTPUT->header();
         </td>
     </tr>
 <?php
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
    } else {
 ?>
     <tr>
         <td class="cell c1" colspan="2"><?php print_string('testtrustedhostsexplain', 'mnet'); ?></td>
     </tr>
 <?php
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
    }
 ?>
     <tr>
@@ -64,5 +99,12 @@ echo $OUTPUT->header();
 </table>
 </div>
 <?php
+
+/**
+ * @package    admin
+ * @subpackage mnet
+ * @copyright  2015 Pooya Saeedi
+*/
+
 echo $OUTPUT->footer();
 ?>

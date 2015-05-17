@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Scheduled task class.
  *
  * @package    core
- * @copyright  2013 onwards Martin Dougiamas  http://dougiamas.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 namespace core\task;
 
@@ -51,7 +38,7 @@ class send_failed_login_notifications_task extends scheduled_task {
             return;
         }
 
-        $recip = get_users_from_config($CFG->notifyloginfailures, 'moodle/site:config');
+        $recip = get_users_from_config($CFG->notifyloginfailures, 'lion/site:config');
 
         // Do not look back more than 1 month to avoid crashes due to huge number of records.
         $maximumlastnotifytime = time() - self::NOTIFY_MAXIMUM_TIME;
@@ -161,7 +148,7 @@ class send_failed_login_notifications_task extends scheduled_task {
             $subject = get_string('notifyloginfailuressubject', '', format_string($site->fullname));
             // Calculate the complete body of notification (start + messages + end).
             $params = array('id' => 0, 'modid' => 'site_errors', 'chooselog' => '1', 'logreader' => $readername);
-            $url = new \moodle_url('/report/log/index.php', $params);
+            $url = new \lion_url('/report/log/index.php', $params);
             $body = get_string('notifyloginfailuresmessagestart', '', $CFG->wwwroot) .
                     (($CFG->lastnotifyfailure != 0) ? '('.userdate($CFG->lastnotifyfailure).')' : '')."\n\n" .
                     $messages .

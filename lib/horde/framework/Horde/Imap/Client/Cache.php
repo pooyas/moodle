@@ -6,19 +6,15 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2005-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
  * An interface to cache data retrieved from the IMAP server.
  *
- * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2005-2014 Horde LLC
- * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @package   Imap_Client
  */
 class Horde_Imap_Client_Cache
 {
@@ -250,7 +246,6 @@ class Horde_Imap_Client_Cache
     /**
      * Clear the cache.
      *
-     * @since 2.9.0
      *
      * @param integer $lifetime  Only delete entries older than this (in
      *                           seconds). If null, deletes all entries.

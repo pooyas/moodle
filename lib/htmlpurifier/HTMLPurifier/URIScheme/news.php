@@ -2,6 +2,9 @@
 
 /**
  * Validates news (Usenet) as defined by generic RFC 1738
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIScheme_news extends HTMLPurifier_URIScheme
 {

@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify  
- * @package Minify
+ * Class Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
  
 /**
@@ -15,11 +17,6 @@
  * Requires PHP 5.1.0.
  * Tested on PHP 5.1.6.
  *
- * @package Minify
- * @author Ryan Grove <ryan@wonko.com>
- * @author Stephen Clay <steve@mrclay.org>
- * @copyright 2008 Ryan Grove, Stephen Clay. All rights reserved.
- * @license http://opensource.org/licenses/bsd-license.php  New BSD License
  * @link http://code.google.com/p/minify/
  */
 class Minify {

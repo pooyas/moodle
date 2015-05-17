@@ -1,41 +1,24 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * External course API
  *
- * @package    core_course
  * @category   external
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
 /**
  * Course external functions
  *
- * @package    core_course
  * @category   external
- * @copyright  2011 Jerome Mouneyrac
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.2
  */
 class core_course_external extends external_api {
 
@@ -43,8 +26,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.9 Options available
-     * @since Moodle 2.2
      */
     public static function get_course_contents_parameters() {
         return new external_function_parameters(
@@ -64,7 +45,7 @@ class core_course_external extends external_api {
                                     'value' => new external_value(PARAM_RAW, 'the value of the option,
                                                                     this param is personaly validated in the external function.')
                               )
-                      ), 'Options, used since Moodle 2.9', VALUE_DEFAULT, array())
+                      ), 'Options, used since Lion 2.9', VALUE_DEFAULT, array())
                 )
         );
     }
@@ -73,10 +54,8 @@ class core_course_external extends external_api {
      * Get course contents
      *
      * @param int $courseid course id
-     * @param array $options Options for filtering the results, used since Moodle 2.9
+     * @param array $options Options for filtering the results, used since Lion 2.9
      * @return array
-     * @since Moodle 2.9 Options available
-     * @since Moodle 2.2
      */
     public static function get_course_contents($courseid, $options = array()) {
         global $CFG, $DB;
@@ -107,7 +86,7 @@ class core_course_external extends external_api {
                             if (is_numeric($value)) {
                                 $filters[$name] = $value;
                             } else {
-                                throw new moodle_exception('errorinvalidparam', 'webservice', '', $name);
+                                throw new lion_exception('errorinvalidparam', 'webservice', '', $name);
                             }
                             break;
                         case 'modname':
@@ -115,11 +94,11 @@ class core_course_external extends external_api {
                             if ($value) {
                                 $filters[$name] = $value;
                             } else {
-                                throw new moodle_exception('errorinvalidparam', 'webservice', '', $name);
+                                throw new lion_exception('errorinvalidparam', 'webservice', '', $name);
                             }
                             break;
                         default:
-                            throw new moodle_exception('errorinvalidparam', 'webservice', '', $name);
+                            throw new lion_exception('errorinvalidparam', 'webservice', '', $name);
                     }
                 }
             }
@@ -131,7 +110,7 @@ class core_course_external extends external_api {
         if ($course->id != SITEID) {
             // Check course format exist.
             if (!file_exists($CFG->dirroot . '/course/format/' . $course->format . '/lib.php')) {
-                throw new moodle_exception('cannotgetcoursecontents', 'webservice', '', null,
+                throw new lion_exception('cannotgetcoursecontents', 'webservice', '', null,
                                             get_string('courseformatnotfound', 'error', $course->format));
             } else {
                 require_once($CFG->dirroot . '/course/format/' . $course->format . '/lib.php');
@@ -146,16 +125,16 @@ class core_course_external extends external_api {
             $exceptionparam = new stdClass();
             $exceptionparam->message = $e->getMessage();
             $exceptionparam->courseid = $course->id;
-            throw new moodle_exception('errorcoursecontextnotvalid', 'webservice', '', $exceptionparam);
+            throw new lion_exception('errorcoursecontextnotvalid', 'webservice', '', $exceptionparam);
         }
 
-        $canupdatecourse = has_capability('moodle/course:update', $context);
+        $canupdatecourse = has_capability('lion/course:update', $context);
 
         //create return value
         $coursecontents = array();
 
         if ($canupdatecourse or $course->visible
-                or has_capability('moodle/course:viewhiddencourses', $context)) {
+                or has_capability('lion/course:viewhiddencourses', $context)) {
 
             //retrieve sections
             $modinfo = get_fast_modinfo($course);
@@ -261,7 +240,7 @@ class core_course_external extends external_api {
                             $module['url'] = $url->out(false);
                         }
 
-                        $canviewhidden = has_capability('moodle/course:viewhiddenactivities',
+                        $canviewhidden = has_capability('lion/course:viewhiddenactivities',
                                             context_module::instance($cm->id));
                         //user that can view hidden module should know about the visibility
                         $module['visible'] = $cm->visible;
@@ -314,7 +293,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function get_course_contents_returns() {
         return new external_multiple_structure(
@@ -354,7 +332,7 @@ class core_course_external extends external_api {
                                                   'sortorder' => new external_value(PARAM_INT, 'Content sort order'),
 
                                                   // copyright related info
-                                                  'userid' => new external_value(PARAM_INT, 'User who added this content to moodle'),
+                                                  'userid' => new external_value(PARAM_INT, 'User who added this content to lion'),
                                                   'author' => new external_value(PARAM_TEXT, 'Content owner'),
                                                   'license' => new external_value(PARAM_TEXT, 'Content license'),
                                               )
@@ -372,7 +350,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function get_courses_parameters() {
         return new external_function_parameters(
@@ -392,7 +369,6 @@ class core_course_external extends external_api {
      *
      * @param array $options It contains an array (list of ids)
      * @return array
-     * @since Moodle 2.2
      */
     public static function get_courses($options = array()) {
         global $CFG, $DB;
@@ -423,9 +399,9 @@ class core_course_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->courseid = $course->id;
-                throw new moodle_exception('errorcoursecontextnotvalid', 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcoursecontextnotvalid', 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:view', $context);
+            require_capability('lion/course:view', $context);
 
             $courseinfo = array();
             $courseinfo['id'] = $course->id;
@@ -442,7 +418,7 @@ class core_course_external extends external_api {
             }
 
             //some field should be returned only if the user has update permission
-            $courseadmin = has_capability('moodle/course:update', $context);
+            $courseadmin = has_capability('lion/course:update', $context);
             if ($courseadmin) {
                 $courseinfo['categorysortorder'] = $course->sortorder;
                 $courseinfo['idnumber'] = $course->idnumber;
@@ -474,7 +450,7 @@ class core_course_external extends external_api {
             }
 
             if ($courseadmin or $course->visible
-                    or has_capability('moodle/course:viewhiddencourses', $context)) {
+                    or has_capability('lion/course:viewhiddencourses', $context)) {
                 $coursesinfo[] = $courseinfo;
             }
         }
@@ -486,7 +462,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function get_courses_returns() {
         return new external_multiple_structure(
@@ -558,10 +533,9 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
      */
     public static function create_courses_parameters() {
-        $courseconfig = get_config('moodlecourse'); //needed for many default values
+        $courseconfig = get_config('lioncourse'); //needed for many default values
         return new external_function_parameters(
             array(
                 'courses' => new external_multiple_structure(
@@ -632,7 +606,6 @@ class core_course_external extends external_api {
      *
      * @param array $courses
      * @return array courses (id and shortname only)
-     * @since Moodle 2.2
      */
     public static function create_courses($courses) {
         global $CFG, $DB;
@@ -657,20 +630,20 @@ class core_course_external extends external_api {
                 $exceptionparam = new stdClass();
                 $exceptionparam->message = $e->getMessage();
                 $exceptionparam->catid = $course['categoryid'];
-                throw new moodle_exception('errorcatcontextnotvalid', 'webservice', '', $exceptionparam);
+                throw new lion_exception('errorcatcontextnotvalid', 'webservice', '', $exceptionparam);
             }
-            require_capability('moodle/course:create', $context);
+            require_capability('lion/course:create', $context);
 
             // Make sure lang is valid
             if (array_key_exists('lang', $course) and empty($availablelangs[$course['lang']])) {
-                throw new moodle_exception('errorinvalidparam', 'webservice', '', 'lang');
+                throw new lion_exception('errorinvalidparam', 'webservice', '', 'lang');
             }
 
             // Make sure theme is valid
             if (array_key_exists('forcetheme', $course)) {
                 if (!empty($CFG->allowcoursethemes)) {
                     if (empty($availablethemes[$course['forcetheme']])) {
-                        throw new moodle_exception('errorinvalidparam', 'webservice', '', 'forcetheme');
+                        throw new lion_exception('errorinvalidparam', 'webservice', '', 'forcetheme');
                     } else {
                         $course['theme'] = $course['forcetheme'];
                     }
@@ -679,12 +652,12 @@ class core_course_external extends external_api {
 
             //force visibility if ws user doesn't have the permission to set it
             $category = $DB->get_record('course_categories', array('id' => $course['categoryid']));
-            if (!has_capability('moodle/course:visibility', $context)) {
+            if (!has_capability('lion/course:visibility', $context)) {
                 $course['visible'] = $category->visible;
             }
 
             //set default value for completion
-            $courseconfig = get_config('moodlecourse');
+            $courseconfig = get_config('lioncourse');
             if (completion_info::is_enabled_for_site()) {
                 if (!array_key_exists('enablecompletion', $course)) {
                     $course['enablecompletion'] = $courseconfig->enablecompletion;
@@ -719,7 +692,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function create_courses_returns() {
         return new external_multiple_structure(
@@ -736,7 +708,6 @@ class core_course_external extends external_api {
      * Update courses
      *
      * @return external_function_parameters
-     * @since Moodle 2.5
      */
     public static function update_courses_parameters() {
         return new external_function_parameters(
@@ -796,7 +767,6 @@ class core_course_external extends external_api {
      * Update courses
      *
      * @param array $courses
-     * @since Moodle 2.5
      */
     public static function update_courses($courses) {
         global $CFG, $DB;
@@ -818,55 +788,55 @@ class core_course_external extends external_api {
 
                 $oldcourse = course_get_format($course['id'])->get_course();
 
-                require_capability('moodle/course:update', $context);
+                require_capability('lion/course:update', $context);
 
                 // Check if user can change category.
                 if (array_key_exists('categoryid', $course) && ($oldcourse->category != $course['categoryid'])) {
-                    require_capability('moodle/course:changecategory', $context);
+                    require_capability('lion/course:changecategory', $context);
                     $course['category'] = $course['categoryid'];
                 }
 
                 // Check if the user can change fullname.
                 if (array_key_exists('fullname', $course) && ($oldcourse->fullname != $course['fullname'])) {
-                    require_capability('moodle/course:changefullname', $context);
+                    require_capability('lion/course:changefullname', $context);
                 }
 
                 // Check if the user can change shortname.
                 if (array_key_exists('shortname', $course) && ($oldcourse->shortname != $course['shortname'])) {
-                    require_capability('moodle/course:changeshortname', $context);
+                    require_capability('lion/course:changeshortname', $context);
                 }
 
                 // Check if the user can change the idnumber.
                 if (array_key_exists('idnumber', $course) && ($oldcourse->idnumber != $course['idnumber'])) {
-                    require_capability('moodle/course:changeidnumber', $context);
+                    require_capability('lion/course:changeidnumber', $context);
                 }
 
                 // Check if user can change summary.
                 if (array_key_exists('summary', $course) && ($oldcourse->summary != $course['summary'])) {
-                    require_capability('moodle/course:changesummary', $context);
+                    require_capability('lion/course:changesummary', $context);
                 }
 
                 // Summary format.
                 if (array_key_exists('summaryformat', $course) && ($oldcourse->summaryformat != $course['summaryformat'])) {
-                    require_capability('moodle/course:changesummary', $context);
+                    require_capability('lion/course:changesummary', $context);
                     $course['summaryformat'] = external_validate_format($course['summaryformat']);
                 }
 
                 // Check if user can change visibility.
                 if (array_key_exists('visible', $course) && ($oldcourse->visible != $course['visible'])) {
-                    require_capability('moodle/course:visibility', $context);
+                    require_capability('lion/course:visibility', $context);
                 }
 
                 // Make sure lang is valid.
                 if (array_key_exists('lang', $course) && empty($availablelangs[$course['lang']])) {
-                    throw new moodle_exception('errorinvalidparam', 'webservice', '', 'lang');
+                    throw new lion_exception('errorinvalidparam', 'webservice', '', 'lang');
                 }
 
                 // Make sure theme is valid.
                 if (array_key_exists('forcetheme', $course)) {
                     if (!empty($CFG->allowcoursethemes)) {
                         if (empty($availablethemes[$course['forcetheme']])) {
-                            throw new moodle_exception('errorinvalidparam', 'webservice', '', 'forcetheme');
+                            throw new lion_exception('errorinvalidparam', 'webservice', '', 'forcetheme');
                         } else {
                             $course['theme'] = $course['forcetheme'];
                         }
@@ -897,7 +867,7 @@ class core_course_external extends external_api {
                 $warning = array();
                 $warning['item'] = 'course';
                 $warning['itemid'] = $course['id'];
-                if ($e instanceof moodle_exception) {
+                if ($e instanceof lion_exception) {
                     $warning['warningcode'] = $e->errorcode;
                 } else {
                     $warning['warningcode'] = $e->getCode();
@@ -916,7 +886,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.5
      */
     public static function update_courses_returns() {
         return new external_single_structure(
@@ -930,7 +899,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.2
      */
     public static function delete_courses_parameters() {
         return new external_function_parameters(
@@ -944,7 +912,6 @@ class core_course_external extends external_api {
      * Delete courses
      *
      * @param array $courseids A list of course ids
-     * @since Moodle 2.2
      */
     public static function delete_courses($courseids) {
         global $CFG, $DB;
@@ -1003,7 +970,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.2
      */
     public static function delete_courses_returns() {
         return new external_single_structure(
@@ -1017,7 +983,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function duplicate_course_parameters() {
         return new external_function_parameters(
@@ -1060,7 +1025,6 @@ class core_course_external extends external_api {
      * @param int $visible Duplicated course availability
      * @param array $options List of backup options
      * @return array New course info
-     * @since Moodle 2.3
      */
     public static function duplicate_course($courseid, $fullname, $shortname, $categoryid, $visible = 1, $options = array()) {
         global $CFG, $USER, $DB;
@@ -1083,7 +1047,7 @@ class core_course_external extends external_api {
         // Context validation.
 
         if (! ($course = $DB->get_record('course', array('id'=>$params['courseid'])))) {
-            throw new moodle_exception('invalidcourseid', 'error');
+            throw new lion_exception('invalidcourseid', 'error');
         }
 
         // Category where duplicated course is going to be created.
@@ -1115,11 +1079,11 @@ class core_course_external extends external_api {
                 $value = clean_param($option['value'], PARAM_INT);
 
                 if ($value !== 0 and $value !== 1) {
-                    throw new moodle_exception('invalidextparam', 'webservice', '', $option['name']);
+                    throw new lion_exception('invalidextparam', 'webservice', '', $option['name']);
                 }
 
                 if (!isset($backupdefaults[$option['name']])) {
-                    throw new moodle_exception('invalidextparam', 'webservice', '', $option['name']);
+                    throw new lion_exception('invalidextparam', 'webservice', '', $option['name']);
                 }
 
                 $backupsettings[$option['name']] = $value;
@@ -1129,13 +1093,13 @@ class core_course_external extends external_api {
         // Capability checking.
 
         // The backup controller check for this currently, this may be redundant.
-        require_capability('moodle/course:create', $categorycontext);
-        require_capability('moodle/restore:restorecourse', $categorycontext);
-        require_capability('moodle/backup:backupcourse', $coursecontext);
+        require_capability('lion/course:create', $categorycontext);
+        require_capability('lion/restore:restorecourse', $categorycontext);
+        require_capability('lion/backup:backupcourse', $coursecontext);
 
         if (!empty($backupsettings['users'])) {
-            require_capability('moodle/backup:userinfo', $coursecontext);
-            require_capability('moodle/restore:userinfo', $categorycontext);
+            require_capability('lion/backup:userinfo', $coursecontext);
+            require_capability('lion/restore:userinfo', $categorycontext);
         }
 
         // Check if the shortname is used.
@@ -1145,12 +1109,12 @@ class core_course_external extends external_api {
             }
 
             $foundcoursenamestring = implode(',', $foundcoursenames);
-            throw new moodle_exception('shortnametaken', '', '', $foundcoursenamestring);
+            throw new lion_exception('shortnametaken', '', '', $foundcoursenamestring);
         }
 
         // Backup the course.
 
-        $bc = new backup_controller(backup::TYPE_1COURSE, $course->id, backup::FORMAT_MOODLE,
+        $bc = new backup_controller(backup::TYPE_1COURSE, $course->id, backup::FORMAT_LION,
         backup::INTERACTIVE_NO, backup::MODE_SAMESITE, $USER->id);
 
         foreach ($backupsettings as $name => $value) {
@@ -1169,8 +1133,8 @@ class core_course_external extends external_api {
         // Restore the backup immediately.
 
         // Check if we need to unzip the file because the backup temp dir does not contains backup files.
-        if (!file_exists($backupbasepath . "/moodle_backup.xml")) {
-            $file->extract_to_pathname(get_file_packer('application/vnd.moodle.backup'), $backupbasepath);
+        if (!file_exists($backupbasepath . "/lion_backup.xml")) {
+            $file->extract_to_pathname(get_file_packer('application/vnd.lion.backup'), $backupbasepath);
         }
 
         // Create new course.
@@ -1205,7 +1169,7 @@ class core_course_external extends external_api {
                     }
                 }
 
-                throw new moodle_exception('backupprecheckerrors', 'webservice', '', $errorinfo);
+                throw new lion_exception('backupprecheckerrors', 'webservice', '', $errorinfo);
             }
         }
 
@@ -1234,7 +1198,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
      */
     public static function duplicate_course_returns() {
         return new external_single_structure(
@@ -1249,7 +1212,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters for import_course
      *
      * @return external_function_parameters
-     * @since Moodle 2.4
      */
     public static function import_course_parameters() {
         return new external_function_parameters(
@@ -1282,7 +1244,6 @@ class core_course_external extends external_api {
      * @param bool $deletecontent Whether to delete the course we are importing to content
      * @param array $options List of backup options
      * @return null
-     * @since Moodle 2.4
      */
     public static function import_course($importfrom, $importto, $deletecontent = 0, $options = array()) {
         global $CFG, $USER, $DB;
@@ -1301,17 +1262,17 @@ class core_course_external extends external_api {
         );
 
         if ($params['deletecontent'] !== 0 and $params['deletecontent'] !== 1) {
-            throw new moodle_exception('invalidextparam', 'webservice', '', $params['deletecontent']);
+            throw new lion_exception('invalidextparam', 'webservice', '', $params['deletecontent']);
         }
 
         // Context validation.
 
         if (! ($importfrom = $DB->get_record('course', array('id'=>$params['importfrom'])))) {
-            throw new moodle_exception('invalidcourseid', 'error');
+            throw new lion_exception('invalidcourseid', 'error');
         }
 
         if (! ($importto = $DB->get_record('course', array('id'=>$params['importto'])))) {
-            throw new moodle_exception('invalidcourseid', 'error');
+            throw new lion_exception('invalidcourseid', 'error');
         }
 
         $importfromcontext = context_course::instance($importfrom->id);
@@ -1336,11 +1297,11 @@ class core_course_external extends external_api {
                 $value = clean_param($option['value'], PARAM_INT);
 
                 if ($value !== 0 and $value !== 1) {
-                    throw new moodle_exception('invalidextparam', 'webservice', '', $option['name']);
+                    throw new lion_exception('invalidextparam', 'webservice', '', $option['name']);
                 }
 
                 if (!isset($backupdefaults[$option['name']])) {
-                    throw new moodle_exception('invalidextparam', 'webservice', '', $option['name']);
+                    throw new lion_exception('invalidextparam', 'webservice', '', $option['name']);
                 }
 
                 $backupsettings[$option['name']] = $value;
@@ -1349,10 +1310,10 @@ class core_course_external extends external_api {
 
         // Capability checking.
 
-        require_capability('moodle/backup:backuptargetimport', $importfromcontext);
-        require_capability('moodle/restore:restoretargetimport', $importtocontext);
+        require_capability('lion/backup:backuptargetimport', $importfromcontext);
+        require_capability('lion/restore:restoretargetimport', $importtocontext);
 
-        $bc = new backup_controller(backup::TYPE_1COURSE, $importfrom->id, backup::FORMAT_MOODLE,
+        $bc = new backup_controller(backup::TYPE_1COURSE, $importfrom->id, backup::FORMAT_LION,
                 backup::INTERACTIVE_NO, backup::MODE_IMPORT, $USER->id);
 
         foreach ($backupsettings as $name => $value) {
@@ -1400,7 +1361,7 @@ class core_course_external extends external_api {
                     }
                 }
 
-                throw new moodle_exception('backupprecheckerrors', 'webservice', '', $errorinfo);
+                throw new lion_exception('backupprecheckerrors', 'webservice', '', $errorinfo);
             }
         } else {
             if ($restoretarget == backup::TARGET_EXISTING_DELETING) {
@@ -1422,7 +1383,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.4
      */
     public static function import_course_returns() {
         return null;
@@ -1432,7 +1392,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function get_categories_parameters() {
         return new external_function_parameters(
@@ -1446,12 +1405,12 @@ class core_course_external extends external_api {
                                          '"name" (string) the category name,'.
                                          '"parent" (int) the parent category id,'.
                                          '"idnumber" (string) category idnumber'.
-                                         ' - user must have \'moodle/category:manage\' to search on idnumber,'.
+                                         ' - user must have \'lion/category:manage\' to search on idnumber,'.
                                          '"visible" (int) whether the returned categories must be visible or hidden. If the key is not passed,
                                              then the function return all categories that the user can see.'.
-                                         ' - user must have \'moodle/category:manage\' or \'moodle/category:viewhiddencategories\' to search on visible,'.
+                                         ' - user must have \'lion/category:manage\' or \'lion/category:viewhiddencategories\' to search on visible,'.
                                          '"theme" (string) only return the categories having this theme'.
-                                         ' - user must have \'moodle/category:manage\' to search on theme'),
+                                         ' - user must have \'lion/category:manage\' to search on theme'),
                             'value' => new external_value(PARAM_RAW, 'the value to match')
                         )
                     ), 'criteria', VALUE_DEFAULT, array()
@@ -1468,7 +1427,6 @@ class core_course_external extends external_api {
      * @param array $criteria Criteria to match the results
      * @param booln $addsubcategories obtain only the category (false) or its subcategories (true - default)
      * @return array list of categories
-     * @since Moodle 2.3
      */
     public static function get_categories($criteria = array(), $addsubcategories = true) {
         global $CFG, $DB;
@@ -1498,12 +1456,12 @@ class core_course_external extends external_api {
                             break;
 
                         case 'idnumber':
-                            if (has_capability('moodle/category:manage', $context)) {
+                            if (has_capability('lion/category:manage', $context)) {
                                 $value = clean_param($crit['value'], PARAM_RAW);
                             } else {
                                 // We must throw an exception.
                                 // Otherwise the dev client would think no idnumber exists.
-                                throw new moodle_exception('criteriaerror',
+                                throw new lion_exception('criteriaerror',
                                         'webservice', '', null,
                                         'You don\'t have the permissions to search on the "idnumber" field.');
                             }
@@ -1518,29 +1476,29 @@ class core_course_external extends external_api {
                             break;
 
                         case 'visible':
-                            if (has_capability('moodle/category:manage', $context)
-                                or has_capability('moodle/category:viewhiddencategories',
+                            if (has_capability('lion/category:manage', $context)
+                                or has_capability('lion/category:viewhiddencategories',
                                         context_system::instance())) {
                                 $value = clean_param($crit['value'], PARAM_INT);
                             } else {
-                                throw new moodle_exception('criteriaerror',
+                                throw new lion_exception('criteriaerror',
                                         'webservice', '', null,
                                         'You don\'t have the permissions to search on the "visible" field.');
                             }
                             break;
 
                         case 'theme':
-                            if (has_capability('moodle/category:manage', $context)) {
+                            if (has_capability('lion/category:manage', $context)) {
                                 $value = clean_param($crit['value'], PARAM_THEME);
                             } else {
-                                throw new moodle_exception('criteriaerror',
+                                throw new lion_exception('criteriaerror',
                                         'webservice', '', null,
                                         'You don\'t have the permissions to search on the "theme" field.');
                             }
                             break;
 
                         default:
-                            throw new moodle_exception('criteriaerror',
+                            throw new lion_exception('criteriaerror',
                                     'webservice', '', null,
                                     'You can not search on this criteria: ' . $key);
                     }
@@ -1613,7 +1571,7 @@ class core_course_external extends external_api {
 
             // Check category depth is <= maxdepth (do not check for user who can manage categories).
             if ((!empty($CFG->maxcategorydepth) && count($parents) > $CFG->maxcategorydepth)
-                    and !has_capability('moodle/category:manage', $context)) {
+                    and !has_capability('lion/category:manage', $context)) {
                 $excludedcats[$category->id] = 'depth';
             }
 
@@ -1629,7 +1587,7 @@ class core_course_external extends external_api {
                     $exceptionparam = new stdClass();
                     $exceptionparam->message = $e->getMessage();
                     $exceptionparam->catid = $category->id;
-                    throw new moodle_exception('errorcatcontextnotvalid', 'webservice', '', $exceptionparam);
+                    throw new lion_exception('errorcatcontextnotvalid', 'webservice', '', $exceptionparam);
                 }
             }
 
@@ -1638,8 +1596,8 @@ class core_course_external extends external_api {
 
                 // Final check to see if the category is visible to the user.
                 if ($category->visible
-                        or has_capability('moodle/category:viewhiddencategories', context_system::instance())
-                        or has_capability('moodle/category:manage', $context)) {
+                        or has_capability('lion/category:viewhiddencategories', context_system::instance())
+                        or has_capability('lion/category:manage', $context)) {
 
                     $categoryinfo = array();
                     $categoryinfo['id'] = $category->id;
@@ -1654,7 +1612,7 @@ class core_course_external extends external_api {
                     $categoryinfo['path'] = $category->path;
 
                     // Some fields only returned for admin.
-                    if (has_capability('moodle/category:manage', $context)) {
+                    if (has_capability('lion/category:manage', $context)) {
                         $categoryinfo['idnumber'] = $category->idnumber;
                         $categoryinfo['visible'] = $category->visible;
                         $categoryinfo['visibleold'] = $category->visibleold;
@@ -1682,7 +1640,6 @@ class core_course_external extends external_api {
      * @param array $category1
      * @param array $category2
      * @return int result of strcmp
-     * @since Moodle 2.3
      */
     private static function compare_categories_by_path($category1, $category2) {
         return strcmp($category1->path, $category2->path);
@@ -1695,7 +1652,6 @@ class core_course_external extends external_api {
      * @param array $category1
      * @param array $category2
      * @return int result of strcmp
-     * @since Moodle 2.3
      */
     private static function compare_categories_by_sortorder($category1, $category2) {
         return strcmp($category1['sortorder'], $category2['sortorder']);
@@ -1705,7 +1661,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
      */
     public static function get_categories_returns() {
         return new external_multiple_structure(
@@ -1734,7 +1689,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function create_categories_parameters() {
         return new external_function_parameters(
@@ -1753,7 +1707,7 @@ class core_course_external extends external_api {
                                         'the new category description', VALUE_OPTIONAL),
                                 'descriptionformat' => new external_format_value('description', VALUE_DEFAULT),
                                 'theme' => new external_value(PARAM_THEME,
-                                        'the new category theme. This option must be enabled on moodle',
+                                        'the new category theme. This option must be enabled on lion',
                                         VALUE_OPTIONAL),
                         )
                     )
@@ -1767,7 +1721,6 @@ class core_course_external extends external_api {
      *
      * @param array $categories - see create_categories_parameters() for the array structure
      * @return array - see create_categories_returns() for the array structure
-     * @since Moodle 2.3
      */
     public static function create_categories($categories) {
         global $CFG, $DB;
@@ -1782,14 +1735,14 @@ class core_course_external extends external_api {
         foreach ($params['categories'] as $category) {
             if ($category['parent']) {
                 if (!$DB->record_exists('course_categories', array('id' => $category['parent']))) {
-                    throw new moodle_exception('unknowcategory');
+                    throw new lion_exception('unknowcategory');
                 }
                 $context = context_coursecat::instance($category['parent']);
             } else {
                 $context = context_system::instance();
             }
             self::validate_context($context);
-            require_capability('moodle/category:manage', $context);
+            require_capability('lion/category:manage', $context);
 
             // this will validate format and throw an exception if there are errors
             external_validate_format($category['descriptionformat']);
@@ -1808,7 +1761,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function create_categories_returns() {
         return new external_multiple_structure(
@@ -1825,7 +1777,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function update_categories_parameters() {
         return new external_function_parameters(
@@ -1840,7 +1791,7 @@ class core_course_external extends external_api {
                             'description' => new external_value(PARAM_RAW, 'category description', VALUE_OPTIONAL),
                             'descriptionformat' => new external_format_value('description', VALUE_DEFAULT),
                             'theme' => new external_value(PARAM_THEME,
-                                    'the category theme. This option must be enabled on moodle', VALUE_OPTIONAL),
+                                    'the category theme. This option must be enabled on lion', VALUE_OPTIONAL),
                         )
                     )
                 )
@@ -1853,7 +1804,6 @@ class core_course_external extends external_api {
      *
      * @param array $categories The list of categories to update
      * @return null
-     * @since Moodle 2.3
      */
     public static function update_categories($categories) {
         global $CFG, $DB;
@@ -1869,7 +1819,7 @@ class core_course_external extends external_api {
 
             $categorycontext = context_coursecat::instance($cat['id']);
             self::validate_context($categorycontext);
-            require_capability('moodle/category:manage', $categorycontext);
+            require_capability('lion/category:manage', $categorycontext);
 
             // this will throw an exception if descriptionformat is not valid
             external_validate_format($cat['descriptionformat']);
@@ -1884,7 +1834,6 @@ class core_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.3
      */
     public static function update_categories_returns() {
         return null;
@@ -1894,7 +1843,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function delete_categories_parameters() {
         return new external_function_parameters(
@@ -1919,7 +1867,6 @@ class core_course_external extends external_api {
      *
      * @param array $categories A list of category ids
      * @return array
-     * @since Moodle 2.3
      */
     public static function delete_categories($categories) {
         global $CFG, $DB;
@@ -1934,7 +1881,7 @@ class core_course_external extends external_api {
         foreach ($params['categories'] as $category) {
             $deletecat = coursecat::get($category['id'], MUST_EXIST);
             $context = context_coursecat::instance($deletecat->id);
-            require_capability('moodle/category:manage', $context);
+            require_capability('lion/category:manage', $context);
             self::validate_context($context);
             self::validate_context(get_category_or_system_context($deletecat->parent));
 
@@ -1943,7 +1890,7 @@ class core_course_external extends external_api {
                 if ($deletecat->can_delete_full()) {
                     $deletecat->delete_full(false);
                 } else {
-                    throw new moodle_exception('youcannotdeletecategory', '', '', $deletecat->get_formatted_name());
+                    throw new lion_exception('youcannotdeletecategory', '', '', $deletecat->get_formatted_name());
                 }
             } else {
                 // In this situation, we don't delete the category's contents, we either move it to newparent or parent.
@@ -1957,14 +1904,14 @@ class core_course_external extends external_api {
 
                 // This operation is not allowed. We must move contents to an existing category.
                 if (!$newparentcat->id) {
-                    throw new moodle_exception('movecatcontentstoroot');
+                    throw new lion_exception('movecatcontentstoroot');
                 }
 
                 self::validate_context(context_coursecat::instance($newparentcat->id));
                 if ($deletecat->can_move_content_to($newparentcat->id)) {
                     $deletecat->delete_move($newparentcat->id, false);
                 } else {
-                    throw new moodle_exception('youcannotdeletecategory', '', '', $deletecat->get_formatted_name());
+                    throw new lion_exception('youcannotdeletecategory', '', '', $deletecat->get_formatted_name());
                 }
             }
         }
@@ -1976,7 +1923,6 @@ class core_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.3
      */
     public static function delete_categories_returns() {
         return null;
@@ -1986,7 +1932,6 @@ class core_course_external extends external_api {
      * Describes the parameters for delete_modules.
      *
      * @return external_external_function_parameters
-     * @since Moodle 2.5
      */
     public static function delete_modules_parameters() {
         return new external_function_parameters (
@@ -2001,7 +1946,6 @@ class core_course_external extends external_api {
      * Deletes a list of provided module instances.
      *
      * @param array $cmids the course module ids
-     * @since Moodle 2.5
      */
     public static function delete_modules($cmids) {
         global $CFG, $DB;
@@ -2030,7 +1974,7 @@ class core_course_external extends external_api {
 
             // Ensure they can delete this module.
             $modcontext = context_module::instance($cm->id);
-            require_capability('moodle/course:manageactivities', $modcontext);
+            require_capability('lion/course:manageactivities', $modcontext);
 
             // Delete the module.
             course_delete_module($cm->id);
@@ -2041,7 +1985,6 @@ class core_course_external extends external_api {
      * Describes the delete_modules return value.
      *
      * @return external_single_structure
-     * @since Moodle 2.5
      */
     public static function delete_modules_returns() {
         return null;
@@ -2051,21 +1994,16 @@ class core_course_external extends external_api {
 /**
  * Deprecated course external functions
  *
- * @package    core_course
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @deprecated Moodle 2.2 MDL-29106 - Please do not use this class any more.
+ * @deprecated Lion 2.2 MDL-29106 - Please do not use this class any more.
  * @see core_course_external
  */
-class moodle_course_external extends external_api {
+class lion_course_external extends external_api {
 
     /**
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::get_courses_parameters()
      */
     public static function get_courses_parameters() {
@@ -2077,8 +2015,7 @@ class moodle_course_external extends external_api {
      *
      * @param array $options
      * @return array
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::get_courses()
      */
     public static function get_courses($options) {
@@ -2089,8 +2026,7 @@ class moodle_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::get_courses_returns()
      */
     public static function get_courses_returns() {
@@ -2110,8 +2046,7 @@ class moodle_course_external extends external_api {
      * Returns description of method parameters
      *
      * @return external_function_parameters
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::create_courses_parameters()
      */
     public static function create_courses_parameters() {
@@ -2123,8 +2058,7 @@ class moodle_course_external extends external_api {
      *
      * @param array $courses
      * @return array courses (id and shortname only)
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::create_courses()
      */
     public static function create_courses($courses) {
@@ -2135,8 +2069,7 @@ class moodle_course_external extends external_api {
      * Returns description of method result value
      *
      * @return external_description
-     * @since Moodle 2.0
-     * @deprecated Moodle 2.2 MDL-29106 - Please do not call this function any more.
+     * @deprecated Lion 2.2 MDL-29106 - Please do not call this function any more.
      * @see core_course_external::create_courses_returns()
      */
     public static function create_courses_returns() {

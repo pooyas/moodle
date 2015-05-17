@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP Version 4                                                        |
@@ -39,7 +46,6 @@ require_once("HTML/QuickForm/text.php");
  * $options = array("Apple", "Orange", "Pear", "Strawberry");
  * $autocomplete->setOptions($options);
  *
- * @author       Matteo Di Giovinazzo <matteodg@infinito.it>
  */
 class HTML_QuickForm_autocomplete extends HTML_QuickForm_text
 {

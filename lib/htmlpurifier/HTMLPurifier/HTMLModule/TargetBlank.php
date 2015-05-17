@@ -3,6 +3,9 @@
 /**
  * Module adds the target=blank attribute transformation to a tags.  It
  * is enabled by HTML.TargetBlank
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_TargetBlank extends HTMLPurifier_HTMLModule
 {

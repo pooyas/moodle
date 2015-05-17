@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify_Cache_File  
- * @package Minify
+ * Class Minify_Cache_File
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class Minify_Cache_File {
@@ -122,8 +124,6 @@ class Minify_Cache_File {
      * Get a usable temp directory
      *
      * Adapted from Solar/Dir.php
-     * @author Paul M. Jones <pmjones@solarphp.com>
-     * @license http://opensource.org/licenses/bsd-license.php BSD
      * @link http://solarphp.com/trac/core/browser/trunk/Solar/Dir.php
      *
      * @return string
@@ -143,8 +143,6 @@ class Minify_Cache_File {
     /**
      * Returns the OS-specific directory for temporary files
      *
-     * @author Paul M. Jones <pmjones@solarphp.com>
-     * @license http://opensource.org/licenses/bsd-license.php BSD
      * @link http://solarphp.com/trac/core/browser/trunk/Solar/Dir.php
      *
      * @return string

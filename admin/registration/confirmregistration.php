@@ -1,31 +1,33 @@
 <?php
 
+
+/**
+ * @package    admin
+ * @subpackage registration
+ * @copyright  2015 Pooya Saeedi
+*/
+
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
-// This file is part of Moodle - http://moodle.org/                      //
-// Moodle - Modular Object-Oriented Dynamic Learning Environment         //
+// This file is part of Lion - http://lion.org/                      //
+// Lion - Modular Object-Oriented Dynamic Learning Environment         //
 //                                                                       //
-// Moodle is free software: you can redistribute it and/or modify        //
+// Lion is free software: you can redistribute it and/or modify        //
 // it under the terms of the GNU General Public License as published by  //
 // the Free Software Foundation, either version 3 of the License, or     //
 // (at your option) any later version.                                   //
 //                                                                       //
-// Moodle is distributed in the hope that it will be useful,             //
+// Lion is distributed in the hope that it will be useful,             //
 // but WITHOUT ANY WARRANTY; without even the implied warranty of        //
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         //
 // GNU General Public License for more details.                          //
 //                                                                       //
 // You should have received a copy of the GNU General Public License     //
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.       //
+// along with Lion.  If not, see <http://www.gnu.org/licenses/>.       //
 //                                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
 /*
- * @package    moodle
- * @subpackage registration
- * @author     Jerome Mouneyrac <jerome@mouneyrac.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
- * @copyright  (C) 1999 onwards Martin Dougiamas  http://dougiamas.com
  *
  * The administrator is redirect to this page from the hub to confirm that the
  * site has been registered. It is an administration page. The administrator
@@ -47,7 +49,7 @@ $error = optional_param('error', '', PARAM_ALPHANUM);
 admin_externalpage_setup('registrationhubs');
 
 if (!empty($error) and $error == 'urlalreadyexist') {
-    throw new moodle_exception('urlalreadyregistered', 'hub',
+    throw new lion_exception('urlalreadyregistered', 'hub',
             $CFG->wwwroot . '/' . $CFG->admin . '/registration/index.php');
 }
 
@@ -71,7 +73,7 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
     echo $notificationmessage;
 
     //display continue button
-    $registrationpage = new moodle_url('/admin/registration/index.php');
+    $registrationpage = new lion_url('/admin/registration/index.php');
     $continuebutton = $OUTPUT->render(new single_button($registrationpage, get_string('continue', 'hub')));
     $continuebutton = html_writer::tag('div', $continuebutton, array('class' => 'mdl-align'));
     echo $continuebutton;
@@ -85,7 +87,7 @@ if (!empty($registeredhub) and $registeredhub->token == $token) {
 
     echo $OUTPUT->footer();
 } else {
-    throw new moodle_exception('wrongtoken', 'hub',
+    throw new lion_exception('wrongtoken', 'hub',
             $CFG->wwwroot . '/' . $CFG->admin . '/registration/index.php');
 }
 

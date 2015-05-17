@@ -10,6 +10,9 @@
  * Latest version is available at http://php.weblogs.com
  *
  * Requires PHP4.01pl2 or later because it uses include_once
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
 */
 
 /*

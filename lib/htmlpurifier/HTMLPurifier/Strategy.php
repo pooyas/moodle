@@ -6,6 +6,9 @@
  * While HTMLPurifier's core purpose is fixing HTML into something proper,
  * strategies provide plug points for extra configuration or even extra
  * features, such as custom tags, custom parsing of text, etc.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 

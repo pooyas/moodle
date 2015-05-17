@@ -10,6 +10,9 @@
  *       are not doing that. Doing that could seriously harm performance,
  *       but would make these components a lot more viable for a CSS
  *       filtering solution.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS extends HTMLPurifier_AttrDef
 {

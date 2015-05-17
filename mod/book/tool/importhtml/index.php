@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Book import
  *
- * @package    booktool_importhtml
- * @copyright  2004-2011 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage book
+ * @copyright  2015 Pooya Saeedi
  */
 
 require(dirname(__FILE__).'/../../../../config.php');
@@ -79,7 +66,7 @@ if ($mform->is_cancelled()) {
     $file = reset($files);
     toolbook_importhtml_import_chapters($file, $data->type, $book, $context);
 
-    echo $OUTPUT->continue_button(new moodle_url('/mod/book/view.php', array('id'=>$id)));
+    echo $OUTPUT->continue_button(new lion_url('/mod/book/view.php', array('id'=>$id)));
     echo $OUTPUT->footer();
     die;
 }

@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Import key management.
  *
- * @package   moodlecore
- * @copyright 2008 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage import
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');
@@ -61,7 +48,7 @@ $key->courseid = $course->id;
 
 require_login($course);
 $context = context_course::instance($course->id);
-require_capability('moodle/grade:import', $context);
+require_capability('lion/grade:import', $context);
 
 // Check if the user has at least one grade publishing capability.
 $plugins = grade_helper::get_plugins_import($course->id);
@@ -83,8 +70,8 @@ if ($id and $delete) {
         echo $OUTPUT->header();
         $optionsyes = array('id'=>$id, 'delete'=>1, 'courseid'=>$courseid, 'sesskey'=>sesskey(), 'confirm'=>1);
         $optionsno  = array('id'=>$courseid);
-        $formcontinue = new single_button(new moodle_url('key.php', $optionsyes), get_string('yes'), 'get');
-        $formcancel = new single_button(new moodle_url('keymanager.php', $optionsno), get_string('no'), 'get');
+        $formcontinue = new single_button(new lion_url('key.php', $optionsyes), get_string('yes'), 'get');
+        $formcancel = new single_button(new lion_url('keymanager.php', $optionsno), get_string('no'), 'get');
         echo $OUTPUT->confirm(get_string('deletekeyconfirm', 'userkey', $key->value), $formcontinue, $formcancel);
         echo $OUTPUT->footer();
         die;
@@ -126,8 +113,8 @@ if ($id) {
     $strheading = get_string('createuserkey', 'userkey');
 }
 
-$PAGE->navbar->add($strgrades, new moodle_url('/grade/index.php', array('id'=>$courseid)));
-$PAGE->navbar->add($strkeys, new moodle_url('/grade/import/keymanager.php', array('id'=>$courseid)));
+$PAGE->navbar->add($strgrades, new lion_url('/grade/index.php', array('id'=>$courseid)));
+$PAGE->navbar->add($strkeys, new lion_url('/grade/import/keymanager.php', array('id'=>$courseid)));
 $PAGE->navbar->add($strheading);
 
 /// Print header

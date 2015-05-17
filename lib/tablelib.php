@@ -1,29 +1,15 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * @package    core
  * @subpackage lib
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**#@+
  * These constants relate to the table's handling of URL parameters.
@@ -46,9 +32,6 @@ define('TABLE_P_BOTTOM', 2);
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class flexible_table {
 
@@ -390,10 +373,10 @@ class flexible_table {
 
     /**
      * Sets $this->baseurl.
-     * @param moodle_url|string $url the url with params needed to call up this page
+     * @param lion_url|string $url the url with params needed to call up this page
      */
     function define_baseurl($url) {
-        $this->baseurl = new moodle_url($url);
+        $this->baseurl = new lion_url($url);
     }
 
     /**
@@ -827,9 +810,9 @@ class flexible_table {
 
         $userid = $row->{$this->useridfield};
         if ($COURSE->id == SITEID) {
-            $profileurl = new moodle_url('/user/profile.php', array('id' => $userid));
+            $profileurl = new lion_url('/user/profile.php', array('id' => $userid));
         } else {
-            $profileurl = new moodle_url('/user/view.php',
+            $profileurl = new lion_url('/user/view.php',
                     array('id' => $userid, 'course' => $COURSE->id));
         }
         return html_writer::link($profileurl, $name);
@@ -850,7 +833,7 @@ class flexible_table {
      * are the same as format_text function in weblib.php but some default
      * options are changed.
      */
-    function format_text($text, $format=FORMAT_MOODLE, $options=NULL, $courseid=NULL) {
+    function format_text($text, $format=FORMAT_LION, $options=NULL, $courseid=NULL) {
         if (!$this->is_downloading()) {
             if (is_null($options)) {
                 $options = new stdClass;
@@ -1367,9 +1350,6 @@ class flexible_table {
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_sql extends flexible_table {
 
@@ -1428,7 +1408,7 @@ class table_sql extends flexible_table {
         }
 
         if ($this->rawdata instanceof \core\dml\recordset_walk ||
-                $this->rawdata instanceof moodle_recordset) {
+                $this->rawdata instanceof lion_recordset) {
             $this->rawdata->close();
         }
     }
@@ -1545,9 +1525,6 @@ class table_sql extends flexible_table {
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_default_export_format_parent {
     /**
@@ -1585,7 +1562,7 @@ class table_default_export_format_parent {
      * the text as safe HTML or as plain text dependent on what is appropriate
      * for the download format. The default removes all tags.
      */
-    function format_text($text, $format=FORMAT_MOODLE, $options=NULL, $courseid=NULL) {
+    function format_text($text, $format=FORMAT_LION, $options=NULL, $courseid=NULL) {
         //use some whitespace to indicate where there was some line spacing.
         $text = str_replace(array('</p>', "\n", "\r"), '   ', $text);
         return strip_tags($text);
@@ -1594,9 +1571,6 @@ class table_default_export_format_parent {
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_spreadsheet_export_format_parent extends table_default_export_format_parent {
     var $currentrow;
@@ -1676,9 +1650,6 @@ class table_spreadsheet_export_format_parent extends table_default_export_format
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_excel_export_format extends table_spreadsheet_export_format_parent {
     var $fileextension = 'xls';
@@ -1687,16 +1658,13 @@ class table_excel_export_format extends table_spreadsheet_export_format_parent {
         global $CFG;
         require_once("$CFG->libdir/excellib.class.php");
         // Creating a workbook
-        $this->workbook = new MoodleExcelWorkbook("-");
+        $this->workbook = new LionExcelWorkbook("-");
     }
 
 }
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_ods_export_format extends table_spreadsheet_export_format_parent {
     var $fileextension = 'ods';
@@ -1704,15 +1672,12 @@ class table_ods_export_format extends table_spreadsheet_export_format_parent {
         global $CFG;
         require_once("$CFG->libdir/odslib.class.php");
         // Creating a workbook
-        $this->workbook = new MoodleODSWorkbook("-");
+        $this->workbook = new LionODSWorkbook("-");
     }
 }
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_text_export_format_parent extends table_default_export_format_parent {
     protected $seperator = "tab";
@@ -1767,9 +1732,6 @@ class table_text_export_format_parent extends table_default_export_format_parent
 
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_tsv_export_format extends table_text_export_format_parent {
     protected $seperator = "tab";
@@ -1779,9 +1741,6 @@ class table_tsv_export_format extends table_text_export_format_parent {
 
 require_once($CFG->libdir . '/csvlib.class.php');
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_csv_export_format extends table_text_export_format_parent {
     protected $seperator = "comma";
@@ -1790,9 +1749,6 @@ class table_csv_export_format extends table_text_export_format_parent {
 }
 
 /**
- * @package   moodlecore
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class table_xhtml_export_format extends table_default_export_format_parent {
     function start_document($filename) {
@@ -1897,7 +1853,7 @@ EOF;
         exit;
     }
 
-    function format_text($text, $format=FORMAT_MOODLE, $options=NULL, $courseid=NULL) {
+    function format_text($text, $format=FORMAT_LION, $options=NULL, $courseid=NULL) {
         if (is_null($options)) {
             $options = new stdClass;
         }

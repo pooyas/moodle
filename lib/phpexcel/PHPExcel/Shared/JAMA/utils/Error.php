@@ -1,10 +1,11 @@
 <?php
 /**
- *	@package JAMA
  *
  *	Error handling
- *	@author Michael Bommarito
  *	@version 01292005
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 //Language constant

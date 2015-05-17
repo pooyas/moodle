@@ -1,19 +1,6 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Provides validation class to check the plugin ZIP contents
@@ -21,13 +8,12 @@
  * Uses fragments of the local_plugins_archive_validator class copyrighted by
  * Marina Glancy that is part of the local_plugins plugin.
  *
- * @package     tool_installaddon
- * @subpackage  classes
- * @copyright   2013 David Mudrak <david@moodle.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage installaddon
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 if (!defined('T_ML_COMMENT')) {
    define('T_ML_COMMENT', T_COMMENT);
@@ -38,8 +24,6 @@ if (!defined('T_ML_COMMENT')) {
 /**
  * Validates the contents of extracted plugin ZIP file
  *
- * @copyright 2013 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_installaddon_validator {
 
@@ -79,7 +63,7 @@ class tool_installaddon_validator {
     /** @var string|null the name of found English language file without the .php extension */
     protected $langfilename = null;
 
-    /** @var moodle_url|null URL to continue with the installation of validated add-on */
+    /** @var lion_url|null URL to continue with the installation of validated add-on */
     protected $continueurl = null;
 
     /**
@@ -103,12 +87,12 @@ class tool_installaddon_validator {
     }
 
     /**
-     * Set the expectation that the plugin can be installed into the given Moodle version
+     * Set the expectation that the plugin can be installed into the given Lion version
      *
-     * @param string $required Moodle version we are about to install to
+     * @param string $required Lion version we are about to install to
      */
-    public function assert_moodle_version($required) {
-        $this->assertions['moodleversion'] = $required;
+    public function assert_lion_version($required) {
+        $this->assertions['lionversion'] = $required;
     }
 
     /**
@@ -197,9 +181,9 @@ class tool_installaddon_validator {
     /**
      * Sets the URL to continue to after successful validation
      *
-     * @param moodle_url $url
+     * @param lion_url $url
      */
-    public function set_continue_url(moodle_url $url) {
+    public function set_continue_url(lion_url $url) {
         $this->continueurl = $url;
     }
 
@@ -208,7 +192,7 @@ class tool_installaddon_validator {
      *
      * Null is returned if the URL has not been explicitly set by the caller.
      *
-     * @return moodle_url|null
+     * @return lion_url|null
      */
     public function get_continue_url() {
         return $this->continueurl;
@@ -280,8 +264,8 @@ class tool_installaddon_validator {
             throw new coding_exception('Required plugin type must be set before calling this');
         }
 
-        if (!isset($this->assertions['moodleversion'])) {
-            throw new coding_exception('Required Moodle version must be set before calling this');
+        if (!isset($this->assertions['lionversion'])) {
+            throw new coding_exception('Required Lion version must be set before calling this');
         }
 
         $fullpath = $this->extractdir.'/'.$this->rootdir.'/version.php';
@@ -323,11 +307,11 @@ class tool_installaddon_validator {
 
         if (isset($info[$type.'->requires'])) {
             $this->versionphp['requires'] = $info[$type.'->requires'];
-            if ($this->versionphp['requires'] > $this->assertions['moodleversion']) {
-                $this->add_message(self::ERROR, 'requiresmoodle', $this->versionphp['requires']);
+            if ($this->versionphp['requires'] > $this->assertions['lionversion']) {
+                $this->add_message(self::ERROR, 'requireslion', $this->versionphp['requires']);
                 return false;
             }
-            $this->add_message(self::INFO, 'requiresmoodle', $this->versionphp['requires']);
+            $this->add_message(self::INFO, 'requireslion', $this->versionphp['requires']);
         }
 
         if (isset($info[$type.'->component'])) {

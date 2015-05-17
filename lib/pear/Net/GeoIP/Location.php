@@ -25,11 +25,11 @@
  * +----------------------------------------------------------------------+
  *
  * @category Net
- * @package  Net_GeoIP
- * @author   Hans Lellelid <hans@xmpl.org>
- * @license  LGPL http://www.gnu.org/licenses/lgpl.txt
  * @link     http://pear.php.net/package/Net_GeoIp
  * $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -39,10 +39,6 @@
  * there is also a distance() method to calculate the km distance between two points.
  *
  * @category Net
- * @package  Net_GeoIP
- * @author   Hans Lellelid <hans@xmpl.org>
- * @author   Dmitri Snytkine <d.snytkine@gmail.com>
- * @license  LGPL http://www.gnu.org/licenses/lgpl.txt
  * @version  $Revision$
  * @link     http://pear.php.net/package/Net_GeoIp
  * @see      Net_GeoIP::lookupLocation()

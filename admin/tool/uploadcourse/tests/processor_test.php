@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * File containing tests for the processor.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage uploadcourse
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/csvlib.class.php');
@@ -30,9 +17,6 @@ require_once($CFG->libdir . '/csvlib.class.php');
 /**
  * Processor test case.
  *
- * @package    tool_uploadcourse
- * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_uploadcourse_processor_testcase extends advanced_testcase {
 
@@ -178,7 +162,7 @@ class tool_uploadcourse_processor_testcase extends advanced_testcase {
         $cir->init();
 
         $options = array('mode' => tool_uploadcourse_processor::MODE_CREATE_NEW);
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $p = new tool_uploadcourse_processor($cir, $options, array());
     }
 
@@ -196,7 +180,7 @@ class tool_uploadcourse_processor_testcase extends advanced_testcase {
         $cir->init();
 
         $options = array('mode' => tool_uploadcourse_processor::MODE_CREATE_NEW);
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $p = new tool_uploadcourse_processor($cir, $options, array());
     }
 

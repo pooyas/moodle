@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_autoconfig.php
 // Version     : 1.0.000
@@ -36,7 +43,6 @@
 /**
  * @file
  * Try to automatically configure some TCPDF constants if not defined.
- * @package com.tecnick.tcpdf
  * @version 1.0.000
  */
 

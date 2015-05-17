@@ -1,28 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for info and subclasses.
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    availability
+ * @subpackage tests
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 use core_availability\info;
 use core_availability\info_module;
@@ -31,9 +18,6 @@ use core_availability\info_section;
 /**
  * Unit tests for info and subclasses.
  *
- * @package core_availability
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class info_testcase extends \advanced_testcase {
     public function setUp() {
@@ -490,7 +474,7 @@ class info_testcase extends \advanced_testcase {
         // If the students have viewhiddenactivities, they get past the module
         // restriction.
         role_change_permission($studentroleid, context_module::instance($page2->cmid),
-                'moodle/course:viewhiddenactivities', CAP_ALLOW);
+                'lion/course:viewhiddenactivities', CAP_ALLOW);
         $expected = array($u1->id, $u2->id);
         $this->assertEquals($expected, array_keys($info->filter_user_list($allusers)));
         list ($sql, $params) = $info->get_user_list_sql(true);
@@ -501,7 +485,7 @@ class info_testcase extends \advanced_testcase {
         // If they have viewhiddensections, they also get past the section
         // restriction.
         role_change_permission($studentroleid, context_course::instance($course->id),
-                'moodle/course:viewhiddensections', CAP_ALLOW);
+                'lion/course:viewhiddensections', CAP_ALLOW);
         $expected = array($u1->id, $u2->id, $u3->id);
         $this->assertEquals($expected, array_keys($info->filter_user_list($allusers)));
         list ($sql, $params) = $info->get_user_list_sql(true);

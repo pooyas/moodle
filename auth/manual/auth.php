@@ -1,39 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Authentication Plugin: Manual Authentication
- * Just does a simple check against the moodle database.
+ * Just does a simple check against the lion database.
  *
- * @package    auth_manual
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    auth
+ * @subpackage manual
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->libdir.'/authlib.php');
 
 /**
  * Manual authentication plugin.
  *
- * @package    auth
- * @subpackage manual
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class auth_plugin_manual extends auth_plugin_base {
 
@@ -123,7 +106,7 @@ class auth_plugin_manual extends auth_plugin_base {
      * Returns the URL for changing the user's pw, or empty if the default can
      * be used.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     function change_password_url() {
         return null;

@@ -13,11 +13,10 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Http
- * @subpackage CookieJar
  * @version    $Id$
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -52,10 +51,6 @@ require_once "Zend/Http/Response.php";
  * @link       http://wp.netscape.com/newsref/std/cookie_spec.html for some specs.
  *
  * @category   Zend
- * @package    Zend_Http
- * @subpackage CookieJar
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class Zend_Http_CookieJar implements Countable, IteratorAggregate
 {

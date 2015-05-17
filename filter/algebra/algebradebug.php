@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    filter
+ * @subpackage algebra
+ * @copyright  2015 Pooya Saeedi
+*/
+
       // This function fetches math. images from the data directory
       // If not, it obtains the corresponding TeX expression from the cache_tex db table
       // and uses mimeTeX to create the image file
@@ -16,7 +23,7 @@
     $algebra = optional_param('algebra', '', PARAM_RAW);
 
     require_login();
-    require_capability('moodle/site:config', context_system::instance());
+    require_capability('lion/site:config', context_system::instance());
     if ($action || $algebra) {
         require_sesskey();
     }
@@ -264,8 +271,8 @@ function slasharguments($texexp, $md5) {
   echo "It should display correctly as ";
   echo "<img src=\"pix.php?file=$image\" align=\"absmiddle\"></p>\n";
   echo "<p>If neither equation image displays correctly, please seek ";
-  echo "further help at moodle.org at the ";
-  echo "<a href=\"http://moodle.org/mod/forum/view.php?id=752&loginguest=true\" target=\"_blank\">";
+  echo "further help at lion.org at the ";
+  echo "<a href=\"http://lion.org/mod/forum/view.php?id=752&loginguest=true\" target=\"_blank\">";
   echo "Mathematics Tools Forum</a></p>";
 }
 
@@ -310,7 +317,7 @@ function slasharguments($texexp, $md5) {
 </a>
 <p>First here is a brief overview on how the algebra filter works. It
 takes an algebra expression and first translates it into TeX.  It first
-looks for the TeX translation in the Moodle database in the table cache_filters
+looks for the TeX translation in the Lion database in the table cache_filters
 in the field rawtext. If not found, it passes the algebraic expression to the
 Perl script algebra2tex.pl, which also uses the Perl library AlgParser.pm.
 It then saves the TeX translation in the database for subsequent uses and
@@ -332,22 +339,22 @@ both Unix and Windows servers is that the web server doesn't have execute permis
 on the algebra2tex.pl script. In that case change permissions accordingly</li>
 <li>The Second Stage TeX Translation produces malformed TeX. This indicates
 a bug in the algebra filter. Post the original algebraic expression and the
-bad TeX translation in the <a href="http://moodle.org/mod/forum/view.php?id=752">
-Mathematics Tools</a> forum in the Using Moodle course on moodle.org.</li>
+bad TeX translation in the <a href="http://lion.org/mod/forum/view.php?id=752">
+Mathematics Tools</a> forum in the Using Lion course on lion.org.</li>
 <li>The TeX to gif image conversion process does not work. If your server is
 running Unix, a likely cause is that the mimetex binary you are using is
 incompatible with your operating system. You can try compiling it from the
 C sources downloaded from <a href="http://www.forkosh.com/mimetex.zip">
 http://www.forkosh.com/mimetex.zip</a>, or looking for an appropriate
-binary at <a href="http://moodle.org/download/mimetex/">
-http://moodle.org/download/mimetex/</a>. You may then also need to
-edit your moodle/filter/algebra/pix.php file to add
+binary at <a href="http://lion.org/download/mimetex/">
+http://lion.org/download/mimetex/</a>. You may then also need to
+edit your lion/filter/algebra/pix.php file to add
 <br /><?php echo "case &quot;" . PHP_OS . "&quot;:" ;?><br ?> to the list of operating systems
 in the switch (PHP_OS) statement. Windows users may have a problem properly
 unzipping mimetex.exe. Make sure that mimetex.exe is is <b>PRECISELY</b>
 433152 bytes in size. If not, download fresh copy from
-<a href="http://moodle.org/download/mimetex/windows/mimetex.exe">
-http://moodle.org/download/mimetex/windows/mimetex.exe</a>. Lastly check
+<a href="http://lion.org/download/mimetex/windows/mimetex.exe">
+http://lion.org/download/mimetex/windows/mimetex.exe</a>. Lastly check
 the execute permissions on your mimetex binary, as outlined in item 2 above.</li>
 </ol>
 </body>

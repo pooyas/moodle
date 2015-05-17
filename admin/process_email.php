@@ -1,6 +1,13 @@
 #!/usr/bin/php -f
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //error_reporting(0);
 //ini_set('display_errors',0);
 require_once(dirname(dirname(__FILE__)).'/config.php');
@@ -17,8 +24,8 @@ if ($_ENV['RECIPIENT'] == $CFG->noreplyaddress) {
     }
 
     $site = get_site();
-    $subject = get_string('noreplybouncesubject','moodle',format_string($site->fullname));
-    $body = get_string('noreplybouncemessage','moodle',format_string($site->fullname))."\n\n";
+    $subject = get_string('noreplybouncesubject','lion',format_string($site->fullname));
+    $body = get_string('noreplybouncemessage','lion',format_string($site->fullname))."\n\n";
 
     $fd = fopen('php://stdin','r');
     if ($fd) {
@@ -51,7 +58,7 @@ if (substr(md5($prefix.$mod.$modargs.$CFG->siteidentifier),0,16) != $hash) {
 list(,$modid) = unpack('C',base64_decode($mod.'=='));
 
 if ($modid == '0') { // special
-    $modname = 'moodle';
+    $modname = 'lion';
 }
 else {
     $modname = $DB->get_field("modules", "name", array("id"=>$modid));

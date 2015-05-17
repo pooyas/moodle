@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 namespace MrClay\Cli;
 
 use BadMethodCallException;
@@ -40,8 +47,6 @@ use BadMethodCallException;
  * @property-read bool useAsInfile
  * @property-read bool useAsOutfile
  *
- * @author Steve Clay <steve@mrclay.org>
- * @license http://www.opensource.org/licenses/mit-license.php  MIT License
  */
 class Arg {
     /**

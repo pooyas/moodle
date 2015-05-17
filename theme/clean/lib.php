@@ -1,31 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Moodle's Clean theme, an example of how to make a Bootstrap theme
+ * Lion's Clean theme, an example of how to make a Bootstrap theme
  *
  * DO NOT MODIFY THIS THEME!
  * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
  *
- * For full information about creating Moodle themes, see:
- * http://docs.moodle.org/dev/Themes_2.0
+ * For full information about creating Lion themes, see:
+ * http://docs.lion.org/dev/Themes_2.0
  *
- * @package   theme_clean
- * @copyright 2013 Moodle, moodle.org
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    theme
+ * @subpackage clean
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -124,13 +111,13 @@ function theme_clean_set_customcss($css, $customcss) {
  * rely on that function just by declaring settings with similar names.
  *
  * @param renderer_base $output Pass in $OUTPUT.
- * @param moodle_page $page Pass in $PAGE.
+ * @param lion_page $page Pass in $PAGE.
  * @return stdClass An object with the following properties:
  *      - navbarclass A CSS class to use on the navbar. By default ''.
  *      - heading HTML to use for the heading. A logo if one is selected or the default heading.
  *      - footnote HTML to use as a footnote. By default ''.
  */
-function theme_clean_get_html_for_settings(renderer_base $output, moodle_page $page) {
+function theme_clean_get_html_for_settings(renderer_base $output, lion_page $page) {
     global $CFG;
     $return = new stdClass;
 

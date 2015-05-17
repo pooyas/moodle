@@ -3,7 +3,7 @@
   <properties lang="EN"><!-- ccc -->
     <datasource>sits:vision</datasource>
     <datetime>28/Oct/2005</datetime>
-    <target>moodle</target>
+    <target>lion</target>
   </properties>
   <person>
     <sourcedid>

@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This file is part of the Database module for Moodle
+ * This file is part of the Database module for Lion
  *
- * @copyright 2005 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package mod_data
+ * @package    mod
+ * @subpackage data
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');
@@ -34,7 +21,7 @@ $rid             = optional_param('rid', 0, PARAM_INT); // record id
 $fielddelimiter  = optional_param('fielddelimiter', ',', PARAM_CLEANHTML); // characters used as field delimiters for csv file import
 $fieldenclosure = optional_param('fieldenclosure', '', PARAM_CLEANHTML);   // characters used as record delimiters for csv file import
 
-$url = new moodle_url('/mod/data/import.php');
+$url = new lion_url('/mod/data/import.php');
 if ($rid !== 0) {
     $url->param('rid', $rid);
 }
@@ -64,13 +51,13 @@ require_login($course, false, $cm);
 
 $context = context_module::instance($cm->id);
 require_capability('mod/data:manageentries', $context);
-$form = new mod_data_import_form(new moodle_url('/mod/data/import.php'));
+$form = new mod_data_import_form(new lion_url('/mod/data/import.php'));
 
 /// Print the page header
 $PAGE->navbar->add(get_string('add', 'data'));
 $PAGE->set_title($data->name);
 $PAGE->set_heading($course->fullname);
-navigation_node::override_active_url(new moodle_url('/mod/data/import.php', array('d' => $data->id)));
+navigation_node::override_active_url(new lion_url('/mod/data/import.php', array('d' => $data->id)));
 echo $OUTPUT->header();
 echo $OUTPUT->heading_with_help(get_string('uploadrecords', 'mod_data'), 'uploadrecords', 'mod_data');
 
@@ -82,7 +69,7 @@ if (!$formdata = $form->get_data()) {
     /// Upload records section. Only for teachers and the admin.
     echo $OUTPUT->box_start('generalbox boxaligncenter boxwidthwide');
     require_once('import_form.php');
-    $form = new mod_data_import_form(new moodle_url('/mod/data/import.php'));
+    $form = new mod_data_import_form(new lion_url('/mod/data/import.php'));
     $formdata = new stdClass();
     $formdata->d = $data->id;
     $form->set_data($formdata);
@@ -180,7 +167,7 @@ if (!$formdata = $form->get_data()) {
                     $DB->update_record('data_content', $content);
                 }
                 $recordsadded++;
-                print get_string('added', 'moodle', $recordsadded) . ". " . get_string('entry', 'data') . " (ID $recordid)<br />\n";
+                print get_string('added', 'lion', $recordsadded) . ". " . get_string('entry', 'data') . " (ID $recordid)<br />\n";
             }
         }
         $cir->close();

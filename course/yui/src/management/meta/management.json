@@ -1,10 +1,10 @@
 {
-  "moodle-course-management": {
+  "lion-course-management": {
     "requires": [
         "base",
         "node",
         "io-base",
-        "moodle-core-notification-exception",
+        "lion-core-notification-exception",
         "json-parse",
         "dd-constrain",
         "dd-proxy",

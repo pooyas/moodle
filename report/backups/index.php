@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * A report to display the outcome of scheduled backups
  *
  * @package    report
  * @subpackage backups
- * @copyright  2007 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../../config.php');
@@ -98,7 +84,7 @@ if ($courseid) {
         // We put this logic down here as we may be viewing a backup that was performed which there were no logs
         // recorded for. We still want to display the pagination so the user can still navigate to other backups,
         // and we also display a message so they are aware that the backup happened but there were no logs.
-        $baseurl = new moodle_url('/report/backups/index.php', array('courseid' => $courseid));
+        $baseurl = new lion_url('/report/backups/index.php', array('courseid' => $courseid));
         $numberofbackups = $DB->count_records('backup_controllers', $params);
         $pagingbar = new paging_bar($numberofbackups, $page, 1, $baseurl);
 
@@ -161,7 +147,7 @@ foreach ($rs as $backuprow) {
 
     // Create the row and add it to the table
     $backuprowname = format_string($backuprow->fullname, true, array('context' => context_course::instance($backuprow->courseid)));
-    $backuplogsurl = new moodle_url('/report/backups/index.php', array('courseid' => $backuprow->courseid));
+    $backuplogsurl = new lion_url('/report/backups/index.php', array('courseid' => $backuprow->courseid));
     $backuplogsicon = new pix_icon('t/viewdetails', get_string('viewlogs', 'report_backups'));
     $cells = array(
         $backuprowname . ' ' . $OUTPUT->action_icon($backuplogsurl, $backuplogsicon),

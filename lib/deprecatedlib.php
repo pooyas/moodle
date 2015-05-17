@@ -1,19 +1,6 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * deprecatedlib.php - Old functions retained only for backward compatibility
@@ -21,14 +8,13 @@
  * Old functions retained only for backward compatibility.  New code should not
  * use any of these functions.
  *
- * @package    core
- * @subpackage deprecated
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @deprecated
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Add an entry to the legacy log table.
@@ -112,8 +98,8 @@ function clam_handle_infected_file($file, $userid=0, $basiconly=false) {
  *
  * @deprecated since 2.7
  */
-function clam_scan_moodle_file(&$file, $course) {
-    throw new coding_exception('clam_scan_moodle_file() can not be used any more, please use file picker instead');
+function clam_scan_lion_file(&$file, $course) {
+    throw new coding_exception('clam_scan_lion_file() can not be used any more, please use file picker instead');
 }
 
 
@@ -134,7 +120,7 @@ function password_compat_not_supported() {
 }
 
 /**
- * Factory method that was returning moodle_session object.
+ * Factory method that was returning lion_session object.
  *
  * @deprecated since 2.6
  * @return \core\session\manager
@@ -451,7 +437,7 @@ function normalize_component($component) {
  *
  * @deprecated since 2.6, use core_component::normalize_component()
  *
- * @param string $component name such as 'moodle', 'mod_forum'
+ * @param string $component name such as 'lion', 'mod_forum'
  * @return string full path to component directory; NULL if not found
  */
 function get_component_directory($component) {
@@ -470,7 +456,7 @@ function get_component_directory($component) {
  * @return int GD version (1, 2, or 0)
  */
 function check_gd_version() {
-    // TODO: delete function in Moodle 2.7
+    // TODO: delete function in Lion 2.7
     debugging('check_gd_version() is deprecated, GD extension is always available now');
 
     $gdversion = 0;
@@ -515,7 +501,7 @@ function check_gd_version() {
  * @deprecated
  */
 function update_login_count() {
-    // TODO: delete function in Moodle 2.6
+    // TODO: delete function in Lion 2.6
     debugging('update_login_count() is deprecated, all calls need to be removed');
 }
 
@@ -524,7 +510,7 @@ function update_login_count() {
  * @deprecated
  */
 function reset_login_count() {
-    // TODO: delete function in Moodle 2.6
+    // TODO: delete function in Lion 2.6
     debugging('reset_login_count() is deprecated, all calls need to be removed');
 }
 
@@ -547,7 +533,7 @@ function update_log_display_entry($module, $action, $mtable, $field) {
 }
 
 /**
- * @deprecated use the text formatting in a standard way instead (http://docs.moodle.org/dev/Output_functions)
+ * @deprecated use the text formatting in a standard way instead (http://docs.lion.org/dev/Output_functions)
  *             this was abused mostly for embedding of attachments
  */
 function filter_text($text, $courseid = NULL) {
@@ -562,9 +548,9 @@ function httpsrequired() {
 }
 
 /**
- * Given a physical path to a file, returns the URL through which it can be reached in Moodle.
+ * Given a physical path to a file, returns the URL through which it can be reached in Lion.
  *
- * @deprecated use moodle_url factory methods instead
+ * @deprecated use lion_url factory methods instead
  *
  * @param string $path Physical path to a file
  * @param array $options associative array of GET variables to append to the URL
@@ -903,7 +889,7 @@ function get_current_group($courseid, $full = false) {
  * @param stdClass|cm_info $cm The course module
  * @param array $users An array of users, indexed by userid
  * @return array A filtered list of users that can see the module, indexed by userid.
- * @deprecated Since Moodle 2.8
+ * @deprecated Since Lion 2.8
  */
 function groups_filter_users_by_course_module_visible($cm, $users) {
     debugging('groups_filter_users_by_course_module_visible() is deprecated. ' .
@@ -934,7 +920,7 @@ function groups_filter_users_by_course_module_visible($cm, $users) {
  * @param stdClass|cm_info $cm The course module
  * @param int $userid The user to check against the group.
  * @return bool True
- * @deprecated Since Moodle 2.8
+ * @deprecated Since Lion 2.8
  */
 function groups_course_module_visible($cm, $userid=null) {
     debugging('groups_course_module_visible() is deprecated and always returns ' .
@@ -952,10 +938,10 @@ function groups_course_module_visible($cm, $userid=null) {
  *
  * @param string $message The message to display to the user about the error.
  * @param string $link The url where the user will be prompted to continue. If no url is provided the user will be directed to the site index page.
- * @return void, always throws moodle_exception
+ * @return void, always throws lion_exception
  */
 function error($message, $link='') {
-    throw new moodle_exception('notlocalisederrormessage', 'error', $link, $message, 'error() is a deprecated function, please call print_error() instead of error()');
+    throw new lion_exception('notlocalisederrormessage', 'error', $link, $message, 'error() is a deprecated function, please call print_error() instead of error()');
 }
 
 
@@ -1068,7 +1054,7 @@ function print_side_block($heading='', $content='', $list=NULL, $icons=NULL, $fo
 /**
  * Prints a basic textarea field.
  *
- * @deprecated since Moodle 2.0
+ * @deprecated since Lion 2.0
  *
  * When using this function, you should
  *
@@ -1217,7 +1203,7 @@ function print_arrow($direction='up', $strsort=null, $return=false) {
 /**
  * Given an array of values, output the HTML for a select element with those options.
  *
- * @deprecated since Moodle 2.0
+ * @deprecated since Lion 2.0
  *
  * Normally, you only need to use the first few parameters.
  *
@@ -1288,7 +1274,7 @@ function print_checkbox($name, $value, $checked = true, $label = '', $alt = '', 
 /**
  * Prints the 'update this xxx' button that appears on module pages.
  *
- * @deprecated since Moodle 2.0
+ * @deprecated since Lion 2.0
  *
  * @param string $cmid the course_module id.
  * @param string $ignored not used any more. (Used to be courseid.)
@@ -1302,10 +1288,10 @@ function update_module_button($cmid, $ignored, $string) {
 
     //NOTE: DO NOT call new output method because it needs the module name we do not have here!
 
-    if (has_capability('moodle/course:manageactivities', context_module::instance($cmid))) {
+    if (has_capability('lion/course:manageactivities', context_module::instance($cmid))) {
         $string = get_string('updatethis', '', $string);
 
-        $url = new moodle_url("$CFG->wwwroot/course/mod.php", array('update' => $cmid, 'return' => true, 'sesskey' => sesskey()));
+        $url = new lion_url("$CFG->wwwroot/course/mod.php", array('update' => $cmid, 'return' => true, 'sesskey' => sesskey()));
         return $OUTPUT->single_button($url, $string);
     } else {
         return '';
@@ -1327,7 +1313,7 @@ function build_navigation($extranavlinks, $cm = null) {
 }
 
 /**
- * @deprecated not relevant with global navigation in Moodle 2.x+
+ * @deprecated not relevant with global navigation in Lion 2.x+
  */
 function navmenu($course, $cm=NULL, $targetwindow='self') {
     throw new coding_exception('navmenu() can not be used any more, it is no longer relevant with global navigation.');
@@ -1389,7 +1375,7 @@ function show_event($event) {
  * Original singleton helper function, please use static methods instead,
  * ex: core_text::convert().
  *
- * @deprecated since Moodle 2.2 use core_text::xxxx() instead.
+ * @deprecated since Lion 2.2 use core_text::xxxx() instead.
  * @see core_text
  */
 function textlib_get_instance() {
@@ -1721,7 +1707,7 @@ function print_overview($courses, array $remote_courses=array()) {
             $attributes['class'] = 'dimmed';
         }
         echo $OUTPUT->heading(html_writer::link(
-            new moodle_url('/course/view.php', array('id' => $course->id)), $fullname, $attributes), 3);
+            new lion_url('/course/view.php', array('id' => $course->id)), $fullname, $attributes), 3);
         if (array_key_exists($course->id,$htmlarray)) {
             foreach ($htmlarray[$course->id] as $modname => $html) {
                 echo $html;
@@ -1737,7 +1723,7 @@ function print_overview($courses, array $remote_courses=array()) {
         echo $OUTPUT->box_start('coursebox');
         $attributes = array('title' => s($course->fullname));
         echo $OUTPUT->heading(html_writer::link(
-            new moodle_url('/auth/mnet/jump.php', array('hostid' => $course->hostid, 'wantsurl' => '/course/view.php?id='.$course->remoteid)),
+            new lion_url('/auth/mnet/jump.php', array('hostid' => $course->hostid, 'wantsurl' => '/course/view.php?id='.$course->remoteid)),
             format_string($course->shortname),
             $attributes) . ' (' . format_string($course->hostname) . ')', 3);
         echo $OUTPUT->box_end();
@@ -1763,7 +1749,7 @@ function print_recent_activity($course) {
 
     $context = context_course::instance($course->id);
 
-    $viewfullnames = has_capability('moodle/site:viewfullnames', $context);
+    $viewfullnames = has_capability('lion/site:viewfullnames', $context);
 
     $timestart = round(time() - COURSE_MAX_RECENT_PERIOD, -2); // better db caching for guests - 100 seconds
 
@@ -1841,7 +1827,7 @@ function print_recent_activity($course) {
             if ($log->action == 'delete mod') {
                 // unfortunately we do not know if the mod was visible
                 if (!array_key_exists($log->info, $newgones)) {
-                    $strdeleted = get_string('deletedactivity', 'moodle', get_string('modulename', $modname));
+                    $strdeleted = get_string('deletedactivity', 'lion', get_string('modulename', $modname));
                     $changelist[$log->info] = array ('operation' => 'delete', 'text' => $strdeleted);
                 }
             } else {
@@ -1858,11 +1844,11 @@ function print_recent_activity($course) {
                 }
 
                 if ($log->action == 'add mod') {
-                    $stradded = get_string('added', 'moodle', get_string('modulename', $modname));
+                    $stradded = get_string('added', 'lion', get_string('modulename', $modname));
                     $changelist[$log->info] = array('operation' => 'add', 'text' => "$stradded:<br /><a href=\"$CFG->wwwroot/mod/$cm->modname/view.php?id={$cm->id}\">".format_string($cm->name, true)."</a>");
 
                 } else if ($log->action == 'update mod' and empty($changelist[$log->info])) {
-                    $strupdated = get_string('updated', 'moodle', get_string('modulename', $modname));
+                    $strupdated = get_string('updated', 'lion', get_string('modulename', $modname));
                     $changelist[$log->info] = array('operation' => 'update', 'text' => "$strupdated:<br /><a href=\"$CFG->wwwroot/mod/$cm->modname/view.php?id={$cm->id}\">".format_string($cm->name, true)."</a>");
                 }
             }
@@ -1991,7 +1977,7 @@ function update_category_button($categoryid = 0) {
     } else {
         $page = 'index.php';
     }
-    return $OUTPUT->single_button(new moodle_url('/course/' . $page, $options), $label, 'get');
+    return $OUTPUT->single_button(new lion_url('/course/' . $page, $options), $label, 'get');
 }
 
 /**
@@ -2347,7 +2333,7 @@ function get_child_categories($parentid) {
             array(CONTEXT_COURSECAT, $parentid));
     foreach ($records as $category) {
         context_helper::preload_from_record($category);
-        if (!$category->visible && !has_capability('moodle/category:viewhiddencategories', context_coursecat::instance($category->id))) {
+        if (!$category->visible && !has_capability('lion/category:viewhiddencategories', context_coursecat::instance($category->id))) {
             continue;
         }
         $rv[] = $category;
@@ -2446,7 +2432,7 @@ function get_categories($parent='none', $sort=NULL, $shallow=true) {
     foreach($rs as $cat) {
         context_helper::preload_from_record($cat);
         $catcontext = context_coursecat::instance($cat->id);
-        if ($cat->visible || has_capability('moodle/category:viewhiddencategories', $catcontext)) {
+        if ($cat->visible || has_capability('lion/category:viewhiddencategories', $catcontext)) {
             $categories[$cat->id] = $cat;
         }
     }
@@ -2488,9 +2474,9 @@ function print_course_search($value="", $return=false, $format="plain") {
  *
  * @deprecated since 2.5
  */
-function print_my_moodle() {
+function print_my_lion() {
     global $PAGE;
-    debugging('Function print_my_moodle() is deprecated, please use course renderer function frontpage_my_courses()', DEBUG_DEVELOPER);
+    debugging('Function print_my_lion() is deprecated, please use course renderer function frontpage_my_courses()', DEBUG_DEVELOPER);
 
     $renderer = $PAGE->get_renderer('core', 'course');
     echo $renderer->frontpage_my_courses();
@@ -2564,7 +2550,7 @@ function print_remote_host($host, $width="100%") {
  *
  * @deprecated since 2.5
  *
- * See http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+ * See http://docs.lion.org/dev/Courses_lists_upgrade_to_2.5
  */
 function print_whole_category_list($category=NULL, $displaylist=NULL, $parentslist=NULL, $depth=-1, $showcourses = true, $categorycourses=NULL) {
     global $PAGE;
@@ -2606,7 +2592,7 @@ function print_category_info($category, $depth = 0, $showcourses = false, array 
  *
  * @deprecated since 2.5
  *
- * This function is not used any more in moodle core and course renderer does not have render function for it.
+ * This function is not used any more in lion core and course renderer does not have render function for it.
  * Combo list on the front page is displayed as:
  * $renderer = $PAGE->get_renderer('core', 'course');
  * echo $renderer->frontpage_combo_list()
@@ -2617,7 +2603,7 @@ function print_category_info($category, $depth = 0, $showcourses = false, array 
  * To get list of courses use:
  * coursecat::get($id)->get_courses()
  *
- * See http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+ * See http://docs.lion.org/dev/Courses_lists_upgrade_to_2.5
  *
  * @param int $id
  * @param int $depth
@@ -2636,7 +2622,7 @@ function get_course_category_tree($id = 0, $depth = 0) {
             array(CONTEXT_COURSECAT, $id));
     foreach ($records as $category) {
         context_helper::preload_from_record($category);
-        if (!$category->visible && !has_capability('moodle/category:viewhiddencategories', context_coursecat::instance($category->id))) {
+        if (!$category->visible && !has_capability('lion/category:viewhiddencategories', context_coursecat::instance($category->id))) {
             continue;
         }
         $categories[] = $category;
@@ -2677,7 +2663,7 @@ function get_course_category_tree($id = 0, $depth = 0) {
                 continue;
             }
             context_helper::preload_from_record($course);
-            if (!empty($course->visible) || has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id))) {
+            if (!empty($course->visible) || has_capability('lion/course:viewhiddencourses', context_course::instance($course->id))) {
                 $categoryids[$course->category]->courses[$course->id] = $course;
             }
         }
@@ -2722,7 +2708,7 @@ function print_courses($category) {
     } else {
         echo $OUTPUT->heading(get_string("nocoursesyet"));
         $context = context_system::instance();
-        if (has_capability('moodle/course:create', $context)) {
+        if (has_capability('lion/course:create', $context)) {
             $options = array();
             if (!empty($category->id)) {
                 $options['category'] = $category->id;
@@ -2730,7 +2716,7 @@ function print_courses($category) {
                 $options['category'] = $CFG->defaultrequestcategory;
             }
             echo html_writer::start_tag('div', array('class'=>'addcoursebutton'));
-            echo $OUTPUT->single_button(new moodle_url('/course/edit.php', $options), get_string("addnewcourse"));
+            echo $OUTPUT->single_button(new lion_url('/course/edit.php', $options), get_string("addnewcourse"));
             echo html_writer::end_tag('div');
             return false;
         }
@@ -2766,7 +2752,7 @@ function print_course($course, $highlightterms = '') {
  *
  * @deprecated since 2.5
  *
- * This function is not used any more in moodle core and course renderer does not have render function for it.
+ * This function is not used any more in lion core and course renderer does not have render function for it.
  * Combo list on the front page is displayed as:
  * $renderer = $PAGE->get_renderer('core', 'course');
  * echo $renderer->frontpage_combo_list()
@@ -2777,7 +2763,7 @@ function print_course($course, $highlightterms = '') {
  * To get list of courses use:
  * coursecat::get($id)->get_courses()
  *
- * See http://docs.moodle.org/dev/Courses_lists_upgrade_to_2.5
+ * See http://docs.lion.org/dev/Courses_lists_upgrade_to_2.5
  *
  * @param int $categoryid
  * @return array
@@ -2815,7 +2801,7 @@ function get_category_courses_array_recursively(array &$flattened, $category) {
  * This URL points to blog/index.php and includes filter parameters appropriate for the current page.
  *
  * @param stdclass $context
- * @deprecated since Moodle 2.5 MDL-27814 - please do not use this function any more.
+ * @deprecated since Lion 2.5 MDL-27814 - please do not use this function any more.
  * @todo Remove this in 2.7
  * @return string
  */
@@ -2823,7 +2809,7 @@ function blog_get_context_url($context=null) {
     global $CFG;
 
     debugging('Function  blog_get_context_url() is deprecated, getting params from context is not reliable for blogs.', DEBUG_DEVELOPER);
-    $viewblogentriesurl = new moodle_url('/blog/index.php');
+    $viewblogentriesurl = new lion_url('/blog/index.php');
 
     if (empty($context)) {
         global $PAGE;
@@ -3111,7 +3097,7 @@ function get_courses_wmanagers($categoryid=0, $sort="c.sortorder ASC", $fields=a
  * @return string HTML structure
  */
 function convert_tree_to_html($tree, $row=0) {
-    debugging('Function convert_tree_to_html() is deprecated since Moodle 2.5. Consider using class tabtree and core_renderer::render_tabtree()', DEBUG_DEVELOPER);
+    debugging('Function convert_tree_to_html() is deprecated since Lion 2.5. Consider using class tabtree and core_renderer::render_tabtree()', DEBUG_DEVELOPER);
 
     $str = "\n".'<ul class="tabrow'.$row.'">'."\n";
 
@@ -3180,7 +3166,7 @@ function convert_tree_to_html($tree, $row=0) {
  */
 function convert_tabrows_to_tree($tabrows, $selected, $inactive, $activated) {
 
-    debugging('Function convert_tabrows_to_tree() is deprecated since Moodle 2.5. Consider using class tabtree', DEBUG_DEVELOPER);
+    debugging('Function convert_tabrows_to_tree() is deprecated since Lion 2.5. Consider using class tabtree', DEBUG_DEVELOPER);
 
     // Work backwards through the rows (bottom to top) collecting the tree as we go.
     $tabrows = array_reverse($tabrows);
@@ -3215,7 +3201,7 @@ function convert_tabrows_to_tree($tabrows, $selected, $inactive, $activated) {
  * @return bool True for yes, false for no
  */
 function can_use_rotated_text() {
-    debugging('can_use_rotated_text() is deprecated since Moodle 2.5. JS feature detection is used automatically.', DEBUG_DEVELOPER);
+    debugging('can_use_rotated_text() is deprecated since Lion 2.5. JS feature detection is used automatically.', DEBUG_DEVELOPER);
     return true;
 }
 
@@ -3224,7 +3210,7 @@ function can_use_rotated_text() {
  * context instance if it does not exist yet.
  *
  * @deprecated since 2.2, use context_course::instance() or other relevant class instead
- * @todo This will be deleted in Moodle 2.8, refer MDL-34472
+ * @todo This will be deleted in Lion 2.8, refer MDL-34472
  * @param integer $contextlevel The context level, for example CONTEXT_COURSE, or CONTEXT_MODULE.
  * @param integer $instance The instance id. For $level = CONTEXT_COURSE, this would be $course->id,
  *      for $level = CONTEXT_MODULE, this would be $cm->id. And so on. Defaults to 0
@@ -3256,7 +3242,7 @@ function get_context_instance($contextlevel, $instance = 0, $strictness = IGNORE
 /**
  * Get a context instance as an object, from a given context id.
  *
- * @deprecated since Moodle 2.2 MDL-35009 - please do not use this function any more.
+ * @deprecated since Lion 2.2 MDL-35009 - please do not use this function any more.
  * @see context::instance_by_id($id)
  */
 function get_context_instance_by_id($id, $strictness = IGNORE_MISSING) {
@@ -3296,7 +3282,7 @@ function get_parent_contexts(context $context, $includeself = false) {
  * Return the id of the parent of this context, or false if there is no parent (only happens if this
  * is the site context.)
  *
- * @deprecated since Moodle 2.2
+ * @deprecated since Lion 2.2
  * @see context::get_parent_context()
  * @param context $context
  * @return integer the id of the parent context.
@@ -3395,7 +3381,7 @@ function rebuild_contexts(array $fixcontexts) {
  * are no longer loaded here. The contexts for all the blocks on the current
  * page are now efficiently loaded by {@link block_manager::load_blocks()}.
  *
- * @deprecated since Moodle 2.2
+ * @deprecated since Lion 2.2
  * @see context_helper::preload_course()
  * @param int $courseid Course ID
  * @return void
@@ -3416,7 +3402,7 @@ function preload_course_contexts($courseid) {
  * DB efficient as possible. This op can have a
  * massive impact in the DB.
  *
- * @deprecated since Moodle 2.2
+ * @deprecated since Lion 2.2
  * @see context::update_moved()
  * @param context $context context obj
  * @param context $newparent new parent obj
@@ -3532,7 +3518,7 @@ function mark_context_dirty($path) {
  * Remove a context record and any dependent entries,
  * removes context from static context cache too
  *
- * @deprecated since Moodle 2.2
+ * @deprecated since Lion 2.2
  * @see context_helper::delete_instance() or context::delete_content()
  * @param int $contextlevel
  * @param int $instanceid
@@ -3562,7 +3548,7 @@ function delete_context($contextlevel, $instanceid, $deleterecord = true) {
  * @deprecated since 2.2
  * @see context::get_url()
  * @param context $context the context
- * @return moodle_url
+ * @return lion_url
  */
 function get_context_url(context $context) {
     debugging('get_context_url() is deprecated, please use $context->get_url() instead.', DEBUG_DEVELOPER);
@@ -3615,7 +3601,7 @@ function get_user_courses_bycap($userid, $cap, $accessdata_ignored, $doanything_
 /**
  * This is really slow!!! do not use above course context level
  *
- * @deprecated since Moodle 2.2
+ * @deprecated since Lion 2.2
  * @param int $roleid
  * @param context $context
  * @return array
@@ -3781,7 +3767,7 @@ function get_device_type() {
 }
 
 /**
- * Returns a list of the device types supporting by Moodle
+ * Returns a list of the device types supporting by Lion
  *
  * @deprecated since 2.6
  * @param boolean $incusertypes includes types specified using the devicedetectregex admin setting
@@ -3856,7 +3842,7 @@ function get_browser_version_classes() {
 /**
  * Generate a fake user for emails based on support settings
  *
- * @deprecated since Moodle 2.6
+ * @deprecated since Lion 2.6
  * @see core_user::get_support_user()
  * @return stdClass user info
  */
@@ -3868,7 +3854,7 @@ function generate_email_supportuser() {
 /**
  * Get issued badge details for assertion URL
  *
- * @deprecated since Moodle 2.6
+ * @deprecated since Lion 2.6
  * @param string $hash Unique hash of a badge
  * @return array Information about issued badge.
  */
@@ -3894,7 +3880,7 @@ function can_use_html_editor() {
 /**
  * Returns an object with counts of failed login attempts.
  *
- * @deprecated since Moodle 2.7, use {@link user_count_login_failures()} instead.
+ * @deprecated since Lion 2.7, use {@link user_count_login_failures()} instead.
  */
 function count_login_failures($mode, $username, $lastlogin) {
     throw new coding_exception('count_login_failures() can not be used any more, please use user_count_login_failures().');
@@ -3912,7 +3898,7 @@ function ajaxenabled(array $browsers = null) {
 /**
  * Determine whether a course module is visible within a course.
  *
- * @deprecated Since Moodle 2.7 MDL-44070
+ * @deprecated Since Lion 2.7 MDL-44070
  */
 function coursemodule_visible_for_user($cm, $userid=0) {
     throw new coding_exception('coursemodule_visible_for_user() can not be used any more,
@@ -3922,7 +3908,7 @@ function coursemodule_visible_for_user($cm, $userid=0) {
 /**
  * Gets all the cohorts the user is able to view.
  *
- * @deprecated since Moodle 2.8 MDL-36014, MDL-35618 this functionality is removed
+ * @deprecated since Lion 2.8 MDL-36014, MDL-35618 this functionality is removed
  *
  * @param course_enrolment_manager $manager
  * @return array
@@ -3940,7 +3926,7 @@ function enrol_cohort_get_cohorts(course_enrolment_manager $manager) {
  * This function is deprecated, use {@link cohort_can_view_cohort()} instead since it also
  * takes into account current context
  *
- * @deprecated since Moodle 2.8 MDL-36014 please use cohort_can_view_cohort()
+ * @deprecated since Lion 2.8 MDL-36014 please use cohort_can_view_cohort()
  *
  * @param int $cohortid Cohort ID
  * @return boolean
@@ -3962,7 +3948,7 @@ function enrol_cohort_can_view_cohort($cohortid) {
  *
  * It is advisable to use {@link cohort_get_available_cohorts()} instead.
  *
- * @deprecated since Moodle 2.8 MDL-36014 use cohort_get_available_cohorts() instead
+ * @deprecated since Lion 2.8 MDL-36014 use cohort_get_available_cohorts() instead
  *
  * @param  stdClass $course
  * @param  bool $onlyenrolled true means include only cohorts with enrolled users
@@ -4014,9 +4000,9 @@ function cohort_get_visible_list($course, $onlyenrolled=true) {
  * In order for this to succeed the course must contain a valid manual
  * enrolment plugin instance that the user has permission to enrol users through.
  *
- * @deprecated since Moodle 2.8 MDL-35618 this functionality is removed
+ * @deprecated since Lion 2.8 MDL-35618 this functionality is removed
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param course_enrolment_manager $manager
  * @param int $cohortid
  * @param int $roleid
@@ -4027,7 +4013,7 @@ function enrol_cohort_enrol_all_users(course_enrolment_manager $manager, $cohort
     debugging('enrol_cohort_enrol_all_users() is deprecated. This functionality is moved to enrol_manual.', DEBUG_DEVELOPER);
 
     $context = $manager->get_context();
-    require_capability('moodle/course:enrolconfig', $context);
+    require_capability('lion/course:enrolconfig', $context);
 
     $instance = false;
     $instances = $manager->get_enrolment_instances();
@@ -4063,9 +4049,9 @@ function enrol_cohort_enrol_all_users(course_enrolment_manager $manager, $cohort
 /**
  * Gets cohorts the user is able to view.
  *
- * @deprecated since Moodle 2.8 MDL-35618 this functionality is removed
+ * @deprecated since Lion 2.8 MDL-35618 this functionality is removed
  *
- * @global moodle_database $DB
+ * @global lion_database $DB
  * @param course_enrolment_manager $manager
  * @param int $offset limit output from
  * @param int $limit items to output per load
@@ -4106,8 +4092,8 @@ function enrol_cohort_search_cohorts(course_enrolment_manager $manager, $offset 
  *
  * $user2 will be null if viewing a user's recent conversations
  *
- * @deprecated since Moodle 2.9 MDL-49371 - please do not use this function any more.
- * @todo MDL-49290 This will be deleted in Moodle 3.1.
+ * @deprecated since Lion 2.9 MDL-49371 - please do not use this function any more.
+ * @todo MDL-49290 This will be deleted in Lion 3.1.
  * @param stdClass the first user
  * @param stdClass the second user or null
  * @return bool True if the current user is one of either $user1 or $user2

@@ -1,39 +1,41 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+
+/**
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
+*/
+
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This file contains all necessary code to define a wiki editor
  *
- * @package mod_wiki
- * @copyright 2009 Marc Alier, Jordi Piguillem marc.alier@upc.edu
- * @copyright 2009 Universitat Politecnica de Catalunya http://www.upc.edu
  *
- * @author Josep Arus
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once($CFG->dirroot.'/lib/formslib.php');
 require_once($CFG->dirroot.'/lib/form/textarea.php');
 
-class MoodleQuickForm_wikieditor extends MoodleQuickForm_textarea {
+class LionQuickForm_wikieditor extends LionQuickForm_textarea {
 
     private $files;
 
-    function MoodleQuickForm_wikieditor($elementName = null, $elementLabel = null, $attributes = null) {
+    function LionQuickForm_wikieditor($elementName = null, $elementLabel = null, $attributes = null) {
         if (isset($attributes['wiki_format'])) {
             $this->wikiformat = $attributes['wiki_format'];
             unset($attributes['wiki_format']);
@@ -43,7 +45,7 @@ class MoodleQuickForm_wikieditor extends MoodleQuickForm_textarea {
             unset($attributes['files']);
         }
 
-        parent::MoodleQuickForm_textarea($elementName, $elementLabel, $attributes);
+        parent::LionQuickForm_textarea($elementName, $elementLabel, $attributes);
     }
 
     function setWikiFormat($wikiformat) {
@@ -155,4 +157,4 @@ class MoodleQuickForm_wikieditor extends MoodleQuickForm_textarea {
 }
 
 //register wikieditor
-MoodleQuickForm::registerElementType('wikieditor', $CFG->dirroot."/mod/wiki/editors/wikieditor.php", 'MoodleQuickForm_wikieditor');
+LionQuickForm::registerElementType('wikieditor', $CFG->dirroot."/mod/wiki/editors/wikieditor.php", 'LionQuickForm_wikieditor');

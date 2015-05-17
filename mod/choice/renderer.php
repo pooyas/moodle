@@ -1,26 +1,13 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Moodle renderer used to display special elements of the lesson module
+ * Lion renderer used to display special elements of the lesson module
  *
- * @package   mod_choice
- * @copyright 2010 Rossiani Wijaya
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
  **/
 define ('DISPLAY_HORIZONTAL_LAYOUT', 0);
 define ('DISPLAY_VERTICAL_LAYOUT', 1);
@@ -39,7 +26,7 @@ class mod_choice_renderer extends plugin_renderer_base {
         if ($vertical) {
             $layoutclass = 'vertical';
         }
-        $target = new moodle_url('/mod/choice/view.php');
+        $target = new lion_url('/mod/choice/view.php');
         $attributes = array('method'=>'POST', 'action'=>$target, 'class'=> $layoutclass);
         $disabled = empty($options['previewonly']) ? array() : array('disabled' => 'disabled');
 
@@ -87,7 +74,7 @@ class mod_choice_renderer extends plugin_renderer_base {
                 }
 
                 if (!empty($options['allowupdate']) && ($options['allowupdate'])) {
-                    $url = new moodle_url('view.php',
+                    $url = new lion_url('view.php',
                             array('id' => $coursemoduleid, 'action' => 'delchoice', 'sesskey' => sesskey()));
                     $html .= html_writer::link($url, get_string('removemychoice', 'choice'));
                 }
@@ -137,7 +124,7 @@ class mod_choice_renderer extends plugin_renderer_base {
         $html .= html_writer::tag('h3',format_string(get_string("responses", "choice")));
 
         $attributes = array('method'=>'POST');
-        $attributes['action'] = new moodle_url($PAGE->url);
+        $attributes['action'] = new lion_url($PAGE->url);
         $attributes['id'] = 'attemptsform';
 
         if ($choices->viewresponsecapability) {
@@ -234,7 +221,7 @@ class mod_choice_renderer extends plugin_renderer_base {
                         $userimage = $this->output->user_picture($user, array('courseid'=>$choices->courseid));
                         $data .= html_writer::tag('div', $userimage, array('class'=>'image'));
 
-                        $userlink = new moodle_url('/user/view.php', array('id'=>$user->id,'course'=>$choices->courseid));
+                        $userlink = new lion_url('/user/view.php', array('id'=>$user->id,'course'=>$choices->courseid));
                         $name = html_writer::tag('a', $userfullname, array('href'=>$userlink, 'class'=>'username'));
                         $data .= html_writer::tag('div', $name, array('class'=>'fullname'));
                         $data .= html_writer::tag('div','', array('class'=>'clearfloat'));
@@ -253,7 +240,7 @@ class mod_choice_renderer extends plugin_renderer_base {
 
         $actiondata = '';
         if ($choices->viewresponsecapability && $choices->deleterepsonsecapability) {
-            $selecturl = new moodle_url('#');
+            $selecturl = new lion_url('#');
 
             $selectallactions = new component_action('click',"checkall");
             $selectall = new action_link($selecturl, get_string('selectall'), $selectallactions);
@@ -265,7 +252,7 @@ class mod_choice_renderer extends plugin_renderer_base {
 
             $actiondata .= html_writer::tag('label', ' ' . get_string('withselected', 'choice') . ' ', array('for'=>'menuaction'));
 
-            $actionurl = new moodle_url($PAGE->url, array('sesskey'=>sesskey(), 'action'=>'delete_confirmation()'));
+            $actionurl = new lion_url($PAGE->url, array('sesskey'=>sesskey(), 'action'=>'delete_confirmation()'));
             $select = new single_select($actionurl, 'action', array('delete'=>get_string('delete')), null, array(''=>get_string('chooseaction', 'choice')), 'attemptsform');
 
             $actiondata .= $this->output->render($select);

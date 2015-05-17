@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Strings for component 'tool_xmldb', language 'en', branch 'MOODLE_22_STABLE'
+ * Strings for component 'tool_xmldb', language 'en', branch 'LION_22_STABLE'
  *
- * @package    tool_xmldb
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage xmldb
+ * @copyright  2015 Pooya Saeedi
  */
 
 $string['actual'] = 'Actual';
@@ -33,37 +20,37 @@ $string['confirmdeleteindex'] = 'Are you absolutely sure that you want to delete
 $string['confirmdeletekey'] = 'Are you absolutely sure that you want to delete the key:';
 $string['confirmdeletetable'] = 'Are you absolutely sure that you want to delete the table:';
 $string['confirmdeletexmlfile'] = 'Are you absolutely sure that you want to delete the file:';
-$string['confirmcheckbigints'] = 'This functionality will search for <a href="http://tracker.moodle.org/browse/MDL-11038">potential wrong integer fields</a> in your Moodle server, generating (but not executing!) automatically the needed SQL statements to have all the integers in your DB properly defined.
+$string['confirmcheckbigints'] = 'This functionality will search for <a href="http://tracker.lion.org/browse/MDL-11038">potential wrong integer fields</a> in your Lion server, generating (but not executing!) automatically the needed SQL statements to have all the integers in your DB properly defined.
 
 Once generated you can copy such statements and execute them safely with your favourite SQL interface (don\'t forget to backup your data before doing that).
 
-It\'s highly recommended to be running the latest (+ version) available of your Moodle release before executing the search of wrong integers.
+It\'s highly recommended to be running the latest (+ version) available of your Lion release before executing the search of wrong integers.
 
 This functionality doesn\'t perform any action against the DB (just reads from it), so can be safely executed at any moment.';
-$string['confirmcheckdefaults'] = 'This functionality will search for inconsistent default values in your Moodle server, generating (but not executing!) the needed SQL statements to have all the default values properly defined.
+$string['confirmcheckdefaults'] = 'This functionality will search for inconsistent default values in your Lion server, generating (but not executing!) the needed SQL statements to have all the default values properly defined.
 
 Once generated you can copy such statements and execute them safely with your favourite SQL interface (don\'t forget to backup your data before doing that).
 
-It\'s highly recommended to be running the latest (+ version) available of your Moodle release before executing the search of inconsistent default values.
+It\'s highly recommended to be running the latest (+ version) available of your Lion release before executing the search of inconsistent default values.
 
 This functionality doesn\'t perform any action against the DB (just reads from it), so can be safely executed at any moment.';
-$string['confirmcheckforeignkeys'] = 'This functionality will search for potential violations of the foreign keys defined in the install.xml definitions. (Moodle does not currently generate actual foreign key constraints in the database, which is why invalid data may be present.)
+$string['confirmcheckforeignkeys'] = 'This functionality will search for potential violations of the foreign keys defined in the install.xml definitions. (Lion does not currently generate actual foreign key constraints in the database, which is why invalid data may be present.)
 
-It\'s highly recommended to be running the latest (+ version) available of your Moodle release before executing the search of missing indexes.
+It\'s highly recommended to be running the latest (+ version) available of your Lion release before executing the search of missing indexes.
 
 This functionality doesn\'t perform any action against the DB (just reads from it), so can be safely executed at any moment.';
-$string['confirmcheckindexes'] = 'This functionality will search for potential missing indexes in your Moodle server, generating (but not executing!) automatically the needed SQL statements to keep everything updated.
+$string['confirmcheckindexes'] = 'This functionality will search for potential missing indexes in your Lion server, generating (but not executing!) automatically the needed SQL statements to keep everything updated.
 
 Once generated you can copy such statements and execute them safely with your favourite SQL interface (don\'t forget to backup your data before doing that).
 
-It\'s highly recommended to be running the latest (+ version) available of your Moodle release before executing the search of missing indexes.
+It\'s highly recommended to be running the latest (+ version) available of your Lion release before executing the search of missing indexes.
 
 This functionality doesn\'t perform any action against the DB (just reads from it), so can be safely executed at any moment.';
-$string['confirmcheckoraclesemantics'] = 'This functionality will search for <a href="http://tracker.moodle.org/browse/MDL-29322">Oracle varchar2 columns using BYTE semantics</a> in your Moodle server, generating (but not executing!) automatically the needed SQL statements to have all the columns converted to use CHAR semantics instead (better for cross-db compatibility and increased contents max. length).
+$string['confirmcheckoraclesemantics'] = 'This functionality will search for <a href="http://tracker.lion.org/browse/MDL-29322">Oracle varchar2 columns using BYTE semantics</a> in your Lion server, generating (but not executing!) automatically the needed SQL statements to have all the columns converted to use CHAR semantics instead (better for cross-db compatibility and increased contents max. length).
 
 Once generated you can copy such statements and execute them safely with your favourite SQL interface (don\'t forget to backup your data before doing that).
 
-It\'s highly recommended to be running the latest (+ version) available of your Moodle release before executing the search of BYTE semantics.
+It\'s highly recommended to be running the latest (+ version) available of your Lion release before executing the search of BYTE semantics.
 
 This functionality doesn\'t perform any action against the DB (just reads from it), so can be safely executed at any moment.';
 $string['confirmrevertchanges'] = 'Are you absolutely sure that you want to revert changes performed over:';
@@ -139,7 +126,7 @@ $string['incorrecttablename'] = 'Incorrect table name';
 $string['key'] = 'Key';
 $string['keynameempty'] = 'The key name cannot be empty';
 $string['keys'] = 'Keys';
-$string['listreservedwords'] = 'List of Reserved Words<br />(used to keep <a href="http://docs.moodle.org/en/XMLDB_reserved_words" target="_blank">XMLDB_reserved_words</a> updated)';
+$string['listreservedwords'] = 'List of Reserved Words<br />(used to keep <a href="http://docs.lion.org/en/XMLDB_reserved_words" target="_blank">XMLDB_reserved_words</a> updated)';
 $string['load'] = 'Load';
 $string['main_view'] = 'Main view';
 $string['masterprimaryuniqueordernomatch'] = 'The fields in your foreign key must be listed in the same order as they are listed in the UNIQUE KEY on the referenced table.';

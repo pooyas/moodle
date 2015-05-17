@@ -7,7 +7,9 @@
  * you must require_once dirname(__FILE__) . '/lib/Minify/Source.php' so that
  * class is available.
  *
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 if (! class_exists('Minify_Loader', false)) {

@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Mustache helper to load strings from string_manager.
  *
- * @package    core
  * @category   output
- * @copyright  2015 Damyon Wiese
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core\output;
@@ -29,16 +16,13 @@ use external_api;
 use external_function_parameters;
 use external_value;
 use core_component;
-use moodle_exception;
+use lion_exception;
 use context_system;
 use theme_config;
 
 /**
  * This class contains a list of webservice functions related to output.
  *
- * @copyright  2015 Damyon Wiese
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since      2.9
  */
 class external extends external_api {
     /**
@@ -59,7 +43,6 @@ class external extends external_api {
      * Can this function be called directly from ajax?
      *
      * @return boolean
-     * @since Moodle 2.9
      */
     public static function load_template_is_allowed_from_ajax() {
         return true;
@@ -88,7 +71,7 @@ class external extends external_api {
         // Check if this is a valid component.
         $componentdir = core_component::get_component_directory($component);
         if (empty($componentdir)) {
-            throw new moodle_exception('filenotfound', 'error');
+            throw new lion_exception('filenotfound', 'error');
         }
         // Places to look.
         $candidates = array();
@@ -115,7 +98,7 @@ class external extends external_api {
             }
         }
         if ($templatestr === false) {
-            throw new moodle_exception('filenotfound', 'error');
+            throw new lion_exception('filenotfound', 'error');
         }
 
         return $templatestr;

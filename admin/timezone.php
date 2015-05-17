@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage admin
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require_once('../config.php');
 
     $zone = optional_param('zone', '', PARAM_RAW);
@@ -14,7 +21,7 @@
 
     require_login();
 
-    require_capability('moodle/site:config', context_system::instance());
+    require_capability('lion/site:config', context_system::instance());
 
     $strtimezone = get_string("timezone");
     $strsavechanges = get_string("savechanges");

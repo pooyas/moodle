@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Code quality unit tests that are fast enough to run each time.
  *
- * @package    core
  * @category   phpunit
- * @copyright  (C) 2013 onwards Remote Learner.net Inc (http://www.remote-learner.net)
- * @author     Brent Boghosian (brent.boghosian@remote-learner.net)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Bogus custom context class for testing
@@ -33,7 +19,7 @@ class context_bogus1 extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         global $ME;
@@ -57,7 +43,7 @@ class context_bogus2 extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         global $ME;
@@ -81,7 +67,7 @@ class context_bogus3 extends context {
     /**
      * Returns the most relevant URL for this context.
      *
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_url() {
         global $ME;
@@ -101,7 +87,7 @@ class context_bogus3 extends context {
 class customcontext_testcase extends advanced_testcase {
 
     /**
-     * Perform setup before every test. This tells Moodle's phpunit to reset the database after every test.
+     * Perform setup before every test. This tells Lion's phpunit to reset the database after every test.
      */
     protected function setUp() {
         parent::setUp();

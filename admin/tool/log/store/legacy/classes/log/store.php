@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Legacy log reader.
  *
- * @package    logstore_legacy
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace logstore_legacy\log;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class store implements \tool_log\log\store, \core\log\sql_reader {
     use \tool_log\helper\store,
@@ -47,7 +34,7 @@ class store implements \tool_log\log\store, \core\log\sql_reader {
     const CRUD_REGEX = "/(crud).*?(<>|=|!=).*?'(.*?)'/s";
 
     /**
-     * This method contains mapping required for Moodle core to make legacy store compatible with other sql_reader based
+     * This method contains mapping required for Lion core to make legacy store compatible with other sql_reader based
      * queries.
      *
      * @param string $selectwhere Select statment
@@ -96,7 +83,7 @@ class store implements \tool_log\log\store, \core\log\sql_reader {
         try {
             // A custom report + on the fly SQL rewriting = a possible exception.
             $records = $DB->get_recordset_select('log', $selectwhere, $params, $sort, '*', $limitfrom, $limitnum);
-        } catch (\moodle_exception $ex) {
+        } catch (\lion_exception $ex) {
             debugging("error converting legacy event data " . $ex->getMessage() . $ex->debuginfo, DEBUG_DEVELOPER);
             return array();
         }
@@ -115,7 +102,7 @@ class store implements \tool_log\log\store, \core\log\sql_reader {
     /**
      * Fetch records using given criteria returning a Traversable object.
      *
-     * Note that the traversable object contains a moodle_recordset, so
+     * Note that the traversable object contains a lion_recordset, so
      * remember that is important that you call close() once you finish
      * using it.
      *
@@ -136,7 +123,7 @@ class store implements \tool_log\log\store, \core\log\sql_reader {
 
         try {
             $recordset = $DB->get_recordset_select('log', $selectwhere, $params, $sort, '*', $limitfrom, $limitnum);
-        } catch (\moodle_exception $ex) {
+        } catch (\lion_exception $ex) {
             debugging("error converting legacy event data " . $ex->getMessage() . $ex->debuginfo, DEBUG_DEVELOPER);
             return new \EmptyIterator;
         }
@@ -162,7 +149,7 @@ class store implements \tool_log\log\store, \core\log\sql_reader {
 
         try {
             return $DB->count_records_select('log', $selectwhere, $params);
-        } catch (\moodle_exception $ex) {
+        } catch (\lion_exception $ex) {
             debugging("error converting legacy event data " . $ex->getMessage() . $ex->debuginfo, DEBUG_DEVELOPER);
             return 0;
         }
@@ -194,7 +181,7 @@ class store implements \tool_log\log\store, \core\log\sql_reader {
      * @param    int $time Override the log time, should only be used for restore.
      */
     public function legacy_add_to_log($courseid, $module, $action, $url, $info, $cm, $user, $ip = null, $time = null) {
-        // Note that this function intentionally does not follow the normal Moodle DB access idioms.
+        // Note that this function intentionally does not follow the normal Lion DB access idioms.
         // This is for a good reason: it is the most frequently used DB update function,
         // so it has been optimised for speed.
         global $DB, $CFG, $USER;
@@ -261,14 +248,14 @@ class store implements \tool_log\log\store, \core\log\sql_reader {
         try {
             $DB->insert_record_raw('log', $log, false);
         } catch (\dml_exception $e) {
-            debugging('Error: Could not insert a new entry to the Moodle log. ' . $e->errorcode, DEBUG_ALL);
+            debugging('Error: Could not insert a new entry to the Lion log. ' . $e->errorcode, DEBUG_ALL);
 
             // MDL-11893, alert $CFG->supportemail if insert into log failed.
             if ($CFG->supportemail and empty($CFG->noemailever)) {
                 // Function email_to_user is not usable because email_to_user tries to write to the logs table,
                 // and this will get caught in an infinite loop, if disk is full.
                 $site = get_site();
-                $subject = 'Insert into log failed at your moodle site ' . $site->fullname;
+                $subject = 'Insert into log failed at your lion site ' . $site->fullname;
                 $message = "Insert into log table failed at " . date('l dS \of F Y h:i:s A') .
                     ".\n It is possible that your disk is full.\n\n";
                 $message .= "The failed query parameters are:\n\n" . var_export($log, true);

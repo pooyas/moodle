@@ -1,29 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Moodle renderer used to display special elements of the lesson module
+ * Lion renderer used to display special elements of the lesson module
  *
- * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class mod_lesson_renderer extends plugin_renderer_base {
     /**
@@ -168,11 +155,11 @@ class mod_lesson_renderer extends plugin_renderer_base {
         $output = $this->output->box(get_string('youhaveseen','lesson'), 'generalbox boxaligncenter');
         $output .= $this->output->box_start('center');
 
-        $yeslink = html_writer::link(new moodle_url('/mod/lesson/view.php', array('id'=>$this->page->cm->id, 'pageid'=>$lastpageseenid, 'startlastseen'=>'yes')), get_string('yes'));
+        $yeslink = html_writer::link(new lion_url('/mod/lesson/view.php', array('id'=>$this->page->cm->id, 'pageid'=>$lastpageseenid, 'startlastseen'=>'yes')), get_string('yes'));
         $output .= html_writer::tag('span', $yeslink, array('class'=>'lessonbutton standardbutton'));
         $output .= '&nbsp;';
 
-        $nolink = html_writer::link(new moodle_url('/mod/lesson/view.php', array('id'=>$this->page->cm->id, 'pageid'=>$lesson->firstpageid, 'startlastseen'=>'no')), get_string('no'));
+        $nolink = html_writer::link(new lion_url('/mod/lesson/view.php', array('id'=>$this->page->cm->id, 'pageid'=>$lesson->firstpageid, 'startlastseen'=>'no')), get_string('no'));
         $output .= html_writer::tag('span', $nolink, array('class'=>'lessonbutton standardbutton'));
 
         $output .= $this->output->box_end();
@@ -341,7 +328,7 @@ class mod_lesson_renderer extends plugin_renderer_base {
 
         $links = array();
 
-        $importquestionsurl = new moodle_url('/mod/lesson/import.php',array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid));
+        $importquestionsurl = new lion_url('/mod/lesson/import.php',array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid));
         $links[] = html_writer::link($importquestionsurl, get_string('importquestions', 'lesson'));
 
         $manager = lesson_page_type_manager::get($lesson);
@@ -349,7 +336,7 @@ class mod_lesson_renderer extends plugin_renderer_base {
             $links[] = html_writer::link($link['addurl'], $link['name']);
         }
 
-        $addquestionurl = new moodle_url('/mod/lesson/editpage.php', array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid));
+        $addquestionurl = new lion_url('/mod/lesson/editpage.php', array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid));
         $links[] = html_writer::link($addquestionurl, get_string('addaquestionpagehere', 'lesson'));
 
         return $this->output->box(implode(" | \n", $links), 'addlinks');
@@ -367,7 +354,7 @@ class mod_lesson_renderer extends plugin_renderer_base {
         $output = $this->output->heading(get_string("whatdofirst", "lesson"), 3);
         $links = array();
 
-        $importquestionsurl = new moodle_url('/mod/lesson/import.php',array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid));
+        $importquestionsurl = new lion_url('/mod/lesson/import.php',array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid));
         $links[] = html_writer::link($importquestionsurl, get_string('importquestions', 'lesson'));
 
         $manager = lesson_page_type_manager::get($lesson);
@@ -376,7 +363,7 @@ class mod_lesson_renderer extends plugin_renderer_base {
             $links[] = html_writer::link($link['addurl'], $link['name']);
         }
 
-        $addquestionurl = new moodle_url('/mod/lesson/editpage.php', array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid, 'firstpage'=>1));
+        $addquestionurl = new lion_url('/mod/lesson/editpage.php', array('id'=>$this->page->cm->id, 'pageid'=>$prevpageid, 'firstpage'=>1));
         $links[] = html_writer::link($addquestionurl, get_string('addaquestionpage', 'lesson'));
 
         return $this->output->box($output.'<p>'.implode('</p><p>', $links).'</p>', 'generalbox firstpageoptions');
@@ -396,23 +383,23 @@ class mod_lesson_renderer extends plugin_renderer_base {
         $actions = array();
 
         if ($printmove) {
-            $url = new moodle_url('/mod/lesson/lesson.php',
+            $url = new lion_url('/mod/lesson/lesson.php',
                     array('id' => $this->page->cm->id, 'action' => 'move', 'pageid' => $page->id, 'sesskey' => sesskey()));
             $label = get_string('movepagenamed', 'lesson', format_string($page->title));
             $img = html_writer::img($this->output->pix_url('t/move'), $label, array('class' => 'iconsmall'));
             $actions[] = html_writer::link($url, $img, array('title' => $label));
         }
-        $url = new moodle_url('/mod/lesson/editpage.php', array('id' => $this->page->cm->id, 'pageid' => $page->id, 'edit' => 1));
+        $url = new lion_url('/mod/lesson/editpage.php', array('id' => $this->page->cm->id, 'pageid' => $page->id, 'edit' => 1));
         $label = get_string('updatepagenamed', 'lesson', format_string($page->title));
         $img = html_writer::img($this->output->pix_url('t/edit'), $label, array('class' => 'iconsmall'));
         $actions[] = html_writer::link($url, $img, array('title' => $label));
 
-        $url = new moodle_url('/mod/lesson/view.php', array('id' => $this->page->cm->id, 'pageid' => $page->id));
+        $url = new lion_url('/mod/lesson/view.php', array('id' => $this->page->cm->id, 'pageid' => $page->id));
         $label = get_string('previewpagenamed', 'lesson', format_string($page->title));
         $img = html_writer::img($this->output->pix_url('t/preview'), $label, array('class' => 'iconsmall'));
         $actions[] = html_writer::link($url, $img, array('title' => $label));
 
-        $url = new moodle_url('/mod/lesson/lesson.php',
+        $url = new lion_url('/mod/lesson/lesson.php',
                 array('id' => $this->page->cm->id, 'action' => 'confirmdelete', 'pageid' => $page->id, 'sesskey' => sesskey()));
         $label = get_string('deletepagenamed', 'lesson', format_string($page->title));
         $img = html_writer::img($this->output->pix_url('t/delete'), $label, array('class' => 'iconsmall'));
@@ -427,7 +414,7 @@ class mod_lesson_renderer extends plugin_renderer_base {
             }
             $options[0] = get_string('question', 'lesson');
 
-            $addpageurl = new moodle_url('/mod/lesson/editpage.php', array('id'=>$this->page->cm->id, 'pageid'=>$page->id, 'sesskey'=>sesskey()));
+            $addpageurl = new lion_url('/mod/lesson/editpage.php', array('id'=>$this->page->cm->id, 'pageid'=>$page->id, 'sesskey'=>sesskey()));
             $addpageselect = new single_select($addpageurl, 'qtype', $options, null, array(''=>get_string('addanewpage', 'lesson').'...'), 'addpageafter'.$page->id);
             $addpageselector = $this->output->render($addpageselect);
         }

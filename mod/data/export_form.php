@@ -1,12 +1,19 @@
 <?php
 
-if (!defined('MOODLE_INTERNAL')) {
+
+/**
+ * @package    mod
+ * @subpackage data
+ * @copyright  2015 Pooya Saeedi
+*/
+
+if (!defined('LION_INTERNAL')) {
     die('Direct access to this script is forbidden!');
 }
 require_once($CFG->libdir . '/formslib.php');
 require_once($CFG->libdir . '/csvlib.class.php');
 
-class mod_data_export_form extends moodleform {
+class mod_data_export_form extends lionform {
     var $_datafields = array();
     var $_cm;
     var $_data;
@@ -17,7 +24,7 @@ class mod_data_export_form extends moodleform {
         $this->_datafields = $datafields;
         $this->_cm = $cm;
         $this->_data = $data;
-        parent::moodleform($url);
+        parent::lionform($url);
     }
 
     function definition() {

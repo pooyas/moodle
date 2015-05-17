@@ -1,8 +1,9 @@
 <?php
 /**
  * Hebrew PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author Ronny Sherer <ronny@hoojima.com>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'שגיאת SMTP: פעולת האימות נכשלה.';

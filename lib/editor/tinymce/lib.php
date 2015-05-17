@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * TinyMCE text editor integration.
  *
  * @package    editor
  * @subpackage tinymce
- * @copyright  2009 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 class tinymce_texteditor extends texteditor {
     /** @var string active version - this is the directory name where to find tinymce code */
@@ -43,7 +29,7 @@ class tinymce_texteditor extends texteditor {
      * @return array
      */
     public function get_supported_formats() {
-        // FORMAT_MOODLE is not supported here, sorry.
+        // FORMAT_LION is not supported here, sorry.
         return array(FORMAT_HTML => FORMAT_HTML);
     }
 
@@ -78,11 +64,11 @@ class tinymce_texteditor extends texteditor {
      */
     public function use_editor($elementid, array $options=null, $fpoptions=null) {
         global $PAGE, $CFG;
-        // Note: use full moodle_url instance to prevent standard JS loader, make sure we are using https on profile page if required.
+        // Note: use full lion_url instance to prevent standard JS loader, make sure we are using https on profile page if required.
         if ($CFG->debugdeveloper) {
-            $PAGE->requires->js(new moodle_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce_src.js'));
+            $PAGE->requires->js(new lion_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce_src.js'));
         } else {
-            $PAGE->requires->js(new moodle_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce.js'));
+            $PAGE->requires->js(new lion_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$this->version.'/tiny_mce.js'));
         }
         $PAGE->requires->js_init_call('M.editor_tinymce.init_editor', array($elementid, $this->get_init_params($elementid, $options)), true);
         if ($fpoptions) {
@@ -116,19 +102,19 @@ class tinymce_texteditor extends texteditor {
         }
 
         $params = array(
-            'moodle_config' => $config,
+            'lion_config' => $config,
             'mode' => "exact",
             'elements' => $elementid,
             'relative_urls' => false,
             'document_base_url' => $CFG->httpswwwroot,
-            'moodle_plugin_base' => "$CFG->httpswwwroot/lib/editor/tinymce/plugins/",
+            'lion_plugin_base' => "$CFG->httpswwwroot/lib/editor/tinymce/plugins/",
             'content_css' => $contentcss,
             'language' => $lang,
             'directionality' => $directionality,
             'plugin_insertdate_dateFormat ' => $strdate,
             'plugin_insertdate_timeFormat ' => $strtime,
             'theme' => "advanced",
-            'skin' => "moodle",
+            'skin' => "lion",
             'apply_source_formatting' => true,
             'remove_script_host' => false,
             'entity_encoding' => "raw",
@@ -147,7 +133,7 @@ class tinymce_texteditor extends texteditor {
             'min_height' => 30,
             'theme_advanced_toolbar_location' => "top",
             'theme_advanced_statusbar_location' => "bottom",
-            'language_load' => false, // We load all lang strings directly from Moodle.
+            'language_load' => false, // We load all lang strings directly from Lion.
             'langrev' => $langrev,
         );
 
@@ -174,12 +160,12 @@ class tinymce_texteditor extends texteditor {
         }
 
         if (!empty($options['legacy']) or !empty($options['noclean']) or !empty($options['trusted'])) {
-            // now deal somehow with non-standard tags, people scream when we do not make moodle code xtml strict,
+            // now deal somehow with non-standard tags, people scream when we do not make lion code xtml strict,
             // but they scream even more when we strip all tags that are not strict :-(
             $params['valid_elements'] = 'script[src|type],*[*]'; // for some reason the *[*] does not inlcude javascript src attribute MDL-25836
             $params['invalid_elements'] = '';
         }
-        // Add unique moodle elements - unfortunately we have to decide if these are SPANs or DIVs.
+        // Add unique lion elements - unfortunately we have to decide if these are SPANs or DIVs.
         $params['extended_valid_elements'] = 'nolink,tex,algebra,lang[lang]';
         $params['custom_elements'] = 'nolink,~tex,~algebra,lang';
 
@@ -192,7 +178,7 @@ class tinymce_texteditor extends texteditor {
         editor_tinymce_plugin::all_update_init_params($params, $context, $options);
 
         // Remove temporary parameters.
-        unset($params['moodle_config']);
+        unset($params['lion_config']);
 
         return $params;
     }
@@ -234,7 +220,7 @@ class tinymce_texteditor extends texteditor {
      * Gets a named plugin object. Will cause fatal error if plugin doesn't
      * exist. This is intended for use by plugin files themselves.
      *
-     * @param string $plugin Name of plugin e.g. 'moodleemoticon'
+     * @param string $plugin Name of plugin e.g. 'lionemoticon'
      * @return editor_tinymce_plugin Plugin object
      */
     public function get_plugin($plugin) {
@@ -244,13 +230,13 @@ class tinymce_texteditor extends texteditor {
 
     /**
      * Equivalent to tinyMCE.baseURL value available from JavaScript,
-     * always use instead of /../ when referencing tinymce core code from moodle plugins!
+     * always use instead of /../ when referencing tinymce core code from lion plugins!
      *
-     * @return moodle_url url pointing to the root of TinyMCE javascript code.
+     * @return lion_url url pointing to the root of TinyMCE javascript code.
      */
     public function get_tinymce_base_url() {
         global $CFG;
-        return new moodle_url("$CFG->httpswwwroot/lib/editor/tinymce/tiny_mce/$this->version/");
+        return new lion_url("$CFG->httpswwwroot/lib/editor/tinymce/tiny_mce/$this->version/");
     }
 
 }

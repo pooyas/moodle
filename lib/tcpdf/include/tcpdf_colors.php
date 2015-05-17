@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_colors.php
 // Version     : 1.0.004
@@ -34,16 +41,12 @@
 /**
  * @file
  * PHP color class for TCPDF
- * @author Nicola Asuni
- * @package com.tecnick.tcpdf
  */
 
 /**
  * @class TCPDF_COLORS
  * PHP color class for TCPDF
- * @package com.tecnick.tcpdf
  * @version 1.0.004
- * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_COLORS {
 
@@ -243,7 +246,6 @@ class TCPDF_COLORS {
 	 * @param $name (string) Name of the spot color.
 	 * @param $spotc (array) Reference to an array of spot colors.
 	 * @return (array) Spot color array or false if not defined.
-	 * @since 5.9.125 (2011-10-03)
 	 * @public static
 	 */
 	public static function getSpotColor($name, &$spotc) {
@@ -409,7 +411,6 @@ class TCPDF_COLORS {
 	 * Convert a color array into a string representation.
 	 * @param $c (array) Array of colors.
 	 * @return (string) The color array representation.
-	 * @since 5.9.137 (2011-12-01)
 	 * @public static
 	 */
 	public static function getColorStringFromArray($c) {
@@ -440,7 +441,6 @@ class TCPDF_COLORS {
 	 * Convert color to javascript color.
 	 * @param $color (string) color name or "#RRGGBB"
 	 * @protected
-	 * @since 2.1.002 (2008-02-12)
 	 * @public static
 	 */
 	public static function _JScolor($color) {

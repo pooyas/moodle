@@ -1,7 +1,7 @@
 {
-    "moodle-filter_mathjaxloader-loader": {
+    "lion-filter_mathjaxloader-loader": {
         "requires": [
-            "moodle-core-event"
+            "lion-core-event"
         ]
     }
 }

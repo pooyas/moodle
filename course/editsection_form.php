@@ -1,7 +1,14 @@
 <?php
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+
+/**
+ * @package    core
+ * @subpackage course
+ * @copyright  2015 Pooya Saeedi
+*/
+
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 require_once($CFG->libdir.'/formslib.php');
@@ -14,7 +21,7 @@ require_once($CFG->libdir.'/gradelib.php');
  *
  * Course format plugins may specify different editing form to use
  */
-class editsection_form extends moodleform {
+class editsection_form extends lionform {
 
     function definition() {
 
@@ -66,7 +73,7 @@ class editsection_form extends moodleform {
 
             // Availability field. This is just a textarea; the user interface
             // interaction is all implemented in JavaScript. The field is named
-            // availabilityconditionsjson for consistency with moodleform_mod.
+            // availabilityconditionsjson for consistency with lionform_mod.
             $mform->addElement('textarea', 'availabilityconditionsjson',
                     get_string('accessrestrictions', 'availability'));
             \core_availability\frontend::include_all_javascript($course, null,

@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
@@ -20,9 +7,9 @@
  *
  * Class to dynamically create an HTML SELECT with all options grouped in optgroups
  *
- * @package   core_form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('HTML/QuickForm/element.php');
@@ -32,12 +19,9 @@ require_once('HTML/QuickForm/element.php');
  *
  * Class to dynamically create an HTML SELECT with all options grouped in optgroups
  *
- * @package   core_form
  * @category  form
- * @copyright 2007 Jamie Pratt <me@jamiep.org>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class MoodleQuickForm_selectgroups extends HTML_QuickForm_element {
+class LionQuickForm_selectgroups extends HTML_QuickForm_element {
 
     /** @var bool add choose option */
     var $showchoose = false;
@@ -61,9 +45,9 @@ class MoodleQuickForm_selectgroups extends HTML_QuickForm_element {
      * @param mixed $elementLabel Label(s) for the select
      * @param array $optgrps Data to be used to populate options
      * @param mixed $attributes Either a typical HTML attribute string or an associative array
-     * @param bool $showchoose add standard moodle "Choose..." option as first item
+     * @param bool $showchoose add standard lion "Choose..." option as first item
      */
-    function MoodleQuickForm_selectgroups($elementName=null, $elementLabel=null, $optgrps=null, $attributes=null, $showchoose=false)
+    function LionQuickForm_selectgroups($elementName=null, $elementLabel=null, $optgrps=null, $attributes=null, $showchoose=false)
     {
         $this->showchoose = $showchoose;
         HTML_QuickForm_element::HTML_QuickForm_element($elementName, $elementLabel, $attributes);

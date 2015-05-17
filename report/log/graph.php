@@ -1,27 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Produces a graph of log accesses for a user
  *
  * Generates an image representing the log data in a graphical manner for a user.
  *
- * @package    report_log
- * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    report
+ * @subpackage log
+ * @copyright  2015 Pooya Saeedi
  */
 
 require("../../config.php");
@@ -34,7 +21,7 @@ $user = required_param('user', PARAM_INT);     // Student ID.
 $date = optional_param('date', 0, PARAM_INT);  // A time of a day (in GMT).
 $logreader = optional_param('logreader', '', PARAM_COMPONENT);
 
-$url = new moodle_url('/report/log/graph.php', array('id' => $id, 'type' => $type, 'user' => $user, 'date' => $date,
+$url = new lion_url('/report/log/graph.php', array('id' => $id, 'type' => $type, 'user' => $user, 'date' => $date,
     'logreader' => $logreader));
 $PAGE->set_url($url);
 
@@ -48,7 +35,7 @@ $user = $DB->get_record("user", array("id" => $user, 'deleted' => 0), '*', MUST_
 $coursecontext   = context_course::instance($course->id);
 $personalcontext = context_user::instance($user->id);
 
-if ($USER->id != $user->id and has_capability('moodle/user:viewuseractivitiesreport', $personalcontext)
+if ($USER->id != $user->id and has_capability('lion/user:viewuseractivitiesreport', $personalcontext)
         and !is_enrolled($coursecontext, $USER) and is_enrolled($coursecontext, $user)) {
     //TODO: do not require parents to be enrolled in courses - this is a hack!
     require_login();

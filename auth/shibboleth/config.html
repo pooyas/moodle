@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
     global $CFG;
 
     // Set to defaults if undefined
@@ -33,6 +40,13 @@
         <input name="convert_data" id="convert_data" type="text" size="30" value="<?php echo $config->convert_data?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if ($config->convert_data and $config->convert_data != '' and !is_readable($config->convert_data)) {
               echo '<br/><span class="notifyproblem">';
               print_string("auth_shib_convert_data_warning", "auth_shibboleth");
@@ -48,6 +62,13 @@
     <td align="right"><?php print_string("auth_shib_integrated_wayf", "auth_shibboleth") ?>:</td>
     <td>
         <input name="alt_login" type="checkbox" <?php
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if ( isset($config->alt_login) and $config->alt_login == 'on' ){
                 echo 'checked="checked"';
             }
@@ -61,6 +82,13 @@
     <td>
         <textarea name="organization_selection" rows="10" cols="30" style="overflow: auto;"
 ><?php
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (!isset($config->organization_selection)){
             echo  'urn:mace:organization1:providerID, Example Organization 1
 https://another.idp-id.com/shibboleth, Other Example Organization, /Shibboleth.sso/DS/SWITCHaai
@@ -71,6 +99,13 @@ urn:mace:organization2:providerID, Example Organization 2, /Shibboleth.sso/WAYF/
         ?>
 </textarea>
     <?php
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
        if (isset($config->organization_selection) && empty($config->organization_selection) && isset($config->alt_login) && $config->alt_login == 'on') {
               echo '<br/><span class="notifyproblem">';
               print_string("auth_shib_no_organizations_warning", "auth_shibboleth");
@@ -85,6 +120,13 @@ urn:mace:organization2:providerID, Example Organization 2, /Shibboleth.sso/WAYF/
     <td align="right"><label for="logout_handler"><?php print_string("auth_shib_logout_url", "auth_shibboleth") ?>: </label></td>
     <td>
         <input name="logout_handler" id="logout_handler" type="text" size="30" value="<?php
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if ( isset($config->logout_handler) and !empty($config->logout_handler)){
             echo $config->logout_handler;
         }
@@ -97,6 +139,13 @@ urn:mace:organization2:providerID, Example Organization 2, /Shibboleth.sso/WAYF/
     <td align="right"><label for="logout_return_url"><?php print_string("auth_shib_logout_return_url", "auth_shibboleth") ?>: </label></td>
     <td>
         <input name="logout_return_url" id="logout_return_url" type="text" size="30" value="<?php
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if ( isset($config->logout_return_url) and !empty($config->logout_return_url)){
             echo $config->logout_return_url;
         }
@@ -109,6 +158,13 @@ urn:mace:organization2:providerID, Example Organization 2, /Shibboleth.sso/WAYF/
     <td align="right"><label for="login_name"><?php print_string("auth_shib_auth_method", "auth_shibboleth") ?>: </label></td>
     <td>
         <input name="login_name" id="login_name" type="text" size="30" value="<?php
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if ( isset($config->login_name) and !empty($config->login_name)){
             echo htmlentities($config->login_name);
         } else {
@@ -125,6 +181,13 @@ urn:mace:organization2:providerID, Example Organization 2, /Shibboleth.sso/WAYF/
         <input name="changepasswordurl" id="changepasswordurl" type="text" value="<?php echo $config->changepasswordurl ?>" />
         <?php
 
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
+
         if (isset($err['changepasswordurl'])) {
             echo $OUTPUT->error_text($err['changepasswordurl']);
         }
@@ -137,6 +200,13 @@ urn:mace:organization2:providerID, Example Organization 2, /Shibboleth.sso/WAYF/
 
 
 <?php
+
+
+/**
+ * @package    auth
+ * @subpackage shibboleth
+ * @copyright  2015 Pooya Saeedi
+*/
 
 print_auth_lock_options($this->authtype, $user_fields, '<!-- empty help -->', true, false, $this->get_custom_user_profile_fields());
 

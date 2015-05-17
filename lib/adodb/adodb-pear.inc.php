@@ -11,6 +11,9 @@
  *
  * The following code is modelled on PEAR DB code by Stig Bakken <ssb@fast.no>								   |
  * and Tomas V.V.Cox <cox@idecnet.com>.	Portions (c)1997-2002 The PHP Group.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
  /*
@@ -265,7 +268,6 @@ class DB
 	 *  phptype(dbsyntax)
 	 *  phptype
 	 *
-	 * @author Tomas V.V.Cox <cox@idecnet.com>
 	 */
 	function parseDSN($dsn)
 	{

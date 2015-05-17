@@ -5,6 +5,9 @@
  * need to be loaded.
  * @note This class is inspected by Printer_HTMLDefinition->renderDoctype.
  *       If structure changes, please update that function.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Doctype
 {

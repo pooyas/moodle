@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,11 +30,8 @@ require_once("HTML/QuickForm/element.php");
 
 /**
  * Base class for input form elements
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.0
- * @since        PHP4.04pl1
  * @access       public
  * @abstract
  */
@@ -41,7 +45,6 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * @param    string     Input field name attribute
      * @param    mixed      Label(s) for the input field
      * @param    mixed      Either a typical HTML attribute string or an associative array
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -57,7 +60,6 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * Sets the element type
      *
      * @param     string    $type   Element type
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -74,7 +76,6 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * Sets the input field name
      * 
      * @param     string    $name   Input field name attribute
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -88,8 +89,7 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
 
     /**
      * Returns the element name
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -105,7 +105,6 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * Sets the value of the form element
      *
      * @param     string    $value      Default value of the form element
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -120,7 +119,6 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
     /**
      * Returns the value of the form element
      *
-     * @since     1.0
      * @access    public
      * @return    string
      */
@@ -134,8 +132,7 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
 
     /**
      * Returns the input field in HTML
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -157,7 +154,6 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * @param     string    $event  Name of event
      * @param     mixed     $arg    event arguments
      * @param     object    $caller calling object
-     * @since     1.0
      * @access    public
      * @return    void
      * @throws    

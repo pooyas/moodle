@@ -1,8 +1,9 @@
 <?php
 /**
  * Galician PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author by Donato Rouco <donatorouco@gmail.com>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Erro SMTP: Non puido ser autentificado.';

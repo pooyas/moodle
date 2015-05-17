@@ -1,33 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines string apis
  *
  * @package    core
- * @copyright  (C) 2001-3001 Eloy Lafuente (stronk7) {@link http://contiento.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * defines string api's for manipulating strings
  *
- * This class is used to manipulate strings under Moodle 1.6 an later. As
+ * This class is used to manipulate strings under Lion 1.6 an later. As
  * utf-8 text become mandatory a pool of safe functions under this encoding
  * become necessary. The name of the methods is exactly the
  * same than their PHP originals.
@@ -41,10 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * its capabilities so, don't forget to make the conversion
  * from every wrapper function!
  *
- * @package   core
  * @category  string
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_text {
 
@@ -256,7 +240,6 @@ class core_text {
      * @param string $needle The string to find in haystack.
      * @param boolean $part If true, returns the portion before needle, else return the portion after (including needle).
      * @return string|false False when not found.
-     * @since Moodle 2.4.6, 2.5.2, 2.6
      */
     public static function strrchr($haystack, $needle, $part = false) {
 

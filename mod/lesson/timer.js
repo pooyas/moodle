@@ -5,7 +5,7 @@
 //
 // The original script displayed a clock.
 // Mark Nielsen modified it to be a countdown timer
-// for the lesson module in moodle.
+// for the lesson module in lion.
 //
 //    Below is the code that is used to call this page.
 //    echo "<script type=\"text/javascript\">\n";

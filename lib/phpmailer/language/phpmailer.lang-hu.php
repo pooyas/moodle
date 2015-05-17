@@ -1,8 +1,9 @@
 <?php
 /**
  * Hungarian PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
- * @author @dominicus-75
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP hiba: az azonosítás sikertelen.';

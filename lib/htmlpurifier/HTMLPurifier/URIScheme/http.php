@@ -2,6 +2,9 @@
 
 /**
  * Validates http (HyperText Transfer Protocol) as defined by RFC 2616
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_URIScheme_http extends HTMLPurifier_URIScheme
 {

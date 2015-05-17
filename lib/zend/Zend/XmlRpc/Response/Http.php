@@ -13,9 +13,9 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Controller
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -28,9 +28,6 @@ require_once 'Zend/XmlRpc/Response.php';
  *
  * @uses Zend_XmlRpc_Response
  * @category Zend
- * @package  Zend_XmlRpc
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version $Id$
  */
 class Zend_XmlRpc_Response_Http extends Zend_XmlRpc_Response

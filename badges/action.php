@@ -1,27 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Page to handle actions associated with badges management.
  *
  * @package    core
  * @subpackage badges
- * @copyright  2012 onwards Totara Learning Solutions Ltd {@link http://www.totaralms.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @author     Yuliya Bozhko <yuliya.bozhko@totaralms.com>
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
@@ -38,11 +23,11 @@ require_login();
 
 $badge = new badge($badgeid);
 $context = $badge->get_context();
-$navurl = new moodle_url('/badges/index.php', array('type' => $badge->type));
+$navurl = new lion_url('/badges/index.php', array('type' => $badge->type));
 
 if ($badge->type == BADGE_TYPE_COURSE) {
     require_login($badge->courseid);
-    $navurl = new moodle_url('/badges/index.php', array('type' => $badge->type, 'id' => $badge->courseid));
+    $navurl = new lion_url('/badges/index.php', array('type' => $badge->type, 'id' => $badge->courseid));
     $PAGE->set_pagelayout('standard');
     navigation_node::override_active_url($navurl);
 } else {
@@ -54,26 +39,26 @@ $PAGE->set_context($context);
 $PAGE->set_url('/badges/action.php', array('id' => $badge->id));
 
 if ($return !== 0) {
-    $returnurl = new moodle_url($return);
+    $returnurl = new lion_url($return);
 } else {
-    $returnurl = new moodle_url('/badges/overview.php', array('id' => $badge->id));
+    $returnurl = new lion_url('/badges/overview.php', array('id' => $badge->id));
 }
 $returnurl->remove_params('awards');
 
 if ($copy) {
     require_sesskey();
-    require_capability('moodle/badges:createbadge', $context);
+    require_capability('lion/badges:createbadge', $context);
 
     $cloneid = $badge->make_clone();
     // If a user can edit badge details, they will be redirected to the edit page.
-    if (has_capability('moodle/badges:configuredetails', $context)) {
-        redirect(new moodle_url('/badges/edit.php', array('id' => $cloneid, 'action' => 'details')));
+    if (has_capability('lion/badges:configuredetails', $context)) {
+        redirect(new lion_url('/badges/edit.php', array('id' => $cloneid, 'action' => 'details')));
     }
-    redirect(new moodle_url('/badges/overview.php', array('id' => $cloneid)));
+    redirect(new lion_url('/badges/overview.php', array('id' => $cloneid)));
 }
 
 if ($activate) {
-    require_capability('moodle/badges:configurecriteria', $context);
+    require_capability('lion/badges:configurecriteria', $context);
 
     $PAGE->url->param('activate', 1);
     $status = ($badge->status == BADGE_STATUS_INACTIVE) ? BADGE_STATUS_ACTIVE : BADGE_STATUS_ACTIVE_LOCKED;
@@ -112,7 +97,7 @@ if ($activate) {
     echo $OUTPUT->heading($strheading);
 
     $params = array('id' => $badge->id, 'activate' => 1, 'sesskey' => sesskey(), 'confirm' => 1, 'return' => $return);
-    $url = new moodle_url('/badges/action.php', $params);
+    $url = new lion_url('/badges/action.php', $params);
 
     if (!$badge->has_criteria()) {
         echo $OUTPUT->notification(get_string('error:cannotact', 'badges') . get_string('nocriteria', 'badges'));
@@ -127,7 +112,7 @@ if ($activate) {
 
 if ($deactivate) {
     require_sesskey();
-    require_capability('moodle/badges:configurecriteria', $context);
+    require_capability('lion/badges:configurecriteria', $context);
 
     $status = ($badge->status == BADGE_STATUS_ACTIVE) ? BADGE_STATUS_INACTIVE : BADGE_STATUS_INACTIVE_LOCKED;
     $badge->set_status($status);

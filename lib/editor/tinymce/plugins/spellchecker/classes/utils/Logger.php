@@ -2,9 +2,9 @@
 /**
  * $Id: Logger.class.php 10 2007-05-27 10:55:12Z spocke $
  *
- * @package MCFileManager.filesystems
- * @author Moxiecode
- * @copyright Copyright © 2005, Moxiecode Systems AB, All rights reserved.
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
 // File type contstants

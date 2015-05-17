@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Essay question renderer class.
  *
- * @package    qtype
+ * @package    question_type
  * @subpackage essay
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Generates the output for essay questions.
  *
- * @copyright  2009 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_essay_renderer extends qtype_renderer {
     public function formulation_and_controls(question_attempt $qa,
@@ -92,7 +76,7 @@ class qtype_essay_renderer extends qtype_renderer {
         foreach ($files as $file) {
             $output[] = html_writer::tag('p', html_writer::link($qa->get_response_file_url($file),
                     $this->output->pix_icon(file_file_icon($file), get_mimetype_description($file),
-                    'moodle', array('class' => 'icon')) . ' ' . s($file->get_filename())));
+                    'lion', array('class' => 'icon')) . ' ' . s($file->get_filename())));
         }
         return implode($output);
     }
@@ -144,8 +128,6 @@ class qtype_essay_renderer extends qtype_renderer {
  * A base class to abstract out the differences between different type of
  * response format.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class qtype_essay_format_renderer_base extends plugin_renderer_base {
     /**
@@ -182,8 +164,6 @@ abstract class qtype_essay_format_renderer_base extends plugin_renderer_base {
  * An essay format renderer for essays where the student should not enter
  * any inline response.
  *
- * @copyright  2013 Binghamton University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_essay_format_noinline_renderer extends plugin_renderer_base {
 
@@ -205,8 +185,6 @@ class qtype_essay_format_noinline_renderer extends plugin_renderer_base {
  * An essay format renderer for essays where the student should use the HTML
  * editor without the file picker.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_essay_format_editor_renderer extends plugin_renderer_base {
     protected function class_name() {
@@ -330,8 +308,6 @@ class qtype_essay_format_editor_renderer extends plugin_renderer_base {
  * An essay format renderer for essays where the student should use the HTML
  * editor with the file picker.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_essay_format_editorfilepicker_renderer extends qtype_essay_format_editor_renderer {
     protected function class_name() {
@@ -408,7 +384,7 @@ class qtype_essay_format_editorfilepicker_renderer extends qtype_essay_format_ed
     }
 
     protected function filepicker_html($inputname, $draftitemid) {
-        $nonjspickerurl = new moodle_url('/repository/draftfiles_manager.php', array(
+        $nonjspickerurl = new lion_url('/repository/draftfiles_manager.php', array(
             'action' => 'browse',
             'env' => 'editor',
             'itemid' => $draftitemid,
@@ -431,8 +407,6 @@ class qtype_essay_format_editorfilepicker_renderer extends qtype_essay_format_ed
  * An essay format renderer for essays where the student should use a plain
  * input box, but with a normal, proportional font.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_essay_format_plain_renderer extends plugin_renderer_base {
     /**
@@ -467,8 +441,6 @@ class qtype_essay_format_plain_renderer extends plugin_renderer_base {
  * input box with a monospaced font. You might use this, for example, for a
  * question where the students should type computer code.
  *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_essay_format_monospaced_renderer extends qtype_essay_format_plain_renderer {
     protected function class_name() {

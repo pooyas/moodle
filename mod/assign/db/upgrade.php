@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Upgrade code for install
  *
- * @package   mod_assign
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -48,7 +35,7 @@ function xmldb_assign_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2012051700, 'assign');
     }
 
-    // Moodle v2.3.0 release upgrade line.
+    // Lion v2.3.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2012071800) {
@@ -205,7 +192,7 @@ function xmldb_assign_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2012082400, 'assign');
     }
 
-    // Moodle v2.4.0 release upgrade line.
+    // Lion v2.4.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2013030600) {
@@ -422,7 +409,7 @@ function xmldb_assign_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2013030600, 'assign');
     }
 
-    // Moodle v2.5.0 release upgrade line.
+    // Lion v2.5.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2013061101) {
@@ -459,7 +446,7 @@ function xmldb_assign_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2013061101, 'assign');
     }
 
-    // Moodle v2.6.0 release upgrade line.
+    // Lion v2.6.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2014010801) {
@@ -484,7 +471,7 @@ function xmldb_assign_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014010801, 'assign');
     }
 
-    // Moodle v2.7.0 release upgrade line.
+    // Lion v2.7.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2014051201) {
@@ -581,7 +568,7 @@ function xmldb_assign_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2014072405, 'assign');
     }
 
-    // Moodle v2.8.0 release upgrade line.
+    // Lion v2.8.0 release upgrade line.
     // Put any upgrade step following this.
 
     if ($oldversion < 2014122600) {

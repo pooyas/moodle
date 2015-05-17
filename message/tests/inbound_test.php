@@ -1,35 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Tests for core_message_inbound to test Variable Envelope Return Path functionality.
  *
- * @package    core_message
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    message
+ * @subpackage tests
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 require_once(__DIR__ . '/fixtures/inbound_fixtures.php');
 
 /**
  * Tests for core_message_inbound to test Variable Envelope Return Path functionality.
  *
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_message_inbound_testcase extends advanced_testcase {
 
@@ -48,7 +33,7 @@ class core_message_inbound_testcase extends advanced_testcase {
         $CFG->messageinbound_enabled = true;
 
         // Must be no longer than 15 characters.
-        $CFG->messageinbound_mailbox = 'moodlemoodle123';
+        $CFG->messageinbound_mailbox = 'lionlion123';
     }
 
     /**
@@ -90,7 +75,7 @@ class core_message_inbound_testcase extends advanced_testcase {
         $this->assertFalse(\core\message\inbound\manager::is_enabled());
 
         // Check that the mailbox entry on it's own does not enable Inbound Message handling.
-        $CFG->messageinbound_mailbox = 'moodlemoodle123';
+        $CFG->messageinbound_mailbox = 'lionlion123';
         $CFG->messageinbound_domain = null;
         $this->assertFalse(\core\message\inbound\manager::is_enabled());
 
@@ -106,11 +91,11 @@ class core_message_inbound_testcase extends advanced_testcase {
 
         // And that an invalid domain does not.
         $CFG->messageinbound_domain = '';
-        $CFG->messageinbound_mailbox = 'moodlemoodle123';
+        $CFG->messageinbound_mailbox = 'lionlion123';
         $this->assertFalse(\core\message\inbound\manager::is_enabled());
 
         // Finally a test that ensures that all settings correct enables the system.
-        $CFG->messageinbound_mailbox = 'moodlemoodle123';
+        $CFG->messageinbound_mailbox = 'lionlion123';
         $CFG->messageinbound_domain = 'example.com';
         $CFG->messageinbound_enabled = true;
 
@@ -615,8 +600,6 @@ class core_message_inbound_testcase extends advanced_testcase {
 /**
  * A helper function for unit testing to expose protected functions in the core_message_inbound API for testing.
  *
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_message_inbound_test_helper extends \core\message\inbound\address_manager {
     /**
@@ -652,8 +635,6 @@ class core_message_inbound_test_helper extends \core\message\inbound\address_man
 /**
  * A helper function for unit testing to expose protected functions in the core_message_inbound API for testing.
  *
- * @copyright  2014 Andrew Nicols <andrew@nicols.co.uk>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_message_inbound_test_manager extends \core\message\inbound\manager {
     /**

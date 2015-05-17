@@ -1,35 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Library of functions used by the quiz module.
  *
  * This contains functions that are called from within the quiz module only
- * Functions that are also called by core Moodle are in {@link lib.php}
+ * Functions that are also called by core Lion are in {@link lib.php}
  * This script also loads the code in {@link questionlib.php} which holds
  * the module-indpendent code for handling questions and which in turn
  * initialises all the questiontype classes.
  *
- * @package    mod_quiz
- * @copyright  1999 onwards Martin Dougiamas and others {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/quiz/lib.php');
 require_once($CFG->dirroot . '/mod/quiz/accessmanager.php');
@@ -98,8 +85,8 @@ function quiz_create_attempt(quiz $quizobj, $attemptnumber, $lastattempt, $timen
 
     $quiz = $quizobj->get_quiz();
     if ($quiz->sumgrades < 0.000005 && $quiz->grade > 0.000005) {
-        throw new moodle_exception('cannotstartgradesmismatch', 'quiz',
-                new moodle_url('/mod/quiz/view.php', array('q' => $quiz->id)),
+        throw new lion_exception('cannotstartgradesmismatch', 'quiz',
+                new lion_url('/mod/quiz/view.php', array('q' => $quiz->id)),
                     array('grade' => quiz_format_grade($quiz, $quiz->grade)));
     }
 
@@ -153,7 +140,7 @@ function quiz_create_attempt(quiz $quizobj, $attemptnumber, $lastattempt, $timen
  * @param array     $forcedvariantsbyslot slot number => variant. Used for questions with variants,
  *                                          to force the choice of a particular variant. Intended for testing
  *                                          purposes only.
- * @throws moodle_exception
+ * @throws lion_exception
  * @return object   modified attempt object
  */
 function quiz_start_new_attempt($quizobj, $quba, $attempt, $attemptnumber, $timenow,
@@ -181,7 +168,7 @@ function quiz_start_new_attempt($quizobj, $quba, $attempt, $attemptnumber, $time
             $question = question_bank::get_qtype('random')->choose_other_question(
                 $questiondata, $questionsinuse, $quizobj->get_quiz()->shuffleanswers, $forcequestionid);
             if (is_null($question)) {
-                throw new moodle_exception('notenoughrandomquestions', 'quiz',
+                throw new lion_exception('notenoughrandomquestions', 'quiz',
                                            $quizobj->view_url(), $questiondata);
             }
         }
@@ -1203,11 +1190,11 @@ function quiz_question_edit_button($cmid, $question, $returnurl, $contentafteric
 
     // Build the icon.
     if ($action) {
-        if ($returnurl instanceof moodle_url) {
+        if ($returnurl instanceof lion_url) {
             $returnurl = $returnurl->out_as_local_url(false);
         }
         $questionparams = array('returnurl' => $returnurl, 'cmid' => $cmid, 'id' => $question->id);
-        $questionurl = new moodle_url("$CFG->wwwroot/question/question.php", $questionparams);
+        $questionurl = new lion_url("$CFG->wwwroot/question/question.php", $questionparams);
         return '<a title="' . $action . '" href="' . $questionurl->out() . '" class="questioneditbutton"><img src="' .
                 $OUTPUT->pix_url($icon) . '" alt="' . $action . '" />' . $contentaftericon .
                 '</a>';
@@ -1221,7 +1208,7 @@ function quiz_question_edit_button($cmid, $question, $returnurl, $contentafteric
 /**
  * @param object $quiz the quiz settings
  * @param object $question the question
- * @return moodle_url to preview this question with the options from this quiz.
+ * @return lion_url to preview this question with the options from this quiz.
  */
 function quiz_question_preview_url($quiz, $question) {
     // Get the appropriate display options.
@@ -1260,7 +1247,7 @@ function quiz_question_preview_button($quiz, $question, $label = false) {
  */
 function quiz_get_flag_option($attempt, $context) {
     global $USER;
-    if (!has_capability('moodle/question:flag', $context)) {
+    if (!has_capability('lion/question:flag', $context)) {
         return question_display_options::HIDDEN;
     } else if ($attempt->userid == $USER->id) {
         return question_display_options::EDITABLE;
@@ -1305,7 +1292,7 @@ function quiz_get_review_options($quiz, $attempt, $context) {
     $options->readonly = true;
     $options->flags = quiz_get_flag_option($attempt, $context);
     if (!empty($attempt->id)) {
-        $options->questionreviewlink = new moodle_url('/mod/quiz/reviewquestion.php',
+        $options->questionreviewlink = new lion_url('/mod/quiz/reviewquestion.php',
                 array('attempt' => $attempt->id));
     }
 
@@ -1313,13 +1300,13 @@ function quiz_get_review_options($quiz, $attempt, $context) {
     if (!empty($attempt->id) && $attempt->state == quiz_attempt::FINISHED && !$attempt->preview &&
             !is_null($context) && has_capability('mod/quiz:grade', $context)) {
         $options->manualcomment = question_display_options::VISIBLE;
-        $options->manualcommentlink = new moodle_url('/mod/quiz/comment.php',
+        $options->manualcommentlink = new lion_url('/mod/quiz/comment.php',
                 array('attempt' => $attempt->id));
     }
 
     if (!is_null($context) && !$attempt->preview &&
             has_capability('mod/quiz:viewreports', $context) &&
-            has_capability('moodle/grade:viewhidden', $context)) {
+            has_capability('lion/grade:viewhidden', $context)) {
         // People who can see reports and hidden grades should be shown everything,
         // except during preview when teachers want to see what students see.
         $options->attempt = question_display_options::VISIBLE;
@@ -1489,7 +1476,7 @@ function quiz_send_notification_messages($course, $quiz, $attempt, $context, $cm
     } else if (groups_get_activity_groupmode($cm, $course) != NOGROUPS) {
         // If the user is not in a group, and the quiz is set to group mode,
         // then set $groups to a non-existant id so that only users with
-        // 'moodle/site:accessallgroups' get notified.
+        // 'lion/site:accessallgroups' get notified.
         $groups = -1;
     } else {
         $groups = '';
@@ -1735,14 +1722,14 @@ function quiz_get_js_module() {
         'name' => 'mod_quiz',
         'fullpath' => '/mod/quiz/module.js',
         'requires' => array('base', 'dom', 'event-delegate', 'event-key',
-                'core_question_engine', 'moodle-core-formchangechecker'),
+                'core_question_engine', 'lion-core-formchangechecker'),
         'strings' => array(
-            array('cancel', 'moodle'),
+            array('cancel', 'lion'),
             array('flagged', 'question'),
             array('functiondisabledbysecuremode', 'quiz'),
             array('startattempt', 'quiz'),
             array('timesup', 'quiz'),
-            array('changesmadereallygoaway', 'moodle'),
+            array('changesmadereallygoaway', 'lion'),
         ),
     );
 }
@@ -1752,8 +1739,6 @@ function quiz_get_js_module() {
  * An extension of question_display_options that includes the extra options used
  * by the quiz.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class mod_quiz_display_options extends question_display_options {
     /**#@+
@@ -1824,8 +1809,6 @@ class mod_quiz_display_options extends question_display_options {
  * A {@link qubaid_condition} for finding all the question usages belonging to
  * a particular quiz.
  *
- * @copyright  2010 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qubaids_for_quiz extends qubaid_join {
     public function __construct($quizid, $includepreviews = true, $onlyfinished = false) {
@@ -2001,7 +1984,7 @@ function quiz_add_random_questions($quiz, $addonpage, $categoryid, $number,
     }
 
     $catcontext = context::instance_by_id($category->contextid);
-    require_capability('moodle/question:useall', $catcontext);
+    require_capability('lion/question:useall', $catcontext);
 
     // Find existing random questions in this category that are
     // not used by any quiz.

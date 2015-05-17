@@ -4,7 +4,7 @@
  * This class is responsible for managing AJAX interactions with activities and resources
  * when viewing a course in editing mode.
  *
- * @module moodle-course-toolboxes
+ * @module lion-course-toolboxes
  * @namespace M.course.toolboxes
  */
 
@@ -157,7 +157,7 @@ Y.extend(TOOLBOX, Y.Base, {
     NAME: 'course-toolbox',
     ATTRS: {
         /**
-         * The ID of the Moodle Course being edited.
+         * The ID of the Lion Course being edited.
          *
          * @attribute courseid
          * @default 0
@@ -168,7 +168,7 @@ Y.extend(TOOLBOX, Y.Base, {
         },
 
         /**
-         * The Moodle course format.
+         * The Lion course format.
          *
          * @attribute format
          * @default 'topics'

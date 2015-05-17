@@ -10,6 +10,9 @@
  * @note Even though the CSS specification isn't clear about it, inherit
  *       can only be used alone: it will never manifest as part of a multi
  *       shorthand declaration.  Thus, this class does not allow inherit.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_Multiple extends HTMLPurifier_AttrDef
 {

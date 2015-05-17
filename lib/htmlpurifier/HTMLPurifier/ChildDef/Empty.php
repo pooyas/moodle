@@ -6,6 +6,9 @@
  *          empty elements are corrected in HTMLPurifier_Strategy_MakeWellFormed
  *          before child definitions are parsed in earnest by
  *          HTMLPurifier_Strategy_FixNesting.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ChildDef_Empty extends HTMLPurifier_ChildDef
 {

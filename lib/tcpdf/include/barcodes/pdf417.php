@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : pdf417.php
 // Version     : 1.0.005
@@ -48,8 +55,6 @@
  * Class to create PDF417 barcode arrays for TCPDF class.
  * PDF417 (ISO/IEC 15438:2006) is a 2-dimensional stacked bar code created by Symbol Technologies in 1991.
  * (requires PHP bcmath extension)
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.005
  */
 
@@ -86,8 +91,6 @@ if (!defined('PDF417DEFS')) {
  * @class PDF417
  * Class to create PDF417 barcode arrays for TCPDF class.
  * PDF417 (ISO/IEC 15438:2006) is a 2-dimensional stacked bar code created by Symbol Technologies in 1991.
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.003
  */
 class PDF417 {

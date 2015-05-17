@@ -1,38 +1,24 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This filter provides automatic linking to
  * glossary entries, aliases and categories when
- * found inside every Moodle text.
+ * found inside every Lion text.
  *
  * @package    filter
  * @subpackage glossary
- * @copyright  2004 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Glossary linking filter class.
  *
  * NOTE: multilang glossary entries are not compatible with this filter.
  */
-class filter_glossary extends moodle_text_filter {
+class filter_glossary extends lion_text_filter {
     /** @var int $cachecourseid cache invalidation flag in case content from multiple courses displayed. */
     protected $cachecourseid = null;
     /** @var int $cacheuserid cache invalidation flag in case user is switched. */
@@ -43,10 +29,10 @@ class filter_glossary extends moodle_text_filter {
     public function setup($page, $context) {
         if ($page->requires->should_create_one_time_item_now('filter_glossary_autolinker')) {
             $page->requires->yui_module(
-                    'moodle-filter_glossary-autolinker',
+                    'lion-filter_glossary-autolinker',
                     'M.filter_glossary.init_filter_autolinking',
                     array(array('courseid' => 0)));
-            $page->requires->strings_for_js(array('ok'), 'moodle');
+            $page->requires->strings_for_js(array('ok'), 'lion');
         }
     }
 
@@ -97,7 +83,7 @@ class filter_glossary extends moodle_text_filter {
                 if ($concept->category) { // Link to a category.
                     // TODO: Fix this string usage.
                     $title = $glossaries[$concept->glossaryid] . ': ' . $strcategory . ' ' . $concept->concept;
-                    $link = new moodle_url('/mod/glossary/view.php', array('g' => $concept->glossaryid, 'mode' => 'cat', 'hook' => $concept->id));
+                    $link = new lion_url('/mod/glossary/view.php', array('g' => $concept->glossaryid, 'mode' => 'cat', 'hook' => $concept->id));
                     $attributes = array(
                         'href'  => $link,
                         'title' => $title,
@@ -109,14 +95,14 @@ class filter_glossary extends moodle_text_filter {
                     // to the current glossary format which may not work in a popup.
                     // for example "entry list" means the popup would only contain
                     // a link that opens another popup.
-                    $link = new moodle_url('/mod/glossary/showentry.php', array('eid' => $concept->id, 'displayformat' => 'dictionary'));
+                    $link = new lion_url('/mod/glossary/showentry.php', array('eid' => $concept->id, 'displayformat' => 'dictionary'));
                     $attributes = array(
                         'href'  => $link,
                         'title' => str_replace('&amp;', '&', $title), // Undo the s() mangling.
                         'class' => 'glossary autolink concept glossaryid' . $concept->glossaryid);
                 }
                 // This flag is optionally set by resource_pluginfile()
-                // if processing an embedded file use target to prevent getting nested Moodles.
+                // if processing an embedded file use target to prevent getting nested Lions.
                 if (!empty($CFG->embeddedsoforcelinktarget)) {
                     $attributes['target'] = '_top';
                 }

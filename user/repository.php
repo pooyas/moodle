@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This file is part of the User section Moodle
+ * This file is part of the User section Lion
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core_user
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(dirname(__FILE__)) . '/config.php');
@@ -28,7 +15,7 @@ require_once($CFG->dirroot . '/repository/lib.php');
 $config = optional_param('config', 0, PARAM_INT);
 $course  = optional_param('course', SITEID, PARAM_INT);
 
-$url = new moodle_url('/user/repository.php', array('course' => $course));
+$url = new lion_url('/user/repository.php', array('course' => $course));
 if ($config !== 0) {
     $url->param('config', $config);
 }
@@ -47,7 +34,7 @@ $pluginstr = get_string('plugin', 'repository');
 require_login($course, false);
 $coursecontext = context_course::instance($course->id, MUST_EXIST);
 
-$link = new moodle_url('/user/view.php', array('id' => $user->id));
+$link = new lion_url('/user/view.php', array('id' => $user->id));
 $PAGE->navbar->add($fullname, $link);
 $PAGE->navbar->add($strrepos);
 $PAGE->set_title("$course->fullname: $fullname: $strrepos");

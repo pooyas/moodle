@@ -1,7 +1,7 @@
 {
-    "name": "moodle-filter_mathjaxloader-loader",
+    "name": "lion-filter_mathjaxloader-loader",
     "builds": {
-        "moodle-filter_mathjaxloader-loader": {
+        "lion-filter_mathjaxloader-loader": {
             "jsfiles": [
                 "loader.js"
             ]

@@ -8,6 +8,9 @@
  *    Recent changes to PHP's DOM extension have resulted in some fatal
  *    error conditions with the original version of PH5P. Pending changes,
  *    this lexer will punt to DirectLex if DOM throws an exception.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_Lexer_PH5P extends HTMLPurifier_Lexer_DOMLex

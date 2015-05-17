@@ -1,31 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
 
 namespace core_tests\event;
 
 /**
  * Fixtures for new event testing.
  *
- * @package    core
  * @category   phpunit
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 class unittest_executed extends \core\event\base {
@@ -45,7 +36,7 @@ class unittest_executed extends \core\event\base {
     }
 
     public function get_url() {
-        return new \moodle_url('/somepath/somefile.php', array('id'=>$this->data['other']['sample']));
+        return new \lion_url('/somepath/somefile.php', array('id'=>$this->data['other']['sample']));
     }
 
     public static function get_legacy_eventname() {
@@ -271,7 +262,7 @@ class context_used_in_event extends \core\event\base {
     }
 
     public function get_url() {
-        return new \moodle_url('/somepath/somefile.php', array('id' => $this->context->instanceid));
+        return new \lion_url('/somepath/somefile.php', array('id' => $this->context->instanceid));
     }
 
     protected function get_legacy_eventdata() {
@@ -294,10 +285,7 @@ class context_used_in_event extends \core\event\base {
  *
  *
  *
- * @package    core
  * @category   phpunit
- * @copyright  2014 Adrian Greeve <adrian@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class full_docblock extends \core\event\base {
 
@@ -328,10 +316,6 @@ class docblock_test2 extends \core\event\base {
  *      - int repeatid: Id of the parent event if present, else 0.
  * }
  *
- * @package    core
- * @since      Moodle 2.7
- * @copyright  2014 onwards Adrian Greeve
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class docblock_test3 extends \core\event\base {
 

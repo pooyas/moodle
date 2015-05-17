@@ -19,10 +19,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  *
  * @category	PHPExcel
- * @package		PHPExcel_Calculation
- * @copyright	Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
- * @license		http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
  * @version		##VERSION##, ##DATE##
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -56,8 +56,6 @@ define('SQRT2PI', 2.5066282746310005024157652848110452530069867406099);
  * PHPExcel_Calculation_Statistical
  *
  * @category	PHPExcel
- * @package		PHPExcel_Calculation
- * @copyright	Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Calculation_Statistical {
 
@@ -90,7 +88,6 @@ class PHPExcel_Calculation_Statistical {
 	/**
 	 * Beta function.
 	 *
-	 * @author Jaco van Kooten
 	 *
 	 * @param p require p>0
 	 * @param q require q>0
@@ -108,8 +105,6 @@ class PHPExcel_Calculation_Statistical {
 	/**
 	 * Incomplete beta function
 	 *
-	 * @author Jaco van Kooten
-	 * @author Paul Meagher
 	 *
 	 * The computation is based on formulas from Numerical Recipes, Chapter 6.4 (W.H. Press et al, 1992).
 	 * @param x require 0<=x<=1
@@ -145,7 +140,6 @@ class PHPExcel_Calculation_Statistical {
 	 * @param p require p>0
 	 * @param q require q>0
 	 * @return 0 if p<=0, q<=0 or p+q>2.55E305 to avoid errors and over/underflow
-	 * @author Jaco van Kooten
 	 */
 	private static function _logBeta($p, $q) {
 		if ($p != self::$_logBetaCache_p || $q != self::$_logBetaCache_q) {
@@ -164,7 +158,6 @@ class PHPExcel_Calculation_Statistical {
 	/**
 	 * Evaluates of continued fraction part of incomplete beta function.
 	 * Based on an idea from Numerical Recipes (W.H. Press et al, 1992).
-	 * @author Jaco van Kooten
 	 */
 	private static function _betaFraction($x, $p, $q) {
 		$c = 1.0;
@@ -216,7 +209,6 @@ class PHPExcel_Calculation_Statistical {
 	 * logGamma function
 	 *
 	 * @version 1.1
-	 * @author Jaco van Kooten
 	 *
 	 * Original author was Jaco van Kooten. Ported to PHP by Paul Meagher.
 	 *

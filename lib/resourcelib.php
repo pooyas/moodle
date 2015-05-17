@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Recourse module like helper functions
  *
  * @package    core
  * @subpackage lib
- * @copyright  2009 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** Try the best way */
 define('RESOURCELIB_DISPLAY_AUTO', 0);
@@ -146,13 +132,13 @@ function resourcelib_guess_url_mimetype($fullurl) {
     global $CFG;
     require_once("$CFG->libdir/filelib.php");
 
-    if ($fullurl instanceof moodle_url) {
+    if ($fullurl instanceof lion_url) {
         $fullurl = $fullurl->out(false);
     }
 
     $matches = null;
     if (preg_match("|^(.*)/[a-z]*file.php(\?file=)?(/[^&\?#]*)|", $fullurl, $matches)) {
-        // remove the special moodle file serving hacks so that the *file.php is ignored
+        // remove the special lion file serving hacks so that the *file.php is ignored
         $fullurl = $matches[1].$matches[3];
     }
 
@@ -189,13 +175,13 @@ function resourcelib_guess_url_mimetype($fullurl) {
  */
 function resourcelib_get_extension($fullurl) {
 
-    if ($fullurl instanceof moodle_url) {
+    if ($fullurl instanceof lion_url) {
         $fullurl = $fullurl->out(false);
     }
 
     $matches = null;
     if (preg_match("|^(.*)/[a-z]*file.php(\?file=)?(/.*)|", $fullurl, $matches)) {
-        // remove the special moodle file serving hacks so that the *file.php is ignored
+        // remove the special lion file serving hacks so that the *file.php is ignored
         $fullurl = $matches[1].$matches[3];
     }
 
@@ -258,7 +244,7 @@ EOT;
 function resourcelib_embed_general($fullurl, $title, $clicktoopen, $mimetype) {
     global $CFG, $PAGE;
 
-    if ($fullurl instanceof moodle_url) {
+    if ($fullurl instanceof lion_url) {
         $fullurl = $fullurl->out();
     }
 

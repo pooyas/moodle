@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Edit and review page for grade categories and items
  *
- * @package   core_grades
- * @copyright 2008 Nicolas Connault
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage edit
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once '../../../config.php';
@@ -33,7 +20,7 @@ $eid             = optional_param('eid', 0, PARAM_ALPHANUM);
 $category        = optional_param('category', null, PARAM_INT);
 $aggregationtype = optional_param('aggregationtype', null, PARAM_INT);
 
-$url = new moodle_url('/grade/edit/tree/index.php', array('id' => $courseid));
+$url = new lion_url('/grade/edit/tree/index.php', array('id' => $courseid));
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('admin');
 
@@ -44,7 +31,7 @@ if (!$course = $DB->get_record('course', array('id' => $courseid))) {
 
 require_login($course);
 $context = context_course::instance($course->id);
-require_capability('moodle/grade:manage', $context);
+require_capability('lion/grade:manage', $context);
 
 // todo $PAGE->requires->js_module() should be used here instead
 $PAGE->requires->js('/grade/edit/tree/functions.js');
@@ -133,8 +120,8 @@ switch ($action) {
                 $strdeletecheckfull = get_string('deletecheck', '', $object->get_name());
                 $optionsyes = array('eid'=>$eid, 'confirm'=>1, 'sesskey'=>sesskey(), 'id'=>$course->id, 'action'=>'delete');
                 $optionsno  = array('id'=>$course->id);
-                $formcontinue = new single_button(new moodle_url('index.php', $optionsyes), get_string('yes'));
-                $formcancel = new single_button(new moodle_url('index.php', $optionsno), get_string('no'), 'get');
+                $formcontinue = new single_button(new lion_url('index.php', $optionsyes), get_string('yes'));
+                $formcancel = new single_button(new lion_url('index.php', $optionsno), get_string('no'), 'get');
                 echo $OUTPUT->confirm($strdeletecheckfull, $formcontinue, $formcancel);
                 echo $OUTPUT->footer();
                 die;
@@ -292,27 +279,27 @@ echo $OUTPUT->box_end();
 echo $OUTPUT->container_start('buttons mdl-align');
 
 if ($moving) {
-    echo $OUTPUT->single_button(new moodle_url('index.php', array('id'=>$course->id)), get_string('cancel'), 'get');
+    echo $OUTPUT->single_button(new lion_url('index.php', array('id'=>$course->id)), get_string('cancel'), 'get');
 } else {
-    echo $OUTPUT->single_button(new moodle_url('category.php', array('courseid'=>$course->id)), get_string('addcategory', 'grades'), 'get');
-    echo $OUTPUT->single_button(new moodle_url('item.php', array('courseid'=>$course->id)), get_string('additem', 'grades'), 'get');
+    echo $OUTPUT->single_button(new lion_url('category.php', array('courseid'=>$course->id)), get_string('addcategory', 'grades'), 'get');
+    echo $OUTPUT->single_button(new lion_url('item.php', array('courseid'=>$course->id)), get_string('additem', 'grades'), 'get');
 
     if (!empty($CFG->enableoutcomes)) {
-        echo $OUTPUT->single_button(new moodle_url('outcomeitem.php', array('courseid'=>$course->id)), get_string('addoutcomeitem', 'grades'), 'get');
+        echo $OUTPUT->single_button(new lion_url('outcomeitem.php', array('courseid'=>$course->id)), get_string('addoutcomeitem', 'grades'), 'get');
     }
 
-    //echo $OUTPUT->(new moodle_url('index.php', array('id'=>$course->id, 'action'=>'autosort')), get_string('autosort', 'grades'), 'get');
+    //echo $OUTPUT->(new lion_url('index.php', array('id'=>$course->id, 'action'=>'autosort')), get_string('autosort', 'grades'), 'get');
 }
 
 echo $OUTPUT->container_end();
 
-$PAGE->requires->yui_module('moodle-core-formchangechecker',
+$PAGE->requires->yui_module('lion-core-formchangechecker',
     'M.core_formchangechecker.init',
     array(array(
         'formid' => 'gradetreeform'
     ))
 );
-$PAGE->requires->string_for_js('changesmadereallygoaway', 'moodle');
+$PAGE->requires->string_for_js('changesmadereallygoaway', 'lion');
 
 echo $OUTPUT->footer();
 die;

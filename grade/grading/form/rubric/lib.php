@@ -1,37 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Grading method controller for the Rubric plugin
  *
- * @package    gradingform_rubric
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/grade/grading/form/lib.php');
 
 /**
  * This controller encapsulates the rubric grading logic
  *
- * @package    gradingform_rubric
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gradingform_rubric_controller extends gradingform_controller {
     // Modes of displaying the rubric (used in gradingform_rubric_renderer)
@@ -56,7 +40,7 @@ class gradingform_rubric_controller extends gradingform_controller {
      * Extends the module settings navigation with the rubric grading settings
      *
      * This function is called when the context for the page is an activity module with the
-     * FEATURE_ADVANCED_GRADING, the user has the permission moodle/grade:managegradingforms
+     * FEATURE_ADVANCED_GRADING, the user has the permission lion/grade:managegradingforms
      * and there is an area with the active grading method set to 'rubric'.
      *
      * @param settings_navigation $settingsnav {@link settings_navigation}
@@ -78,13 +62,13 @@ class gradingform_rubric_controller extends gradingform_controller {
      * @param navigation_node $node {@link navigation_node}
      */
     public function extend_navigation(global_navigation $navigation, navigation_node $node=null) {
-        if (has_capability('moodle/grade:managegradingforms', $this->get_context())) {
+        if (has_capability('lion/grade:managegradingforms', $this->get_context())) {
             // no need for preview if user can manage forms, he will have link to manage.php in settings instead
             return;
         }
         if ($this->is_form_defined() && ($options = $this->get_options()) && !empty($options['alwaysshowdefinition'])) {
             $node->add(get_string('gradingof', 'gradingform_rubric', get_grading_manager($this->get_areaid())->get_area_title()),
-                    new moodle_url('/grade/grading/form/'.$this->get_method_name().'/preview.php', array('areaid' => $this->get_areaid())),
+                    new lion_url('/grade/grading/form/'.$this->get_method_name().'/preview.php', array('areaid' => $this->get_areaid())),
                     settings_navigation::TYPE_CUSTOM);
         }
     }
@@ -162,7 +146,7 @@ class gradingform_rubric_controller extends gradingform_controller {
             $criterionmaxscore = null;
             if (preg_match('/^NEWID\d+$/', $id)) {
                 // insert criterion into DB
-                $data = array('definitionid' => $this->definition->id, 'descriptionformat' => FORMAT_MOODLE); // TODO MDL-31235 format is not supported yet
+                $data = array('definitionid' => $this->definition->id, 'descriptionformat' => FORMAT_LION); // TODO MDL-31235 format is not supported yet
                 foreach ($criteriafields as $key) {
                     if (array_key_exists($key, $criterion)) {
                         $data[$key] = $criterion[$key];
@@ -210,7 +194,7 @@ class gradingform_rubric_controller extends gradingform_controller {
                 }
                 if (preg_match('/^NEWID\d+$/', $levelid)) {
                     // insert level into DB
-                    $data = array('criterionid' => $id, 'definitionformat' => FORMAT_MOODLE); // TODO MDL-31235 format is not supported yet
+                    $data = array('criterionid' => $id, 'definitionformat' => FORMAT_LION); // TODO MDL-31235 format is not supported yet
                     foreach ($levelfields as $key) {
                         if (array_key_exists($key, $level)) {
                             $data[$key] = $level[$key];
@@ -486,20 +470,20 @@ class gradingform_rubric_controller extends gradingform_controller {
     /**
      * Returns the rubric plugin renderer
      *
-     * @param moodle_page $page the target page
+     * @param lion_page $page the target page
      * @return gradingform_rubric_renderer
      */
-    public function get_renderer(moodle_page $page) {
+    public function get_renderer(lion_page $page) {
         return $page->get_renderer('gradingform_'. $this->get_method_name());
     }
 
     /**
      * Returns the HTML code displaying the preview of the grading form
      *
-     * @param moodle_page $page the target page
+     * @param lion_page $page the target page
      * @return string
      */
-    public function render_preview(moodle_page $page) {
+    public function render_preview(lion_page $page) {
 
         if (!$this->is_form_defined()) {
             throw new coding_exception('It is the caller\'s responsibility to make sure that the form is actually defined');
@@ -508,7 +492,7 @@ class gradingform_rubric_controller extends gradingform_controller {
         $criteria = $this->definition->rubric_criteria;
         $options = $this->get_options();
         $rubric = '';
-        if (has_capability('moodle/grade:managegradingforms', $page->context)) {
+        if (has_capability('lion/grade:managegradingforms', $page->context)) {
             $showdescription = true;
         } else {
             if (empty($options['alwaysshowdefinition']))  {
@@ -521,7 +505,7 @@ class gradingform_rubric_controller extends gradingform_controller {
         if ($showdescription) {
             $rubric .= $output->box($this->get_formatted_description(), 'gradingform_rubric-description');
         }
-        if (has_capability('moodle/grade:managegradingforms', $page->context)) {
+        if (has_capability('lion/grade:managegradingforms', $page->context)) {
             $rubric .= $output->display_rubric_mapping_explained($this->get_min_max_score());
             $rubric .= $output->display_rubric($criteria, $options, self::DISPLAY_PREVIEW, 'rubric');
         } else {
@@ -586,7 +570,7 @@ class gradingform_rubric_controller extends gradingform_controller {
     /**
      * Returns html code to be included in student's feedback.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param int $itemid
      * @param array $gradinginfo result of function grade_get_grades
      * @param string $defaultcontent default string to be returned if no active grading is found
@@ -662,7 +646,6 @@ class gradingform_rubric_controller extends gradingform_controller {
     /**
      * @return array An array containing a single key/value pair with the 'rubric_criteria' external_multiple_structure.
      * @see gradingform_controller::get_external_definition_details()
-     * @since Moodle 2.5
      */
     public static function get_external_definition_details() {
         $rubric_criteria = new external_multiple_structure(
@@ -694,7 +677,6 @@ class gradingform_rubric_controller extends gradingform_controller {
      *
      * @return An array containing a single key/value pair with the 'criteria' external_multiple_structure
      * @see gradingform_controller::get_external_instance_filling_details()
-     * @since Moodle 2.6
      */
     public static function get_external_instance_filling_details() {
         $criteria = new external_multiple_structure(
@@ -718,9 +700,6 @@ class gradingform_rubric_controller extends gradingform_controller {
  *
  * Stores information and performs actions like update, copy, validate, submit, etc.
  *
- * @package    gradingform_rubric
- * @copyright  2011 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class gradingform_rubric_instance extends gradingform_instance {
 
@@ -839,7 +818,7 @@ class gradingform_rubric_instance extends gradingform_instance {
         foreach ($data['criteria'] as $criterionid => $record) {
             if (!array_key_exists($criterionid, $currentgrade['criteria'])) {
                 $newrecord = array('instanceid' => $this->get_id(), 'criterionid' => $criterionid,
-                    'levelid' => $record['levelid'], 'remarkformat' => FORMAT_MOODLE);
+                    'levelid' => $record['levelid'], 'remarkformat' => FORMAT_LION);
                 if (isset($record['remark'])) {
                     $newrecord['remark'] = $record['remark'];
                 }
@@ -899,8 +878,8 @@ class gradingform_rubric_instance extends gradingform_instance {
     /**
      * Returns html for form element of type 'grading'.
      *
-     * @param moodle_page $page
-     * @param MoodleQuickForm_grading $gradingformelement
+     * @param lion_page $page
+     * @param LionQuickForm_grading $gradingformelement
      * @return string
      */
     public function render_grading_element($page, $gradingformelement) {

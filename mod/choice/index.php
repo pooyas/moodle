@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
+*/
+
     require_once("../../config.php");
     require_once("lib.php");
 
@@ -27,7 +34,7 @@
     echo $OUTPUT->header();
 
     if (! $choices = get_all_instances_in_course("choice", $course)) {
-        notice(get_string('thereareno', 'moodle', $strchoices), "../../course/view.php?id=$course->id");
+        notice(get_string('thereareno', 'lion', $strchoices), "../../course/view.php?id=$course->id");
     }
 
     $usesections = course_format_uses_sections($course->format);

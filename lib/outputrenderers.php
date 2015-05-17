@@ -1,23 +1,10 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Classes for rendering HTML output for Moodle.
+ * Classes for rendering HTML output for Lion.
  *
- * Please see {@link http://docs.moodle.org/en/Developement:How_Moodle_outputs_HTML}
+ * Please see {@link http://docs.lion.org/en/Developement:How_Lion_outputs_HTML}
  * for an overview.
  *
  * Included in this file are the primary renderer classes:
@@ -29,25 +16,21 @@
  *     - plugin_renderer_base:  A renderer class that should be extended by all
  *                              plugin renderers.
  *
- * @package core
  * @category output
- * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
- * Simple base class for Moodle renderers.
+ * Simple base class for Lion renderers.
  *
  * Tracks the xhtml_container_stack to use, which is passed in in the constructor.
  *
  * Also has methods to facilitate generating HTML output.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class renderer_base {
@@ -57,7 +40,7 @@ class renderer_base {
     protected $opencontainers;
 
     /**
-     * @var moodle_page The Moodle page the renderer has been created to assist with.
+     * @var lion_page The Lion page the renderer has been created to assist with.
      */
     protected $page;
 
@@ -85,7 +68,6 @@ class renderer_base {
      * This is not done in the constructor because that would be a
      * compatibility breaking change, and we can just pass this always in the
      * renderer factory, immediately after creating the renderer.
-     * @since 2.9
      * @param string $subtype
      */
     public function set_subtype($subtype) {
@@ -96,7 +78,6 @@ class renderer_base {
      * This is not done in the constructor because that would be a
      * compatibility breaking change, and we can just pass this always in the
      * renderer factory, immediately after creating the renderer.
-     * @since 2.9
      * @param string $component
      */
     public function set_component($component) {
@@ -106,7 +87,6 @@ class renderer_base {
     /**
      * Return an instance of the mustache class.
      *
-     * @since 2.9
      * @return Mustache_Engine
      */
     protected function get_mustache() {
@@ -197,10 +177,10 @@ class renderer_base {
      * The target is an additional identifier that can be used to load different
      * renderers for different options.
      *
-     * @param moodle_page $page the page we are doing output for.
+     * @param lion_page $page the page we are doing output for.
      * @param string $target one of rendering target constants
      */
-    public function __construct(moodle_page $page, $target) {
+    public function __construct(lion_page $page, $target) {
         $this->opencontainers = $page->opencontainers;
         $this->page = $page;
         $this->target = $target;
@@ -212,7 +192,6 @@ class renderer_base {
      * The provided data needs to be array/stdClass made up of only simple types.
      * Simple types are array,stdClass,bool,int,float,string
      *
-     * @since 2.9
      * @param array|stdClass $context Context containing data for the template.
      * @return string|boolean
      */
@@ -232,7 +211,7 @@ class renderer_base {
                 $template = $mustache->loadTemplate($templatename);
                 $templatecache[$templatename] = $template;
             } catch (Mustache_Exception_UnknownTemplateException $e) {
-                throw new moodle_exception('Unknown template: ' . $templatename);
+                throw new lion_exception('Unknown template: ' . $templatename);
             }
         }
         return trim($template->render($context));
@@ -290,7 +269,7 @@ class renderer_base {
      * @return boolean true if the header has been printed.
      */
     public function has_started() {
-        return $this->page->state >= moodle_page::STATE_IN_BODY;
+        return $this->page->state >= lion_page::STATE_IN_BODY;
     }
 
     /**
@@ -307,7 +286,7 @@ class renderer_base {
     }
 
     /**
-     * Return the moodle_url for an image.
+     * Return the lion_url for an image.
      *
      * The exact image location and extension is determined
      * automatically by searching for gif|png|jpg|jpeg, please
@@ -328,9 +307,9 @@ class renderer_base {
      *
      * @param string $imagename the pathname of the image
      * @param string $component full plugin name (aka component) or 'theme'
-     * @return moodle_url
+     * @return lion_url
      */
-    public function pix_url($imagename, $component = 'moodle') {
+    public function pix_url($imagename, $component = 'lion') {
         return $this->page->theme->pix_url($imagename, $component);
     }
 }
@@ -339,10 +318,6 @@ class renderer_base {
 /**
  * Basis for all plugin renderers.
  *
- * @copyright Petr Skoda (skodak)
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class plugin_renderer_base extends renderer_base {
@@ -357,10 +332,10 @@ class plugin_renderer_base extends renderer_base {
     /**
      * Constructor method, calls the parent constructor
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param string $target one of rendering target constants
      */
-    public function __construct(moodle_page $page, $target) {
+    public function __construct(lion_page $page, $target) {
         if (empty($target) && $page->pagelayout === 'maintenance') {
             // If the page is using the maintenance layout then we're going to force the target to maintenance.
             // This way we'll get a special maintenance renderer that is designed to block access to API's that are likely
@@ -435,10 +410,6 @@ class plugin_renderer_base extends renderer_base {
 /**
  * The standard implementation of the core_renderer interface.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class core_renderer extends renderer_base {
@@ -480,10 +451,10 @@ class core_renderer extends renderer_base {
     /**
      * Constructor
      *
-     * @param moodle_page $page the page we are doing output for.
+     * @param lion_page $page the page we are doing output for.
      * @param string $target one of rendering target constants
      */
-    public function __construct(moodle_page $page, $target) {
+    public function __construct(lion_page $page, $target) {
         $this->opencontainers = $page->opencontainers;
         $this->page = $page;
         $this->target = $target;
@@ -550,7 +521,7 @@ class core_renderer extends renderer_base {
 
         $output = '';
         $output .= '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' . "\n";
-        $output .= '<meta name="keywords" content="moodle, ' . $this->page->title . '" />' . "\n";
+        $output .= '<meta name="keywords" content="lion, ' . $this->page->title . '" />' . "\n";
         // This is only set by the {@link redirect()} method
         $output .= $this->metarefreshtag;
 
@@ -567,11 +538,11 @@ class core_renderer extends renderer_base {
         $this->page->requires->js_init_call('M.util.help_popups.setup');
 
         // Setup help icon overlays.
-        $this->page->requires->yui_module('moodle-core-popuphelp', 'M.core.init_popuphelp');
+        $this->page->requires->yui_module('lion-core-popuphelp', 'M.core.init_popuphelp');
         $this->page->requires->strings_for_js(array(
             'morehelp',
             'loadinghelp',
-        ), 'moodle');
+        ), 'lion');
 
         $this->page->requires->js_function_call('setTimeout', array('fix_column_widths()', 20));
 
@@ -579,11 +550,11 @@ class core_renderer extends renderer_base {
         if (!empty($focus)) {
             if (preg_match("#forms\['([a-zA-Z0-9]+)'\].elements\['([a-zA-Z0-9]+)'\]#", $focus, $matches)) {
                 // This is a horrifically bad way to handle focus but it is passed in
-                // through messy formslib::moodleform
+                // through messy formslib::lionform
                 $this->page->requires->js_function_call('old_onload_focus', array($matches[1], $matches[2]));
             } else if (strpos($focus, '.')!==false) {
                 // Old style of focus, bad way to do it
-                debugging('This code is using the old style focus event, Please update this code to focus on an element id or the moodleform focus method.', DEBUG_DEVELOPER);
+                debugging('This code is using the old style focus event, Please update this code to focus on an element id or the lionform focus method.', DEBUG_DEVELOPER);
                 $this->page->requires->js_function_call('old_onload_focus', explode('.', $focus, 2));
             } else {
                 // Focus element with given id
@@ -654,13 +625,13 @@ class core_renderer extends renderer_base {
             $timeleft = $CFG->maintenance_later - time();
             // If timeleft less than 30 sec, set the class on block to error to highlight.
             $errorclass = ($timeleft < 30) ? 'error' : 'warning';
-            $output .= $this->box_start($errorclass . ' moodle-has-zindex maintenancewarning');
+            $output .= $this->box_start($errorclass . ' lion-has-zindex maintenancewarning');
             $a = new stdClass();
             $a->min = (int)($timeleft/60);
             $a->sec = (int)($timeleft % 60);
             $output .= get_string('maintenancemodeisscheduled', 'admin', $a) ;
             $output .= $this->box_end();
-            $this->page->requires->yui_module('moodle-core-maintenancemodetimer', 'M.core.maintenancemodetimer',
+            $this->page->requires->yui_module('lion-core-maintenancemodetimer', 'M.core.maintenancemodetimer',
                     array(array('timeleftinsec' => $timeleft)));
             $this->page->requires->strings_for_js(
                     array('maintenancemodeisscheduled', 'sitemaintenance'),
@@ -700,7 +671,7 @@ class core_renderer extends renderer_base {
         if (!empty($CFG->debugpageinfo)) {
             $output .= '<div class="performanceinfo pageinfo">This page is: ' . $this->page->debug_summary() . '</div>';
         }
-        if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', context_system::instance())) {  // Only in developer mode
+        if (debugging(null, DEBUG_DEVELOPER) and has_capability('lion/site:config', context_system::instance())) {  // Only in developer mode
             // Add link to profiling report if necessary
             if (function_exists('profiling_is_running') && profiling_is_running()) {
                 $txt = get_string('profiledscript', 'admin');
@@ -709,7 +680,7 @@ class core_renderer extends renderer_base {
                 $link= '<a title="' . $title . '" href="' . $url . '">' . $txt . '</a>';
                 $output .= '<div class="profilingfooter">' . $link . '</div>';
             }
-            $purgeurl = new moodle_url('/admin/purgecaches.php', array('confirm' => 1,
+            $purgeurl = new lion_url('/admin/purgecaches.php', array('confirm' => 1,
                 'sesskey' => sesskey(), 'returnurl' => $this->page->url->out_as_local_url(false)));
             $output .= '<div class="purgecaches">' .
                     html_writer::link($purgeurl, get_string('purgecaches', 'admin')) . '</div>';
@@ -805,7 +776,7 @@ class core_renderer extends renderer_base {
             $context = context_course::instance($course->id);
 
             $fullname = fullname($USER, true);
-            // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
+            // Since Lion 2.0 this link always goes to the public profile page (not the course profile page)
             if ($withlinks) {
                 $linktitle = get_string('viewprofile');
                 $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\" title=\"$linktitle\">$fullname</a>";
@@ -829,19 +800,19 @@ class core_renderer extends renderer_base {
                 if ($role = $DB->get_record('role', array('id'=>$USER->access['rsw'][$context->path]))) {
                     $rolename = ': '.role_get_name($role, $context);
                 }
-                $loggedinas = get_string('loggedinas', 'moodle', $username).$rolename;
+                $loggedinas = get_string('loggedinas', 'lion', $username).$rolename;
                 if ($withlinks) {
-                    $url = new moodle_url('/course/switchrole.php', array('id'=>$course->id,'sesskey'=>sesskey(), 'switchrole'=>0, 'returnurl'=>$this->page->url->out_as_local_url(false)));
+                    $url = new lion_url('/course/switchrole.php', array('id'=>$course->id,'sesskey'=>sesskey(), 'switchrole'=>0, 'returnurl'=>$this->page->url->out_as_local_url(false)));
                     $loggedinas .= ' ('.html_writer::tag('a', get_string('switchrolereturn'), array('href' => $url)).')';
                 }
             } else {
-                $loggedinas = $realuserinfo.get_string('loggedinas', 'moodle', $username);
+                $loggedinas = $realuserinfo.get_string('loggedinas', 'lion', $username);
                 if ($withlinks) {
                     $loggedinas .= " (<a href=\"$CFG->wwwroot/login/logout.php?sesskey=".sesskey()."\">".get_string('logout').'</a>)';
                 }
             }
         } else {
-            $loggedinas = get_string('loggedinnot', 'moodle');
+            $loggedinas = get_string('loggedinnot', 'lion');
             if (!$loginpage && $withlinks) {
                 $loggedinas .= " (<a href=\"$loginurl\">".get_string('login').'</a>)';
             }
@@ -861,7 +832,7 @@ class core_renderer extends renderer_base {
                         $a->attempts = $count;
                         $loggedinas .= get_string('failedloginattempts', '', $a);
                         if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view', context_system::instance())) {
-                            $loggedinas .= ' ('.html_writer::link(new moodle_url('/report/log/index.php', array('chooselog' => 1,
+                            $loggedinas .= ' ('.html_writer::link(new lion_url('/report/log/index.php', array('chooselog' => 1,
                                     'id' => 0 , 'modid' => 'site_errors')), get_string('logs')).')';
                         }
                         $loggedinas .= '</div>';
@@ -876,7 +847,6 @@ class core_renderer extends renderer_base {
     /**
      * Check whether the current page is a login page.
      *
-     * @since Moodle 2.9
      * @return bool
      */
     protected function is_login_page() {
@@ -903,14 +873,14 @@ class core_renderer extends renderer_base {
         if ($this->page->pagetype == 'site-index') {
             // Special case for site home page - please do not remove
             return '<div class="sitelink">' .
-                   '<a title="Moodle" href="http://moodle.org/">' .
-                   '<img src="' . $this->pix_url('moodlelogo') . '" alt="moodlelogo" /></a></div>';
+                   '<a title="Lion" href="http://lion.org/">' .
+                   '<img src="' . $this->pix_url('lionlogo') . '" alt="lionlogo" /></a></div>';
 
         } else if (!empty($CFG->target_release) && $CFG->target_release != $CFG->release) {
             // Special case for during install/upgrade.
             return '<div class="sitelink">'.
-                   '<a title="Moodle" href="http://docs.moodle.org/en/Administrator_documentation" onclick="this.target=\'_blank\'">' .
-                   '<img src="' . $this->pix_url('moodlelogo') . '" alt="moodlelogo" /></a></div>';
+                   '<a title="Lion" href="http://docs.lion.org/en/Administrator_documentation" onclick="this.target=\'_blank\'">' .
+                   '<img src="' . $this->pix_url('lionlogo') . '" alt="lionlogo" /></a></div>';
 
         } else if ($this->page->course->id == $SITE->id || strpos($this->page->pagetype, 'course-view') === 0) {
             return '<div class="homelink"><a href="' . $CFG->wwwroot . '/">' .
@@ -946,7 +916,7 @@ class core_renderer extends renderer_base {
         $url = str_replace('&amp;', '&', $encodedurl);
 
         switch ($this->page->state) {
-            case moodle_page::STATE_BEFORE_HEADER :
+            case lion_page::STATE_BEFORE_HEADER :
                 // No output yet it is safe to delivery the full arsenal of redirect methods
                 if (!$debugdisableredirect) {
                     // Don't use exactly the same time here, it can cause problems when both redirects fire at the same time.
@@ -955,11 +925,11 @@ class core_renderer extends renderer_base {
                 }
                 $output = $this->header();
                 break;
-            case moodle_page::STATE_PRINTING_HEADER :
+            case lion_page::STATE_PRINTING_HEADER :
                 // We should hopefully never get here
                 throw new coding_exception('You cannot redirect while printing the page header');
                 break;
-            case moodle_page::STATE_IN_BODY :
+            case lion_page::STATE_IN_BODY :
                 // We really shouldn't be here but we can deal with this
                 debugging("You should really redirect before you start page output");
                 if (!$debugdisableredirect) {
@@ -967,7 +937,7 @@ class core_renderer extends renderer_base {
                 }
                 $output = $this->opencontainers->pop_all_but_last();
                 break;
-            case moodle_page::STATE_DONE :
+            case lion_page::STATE_DONE :
                 // Too late to be calling redirect now
                 throw new coding_exception('You cannot redirect after the entire page has been generated');
                 break;
@@ -986,7 +956,7 @@ class core_renderer extends renderer_base {
      * and the start of the <body>.
      *
      * To control what is printed, you should set properties on $PAGE. If you
-     * are familiar with the old {@link print_header()} function from Moodle 1.9
+     * are familiar with the old {@link print_header()} function from Lion 1.9
      * you will find that there are properties on $PAGE that correspond to most
      * of the old parameters to could be passed to print_header.
      *
@@ -1012,7 +982,7 @@ class core_renderer extends renderer_base {
         // Give themes a chance to init/alter the page object.
         $this->page->theme->init_page($this->page);
 
-        $this->page->set_state(moodle_page::STATE_PRINTING_HEADER);
+        $this->page->set_state(lion_page::STATE_PRINTING_HEADER);
 
         // Find the appropriate page layout file, based on $this->page->pagelayout.
         $layoutfile = $this->page->theme->layout_file($this->page->pagelayout);
@@ -1041,7 +1011,7 @@ class core_renderer extends renderer_base {
 
         // If this theme version is below 2.4 release and this is a course view page
         if ((!isset($this->page->theme->settings->version) || $this->page->theme->settings->version < 2012101500) &&
-                $this->page->pagelayout === 'course' && $this->page->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
+                $this->page->pagelayout === 'course' && $this->page->url->compare(new lion_url('/course/view.php'), URL_MATCH_BASE)) {
             // check if course content header/footer have not been output during render of theme layout
             $coursecontentheader = $this->course_content_header(true);
             $coursecontentfooter = $this->course_content_footer(true);
@@ -1059,7 +1029,7 @@ class core_renderer extends renderer_base {
         send_headers($this->contenttype, $this->page->cacheable);
 
         $this->opencontainers->push('header/footer', $footer);
-        $this->page->set_state(moodle_page::STATE_IN_BODY);
+        $this->page->set_state(lion_page::STATE_IN_BODY);
 
         return $header . $this->skip_link_target('maincontent');
     }
@@ -1079,7 +1049,7 @@ class core_renderer extends renderer_base {
         // The next lines are a bit tricky. The point is, here we are in a method
         // of a renderer class, and this object may, or may not, be the same as
         // the global $OUTPUT object. When rendering the page layout file, we want to use
-        // this object. However, people writing Moodle code expect the current
+        // this object. However, people writing Lion code expect the current
         // renderer to be called $OUTPUT, not $this, so define a variable called
         // $OUTPUT pointing at $this. The same comment applies to $PAGE and $COURSE.
         $OUTPUT = $this;
@@ -1126,7 +1096,7 @@ class core_renderer extends renderer_base {
 
         $footer = str_replace($this->unique_end_html_token, $this->page->requires->get_end_code(), $footer);
 
-        $this->page->set_state(moodle_page::STATE_DONE);
+        $this->page->set_state(lion_page::STATE_DONE);
 
         return $output . $footer;
     }
@@ -1664,7 +1634,7 @@ class core_renderer extends renderer_base {
      * Theme developers: DO NOT OVERRIDE! Please override function
      * {@link core_renderer::render_action_link()} instead.
      *
-     * @param string|moodle_url $url
+     * @param string|lion_url $url
      * @param string $text HTML fragment
      * @param component_action $action
      * @param array $attributes associative array of html link attributes + disabled
@@ -1672,8 +1642,8 @@ class core_renderer extends renderer_base {
      * @return string HTML fragment
      */
     public function action_link($url, $text, component_action $action = null, array $attributes = null, $icon = null) {
-        if (!($url instanceof moodle_url)) {
-            $url = new moodle_url($url);
+        if (!($url instanceof lion_url)) {
+            $url = new lion_url($url);
         }
         $link = new action_link($url, $text, $action, $attributes, $icon);
 
@@ -1740,7 +1710,7 @@ class core_renderer extends renderer_base {
      * consider overriding function {@link core_renderer::render_action_link()} and
      * {@link core_renderer::render_pix_icon()}.
      *
-     * @param string|moodle_url $url A string URL or moodel_url
+     * @param string|lion_url $url A string URL or moodel_url
      * @param pix_icon $pixicon
      * @param component_action $action
      * @param array $attributes associative array of html link attributes + disabled
@@ -1748,8 +1718,8 @@ class core_renderer extends renderer_base {
      * @return string HTML fragment
      */
     public function action_icon($url, pix_icon $pixicon, component_action $action = null, array $attributes = null, $linktext=false) {
-        if (!($url instanceof moodle_url)) {
-            $url = new moodle_url($url);
+        if (!($url instanceof lion_url)) {
+            $url = new lion_url($url);
         }
         $attributes = (array)$attributes;
 
@@ -1772,32 +1742,32 @@ class core_renderer extends renderer_base {
    /**
     * Print a message along with button choices for Continue/Cancel
     *
-    * If a string or moodle_url is given instead of a single_button, method defaults to post.
+    * If a string or lion_url is given instead of a single_button, method defaults to post.
     *
     * @param string $message The question to ask the user
-    * @param single_button|moodle_url|string $continue The single_button component representing the Continue answer. Can also be a moodle_url or string URL
-    * @param single_button|moodle_url|string $cancel The single_button component representing the Cancel answer. Can also be a moodle_url or string URL
+    * @param single_button|lion_url|string $continue The single_button component representing the Continue answer. Can also be a lion_url or string URL
+    * @param single_button|lion_url|string $cancel The single_button component representing the Cancel answer. Can also be a lion_url or string URL
     * @return string HTML fragment
     */
     public function confirm($message, $continue, $cancel) {
         if ($continue instanceof single_button) {
             // ok
         } else if (is_string($continue)) {
-            $continue = new single_button(new moodle_url($continue), get_string('continue'), 'post');
-        } else if ($continue instanceof moodle_url) {
+            $continue = new single_button(new lion_url($continue), get_string('continue'), 'post');
+        } else if ($continue instanceof lion_url) {
             $continue = new single_button($continue, get_string('continue'), 'post');
         } else {
-            throw new coding_exception('The continue param to $OUTPUT->confirm() must be either a URL (string/moodle_url) or a single_button instance.');
+            throw new coding_exception('The continue param to $OUTPUT->confirm() must be either a URL (string/lion_url) or a single_button instance.');
         }
 
         if ($cancel instanceof single_button) {
             // ok
         } else if (is_string($cancel)) {
-            $cancel = new single_button(new moodle_url($cancel), get_string('cancel'), 'get');
-        } else if ($cancel instanceof moodle_url) {
+            $cancel = new single_button(new lion_url($cancel), get_string('cancel'), 'get');
+        } else if ($cancel instanceof lion_url) {
             $cancel = new single_button($cancel, get_string('cancel'), 'get');
         } else {
-            throw new coding_exception('The cancel param to $OUTPUT->confirm() must be either a URL (string/moodle_url) or a single_button instance.');
+            throw new coding_exception('The cancel param to $OUTPUT->confirm() must be either a URL (string/lion_url) or a single_button instance.');
         }
 
         $output = $this->box_start('generalbox', 'notice');
@@ -1813,15 +1783,15 @@ class core_renderer extends renderer_base {
      * Theme developers: DO NOT OVERRIDE! Please override function
      * {@link core_renderer::render_single_button()} instead.
      *
-     * @param string|moodle_url $url
+     * @param string|lion_url $url
      * @param string $label button text
      * @param string $method get or post submit method
      * @param array $options associative array {disabled, title, etc.}
      * @return string HTML fragment
      */
     public function single_button($url, $label, $method='post', array $options=null) {
-        if (!($url instanceof moodle_url)) {
-            $url = new moodle_url($url);
+        if (!($url instanceof lion_url)) {
+            $url = new lion_url($url);
         }
         $button = new single_button($url, $label, $method);
 
@@ -1895,7 +1865,7 @@ class core_renderer extends renderer_base {
      * Theme developers: DO NOT OVERRIDE! Please override function
      * {@link core_renderer::render_single_select()} instead.
      *
-     * @param moodle_url $url form action target, includes hidden fields
+     * @param lion_url $url form action target, includes hidden fields
      * @param string $name name of selection field - the changing parameter in url
      * @param array $options list of options
      * @param string $selected selected element
@@ -1904,8 +1874,8 @@ class core_renderer extends renderer_base {
      * @return string HTML fragment
      */
     public function single_select($url, $name, array $options, $selected = '', $nothing = array('' => 'choosedots'), $formid = null) {
-        if (!($url instanceof moodle_url)) {
-            $url = new moodle_url($url);
+        if (!($url instanceof lion_url)) {
+            $url = new lion_url($url);
         }
         $select = new single_select($url, $name, $options, $selected, $nothing, $formid);
 
@@ -1963,7 +1933,7 @@ class core_renderer extends renderer_base {
         $output .= html_writer::tag('noscript', html_writer::tag('div', $go), array('class' => 'inline'));
 
         $nothing = empty($select->nothing) ? false : key($select->nothing);
-        $this->page->requires->yui_module('moodle-core-formautosubmit',
+        $this->page->requires->yui_module('lion-core-formautosubmit',
             'M.core.init_formautosubmit',
             array(array('selectid' => $select->attributes['id'], 'nothing' => $nothing))
         );
@@ -2101,7 +2071,7 @@ class core_renderer extends renderer_base {
             $go = html_writer::empty_tag('input', array('type'=>'submit', 'value'=>get_string('go')));
             $output .= html_writer::tag('noscript', html_writer::tag('div', $go), array('class' => 'inline'));
             $nothing = empty($select->nothing) ? false : key($select->nothing);
-            $this->page->requires->yui_module('moodle-core-formautosubmit',
+            $this->page->requires->yui_module('lion-core-formautosubmit',
                 'M.core.init_formautosubmit',
                 array(array('selectid' => $select->attributes['id'], 'nothing' => $nothing))
             );
@@ -2114,7 +2084,7 @@ class core_renderer extends renderer_base {
 
         // now the form itself around it
         $formattributes = array('method' => 'post',
-                                'action' => new moodle_url('/course/jumpto.php'),
+                                'action' => new lion_url('/course/jumpto.php'),
                                 'id'     => $select->formid);
         $output = html_writer::tag('form', $output, $formattributes);
 
@@ -2134,9 +2104,9 @@ class core_renderer extends renderer_base {
     public function doc_link($path, $text = '', $forcepopup = false) {
         global $CFG;
 
-        $icon = $this->pix_icon('docs', '', 'moodle', array('class'=>'iconhelp icon-pre', 'role'=>'presentation'));
+        $icon = $this->pix_icon('docs', '', 'lion', array('class'=>'iconhelp icon-pre', 'role'=>'presentation'));
 
-        $url = new moodle_url(get_docs_url($path));
+        $url = new lion_url(get_docs_url($path));
 
         $attributes = array('href'=>$url);
         if (!empty($CFG->doctonewwindow) || $forcepopup) {
@@ -2154,11 +2124,11 @@ class core_renderer extends renderer_base {
      *
      * @param string $pix short pix name
      * @param string $alt mandatory alt attribute
-     * @param string $component standard compoennt name like 'moodle', 'mod_forum', etc.
+     * @param string $component standard compoennt name like 'lion', 'mod_forum', etc.
      * @param array $attributes htm lattributes
      * @return string HTML fragment
      */
-    public function pix_icon($pix, $alt, $component='moodle', array $attributes = null) {
+    public function pix_icon($pix, $alt, $component='lion', array $attributes = null) {
         $icon = new pix_icon($pix, $alt, $component, $attributes);
         return $this->render($icon);
     }
@@ -2302,13 +2272,13 @@ class core_renderer extends renderer_base {
      * @param string $text A heading text
      * @param string $helpidentifier The keyword that defines a help page
      * @param string $component component name
-     * @param string|moodle_url $icon
+     * @param string|lion_url $icon
      * @param string $iconalt icon alt text
      * @param int $level The level of importance of the heading. Defaulting to 2
      * @param string $classnames A space-separated list of CSS classes. Defaulting to null
      * @return string HTML fragment
      */
-    public function heading_with_help($text, $helpidentifier, $component = 'moodle', $icon = '', $iconalt = '', $level = 2, $classnames = null) {
+    public function heading_with_help($text, $helpidentifier, $component = 'lion', $icon = '', $iconalt = '', $level = 2, $classnames = null) {
         $image = '';
         if ($icon) {
             $image = $this->pix_icon($icon, $iconalt, $component, array('class'=>'icon iconlarge'));
@@ -2325,9 +2295,9 @@ class core_renderer extends renderer_base {
     /**
      * Returns HTML to display a help icon.
      *
-     * @deprecated since Moodle 2.0
+     * @deprecated since Lion 2.0
      */
-    public function old_help_icon($helpidentifier, $title, $component = 'moodle', $linktext = '') {
+    public function old_help_icon($helpidentifier, $title, $component = 'lion', $linktext = '') {
         throw new coding_exception('old_help_icon() can not be used any more, please see help_icon().');
     }
 
@@ -2342,7 +2312,7 @@ class core_renderer extends renderer_base {
      * @param string|bool $linktext true means use $title as link text, string means link text value
      * @return string HTML fragment
      */
-    public function help_icon($identifier, $component = 'moodle', $linktext = '') {
+    public function help_icon($identifier, $component = 'lion', $linktext = '') {
         $icon = new help_icon($identifier, $component);
         $icon->diag_strings();
         if ($linktext === true) {
@@ -2383,7 +2353,7 @@ class core_renderer extends renderer_base {
         }
 
         // now create the link around it - we need https on loginhttps pages
-        $url = new moodle_url($CFG->httpswwwroot.'/help.php', array('component' => $helpicon->component, 'identifier' => $helpicon->identifier, 'lang'=>current_language()));
+        $url = new lion_url($CFG->httpswwwroot.'/help.php', array('component' => $helpicon->component, 'identifier' => $helpicon->identifier, 'lang'=>current_language()));
 
         // note: this title is displayed only if JS is disabled, otherwise the link will have the new ajax tooltip
         $title = get_string('helpprefix2', '', trim($title, ". \t"));
@@ -2407,11 +2377,11 @@ class core_renderer extends renderer_base {
 
         $title = get_string('helpprefix2', '', $scale->name) .' ('.get_string('newwindow').')';
 
-        $icon = $this->pix_icon('help', get_string('scales'), 'moodle', array('class'=>'iconhelp'));
+        $icon = $this->pix_icon('help', get_string('scales'), 'lion', array('class'=>'iconhelp'));
 
         $scaleid = abs($scale->id);
 
-        $link = new moodle_url('/course/scales.php', array('id' => $courseid, 'list' => true, 'scaleid' => $scaleid));
+        $link = new lion_url('/course/scales.php', array('id' => $courseid, 'list' => true, 'scaleid' => $scaleid));
         $action = new popup_action('click', $link, 'ratingscale');
 
         return html_writer::tag('span', $this->action_link($link, $icon, $action), array('class' => 'helplink'));
@@ -2435,7 +2405,7 @@ class core_renderer extends renderer_base {
         }
         $attributes['class'] = 'spacer';
 
-        $output = $this->pix_icon('spacer', '', 'moodle', $attributes);
+        $output = $this->pix_icon('spacer', '', 'lion', $attributes);
 
         if (!empty($br)) {
             $output .= '<br />';
@@ -2544,9 +2514,9 @@ class core_renderer extends renderer_base {
         }
 
         if ($courseid == SITEID) {
-            $url = new moodle_url('/user/profile.php', array('id' => $user->id));
+            $url = new lion_url('/user/profile.php', array('id' => $user->id));
         } else {
-            $url = new moodle_url('/user/view.php', array('id' => $user->id, 'course' => $courseid));
+            $url = new lion_url('/user/view.php', array('id' => $user->id, 'course' => $courseid));
         }
 
         $attributes = array('href'=>$url);
@@ -2625,8 +2595,8 @@ class core_renderer extends renderer_base {
         $strsaved = get_string('filesaved', 'repository');
         $straddfile = get_string('openpicker', 'repository');
         $strloading  = get_string('loading', 'repository');
-        $strdndenabled = get_string('dndenabled_inbox', 'moodle');
-        $strdroptoupload = get_string('droptoupload', 'moodle');
+        $strdndenabled = get_string('dndenabled_inbox', 'lion');
+        $strdroptoupload = get_string('droptoupload', 'lion');
         $icon_progress = $OUTPUT->pix_icon('i/loading_small', $strloading).'';
 
         $currentfile = $options->currentfile;
@@ -2643,7 +2613,7 @@ class core_renderer extends renderer_base {
         if ($size == -1) {
             $maxsize = '';
         } else {
-            $maxsize = get_string('maxfilesize', 'moodle', display_size($size));
+            $maxsize = get_string('maxfilesize', 'lion', display_size($size));
         }
         if ($options->buttonname) {
             $buttonname = ' name="' . $options->buttonname . '"';
@@ -2684,10 +2654,10 @@ EOD;
      */
     public function update_module_button($cmid, $modulename) {
         global $CFG;
-        if (has_capability('moodle/course:manageactivities', context_module::instance($cmid))) {
+        if (has_capability('lion/course:manageactivities', context_module::instance($cmid))) {
             $modulename = get_string('modulename', $modulename);
             $string = get_string('updatethis', '', $modulename);
-            $url = new moodle_url("$CFG->wwwroot/course/mod.php", array('update' => $cmid, 'return' => true, 'sesskey' => sesskey()));
+            $url = new lion_url("$CFG->wwwroot/course/mod.php", array('update' => $cmid, 'return' => true, 'sesskey' => sesskey()));
             return $this->single_button($url, $string);
         } else {
             return '';
@@ -2697,10 +2667,10 @@ EOD;
     /**
      * Returns HTML to display a "Turn editing on/off" button in a form.
      *
-     * @param moodle_url $url The URL + params to send through when clicking the button
+     * @param lion_url $url The URL + params to send through when clicking the button
      * @return string HTML the button
      */
-    public function edit_button(moodle_url $url) {
+    public function edit_button(lion_url $url) {
 
         $url->param('sesskey', sesskey());
         if ($this->page->user_is_editing()) {
@@ -2724,7 +2694,7 @@ EOD;
         if (empty($text)) {
             $text = get_string('closewindow');
         }
-        $button = new single_button(new moodle_url('#'), $text, 'get');
+        $button = new single_button(new lion_url('#'), $text, 'get');
         $button->add_action(new component_action('click', 'close_window'));
 
         return $this->container($this->render($button), 'closewindow');
@@ -2826,7 +2796,7 @@ EOD;
         }
 
         if (empty($CFG->rolesactive)) {
-            // continue does not make much sense if moodle is not installed yet because error is most probably not recoverable
+            // continue does not make much sense if lion is not installed yet because error is most probably not recoverable
         } else if (!empty($link)) {
             $output .= $this->continue_button($link);
         }
@@ -2854,12 +2824,12 @@ EOD;
     /**
      * Returns HTML to display a continue button that goes to a particular URL.
      *
-     * @param string|moodle_url $url The url the button goes to.
+     * @param string|lion_url $url The url the button goes to.
      * @return string the HTML to output.
      */
     public function continue_button($url) {
-        if (!($url instanceof moodle_url)) {
-            $url = new moodle_url($url);
+        if (!($url instanceof lion_url)) {
+            $url = new lion_url($url);
         }
         $button = new single_button($url, get_string('continue'), 'get');
         $button->class = 'continuebutton';
@@ -2876,7 +2846,7 @@ EOD;
      * @param int $totalcount The total number of entries available to be paged through
      * @param int $page The page you are currently viewing
      * @param int $perpage The number of entries that should be shown per page
-     * @param string|moodle_url $baseurl url of the current page, the $pagevar parameter is added
+     * @param string|lion_url $baseurl url of the current page, the $pagevar parameter is added
      * @param string $pagevar name of page parameter that holds the page number
      * @return string the HTML to output.
      */
@@ -3122,7 +3092,7 @@ EOD;
         $loginurl = get_login_url();
         // If not logged in, show the typical not-logged-in string.
         if (!isloggedin()) {
-            $returnstr = get_string('loggedinnot', 'moodle');
+            $returnstr = get_string('loggedinnot', 'lion');
             if (!$loginpage) {
                 $returnstr .= " (<a href=\"$loginurl\">" . get_string('login') . '</a>)';
             }
@@ -3170,7 +3140,7 @@ EOD;
                 'span',
                 get_string(
                     'loggedinas',
-                    'moodle',
+                    'lion',
                     html_writer::span(
                         $opts->metadata['userfullname'],
                         'value'
@@ -3337,7 +3307,7 @@ EOD;
                 $link->text = $content;
             }
             $content = $this->render($link);
-        } else if ($item->action instanceof moodle_url) {
+        } else if ($item->action instanceof lion_url) {
             $attributes = array();
             if ($title !== '') {
                 $attributes['title'] = $title;
@@ -3556,7 +3526,7 @@ EOD;
             $linktext = get_string('switchdevicedefault');
             $devicetype = 'default';
         }
-        $linkurl = new moodle_url('/theme/switchdevice.php', array('url' => $this->page->url, 'device' => $devicetype, 'sesskey' => sesskey()));
+        $linkurl = new lion_url('/theme/switchdevice.php', array('url' => $this->page->url, 'device' => $devicetype, 'sesskey' => sesskey()));
 
         $content  = html_writer::start_tag('div', array('id' => 'theme_switch_link'));
         $content .= html_writer::link($linkurl, $linktext, array('rel' => 'nofollow'));
@@ -3568,7 +3538,7 @@ EOD;
     /**
      * Renders tabs
      *
-     * This function replaces print_tabs() used before Moodle 2.5 but with slightly different arguments
+     * This function replaces print_tabs() used before Lion 2.5 but with slightly different arguments
      *
      * Theme developers: In order to change how tabs are displayed please override functions
      * {@link core_renderer::render_tabtree()} and/or {@link core_renderer::render_tabobject()}
@@ -3621,10 +3591,10 @@ EOD;
             // No name for tabtree root.
         } else if ($tabobject->inactive || $tabobject->activated || ($tabobject->selected && !$tabobject->linkedwhenselected)) {
             // Tab name without a link. The <a> tag is used for styling.
-            $str .= html_writer::tag('a', html_writer::span($tabobject->text), array('class' => 'nolink moodle-has-zindex'));
+            $str .= html_writer::tag('a', html_writer::span($tabobject->text), array('class' => 'nolink lion-has-zindex'));
         } else {
             // Tab name with a link.
-            if (!($tabobject->link instanceof moodle_url)) {
+            if (!($tabobject->link instanceof lion_url)) {
                 // backward compartibility when link was passed as quoted string
                 $str .= "<a href=\"$tabobject->link\" title=\"$tabobject->title\"><span>$tabobject->text</span></a>";
             } else {
@@ -3672,7 +3642,6 @@ EOD;
     /**
      * Get the HTML for blocks in the given region.
      *
-     * @since Moodle 2.5.1 2.6
      * @param string $region The region to get HTML for.
      * @return string HTML.
      */
@@ -3719,7 +3688,6 @@ EOD;
     /**
      * Returns the CSS classes to apply to the body tag.
      *
-     * @since Moodle 2.5.1 2.6
      * @param array $additionalclasses Any additional classes to apply.
      * @return string
      */
@@ -3756,7 +3724,6 @@ EOD;
     /**
      * The ID attribute to apply to the body tag.
      *
-     * @since Moodle 2.5.1 2.6
      * @return string
      */
     public function body_id() {
@@ -3766,7 +3733,6 @@ EOD;
     /**
      * Returns HTML attributes to use within the body tag. This includes an ID and classes.
      *
-     * @since Moodle 2.5.1 2.6
      * @param string|array $additionalclasses Any additional classes to give the body tag,
      * @return string
      */
@@ -3780,7 +3746,6 @@ EOD;
     /**
      * Gets HTML for the page heading.
      *
-     * @since Moodle 2.5.1 2.6
      * @param string $tag The tag to encase the heading in. h1 by default.
      * @return string HTML.
      */
@@ -3791,7 +3756,6 @@ EOD;
     /**
      * Gets the HTML for the page heading button.
      *
-     * @since Moodle 2.5.1 2.6
      * @return string HTML.
      */
     public function page_heading_button() {
@@ -3799,15 +3763,14 @@ EOD;
     }
 
     /**
-     * Returns the Moodle docs link to use for this page.
+     * Returns the Lion docs link to use for this page.
      *
-     * @since Moodle 2.5.1 2.6
      * @param string $text
      * @return string
      */
     public function page_doc_link($text = null) {
         if ($text === null) {
-            $text = get_string('moodledocslink');
+            $text = get_string('liondocslink');
         }
         $path = page_get_doc_link_path($this->page);
         if (!$path) {
@@ -3819,7 +3782,6 @@ EOD;
     /**
      * Returns the page heading menu.
      *
-     * @since Moodle 2.5.1 2.6
      * @return string HTML.
      */
     public function page_heading_menu() {
@@ -3829,7 +3791,6 @@ EOD;
     /**
      * Returns the title to use on the page.
      *
-     * @since Moodle 2.5.1 2.6
      * @return string
      */
     public function page_title() {
@@ -3839,7 +3800,6 @@ EOD;
     /**
      * Returns the URL for the favicon.
      *
-     * @since Moodle 2.5.1 2.6
      * @return string The favicon URL
      */
     public function favicon() {
@@ -3852,10 +3812,6 @@ EOD;
  *
  * The implementation of this renderer is probably incomplete.
  *
- * @copyright 2009 Tim Hunt
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class core_renderer_cli extends core_renderer {
@@ -3946,10 +3902,6 @@ class core_renderer_cli extends core_renderer {
  * This renderer prevents accidental sends back only json
  * encoded error messages, all other output is ignored.
  *
- * @copyright 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class core_renderer_ajax extends core_renderer {
@@ -4004,7 +3956,7 @@ class core_renderer_ajax extends core_renderer {
      * AJAX redirections should not occur and as such redirection messages
      * are discarded.
      *
-     * @param moodle_url|string $encodedurl
+     * @param lion_url|string $encodedurl
      * @param string $message
      * @param int $delay
      * @param bool $debugdisableredirect
@@ -4060,8 +4012,6 @@ class core_renderer_ajax extends core_renderer {
  * Used in file resources, media filter, and any other places that need to
  * output embedded media.
  *
- * @copyright 2011 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_media_renderer extends plugin_renderer_base {
     /** @var array Array of available 'player' objects */
@@ -4151,14 +4101,14 @@ class core_media_renderer extends plugin_renderer_base {
      * URL by including ?d=100x100 at the end. If specified in the URL, this
      * will override the $width and $height parameters.
      *
-     * @param moodle_url $url Full URL of media file
+     * @param lion_url $url Full URL of media file
      * @param string $name Optional user-readable name to display in download link
      * @param int $width Width in pixels (optional)
      * @param int $height Height in pixels (optional)
      * @param array $options Array of key/value pairs
      * @return string HTML content of embed
      */
-    public function embed_url(moodle_url $url, $name = '', $width = 0, $height = 0,
+    public function embed_url(lion_url $url, $name = '', $width = 0, $height = 0,
             $options = array()) {
 
         // Get width and height from URL if specified (overrides parameters in
@@ -4167,7 +4117,7 @@ class core_media_renderer extends plugin_renderer_base {
         if (preg_match('/[?#]d=([\d]{1,4}%?)x([\d]{1,4}%?)/', $rawurl, $matches)) {
             $width = $matches[1];
             $height = $matches[2];
-            $url = new moodle_url(str_replace($matches[0], '', $rawurl));
+            $url = new lion_url(str_replace($matches[0], '', $rawurl));
         }
 
         // Defer to array version of function.
@@ -4197,7 +4147,7 @@ class core_media_renderer extends plugin_renderer_base {
      * that render the object tag. The keys can contain values from
      * core_media::OPTION_xx.
      *
-     * @param array $alternatives Array of moodle_url to media files
+     * @param array $alternatives Array of lion_url to media files
      * @param string $name Optional user-readable name to display in download link
      * @param int $width Width in pixels (optional)
      * @param int $height Height in pixels (optional)
@@ -4247,11 +4197,11 @@ class core_media_renderer extends plugin_renderer_base {
      *
      * This is a wrapper for can_embed_urls.
      *
-     * @param moodle_url $url URL of media file
+     * @param lion_url $url URL of media file
      * @param array $options Options (same as when embedding)
      * @return bool True if file can be embedded
      */
-    public function can_embed_url(moodle_url $url, $options = array()) {
+    public function can_embed_url(lion_url $url, $options = array()) {
         return $this->can_embed_urls(array($url), $options);
     }
 
@@ -4260,7 +4210,7 @@ class core_media_renderer extends plugin_renderer_base {
      * an embedded player; if this returns false, you will just get a download
      * link.
      *
-     * @param array $urls URL of media file and any alternatives (moodle_url)
+     * @param array $urls URL of media file and any alternatives (lion_url)
      * @param array $options Options (same as when embedding)
      * @return bool True if file can be embedded
      */
@@ -4314,21 +4264,17 @@ class core_media_renderer extends plugin_renderer_base {
  * is running a maintenance related task.
  * It must always extend the core_renderer as we switch from the core_renderer to this renderer in a couple of places.
  *
- * @since Moodle 2.6
- * @package core
  * @category output
- * @copyright 2013 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer_maintenance extends core_renderer {
 
     /**
      * Initialises the renderer instance.
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param string $target
      * @throws coding_exception
      */
-    public function __construct(moodle_page $page, $target) {
+    public function __construct(lion_page $page, $target) {
         if ($target !== RENDERER_TARGET_MAINTENANCE || $page->pagelayout !== 'maintenance') {
             throw new coding_exception('Invalid request for the maintenance renderer.');
         }

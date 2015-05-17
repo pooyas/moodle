@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Course related unit tests
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    course
+ * @subpackage tests
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/course/lib.php');
@@ -174,7 +161,7 @@ class core_course_courselib_testcase extends advanced_testcase {
 
         $this->setAdminUser();
 
-        // Warnings: you'll need to change this line if ever you come to test a module not following Moodle standard.
+        // Warnings: you'll need to change this line if ever you come to test a module not following Lion standard.
         require_once($CFG->dirroot.'/mod/'. $modulename .'/lib.php');
 
         // Enable avaibility.
@@ -400,7 +387,7 @@ class core_course_courselib_testcase extends advanced_testcase {
 
         $this->setAdminUser();
 
-        // Warnings: you'll need to change this line if ever you come to test a module not following Moodle standard.
+        // Warnings: you'll need to change this line if ever you come to test a module not following Lion standard.
         require_once($CFG->dirroot.'/mod/'. $modulename .'/lib.php');
 
         // Enable avaibility.
@@ -575,7 +562,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         try {
             $created = create_course($course);
             $this->fail('Exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertSame(get_string('shortnametaken', 'error', $course->shortname), $e->getMessage());
         }
 
@@ -584,7 +571,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         try {
             $created = create_course($course);
             $this->fail('Exception expected');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertSame(get_string('courseidnumbertaken', 'error', $course->idnumber), $e->getMessage());
         }
     }
@@ -656,7 +643,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         try {
             update_course($created2);
             $this->fail('Expected exception when trying to update a course with duplicate idnumber');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals(get_string('courseidnumbertaken', 'error', $created2->idnumber), $e->getMessage());
         }
 
@@ -666,7 +653,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         try {
             update_course($created2);
             $this->fail('Expected exception when trying to update a course with a duplicate shortname');
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             $this->assertEquals(get_string('shortnametaken', 'error', $created2->shortname), $e->getMessage());
         }
     }
@@ -909,7 +896,7 @@ class core_course_courselib_testcase extends advanced_testcase {
 
         // Now let's revoke a capability from teacher to manage activity in section 1.
         $modulecontext = context_module::instance($assign1->cmid);
-        assign_capability('moodle/course:manageactivities', CAP_PROHIBIT, $roleids['editingteacher'],
+        assign_capability('lion/course:manageactivities', CAP_PROHIBIT, $roleids['editingteacher'],
             $modulecontext);
         $modulecontext->mark_dirty();
         $this->assertFalse(course_can_delete_section($courseweeks, 1));
@@ -1616,7 +1603,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         $this->assertEquals('course', $event->objecttable);
         $this->assertEquals($updatedcourse->id, $event->objectid);
         $this->assertEquals(context_course::instance($course->id), $event->get_context());
-        $url = new moodle_url('/course/edit.php', array('id' => $event->objectid));
+        $url = new lion_url('/course/edit.php', array('id' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEquals($updatedcourse, $event->get_record_snapshot('course', $event->objectid));
         $this->assertEquals('course_updated', $event->get_legacy_eventname());
@@ -1845,12 +1832,12 @@ class core_course_courselib_testcase extends advanced_testcase {
         $course = $this->getDataGenerator()->create_course();
 
         // Create backup file and save it to the backup location.
-        $bc = new backup_controller(backup::TYPE_1COURSE, $course->id, backup::FORMAT_MOODLE,
+        $bc = new backup_controller(backup::TYPE_1COURSE, $course->id, backup::FORMAT_LION,
             backup::INTERACTIVE_NO, backup::MODE_GENERAL, $userid);
         $bc->execute_plan();
         $results = $bc->get_results();
         $file = $results['backup_destination'];
-        $fp = get_file_packer('application/vnd.moodle.backup');
+        $fp = get_file_packer('application/vnd.lion.backup');
         $filepath = $CFG->dataroot . '/temp/backup/test-restore-course-event';
         $file->extract_to_pathname($fp, $filepath);
         $bc->destroy();
@@ -1885,7 +1872,7 @@ class core_course_courselib_testcase extends advanced_testcase {
             'operation' => $rc->get_operation(),
             'samesite' => $rc->is_samesite()
         );
-        $url = new moodle_url('/course/view.php', array('id' => $event->objectid));
+        $url = new lion_url('/course/view.php', array('id' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEventLegacyData($legacydata, $event);
         $this->assertEventContextNotUsed($event);
@@ -1942,7 +1929,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         $this->assertEquals($section->section, $event->other['sectionnum']);
         $expecteddesc = "The user with id '{$event->userid}' updated section number '{$event->other['sectionnum']}' for the course with id '{$event->courseid}'";
         $this->assertEquals($expecteddesc, $event->get_description());
-        $url = new moodle_url('/course/editsection.php', array('id' => $event->objectid));
+        $url = new lion_url('/course/editsection.php', array('id' => $event->objectid));
         $this->assertEquals($url, $event->get_url());
         $this->assertEquals($section, $event->get_record_snapshot('course_sections', $event->objectid));
         $id = $section->id;
@@ -2093,7 +2080,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         $this->assertEquals($cm->id, $event->objectid);
         $this->assertEquals($USER->id, $event->userid);
         $this->assertEquals('course_modules', $event->objecttable);
-        $url = new moodle_url('/mod/assign/view.php', array('id' => $cm->id));
+        $url = new lion_url('/mod/assign/view.php', array('id' => $cm->id));
         $this->assertEquals($url, $event->get_url());
 
         // Test legacy data.
@@ -2126,7 +2113,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         $this->assertEquals($newcm->id, $event->objectid);
         $this->assertEquals($USER->id, $event->userid);
         $this->assertEquals($course->id, $event->courseid);
-        $url = new moodle_url('/mod/assign/view.php', array('id' => $newcm->id));
+        $url = new lion_url('/mod/assign/view.php', array('id' => $newcm->id));
         $this->assertEquals($url, $event->get_url());
     }
 
@@ -2217,7 +2204,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         $this->assertEquals($cm->id, $event->objectid);
         $this->assertEquals($USER->id, $event->userid);
         $this->assertEquals('course_modules', $event->objecttable);
-        $url = new moodle_url('/mod/forum/view.php', array('id' => $cm->id));
+        $url = new lion_url('/mod/forum/view.php', array('id' => $cm->id));
         $this->assertEquals($url, $event->get_url());
 
         // Test legacy data.
@@ -2471,7 +2458,7 @@ class core_course_courselib_testcase extends advanced_testcase {
         $context = $category->get_context();
 
         list($user, $roleid) = $this->get_user_objects($generator, $context->id);
-        $caps = course_capability_assignment::allow('moodle/category:manage', $roleid, $context->id);
+        $caps = course_capability_assignment::allow('lion/category:manage', $roleid, $context->id);
 
         $courses = $category->get_courses();
         $this->assertInternalType('array', $courses);

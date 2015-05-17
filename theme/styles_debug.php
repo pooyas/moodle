@@ -1,32 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file is responsible for serving of individual style sheets in designer mode.
  *
- * @package   core
- * @copyright 2009 Petr Skoda (skodak)  {@link http://skodak.org}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage theme
+ * @copyright  2015 Pooya Saeedi
  */
 
-// Disable moodle specific debug messages and any errors in output,
+// Disable lion specific debug messages and any errors in output,
 // comment out when debugging or better look into error log!
 define('NO_DEBUG_DISPLAY', true);
 define('NO_UPGRADE_CHECK', true);
-define('NO_MOODLE_COOKIES', true);
+define('NO_LION_COOKIES', true);
 
 require('../config.php');
 require_once($CFG->dirroot.'/lib/csslib.php');
@@ -54,7 +41,7 @@ if ($type === 'editor') {
     css_send_uncached_css($csscontent);
 }
 
-$chunkurl = new moodle_url($CFG->httpswwwroot . '/theme/styles_debug.php', array('theme' => $themename,
+$chunkurl = new lion_url($CFG->httpswwwroot . '/theme/styles_debug.php', array('theme' => $themename,
     'type' => $type, 'subtype' => $subtype, 'sheet' => $sheet, 'usesvg' => $usesvg));
 
 // We need some kind of caching here because otherwise the page navigation becomes

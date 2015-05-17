@@ -1,53 +1,40 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines message providers (types of messages being sent)
  *
  * The providers defined on this file are processed and registered into
- * the Moodle DB after any install or upgrade operation. All plugins
+ * the Lion DB after any install or upgrade operation. All plugins
  * support this.
  *
  * For more information, take a look to the documentation available:
- *     - Message API: {@link http://docs.moodle.org/dev/Message_API}
- *     - Upgrade API: {@link http://docs.moodle.org/dev/Upgrade_API}
+ *     - Message API: {@link http://docs.lion.org/dev/Message_API}
+ *     - Upgrade API: {@link http://docs.lion.org/dev/Upgrade_API}
  *
- * @package   core
  * @category  message
- * @copyright 2008 onwards Martin Dougiamas  http://dougiamas.com
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 $messageproviders = array (
 
     // Notices that an admin might be interested in
     'notices' => array (
-         'capability'  => 'moodle/site:config'
+         'capability'  => 'lion/site:config'
     ),
 
     // Important errors that an admin ought to know about
     'errors' => array (
-         'capability'  => 'moodle/site:config'
+         'capability'  => 'lion/site:config'
     ),
 
-    // cron-based notifications about available moodle and/or additional plugin updates
+    // cron-based notifications about available lion and/or additional plugin updates
     'availableupdate' => array(
-        'capability' => 'moodle/site:config',
+        'capability' => 'lion/site:config',
         'defaults' => array(
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF
         ),
@@ -62,22 +49,22 @@ $messageproviders = array (
     ),
 
     'backup' => array (
-        'capability'  => 'moodle/site:config'
+        'capability'  => 'lion/site:config'
     ),
 
     // Course creation request notification
     'courserequested' => array (
-        'capability'  => 'moodle/site:approvecourse'
+        'capability'  => 'lion/site:approvecourse'
     ),
 
     // Course request approval notification
     'courserequestapproved' => array (
-         'capability'  => 'moodle/course:request'
+         'capability'  => 'lion/course:request'
     ),
 
     // Course request rejection notification
     'courserequestrejected' => array (
-        'capability'  => 'moodle/course:request'
+        'capability'  => 'lion/course:request'
     ),
 
     // Badge award notification to a badge recipient.
@@ -86,7 +73,7 @@ $messageproviders = array (
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF,
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDOFF,
         ),
-        'capability'  => 'moodle/badges:earnbadge'
+        'capability'  => 'lion/badges:earnbadge'
     ),
 
     // Badge award notification to a badge creator (mostly cron-based).

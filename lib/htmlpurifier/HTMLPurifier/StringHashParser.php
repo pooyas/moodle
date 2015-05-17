@@ -24,6 +24,9 @@
  *
  * You can use ---- to forcibly terminate parsing of a single string-hash;
  * this marker is used in multi string-hashes to delimit boundaries.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_StringHashParser
 {

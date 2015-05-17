@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for the advanced grading subsystem
  *
- * @package    core_grading
  * @category   phpunit
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade
+ * @subpackage grading
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/grade/grading/lib.php'); // Include the code to test
@@ -32,10 +19,7 @@ require_once($CFG->dirroot . '/grade/grading/lib.php'); // Include the code to t
 /**
  * Makes protected method accessible for testing purposes
  *
- * @package    core_grading
  * @category   phpunit
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class testable_grading_manager extends grading_manager {
 }
@@ -44,10 +28,7 @@ class testable_grading_manager extends grading_manager {
 /**
  * Test cases for the grading manager API
  *
- * @package    core_grading
  * @category   phpunit
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_grade_grading_manager_testcase extends advanced_testcase {
     public function test_basic_instantiation() {
@@ -103,7 +84,7 @@ class core_grade_grading_manager_testcase extends advanced_testcase {
         $this->assertEquals('rubric', $gradingman->get_active_method());
 
         // attempting to set an invalid method
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $gradingman->set_active_method('no_one_should_ever_try_to_implement_a_method_with_this_silly_name');
     }
 

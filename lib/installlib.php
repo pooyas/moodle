@@ -1,30 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Functions to support installation process
  *
  * @package    core
- * @subpackage install
- * @copyright  2009 Petr Skoda (http://skodak.org)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** INSTALL_WELCOME = 0 */
 define('INSTALL_WELCOME',       0);
@@ -182,7 +168,7 @@ function install_db_validate($database, $dbhost, $dbuser, $dbpass, $dbname, $pre
     try {
         try {
             $database->connect($dbhost, $dbuser, $dbpass, $dbname, $prefix, $dboptions);
-        } catch (moodle_exception $e) {
+        } catch (lion_exception $e) {
             // let's try to create new database
             if ($database->create_database($dbhost, $dbuser, $dbpass, $dbname, $dboptions)) {
                 $database->connect($dbhost, $dbuser, $dbpass, $dbname, $prefix, $dboptions);
@@ -223,11 +209,8 @@ function install_db_validate($database, $dbhost, $dbuser, $dbpass, $dbname, $pre
  * Returns content of config.php file.
  *
  * Uses PHP_EOL for generating proper end of lines for the given platform.
- * 
- * Note:
- * Generates config.php
  *
- * @param moodle_database $database database instance
+ * @param lion_database $database database instance
  * @param object $cfg copy of $CFG
  * @return string
  */
@@ -335,7 +318,7 @@ function install_print_header($config, $stagename, $heading, $stagetext, $stagec
           <link rel="shortcut icon" href="theme/clean/pix/favicon.ico" />';
 
     echo '<link rel="stylesheet" type="text/css" href="'.$CFG->wwwroot.'/install/css.php" />
-          <title>'.get_string('installation','install').' - Moodle '.$CFG->target_release.'</title>
+          <title>'.get_string('installation','install').' - Lion '.$CFG->target_release.'</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           <meta http-equiv="pragma" content="no-cache" />
           <meta http-equiv="expires" content="0" />';
@@ -404,8 +387,8 @@ function install_print_footer($config, $reload=false) {
     echo '</fieldset><fieldset id="nav_buttons">'.$first.$next.'</fieldset>';
 
     $homelink  = '<div class="sitelink">'.
-       '<a title="Moodle '. $CFG->target_release .'" href="http://docs.moodle.org/en/Administrator_documentation" onclick="this.target=\'_blank\'">'.
-       '<img src="pix/moodlelogo.png" alt="moodlelogo" /></a></div>';
+       '<a title="Lion '. $CFG->target_release .'" href="http://docs.lion.org/en/Administrator_documentation" onclick="this.target=\'_blank\'">'.
+       '<img src="pix/lionlogo.png" alt="lionlogo" /></a></div>';
 
     echo '</form></div>';
     echo '<div id="page-footer">'.$homelink.'</div>';
@@ -415,12 +398,6 @@ function install_print_footer($config, $reload=false) {
 /**
  * Install Lion DB,
  * config.php must exist, there must not be any tables in db yet.
- * 
- * Note:
- * Installs DB and populates the data. 
- * Contains two parts:
- * install_core: install the core system modules
- * upgrade_noncore: installs/upgrades other non-core modules
  *
  * @param array $options adminpass is mandatory
  * @param bool $interactive
@@ -447,8 +424,6 @@ function install_cli_database(array $options, $interactive) {
     $branch = null;
 
     // read $version and $release
-    // Note:
-    // This is where version comes from
     require($CFG->dirroot.'/version.php');
 
     if ($DB->get_tables() ) {
@@ -460,7 +435,7 @@ function install_cli_database(array $options, $interactive) {
     }
 
     // test environment first
-    list($envstatus, $environment_results) = check_moodle_environment(normalize_version($release), ENV_SELECT_RELEASE);
+    list($envstatus, $environment_results) = check_lion_environment(normalize_version($release), ENV_SELECT_RELEASE);
     if (!$envstatus) {
         $errors = environment_get_errors($environment_results);
         cli_heading(get_string('environment', 'admin'));
@@ -471,8 +446,6 @@ function install_cli_database(array $options, $interactive) {
         exit(1);
     }
 
-    // Note:
-    // If the encoding is not utf8 it also tries to fix it
     if (!$DB->setup_is_unicodedb()) {
         if (!$DB->change_db_encoding()) {
             // If could not convert successfully, throw error, and prevent installation
@@ -480,17 +453,12 @@ function install_cli_database(array $options, $interactive) {
         }
     }
 
-    // Note:
-    // another interactive section to ignore
     if ($interactive) {
         cli_separator();
         cli_heading(get_string('databasesetup'));
     }
 
     // install core
-    // Note:
-    // installs the /lib folder database data (lib/db/install.xml)
-    // this is called system module
     install_core($version, true);
     set_config('release', $release);
     set_config('branch', $branch);
@@ -501,8 +469,6 @@ function install_cli_database(array $options, $interactive) {
     }
 
     // install all plugins types, local, etc.
-    // Note:
-    // This installs or upgrades all other plugins
     upgrade_noncore(true);
 
     // set up admin user password
@@ -523,14 +489,9 @@ function install_cli_database(array $options, $interactive) {
     upgrade_finished();
 
     // log in as admin - we need do anything when applying defaults
-    // Note:
-    // this function sets the active user
     \core\session\manager::set_user(get_admin());
 
     // apply all default settings, do it twice to fill all defaults - some settings depend on other setting
-    // Note:
-    // This initialize the admin tree and give default values to it
-    // @todo: should dig it further
     admin_apply_default_settings(NULL, true);
     admin_apply_default_settings(NULL, true);
     set_config('registerauth', '');

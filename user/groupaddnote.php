@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This file is part of the User section Moodle
+ * This file is part of the User section Lion
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core_user
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../config.php");
@@ -30,7 +17,7 @@ $users = optional_param_array('userid', array(), PARAM_INT); // Array of user id
 $content = optional_param('content', '', PARAM_RAW); // Note content.
 $state = optional_param('state', '', PARAM_ALPHA); // Note publish state.
 
-$url = new moodle_url('/user/groupaddnote.php', array('id' => $id));
+$url = new lion_url('/user/groupaddnote.php', array('id' => $id));
 if ($content !== '') {
     $url->param('content', $content);
 }
@@ -47,7 +34,7 @@ $context = context_course::instance($id);
 require_login($course);
 
 // To create notes the current user needs a capability.
-require_capability('moodle/notes:manage', $context);
+require_capability('lion/notes:manage', $context);
 
 if (empty($CFG->enablenotes)) {
     print_error('notesdisabled', 'notes');

@@ -1,31 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines classes used for plugin info.
  *
  * @package    core
- * @copyright  2011 David Mudrak <david@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 namespace core\plugininfo;
 
-use core_component, core_plugin_manager, moodle_url, coding_exception;
+use core_component, core_plugin_manager, lion_url, coding_exception;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
@@ -51,7 +38,7 @@ abstract class base {
     public $versiondisk;
     /** @var int|string the version of the installed plugin */
     public $versiondb;
-    /** @var int|float|string required version of Moodle core  */
+    /** @var int|float|string required version of Lion core  */
     public $versionrequires;
     /** @var mixed human-readable release information */
     public $release;
@@ -309,7 +296,7 @@ abstract class base {
 
     /**
      * Returns true if the plugin is shipped with the official distribution
-     * of the current Moodle version, false otherwise.
+     * of the current Lion version, false otherwise.
      *
      * @return bool
      */
@@ -318,18 +305,18 @@ abstract class base {
     }
 
     /**
-     * Returns true if the the given Moodle version is enough to run this plugin
+     * Returns true if the the given Lion version is enough to run this plugin
      *
-     * @param string|int|double $moodleversion
+     * @param string|int|double $lionversion
      * @return bool
      */
-    public function is_core_dependency_satisfied($moodleversion) {
+    public function is_core_dependency_satisfied($lionversion) {
 
         if (empty($this->versionrequires)) {
             return true;
 
         } else {
-            return (double)$this->versionrequires <= (double)$moodleversion;
+            return (double)$this->versionrequires <= (double)$lionversion;
         }
     }
 
@@ -365,7 +352,7 @@ abstract class base {
             return core_plugin_manager::PLUGIN_STATUS_DOWNGRADE;
 
         } else {
-            // $version = pi(); and similar funny jokes - hopefully Donald E. Knuth will never contribute to Moodle ;-)
+            // $version = pi(); and similar funny jokes - hopefully Donald E. Knuth will never contribute to Lion ;-)
             throw new coding_exception('Unable to determine plugin state, check the plugin versions');
         }
     }
@@ -460,7 +447,7 @@ abstract class base {
      * Null value means that the plugin either does not have the settings screen
      * or its location is not available via this library.
      *
-     * @return null|moodle_url
+     * @return null|lion_url
      */
     public function get_settings_url() {
         $section = $this->get_settings_section_name();
@@ -469,9 +456,9 @@ abstract class base {
         }
         $settings = admin_get_root()->locate($section);
         if ($settings && $settings instanceof \admin_settingpage) {
-            return new moodle_url('/admin/settings.php', array('section' => $section));
+            return new lion_url('/admin/settings.php', array('section' => $section));
         } else if ($settings && $settings instanceof \admin_externalpage) {
-            return new moodle_url($settings->url);
+            return new lion_url($settings->url);
         } else {
             return null;
         }
@@ -485,7 +472,7 @@ abstract class base {
      *
      * @param \part_of_admin_tree $adminroot
      * @param string $parentnodename
-     * @param bool $hassiteconfig whether the current user has moodle/site:config capability
+     * @param bool $hassiteconfig whether the current user has lion/site:config capability
      */
     public function load_settings(\part_of_admin_tree $adminroot, $parentnodename, $hassiteconfig) {
     }
@@ -551,7 +538,7 @@ abstract class base {
     /**
      * Where should we return after plugin of this type is uninstalled?
      * @param string $return
-     * @return moodle_url
+     * @return lion_url
      */
     public function get_return_url_after_uninstall($return) {
         if ($return === 'manage') {
@@ -559,12 +546,12 @@ abstract class base {
                 return $url;
             }
         }
-        return new moodle_url('/admin/plugins.php#plugin_type_cell_'.$this->type);
+        return new lion_url('/admin/plugins.php#plugin_type_cell_'.$this->type);
     }
 
     /**
      * Return URL used for management of plugins of this type.
-     * @return moodle_url
+     * @return lion_url
      */
     public static function get_manage_url() {
         return null;
@@ -576,10 +563,10 @@ abstract class base {
      * This URL is intended for all plugin uninstallations.
      *
      * @param string $return either 'overview' or 'manage'
-     * @return moodle_url
+     * @return lion_url
      */
     public final function get_default_uninstall_url($return = 'overview') {
-        return new moodle_url('/admin/plugins.php', array(
+        return new lion_url('/admin/plugins.php', array(
             'sesskey' => sesskey(),
             'uninstall' => $this->component,
             'confirm' => 0,

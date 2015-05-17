@@ -3,8 +3,9 @@
 /**
  * Source map generator
  *
- * @package Less
- * @subpackage Output
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_SourceMap_Generator extends Less_Configurable {
 

@@ -1,29 +1,15 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Block for displayed logged in user's course completion status
  *
- * @package    block_completionstatus
- * @copyright  2009-2012 Catalyst IT Ltd
- * @author     Aaron Barnes <aaronb@catalyst.net.nz>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage completionstatus
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once("{$CFG->libdir}/completionlib.php");
 
@@ -61,7 +47,7 @@ class block_completionstatus extends block_base {
         $this->content->footer = '';
 
         // Can edit settings?
-        $can_edit = has_capability('moodle/course:update', $context);
+        $can_edit = has_capability('lion/course:update', $context);
 
         // Get course completion data.
         $info = new completion_info($course);
@@ -235,7 +221,7 @@ class block_completionstatus extends block_base {
             $this->content->text .= html_writer::table($table);
 
             // Display link to detailed view.
-            $details = new moodle_url('/blocks/completionstatus/details.php', array('course' => $course->id));
+            $details = new lion_url('/blocks/completionstatus/details.php', array('course' => $course->id));
             $this->content->footer .= html_writer::link($details, get_string('moredetails', 'completion'));
         } else {
             // If user is not enrolled, show error.
@@ -243,7 +229,7 @@ class block_completionstatus extends block_base {
         }
 
         if (has_capability('report/completion:view', $context)) {
-            $report = new moodle_url('/report/completion/index.php', array('course' => $course->id));
+            $report = new lion_url('/report/completion/index.php', array('course' => $course->id));
             if (empty($this->content->footer)) {
                 $this->content->footer = '';
             }

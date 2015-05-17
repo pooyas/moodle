@@ -3,6 +3,9 @@
 /**
  * Super-class for definition datatype objects, implements serialization
  * functions for the class.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_Definition
 {

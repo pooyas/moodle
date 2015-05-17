@@ -1,7 +1,7 @@
 {
-  "name": "moodle-availability_completion-form",
+  "name": "lion-availability_completion-form",
   "builds": {
-    "moodle-availability_completion-form": {
+    "lion-availability_completion-form": {
       "jsfiles": [
         "form.js"
       ]

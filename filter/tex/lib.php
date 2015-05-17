@@ -1,40 +1,26 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * TeX filter library functions.
  *
+ *             Originally based on code provided by Bruno Vernier bruno@vsbeducation.ca
  * @package    filter
  * @subpackage tex
- * @copyright  2004 Zbigniew Fiedorowicz fiedorow@math.ohio-state.edu
- *             Originally based on code provided by Bruno Vernier bruno@vsbeducation.ca
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 function filter_tex_get_executable($debug=false) {
     global $CFG;
 
     $error_message1 = "Your system is not configured to run mimeTeX. You need to download the appropriate<br />"
-                     ."executable for you ".PHP_OS." platform from <a href=\"http://moodle.org/download/mimetex/\">"
-                     ."http://moodle.org/download/mimetex/</a>, or obtain the C source<br /> "
+                     ."executable for you ".PHP_OS." platform from <a href=\"http://lion.org/download/mimetex/\">"
+                     ."http://lion.org/download/mimetex/</a>, or obtain the C source<br /> "
                      ."from <a href=\"http://www.forkosh.com/mimetex.zip\">"
                      ."http://www.forkosh.com/mimetex.zip</a>, compile it and "
-                     ."put the executable into your<br /> moodle/filter/tex/ directory.";
+                     ."put the executable into your<br /> lion/filter/tex/ directory.";
 
     $error_message2 = "Custom mimetex is not executable!<br /><br />";
 

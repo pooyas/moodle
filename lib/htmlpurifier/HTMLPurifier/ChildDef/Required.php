@@ -2,6 +2,9 @@
 
 /**
  * Definition that allows a set of elements, but disallows empty children.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_ChildDef_Required extends HTMLPurifier_ChildDef
 {

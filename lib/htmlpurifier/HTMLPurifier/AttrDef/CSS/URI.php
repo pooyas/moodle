@@ -8,6 +8,9 @@
  * @warning Since HTMLPurifier_AttrDef_CSS blindly uses semicolons as
  *          the separator, you cannot put a literal semicolon in
  *          in the URI. Try percent encoding it, in that case.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_URI extends HTMLPurifier_AttrDef_URI
 {

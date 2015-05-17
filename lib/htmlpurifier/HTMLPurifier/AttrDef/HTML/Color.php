@@ -2,6 +2,9 @@
 
 /**
  * Validates a color according to the HTML spec.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_HTML_Color extends HTMLPurifier_AttrDef
 {

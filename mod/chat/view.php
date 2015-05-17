@@ -1,18 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+/**
+ * @package    mod
+ * @subpackage chat
+ * @copyright  2015 Pooya Saeedi
+*/
 
 // This page prints a particular instance of chat.
 
@@ -135,7 +129,7 @@ if (has_capability('mod/chat:chat', $context)) {
     }
 
     $params['id'] = $chat->id;
-    $chattarget = new moodle_url("/mod/chat/gui_$CFG->chat_method/index.php", $params);
+    $chattarget = new lion_url("/mod/chat/gui_$CFG->chat_method/index.php", $params);
     echo '<p>';
     echo $OUTPUT->action_link($chattarget,
                               $strenterchat,
@@ -144,7 +138,7 @@ if (has_capability('mod/chat:chat', $context)) {
     echo '</p>';
 
     $params['id'] = $chat->id;
-    $link = new moodle_url('/mod/chat/gui_basic/index.php', $params);
+    $link = new lion_url('/mod/chat/gui_basic/index.php', $params);
     $action = new popup_action('click', $link, "chat{$course->id}_{$chat->id}{$groupparam}",
                                array('height' => 500, 'width' => 700));
     echo '<p>';
@@ -155,7 +149,7 @@ if (has_capability('mod/chat:chat', $context)) {
     if ($chat->studentlogs or has_capability('mod/chat:readlog', $context)) {
         if ($msg = $DB->get_records_select('chat_messages', "chatid = ? $groupselect", array($chat->id))) {
             echo '<p>';
-            echo html_writer::link(new moodle_url('/mod/chat/report.php', array('id' => $cm->id)),
+            echo html_writer::link(new lion_url('/mod/chat/report.php', array('id' => $cm->id)),
                                    get_string('viewreport', 'chat'));
             echo '</p>';
         }
@@ -179,7 +173,7 @@ if ($chatusers = chat_get_users($chat->id, $currentgroup, $cm->groupingid)) {
     foreach ($chatusers as $chatuser) {
         $lastping = $timenow - $chatuser->lastmessageping;
         echo '<tr><td class="chatuserimage">';
-        $url = new moodle_url('/user/view.php', array('id' => $chatuser->id, 'course' => $chat->course));
+        $url = new lion_url('/user/view.php', array('id' => $chatuser->id, 'course' => $chat->course));
         echo html_writer::link($url, $OUTPUT->user_picture($chatuser));
         echo '</td><td class="chatuserdetails">';
         echo '<p>'.fullname($chatuser).'</p>';

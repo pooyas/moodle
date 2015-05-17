@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for /lib/formslib.php.
  *
- * @package   core_form
  * @category  phpunit
- * @copyright 2011 Sam Hemelryk
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir . '/formslib.php');
@@ -42,7 +29,7 @@ class core_formslib_testcase extends advanced_testcase {
             $strictformsrequired = $CFG->strictformsrequired;
         }
 
-        $rule = new MoodleQuickForm_Rule_Required();
+        $rule = new LionQuickForm_Rule_Required();
 
         // First run the tests with strictformsrequired off.
         $CFG->strictformsrequired = false;
@@ -209,40 +196,40 @@ class core_formslib_testcase extends advanced_testcase {
     }
 
     public function test_generate_id_select() {
-        $el = new MoodleQuickForm_select('choose_one', 'Choose one',
+        $el = new LionQuickForm_select('choose_one', 'Choose one',
             array(1 => 'One', '2' => 'Two'));
         $el->_generateId();
         $this->assertSame('id_choose_one', $el->getAttribute('id'));
     }
 
     public function test_generate_id_like_repeat() {
-        $el = new MoodleQuickForm_text('text[7]', 'Type something');
+        $el = new LionQuickForm_text('text[7]', 'Type something');
         $el->_generateId();
         $this->assertSame('id_text_7', $el->getAttribute('id'));
     }
 
     public function test_can_manually_set_id() {
-        $el = new MoodleQuickForm_text('elementname', 'Type something',
+        $el = new LionQuickForm_text('elementname', 'Type something',
             array('id' => 'customelementid'));
         $el->_generateId();
         $this->assertSame('customelementid', $el->getAttribute('id'));
     }
 
     public function test_generate_id_radio() {
-        $el = new MoodleQuickForm_radio('radio', 'Label', 'Choice label', 'choice_value');
+        $el = new LionQuickForm_radio('radio', 'Label', 'Choice label', 'choice_value');
         $el->_generateId();
         $this->assertSame('id_radio_choice_value', $el->getAttribute('id'));
     }
 
     public function test_radio_can_manually_set_id() {
-        $el = new MoodleQuickForm_radio('radio2', 'Label', 'Choice label', 'choice_value',
+        $el = new LionQuickForm_radio('radio2', 'Label', 'Choice label', 'choice_value',
             array('id' => 'customelementid2'));
         $el->_generateId();
         $this->assertSame('customelementid2', $el->getAttribute('id'));
     }
 
     public function test_generate_id_radio_like_repeat() {
-        $el = new MoodleQuickForm_radio('repeatradio[2]', 'Label', 'Choice label', 'val');
+        $el = new LionQuickForm_radio('repeatradio[2]', 'Label', 'Choice label', 'val');
         $el->_generateId();
         $this->assertSame('id_repeatradio_2_val', $el->getAttribute('id'));
     }
@@ -556,7 +543,7 @@ class core_formslib_testcase extends advanced_testcase {
 /**
  * Test form to be used by {@link formslib_test::test_rendering()}.
  */
-class formslib_test_form extends moodleform {
+class formslib_test_form extends lionform {
     public function definition() {
         $this->_form->addElement('select', 'choose_one', 'Choose one',
             array(1 => 'One', '2' => 'Two'));
@@ -587,7 +574,7 @@ class formslib_test_form extends moodleform {
 /**
  * Used to test debugging is called when text added without setType.
  */
-class formslib_settype_debugging_text extends moodleform {
+class formslib_settype_debugging_text extends lionform {
     public function definition() {
         $mform = $this->_form;
 
@@ -598,7 +585,7 @@ class formslib_settype_debugging_text extends moodleform {
 /**
  * Used to test debugging is called when hidden added without setType.
  */
-class formslib_settype_debugging_hidden extends moodleform {
+class formslib_settype_debugging_hidden extends lionform {
     public function definition() {
         $mform = $this->_form;
 
@@ -609,7 +596,7 @@ class formslib_settype_debugging_hidden extends moodleform {
 /**
  * Used to test debugging is called when hidden added without setType.
  */
-class formslib_settype_debugging_url extends moodleform {
+class formslib_settype_debugging_url extends lionform {
     public function definition() {
         $mform = $this->_form;
 
@@ -620,7 +607,7 @@ class formslib_settype_debugging_url extends moodleform {
 /**
  * Used to test debugging is called when repeated text added without setType.
  */
-class formslib_settype_debugging_repeat extends moodleform {
+class formslib_settype_debugging_repeat extends lionform {
     public function definition() {
         $mform = $this->_form;
 
@@ -635,7 +622,7 @@ class formslib_settype_debugging_repeat extends moodleform {
 /**
  * Used to no debugging is called when correctly test.
  */
-class formslib_settype_debugging_repeat_ok extends moodleform {
+class formslib_settype_debugging_repeat_ok extends lionform {
     public function definition() {
         $mform = $this->_form;
 
@@ -650,7 +637,7 @@ class formslib_settype_debugging_repeat_ok extends moodleform {
 /**
  * Used to test if debugging is called when a group contains elements without type.
  */
-class formslib_settype_debugging_group extends moodleform {
+class formslib_settype_debugging_group extends lionform {
     public function definition() {
         $mform = $this->_form;
         $group = array(
@@ -665,7 +652,7 @@ class formslib_settype_debugging_group extends moodleform {
 /**
  * Used to test if debugging is called when a named group contains elements without type.
  */
-class formslib_settype_debugging_namedgroup extends moodleform {
+class formslib_settype_debugging_namedgroup extends lionform {
     public function definition() {
         $mform = $this->_form;
         $group = array(
@@ -680,7 +667,7 @@ class formslib_settype_debugging_namedgroup extends moodleform {
 /**
  * Used to test if debugging is called when has a funky name.
  */
-class formslib_settype_debugging_funky_name extends moodleform {
+class formslib_settype_debugging_funky_name extends lionform {
     public function definition() {
         $mform = $this->_form;
         $mform->addElement('text', 'blah[foo][bar][0]', 'test', 'test');
@@ -692,7 +679,7 @@ class formslib_settype_debugging_funky_name extends moodleform {
 /**
  * Used to test that debugging is not called with type inheritance.
  */
-class formslib_settype_debugging_type_inheritance extends moodleform {
+class formslib_settype_debugging_type_inheritance extends lionform {
     public function definition() {
         $mform = $this->_form;
         $mform->addElement('text', 'blah[foo][bar][0]', 'test1', 'test');
@@ -707,7 +694,7 @@ class formslib_settype_debugging_type_inheritance extends moodleform {
 /**
  * Used to test the debugging when using groups in repeated elements.
  */
-class formslib_settype_debugging_type_group_in_repeat extends moodleform {
+class formslib_settype_debugging_type_group_in_repeat extends lionform {
     public function definition() {
         $mform = $this->_form;
         $groupelements = array(
@@ -722,7 +709,7 @@ class formslib_settype_debugging_type_group_in_repeat extends moodleform {
 /**
  * Used to test the debugging when using named groups in repeated elements.
  */
-class formslib_settype_debugging_type_namedgroup_in_repeat extends moodleform {
+class formslib_settype_debugging_type_namedgroup_in_repeat extends lionform {
     public function definition() {
         $mform = $this->_form;
         $groupelements = array(
@@ -737,7 +724,7 @@ class formslib_settype_debugging_type_namedgroup_in_repeat extends moodleform {
 /**
  * Used to check value cleaning.
  */
-class formslib_clean_value extends moodleform {
+class formslib_clean_value extends lionform {
     public function get_form() {
         return $this->_form;
     }

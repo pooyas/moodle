@@ -3,8 +3,9 @@
 /**
  * Variable
  *
- * @package Less
- * @subpackage tree
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class Less_Tree_Variable extends Less_Tree{
 

@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains all global functions to do with manipulating portfolios.
@@ -23,13 +10,13 @@
  * Major Contributors
  *     - Penny Leach <penny@catalyst.net.nz>
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // require some of the sublibraries first.
 // this is not an exhaustive list, the others are pulled in as they're needed
@@ -68,12 +55,9 @@ require_once($CFG->libdir . '/portfolio/caller.php');
  * $button = new portfolio_add_button(array('callbackclass' => 'name_of_caller_class', 'callbackargs' => array('id' => 6), 'callbackcomponent' => 'yourcomponent')); eg. mod_forum
  * $somehtml .= $button->to_html(PORTFOLIO_ADD_TEXT_LINK);
  * </code>
- *{@link http://docs.moodle.org/dev/Adding_a_Portfolio_Button_to_a_page} for more information
+ *{@link http://docs.lion.org/dev/Adding_a_Portfolio_Button_to_a_page} for more information
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class portfolio_add_button {
 
@@ -141,7 +125,7 @@ class portfolio_add_button {
      *      back to the callback functions (passed by reference)
      *      these MUST be primatives to be added as hidden form fields.
      *      and the values get cleaned to PARAM_ALPHAEXT or PARAM_FLOAT or PARAM_PATH
-     * @param string $component This is the name of the component in Moodle, eg 'mod_forum'
+     * @param string $component This is the name of the component in Lion, eg 'mod_forum'
      */
     public function set_callback_options($class, array $argarray, $component) {
         global $CFG;
@@ -273,7 +257,7 @@ class portfolio_add_button {
             // use the caller defaults
             $this->set_formats();
         }
-        $url = new moodle_url('/portfolio/add.php');
+        $url = new lion_url('/portfolio/add.php');
         foreach ($this->callbackargs as $key => $value) {
             if (!empty($value) && !is_string($value) && !is_numeric($value)) {
                 $a = new stdClass();
@@ -1127,7 +1111,7 @@ function portfolio_insane_notify_admins($insane, $instances=false) {
 /**
  * Setup page export
  *
- * @param moodle_page $PAGE global variable from page object
+ * @param lion_page $PAGE global variable from page object
  * @param portfolio_caller_base $caller plugin type caller
  */
 function portfolio_export_pagesetup($PAGE, $caller) {
@@ -1280,7 +1264,7 @@ function portfolio_rewrite_pluginfile_url_callback($contextid, $component, $file
  * Function to require any potential callback files, throwing exceptions
  * if an issue occurs.
  *
- * @param string $component This is the name of the component in Moodle, eg 'mod_forum'
+ * @param string $component This is the name of the component in Lion, eg 'mod_forum'
  * @param string $class Name of the class containing the callback functions
  *     activity components should ALWAYS use their name_portfolio_caller
  *     other locations must use something unique

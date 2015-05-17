@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines the import questions form.
  *
- * @package    moodlecore
- * @subpackage questionbank
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage question
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -86,12 +72,12 @@ if ($form = $import_form->get_data()) {
     $importfile = "{$CFG->tempdir}/questionimport/{$realfilename}";
     make_temp_directory('questionimport');
     if (!$result = $import_form->save_file('newfile', $importfile, true)) {
-        throw new moodle_exception('uploadproblem');
+        throw new lion_exception('uploadproblem');
     }
 
     $formatfile = 'format/' . $form->format . '/format.php';
     if (!is_readable($formatfile)) {
-        throw new moodle_exception('formatnotfound', 'question', '', $form->format);
+        throw new lion_exception('formatnotfound', 'question', '', $form->format);
     }
 
     require_once($formatfile);
@@ -127,7 +113,7 @@ if ($form = $import_form->get_data()) {
 
     $params = $thispageurl->params() + array(
         'category' => $qformat->category->id . ',' . $qformat->category->contextid);
-    echo $OUTPUT->continue_button(new moodle_url('edit.php', $params));
+    echo $OUTPUT->continue_button(new lion_url('edit.php', $params));
     echo $OUTPUT->footer();
     exit;
 }

@@ -1,11 +1,18 @@
 <?php
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+
+/**
+ * @package    mod
+ * @subpackage choice
+ * @copyright  2015 Pooya Saeedi
+*/
+
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
-require_once ($CFG->dirroot.'/course/moodleform_mod.php');
+require_once ($CFG->dirroot.'/course/lionform_mod.php');
 
-class mod_choice_mod_form extends moodleform_mod {
+class mod_choice_mod_form extends lionform_mod {
 
     function definition() {
         global $CFG, $CHOICE_SHOWRESULTS, $CHOICE_PUBLISH, $CHOICE_DISPLAY, $DB;

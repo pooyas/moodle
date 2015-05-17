@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file defines the quiz manual grading report class.
  *
- * @package   quiz_grading
- * @copyright 2006 Gustav Delius
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/quiz/report/grading/gradingsettings_form.php');
 
@@ -35,8 +22,6 @@ require_once($CFG->dirroot . '/mod/quiz/report/grading/gradingsettings_form.php'
  * - List question that might need manual grading (or optionally all questions).
  * - Provide an efficient UI to grade all attempts at a particular question.
  *
- * @copyright 2006 Gustav Delius
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class quiz_grading_report extends quiz_default_report {
     const DEFAULT_PAGE_SIZE = 5;
@@ -103,7 +88,7 @@ class quiz_grading_report extends quiz_default_report {
         // Get the list of questions in this quiz.
         $this->questions = quiz_report_get_significant_questions($quiz);
         if ($slot && !array_key_exists($slot, $this->questions)) {
-            throw new moodle_exception('unknownquestion', 'quiz_grading');
+            throw new lion_exception('unknownquestion', 'quiz_grading');
         }
 
         // Process any submitted data.
@@ -213,7 +198,7 @@ class quiz_grading_report extends quiz_default_report {
      * @return string the URL.
      */
     protected function base_url() {
-        return new moodle_url('/mod/quiz/report.php',
+        return new lion_url('/mod/quiz/report.php',
                 array('id' => $this->cm->id, 'mode' => 'grading'));
     }
 
@@ -401,7 +386,7 @@ class quiz_grading_report extends quiz_default_report {
                 'action' => $this->grade_question_url($slot, $questionid, $grade, $page),
                 'class' => 'mform', 'id' => 'manualgradingform')) .
                 html_writer::start_tag('div') .
-                html_writer::input_hidden_params(new moodle_url('', array(
+                html_writer::input_hidden_params(new lion_url('', array(
                 'qubaids' => $qubaidlist, 'slots' => $slot, 'sesskey' => $sesskey)));
 
         foreach ($qubaids as $qubaid) {

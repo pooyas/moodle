@@ -1,7 +1,9 @@
 <?php
 /**
  * Class Minify_Cache_ZendPlatform
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -14,8 +16,6 @@
  * Minify::setCache(new Minify_Cache_ZendPlatform());
  * </code>
  *
- * @package Minify
- * @author Patrick van Dissel
  */
 class Minify_Cache_ZendPlatform {
 

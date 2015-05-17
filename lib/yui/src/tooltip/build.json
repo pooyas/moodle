@@ -1,7 +1,7 @@
 {
-  "name": "moodle-core-tooltip",
+  "name": "lion-core-tooltip",
   "builds": {
-    "moodle-core-tooltip": {
+    "lion-core-tooltip": {
       "jsfiles": [
         "tooltip.js"
       ]

@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Lists all the users within a given course.
  *
- * @copyright 1999 Martin Dougiamas  http://dougiamas.com
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core_user
+ * @package    core
+ * @subpackage user
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once('../config.php');
@@ -75,13 +62,13 @@ $frontpagectx = context_course::instance(SITEID);
 
 if ($isfrontpage) {
     $PAGE->set_pagelayout('admin');
-    require_capability('moodle/site:viewparticipants', $systemcontext);
+    require_capability('lion/site:viewparticipants', $systemcontext);
 } else {
     $PAGE->set_pagelayout('incourse');
-    require_capability('moodle/course:viewparticipants', $context);
+    require_capability('lion/course:viewparticipants', $context);
 }
 
-$rolenamesurl = new moodle_url("$CFG->wwwroot/user/index.php?contextid=$context->id&sifirst=&silast=");
+$rolenamesurl = new lion_url("$CFG->wwwroot/user/index.php?contextid=$context->id&sifirst=&silast=");
 
 $rolenames = role_fix_names(get_profile_roles($context), $context, ROLENAME_ALIAS, true);
 if ($isfrontpage) {
@@ -98,7 +85,7 @@ if (empty($rolenames[$roleid])) {
 // No roles to display yet?
 // frontpage course is an exception, on the front page course we should display all users.
 if (empty($rolenames) && !$isfrontpage) {
-    if (has_capability('moodle/role:assign', $context)) {
+    if (has_capability('lion/role:assign', $context)) {
         redirect($CFG->wwwroot.'/'.$CFG->admin.'/roles/assign.php?contextid='.$context->id);
     } else {
         print_error('noparticipants');
@@ -116,7 +103,7 @@ $event = \core\event\user_list_viewed::create(array(
 ));
 $event->trigger();
 
-$bulkoperations = has_capability('moodle/course:bulkmessaging', $context);
+$bulkoperations = has_capability('lion/course:bulkmessaging', $context);
 
 $countries = get_string_manager()->get_list_of_countries();
 
@@ -153,13 +140,13 @@ if (!$currentgroup) {      // To make some other functions work better later.
     $currentgroup  = null;
 }
 
-$isseparategroups = ($course->groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context));
+$isseparategroups = ($course->groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context));
 
 $PAGE->set_title("$course->shortname: ".get_string('participants'));
 $PAGE->set_heading($course->fullname);
 $PAGE->set_pagetype('course-view-' . $course->format);
 $PAGE->add_body_class('path-user');                     // So we can style it independently.
-$PAGE->set_other_editing_capability('moodle/course:manageactivities');
+$PAGE->set_other_editing_capability('lion/course:manageactivities');
 
 echo $OUTPUT->header();
 
@@ -174,7 +161,7 @@ if ($isseparategroups and (!$currentgroup) ) {
 
 
 // Should use this variable so that we don't break stuff every time a variable is added or changed.
-$baseurl = new moodle_url('/user/index.php', array(
+$baseurl = new lion_url('/user/index.php', array(
         'contextid' => $context->id,
         'roleid' => $roleid,
         'id' => $course->id,
@@ -196,7 +183,7 @@ if ($course->id == SITEID) {
 
 
 // Get the hidden field list.
-if (has_capability('moodle/course:viewhiddenuserfields', $context)) {
+if (has_capability('lion/course:viewhiddenuserfields', $context)) {
     $hiddenfields = array();  // Teachers and admins are allowed to see everything.
 } else {
     $hiddenfields = array_flip(explode(',', $CFG->hiddenuserfields));
@@ -216,12 +203,12 @@ $controlstable->data[] = new html_table_row();
 // Print my course menus.
 if ($mycourses = enrol_get_my_courses()) {
     $courselist = array();
-    $popupurl = new moodle_url('/user/index.php?roleid='.$roleid.'&sifirst=&silast=');
+    $popupurl = new lion_url('/user/index.php?roleid='.$roleid.'&sifirst=&silast=');
     foreach ($mycourses as $mycourse) {
         $coursecontext = context_course::instance($mycourse->id);
         $courselist[$mycourse->id] = format_string($mycourse->shortname, true, array('context' => $coursecontext));
     }
-    if (has_capability('moodle/site:viewparticipants', $systemcontext)) {
+    if (has_capability('lion/site:viewparticipants', $systemcontext)) {
         unset($courselist[SITEID]);
         $courselist = array(SITEID => format_string($SITE->shortname, true, array('context' => $systemcontext))) + $courselist;
     }
@@ -258,19 +245,19 @@ if (!isset($hiddenfields['lastaccess'])) {
     // Days.
     for ($i = 1; $i < 7; $i++) {
         if (strtotime('-'.$i.' days', $now) >= $minlastaccess) {
-            $timeoptions[strtotime('-'.$i.' days', $now)] = get_string('numdays', 'moodle', $i);
+            $timeoptions[strtotime('-'.$i.' days', $now)] = get_string('numdays', 'lion', $i);
         }
     }
     // Weeks.
     for ($i = 1; $i < 10; $i++) {
         if (strtotime('-'.$i.' weeks', $now) >= $minlastaccess) {
-            $timeoptions[strtotime('-'.$i.' weeks', $now)] = get_string('numweeks', 'moodle', $i);
+            $timeoptions[strtotime('-'.$i.' weeks', $now)] = get_string('numweeks', 'lion', $i);
         }
     }
     // Months.
     for ($i = 2; $i < 12; $i++) {
         if (strtotime('-'.$i.' months', $now) >= $minlastaccess) {
-            $timeoptions[strtotime('-'.$i.' months', $now)] = get_string('nummonths', 'moodle', $i);
+            $timeoptions[strtotime('-'.$i.' months', $now)] = get_string('nummonths', 'lion', $i);
         }
     }
     // Try a year.
@@ -300,7 +287,7 @@ $controlstable->data[0]->cells[] = $userlistcell;
 
 echo html_writer::table($controlstable);
 
-if ($currentgroup and (!$isseparategroups or has_capability('moodle/site:accessallgroups', $context))) {
+if ($currentgroup and (!$isseparategroups or has_capability('lion/site:accessallgroups', $context))) {
     // Display info about the group.
     if ($group = groups_get_group($currentgroup)) {
         if (!empty($group->description) or (!empty($group->picture) and empty($group->hidepicture))) {
@@ -314,15 +301,15 @@ if ($currentgroup and (!$isseparategroups or has_capability('moodle/site:accessa
             $contentcell->attributes['class'] = 'content';
 
             $contentheading = $group->name;
-            if (has_capability('moodle/course:managegroups', $context)) {
-                $aurl = new moodle_url('/group/group.php', array('id' => $group->id, 'courseid' => $group->courseid));
+            if (has_capability('lion/course:managegroups', $context)) {
+                $aurl = new lion_url('/group/group.php', array('id' => $group->id, 'courseid' => $group->courseid));
                 $contentheading .= '&nbsp;' . $OUTPUT->action_icon($aurl, new pix_icon('t/edit', get_string('editgroupprofile')));
             }
 
             $group->description = file_rewrite_pluginfile_urls($group->description, 'pluginfile.php', $context->id, 'group',
                 'description', $group->id);
             if (!isset($group->descriptionformat)) {
-                $group->descriptionformat = FORMAT_MOODLE;
+                $group->descriptionformat = FORMAT_LION;
             }
             $options = array('overflowdiv' => true);
             $formatteddesc = format_text($group->description, $group->descriptionformat, $options);
@@ -529,14 +516,14 @@ if ($roleid > 0) {
     $heading .= ": $a->number";
 
     if (user_can_assign($context, $roleid)) {
-        $headingurl = new moodle_url($CFG->wwwroot . '/' . $CFG->admin . '/roles/assign.php',
+        $headingurl = new lion_url($CFG->wwwroot . '/' . $CFG->admin . '/roles/assign.php',
                 array('roleid' => $roleid, 'contextid' => $context->id));
         $heading .= $OUTPUT->action_icon($headingurl, new pix_icon('t/edit', get_string('edit')));
     }
     echo $OUTPUT->heading($heading, 3);
 } else {
-    if ($course->id != SITEID && has_capability('moodle/course:enrolreview', $context)) {
-        $editlink = $OUTPUT->action_icon(new moodle_url('/enrol/users.php', array('id' => $course->id)),
+    if ($course->id != SITEID && has_capability('lion/course:enrolreview', $context)) {
+        $editlink = $OUTPUT->action_icon(new lion_url('/enrol/users.php', array('id' => $course->id)),
                                          new pix_icon('t/edit', get_string('edit')));
     } else {
         $editlink = '';
@@ -627,7 +614,7 @@ if ($mode === MODE_USERDETAILS) {    // Print simple listing.
                 $countries = get_string_manager()->get_list_of_countries();
 
                 // Get the hidden field list.
-                if (has_capability('moodle/course:viewhiddenuserfields', $context)) {
+                if (has_capability('lion/course:viewhiddenuserfields', $context)) {
                     $hiddenfields = array();
                 } else {
                     $hiddenfields = array_flip(explode(',', $CFG->hiddenuserfields));
@@ -643,14 +630,14 @@ if ($mode === MODE_USERDETAILS) {    // Print simple listing.
                 $row->cells[1] = new html_table_cell();
                 $row->cells[1]->attributes['class'] = 'content';
 
-                $row->cells[1]->text = $OUTPUT->container(fullname($user, has_capability('moodle/site:viewfullnames', $context)), 'username');
+                $row->cells[1]->text = $OUTPUT->container(fullname($user, has_capability('lion/site:viewfullnames', $context)), 'username');
                 $row->cells[1]->text .= $OUTPUT->container_start('info');
 
                 if (!empty($user->role)) {
                     $row->cells[1]->text .= get_string('role').get_string('labelsep', 'langconfig').$user->role.'<br />';
                 }
                 if ($user->maildisplay == 1 or ($user->maildisplay == 2 and ($course->id != SITEID) and !isguestuser()) or
-                            has_capability('moodle/course:viewhiddenuserfields', $context) or
+                            has_capability('lion/course:viewhiddenuserfields', $context) or
                             in_array('email', $extrafields) or ($user->id == $USER->id)) {
                     $row->cells[1]->text .= get_string('email').get_string('labelsep', 'langconfig').html_writer::link("mailto:$user->email", $user->email) . '<br />';
                 }
@@ -695,22 +682,22 @@ if ($mode === MODE_USERDETAILS) {    // Print simple listing.
                 $links = array();
 
                 if ($CFG->enableblogs && ($CFG->bloglevel != BLOG_USER_LEVEL || $USER->id == $user->id)) {
-                    $links[] = html_writer::link(new moodle_url('/blog/index.php?userid='.$user->id), get_string('blogs', 'blog'));
+                    $links[] = html_writer::link(new lion_url('/blog/index.php?userid='.$user->id), get_string('blogs', 'blog'));
                 }
 
-                if (!empty($CFG->enablenotes) and (has_capability('moodle/notes:manage', $context) || has_capability('moodle/notes:view', $context))) {
-                    $links[] = html_writer::link(new moodle_url('/notes/index.php?course=' . $course->id. '&user='.$user->id), get_string('notes', 'notes'));
+                if (!empty($CFG->enablenotes) and (has_capability('lion/notes:manage', $context) || has_capability('lion/notes:view', $context))) {
+                    $links[] = html_writer::link(new lion_url('/notes/index.php?course=' . $course->id. '&user='.$user->id), get_string('notes', 'notes'));
                 }
 
-                if (has_capability('moodle/site:viewreports', $context) or has_capability('moodle/user:viewuseractivitiesreport', $usercontext)) {
-                    $links[] = html_writer::link(new moodle_url('/course/user.php?id='. $course->id .'&user='. $user->id), get_string('activity'));
+                if (has_capability('lion/site:viewreports', $context) or has_capability('lion/user:viewuseractivitiesreport', $usercontext)) {
+                    $links[] = html_writer::link(new lion_url('/course/user.php?id='. $course->id .'&user='. $user->id), get_string('activity'));
                 }
 
-                if ($USER->id != $user->id && !\core\session\manager::is_loggedinas() && has_capability('moodle/user:loginas', $context) && !is_siteadmin($user->id)) {
-                    $links[] = html_writer::link(new moodle_url('/course/loginas.php?id='. $course->id .'&user='. $user->id .'&sesskey='. sesskey()), get_string('loginas'));
+                if ($USER->id != $user->id && !\core\session\manager::is_loggedinas() && has_capability('lion/user:loginas', $context) && !is_siteadmin($user->id)) {
+                    $links[] = html_writer::link(new lion_url('/course/loginas.php?id='. $course->id .'&user='. $user->id .'&sesskey='. sesskey()), get_string('loginas'));
                 }
 
-                $links[] = html_writer::link(new moodle_url('/user/view.php?id='. $user->id .'&course='. $course->id), get_string('fullprofile') . '...');
+                $links[] = html_writer::link(new lion_url('/user/view.php?id='. $user->id .'&course='. $course->id), get_string('fullprofile') . '...');
 
                 $row->cells[2]->text .= implode('', $links);
 
@@ -761,7 +748,7 @@ if ($mode === MODE_USERDETAILS) {    // Print simple listing.
 
             $usercontext = context_user::instance($user->id);
 
-            if ($piclink = ($USER->id == $user->id || has_capability('moodle/user:viewdetails', $context) || has_capability('moodle/user:viewdetails', $usercontext))) {
+            if ($piclink = ($USER->id == $user->id || has_capability('lion/user:viewdetails', $context) || has_capability('lion/user:viewdetails', $usercontext))) {
                 $profilelink = '<strong><a href="'.$CFG->wwwroot.'/user/view.php?id='.$user->id.'&amp;course='.$course->id.'">'.fullname($user).'</a></strong>';
             } else {
                 $profilelink = '<strong>'.fullname($user).'</strong>';
@@ -803,7 +790,7 @@ if ($bulkoperations) {
     echo '<input type="button" id="checknone" value="'.get_string('deselectall').'" /> ';
     $displaylist = array();
     $displaylist['messageselect.php'] = get_string('messageselectadd');
-    if (!empty($CFG->enablenotes) && has_capability('moodle/notes:manage', $context) && $context->id != $frontpagectx->id) {
+    if (!empty($CFG->enablenotes) && has_capability('lion/notes:manage', $context) && $context->id != $frontpagectx->id) {
         $displaylist['addnote.php'] = get_string('addnewnote', 'notes');
         $displaylist['groupaddnote.php'] = get_string('groupaddnewnote', 'notes');
     }

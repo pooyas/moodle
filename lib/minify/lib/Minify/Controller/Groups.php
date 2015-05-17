@@ -1,7 +1,9 @@
 <?php
 /**
- * Class Minify_Controller_Groups  
- * @package Minify
+ * Class Minify_Controller_Groups
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -22,9 +24,7 @@
  * 
  * As a shortcut, the controller will replace "//" at the beginning
  * of a filename with $_SERVER['DOCUMENT_ROOT'] . '/'.
- * 
- * @package Minify
- * @author Stephen Clay <steve@mrclay.org>
+ *
  */
 class Minify_Controller_Groups extends Minify_Controller_Base {
     

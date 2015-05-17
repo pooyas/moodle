@@ -1,29 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Script to let a user edit the properties of a particular RSS feed.
  *
- * @package   block_rss_client
- * @copyright 2009 Tim Hunt
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    blocks
+ * @subpackage rss_client
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(dirname(__FILE__) . '/../../config.php');
-require_once($CFG->libdir .'/simplepie/moodle_simplepie.php');
+require_once($CFG->libdir .'/simplepie/lion_simplepie.php');
 
 require_login();
 if (isguestuser()) {
@@ -58,7 +45,7 @@ $PAGE->set_pagelayout('popup');
 
 $rssrecord = $DB->get_record('block_rss_client', array('id' => $rssid), '*', MUST_EXIST);
 
-$rss = new moodle_simplepie($rssrecord->url);
+$rss = new lion_simplepie($rssrecord->url);
 
 if ($rss->error()) {
     debugging($rss->error());
@@ -70,7 +57,7 @@ $strviewfeed = get_string('viewfeed', 'block_rss_client');
 $PAGE->set_title($strviewfeed);
 $PAGE->set_heading($strviewfeed);
 
-$managefeeds = new moodle_url('/blocks/rss_client/managefeeds.php', $urlparams);
+$managefeeds = new lion_url('/blocks/rss_client/managefeeds.php', $urlparams);
 $PAGE->navbar->add(get_string('blocks'));
 $PAGE->navbar->add(get_string('pluginname', 'block_rss_client'));
 $PAGE->navbar->add(get_string('managefeeds', 'block_rss_client'), $managefeeds);

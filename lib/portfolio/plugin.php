@@ -1,33 +1,20 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the base classes for portfolio plugins to inherit from:
  *
  * portfolio_plugin_pull_base and portfolio_plugin_push_base
  * which both in turn inherit from portfolio_plugin_base.
- * {@link http://docs.moodle.org/dev/Writing_a_Portfolio_Plugin}
+ * {@link http://docs.lion.org/dev/Writing_a_Portfolio_Plugin}
  *
- * @package    core_portfolio
- * @copyright  2008 Penny Leach <penny@catalyst.net.nz>,
  *             Martin Dougiamas <http://dougiamas.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * The base class for portfolio plugins.
@@ -37,10 +24,7 @@ defined('MOODLE_INTERNAL') || die();
  * @see portfolio_plugin_pull_base
  * @see portfolio_plugin_push_base
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class portfolio_plugin_base {
 
@@ -184,7 +168,7 @@ abstract class portfolio_plugin_base {
     }
 
     /**
-     * Just like the moodle form validation function.
+     * Just like the lion form validation function.
      * This is passed in the data array from the form
      * and if a non empty array is returned, form processing will stop.
      *
@@ -193,7 +177,7 @@ abstract class portfolio_plugin_base {
     public function export_config_validation(array $data) {}
 
     /**
-     * Just like the moodle form validation function.
+     * Just like the lion form validation function.
      * This is passed in the data array from the form
      * and if a non empty array is returned, form processing will stop.
      *
@@ -202,7 +186,7 @@ abstract class portfolio_plugin_base {
     public function user_config_validation(array $data) {}
 
     /**
-     * Sets the export time config from the moodle form.
+     * Sets the export time config from the lion form.
      * You can also use this to set export config that
      * isn't actually controlled by the user.
      * Eg: things that your subclasses want to keep in state
@@ -332,7 +316,7 @@ abstract class portfolio_plugin_base {
      * @see has_user_config.
      * Don't bother overriding this function
      *
-     * @param moodleform $mform passed by reference, add elements to it
+     * @param lionform $mform passed by reference, add elements to it
      */
     public function user_config_form(&$mform) {}
 
@@ -345,12 +329,12 @@ abstract class portfolio_plugin_base {
      * depending on whether it's creating a new instance (statically),
      * or editing an existing one (non statically)
      *
-     * @param moodleform $mform passed by reference, add elements to it.
+     * @param lionform $mform passed by reference, add elements to it.
      */
     public static function admin_config_form(&$mform) {}
 
     /**
-     * Just like the moodle form validation function,
+     * Just like the lion form validation function,
      * this is passed in the data array from the form
      * and if a non empty array is returned, form processing will stop.
      *
@@ -364,7 +348,7 @@ abstract class portfolio_plugin_base {
      * @see has_export_config.
      * Don't bother overrideing this function
      *
-     * @param moodleform $mform passed by reference, add elements to it.
+     * @param lionform $mform passed by reference, add elements to it.
      */
     public function export_config_form(&$mform) {}
 
@@ -720,7 +704,7 @@ abstract class portfolio_plugin_base {
      * most plugins should handle this, but some that require a redirect for authentication
      * and then don't support dynamically constructed urls to return to (eg box.net)
      * need to override this to return false.
-     * This means that moodle will prevent multiple exports of this *type* of plugin
+     * This means that lion will prevent multiple exports of this *type* of plugin
      * occurring in the same session.
      *
      * @return bool
@@ -745,10 +729,7 @@ abstract class portfolio_plugin_base {
  *
  * Eg: those that send the file via a HTTP post or whatever
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class portfolio_plugin_push_base extends portfolio_plugin_base {
 
@@ -769,10 +750,7 @@ abstract class portfolio_plugin_push_base extends portfolio_plugin_base {
  * from portfolio/file.php.
  * If you're using this you must do $this->set('file', $file) so that it can be served.
  *
- * @package core_portfolio
  * @category portfolio
- * @copyright 2008 Penny Leach <penny@catalyst.net.nz>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class portfolio_plugin_pull_base extends portfolio_plugin_base {
 

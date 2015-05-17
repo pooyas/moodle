@@ -2,6 +2,9 @@
 
 /**
  * Decorator which enables CSS properties to be disabled for specific elements.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_CSS_DenyElementDecorator extends HTMLPurifier_AttrDef
 {

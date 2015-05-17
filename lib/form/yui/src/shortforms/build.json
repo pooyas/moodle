@@ -1,7 +1,7 @@
 {
-    "name": "moodle-form-shortforms",
+    "name": "lion-form-shortforms",
     "builds": {
-        "moodle-form-shortforms": {
+        "lion-form-shortforms": {
             "jsfiles": [
                 "shortforms.js"
             ]

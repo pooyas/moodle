@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 $type = 'cidfont0';
 $name = 'KozGoPro-Medium-Acro';
 $displayname = 'Kozuka Gothic Pro (Japanese Sans-Serif)';

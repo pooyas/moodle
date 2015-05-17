@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -26,7 +33,6 @@ require_once 'HTML/QuickForm/static.php';
  * Intended for use with the default renderer only, template-based
  * ones may (and probably will) completely ignore this
  *
- * @author Alexey Borzov <borz_off@cs.msu.su>
  * @access public
  */
 class HTML_QuickForm_html extends HTML_QuickForm_static

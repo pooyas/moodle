@@ -1,30 +1,17 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * This file contains the renderers for the calendar within Moodle
+ * This file contains the renderers for the calendar within Lion
  *
- * @copyright 2010 Sam Hemelryk
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package calendar
+ * @package    core
+ * @subpackage calendar
+ * @copyright  2015 Pooya Saeedi
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+if (!defined('LION_INTERNAL')) {
+    die('Direct access to this script is forbidden.');    ///  It must be included from a Lion page
 }
 
 /**
@@ -157,7 +144,7 @@ class core_calendar_renderer extends plugin_renderer_base {
      * @param calendar_information $calendar
      * @return string
      */
-    public function show_day(calendar_information $calendar, moodle_url $returnurl = null) {
+    public function show_day(calendar_information $calendar, lion_url $returnurl = null) {
 
         if ($returnurl === null) {
             $returnurl = $this->page->url;
@@ -269,14 +256,14 @@ class core_calendar_renderer extends plugin_renderer_base {
 
         if (calendar_edit_event_allowed($event) && $showactions) {
             if (empty($event->cmid)) {
-                $editlink = new moodle_url(CALENDAR_URL.'event.php', array('action'=>'edit', 'id'=>$event->id));
-                $deletelink = new moodle_url(CALENDAR_URL.'delete.php', array('id'=>$event->id));
+                $editlink = new lion_url(CALENDAR_URL.'event.php', array('action'=>'edit', 'id'=>$event->id));
+                $deletelink = new lion_url(CALENDAR_URL.'delete.php', array('id'=>$event->id));
                 if (!empty($event->calendarcourseid)) {
                     $editlink->param('course', $event->calendarcourseid);
                     $deletelink->param('course', $event->calendarcourseid);
                 }
             } else {
-                $editlink = new moodle_url('/course/mod.php', array('update'=>$event->cmid, 'return'=>true, 'sesskey'=>sesskey()));
+                $editlink = new lion_url('/course/mod.php', array('update'=>$event->cmid, 'return'=>true, 'sesskey'=>sesskey()));
                 $deletelink = null;
             }
 
@@ -299,10 +286,10 @@ class core_calendar_renderer extends plugin_renderer_base {
      * Displays a month in detail
      *
      * @param calendar_information $calendar
-     * @param moodle_url $returnurl the url to return to
+     * @param lion_url $returnurl the url to return to
      * @return string
      */
-    public function show_month_detailed(calendar_information $calendar, moodle_url $returnurl  = null) {
+    public function show_month_detailed(calendar_information $calendar, lion_url $returnurl  = null) {
         global $CFG;
 
         if (empty($returnurl)) {
@@ -422,7 +409,7 @@ class core_calendar_renderer extends plugin_renderer_base {
 
             // Reset vars
             $cell = new html_table_cell();
-            $dayhref = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view' => 'day', 'course' => $calendar->courseid)), 0, 0, 0, $daytime);
+            $dayhref = calendar_get_link_href(new lion_url(CALENDAR_URL.'view.php', array('view' => 'day', 'course' => $calendar->courseid)), 0, 0, 0, $daytime);
 
             $cellclasses = array();
 
@@ -511,7 +498,7 @@ class core_calendar_renderer extends plugin_renderer_base {
      * @param int $maxevents
      * @return string
      */
-    public function show_upcoming_events(calendar_information $calendar, $futuredays, $maxevents, moodle_url $returnurl = null) {
+    public function show_upcoming_events(calendar_information $calendar, $futuredays, $maxevents, lion_url $returnurl = null) {
 
         if ($returnurl === null) {
             $returnurl = $this->page->url;
@@ -546,18 +533,18 @@ class core_calendar_renderer extends plugin_renderer_base {
     /**
      * Displays a course filter selector
      *
-     * @param moodle_url $returnurl The URL that the user should be taken too upon selecting a course.
+     * @param lion_url $returnurl The URL that the user should be taken too upon selecting a course.
      * @param string $label The label to use for the course select.
      * @return string
      */
-    protected function course_filter_selector(moodle_url $returnurl, $label=null) {
+    protected function course_filter_selector(lion_url $returnurl, $label=null) {
         global $USER, $SESSION, $CFG;
 
         if (!isloggedin() or isguestuser()) {
             return '';
         }
 
-        if (has_capability('moodle/calendar:manageentries', context_system::instance()) && !empty($CFG->calendar_adminseesall)) {
+        if (has_capability('lion/calendar:manageentries', context_system::instance()) && !empty($CFG->calendar_adminseesall)) {
             $courses = get_courses('all', 'c.shortname','c.id,c.shortname');
         } else {
             $courses = enrol_get_my_courses();
@@ -577,7 +564,7 @@ class core_calendar_renderer extends plugin_renderer_base {
         } else {
             $selected = '';
         }
-        $courseurl = new moodle_url($returnurl);
+        $courseurl = new lion_url($returnurl);
         $courseurl->remove_params('course');
         $select = new single_select($courseurl, 'course', $courseoptions, $selected, null);
         $select->class = 'cal_courses_flt';
@@ -656,7 +643,7 @@ class core_calendar_renderer extends plugin_renderer_base {
      */
     protected function subscription_action_form($subscription, $courseid) {
         // Assemble form for the subscription row.
-        $html = html_writer::start_tag('form', array('action' => new moodle_url('/calendar/managesubscriptions.php'), 'method' => 'post'));
+        $html = html_writer::start_tag('form', array('action' => new lion_url('/calendar/managesubscriptions.php'), 'method' => 'post'));
         if (empty($subscription->url)) {
             // Don't update an iCal file, which has no URL.
             $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'pollinterval', 'value' => '0'));

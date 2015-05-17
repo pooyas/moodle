@@ -1,43 +1,27 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * The supplementary cache API.
  *
- * This file is part of Moodle's cache API, affectionately called MUC.
+ * This file is part of Lion's cache API, affectionately called MUC.
  * It contains elements of the API that are not required in order to use caching.
  * Things in here are more in line with administration and management of the cache setup and configuration.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage cache
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Cache configuration writer.
  *
  * This class should only be used when you need to write to the config, all read operations exist within the cache_config.
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cache_config_writer extends cache_config {
 
@@ -73,18 +57,18 @@ class cache_config_writer extends cache_config {
         if ($directory !== $CFG->dataroot && !file_exists($directory)) {
             $result = make_writable_directory($directory, false);
             if (!$result) {
-                throw new cache_exception('ex_configcannotsave', 'cache', '', null, 'Cannot create config directory. Check the permissions on your moodledata directory.');
+                throw new cache_exception('ex_configcannotsave', 'cache', '', null, 'Cannot create config directory. Check the permissions on your liondata directory.');
             }
         }
         if (!file_exists($directory) || !is_writable($directory)) {
-            throw new cache_exception('ex_configcannotsave', 'cache', '', null, 'Config directory is not writable. Check the permissions on the moodledata/muc directory.');
+            throw new cache_exception('ex_configcannotsave', 'cache', '', null, 'Config directory is not writable. Check the permissions on the liondata/muc directory.');
         }
 
         // Prepare a configuration array to store.
         $configuration = $this->generate_configuration_array();
 
         // Prepare the file content.
-        $content = "<?php defined('MOODLE_INTERNAL') || die();\n \$configuration = ".var_export($configuration, true).";";
+        $content = "<?php defined('LION_INTERNAL') || die();\n \$configuration = ".var_export($configuration, true).";";
 
         // We need to create a temporary cache lock instance for use here. Remember we are generating the config file
         // it doesn't exist and thus we can't use the normal API for this (it'll just try to use config).
@@ -665,10 +649,7 @@ class cache_config_writer extends cache_config {
 /**
  * A cache helper for administration tasks
  *
- * @package    core
  * @category   cache
- * @copyright  2012 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class cache_administration_helper extends cache_helper {
 
@@ -845,24 +826,24 @@ abstract class cache_administration_helper extends cache_helper {
      * @return array
      */
     public static function get_definition_actions(context $context, array $definition) {
-        if (has_capability('moodle/site:config', $context)) {
+        if (has_capability('lion/site:config', $context)) {
             $actions = array();
             // Edit mappings.
             $actions[] = array(
                 'text' => get_string('editmappings', 'cache'),
-                'url' => new moodle_url('/cache/admin.php', array('action' => 'editdefinitionmapping', 'sesskey' => sesskey()))
+                'url' => new lion_url('/cache/admin.php', array('action' => 'editdefinitionmapping', 'sesskey' => sesskey()))
             );
             // Edit sharing.
             if (count($definition['sharingoptions']) > 1) {
                 $actions[] = array(
                     'text' => get_string('editsharing', 'cache'),
-                    'url' => new moodle_url('/cache/admin.php', array('action' => 'editdefinitionsharing', 'sesskey' => sesskey()))
+                    'url' => new lion_url('/cache/admin.php', array('action' => 'editdefinitionsharing', 'sesskey' => sesskey()))
                 );
             }
             // Purge.
             $actions[] = array(
                 'text' => get_string('purge', 'cache'),
-                'url' => new moodle_url('/cache/admin.php', array('action' => 'purgedefinition', 'sesskey' => sesskey()))
+                'url' => new lion_url('/cache/admin.php', array('action' => 'purgedefinition', 'sesskey' => sesskey()))
             );
             return $actions;
         }
@@ -878,21 +859,21 @@ abstract class cache_administration_helper extends cache_helper {
      */
     public static function get_store_instance_actions($name, array $storedetails) {
         $actions = array();
-        if (has_capability('moodle/site:config', context_system::instance())) {
-            $baseurl = new moodle_url('/cache/admin.php', array('store' => $name, 'sesskey' => sesskey()));
+        if (has_capability('lion/site:config', context_system::instance())) {
+            $baseurl = new lion_url('/cache/admin.php', array('store' => $name, 'sesskey' => sesskey()));
             if (empty($storedetails['default'])) {
                 $actions[] = array(
                     'text' => get_string('editstore', 'cache'),
-                    'url' => new moodle_url($baseurl, array('action' => 'editstore', 'plugin' => $storedetails['plugin']))
+                    'url' => new lion_url($baseurl, array('action' => 'editstore', 'plugin' => $storedetails['plugin']))
                 );
                 $actions[] = array(
                     'text' => get_string('deletestore', 'cache'),
-                    'url' => new moodle_url($baseurl, array('action' => 'deletestore'))
+                    'url' => new lion_url($baseurl, array('action' => 'deletestore'))
                 );
             }
             $actions[] = array(
                 'text' => get_string('purge', 'cache'),
-                'url' => new moodle_url($baseurl, array('action' => 'purgestore'))
+                'url' => new lion_url($baseurl, array('action' => 'purgestore'))
             );
         }
         return $actions;
@@ -908,9 +889,9 @@ abstract class cache_administration_helper extends cache_helper {
      */
     public static function get_store_plugin_actions($name, array $plugindetails) {
         $actions = array();
-        if (has_capability('moodle/site:config', context_system::instance())) {
+        if (has_capability('lion/site:config', context_system::instance())) {
             if (!empty($plugindetails['canaddinstance'])) {
-                $url = new moodle_url('/cache/admin.php', array('action' => 'addstore', 'plugin' => $name, 'sesskey' => sesskey()));
+                $url = new lion_url('/cache/admin.php', array('action' => 'addstore', 'plugin' => $name, 'sesskey' => sesskey()));
                 $actions[] = array(
                     'text' => get_string('addinstance', 'cache'),
                     'url' => $url
@@ -947,7 +928,7 @@ abstract class cache_administration_helper extends cache_helper {
 
         $locks = self::get_possible_locks_for_stores($plugindir, $plugin);
 
-        $url = new moodle_url('/cache/admin.php', array('action' => 'addstore'));
+        $url = new lion_url('/cache/admin.php', array('action' => 'addstore'));
         return new $class($url, array('plugin' => $plugin, 'store' => null, 'locks' => $locks));
     }
 
@@ -985,7 +966,7 @@ abstract class cache_administration_helper extends cache_helper {
 
         $locks = self::get_possible_locks_for_stores($plugindir, $plugin);
 
-        $url = new moodle_url('/cache/admin.php', array('action' => 'editstore', 'plugin' => $plugin, 'store' => $store));
+        $url = new lion_url('/cache/admin.php', array('action' => 'editstore', 'plugin' => $plugin, 'store' => $store));
         $editform = new $class($url, array('plugin' => $plugin, 'store' => $store, 'locks' => $locks));
         if (isset($stores[$store]['lock'])) {
             $editform->set_data(array('lock' => $stores[$store]['lock']));

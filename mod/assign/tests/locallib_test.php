@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Unit tests for (some of) mod/assign/locallib.php.
  *
- * @package    mod_assign
  * @category   phpunit
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->dirroot . '/mod/assign/locallib.php');
@@ -34,8 +21,6 @@ require_once($CFG->dirroot . '/mod/assign/tests/base_test.php');
 /**
  * Unit tests for (some of) mod/assign/locallib.php.
  *
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class mod_assign_locallib_testcase extends mod_assign_base_testcase {
 
@@ -45,7 +30,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $returnaction = 'RETURNACTION';
         $returnparams = array('param'=>'1');
         $assign = $this->create_instance();
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
         $assign->register_return_link($returnaction, $returnparams);
         $this->assertEquals($returnaction, $assign->get_return_action());
         $this->assertEquals($returnparams, $assign->get_return_params());
@@ -99,7 +84,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
 
         // Test sesskey is required.
         $this->setUser($this->editingteachers[0]);
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $assign->reveal_identities();
 
         // Test editingteacher can reveal identities if sesskey is ignored.
@@ -131,7 +116,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
             'assignsubmission_onlinetext_enabled'=>1,
             'duedate' => time() - 4 * 24 * 60 * 60,
          ));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array(
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array(
             'id' => $assign->get_course_module()->id,
             'action' => 'grading',
         )));
@@ -158,7 +143,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -184,7 +169,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
             'assignsubmission_onlinetext_enabled'=>1,
             'duedate' => $time - 4 * 24 * 60 * 60,
          ));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array(
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array(
             'id' => $assign->get_course_module()->id,
             'action' => 'grading',
         )));
@@ -213,7 +198,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
         $submittedtime = time();
@@ -245,7 +230,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
             'submissiondrafts' => 1,
             'requireallteammemberssubmit' => 0,
         ));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array(
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array(
             'id' => $assign->get_course_module()->id,
             'action' => 'grading',
         )));
@@ -255,7 +240,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $notices = array();
         $assign->save_submission($data, $notices);
 
@@ -332,7 +317,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -385,7 +370,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -413,7 +398,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -565,7 +550,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $this->setUser($this->editingteachers[0]);
         $assign = $this->create_instance(array('submissiondrafts'=>1));
 
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Test you cannot see the submit button for an offline assignment regardless.
         $this->setUser($this->students[0]);
@@ -588,7 +573,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
         // Test you can see the submit button for an online text assignment with a submission.
@@ -670,7 +655,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $notices = array();
 
         $group = $assign->get_submission_group($newstudent->id);
@@ -707,7 +692,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign1->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -725,7 +710,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign1->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -737,7 +722,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign1->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -749,7 +734,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign1->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -761,7 +746,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign1->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -796,7 +781,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                                          'text' => 'Submission text',
-                                         'format' => FORMAT_MOODLE);
+                                         'format' => FORMAT_LION);
         $plugin = $assign2->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -836,7 +821,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                                          'text' => 'Submission text',
-                                         'format' => FORMAT_MOODLE);
+                                         'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -854,7 +839,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                                          'text' => 'Submission text',
-                                         'format' => FORMAT_MOODLE);
+                                         'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -866,7 +851,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                                          'text' => 'Submission text',
-                                         'format' => FORMAT_MOODLE);
+                                         'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -878,7 +863,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                                          'text' => 'Submission text',
-                                         'format' => FORMAT_MOODLE);
+                                         'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -1185,14 +1170,14 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
                                                'assignsubmission_onlinetext_enabled'=>1,
                                                'submissiondrafts'=>1,
                                                'requireallteammemberssubmit'=>1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Add a submission.
         $this->setUser($this->extrastudents[0]);
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
 
         $notices = array();
         $assign->save_submission($data, $notices);
@@ -1233,14 +1218,14 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
                                                'submissiondrafts'=>1,
                                                'requireallteammemberssubmit'=>0,
                                                'duedate' => $time - 2*24*60*60));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         $this->setUser($this->extrastudents[0]);
         // Add a submission.
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
 
         $notices = array();
         $assign->save_submission($data, $notices);
@@ -1434,7 +1419,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
 
         $this->setUser($this->editingteachers[0]);
         $assign = $this->create_instance();
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // No feedback should be available because this student has not been graded.
         $this->setUser($this->students[0]);
@@ -1474,7 +1459,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $grade = $assign->get_user_grade($this->students[0]->id, true);
         $data = new stdClass();
         $data->assignfeedbackcomments_editor = array('text'=>'Tomato sauce',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_feedback_plugin_by_type('comments');
         $plugin->save($grade, $data);
 
@@ -1509,7 +1494,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
                                                'maxattempts'=>3,
                                                'submissiondrafts'=>1,
                                                'assignsubmission_onlinetext_enabled'=>1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Student should be able to see an add submission button.
         $this->setUser($this->students[0]);
@@ -1522,7 +1507,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -1614,7 +1599,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
                 'maxattempts' => 3,
                 'submissiondrafts' => 1,
                 'assignsubmission_onlinetext_enabled' => 1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Set grade to pass to 80.
         $gradeitem = $assign->get_grade_item();
@@ -1632,7 +1617,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                 'text' => 'Submission text',
-                'format' => FORMAT_MOODLE);
+                'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -1671,7 +1656,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                 'text' => 'Submission text',
-                'format' => FORMAT_MOODLE);
+                'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -1708,7 +1693,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                 'text' => 'Submission text',
-                'format' => FORMAT_MOODLE);
+                'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -1743,7 +1728,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid' => file_get_unused_draft_itemid(),
                 'text' => 'Submission text',
-                'format' => FORMAT_MOODLE);
+                'format' => FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -1773,7 +1758,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
 
         $this->setUser($this->editingteachers[0]);
         $assign = $this->create_instance(array('markingworkflow'=>1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Mark the submission and set to notmarked.
         $this->setUser($this->teachers[0]);
@@ -1877,7 +1862,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
 
         $this->setUser($this->editingteachers[0]);
         $assign = $this->create_instance(array('markingworkflow'=>1, 'markingallocation'=>1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Allocate marker to submission.
         $data = new stdClass();
@@ -1908,14 +1893,14 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $this->setUser($this->editingteachers[0]);
 
         $assign = $this->create_instance(array('assignsubmission_onlinetext_enabled'=>1, 'submissiondrafts'=>1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         $this->setUser($this->students[0]);
         // Simulate a submission.
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Student submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
 
         $notices = array();
         $assign->save_submission($data, $notices);
@@ -1930,7 +1915,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data->userid = $this->students[0]->id;
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Teacher edited submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
 
         // Add the required capability.
         $roleid = create_role('Dummy role', 'dummyrole', 'dummy role description');
@@ -1974,10 +1959,10 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data->userid = $this->students[0]->id;
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Teacher 2 edited submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
 
         $notices = array();
-        $this->setExpectedException('moodle_exception');
+        $this->setExpectedException('lion_exception');
         $assign->save_submission($data, $notices);
 
         $sink->close();
@@ -1995,7 +1980,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $assign = $this->create_instance(array('duedate'=>$yesterday,
                                                'cutoffdate'=>$tomorrow,
                                                'assignsubmission_onlinetext_enabled'=>1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Student should be able to see an add submission button.
         $this->setUser($this->students[0]);
@@ -2007,7 +1992,7 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
         $data = new stdClass();
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>'Submission text',
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
 
@@ -2073,15 +2058,15 @@ class mod_assign_locallib_testcase extends mod_assign_base_testcase {
 
         $sourcetext = "Hello!
 
-I'm writing to you from the Moodle Majlis in Muscat, Oman, where we just had several days of Moodle community goodness.
+I'm writing to you from the Lion Majlis in Muscat, Oman, where we just had several days of Lion community goodness.
 
-URL outside a tag: https://moodle.org/logo/logo-240x60.gif
+URL outside a tag: https://lion.org/logo/logo-240x60.gif
 Plugin url outside a tag: @@PLUGINFILE@@/logo-240x60.gif
 
-External link 1:<img src='https://moodle.org/logo/logo-240x60.gif' alt='Moodle'/>
-External link 2:<img alt=\"Moodle\" src=\"https://moodle.org/logo/logo-240x60.gif\"/>
-Internal link 1:<img src='@@PLUGINFILE@@/logo-240x60.gif' alt='Moodle'/>
-Internal link 2:<img alt=\"Moodle\" src=\"@@PLUGINFILE@@logo-240x60.gif\"/>
+External link 1:<img src='https://lion.org/logo/logo-240x60.gif' alt='Lion'/>
+External link 2:<img alt=\"Lion\" src=\"https://lion.org/logo/logo-240x60.gif\"/>
+Internal link 1:<img src='@@PLUGINFILE@@/logo-240x60.gif' alt='Lion'/>
+Internal link 2:<img alt=\"Lion\" src=\"@@PLUGINFILE@@logo-240x60.gif\"/>
 Anchor link 1:<a href=\"@@PLUGINFILE@@logo-240x60.gif\" alt=\"bananas\">Link text</a>
 Anchor link 2:<a title=\"bananas\" href=\"../logo-240x60.gif\">Link text</a>
 ";
@@ -2089,13 +2074,13 @@ Anchor link 2:<a title=\"bananas\" href=\"../logo-240x60.gif\">Link text</a>
         // Note the internal images have been stripped and the html is purified (quotes fixed in this case).
         $filteredtext = "Hello!
 
-I'm writing to you from the Moodle Majlis in Muscat, Oman, where we just had several days of Moodle community goodness.
+I'm writing to you from the Lion Majlis in Muscat, Oman, where we just had several days of Lion community goodness.
 
-URL outside a tag: https://moodle.org/logo/logo-240x60.gif
+URL outside a tag: https://lion.org/logo/logo-240x60.gif
 Plugin url outside a tag: @@PLUGINFILE@@/logo-240x60.gif
 
-External link 1:<img src=\"https://moodle.org/logo/logo-240x60.gif\" alt=\"Moodle\" />
-External link 2:<img alt=\"Moodle\" src=\"https://moodle.org/logo/logo-240x60.gif\" />
+External link 1:<img src=\"https://lion.org/logo/logo-240x60.gif\" alt=\"Lion\" />
+External link 2:<img alt=\"Lion\" src=\"https://lion.org/logo/logo-240x60.gif\" />
 Internal link 1:
 Internal link 2:
 Anchor link 1:Link text
@@ -2116,7 +2101,7 @@ Anchor link 2:<a title=\"bananas\" href=\"../logo-240x60.gif\">Link text</a>
         // Test the internal link is stripped, but the external one is not.
         $data->onlinetext_editor = array('itemid'=>file_get_unused_draft_itemid(),
                                          'text'=>$sourcetext,
-                                         'format'=>FORMAT_MOODLE);
+                                         'format'=>FORMAT_LION);
 
         $plugin = $assign->get_submission_plugin_by_type('onlinetext');
         $plugin->save($submission, $data);
@@ -2186,7 +2171,7 @@ Anchor link 2:<a title=\"bananas\" href=\"../logo-240x60.gif\">Link text</a>
         $this->setAdminUser();
         // Create assignment (onlinetext).
         $assign = $this->create_instance(array('assignsubmission_onlinetext_enabled'=>1, 'submissiondrafts'=>1));
-        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
+        $PAGE->set_url(new lion_url('/mod/assign/view.php', array('id' => $assign->get_course_module()->id)));
 
         // Check student can edit their own submission.
         $this->assertTrue($assign->can_edit_submission($this->students[0]->id, $this->students[0]->id));

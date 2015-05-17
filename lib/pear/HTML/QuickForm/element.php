@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 // +----------------------------------------------------------------------+
 // | PHP version 4.0                                                      |
@@ -23,11 +30,8 @@ require_once('HTML/Common.php');
 
 /**
  * Base class for form elements
- * 
- * @author       Adam Daniel <adaniel1@eesus.jnj.com>
- * @author       Bertrand Mansion <bmansion@mamasam.com>
+ *
  * @version      1.3
- * @since        PHP4.04pl1
  * @access       public
  * @abstract
  */
@@ -38,7 +42,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Label of the field
      * @var       string
-     * @since     1.3
      * @access    private
      */
     var $_label = '';
@@ -46,7 +49,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Form element type
      * @var       string
-     * @since     1.0
      * @access    private
      */
     var $_type = '';
@@ -54,7 +56,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Flag to tell if element is frozen
      * @var       boolean
-     * @since     1.0
      * @access    private
      */
     var $_flagFrozen = false;
@@ -62,7 +63,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Does the element support persistant data when frozen
      * @var       boolean
-     * @since     1.3
      * @access    private
      */
     var $_persistantFreeze = false;
@@ -76,7 +76,6 @@ class HTML_QuickForm_element extends HTML_Common
      * @param    string     Name of the element
      * @param    mixed      Label(s) for the element
      * @param    mixed      Associative array of tag attributes or HTML attributes name="value" pairs
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -97,7 +96,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Returns the current API version
      *
-     * @since     1.0
      * @access    public
      * @return    float
      */
@@ -112,7 +110,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Returns element type
      *
-     * @since     1.0
      * @access    public
      * @return    string
      */
@@ -128,7 +125,6 @@ class HTML_QuickForm_element extends HTML_Common
      * Sets the input field name
      * 
      * @param     string    $name   Input field name attribute
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -142,8 +138,7 @@ class HTML_QuickForm_element extends HTML_Common
 
     /**
      * Returns the element name
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -159,7 +154,6 @@ class HTML_QuickForm_element extends HTML_Common
      * Sets the value of the form element
      *
      * @param     string    $value      Default value of the form element
-     * @since     1.0
      * @access    public
      * @return    void
      */
@@ -174,7 +168,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Returns the value of the form element
      *
-     * @since     1.0
      * @access    public
      * @return    mixed
      */
@@ -206,7 +199,6 @@ class HTML_QuickForm_element extends HTML_Common
     *
     * @access public
     * @return void
-    * @since  3.2.4
     */
     function unfreeze()
     {
@@ -218,8 +210,7 @@ class HTML_QuickForm_element extends HTML_Common
 
     /**
      * Returns the value of field without HTML tags
-     * 
-     * @since     1.0
+     *
      * @access    public
      * @return    string
      */
@@ -259,7 +250,6 @@ class HTML_QuickForm_element extends HTML_Common
     /**
      * Returns whether or not the element is frozen
      *
-     * @since     1.3
      * @access    public
      * @return    bool
      */
@@ -276,7 +266,6 @@ class HTML_QuickForm_element extends HTML_Common
      * when the element is frozen or not
      * 
      * @param     bool    $persistant   True if persistant value
-     * @since     2.0
      * @access    public
      * @return    void
      */
@@ -292,7 +281,6 @@ class HTML_QuickForm_element extends HTML_Common
      * Sets display text for the element
      * 
      * @param     string    $label  Display text for the element
-     * @since     1.3
      * @access    public
      * @return    void
      */
@@ -306,8 +294,7 @@ class HTML_QuickForm_element extends HTML_Common
 
     /**
      * Returns display text for the element
-     * 
-     * @since     1.3
+     *
      * @access    public
      * @return    string
      */
@@ -321,8 +308,7 @@ class HTML_QuickForm_element extends HTML_Common
 
     /**
      * Tries to find the element value from the values array
-     * 
-     * @since     2.7
+     *
      * @access    private
      * @return    mixed
      */
@@ -351,7 +337,6 @@ class HTML_QuickForm_element extends HTML_Common
      * @param     string    $event  Name of event
      * @param     mixed     $arg    event arguments
      * @param     object    $caller calling object
-     * @since     1.0
      * @access    public
      * @return    void
      */

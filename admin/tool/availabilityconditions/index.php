@@ -1,27 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Provides an overview of installed availability conditions.
  *
  * You can also enable/disable them from this screen.
  *
- * @package tool_availabilityconditions
- * @copyright 2014 The Open University
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage availabilityconditions
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once(__DIR__ . '/../../../config.php');
@@ -43,7 +30,7 @@ foreach (core_component::get_plugin_list('availability') as $plugin => $plugindi
 core_collator::asort($plugins);
 
 // Do plugin actions.
-$pageurl = new moodle_url('/' . $CFG->admin . '/tool/availabilityconditions/');
+$pageurl = new lion_url('/' . $CFG->admin . '/tool/availabilityconditions/');
 if (($plugin = optional_param('plugin', '', PARAM_PLUGIN))) {
     require_sesskey();
     if (!array_key_exists($plugin, $plugins)) {

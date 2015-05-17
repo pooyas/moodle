@@ -1,37 +1,35 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
+
+/**
+ * @package    mod
+ * @subpackage wiki
+ * @copyright  2015 Pooya Saeedi
+*/
+
+// This file is part of Lion - http://lion.org/
 //
-// Moodle is free software: you can redistribute it and/or modify
+// Lion is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Lion is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+// along with Lion. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Library of functions and constants for module wiki
  *
- * It contains the great majority of functions defined by Moodle
+ * It contains the great majority of functions defined by Lion
  * that are mandatory to develop a module.
  *
- * @package mod_wiki
- * @copyright 2009 Marc Alier, Jordi Piguillem marc.alier@upc.edu
- * @copyright 2009 Universitat Politecnica de Catalunya http://www.upc.edu
  *
- * @author Jordi Piguillem
- * @author Marc Alier
- * @author David Jimenez
- * @author Josep Arus
- * @author Kenneth Riba
  *
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
@@ -223,7 +221,7 @@ function wiki_supports($feature) {
         return false;
     case FEATURE_RATE:
         return false;
-    case FEATURE_BACKUP_MOODLE2:
+    case FEATURE_BACKUP_LION2:
         return true;
     case FEATURE_SHOW_DESCRIPTION:
         return true;
@@ -293,7 +291,7 @@ function wiki_print_recent_activity($course, $viewfullnames, $timestart) {
     return true; //  True if anything was printed, otherwise false
 }
 /**
- * Function to be run periodically according to the moodle cron
+ * Function to be run periodically according to the lion cron
  * This function searches for things that need to be done, such
  * as sending out mail, toggling flags etc ...
  *
@@ -369,8 +367,6 @@ function wiki_scale_used_anywhere($scaleid) {
 /**
  * file serving callback
  *
- * @copyright Josep Arus
- * @package  mod_wiki
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -470,44 +466,44 @@ function wiki_extend_navigation(navigation_node $navref, $course, $module, $cm) 
     }
 
     if (has_capability('mod/wiki:createpage', $context)) {
-        $link = new moodle_url('/mod/wiki/create.php', array('action' => 'new', 'swid' => $swid));
+        $link = new lion_url('/mod/wiki/create.php', array('action' => 'new', 'swid' => $swid));
         $node = $navref->add(get_string('newpage', 'wiki'), $link, navigation_node::TYPE_SETTING);
     }
 
     if (is_numeric($pageid)) {
 
         if (has_capability('mod/wiki:viewpage', $context)) {
-            $link = new moodle_url('/mod/wiki/view.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/view.php', array('pageid' => $pageid));
             $node = $navref->add(get_string('view', 'wiki'), $link, navigation_node::TYPE_SETTING);
         }
 
         if (wiki_user_can_edit($subwiki)) {
-            $link = new moodle_url('/mod/wiki/edit.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/edit.php', array('pageid' => $pageid));
             $node = $navref->add(get_string('edit', 'wiki'), $link, navigation_node::TYPE_SETTING);
         }
 
         if (has_capability('mod/wiki:viewcomment', $context)) {
-            $link = new moodle_url('/mod/wiki/comments.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/comments.php', array('pageid' => $pageid));
             $node = $navref->add(get_string('comments', 'wiki'), $link, navigation_node::TYPE_SETTING);
         }
 
         if (has_capability('mod/wiki:viewpage', $context)) {
-            $link = new moodle_url('/mod/wiki/history.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/history.php', array('pageid' => $pageid));
             $node = $navref->add(get_string('history', 'wiki'), $link, navigation_node::TYPE_SETTING);
         }
 
         if (has_capability('mod/wiki:viewpage', $context)) {
-            $link = new moodle_url('/mod/wiki/map.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/map.php', array('pageid' => $pageid));
             $node = $navref->add(get_string('map', 'wiki'), $link, navigation_node::TYPE_SETTING);
         }
 
         if (has_capability('mod/wiki:viewpage', $context)) {
-            $link = new moodle_url('/mod/wiki/files.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/files.php', array('pageid' => $pageid));
             $node = $navref->add(get_string('files', 'wiki'), $link, navigation_node::TYPE_SETTING);
         }
 
         if (has_capability('mod/wiki:managewiki', $context)) {
-            $link = new moodle_url('/mod/wiki/admin.php', array('pageid' => $pageid));
+            $link = new lion_url('/mod/wiki/admin.php', array('pageid' => $pageid));
             $node = $navref->add(get_string('admin', 'wiki'), $link, navigation_node::TYPE_SETTING);
         }
     }
@@ -518,7 +514,7 @@ function wiki_extend_navigation(navigation_node $navref, $course, $module, $cm) 
  * @return array
  */
 function wiki_get_extra_capabilities() {
-    return array('moodle/comment:view', 'moodle/comment:post', 'moodle/comment:delete');
+    return array('lion/comment:view', 'lion/comment:post', 'lion/comment:delete');
 }
 
 /**
@@ -529,7 +525,6 @@ function wiki_get_extra_capabilities() {
  * Capability check has been done in comment->check_permissions(), we
  * don't need to do it again here.
  *
- * @package  mod_wiki
  * @category comment
  *
  * @param stdClass $comment_param {
@@ -556,7 +551,6 @@ function wiki_comment_permissions($comment_param) {
  *              itemid      => int itemid
  * }
  *
- * @package  mod_wiki
  * @category comment
  *
  * @return boolean
@@ -588,7 +582,7 @@ function wiki_comment_validate($comment_param) {
     // group access
     if ($subwiki->groupid) {
         $groupmode = groups_get_activity_groupmode($cm, $course);
-        if ($groupmode == SEPARATEGROUPS and !has_capability('moodle/site:accessallgroups', $context)) {
+        if ($groupmode == SEPARATEGROUPS and !has_capability('lion/site:accessallgroups', $context)) {
             if (!groups_is_member($subwiki->groupid)) {
                 throw new comment_exception('notmemberofgroup');
             }

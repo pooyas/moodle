@@ -1,7 +1,7 @@
 /**
  * The activity chooser dialogue for courses.
  *
- * @module moodle-course-modchooser
+ * @module lion-course-modchooser
  */
 
 var CSS = {
@@ -165,7 +165,7 @@ Y.extend(MODCHOOSER, M.core.chooserdialogue, {
             dropdowns
                 .addClass('visibleifjs')
                 .removeClass('hiddenifjs');
-            toggletext.set('data', M.util.get_string('modchooserenable', 'moodle'));
+            toggletext.set('data', M.util.get_string('modchooserenable', 'lion'));
             togglelink.set('href', togglelink.get('href').replace('off', 'on'));
         } else {
             // The modchooser is currently not visible, show it
@@ -176,7 +176,7 @@ Y.extend(MODCHOOSER, M.core.chooserdialogue, {
             dropdowns
                 .removeClass('visibleifjs')
                 .addClass('hiddenifjs');
-            toggletext.set('data', M.util.get_string('modchooserdisable', 'moodle'));
+            toggletext.set('data', M.util.get_string('modchooserdisable', 'lion'));
             togglelink.set('href', togglelink.get('href').replace('on', 'off'));
         }
 

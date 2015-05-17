@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 class HTMLPurifier_Injector_RemoveEmpty extends HTMLPurifier_Injector
 {
     /**

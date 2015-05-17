@@ -7,6 +7,9 @@
  * (2) it has funny constraints on the data it can represent,
  * whereas we want a maximally flexible representation, and (3) its
  * interface is a bit cumbersome.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 abstract class HTMLPurifier_Node
 {

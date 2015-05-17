@@ -1,26 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Automatic update of Timezones from a new source
  *
- * @package    tool
+ * @package    admin_tool
  * @subpackage timezoneimport
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2015 Pooya Saeedi
  */
 
     require_once('../../../config.php');
@@ -45,13 +31,13 @@
         $message = '<br /><br />';
         $message .= $CFG->tempdir.'/olson.txt<br />';
         $message .= $CFG->tempdir.'/timezone.txt<br />';
-        $message .= '<a href="https://download.moodle.org/timezone/">https://download.moodle.org/timezone/</a><br />';
+        $message .= '<a href="https://download.lion.org/timezone/">https://download.lion.org/timezone/</a><br />';
         $message .= '<a href="'.$CFG->wwwroot.'/lib/timezone.txt">'.$CFG->dirroot.'/lib/timezone.txt</a><br />';
         $message .= '<br />';
 
         $message = get_string("configintrotimezones", 'tool_timezoneimport', $message);
 
-        echo $OUTPUT->confirm($message, 'index.php?ok=1', new moodle_url('/admin/index.php'));
+        echo $OUTPUT->confirm($message, 'index.php?ok=1', new lion_url('/admin/index.php'));
 
         echo $OUTPUT->footer();
         exit;
@@ -82,8 +68,8 @@
         }
     }
 
-/// Otherwise, let's try moodle.org's copy
-    $source = 'https://download.moodle.org/timezone/';
+/// Otherwise, let's try lion.org's copy
+    $source = 'https://download.lion.org/timezone/';
     if (!$importdone && ($content=download_file_content($source))) {
         if ($file = fopen($CFG->tempdir.'/timezone.txt', 'w')) {            // Make local copy
             fwrite($file, $content);
@@ -97,7 +83,7 @@
     }
 
 
-/// Final resort, use the copy included in Moodle
+/// Final resort, use the copy included in Lion
     $source = $CFG->dirroot.'/lib/timezone.txt';
     if (!$importdone and is_readable($source)) {  // Distribution file
         if ($timezones = get_records_csv($source, 'timezone')) {
@@ -114,7 +100,7 @@
         $a->count = count($timezones);
         $a->source  = $importdone;
         echo $OUTPUT->notification(get_string('importtimezonescount', 'tool_timezoneimport', $a), 'notifysuccess');
-        echo $OUTPUT->continue_button(new moodle_url('/admin/index.php'));
+        echo $OUTPUT->continue_button(new lion_url('/admin/index.php'));
 
         $timezonelist = array();
         foreach ($timezones as $timezone) {
@@ -131,8 +117,8 @@
 
         $timezonetable = new html_table();
         $timezonetable->head = array(
-            get_string('timezone', 'moodle'),
-            get_string('entries', 'moodle')
+            get_string('timezone', 'lion'),
+            get_string('entries', 'lion')
         );
         $rows = array();
         foreach ($timezonelist as $name => $count) {
@@ -149,7 +135,7 @@
 
     } else {
         echo $OUTPUT->notification(get_string('importtimezonesfailed', 'tool_timezoneimport'));
-        echo $OUTPUT->continue_button(new moodle_url('/admin/index.php'));
+        echo $OUTPUT->continue_button(new lion_url('/admin/index.php'));
     }
 
     echo $OUTPUT->footer();

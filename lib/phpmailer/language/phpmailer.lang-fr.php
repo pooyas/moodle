@@ -1,11 +1,13 @@
 <?php
 /**
  * French PHPMailer language file: refer to English translation for definitive list
- * @package PHPMailer
  * Some French punctuation requires a thin non-breaking space (U+202F) character before it,
  * for example before a colon or exclamation mark.
  * There is one of these characters between these quotes: " "
  * @link http://unicode.org/udhr/n/notes_fra.html
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Erreur SMTP : échec de l\'authentification.';

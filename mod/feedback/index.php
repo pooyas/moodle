@@ -1,25 +1,12 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * prints the overview of all feedbacks included into the current course
  *
- * @author Andreas Grabs
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * @package mod_feedback
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once("../../config.php");
@@ -27,7 +14,7 @@ require_once("lib.php");
 
 $id = required_param('id', PARAM_INT);
 
-$url = new moodle_url('/mod/feedback/index.php', array('id'=>$id));
+$url = new lion_url('/mod/feedback/index.php', array('id'=>$id));
 
 $PAGE->set_url($url);
 
@@ -58,8 +45,8 @@ echo $OUTPUT->heading($strfeedbacks);
 /// Get all the appropriate data
 
 if (! $feedbacks = get_all_instances_in_course("feedback", $course)) {
-    $url = new moodle_url('/course/view.php', array('id'=>$course->id));
-    notice(get_string('thereareno', 'moodle', $strfeedbacks), $url);
+    $url = new lion_url('/course/view.php', array('id'=>$course->id));
+    notice(get_string('thereareno', 'lion', $strfeedbacks), $url);
     die;
 }
 
@@ -95,7 +82,7 @@ if ($usesections) {
 
 foreach ($feedbacks as $feedback) {
     //get the responses of each feedback
-    $viewurl = new moodle_url('/mod/feedback/view.php', array('id'=>$feedback->coursemodule));
+    $viewurl = new lion_url('/mod/feedback/view.php', array('id'=>$feedback->coursemodule));
 
     if (has_capability('mod/feedback:viewreports', $context)) {
         $completed_feedback_count = intval(feedback_get_completeds_group_count($feedback));

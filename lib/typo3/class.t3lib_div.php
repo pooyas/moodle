@@ -23,6 +23,9 @@
  *  GNU General Public License for more details.
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  ***************************************************************/
 
 	// a tabulator
@@ -46,9 +49,6 @@ define('CRLF', CR . LF);
  * So: Don't instantiate - call functions with "t3lib_div::" prefixed the function name.
  * So use t3lib_div::[method-name] to refer to the functions, eg. 't3lib_div::milliseconds()'
  *
- * @author Kasper Skårhøj <kasperYYYY@typo3.com>
- * @package TYPO3
- * @subpackage t3lib
  */
 final class t3lib_div {
 
@@ -2124,7 +2124,6 @@ final class t3lib_div {
 	 * @param string $string XML data input
 	 * @param integer $depth Number of element levels to resolve the XML into an array. Any further structure will be set as XML.
 	 * @return mixed The array with the parsed structure unless the XML parser returns with an error in which case the error message string is returned.
-	 * @author bisqwit at iki dot fi dot not dot for dot ads dot invalid / http://dk.php.net/xml_parse_into_struct + kasperYYYY@typo3.com
 	 */
 	public static function xml2tree($string, $depth = 999) {
 		$parser = xml_parser_create();

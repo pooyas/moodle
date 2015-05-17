@@ -16,6 +16,9 @@
  * O(1) time.  Some care must be taken on rebalancing to avoid quadratic
  * behaviour caused by repeatedly shuffling data from the input stack
  * to the output stack and back.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_Queue {
     private $input;

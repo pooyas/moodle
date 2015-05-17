@@ -1,32 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This file contains the definition for the library class for file submission plugin
  *
  * This class provides all the functionality for the new assign module.
  *
- * @package assignsubmission_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage assign
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->libdir.'/eventslib.php');
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 // File areas for file submission assignment.
 define('ASSIGNSUBMISSION_FILE_MAXSUMMARYFILES', 5);
@@ -35,9 +22,6 @@ define('ASSIGNSUBMISSION_FILE_FILEAREA', 'submission_files');
 /**
  * Library class for file submission plugin extending submission plugin base class
  *
- * @package   assignsubmission_file
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class assign_submission_file extends assign_submission_plugin {
 
@@ -63,10 +47,10 @@ class assign_submission_file extends assign_submission_plugin {
     /**
      * Get the default setting for file submission plugin
      *
-     * @param MoodleQuickForm $mform The form to add elements to
+     * @param LionQuickForm $mform The form to add elements to
      * @return void
      */
-    public function get_settings(MoodleQuickForm $mform) {
+    public function get_settings(LionQuickForm $mform) {
         global $CFG, $COURSE;
 
         $defaultmaxfilesubmissions = $this->get_config('maxfilesubmissions');
@@ -141,11 +125,11 @@ class assign_submission_file extends assign_submission_plugin {
      * Add elements to submission form
      *
      * @param mixed $submission stdClass|null
-     * @param MoodleQuickForm $mform
+     * @param LionQuickForm $mform
      * @param stdClass $data
      * @return bool
      */
-    public function get_form_elements($submission, MoodleQuickForm $mform, stdClass $data) {
+    public function get_form_elements($submission, LionQuickForm $mform, stdClass $data) {
 
         if ($this->get_config('maxfilesubmissions') <= 0) {
             return false;
@@ -345,7 +329,7 @@ class assign_submission_file extends assign_submission_plugin {
 
 
     /**
-     * Return true if this plugin can upgrade an old Moodle 2.2 assignment of this type
+     * Return true if this plugin can upgrade an old Lion 2.2 assignment of this type
      * and version.
      *
      * @param string $type

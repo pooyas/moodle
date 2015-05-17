@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Prepares PHPUnit environment, the phpunit.xml configuration
@@ -20,10 +7,10 @@
  *
  * Exit codes: {@see phpunit_bootstrap_error()}
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 if (isset($_SERVER['REMOTE_ADDR'])) {
@@ -170,7 +157,7 @@ if (isset($CFG->prefix) and $CFG->prefix === $CFG->phpunit_prefix) {
 }
 
 // override CFG settings if necessary and throw away extra CFG settings
-$CFG->wwwroot   = 'http://www.example.com/moodle';
+$CFG->wwwroot   = 'http://www.example.com/lion';
 $CFG->dataroot  = $CFG->phpunit_dataroot;
 $CFG->prefix    = $CFG->phpunit_prefix;
 $CFG->dbtype    = isset($CFG->phpunit_dbtype) ? $CFG->phpunit_dbtype : $CFG->dbtype;
@@ -216,7 +203,7 @@ $CFG->jsrev = 1;
 // load test case stub classes and other stuff
 require_once("$CFG->dirroot/lib/phpunit/lib.php");
 
-// finish moodle init
+// finish lion init
 define('ABORT_AFTER_CONFIG_CANCEL', true);
 require("$CFG->dirroot/lib/setup.php");
 
@@ -230,7 +217,7 @@ if (PHPUNIT_UTIL) {
 // is database and dataroot ready for testing?
 list($errorcode, $message) = phpunit_util::testing_ready_problem();
 // print some version info
-phpunit_util::bootstrap_moodle_info();
+phpunit_util::bootstrap_lion_info();
 if ($errorcode) {
     phpunit_bootstrap_error($errorcode, $message);
 }

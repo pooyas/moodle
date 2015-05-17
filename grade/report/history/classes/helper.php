@@ -1,38 +1,21 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Helper class for gradehistory report.
  *
- * @package    gradereport_history
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    grade_report
+ * @subpackage history
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace gradereport_history;
 
-defined('MOODLE_INTERNAL') || die;
+defined('LION_INTERNAL') || die;
 
 /**
  * Helper class for gradehistory report.
  *
- * @since      Moodle 2.8
- * @package    gradereport_history
- * @copyright  2014 onwards Ankit Agarwal <ankit.agrr@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class helper {
 
@@ -62,7 +45,7 @@ class helper {
         $PAGE->requires->strings_for_js(array(
             'noresults',
             'search'
-        ), 'moodle');
+        ), 'lion');
 
         $arguments = array(
             'courseid'            => $courseid,
@@ -73,7 +56,7 @@ class helper {
 
         // Load the yui module.
         $PAGE->requires->yui_module(
-            'moodle-gradereport_history-userselector',
+            'lion-gradereport_history-userselector',
             'Y.M.gradereport_history.UserSelector.init',
             array($arguments)
         );

@@ -3,6 +3,9 @@
 /**
  * Module adds the nofollow attribute transformation to a tags.  It
  * is enabled by HTML.Nofollow
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_HTMLModule_Nofollow extends HTMLPurifier_HTMLModule
 {

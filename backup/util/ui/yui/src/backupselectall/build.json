@@ -1,7 +1,7 @@
 {
-  "name": "moodle-backup-backupselectall",
+  "name": "lion-backup-backupselectall",
   "builds": {
-    "moodle-backup-backupselectall": {
+    "lion-backup-backupselectall": {
       "jsfiles": [
         "backupselectall.js"
       ]

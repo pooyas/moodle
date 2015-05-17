@@ -8,7 +8,7 @@ element of the completion system but it covers most of the basic parts.
 Site setup
 ----------
 
-1) Make a fresh install of the Moodle version you are testing.
+1) Make a fresh install of the Lion version you are testing.
 
 CHECK A: There is no error when installing the completion database tables.
 

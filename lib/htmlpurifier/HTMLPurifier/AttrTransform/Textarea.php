@@ -2,6 +2,9 @@
 
 /**
  * Sets height/width defaults for <textarea>
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrTransform_Textarea extends HTMLPurifier_AttrTransform
 {

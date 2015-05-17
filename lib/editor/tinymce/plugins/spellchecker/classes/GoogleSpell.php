@@ -2,9 +2,9 @@
 /**
  * $Id: editor_plugin_src.js 201 2007-02-12 15:56:56Z spocke $
  *
- * @package MCManager.includes
- * @author Moxiecode
- * @copyright Copyright � 2004-2007, Moxiecode Systems AB, All rights reserved.
+ * @package    editor
+ * @subpackage tinymce
+ * @copyright  2015 Pooya Saeedi
  */
 
 class GoogleSpell extends SpellChecker {
@@ -128,7 +128,7 @@ class GoogleSpell extends SpellChecker {
 	}
 
 	function _unhtmlentities($string) {
-        return core_text::entities_to_utf8($string); // Moodle hack
+        return core_text::entities_to_utf8($string); // Lion hack
 		$string = preg_replace('~&#x([0-9a-f]+);~ei', 'chr(hexdec("\\1"))', $string);
 		$string = preg_replace('~&#([0-9]+);~e', 'chr(\\1)', $string);
 

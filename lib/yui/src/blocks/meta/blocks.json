@@ -1,5 +1,5 @@
 {
-  "moodle-core-blocks": {
+  "lion-core-blocks": {
     "requires": [
         "base",
         "node",
@@ -7,8 +7,8 @@
         "dom",
         "dd",
         "dd-scroll",
-        "moodle-core-dragdrop",
-        "moodle-core-notification"
+        "lion-core-dragdrop",
+        "lion-core-notification"
     ]
   }
 }

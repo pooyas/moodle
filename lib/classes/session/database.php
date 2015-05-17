@@ -1,43 +1,27 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Database based session handler.
  *
  * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core\session;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Database based session handler.
  *
- * @package    core
- * @copyright  2013 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class database extends handler {
     /** @var \stdClass $record session record */
     protected $recordid = null;
 
-    /** @var \moodle_database $database session database */
+    /** @var \lion_database $database session database */
     protected $database = null;
 
     /** @var bool $failed session read/init failed, do not write back to DB */
@@ -288,7 +272,7 @@ class database extends handler {
      *
      * {@see http://php.net/manual/en/function.session-set-save-handler.php}
      *
-     * @param int $ignored_maxlifetime moodle uses special timeout rules
+     * @param int $ignored_maxlifetime lion uses special timeout rules
      * @return bool success
      */
     public function handler_gc($ignored_maxlifetime) {

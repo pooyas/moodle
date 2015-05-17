@@ -1,38 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Data generators tests
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Test data generator
  *
- * @package    core
  * @category   phpunit
- * @copyright  2012 Petr Skoda {@link http://skodak.org}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_test_generator_testcase extends advanced_testcase {
     public function test_get_plugin_generator_good_case() {
@@ -138,7 +122,7 @@ class core_test_generator_testcase extends advanced_testcase {
         $this->assertRegExp('/^Course category \d/', $category->name);
         $this->assertSame('', $category->idnumber);
         $this->assertRegExp('/^Test course category \d/', $category->description);
-        $this->assertSame(FORMAT_MOODLE, $category->descriptionformat);
+        $this->assertSame(FORMAT_LION, $category->descriptionformat);
 
         $count = $DB->count_records('cohort');
         $cohort = $generator->create_cohort();
@@ -147,7 +131,7 @@ class core_test_generator_testcase extends advanced_testcase {
         $this->assertRegExp('/^Cohort \d/', $cohort->name);
         $this->assertSame('', $cohort->idnumber);
         $this->assertRegExp('/^Test cohort \d/', $cohort->description);
-        $this->assertSame(FORMAT_MOODLE, $cohort->descriptionformat);
+        $this->assertSame(FORMAT_LION, $cohort->descriptionformat);
         $this->assertSame('', $cohort->component);
         $this->assertLessThanOrEqual(time(), $cohort->timecreated);
         $this->assertSame($cohort->timecreated, $cohort->timemodified);
@@ -162,7 +146,7 @@ class core_test_generator_testcase extends advanced_testcase {
         $this->assertEquals(0, $course->newsitems);
         $this->assertEquals(5, $course->numsections);
         $this->assertRegExp('/^Test course \d/', $course->summary);
-        $this->assertSame(FORMAT_MOODLE, $course->summaryformat);
+        $this->assertSame(FORMAT_LION, $course->summaryformat);
 
         $section = $generator->create_course_section(array('course'=>$course->id, 'section'=>3));
         $this->assertEquals($course->id, $section->course);
@@ -236,7 +220,7 @@ class core_test_generator_testcase extends advanced_testcase {
 
         // Automatic completion is possible if module supports FEATURE_COMPLETION_TRACKS_VIEWS or FEATURE_GRADE_HAS_GRADE.
         // Note: completionusegrade is stored in DB and can be found in cm_info as 'completiongradeitemnumber' - either NULL or 0.
-        // Note: module can have more autocompletion rules as defined in moodleform_mod::add_completion_rules().
+        // Note: module can have more autocompletion rules as defined in lionform_mod::add_completion_rules().
         $featurecompletionautomatic = array(
             'completion' => COMPLETION_TRACKING_AUTOMATIC, // "Show activity as complete when conditions are met."
             'completionview' => 1, // "Student must view this activity to complete it"

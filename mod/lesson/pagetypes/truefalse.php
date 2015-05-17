@@ -1,29 +1,16 @@
 <?php
 
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * True/false
  *
- * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage lesson
+ * @copyright  2015 Pooya Saeedi
  **/
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /** True/False question type */
 define("LESSON_PAGE_TRUEFALSE",     "2");
@@ -163,8 +150,8 @@ class lesson_page_type_truefalse extends lesson_page {
     /**
      * Updates the page and its answers
      *
-     * @global moodle_database $DB
-     * @global moodle_page $PAGE
+     * @global lion_database $DB
+     * @global lion_page $PAGE
      * @param stdClass $properties
      * @return bool
      */
@@ -367,7 +354,7 @@ class lesson_add_page_form_truefalse extends lesson_add_page_form_base {
     }
 }
 
-class lesson_display_answer_form_truefalse extends moodleform {
+class lesson_display_answer_form_truefalse extends lionform {
 
     public function definition() {
         global $USER, $OUTPUT;

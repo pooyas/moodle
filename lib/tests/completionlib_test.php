@@ -1,30 +1,16 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Completion tests.
  *
- * @package    core_completion
  * @category   phpunit
- * @copyright  2008 Sam Marshall
- * @copyright  2013 Frédéric Massart
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 global $CFG;
 require_once($CFG->libdir.'/completionlib.php');
@@ -818,7 +804,7 @@ class core_completionlib_testcase extends advanced_testcase {
         $this->assertEquals(context_module::instance($forum->cmid), $event->get_context());
         $this->assertEquals($USER->id, $event->userid);
         $this->assertEquals($this->user->id, $event->relateduserid);
-        $this->assertInstanceOf('moodle_url', $event->get_url());
+        $this->assertInstanceOf('lion_url', $event->get_url());
         $this->assertEventLegacyData($current, $event);
     }
 
@@ -846,7 +832,7 @@ class core_completionlib_testcase extends advanced_testcase {
         $this->assertEquals($USER->id, $event->userid);
         $this->assertEquals($this->user->id, $event->relateduserid);
         $this->assertEquals(context_course::instance($this->course->id), $event->get_context());
-        $this->assertInstanceOf('moodle_url', $event->get_url());
+        $this->assertInstanceOf('lion_url', $event->get_url());
         $data = $ccompletion->get_record_data();
         $this->assertEventLegacyData($data, $event);
     }
@@ -874,7 +860,7 @@ class core_completionlib_testcase extends advanced_testcase {
         $this->assertInstanceOf('\core\event\course_completion_updated', $event);
         $this->assertEquals($this->course->id, $event->courseid);
         $this->assertEquals($coursecontext, $event->get_context());
-        $this->assertInstanceOf('moodle_url', $event->get_url());
+        $this->assertInstanceOf('lion_url', $event->get_url());
         $expectedlegacylog = array($this->course->id, 'course', 'completion updated', 'completion.php?id='.$this->course->id);
         $this->assertEventLegacyLogData($expectedlegacylog, $event);
     }

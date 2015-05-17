@@ -25,12 +25,11 @@
  * +----------------------------------------------------------------------+
  *
  * @category Net
- * @package  Net_GeoIP
- * @author   Jim Winstead <jimw@apache.org> (original Maxmind PHP API)
- * @author   Hans Lellelid <hans@xmpl.org>
- * @license  LGPL http://www.gnu.org/licenses/lgpl.txt
  * @link     http://pear.php.net/package/Net_GeoIp
  * $Id$
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once 'PEAR/Exception.php';
@@ -127,10 +126,6 @@ require_once 'PEAR/Exception.php';
  * </code>
  *
  * @category Net
- * @package  Net_GeoIP
- * @author   Jim Winstead <jimw@apache.org> (original Maxmind PHP API)
- * @author   Hans Lellelid <hans@xmpl.org>
- * @license  LGPL http://www.gnu.org/licenses/lgpl.txt
  * @link     http://pear.php.net/package/Net_GeoIp
  */
 class Net_GeoIP

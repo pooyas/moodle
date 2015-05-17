@@ -12,9 +12,9 @@
             <stringProp name="Argument.value">${__time()}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="moodleversion" elementType="Argument">
-            <stringProp name="Argument.name">moodleversion</stringProp>
-            <stringProp name="Argument.value">{{MOODLEVERSION_PLACEHOLDER}}</stringProp>
+          <elementProp name="lionversion" elementType="Argument">
+            <stringProp name="Argument.name">lionversion</stringProp>
+            <stringProp name="Argument.value">{{LIONVERSION_PLACEHOLDER}}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="size" elementType="Argument">
@@ -264,7 +264,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Moodle Test" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Lion Test" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>

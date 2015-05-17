@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 #
 # Markdown Extra  -  A text-to-HTML conversion tool for web writers
 #

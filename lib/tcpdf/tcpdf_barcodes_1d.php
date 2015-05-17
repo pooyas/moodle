@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : tcpdf_barcodes_1d.php
 // Version     : 1.0.026
@@ -35,17 +42,13 @@
 /**
  * @file
  * PHP class to creates array representations for common 1D barcodes to be used with TCPDF.
- * @package com.tecnick.tcpdf
- * @author Nicola Asuni
  * @version 1.0.026
  */
 
 /**
  * @class TCPDFBarcode
  * PHP class to creates array representations for common 1D barcodes to be used with TCPDF (http://www.tcpdf.org).<br>
- * @package com.tecnick.tcpdf
  * @version 1.0.026
- * @author Nicola Asuni
  */
 class TCPDFBarcode {
 

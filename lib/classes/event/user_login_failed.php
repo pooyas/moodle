@@ -1,30 +1,17 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * User login failed event.
  *
  * @package    core
- * @copyright  2014 Rajesh Taneja <rajesh@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace core\event;
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * User login failed event class.
@@ -36,10 +23,6 @@ defined('MOODLE_INTERNAL') || die();
  *      - int reason: failure reason.
  * }
  *
- * @package    core
- * @since      Moodle 2.7
- * @copyright  2014 Rajesh Taneja <rajesh@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class user_login_failed extends base {
     /**
@@ -76,11 +59,11 @@ class user_login_failed extends base {
     /**
      * Get URL related to the action.
      *
-     * @return \moodle_url
+     * @return \lion_url
      */
     public function get_url() {
         if (isset($this->data['userid'])) {
-            return new \moodle_url('/user/profile.php', array('id' => $this->data['userid']));
+            return new \lion_url('/user/profile.php', array('id' => $this->data['userid']));
         } else {
             return null;
         }

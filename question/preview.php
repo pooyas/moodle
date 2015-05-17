@@ -1,18 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * This page displays a preview of a question
@@ -22,11 +9,10 @@
  * information is stored in the session as an array of subsequent states rather
  * than in the database.
  *
- * @package    moodlecore
- * @subpackage questionengine
- * @copyright  Alex Smith {@link http://maths.york.ac.uk/serving_maths} and
  *      numerous contributors.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage question
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -281,6 +267,6 @@ $PAGE->requires->js_module('core_question_engine');
 $PAGE->requires->strings_for_js(array(
     'closepreview',
 ), 'question');
-$PAGE->requires->yui_module('moodle-question-preview', 'M.question.preview.init');
+$PAGE->requires->yui_module('lion-question-preview', 'M.question.preview.init');
 echo $OUTPUT->footer();
 

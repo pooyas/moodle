@@ -3,11 +3,13 @@
  * Configuration for "min", the default application built with the Minify
  * library
  *
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die(); // start of moodle modification
+defined('LION_INTERNAL') || die(); // start of lion modification
 
 // NOTE: Copy all necessary settings here, do not modify the rest.
 //       Minifier can not be accessed directly, only use PHP api.
@@ -26,7 +28,7 @@ $min_uploaderHoursBehind = 0;
 $min_libPath = dirname(__FILE__) . '/lib';
 // do not change zlib compression or buffering here
 
-return; // end of moodle modification
+return; // end of lion modification
 
 
 /**

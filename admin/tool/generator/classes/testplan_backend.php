@@ -1,42 +1,26 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Test plan generator.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    admin_tool
+ * @subpackage generator
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * Generates the files required by JMeter.
  *
- * @package tool_generator
- * @copyright 2013 David Monllaó
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class tool_generator_testplan_backend extends tool_generator_backend {
 
     /**
      * @var The URL to the repository of the external project.
      */
-    protected static $repourl = 'https://github.com/moodlehq/moodle-performance-comparison';
+    protected static $repourl = 'https://github.com/lionhq/lion-performance-comparison';
 
     /**
      * @var Number of users depending on the selected size.
@@ -91,7 +75,7 @@ class tool_generator_testplan_backend extends tool_generator_backend {
     }
 
     /**
-     * Getter for moodle-performance-comparison project URL.
+     * Getter for lion-performance-comparison project URL.
      *
      * @return string
      */
@@ -167,7 +151,7 @@ class tool_generator_testplan_backend extends tool_generator_backend {
         );
 
         $placeholders = array(
-            '{{MOODLEVERSION_PLACEHOLDER}}',
+            '{{LIONVERSION_PLACEHOLDER}}',
             '{{USERS_PLACEHOLDER}}',
             '{{LOOPS_PLACEHOLDER}}',
             '{{RAMPUP_PLACEHOLDER}}',

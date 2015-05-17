@@ -3,7 +3,9 @@
 /**
  * SQL.PHP
  *    This file is include from view.php and print.php
- * @copyright 2003
+ * @package    mod
+ * @subpackage glossary
+ * @copyright  2015 Pooya Saeedi
  **/
 
 /// Creating the SQL statements

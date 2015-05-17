@@ -2,6 +2,9 @@
 
 /**
  * Validates a host according to the IPv4, IPv6 and DNS (future) specifications.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 class HTMLPurifier_AttrDef_URI_Host extends HTMLPurifier_AttrDef
 {

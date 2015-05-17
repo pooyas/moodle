@@ -1,7 +1,7 @@
 {
-    "name": "moodle-question-chooser",
+    "name": "lion-question-chooser",
     "builds": {
-        "moodle-question-chooser": {
+        "lion-question-chooser": {
             "jsfiles": [
                 "chooser.js"
             ]

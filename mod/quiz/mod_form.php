@@ -1,41 +1,26 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines the quiz module ettings form.
  *
- * @package    mod_quiz
- * @copyright  2006 Jamie Pratt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/course/moodleform_mod.php');
+require_once($CFG->dirroot . '/course/lionform_mod.php');
 require_once($CFG->dirroot . '/mod/quiz/locallib.php');
 
 
 /**
  * Settings form for the quiz module.
  *
- * @copyright  2006 Jamie Pratt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_quiz_mod_form extends moodleform_mod {
+class mod_quiz_mod_form extends lionform_mod {
     /** @var array options to be used with date_time_selector fields in the quiz. */
     public static $datefieldoptions = array('optional' => true, 'step' => 1);
 
@@ -396,7 +381,7 @@ class mod_quiz_mod_form extends moodleform_mod {
         // -------------------------------------------------------------------------------
         $this->add_action_buttons();
 
-        $PAGE->requires->yui_module('moodle-mod_quiz-modform', 'M.mod_quiz.modform.init');
+        $PAGE->requires->yui_module('lion-mod_quiz-modform', 'M.mod_quiz.modform.init');
     }
 
     protected function add_review_options_group($mform, $quizconfig, $whenname,
@@ -588,7 +573,7 @@ class mod_quiz_mod_form extends moodleform_mod {
 
     /**
      * Display module-specific activity completion rules.
-     * Part of the API defined by moodleform_mod
+     * Part of the API defined by lionform_mod
      * @return array Array of string IDs of added items, empty array if none
      */
     public function add_completion_rules() {

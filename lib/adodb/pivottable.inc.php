@@ -7,6 +7,9 @@
  *
  * Set tabs to 4 for best viewing.
  *
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
 */
 
 /*

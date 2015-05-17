@@ -1,7 +1,7 @@
 {
-  "name": "moodle-availability_grade-form",
+  "name": "lion-availability_grade-form",
   "builds": {
-    "moodle-availability_grade-form": {
+    "lion-availability_grade-form": {
       "jsfiles": [
         "form.js"
       ]

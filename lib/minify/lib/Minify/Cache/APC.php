@@ -1,7 +1,9 @@
 <?php
 /**
  * Class Minify_Cache_APC
- * @package Minify
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 /**
@@ -10,9 +12,7 @@
  * <code>
  * Minify::setCache(new Minify_Cache_APC());
  * </code>
- * 
- * @package Minify
- * @author Chris Edwards
+ *
  **/
 class Minify_Cache_APC {
 

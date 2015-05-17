@@ -3,14 +3,14 @@
  *
  * This also includes application of an animation to improve user experience.
  *
- * @module moodle-course-categoryexpander
+ * @module lion-course-categoryexpander
  */
 
 /**
  * The course category expander.
  *
  * @constructor
- * @class Y.Moodle.course.categoryexpander
+ * @class Y.Lion.course.categoryexpander
  */
 
 var CSS = {
@@ -36,7 +36,7 @@ var CSS = {
         COURSECATEGORYTREE: '.course_category_tree',
         PARENTWITHCHILDREN: '.category'
     },
-    NS = Y.namespace('Moodle.course.categoryexpander'),
+    NS = Y.namespace('Lion.course.categoryexpander'),
     TYPE_CATEGORY = 0,
     TYPE_COURSE = 1,
     URL = M.cfg.wwwroot + '/course/category.ajax.php';
@@ -71,7 +71,7 @@ NS.init = function() {
 NS.setup_keyboard_listeners = function() {
     var doc = Y.one(Y.config.doc);
 
-    Y.log('Setting the tabindex for all expandable course nodes', 'info', 'moodle-course-categoryexpander');
+    Y.log('Setting the tabindex for all expandable course nodes', 'info', 'lion-course-categoryexpander');
     doc.all(SELECTORS.CATEGORYLISTENLINK, SELECTORS.COURSEBOXLISTENLINK, SELECTORS.COLLAPSEEXPAND).setAttribute('tabindex', '0');
 
 
@@ -89,7 +89,7 @@ NS.setup_keyboard_listeners = function() {
  */
 NS.toggle_category_expansion = function(e) {
     // Load the actual dependencies now that we've been called.
-    Y.use('io-base', 'json-parse', 'moodle-core-notification', 'anim-node-plugin', function() {
+    Y.use('io-base', 'json-parse', 'lion-core-notification', 'anim-node-plugin', function() {
         // Overload the toggle_category_expansion with the _toggle_category_expansion function to ensure that
         // this function isn't called in the future, and call it for the first time.
         NS.toggle_category_expansion = NS._toggle_category_expansion;
@@ -106,7 +106,7 @@ NS.toggle_category_expansion = function(e) {
  */
 NS.toggle_coursebox_expansion = function(e) {
     // Load the actual dependencies now that we've been called.
-    Y.use('io-base', 'json-parse', 'moodle-core-notification', 'anim-node-plugin', function() {
+    Y.use('io-base', 'json-parse', 'lion-core-notification', 'anim-node-plugin', function() {
         // Overload the toggle_coursebox_expansion with the _toggle_coursebox_expansion function to ensure that
         // this function isn't called in the future, and call it for the first time.
         NS.toggle_coursebox_expansion = NS._toggle_coursebox_expansion;
@@ -271,7 +271,7 @@ NS.run_expansion = function(categorynode) {
  */
 NS.collapse_expand_all = function(e) {
     // Load the actual dependencies now that we've been called.
-    Y.use('io-base', 'json-parse', 'moodle-core-notification', 'anim-node-plugin', function() {
+    Y.use('io-base', 'json-parse', 'lion-core-notification', 'anim-node-plugin', function() {
         // Overload the collapse_expand_all with the _collapse_expand_all function to ensure that
         // this function isn't called in the future, and call it for the first time.
         NS.collapse_expand_all = NS._collapse_expand_all;
@@ -368,12 +368,12 @@ NS.update_collapsible_actions = function(ancestor) {
 
     if (foundmaximisedchildren) {
         // At least one maximised child found. Show the collapseall.
-        togglelink.setHTML(M.util.get_string('collapseall', 'moodle'))
+        togglelink.setHTML(M.util.get_string('collapseall', 'lion'))
             .addClass(CSS.COLLAPSEALL)
             .removeClass(CSS.DISABLED);
     } else {
         // No maximised children found but there are collapsed children. Show the expandall.
-        togglelink.setHTML(M.util.get_string('expandall', 'moodle'))
+        togglelink.setHTML(M.util.get_string('expandall', 'lion'))
             .removeClass(CSS.COLLAPSEALL)
             .removeClass(CSS.DISABLED);
     }

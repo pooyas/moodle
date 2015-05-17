@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Scheduled and adhoc task management.
  *
- * @package    core
  * @category   task
- * @copyright  2013 Damyon Wiese
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 namespace core\task;
 
@@ -31,8 +18,6 @@ define('CORE_TASK_TASKS_FILENAME', 'db/tasks.php');
  * Some locking rules for this class:
  * All changes to scheduled tasks must be protected with both - the global cron lock and the lock
  * for the specific scheduled task (in that order). Locks must be released in the reverse order.
- * @copyright  2013 Damyon Wiese
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class manager {
 
@@ -397,7 +382,7 @@ class manager {
         $cronlockfactory = \core\lock\lock_config::get_lock_factory('cron');
 
         if (!$cronlock = $cronlockfactory->get_lock('core_cron', 10)) {
-            throw new \moodle_exception('locktimeout');
+            throw new \lion_exception('locktimeout');
         }
 
         $where = '(nextruntime IS NULL OR nextruntime < :timestart1)';
@@ -443,7 +428,7 @@ class manager {
         $cronlockfactory = \core\lock\lock_config::get_lock_factory('cron');
 
         if (!$cronlock = $cronlockfactory->get_lock('core_cron', 10)) {
-            throw new \moodle_exception('locktimeout');
+            throw new \lion_exception('locktimeout');
         }
 
         $where = "(lastruntime IS NULL OR lastruntime < :timestart1)

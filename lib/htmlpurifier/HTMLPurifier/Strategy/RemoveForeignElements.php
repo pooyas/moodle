@@ -6,6 +6,9 @@
  * This strategy iterates through all the tokens and removes unrecognized
  * tokens. If a token is not recognized but a TagTransform is defined for
  * that element, the element will be transformed accordingly.
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
 class HTMLPurifier_Strategy_RemoveForeignElements extends HTMLPurifier_Strategy

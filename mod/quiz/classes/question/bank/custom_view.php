@@ -1,37 +1,22 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Defines the custom question bank view used on the Edit quiz page.
  *
- * @package   mod_quiz
  * @category  question
- * @copyright 1999 onwards Martin Dougiamas and others {@link http://moodle.com}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod
+ * @subpackage quiz
+ * @copyright  2015 Pooya Saeedi
  */
 
 namespace mod_quiz\question\bank;
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 
 /**
  * Subclass to customise the view of the question bank for the quiz editing screen.
  *
- * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class custom_view extends \core_question\bank\view {
     /** @var bool whether the quiz this is used by has been attemptd. */
@@ -44,7 +29,7 @@ class custom_view extends \core_question\bank\view {
     /**
      * Constructor
      * @param \question_edit_contexts $contexts
-     * @param \moodle_url $pageurl
+     * @param \lion_url $pageurl
      * @param \stdClass $course course settings
      * @param \stdClass $cm activity settings.
      * @param \stdClass $quiz quiz settings.
@@ -127,7 +112,7 @@ class custom_view extends \core_question\bank\view {
         $params = $this->baseurl->params();
         $params['addquestion'] = $questionid;
         $params['sesskey'] = sesskey();
-        return new \moodle_url('/mod/quiz/edit.php', $params);
+        return new \lion_url('/mod/quiz/edit.php', $params);
     }
 
     /**
@@ -158,7 +143,7 @@ class custom_view extends \core_question\bank\view {
         $cmoptions = new \stdClass();
         $cmoptions->hasattempts = !empty($this->quizhasattempts);
 
-        $canuseall = has_capability('moodle/question:useall', $catcontext);
+        $canuseall = has_capability('lion/question:useall', $catcontext);
 
         echo '<div class="modulespecificbuttonscontainer">';
         if ($canuseall) {
@@ -180,9 +165,9 @@ class custom_view extends \core_question\bank\view {
     /**
      * Prints a form to choose categories.
      * @param string $categoryandcontext 'categoryID,contextID'.
-     * @deprecated since Moodle 2.6 MDL-40313.
+     * @deprecated since Lion 2.6 MDL-40313.
      * @see \core_question\bank\search\category_condition
-     * @todo MDL-41978 This will be deleted in Moodle 2.8
+     * @todo MDL-41978 This will be deleted in Lion 2.8
      */
     protected function print_choose_category_message($categoryandcontext) {
         global $OUTPUT;

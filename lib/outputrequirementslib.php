@@ -1,31 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
- * Library functions to facilitate the use of JavaScript in Moodle.
+ * Library functions to facilitate the use of JavaScript in Lion.
  *
  * Note: you can find history of this file in lib/ajax/ajaxlib.php
  *
- * @copyright 2009 Tim Hunt, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @package core
  * @category output
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined('LION_INTERNAL') || die();
 
 /**
  * This class tracks all the things that are needed by the current page.
@@ -51,10 +38,6 @@ defined('MOODLE_INTERNAL') || die();
  * can only be called before the <head> tag is output. See the comments on the
  * individual methods for details.
  *
- * @copyright 2009 Tim Hunt, 2010 Petr Skoda
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.0
- * @package core
  * @category output
  */
 class page_requirements_manager {
@@ -101,12 +84,12 @@ class page_requirements_manager {
     protected $jsinitcode = array();
 
     /**
-     * @var array of moodle_url Theme sheets, initialised only from core_renderer
+     * @var array of lion_url Theme sheets, initialised only from core_renderer
      */
     protected $cssthemeurls = array();
 
     /**
-     * @var array of moodle_url List of custom theme sheets, these are strongly discouraged!
+     * @var array of lion_url List of custom theme sheets, these are strongly discouraged!
      * Useful mostly only for CSS submitted by teachers that is not part of the theme.
      */
     protected $cssurls = array();
@@ -204,7 +187,7 @@ class page_requirements_manager {
         $this->YUI_config->combine      = $this->yui3loader->combine;
 
         // If we've had to patch any YUI modules between releases, we must override the YUI configuration to include them.
-        // For important information on patching YUI modules, please see http://docs.moodle.org/dev/YUI/Patching.
+        // For important information on patching YUI modules, please see http://docs.lion.org/dev/YUI/Patching.
         if (!empty($CFG->yuipatchedmodules) && !empty($CFG->yuipatchlevel)) {
             $this->YUI_config->define_patched_core_modules($this->yui3loader->local_comboBase,
                     $CFG->yui3version,
@@ -227,17 +210,17 @@ class page_requirements_manager {
                 )
             )
         ));
-        $configname = $this->YUI_config->set_config_source('lib/yui/config/moodle.js');
-        $this->YUI_config->add_group('moodle', array(
-            'name' => 'moodle',
+        $configname = $this->YUI_config->set_config_source('lib/yui/config/lion.js');
+        $this->YUI_config->add_group('lion', array(
+            'name' => 'lion',
             'base' => $CFG->httpswwwroot . '/theme/yui_combo.php' . $sep . 'm/' . $jsrev . '/',
             'combine' => $this->yui3loader->combine,
             'comboBase' => $CFG->httpswwwroot . '/theme/yui_combo.php'.$sep,
             'ext' => false,
             'root' => 'm/'.$jsrev.'/', // Add the rev to the root path so that we can control caching.
             'patterns' => array(
-                'moodle-' => array(
-                    'group' => 'moodle',
+                'lion-' => array(
+                    'group' => 'lion',
                     'configFn' => $configname,
                 )
             )
@@ -261,17 +244,17 @@ class page_requirements_manager {
         if ($CFG->debugdeveloper) {
             // When debugging is enabled, we want to load the non-minified (RAW) versions of YUI library modules rather
             // than the DEBUG versions as these generally generate too much logging for our purposes.
-            // However we do want the DEBUG versions of our Moodle-specific modules.
+            // However we do want the DEBUG versions of our Lion-specific modules.
             // To debug a YUI-specific issue, change the yui3loader->filter value to DEBUG.
             $this->YUI_config->filter = 'RAW';
-            $this->YUI_config->groups['moodle']['filter'] = 'DEBUG';
+            $this->YUI_config->groups['lion']['filter'] = 'DEBUG';
 
             // We use the yui3loader->filter setting when writing the YUI3 seed scripts into the header.
             $this->yui3loader->filter = $this->YUI_config->filter;
             $this->YUI_config->debug = true;
         } else {
             $this->yui3loader->filter = null;
-            $this->YUI_config->groups['moodle']['filter'] = null;
+            $this->YUI_config->groups['lion']['filter'] = null;
             $this->YUI_config->debug = false;
         }
 
@@ -286,8 +269,8 @@ class page_requirements_manager {
             $this->YUI_config->logLevel = $CFG->yuiloglevel;
         }
 
-        // Add the moodle group's module data.
-        $this->YUI_config->add_moodle_metadata();
+        // Add the lion group's module data.
+        $this->YUI_config->add_lion_metadata();
 
         // Every page should include definition of following modules.
         $this->js_module($this->find_module('core_filepicker'));
@@ -296,10 +279,9 @@ class page_requirements_manager {
     /**
      * Return the safe config values that get set for javascript in "M.cfg".
      *
-     * @since 2.9
      * @return array List of safe config values that are available to javascript.
      */
-    public function get_config_for_javascript(moodle_page $page, renderer_base $renderer) {
+    public function get_config_for_javascript(lion_page $page, renderer_base $renderer) {
         global $CFG;
 
         if (empty($this->M_cfg)) {
@@ -310,7 +292,7 @@ class page_requirements_manager {
             $this->M_cfg = array(
                 'wwwroot'             => $CFG->httpswwwroot, // Yes, really. See above.
                 'sesskey'             => sesskey(),
-                'loadingicon'         => $renderer->pix_url('i/loading_small', 'moodle')->out(false),
+                'loadingicon'         => $renderer->pix_url('i/loading_small', 'lion')->out(false),
                 'themerev'            => theme_get_revision(),
                 'slasharguments'      => (int)(!empty($CFG->slasharguments)),
                 'theme'               => $page->theme->name,
@@ -330,12 +312,12 @@ class page_requirements_manager {
     }
 
     /**
-     * Initialise with the bits of JavaScript that every Moodle page should have.
+     * Initialise with the bits of JavaScript that every Lion page should have.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param core_renderer $renderer
      */
-    protected function init_requirements_data(moodle_page $page, core_renderer $renderer) {
+    protected function init_requirements_data(lion_page $page, core_renderer $renderer) {
         global $CFG;
 
         // Init the js config.
@@ -346,8 +328,8 @@ class page_requirements_manager {
 
         // Add strings used on many pages.
         $this->string_for_js('confirmation', 'admin');
-        $this->string_for_js('cancel', 'moodle');
-        $this->string_for_js('yes', 'moodle');
+        $this->string_for_js('cancel', 'lion');
+        $this->string_for_js('yes', 'lion');
 
         // Alter links in top frame to break out of frames.
         if ($page->pagelayout === 'frametop') {
@@ -371,8 +353,8 @@ class page_requirements_manager {
             $this->strings_for_js(array('movecontent',
                                         'tocontent',
                                         'emptydragdropregion'),
-                                  'moodle');
-            $page->requires->yui_module('moodle-core-blocks', 'M.core_blocks.init_dragdrop', array($params), null, true);
+                                  'lion');
+            $page->requires->yui_module('lion-core-blocks', 'M.core_blocks.init_dragdrop', array($params), null, true);
         }
     }
 
@@ -406,8 +388,8 @@ class page_requirements_manager {
      * Even if a particular script is requested more than once, it will only be linked
      * to once.
      *
-     * @param string|moodle_url $url The path to the .js file, relative to $CFG->dirroot / $CFG->wwwroot.
-     *      For example '/mod/mymod/customscripts.js'; use moodle_url for external scripts
+     * @param string|lion_url $url The path to the .js file, relative to $CFG->dirroot / $CFG->wwwroot.
+     *      For example '/mod/mymod/customscripts.js'; use lion_url for external scripts
      * @param bool $inhead initialise in head
      */
     public function js($url, $inhead = false) {
@@ -419,13 +401,13 @@ class page_requirements_manager {
     /**
      * Request inclusion of jQuery library in the page.
      *
-     * NOTE: this should not be used in official Moodle distribution!
+     * NOTE: this should not be used in official Lion distribution!
      *
      * We are going to bundle jQuery 1.9.x until we drop support
      * all support for IE 6-8. Use $PAGE->requires->jquery_plugin('migrate')
      * for code written for earlier jQuery versions.
      *
-     * {@see http://docs.moodle.org/dev/jQuery}
+     * {@see http://docs.lion.org/dev/jQuery}
      */
     public function jquery() {
         $this->jquery_plugin('jquery');
@@ -434,7 +416,7 @@ class page_requirements_manager {
     /**
      * Request inclusion of jQuery plugin.
      *
-     * NOTE: this should not be used in official Moodle distribution!
+     * NOTE: this should not be used in official Lion distribution!
      *
      * jQuery plugins are located in plugin/jquery/* subdirectory,
      * plugin/jquery/plugins.php lists all available plugins.
@@ -457,7 +439,7 @@ class page_requirements_manager {
      *
      * <code>
      *   // file: theme/yyy/lib.php
-     *   function theme_yyy_page_init(moodle_page $page) {
+     *   function theme_yyy_page_init(lion_page $page) {
      *       $page->requires->jquery();
      *       $page->requires->jquery_plugin('ui');
      *       $page->requires->jquery_plugin('ui-css');
@@ -474,7 +456,7 @@ class page_requirements_manager {
      *   }
      * </code>
      *
-     * {@see http://docs.moodle.org/dev/jQuery}
+     * {@see http://docs.lion.org/dev/jQuery}
      *
      * @param string $plugin name of the jQuery plugin as defined in jquery/plugins.php
      * @param string $component name of the component
@@ -489,7 +471,7 @@ class page_requirements_manager {
         }
 
         if ($component !== 'core' and in_array($plugin, array('jquery', 'ui', 'ui-css', 'migrate'))) {
-            debugging("jQuery plugin '$plugin' is included in Moodle core, other components can not use the same name.", DEBUG_DEVELOPER);
+            debugging("jQuery plugin '$plugin' is included in Lion core, other components can not use the same name.", DEBUG_DEVELOPER);
             $component = 'core';
         } else if ($component !== 'core' and strpos($component, '_') === false) {
             // Let's normalise the legacy activity names, Frankenstyle rulez!
@@ -503,7 +485,7 @@ class page_requirements_manager {
         }
 
         if (isset($this->jqueryplugins[$plugin])) {
-            // No problem, we already have something, first Moodle plugin to register the jQuery plugin wins.
+            // No problem, we already have something, first Lion plugin to register the jQuery plugin wins.
             return true;
         }
 
@@ -540,7 +522,7 @@ class page_requirements_manager {
                 continue;
             }
             if (!empty($CFG->slasharguments)) {
-                $url = new moodle_url("$CFG->httpswwwroot/theme/jquery.php");
+                $url = new lion_url("$CFG->httpswwwroot/theme/jquery.php");
                 $url->set_slashargument("/$component/$file");
 
             } else {
@@ -548,10 +530,10 @@ class page_requirements_manager {
                 $path = realpath("$componentdir/jquery/$file");
                 if (strpos($path, $CFG->dirroot) === 0) {
                     $url = $CFG->httpswwwroot.preg_replace('/^'.preg_quote($CFG->dirroot, '/').'/', '', $path);
-                    $url = new moodle_url($url);
+                    $url = new lion_url($url);
                 } else {
                     // Bad luck, fix your server!
-                    debugging("Moodle jQuery integration requires 'slasharguments' setting to be enabled.");
+                    debugging("Lion jQuery integration requires 'slasharguments' setting to be enabled.");
                     continue;
                 }
             }
@@ -583,7 +565,7 @@ class page_requirements_manager {
      * This code prevents loading of standard 'ui-css' which my be requested by other plugins,
      * the 'yourtheme-ui-css' gets loaded only if some other code requires jquery.
      *
-     * {@see http://docs.moodle.org/dev/jQuery}
+     * {@see http://docs.lion.org/dev/jQuery}
      *
      * @param string $oldplugin original plugin
      * @param string $newplugin the replacement
@@ -668,13 +650,13 @@ class page_requirements_manager {
     /**
      * Returns the actual url through which a script is served.
      *
-     * @param moodle_url|string $url full moodle url, or shortened path to script
-     * @return moodle_url
+     * @param lion_url|string $url full lion url, or shortened path to script
+     * @return lion_url
      */
     protected function js_fix_url($url) {
         global $CFG;
 
-        if ($url instanceof moodle_url) {
+        if ($url instanceof lion_url) {
             return $url;
         } else if (strpos($url, '/') === 0) {
             // Fix the admin links if needed.
@@ -692,17 +674,17 @@ class page_requirements_manager {
             if (substr($url, -3) === '.js') {
                 $jsrev = $this->get_jsrev();
                 if (empty($CFG->slasharguments)) {
-                    return new moodle_url($CFG->httpswwwroot.'/lib/javascript.php', array('rev'=>$jsrev, 'jsfile'=>$url));
+                    return new lion_url($CFG->httpswwwroot.'/lib/javascript.php', array('rev'=>$jsrev, 'jsfile'=>$url));
                 } else {
-                    $returnurl = new moodle_url($CFG->httpswwwroot.'/lib/javascript.php');
+                    $returnurl = new lion_url($CFG->httpswwwroot.'/lib/javascript.php');
                     $returnurl->set_slashargument('/'.$jsrev.$url);
                     return $returnurl;
                 }
             } else {
-                return new moodle_url($CFG->httpswwwroot.$url);
+                return new lion_url($CFG->httpswwwroot.$url);
             }
         } else {
-            throw new coding_exception('Invalid JS url, it has to be shortened url starting with / or moodle_url instance.', $url);
+            throw new coding_exception('Invalid JS url, it has to be shortened url starting with / or lion_url instance.', $url);
         }
     }
 
@@ -724,9 +706,9 @@ class page_requirements_manager {
                 case 'core_filepicker':
                     $module = array('name'     => 'core_filepicker',
                                     'fullpath' => '/repository/filepicker.js',
-                                    'requires' => array('base', 'node', 'node-event-simulate', 'json', 'async-queue', 'io-base', 'io-upload-iframe', 'io-form', 'yui2-treeview', 'panel', 'cookie', 'datatable', 'datatable-sort', 'resize-plugin', 'dd-plugin', 'escape', 'moodle-core_filepicker'),
-                                    'strings'  => array(array('lastmodified', 'moodle'), array('name', 'moodle'), array('type', 'repository'), array('size', 'repository'),
-                                                        array('invalidjson', 'repository'), array('error', 'moodle'), array('info', 'moodle'),
+                                    'requires' => array('base', 'node', 'node-event-simulate', 'json', 'async-queue', 'io-base', 'io-upload-iframe', 'io-form', 'yui2-treeview', 'panel', 'cookie', 'datatable', 'datatable-sort', 'resize-plugin', 'dd-plugin', 'escape', 'lion-core_filepicker'),
+                                    'strings'  => array(array('lastmodified', 'lion'), array('name', 'lion'), array('type', 'repository'), array('size', 'repository'),
+                                                        array('invalidjson', 'repository'), array('error', 'lion'), array('info', 'lion'),
                                                         array('nofilesattached', 'repository'), array('filepicker', 'repository'), array('logout', 'repository'),
                                                         array('nofilesavailable', 'repository'), array('norepositoriesavailable', 'repository'),
                                                         array('fileexistsdialogheader', 'repository'), array('fileexistsdialog_editor', 'repository'),
@@ -738,7 +720,7 @@ class page_requirements_manager {
                     $module = array('name'     => 'core_comment',
                                     'fullpath' => '/comment/comment.js',
                                     'requires' => array('base', 'io-base', 'node', 'json', 'yui2-animation', 'overlay'),
-                                    'strings' => array(array('confirmdeletecomments', 'admin'), array('yes', 'moodle'), array('no', 'moodle'))
+                                    'strings' => array(array('confirmdeletecomments', 'admin'), array('yes', 'lion'), array('no', 'lion'))
                                 );
                     break;
                 case 'core_role':
@@ -774,9 +756,9 @@ class page_requirements_manager {
                     $module = array('name'     => 'core_dndupload',
                                     'fullpath' => '/lib/form/dndupload.js',
                                     'requires' => array('node', 'event', 'json', 'core_filepicker'),
-                                    'strings'  => array(array('uploadformlimit', 'moodle'), array('droptoupload', 'moodle'), array('maxfilesreached', 'moodle'),
-                                                        array('dndenabled_inbox', 'moodle'), array('fileexists', 'moodle'), array('maxbytesforfile', 'moodle'),
-                                                        array('maxareabytesreached', 'moodle'), array('serverconnection', 'error'),
+                                    'strings'  => array(array('uploadformlimit', 'lion'), array('droptoupload', 'lion'), array('maxfilesreached', 'lion'),
+                                                        array('dndenabled_inbox', 'lion'), array('fileexists', 'lion'), array('maxbytesforfile', 'lion'),
+                                                        array('maxareabytesreached', 'lion'), array('serverconnection', 'error'),
                                                     ));
                     break;
             }
@@ -822,7 +804,7 @@ class page_requirements_manager {
         if (!empty($module['strings'])) {
             foreach ($module['strings'] as $string) {
                 $identifier = $string[0];
-                $component = isset($string[1]) ? $string[1] : 'moodle';
+                $component = isset($string[1]) ? $string[1] : 'lion';
                 $a = isset($string[2]) ? $string[2] : null;
                 $this->string_for_js($identifier, $component, $a);
             }
@@ -830,7 +812,7 @@ class page_requirements_manager {
         unset($module['strings']);
 
         // Process module requirements and attempt to load each. This allows
-        // moodle modules to require each other.
+        // lion modules to require each other.
         if (!empty($module['requires'])){
             foreach ($module['requires'] as $requirement) {
                 $rmodule = $this->find_module($requirement);
@@ -890,10 +872,10 @@ class page_requirements_manager {
             throw new coding_exception('Cannot require a CSS file after &lt;head> has been printed.', $stylesheet);
         }
 
-        if ($stylesheet instanceof moodle_url) {
+        if ($stylesheet instanceof lion_url) {
             // ok
         } else if (strpos($stylesheet, '/') === 0) {
-            $stylesheet = new moodle_url($CFG->httpswwwroot.$stylesheet);
+            $stylesheet = new lion_url($CFG->httpswwwroot.$stylesheet);
         } else {
             throw new coding_exception('Invalid stylesheet parameter.', $stylesheet);
         }
@@ -905,10 +887,10 @@ class page_requirements_manager {
      * Add theme stylesheet to page - do not use from plugin code,
      * this should be called only from the core renderer!
      *
-     * @param moodle_url $stylesheet
+     * @param lion_url $stylesheet
      * @return void
      */
-    public function css_theme(moodle_url $stylesheet) {
+    public function css_theme(lion_url $stylesheet) {
         $this->cssthemeurls[] = $stylesheet;
     }
 
@@ -1019,7 +1001,7 @@ class page_requirements_manager {
      * This function can be used to include all of the standard YUI module types within JavaScript:
      *     - YUI3 modules    [node, event, io]
      *     - YUI2 modules    [yui2-*]
-     *     - Moodle modules  [moodle-*]
+     *     - Lion modules  [lion-*]
      *     - Gallery modules [gallery-*]
      *
      * Before writing new code that makes extensive use of YUI, you should consider it's replacement AMD/JQuery.
@@ -1037,7 +1019,7 @@ class page_requirements_manager {
         }
 
         if ($galleryversion != null) {
-            debugging('The galleryversion parameter to yui_module has been deprecated since Moodle 2.3.');
+            debugging('The galleryversion parameter to yui_module has been deprecated since Lion 2.3.');
         }
 
         $jscode = 'Y.use('.join(',', array_map('json_encode', convert_to_array($modules))).',function() {'.js_writer::function_call($function, $arguments).'});';
@@ -1105,8 +1087,8 @@ class page_requirements_manager {
      * Make a language string available to JavaScript.
      *
      * All the strings will be available in a M.str object in the global namespace.
-     * So, for example, after a call to $PAGE->requires->string_for_js('course', 'moodle');
-     * then the JavaScript variable M.str.moodle.course will be 'Course', or the
+     * So, for example, after a call to $PAGE->requires->string_for_js('course', 'lion');
+     * then the JavaScript variable M.str.lion.course will be 'Course', or the
      * equivalent in the current language.
      *
      * The arguments to this function are just like the arguments to get_string
@@ -1129,18 +1111,18 @@ class page_requirements_manager {
      * use M.str or M.util.get_string() as shown above:
      *
      *     // Require the string in PHP and replace the placeholder.
-     *     $PAGE->requires->string_for_js('fullnamedisplay', 'moodle', $USER);
+     *     $PAGE->requires->string_for_js('fullnamedisplay', 'lion', $USER);
      *     // Use the result of the substitution in Javascript.
-     *     alert(M.str.moodle.fullnamedisplay);
+     *     alert(M.str.lion.fullnamedisplay);
      *
      * To substitute the placeholder at client side, use M.util.get_string()
      * function. It implements the same logic as {@link get_string()}:
      *
      *     // Require the string in PHP but keep {$a} as it is.
-     *     $PAGE->requires->string_for_js('fullnamedisplay', 'moodle');
+     *     $PAGE->requires->string_for_js('fullnamedisplay', 'lion');
      *     // Provide the values on the fly in Javascript.
      *     user = { firstname : 'Harry', lastname : 'Potter' }
-     *     alert(M.util.get_string('fullnamedisplay', 'moodle', user);
+     *     alert(M.util.get_string('fullnamedisplay', 'lion', user);
      *
      * If you do need the same string expanded with different $a values in PHP
      * on server side, then the solution is to put them in your own data structure
@@ -1206,9 +1188,9 @@ class page_requirements_manager {
      *
      * For example, if you call
      * <pre>
-     *      $PAGE->requires->data_for_js('mydata', array('name' => 'Moodle'));
+     *      $PAGE->requires->data_for_js('mydata', array('name' => 'Lion'));
      * </pre>
-     * then in JavsScript mydata.name will be 'Moodle'.
+     * then in JavsScript mydata.name will be 'Lion'.
      *
      * @deprecated
      * @param string $variable the the name of the JavaScript variable to assign the data to.
@@ -1288,12 +1270,12 @@ class page_requirements_manager {
         $output = '';
         $jsrev = $this->get_jsrev();
 
-        $jsloader = new moodle_url($CFG->httpswwwroot . '/lib/javascript.php');
+        $jsloader = new lion_url($CFG->httpswwwroot . '/lib/javascript.php');
         $jsloader->set_slashargument('/' . $jsrev . '/');
-        $requirejsloader = new moodle_url($CFG->httpswwwroot . '/lib/requirejs.php');
+        $requirejsloader = new lion_url($CFG->httpswwwroot . '/lib/requirejs.php');
         $requirejsloader->set_slashargument('/' . $jsrev . '/');
 
-        $requirejsconfig = file_get_contents($CFG->dirroot . '/lib/requirejs/moodle-config.js');
+        $requirejsconfig = file_get_contents($CFG->dirroot . '/lib/requirejs/lion-config.js');
 
         // No extension required unless slash args is disabled.
         $jsextension = '.js';
@@ -1326,7 +1308,7 @@ class page_requirements_manager {
      * Major benefit of this compared to standard js/csss loader is much improved
      * caching, better browser cache utilisation, much fewer http requests.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @return string
      */
     protected function get_yui3lib_headcode($page) {
@@ -1342,7 +1324,7 @@ class page_requirements_manager {
         }
 
         $format = '-min';
-        if ($this->YUI_config->groups['moodle']['filter'] === 'DEBUG') {
+        if ($this->YUI_config->groups['lion']['filter'] === 'DEBUG') {
             $format = '-debug';
         }
 
@@ -1352,7 +1334,7 @@ class page_requirements_manager {
         }
 
         $baserollups = array(
-            'rollup/' . $rollupversion . "/yui-moodlesimple{$yuiformat}.js",
+            'rollup/' . $rollupversion . "/yui-lionsimple{$yuiformat}.js",
             'rollup/' . $jsrev . "/mcore{$format}.js",
         );
 
@@ -1364,7 +1346,7 @@ class page_requirements_manager {
                 }
                 $code .= '<link rel="stylesheet" type="text/css" href="'.$this->yui3loader->comboBase.implode('&amp;', $modules).'" />';
             }
-            $code .= '<link rel="stylesheet" type="text/css" href="'.$this->yui3loader->local_comboBase.'rollup/'.$CFG->yui3version.'/yui-moodlesimple' . $yuiformat . '.css" />';
+            $code .= '<link rel="stylesheet" type="text/css" href="'.$this->yui3loader->local_comboBase.'rollup/'.$CFG->yui3version.'/yui-lionsimple' . $yuiformat . '.css" />';
             $code .= '<script type="text/javascript" src="'.$this->yui3loader->local_comboBase
                     . implode('&amp;', $baserollups) . '"></script>';
 
@@ -1374,7 +1356,7 @@ class page_requirements_manager {
                     $code .= '<link rel="stylesheet" type="text/css" href="'.$this->yui3loader->base.$module.'/'.$module.'-min.css" />';
                 }
             }
-            $code .= '<link rel="stylesheet" type="text/css" href="'.$this->yui3loader->local_comboBase.'rollup/'.$CFG->yui3version.'/yui-moodlesimple' . $yuiformat . '.css" />';
+            $code .= '<link rel="stylesheet" type="text/css" href="'.$this->yui3loader->local_comboBase.'rollup/'.$CFG->yui3version.'/yui-lionsimple' . $yuiformat . '.css" />';
             foreach ($baserollups as $rollup) {
                 $code .= '<script type="text/javascript" src="'.$this->yui3loader->local_comboBase.$rollup.'"></script>';
             }
@@ -1436,11 +1418,11 @@ class page_requirements_manager {
      * Normally, this method is called automatically by the code that prints the
      * <head> tag. You should not normally need to call it in your own code.
      *
-     * @param moodle_page $page
+     * @param lion_page $page
      * @param core_renderer $renderer
      * @return string the HTML code to to inside the <head> tag.
      */
-    public function get_head_code(moodle_page $page, core_renderer $renderer) {
+    public function get_head_code(lion_page $page, core_renderer $renderer) {
         global $CFG;
 
         // Note: the $page and $output are not stored here because it would
@@ -1457,7 +1439,7 @@ class page_requirements_manager {
         // An example of where this is used is the quiz countdown timer.
         $js .= "M.pageloadstarttime = new Date();\n";
 
-        // Add a subset of Moodle configuration to the M namespace.
+        // Add a subset of Lion configuration to the M namespace.
         $js .= js_writer::set_variable('M.cfg', $this->M_cfg, false);
 
         // Set up global YUI3 loader object - this should contain all code needed by plugins.
@@ -1474,7 +1456,7 @@ class page_requirements_manager {
         // They should be cached well by the browser.
         $output .= $this->get_yui3lib_headcode($page);
 
-        // Add hacked jQuery support, it is not intended for standard Moodle distribution!
+        // Add hacked jQuery support, it is not intended for standard Lion distribution!
         $output .= $this->get_jquery_headcode();
 
         // Now theme CSS + custom CSS in this specific order.
@@ -1574,7 +1556,7 @@ class page_requirements_manager {
             'areyousure',
             'closebuttontitle',
             'unknownerror',
-        ), 'moodle');
+        ), 'lion');
         if (!empty($this->stringsforjs)) {
             $strings = array();
             foreach ($this->stringsforjs as $component=>$v) {
@@ -1692,10 +1674,6 @@ class page_requirements_manager {
 /**
  * This class represents the YUI configuration.
  *
- * @copyright 2013 Andrew Nicols
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @since Moodle 2.5
- * @package core
  * @category output
  */
 class YUI_config {
@@ -1749,7 +1727,7 @@ class YUI_config {
      */
     public function update_group($name, $config) {
         if (!isset($this->groups[$name])) {
-            throw new coding_exception('The Moodle YUI module does not exist. You must define the moodle module config using YUI_config->add_module_config first.');
+            throw new coding_exception('The Lion YUI module does not exist. You must define the lion module config using YUI_config->add_module_config first.');
         }
         $this->groups[$name] = $config;
     }
@@ -1848,7 +1826,7 @@ class YUI_config {
     public function add_module_config($name, $config, $group = null) {
         if ($group) {
             if (!isset($this->groups[$name])) {
-                throw new coding_exception('The Moodle YUI module does not exist. You must define the moodle module config using YUI_config->add_module_config first.');
+                throw new coding_exception('The Lion YUI module does not exist. You must define the lion module config using YUI_config->add_module_config first.');
             }
             if (!isset($this->groups[$group]['modules'])) {
                 $this->groups[$group]['modules'] = array();
@@ -1861,7 +1839,7 @@ class YUI_config {
     }
 
     /**
-     * Add the moodle YUI module metadata for the moodle group to the YUI_config instance.
+     * Add the lion YUI module metadata for the lion group to the YUI_config instance.
      *
      * If js caching is disabled, metadata will not be served causing YUI to calculate
      * module dependencies as each module is loaded.
@@ -1870,47 +1848,47 @@ class YUI_config {
      *
      * @return void
      */
-    public function add_moodle_metadata() {
+    public function add_lion_metadata() {
         global $CFG;
-        if (!isset($this->groups['moodle'])) {
-            throw new coding_exception('The Moodle YUI module does not exist. You must define the moodle module config using YUI_config->add_module_config first.');
+        if (!isset($this->groups['lion'])) {
+            throw new coding_exception('The Lion YUI module does not exist. You must define the lion module config using YUI_config->add_module_config first.');
         }
 
-        if (!isset($this->groups['moodle']['modules'])) {
-            $this->groups['moodle']['modules'] = array();
+        if (!isset($this->groups['lion']['modules'])) {
+            $this->groups['lion']['modules'] = array();
         }
 
         $cache = cache::make('core', 'yuimodules');
         if (!isset($CFG->jsrev) || $CFG->jsrev == -1) {
             $metadata = array();
-            $metadata = $this->get_moodle_metadata();
+            $metadata = $this->get_lion_metadata();
             $cache->delete('metadata');
         } else {
             // Attempt to get the metadata from the cache.
             if (!$metadata = $cache->get('metadata')) {
-                $metadata = $this->get_moodle_metadata();
+                $metadata = $this->get_lion_metadata();
                 $cache->set('metadata', $metadata);
             }
         }
 
         // Merge with any metadata added specific to this page which was added manually.
-        $this->groups['moodle']['modules'] = array_merge($this->groups['moodle']['modules'],
+        $this->groups['lion']['modules'] = array_merge($this->groups['lion']['modules'],
                 $metadata);
     }
 
     /**
-     * Determine the module metadata for all moodle YUI modules.
+     * Determine the module metadata for all lion YUI modules.
      *
      * This works through all modules capable of serving YUI modules, and attempts to get
      * metadata for each of those modules.
      *
      * @return Array of module metadata
      */
-    private function get_moodle_metadata() {
-        $moodlemodules = array();
+    private function get_lion_metadata() {
+        $lionmodules = array();
         // Core isn't a plugin type or subsystem - handle it seperately.
-        if ($module = $this->get_moodle_path_metadata(core_component::get_component_directory('core'))) {
-            $moodlemodules = array_merge($moodlemodules, $module);
+        if ($module = $this->get_lion_path_metadata(core_component::get_component_directory('core'))) {
+            $lionmodules = array_merge($lionmodules, $module);
         }
 
         // Handle other core subsystems.
@@ -1919,8 +1897,8 @@ class YUI_config {
             if (is_null($path)) {
                 continue;
             }
-            if ($module = $this->get_moodle_path_metadata($path)) {
-                $moodlemodules = array_merge($moodlemodules, $module);
+            if ($module = $this->get_lion_path_metadata($path)) {
+                $lionmodules = array_merge($lionmodules, $module);
             }
         }
 
@@ -1929,13 +1907,13 @@ class YUI_config {
         foreach ($plugintypes as $plugintype => $pathroot) {
             $pluginlist = core_component::get_plugin_list($plugintype);
             foreach ($pluginlist as $plugin => $path) {
-                if ($module = $this->get_moodle_path_metadata($path)) {
-                    $moodlemodules = array_merge($moodlemodules, $module);
+                if ($module = $this->get_lion_path_metadata($path)) {
+                    $lionmodules = array_merge($lionmodules, $module);
                 }
             }
         }
 
-        return $moodlemodules;
+        return $lionmodules;
     }
 
     /**
@@ -1944,7 +1922,7 @@ class YUI_config {
      * @param String $path the UNC path to the YUI src directory.
      * @return Array the complete array for frankenstyle directory.
      */
-    private function get_moodle_path_metadata($path) {
+    private function get_lion_path_metadata($path) {
         // Add module metadata is stored in frankenstyle_modname/yui/src/yui_modname/meta/yui_modname.json.
         $baseyui = $path . '/yui/src';
         $modules = array();

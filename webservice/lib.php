@@ -1,26 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 /**
  * Web services utility functions and classes
  *
- * @package    core_webservice
- * @copyright  2009 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage webservice
+ * @copyright  2015 Pooya Saeedi
  */
 
 require_once($CFG->libdir.'/externallib.php');
@@ -36,16 +23,13 @@ define('WEBSERVICE_AUTHMETHOD_USERNAME', 0);
 define('WEBSERVICE_AUTHMETHOD_PERMANENT_TOKEN', 1);
 
 /**
- * WEBSERVICE_AUTHMETHOD_SESSION_TOKEN - token for embedded application (requires Moodle session)
+ * WEBSERVICE_AUTHMETHOD_SESSION_TOKEN - token for embedded application (requires Lion session)
  */
 define('WEBSERVICE_AUTHMETHOD_SESSION_TOKEN', 2);
 
 /**
  * General web service library
  *
- * @package    core_webservice
- * @copyright  2010 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class webservice {
 
@@ -65,8 +49,8 @@ class webservice {
 
         // Obtain token record
         if (!$token = $DB->get_record('external_tokens', array('token' => $token))) {
-            //client may want to display login form => moodle_exception
-            throw new moodle_exception('invalidtoken', 'webservice');
+            //client may want to display login form => lion_exception
+            throw new lion_exception('invalidtoken', 'webservice');
         }
 
         $loginfaileddefaultparams = array(
@@ -121,10 +105,10 @@ class webservice {
         }
 
         //Non admin can not authenticate if maintenance mode
-        $hassiteconfig = has_capability('moodle/site:config', context_system::instance(), $user);
+        $hassiteconfig = has_capability('lion/site:config', context_system::instance(), $user);
         if (!empty($CFG->maintenance_enabled) and !$hassiteconfig) {
-            //this is usually temporary, client want to implement code logic  => moodle_exception
-            throw new moodle_exception('sitemaintenance', 'admin');
+            //this is usually temporary, client want to implement code logic  => lion_exception
+            throw new lion_exception('sitemaintenance', 'admin');
         }
 
         //retrieve web service record
@@ -167,7 +151,7 @@ class webservice {
             $event->add_record_snapshot('external_tokens', $token);
             $event->set_legacy_logdata(array(SITEID, 'webservice', 'user unconfirmed', '', $user->username));
             $event->trigger();
-            throw new moodle_exception('usernotconfirmed', 'moodle', '', $user->username);
+            throw new lion_exception('usernotconfirmed', 'lion', '', $user->username);
         }
 
         //check the user is suspended
@@ -203,7 +187,7 @@ class webservice {
                 $event->add_record_snapshot('external_tokens', $token);
                 $event->set_legacy_logdata(array(SITEID, 'webservice', 'expired password', '', $user->username));
                 $event->trigger();
-                throw new moodle_exception('passwordisexpired', 'webservice');
+                throw new lion_exception('passwordisexpired', 'webservice');
             }
         }
 
@@ -301,7 +285,7 @@ class webservice {
         global $CFG, $DB;
 
         // generate a token for non admin if web service are enable and the user has the capability to create a token
-        if (!is_siteadmin() && has_capability('moodle/webservice:createtoken', context_system::instance(), $userid) && !empty($CFG->enablewebservices)) {
+        if (!is_siteadmin() && has_capability('lion/webservice:createtoken', context_system::instance(), $userid) && !empty($CFG->enablewebservices)) {
             // for every service than the user is authorised on, create a token (if it doesn't already exist)
 
             // get all services which are set to all user (no restricted to specific users)
@@ -439,7 +423,7 @@ class webservice {
      * Get a full database token record for a given token value
      *
      * @param string $token
-     * @throws moodle_exception if there is multiple result
+     * @throws lion_exception if there is multiple result
      */
     public function get_user_ws_token($token) {
         global $DB;
@@ -518,18 +502,18 @@ class webservice {
      * Example of returned value:
      *  Array
      *  (
-     *    [moodle_group_create_groups] => Array
+     *    [lion_group_create_groups] => Array
      *    (
-     *       [0] => moodle/course:managegroups
+     *       [0] => lion/course:managegroups
      *    )
      *
-     *    [moodle_enrol_get_enrolled_users] => Array
+     *    [lion_enrol_get_enrolled_users] => Array
      *    (
-     *       [0] => moodle/site:viewparticipants
-     *       [1] => moodle/course:viewparticipants
-     *       [2] => moodle/role:review
-     *       [3] => moodle/site:accessallgroups
-     *       [4] => moodle/course:enrolreview
+     *       [0] => lion/site:viewparticipants
+     *       [1] => lion/course:viewparticipants
+     *       [2] => lion/role:review
+     *       [3] => lion/site:accessallgroups
+     *       [4] => lion/course:enrolreview
      *    )
      *  )
      *
@@ -736,11 +720,8 @@ class webservice {
  * you should not use this exception if you want to let the client implement
  * some code logic against an access error.
  *
- * @package    core_webservice
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class webservice_access_exception extends moodle_exception {
+class webservice_access_exception extends lion_exception {
 
     /**
      * Constructor
@@ -773,9 +754,6 @@ function webservice_protocol_is_enabled($protocol) {
 /**
  * Mandatory interface for all test client classes.
  *
- * @package    core_webservice
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 interface webservice_test_client_interface {
 
@@ -793,9 +771,6 @@ interface webservice_test_client_interface {
 /**
  * Mandatory interface for all web service protocol classes
  *
- * @package    core_webservice
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 interface webservice_server_interface {
 
@@ -808,9 +783,6 @@ interface webservice_server_interface {
 /**
  * Abstract web service base class.
  *
- * @package    core_webservice
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class webservice_server implements webservice_server_interface {
 
@@ -858,7 +830,7 @@ abstract class webservice_server implements webservice_server_interface {
     protected function authenticate_user() {
         global $CFG, $DB;
 
-        if (!NO_MOODLE_COOKIES) {
+        if (!NO_LION_COOKIES) {
             throw new coding_exception('Cookies must be disabled in WS servers!');
         }
 
@@ -885,11 +857,11 @@ abstract class webservice_server implements webservice_server_interface {
             $this->restricted_context = context_system::instance();
 
             if (!$this->username) {
-                throw new moodle_exception('missingusername', 'webservice');
+                throw new lion_exception('missingusername', 'webservice');
             }
 
             if (!$this->password) {
-                throw new moodle_exception('missingpassword', 'webservice');
+                throw new lion_exception('missingpassword', 'webservice');
             }
 
             if (!$auth->user_login_webservice($this->username, $this->password)) {
@@ -903,7 +875,7 @@ abstract class webservice_server implements webservice_server_interface {
                     get_string('failedtolog', 'webservice').": ".$this->username."/".$this->password." - ".getremoteaddr() , 0));
                 $event->trigger();
 
-                throw new moodle_exception('wrongusernamepassword', 'webservice');
+                throw new lion_exception('wrongusernamepassword', 'webservice');
             }
 
             $user = $DB->get_record('user', array('username'=>$this->username, 'mnethostid'=>$CFG->mnet_localhost_id), '*', MUST_EXIST);
@@ -915,9 +887,9 @@ abstract class webservice_server implements webservice_server_interface {
         }
 
         //Non admin can not authenticate if maintenance mode
-        $hassiteconfig = has_capability('moodle/site:config', context_system::instance(), $user);
+        $hassiteconfig = has_capability('lion/site:config', context_system::instance(), $user);
         if (!empty($CFG->maintenance_enabled) and !$hassiteconfig) {
-            throw new moodle_exception('sitemaintenance', 'admin');
+            throw new lion_exception('sitemaintenance', 'admin');
         }
 
         //only confirmed user should be able to call web service
@@ -941,7 +913,7 @@ abstract class webservice_server implements webservice_server_interface {
             $event->set_legacy_logdata(array(SITEID, '', '', '', get_string('wsaccessuserunconfirmed', 'webservice',
                 $user->username) . " - ".getremoteaddr(), 0, $user->id));
             $event->trigger();
-            throw new moodle_exception('wsaccessuserunconfirmed', 'webservice', '', $user->username);
+            throw new lion_exception('wsaccessuserunconfirmed', 'webservice', '', $user->username);
         }
 
         //check the user is suspended
@@ -1026,7 +998,7 @@ abstract class webservice_server implements webservice_server_interface {
             $event->set_legacy_logdata(array(SITEID, 'webservice', get_string('tokenauthlog', 'webservice'), '' ,
                 get_string('failedtolog', 'webservice').": ".$this->token. " - ".getremoteaddr() , 0));
             $event->trigger();
-            throw new moodle_exception('invalidtoken', 'webservice');
+            throw new lion_exception('invalidtoken', 'webservice');
         }
 
         if ($token->validuntil and $token->validuntil < time()) {
@@ -1067,7 +1039,7 @@ abstract class webservice_server implements webservice_server_interface {
     }
 
     /**
-     * Intercept some moodlewssettingXXX $_GET and $_POST parameter
+     * Intercept some lionwssettingXXX $_GET and $_POST parameter
      * that are related to the web service call and are not the function parameters
      */
     protected function set_web_service_call_settings() {
@@ -1075,7 +1047,7 @@ abstract class webservice_server implements webservice_server_interface {
 
         // Default web service settings.
         // Must be the same XXX key name as the external_settings::set_XXX function.
-        // Must be the same XXX ws parameter name as 'moodlewssettingXXX'.
+        // Must be the same XXX ws parameter name as 'lionwssettingXXX'.
         $externalsettings = array(
             'raw' => false,
             'fileurl' => true,
@@ -1085,7 +1057,7 @@ abstract class webservice_server implements webservice_server_interface {
         $settings = external_settings::get_instance();
         foreach ($externalsettings as $name => $default) {
 
-            $wsparamname = 'moodlewssetting' . $name;
+            $wsparamname = 'lionwssetting' . $name;
 
             // Retrieve and remove the setting parameter from the request.
             $value = optional_param($wsparamname, $default, PARAM_BOOL);
@@ -1102,13 +1074,10 @@ abstract class webservice_server implements webservice_server_interface {
 /**
  * Special abstraction of our services that allows interaction with stock Zend ws servers.
  *
- * @package    core_webservice
- * @copyright  2009 Jerome Mouneyrac <jerome@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class webservice_zend_server extends webservice_server {
 
-    /** @var string Name of the zend server class : Zend_Amf_Server, moodle_zend_soap_server, Zend_Soap_AutoDiscover, ...*/
+    /** @var string Name of the zend server class : Zend_Amf_Server, lion_zend_soap_server, Zend_Soap_AutoDiscover, ...*/
     protected $zend_class;
 
     /** @var stdClass Zend server instance */
@@ -1315,7 +1284,7 @@ class '.$classname.' {
                 } else if ($keydesc->required == VALUE_OPTIONAL) {
                     // It does not make sense to declare a parameter VALUE_OPTIONAL.
                     // VALUE_OPTIONAL is used only for array/object key.
-                    throw new moodle_exception('erroroptionalparamarray', 'webservice', '', $name);
+                    throw new lion_exception('erroroptionalparamarray', 'webservice', '', $name);
                 }
             } else { //for the moment we do not support default for other structure types
                  if ($keydesc->required == VALUE_DEFAULT) {
@@ -1324,11 +1293,11 @@ class '.$classname.' {
                              and empty($keydesc->default)) {
                          $paramanddefault .= '=array()';
                      } else {
-                        throw new moodle_exception('errornotemptydefaultparamarray', 'webservice', '', $name);
+                        throw new lion_exception('errornotemptydefaultparamarray', 'webservice', '', $name);
                      }
                  }
                  if ($keydesc->required == VALUE_OPTIONAL) {
-                     throw new moodle_exception('erroroptionalparamarray', 'webservice', '', $name);
+                     throw new lion_exception('erroroptionalparamarray', 'webservice', '', $name);
                  }
             }
             $params[] = $param;
@@ -1563,9 +1532,6 @@ class '.$classname.' {
  *
  * This class handles both simple and token authentication.
  *
- * @package    core_webservice
- * @copyright  2009 Petr Skodak
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class webservice_base_server extends webservice_server {
 

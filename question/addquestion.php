@@ -1,27 +1,13 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Shows a screen where the user can choose a question type, before being
  * redirected to question.php
  *
- * @package    moodlecore
- * @subpackage questionbank
- * @copyright  2009 Tim Hunt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    core
+ * @subpackage question
+ * @copyright  2015 Pooya Saeedi
  */
 
 
@@ -61,7 +47,7 @@ if ($cmid) {
 
 // Check permissions.
 $categorycontext = context::instance_by_id($category->contextid);
-require_capability('moodle/question:add', $categorycontext);
+require_capability('lion/question:add', $categorycontext);
 
 // Ensure other optional params get passed on to question.php.
 if (!empty($returnurl)) {
@@ -73,9 +59,9 @@ if (!empty($appendqnumstring)) {
 
 $PAGE->set_url('/question/addquestion.php', $hiddenparams);
 if ($cmid) {
-    $questionbankurl = new moodle_url('/question/edit.php', array('cmid' => $cmid));
+    $questionbankurl = new lion_url('/question/edit.php', array('cmid' => $cmid));
 } else {
-    $questionbankurl = new moodle_url('/question/edit.php', array('courseid' => $courseid));
+    $questionbankurl = new lion_url('/question/edit.php', array('courseid' => $courseid));
 }
 navigation_node::override_active_url($questionbankurl);
 

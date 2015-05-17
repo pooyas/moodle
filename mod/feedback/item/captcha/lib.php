@@ -1,20 +1,14 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') OR die('not allowed');
+
+
+/**
+ * @package    mod
+ * @subpackage feedback
+ * @copyright  2015 Pooya Saeedi
+*/
+
+defined('LION_INTERNAL') OR die('not allowed');
 require_once($CFG->dirroot.'/mod/feedback/item/feedback_item_class.php');
 
 class feedback_item_captcha extends feedback_item_base {
@@ -31,7 +25,7 @@ class feedback_item_captcha extends feedback_item_base {
     public function build_editform($item, $feedback, $cm) {
         global $DB;
 
-        $editurl = new moodle_url('/mod/feedback/edit.php', array('id'=>$cm->id));
+        $editurl = new lion_url('/mod/feedback/edit.php', array('id'=>$cm->id));
 
         //ther are no settings for recaptcha
         if (isset($item->id) AND $item->id > 0) {
@@ -287,7 +281,7 @@ class feedback_item_captcha extends feedback_item_base {
         global $SESSION, $CFG, $USER;
         require_once($CFG->libdir.'/recaptchalib.php');
 
-        //is recaptcha configured in moodle?
+        //is recaptcha configured in lion?
         if (empty($CFG->recaptchaprivatekey) OR empty($CFG->recaptchapublickey)) {
             return true;
         }
@@ -329,7 +323,7 @@ class feedback_item_captcha extends feedback_item_base {
     public function get_hasvalue() {
         global $CFG;
 
-        //is recaptcha configured in moodle?
+        //is recaptcha configured in lion?
         if (empty($CFG->recaptchaprivatekey) OR empty($CFG->recaptchapublickey)) {
             return 0;
         }

@@ -1,7 +1,7 @@
 {
-  "name": "moodle-atto_unorderedlist-button",
+  "name": "lion-atto_unorderedlist-button",
   "builds": {
-    "moodle-atto_unorderedlist-button": {
+    "lion-atto_unorderedlist-button": {
       "jsfiles": [
         "button.js"
       ]
