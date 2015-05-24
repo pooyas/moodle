@@ -298,13 +298,13 @@ class core_admin_renderer extends plugin_renderer_base {
             $buggyiconvnomb, $registered, array $cachewarnings = array()) {
         global $CFG;
         $output = '';
+         $output .= $this->header();
         /// COMMENTOUT (Pooya)
         /// No maturity problem report
-//         $output .= $this->header();
 //         $output .= $this->maturity_info($maturity);
         // Note:
         // Update notification can be canceled by CFG->disableupdatenotifications
-        $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) : '';
+//        $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) : '';
         $output .= $this->insecure_dataroot_warning($insecuredataroot);
         $output .= $this->display_errors_warning($errorsdisplayed);
         $output .= $this->buggy_iconv_warning($buggyiconvnomb);

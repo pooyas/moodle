@@ -254,9 +254,9 @@ class tool_customlang_utils {
             throw new coding_exception('Incorrect file name '.s($filename));
         }
         list($package, $subpackage) = core_component::normalize_component($component);
-        $packageinfo = "
+        $packageinfo = " * @package    $package";
         if (!is_null($subpackage)) {
-            $packageinfo .= "\n
+            $packageinfo .= "\n * @subpackage $subpackage";
         }
         $filepath = self::get_localpack_location($lang);
         $filepath = $filepath.'/'.$filename;

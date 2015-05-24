@@ -2772,9 +2772,15 @@ EOD;
             $output .= $this->header();
         }
 
-        $message = '<p class="errormessage">' . $message . '</p>'.
-                '<p class="errorcode"><a href="' . $moreinfourl . '">' .
-                get_string('moreinformation') . '</a></p>';
+	///COMMENTOUT (Pooya)
+	///Not displaying link information about the error
+//        $message = '<p class="errormessage">' . $message . '</p>'.
+//                '<p class="errorcode"><a href="' . $moreinfourl . '">' .
+//                get_string('moreinformation') . '</a></p>';
+	///CODEADDED (Pooya)
+	/// This replaces the above statement	
+	$message = '<p class="errormessage">' . $message . '</p>'.
+                '<p class="errorcode"></p>';
         if (empty($CFG->rolesactive)) {
             $message .= '<p class="errormessage">' . get_string('installproblem', 'error') . '</p>';
             //It is usually not possible to recover from errors triggered during installation, you may need to create a new database or use a different database prefix for new installation.
