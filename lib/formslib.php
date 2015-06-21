@@ -575,7 +575,6 @@ abstract class lionform {
      */
     function get_data() {
         $mform =& $this->_form;
-
         if (!$this->is_cancelled() and $this->is_submitted() and $this->is_validated()) {
             $data = $mform->exportValues();
             unset($data['sesskey']); // we do not need to return sesskey
@@ -2491,6 +2490,7 @@ function validate_' . $this->_formName . '(frm) {
     {
         return parent::isSubmitted() && (!$this->isFrozen());
     }
+
 }
 
 /**
@@ -2885,7 +2885,7 @@ class LionQuickForm_Rule_Required extends HTML_QuickForm_Rule {
         } else {
             return array('', "{jsVar} == ''");
         }
-    }
+    }    
 }
 
 /**

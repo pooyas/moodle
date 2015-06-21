@@ -6695,6 +6695,7 @@ function admin_write_settings($formdata) {
 
     $data = array();
     foreach ($formdata as $fullname=>$value) {
+        cleanUnicodeDigits($value);
         if (strpos($fullname, 's_') !== 0) {
             continue; // not a config value
         }

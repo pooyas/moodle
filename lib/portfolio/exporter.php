@@ -777,6 +777,23 @@ class portfolio_exporter {
      */
     public function write_new_file($content, $name, $manifest=true) {
         $fs = get_file_storage();
+///CODEADDED(Pooya)
+///wrap the contents in html and body tags with specified direction and utf-8 encoding
+	$extention = substr($name,strrpos($name,'.')+1);
+        $pattern="/^<html>/";
+	if($extention == 'html')
+	{
+	  if(preg_match($pattern,$content))
+	  {
+	    $content = preg_replace($pattern,'<html dir="'.get_string('thisdirection','langconfig').'">',$content);
+            $pattern="/<head>/";
+	    $content = preg_replace($pattern,'<head><meta charset="UTF-8">',$content);
+	  }
+	  else
+	  {
+	    $content = '<html dir="'.get_string('thisdirection','langconfig').'"><head><meta charset="UTF-8"></head><body>'.$content.'</body></html>';
+	  }
+	}
         $file_record = $this->new_file_record_base($name);
         if (empty($manifest) && ($dir = $this->get('format')->get_file_directory())) {
             $file_record->filepath = '/' . $dir . '/';

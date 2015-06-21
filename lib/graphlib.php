@@ -1198,8 +1198,15 @@ class graph {
      *                  Otherwise, returns the string as is.
      */
     private function prepare_label_text($label) {
-        if (right_to_left() and !preg_match('/[0-9]/i', $label)) {
-            return core_text::strrev($label);
+///CODEADDED(Pooya)
+///Resolving the problem of separated characters in the image
+        require_once(__DIR__.'/persiangraph/persian_log2vis.php');
+        if (right_to_left()){ //and !preg_match('/[0-9]/i', $label)) {
+	    persian_log2vis($label);
+	    return $label;
+///COMMENTOUT(Pooya)
+///Replaced by above code
+///            return core_text::strrev($label);
         } else {
             return $label;
         }

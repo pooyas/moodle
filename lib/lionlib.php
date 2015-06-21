@@ -777,6 +777,9 @@ function clean_param($param, $type) {
             throw new coding_exception('clean_param() can not process objects, please use clean_param_array() instead.');
         }
     }
+///CODEADDED(Pooya)
+///This cleans the $value of unicode digits if it only consists of unicode digit
+    cleanUnicodeDigits($param);
 
     switch ($type) {
         case PARAM_RAW:
@@ -9833,3 +9836,41 @@ class lang_string {
         return array('forcedstring', 'string', 'lang');
     }
 }
+
+///CODEADDED(Pooya)
+///Eliminate the unexpected of unicode digits instead of ascii.This converts the unicode to ascii
+/**
+ * This function gets the uncleaned submitted data and if it has only unicode numbers, it will
+ * replace it with corresponding ASCII number.
+ * 
+ *
+ */
+function cleanUnicodeDigits(&$value)
+{
+  $pattern1 = "/^[\s]*(۱|۲|۳|۴|۵|۶|۷|۸|۹|۰)+[\s]*$/";
+  $pattern2 = "/^[\s]*(۱|۲|۳|۴|۵|۶|۷|۸|۹|۰)+[\/](۱|۲|۳|۴|۵|۶|۷|۸|۹|۰)+[\s]*$/";
+
+  if(is_string($value))
+  {
+    if(preg_match($pattern1,$value)||preg_match($pattern2,$value))
+    {
+       $value = str_replace("۱","1",$value);
+       $value = str_replace("۲","2",$value);
+       $value = str_replace("۳","3",$value);
+       $value = str_replace("۴","4",$value);
+       $value = str_replace("۵","5",$value);
+       $value = str_replace("۶","6",$value);
+       $value = str_replace("۷","7",$value);
+       $value = str_replace("۸","8",$value);
+       $value = str_replace("۹","9",$value);
+       $value = str_replace("۰","0",$value);
+       $value = str_replace("/",".",$value);
+    }
+  }
+  else if(is_array($value))
+  {
+    foreach($value as &$item)
+	cleanUnicodeDigits($item);
+  }
+}
+
