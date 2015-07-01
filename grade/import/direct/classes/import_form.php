@@ -40,7 +40,12 @@ class gradeimport_direct_import_form extends lionform {
 
         $mform->addElement('header', 'general', get_string('pluginname', 'gradeimport_direct'));
         // Data upload from copy/paste.
-        $mform->addElement('textarea', 'userdata', 'Data', array('rows' => 10, 'class' => 'gradeimport_data_area'));
+///COMMENTOUT(Pooya)
+///'Data' is not called from get_string        
+//	$mform->addElement('textarea', 'userdata', 'Data', array('rows' => 10, 'class' => 'gradeimport_data_area'));
+///CODEADDED(Pooya)
+///using get_string to get the translation for 'Data'
+	$mform->addElement('textarea', 'userdata', get_string('data','gradeimport_direct'), array('rows' => 10, 'class' => 'gradeimport_data_area'));
         $mform->addRule('userdata', null, 'required');
         $mform->setType('userdata', PARAM_RAW);
 

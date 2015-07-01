@@ -123,11 +123,21 @@ class backup_anonymizer_helper {
     }
 
     public static function process_user_city($value) {
-        return 'Perth'; // Set city
+///COMMENTOUT(Pooya)
+///Returning 'Tehran' as default city
+//    	    return 'Perth'; // Set city
+///CODEADDED(Pooya)
+///Replacement for above code
+	return 'Tehran'; // Set city
     }
 
     public static function process_user_country($value) {
-        return 'AU'; // Set country
+///COMMENTOUT(Pooya)
+///Returning 'IR' as default country
+//    	    return 'AU'; // Set country
+///CODEADDED(Pooya)
+///Replacement for above code
+	return 'IR'; // Set country
     }
 
     public static function process_user_lastip($value) {

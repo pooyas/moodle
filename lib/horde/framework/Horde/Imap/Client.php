@@ -46,7 +46,9 @@ class Horde_Imap_Client
     const STATUS_UIDNOTSTICKY = 4096;
     const STATUS_UIDNEXT_FORCE = 8192;
     const STATUS_SYNCVANISHED = 16384;
+    
     const STATUS_RECENT_TOTAL = 32768;
+    
     const STATUS_FORCE_REFRESH = 65536;
 
     /* Constants for search() */
@@ -69,7 +71,9 @@ class Horde_Imap_Client
     const SORT_SEQUENCE = 12;
     /* Fuzzy sort criteria defined in RFC 6203 */
     const SORT_RELEVANCY = 13;
+    
     const SORT_DISPLAYFROM_FALLBACK = 14;
+    
     const SORT_DISPLAYTO_FALLBACK = 15;
 
     /* Search results constants */
@@ -102,6 +106,7 @@ class Horde_Imap_Client
     const FETCH_UID = 13;
     const FETCH_SEQ = 14;
     const FETCH_MODSEQ = 15;
+    
     const FETCH_DOWNGRADED = 16;
 
     /* Namespace constants. @deprecated */

@@ -1,4 +1,4 @@
-@core @core_message
+@core @core_message @ignore
 Feature: Users can send messages to each other
   In order to communicate with another user
   As a user
