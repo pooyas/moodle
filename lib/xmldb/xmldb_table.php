@@ -31,7 +31,12 @@ class xmldb_table extends xmldb_object {
      *
      * @const maximum length of field names
      */
-    const NAME_MAX_LENGTH = 28;
+///COMMENTOUT(Pooya)
+///The crot plagiarism plugin needs more characters for its tables
+//    const NAME_MAX_LENGTH = 28;
+///CODEADDED(Pooya)
+///Increasing maximum characters length
+      const NAME_MAX_LENGTH = 40;
 
     /**
      * Creates one new xmldb_table
