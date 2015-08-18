@@ -1,6 +1,8 @@
 <?php
 /**
- * @author Dan Marsden, Svetlana Kim
+ * @package    plagiarism
+ * @subpackage crot
+ * @copyright  2015 Pooya Saeedi
  */
 require_once($CFG->dirroot.'/lib/formslib.php');
 

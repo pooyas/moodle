@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //============================================================+
 // File name   : unicode_data.php
 // Begin       : 2008-01-01
@@ -42,12 +49,7 @@
 
 /**
  * Unicode Include file for TCPDF.
- * @author Nicola Asuni
- * @copyright 2004-2008 Nicola Asuni - Tecnick.com S.r.l (www.tecnick.com) Via Della Pace, 11 - 09044 - Quartucciu (CA) - ITALY - www.tecnick.com - info@tecnick.com
- * @package com.tecnick.tcpdf
  * @link http://www.tcpdf.org
- * @license http://www.gnu.org/copyleft/lesser.html LGPL
- * @since 2.1.000 (2008-01-08)
 */
 
 /**

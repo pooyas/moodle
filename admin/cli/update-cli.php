@@ -1,5 +1,12 @@
 <?php
-//This is part of Moodle utilities development
+
+/**
+ * @package    admin
+ * @subpackage cli
+ * @copyright  2015 Pooya Saeedi
+*/
+
+//This is part of Lion utilities development
 
 /*
 * Calling the update server to get the updater and list of available updates

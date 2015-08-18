@@ -1,18 +1,5 @@
 <?php
-// This file is part of Lion - http://lion.org/
-//
-// Lion is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Lion is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Lion.  If not, see <http://www.gnu.org/licenses/>.
+
 
 /**
  * Analytics
@@ -20,10 +7,9 @@
  * This module provides extensive analytics on a platform of choice
  * Currently support Google Analytics and Piwik
  *
- * @package    local_analytics
- * @copyright  David Bezemer <info@davidbezemer.nl>, www.davidbezemer.nl
- * @author     David Bezemer <info@davidbezemer.nl>, Bas Brands <bmbrands@gmail.com>, Gavin Henrick <gavin@lts.ie>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    theme
+ * @subpackage essential
+ * @copyright  2015 Pooya Saeedi
  */
 
 function theme_essential_analytics_trackurl() {

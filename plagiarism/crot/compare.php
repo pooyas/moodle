@@ -1,9 +1,11 @@
 <?php
 /**
  *
- * @author Sergey Butakov, Svetlana Kim
  * this module compares two submissions side by side
  *
+ * @package    plagiarism
+ * @subpackage crot
+ * @copyright  2015 Pooya Saeedi
  */
 	require_once("../../config.php");
 	global $CFG, $DB;

@@ -8,9 +8,9 @@
  * We override it in order to style those scenarios consistently with the regular
  * bootstrap look and feel.
  *
- * @package    theme_essential
- * @copyright  2014 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    theme
+ * @subpackage essential
+ * @copyright  2015 Pooya Saeedi
  */
 class theme_essential_core_renderer_maintenance extends core_renderer_maintenance
 {

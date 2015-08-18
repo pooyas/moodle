@@ -94,11 +94,6 @@
  *                  in essential.css.  Ref: https://www.npmjs.org/package/css-flip
  *
  *
- * @package theme
- * @subpackage essential
- * @author G J Barnard - gjbarnard at gmail dot com and {@link http://lion.org/user/profile.php?id=442195}
- * @author Based on code originally written by Joby Harding, Bas Brands, David Scotson and many other contributors. 
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 module.exports = function(grunt) {

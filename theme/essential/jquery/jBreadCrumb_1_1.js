@@ -1,5 +1,4 @@
 /**
- * @author Jason Roy for CompareNetworks Inc.
  * Thanks to mikejbond for suggested udaptes
  *
  * Version 1.1

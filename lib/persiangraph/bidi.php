@@ -1,11 +1,16 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 	class bidi {
 		/**
 		* Returns the unicode caracter specified by UTF-8 code
 		* @param int $c UTF-8 code
 		* @return Returns the specified character.
-		* @author Miguel Perez, Nicola Asuni
-		* @since 2.3.000 (2008-03-05)
 		*/
 		public function unichr($c) {
 			if ($c <= 0x7F) {
@@ -55,8 +60,6 @@
 		 * </pre>
 		 * @param string $str string to process.
 		 * @return array containing codepoints (UTF-8 characters values)
-		 * @author Nicola Asuni
-		 * @since 1.53.0.TC005 (2005-01-05)
 		 */
 		public function UTF8StringToArray($str) {
 			$unicode = array(); // array containing unicode values
@@ -124,8 +127,6 @@
 		 * @param array $ta array of characters composing the string.
 		 * @param bool $forcertl if 'R' forces RTL, if 'L' forces LTR
 		 * @return string
-		 * @author Nicola Asuni
-		 * @since 2.4.000 (2008-03-06)
 		*/
 		public function utf8Bidi($ta, $forcertl=false) {
 			global $unicode, $unicode_mirror, $unicode_arlet, $laa_array, $diacritics;

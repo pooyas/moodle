@@ -1,7 +1,4 @@
 /*
- * @package     theme_essential
- * @copyright   2014 Gareth J Barnard, David Bezemer
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 /* @group Blocks */
 .block .icon {
@@ -251,11 +248,8 @@ ul.breadcrumb.style2 li a:hover {
 }
 /* @end */
 /*
- * @package   theme_essential
- * @author    Franc Pombal
  * @modified  Julian Ridden
  * @modified  Gareth J Barnard, David Bezemer
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 /* @group Category Icons */
 .categoryicons {

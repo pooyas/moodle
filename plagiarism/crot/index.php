@@ -1,8 +1,10 @@
 <?php
 /**
  *
- * @author Sergey Butakov, Svetlana Kim
  * 
+ * @package    plagiarism
+ * @subpackage crot
+ * @copyright  2015 Pooya Saeedi
  */
 
 	require_once("../../config.php");

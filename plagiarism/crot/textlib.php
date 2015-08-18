@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    plagiarism
+ * @subpackage crot
+ * @copyright  2015 Pooya Saeedi
+*/
+
 /*
 This library is to process external files of different types
 Adopted mostly from DonRamon

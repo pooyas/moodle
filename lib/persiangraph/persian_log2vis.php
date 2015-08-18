@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @package    core
+ * @subpackage lib
+ * @copyright  2015 Pooya Saeedi
+*/
+
 //----------------------------------------------------------------------
 // Persian Log2Vis version 2
 //----------------------------------------------------------------------
@@ -15,7 +22,6 @@
 /**
  * A function to change persian or arabic text from its logical condition to visual
  *
- * @author        Omid Mottaghi Rad 
  * @param        string    Main text you want to change it
  * @param        boolean    Apply e'raab characters or not? default is true
  * @param        boolean    Which encoding? default it "utf8"
