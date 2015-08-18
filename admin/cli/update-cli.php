@@ -274,7 +274,7 @@ $api_key = str_replace("\n", "", $api_key); //I don't still understand why I hav
 echo (now()."Done\n");
 
 //Get Public Key data
-echo (now()."Getting publick key data\n");
+echo (now()."Getting public key data\n");
 $pubfile = fopen($CFG->dataroot.'/keys/update.pub','r');
 $pub_key = fread($pubfile,8192);
 $key = openssl_get_publickey($pub_key);
