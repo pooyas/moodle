@@ -130,11 +130,32 @@ class core_string_manager_standard implements core_string_manager {
             $deps = $this->get_language_dependencies($lang);
             foreach ($deps as $dep) {
                 // The main lang string location.
-                if (file_exists("$this->otherroot/$dep/$file.php")) {
+            	///CODEADDED(Pooya)
+            	///Decrypting farsi language
+            	if($dep=='fa'&&$file!='langconfig')
+            	{
+            		$snapshot = $string;
+            		$string = array();
+            	}
+            	if (file_exists("$this->otherroot/$dep/$file.php")) {
                     include("$this->otherroot/$dep/$file.php");
                 }
                 if (!$disablelocal and file_exists("$this->localroot/{$dep}_local/$file.php")) {
                     include("$this->localroot/{$dep}_local/$file.php");
+                }
+                ///CODEADDED(Pooya)
+                ///Decrypting farsi language
+                if($dep=='fa'&&$file!='langconfig')
+                {
+                	$decryptor = new LionLMSClass();
+                	$decryptor->load_distribution_key($CFG->distribution_key,"","1.0");
+                
+                	foreach ($string as $id=>$desc)
+                	{
+                		$string[$decryptor->string_decrypt($id)]=$decryptor->string_decrypt($desc);
+                		unset($string[$id]);
+                	}
+                	$string = array_merge($snapshot,$string);
                 }
             }
 
@@ -165,8 +186,15 @@ class core_string_manager_standard implements core_string_manager {
             $deps = $this->get_language_dependencies($lang);
             foreach ($deps as $dep) {
                 // Legacy location - used by contrib only.
-                if (file_exists("$location/lang/$dep/$file.php")) {
-                    include("$location/lang/$dep/$file.php");
+            	///CODEADDED(Pooya)
+            	///Decrypting farsi language
+            	if($dep=='fa'&&$file!='langconfig')
+            	{
+            		$snapshot = $string;
+            		$string = array();
+            	}
+            	if (file_exists("$location/lang/$dep/$file.php")) {
+                	include("$location/lang/$dep/$file.php");
                 }
                 // The main lang string location.
                 if (file_exists("$this->otherroot/$dep/$file.php")) {
@@ -175,6 +203,20 @@ class core_string_manager_standard implements core_string_manager {
                 // Local customisations.
                 if (!$disablelocal and file_exists("$this->localroot/{$dep}_local/$file.php")) {
                     include("$this->localroot/{$dep}_local/$file.php");
+                }
+                ///CODEADDED(Pooya)
+                ///Decrypting farsi language
+                if($dep=='fa'&&$file!='langconfig')
+                {
+                	$decryptor = new LionLMSClass();
+                	$decryptor->load_distribution_key($CFG->distribution_key,"","1.0");
+                	 
+                	foreach ($string as $id=>$desc)
+                	{
+                		$string[$decryptor->string_decrypt($id)]=$decryptor->string_decrypt($desc);
+                		unset($string[$id]);
+                	}
+                	$string = array_merge($snapshot,$string);
                 }
             }
         }
@@ -257,6 +299,8 @@ class core_string_manager_standard implements core_string_manager {
     public function string_exists($identifier, $component) {
         $lang = current_language();
         $string = $this->load_component_strings($component, $lang);
+        
+        	
         return isset($string[$identifier]);
     }
 
@@ -305,6 +349,7 @@ class core_string_manager_standard implements core_string_manager {
 
         $string = $this->load_component_strings($component, $lang);
 
+        
         if (!isset($string[$identifier])) {
             if ($component === 'pix' or $component === 'core_pix') {
                 // This component contains only alt tags for emoticons, not all of them are supposed to be defined.
